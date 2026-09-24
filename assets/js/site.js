@@ -1067,7 +1067,7 @@
       const base = new URL('./', m[1]).href;
       const reports = list.map((x) => normalize(x || {}, 'published')).filter((r) => r.id).sort(byDateDesc);
       const urls = [
-        ...['', 'library.html', 'about.html'].map((p) => `  <url><loc>${base}${p}</loc></url>`),
+        ...['', 'library.html', 'wire.html', 'about.html'].map((p) => `  <url><loc>${base}${p}</loc></url>`),
         ...reports.map((r) => `  <url><loc>${esc(base + reportHref(r))}</loc>${r.date ? `<lastmod>${r.date}</lastmod>` : ''}</url>`),
       ];
       const w = await fh.createWritable();

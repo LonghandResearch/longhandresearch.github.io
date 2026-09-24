@@ -1238,6 +1238,68 @@ html.theme-vt *, html.theme-vt *::before, html.theme-vt *::after { transition: n
 /* A quieter scrollbar that sits on the paper */
 html { scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transparent; }
 
+/* The wire: headlines by day, each opening at its source */
+
+.wire-day + .wire-day { margin-top: clamp(32px, 3.4vw, 48px); }
+.wire-day-label {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ink);
+  font: 600 12px/1.4 var(--font-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.wire-day-label span { font-weight: 400; letter-spacing: 0.12em; color: var(--ink-2); }
+.wire-list { list-style: none; margin: 0; padding: 0; }
+.wire-list.is-brief { border-top: 1px solid var(--ink); }
+.wire-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0 clamp(16px, 2.4vw, 32px);
+  padding: 16px 0 17px;
+  border-bottom: 1px solid var(--rule);
+}
+.wire-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * min(var(--gutter), 24px) + 4px);
+  top: 16px;
+  bottom: 17px;
+  width: 2px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+.wire-item:hover::before, .wire-item:focus-within::before { transform: none; }
+.wire.is-arriving .wire-item { animation: fade-rise 0.6s var(--ease) both; animation-delay: calc(var(--i, 0) * 40ms + 0.05s); }
+.wire-time {
+  padding-top: 3px;
+  font: 400 13px/1.4 var(--font-sans);
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums lining-nums;
+  white-space: nowrap;
+}
+.wire-main { min-width: 0; }
+.wire-title {
+  margin-top: 4px;
+  max-width: 72ch;
+  font-size: clamp(19px, 1.55vw, 22px);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  overflow-wrap: anywhere;
+}
+.wire-title a { text-decoration: none; }
+.wire-title a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.wire-item:hover .wire-title a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.14em; }
+.wire-tail { white-space: nowrap; }
+.wire-title .icon { display: inline-block; width: 0.62em; height: 0.62em; margin-left: 0.3em; vertical-align: 0.04em; color: var(--ink-3); }
+.wire { margin-top: clamp(14px, 1.6vw, 22px); }
+
 /* Responsive */
 
 @media (max-width: 1080px) {
@@ -1286,6 +1348,8 @@ html { scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transpar
   .search { width: 100%; padding: 0 4px 0 12px; border: 1px solid var(--rule-2); border-radius: var(--radius); }
   .search:focus-within { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
   .filters { gap: 0 18px; }
+  .wire-item { grid-template-columns: 48px minmax(0, 1fr); gap: 0 14px; padding: 14px 0 15px; }
+  .wire-title { font-size: 18px; }
 
   .viewer-bar-inner { min-height: 52px; }
   .viewer-title { display: none; }
@@ -1303,7 +1367,8 @@ html { scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transpar
   .site-nav .btn { padding: 0 12px; }
   .site-nav a { padding: 0 7px; }
   /* Room for the author's Add report button on the smallest phones */
-  .is-author .site-nav .nav-about { display: none; }
+  .is-author .site-nav .nav-about, .is-author .site-nav a[href$="wire.html"]:not([aria-current]) { display: none; }
+  .page-wire .site-nav [data-add-report] { display: none; }   /* reports are added from the other pages */
 }
 
 @media (prefers-reduced-motion: reduce) {

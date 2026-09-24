@@ -10,6 +10,7 @@ A static website with no server code and no build step. Open `index.html` in a b
 | `index.html` | The front page: the globe and the latest report |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
 | `about.html` | How the reports are built, the rating key and the report types |
+| `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
 
 ## Files
@@ -24,6 +25,11 @@ A static website with no server code and no build step. Open `index.html` in a b
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/reader.js` | Report page: the PDF reader |
 | `assets/js/globe.js` | The globe on the front page |
+| `assets/js/wire.js` | The Wire page, and the latest headlines on the front page |
+| `news/feeds.json` | The sources gathered into The Wire |
+| `news/news.json` | The gathered headlines (written by the hourly job; do not edit) |
+| `scripts/fetch-news.mjs` | Reads the sources and writes `news/news.json` |
+| `.github/workflows/wire.yml` | Runs the gathering on GitHub every hour |
 
 ## Publish a new report
 
@@ -57,6 +63,16 @@ Every delete asks first.
 **Add report**, **Publish** and **Delete** are tools for you, not for readers. They appear only when the site is opened from your computer (double-clicking `index.html`, or `localhost`). The live site never shows them, to anyone, and never shows drafts, not even in the browser that saved them.
 
 Readers never see your drafts, and they cannot change the site: publishing and deleting only write to the folder on your computer, and the site changes when you push it.
+
+## The Wire
+
+The Wire (`wire.html`, and **From the wire** on the front page) shows headlines on markets, the economy, commodities and crypto. It fills itself: every hour a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days.
+
+- **Change the sources**: edit `news/feeds.json`. Each source has a `name`, the address of its RSS feed (`url`), a `topic` (`Markets`, `Macro`, `Commodities` or `Crypto`) and, for headlines not in English, a `lang` such as `"id"`.
+- **Gather now**: on GitHub, open **Actions**, then **Gather the wire**, then **Run workflow**.
+- **A source stops working**: the job skips it and says so in its log; its older headlines stay until they age out.
+
+Opened straight from the disk, the browser will not read `news/news.json`, so The Wire shows only on the live site (or from `localhost`).
 
 ## The globe
 

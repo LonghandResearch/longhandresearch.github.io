@@ -53,6 +53,7 @@
 </script>
 <script src="assets/js/site.js" defer blocking="render"></script>
 <script src="assets/js/home.js" defer blocking="render"></script>
+<script src="assets/js/wire.js" defer></script>
 <script src="assets/js/globe.js" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -68,6 +69,7 @@
     </a>
     <nav class="site-nav" aria-label="Main">
       <a href="library.html">Library</a>
+      <a href="wire.html">Wire</a>
       <a href="about.html" class="nav-about">About</a>
       <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Switch theme">
         <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9Z"/></svg>
@@ -107,6 +109,16 @@
       </a>
     </div>
     <div data-latest></div>
+  </section>
+
+  <section class="section wrap" data-wire-section aria-labelledby="wire-title" hidden>
+    <div class="section-head">
+      <h2 class="section-label" id="wire-title">From the wire</h2>
+      <a class="text-link section-link" href="wire.html">All headlines
+        <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </div>
+    <ol class="wire-list is-brief" data-wire-brief></ol>
   </section>
 </main>
 
