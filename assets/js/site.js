@@ -231,17 +231,19 @@
   function catalogIssues() { if (!issues) published(); return issues || []; }
 
   const DB_NAME = 'longhand-research';
-  const STORE = 'reports';
+  const STORE = 'reports';        // drafts, with their PDFs
+  const SETTINGS = 'settings';    // small things this browser remembers, such as the site folder
   let dbPromise = null;
   function openDb() {
     if (!('indexedDB' in window)) return Promise.reject(new Error('IndexedDB is not available'));
     if (!dbPromise) {
       dbPromise = new Promise((resolve, reject) => {
         let req;
-        try { req = indexedDB.open(DB_NAME, 1); } catch (e) { reject(e); return; }
+        try { req = indexedDB.open(DB_NAME, 2); } catch (e) { reject(e); return; }
         req.onupgradeneeded = () => {
           const db = req.result;
           if (!db.objectStoreNames.contains(STORE)) db.createObjectStore(STORE, { keyPath: 'id' });
+          if (!db.objectStoreNames.contains(SETTINGS)) db.createObjectStore(SETTINGS, { keyPath: 'key' });
         };
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
@@ -251,11 +253,11 @@
     }
     return dbPromise;
   }
-  async function tx(mode, fn) {
+  async function tx(mode, fn, store = STORE) {
     const db = await openDb();
     return new Promise((resolve, reject) => {
-      const t = db.transaction(STORE, mode);
-      const req = fn(t.objectStore(STORE));
+      const t = db.transaction(store, mode);
+      const req = fn(t.objectStore(store));
       t.oncomplete = () => resolve(req ? req.result : undefined);
       t.onerror = () => reject(t.error);
       t.onabort = () => reject(t.error || new Error('The browser cancelled the save'));
@@ -266,6 +268,10 @@
     get: (id) => tx('readonly', (s) => s.get(id)).catch(() => undefined),
     put: (rec) => tx('readwrite', (s) => s.put(rec)),
     remove: (id) => tx('readwrite', (s) => s.delete(id)),
+  };
+  const settings = {
+    get: (key) => tx('readonly', (s) => s.get(key), SETTINGS).then((row) => row && row.value).catch(() => undefined),
+    set: (key, value) => tx('readwrite', (s) => s.put({ key, value }), SETTINGS),
   };
 
   const byDateDesc = (a, b) =>
@@ -301,8 +307,12 @@
     return id;
   }
 
-  /* The entry to paste into reports/reports.js to publish a draft */
+  /* The catalogue entry for a draft: pasted into reports/reports.js by hand,
+     or written there by "Publish" */
   function entryFor(raw) {
+    return JSON.stringify(entryObject(raw), null, 2).replace(/^/gm, '  ').concat(',');
+  }
+  function entryObject(raw) {
     const r = normalize(raw, 'local');
     const entry = {
       id: r.id,
@@ -322,7 +332,7 @@
     };
     if (r.pages) entry.pages = r.pages;
     if (r.fileSize) entry.fileSize = r.fileSize;
-    return JSON.stringify(entry, null, 2).replace(/^/gm, '  ').concat(',');
+    return JSON.parse(JSON.stringify(entry));   // drops the fields left undefined
   }
 
   /* Theme */
@@ -384,9 +394,10 @@
   }
 
   /* Author mode
-     "Add report" is a tool for the author, not for readers. It shows when
-     the site is opened from this computer (file or localhost), or on the
-     live site after visiting once with ?author=1 (?author=0 turns it off). */
+     Add report, and Publish and Delete on each report, are tools for the
+     author, not for readers. They show when the site is opened from this
+     computer (file or localhost), or on the live site after visiting once
+     with ?author=1 (?author=0 turns them off). */
 
   const AUTHOR_KEY = 'longhand-author';
   function initAuthor() {
@@ -434,20 +445,21 @@
     if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
   }
 
-  function confirmDialog({ title, text, confirm = 'Confirm', danger = false }) {
+  // A small question (or, with cancel: null, a notice). `html` is trusted markup built here.
+  function confirmDialog({ title, text = '', html = '', confirm = 'Confirm', danger = false, cancel = 'Cancel' }) {
     return new Promise((resolve) => {
       const d = makeDialog('sheet confirm', `
         <div class="sheet-head"><h2 class="sheet-title" id="cf-title">${esc(title)}</h2></div>
-        <div class="sheet-body"><p>${esc(text)}</p></div>
+        <div class="sheet-body">${html || `<p>${esc(text)}</p>`}</div>
         <div class="sheet-foot">
-          <button type="button" class="btn btn-quiet" data-close>Cancel</button>
+          ${cancel ? `<button type="button" class="btn btn-quiet" data-close>${esc(cancel)}</button>` : ''}
           <button type="button" class="btn ${danger ? 'btn-danger' : 'btn-solid'}" data-ok>${esc(confirm)}</button>
         </div>`);
       d.setAttribute('aria-labelledby', 'cf-title');
       $('[data-ok]', d).addEventListener('click', () => d.close('ok'));
       d.addEventListener('close', () => { resolve(d.returnValue === 'ok'); d.remove(); }, { once: true });
       openModal(d);
-      $('[data-close]', d).focus();
+      ($('[data-close]', d) || $('[data-ok]', d)).focus();
     });
   }
 
@@ -584,10 +596,16 @@
         <button type="button" class="icon-btn sheet-close" data-close aria-label="Close">${icon('x')}</button>
       </div>
       <div class="sheet-body">
-        <p class="field-label">To publish it for every reader</p>
+        <div class="publish-now" data-publish-block>
+          <p class="field-label">Publish it in one step</p>
+          <p class="hint">Copies the PDF into your site folder and adds the report to reports/reports.js. Push to Git afterwards and it is online.</p>
+          <button type="button" class="btn btn-solid" data-publish-now>Publish to site folder</button>
+        </div>
+        <details class="by-hand" data-by-hand>
+        <summary data-by-hand-label>Or publish it by hand</summary>
         <ol class="done-steps">
           <li>Copy the PDF into the <code>reports</code> folder as <code data-done-file></code>.</li>
-          <li>Open <code>reports/reports.js</code> and paste this entry on the line after <code>window.LONGHAND_REPORTS = [</code>. Then upload the site folder.
+          <li>Open <code>reports/reports.js</code> and paste this entry on the line after <code>window.LONGHAND_REPORTS = [</code>. Then push the folder to Git or upload it.
             <pre class="entry" data-entry></pre>
             <div class="copy-row">
               <button type="button" class="btn btn-sm btn-quiet" data-copy>Copy entry</button>
@@ -595,14 +613,16 @@
             </div>
           </li>
         </ol>
+        </details>
       </div>
       <div class="sheet-foot">
         <button type="button" class="btn btn-quiet" data-close>Close</button>
-        <a class="btn btn-solid" data-open-saved href="#">Open report ${icon('arrowRight', 'icon-arrow')}</a>
+        <a class="btn" data-open-saved href="#">Open report ${icon('arrowRight', 'icon-arrow')}</a>
       </div>
     </div>`;
 
   let formDlg = null;
+  let doneRecord = null; // the draft shown in the "saved" panel
   let formCtx = null;  // { mode, record, file, saved }
   let unsaved = null;  // what was typed into "Add a report" before it was closed unsaved
   let saving = false;  // a save is in progress; the dialog stays open until it ends
@@ -637,6 +657,12 @@
     $('[data-copy]', d).addEventListener('click', async () => {
       const ok = await copyText($('[data-entry]', d).textContent, d);
       $('[data-copy-status]', d).textContent = ok ? 'Copied to the clipboard.' : 'Select the text above and copy it.';
+    });
+    // Publish the draft just saved, straight into the site folder
+    $('[data-publish-now]', d).addEventListener('click', async () => {
+      if (!doneRecord) return;
+      const ok = await authorAction('publish', normalize(doneRecord, 'local'), { ask: false });
+      if (ok) d.close();
     });
     $('[data-clear-form]', d).addEventListener('click', () => {
       unsaved = null;
@@ -917,15 +943,237 @@
     done.hidden = false;
     d.setAttribute('aria-labelledby', 'rf-done-heading');
     $('[data-done-heading]', d).textContent = heading;
-    $('[data-done-sub]', d).textContent = `“${r.title}” is in your library on this browser only. Readers will not see it until it is published.`;
+    $('[data-done-sub]', d).textContent = `“${r.title}” is a draft in this browser, so only you can see it. Readers see it once it is published.`;
     $('[data-done-file]', d).textContent = r.fileName;
     $('[data-entry]', d).textContent = entryFor(rec);
     $('[data-copy-status]', d).textContent = '';
+    // One-step publishing where the browser can write to the site folder;
+    // elsewhere the by-hand steps are shown open
+    doneRecord = rec;
+    const oneStep = canWriteFolder() && !!rec.blob;
+    $('[data-publish-block]', d).hidden = !oneStep;
+    $('[data-by-hand]', d).open = !oneStep;
+    $('[data-by-hand-label]', d).textContent = oneStep ? 'Or publish it by hand' : 'Publish it by hand';
     const open = $('[data-open-saved]', d);
     open.href = reportHref(r);
     open.hidden = /\/report(\.html)?$/.test(location.pathname) && new URLSearchParams(location.search).get('id') === r.id;
     if (!d.open) openModal(d);
     $('[data-done-heading]', d).focus();
+  }
+
+  /* Author tools: publish and delete, straight in the site folder.
+     A static site cannot change its own files from a browser, but Chrome and
+     Edge can be given access to a folder on this computer. The author picks
+     the site folder once. Publishing then copies a draft's PDF into reports/
+     and writes its entry into reports.js; deleting takes both out again.
+     The change goes online when the folder is pushed to Git or uploaded.
+     Other browsers get the same steps written out to do by hand. */
+
+  const canWriteFolder = () => typeof window.showDirectoryPicker === 'function';
+  const fileOf = (pdfUrl) => decodeURIComponentSafe(String(pdfUrl || '').split('/').pop());
+  const changed = (detail) => document.dispatchEvent(new CustomEvent('longhand:changed', { detail }));
+
+  // The reports folder, from the site folder chosen before or chosen now
+  async function reportsFolder() {
+    const saved = await settings.get('reportsDir');
+    if (saved) {
+      try {
+        let perm = await saved.queryPermission({ mode: 'readwrite' });
+        if (perm !== 'granted') perm = await saved.requestPermission({ mode: 'readwrite' });
+        if (perm === 'granted') { await saved.getFileHandle('reports.js'); return saved; }
+      } catch (e) { /* the folder has moved, or the browser forgot it: ask again */ }
+    }
+    const picked = await window.showDirectoryPicker({ id: 'longhand-site', mode: 'readwrite' });
+    let dir = null;
+    try { dir = await picked.getDirectoryHandle('reports'); await dir.getFileHandle('reports.js'); } catch (e) { dir = null; }
+    if (!dir) { try { await picked.getFileHandle('reports.js'); dir = picked; } catch (e) { dir = null; } }
+    if (!dir) throw new Error('That folder has no reports/reports.js in it. Choose the site folder, the one that holds index.html.');
+    await settings.set('reportsDir', dir).catch(() => {});
+    return dir;
+  }
+
+  async function readCatalogue(dir) {
+    const fh = await dir.getFileHandle('reports.js');
+    const text = await (await fh.getFile()).text();
+    let list;
+    try {
+      // eslint-disable-next-line no-new-func
+      list = new Function('window', `${text}\n;return window.LONGHAND_REPORTS;`)({});
+    } catch (e) {
+      throw new Error(`reports/reports.js has a mistake in it (${e.message}). Fix it first, then try again.`);
+    }
+    if (!Array.isArray(list)) throw new Error('reports/reports.js does not hold a list of reports.');
+    return { fh, list };
+  }
+
+  const CATALOGUE_HEADER = `/*
+  Longhand Research: the report catalogue.
+
+  Every published report is one entry in the list below. The site sorts
+  them by date, so the order here does not matter.
+
+  To publish a new report:
+    1. Put the PDF in this folder (reports/).
+    2. Add an entry below. "Add report" on the site (author mode) writes
+       the entry for you, or publishes it straight into this folder.
+
+  Fields
+    id           unique, used in the report's web address
+    ticker       the ticker as listed, for example "ADRO", "AAPL" or "0700.HK";
+                 leave "" for sector or macro notes
+    exchange     optional, for example "IDX", "NYSE" or "HKEX"
+    company      company name, or the subject of a sector or macro note
+    sector       optional, shown on the report page
+    category     "Initiation", "Update", "Sector" or "Macro"
+    title        the report headline
+    date         publication date, YYYY-MM-DD
+    blurb        one or two sentences for the report list
+    summary      the longer abstract shown on the report page
+    rating       "BUY", "HOLD", "SELL" or null
+    currency     the currency of the prices, for example "IDR", "USD" or "HKD"
+    price        closing price used in the report, or null
+    targetPrice  target price, or null
+    upside       % to target; worked out from price and target if left out
+    pdfUrl       path to the PDF, for example "reports/My_Report.pdf"
+    pages        optional, number of pages
+    fileSize     optional, size of the PDF in bytes
+    extra        optional list of [label, value] pairs for the key data panel
+*/
+`;
+
+  async function writeCatalogue(fh, list) {
+    const body = JSON.stringify(list, null, 2)
+      // label and value pairs in "extra" read better on one line each
+      .replace(/\[\n\s+("(?:[^"\\]|\\.)*"),\n\s+("(?:[^"\\]|\\.)*")\n\s+\]/g, '[$1, $2]');
+    const w = await fh.createWritable();
+    await w.write(`${CATALOGUE_HEADER}window.LONGHAND_REPORTS = ${body};\n`);
+    await w.close();
+    // the page carries on with the new catalogue, no reload needed
+    window.LONGHAND_REPORTS = list;
+    window.LONGHAND_CATALOG_ERROR = null;
+    issues = null;
+    numbers = null;
+  }
+
+  async function publishDraft(id) {
+    const rec = await drafts.get(id);
+    if (!rec) throw new Error('This draft is no longer in this browser.');
+    if (!rec.blob) throw new Error('This draft has no PDF attached. Edit it and choose the PDF again.');
+    const dir = await reportsFolder();
+    const { fh, list } = await readCatalogue(dir);
+    const entry = entryObject(rec);
+    // the id must be free in the published catalogue
+    const ids = new Set(list.map((x) => normalize(x || {}, 'published').id));
+    const base = entry.id;
+    for (let i = 2; ids.has(entry.id); i++) entry.id = `${base}-${i}`;
+    // so must the file name, unless it already is this report's own file
+    const used = new Set(list.map((x) => fileOf(x && x.pdfUrl)));
+    const wanted = rec.fileName || `${entry.id}.pdf`;
+    const dot = wanted.lastIndexOf('.');
+    const stem = dot > 0 ? wanted.slice(0, dot) : wanted;
+    const ext = dot > 0 ? wanted.slice(dot) : '.pdf';
+    let name = wanted;
+    for (let i = 2; used.has(name); i++) name = `${stem}-${i}${ext}`;
+    entry.pdfUrl = `reports/${name}`;
+    const pdf = await dir.getFileHandle(name, { create: true });
+    const w = await pdf.createWritable();
+    await w.write(rec.blob);
+    await w.close();
+    list.unshift(entry);
+    await writeCatalogue(fh, list);
+    await drafts.remove(id);
+    return entry.id;
+  }
+
+  async function deletePublished(id) {
+    const dir = await reportsFolder();
+    const { fh, list } = await readCatalogue(dir);
+    const i = list.findIndex((x) => x && normalize(x, 'published').id === id);
+    if (i < 0) throw new Error('This report is not in reports/reports.js any more. It may have been removed already.');
+    const [gone] = list.splice(i, 1);
+    const file = fileOf(gone.pdfUrl);
+    const shared = list.some((x) => fileOf(x && x.pdfUrl) === file);
+    await writeCatalogue(fh, list);
+    // the PDF goes too, unless another entry still points at it
+    if (file && !shared && /^reports\//.test(String(gone.pdfUrl))) {
+      try { await dir.removeEntry(file); } catch (e) { /* already gone */ }
+    }
+  }
+
+  /* One entry point for the buttons: confirm, do it, and say what happened */
+  async function authorAction(kind, r, { ask = true } = {}) {
+    try {
+      if (kind === 'delete' && r.isLocal) {
+        const ok = await confirmDialog({
+          title: 'Delete this draft?',
+          text: `“${r.title}” will be deleted from this browser. Nothing on the site changes.`,
+          confirm: 'Delete draft',
+          danger: true,
+        });
+        if (!ok) return false;
+        await drafts.remove(r.id);
+        changed({ id: r.id, mode: 'delete' });
+        notify('Draft deleted.');
+        return true;
+      }
+      if (kind === 'publish') {
+        if (!canWriteFolder()) { showPublishSteps((await drafts.get(r.id)) || r); return false; }
+        const ok = !ask || await confirmDialog({
+          title: 'Publish this report?',
+          text: `The PDF of “${r.title}” is copied into the reports folder and the report is added to reports/reports.js. The first time, your browser asks you to choose the site folder, the one that holds index.html. Readers see the report once you push the change to Git or upload the folder.`,
+          confirm: 'Publish',
+        });
+        if (!ok) return false;
+        const newId = await publishDraft(r.id);
+        changed({ id: r.id, newId, mode: 'publish' });
+        notify('Published to your site folder. Push it to Git to put it online.');
+        return true;
+      }
+      if (kind === 'delete') {
+        const file = fileOf(r.pdfUrl);
+        if (!canWriteFolder()) {
+          await confirmDialog({
+            title: 'Delete this report by hand',
+            html: `<p>Open <code>reports/reports.js</code> and remove the entry with <code>"id": "${esc(r.id)}"</code>, then delete <code>reports/${esc(file)}</code>. Push the change to Git or upload the folder, and the report is gone from the site.</p><p>This browser cannot change files by itself; Chrome and Edge can.</p>`,
+            confirm: 'OK',
+            cancel: null,
+          });
+          return false;
+        }
+        const ok = await confirmDialog({
+          title: 'Delete this report from the site?',
+          text: `“${r.title}” and its PDF (reports/${file}) will be removed from your site folder. The first time, your browser asks you to choose the site folder. Readers stop seeing the report once you push the change to Git or upload the folder.`,
+          confirm: 'Delete report',
+          danger: true,
+        });
+        if (!ok) return false;
+        await deletePublished(r.id);
+        changed({ id: r.id, mode: 'delete' });
+        notify('Deleted from your site folder. Push it to Git to update the site.');
+        return true;
+      }
+    } catch (err) {
+      if (err && err.name === 'AbortError') return false;   // the folder picker was closed
+      console.warn(err);
+      await confirmDialog({ title: 'That did not work', text: String((err && err.message) || err), confirm: 'OK', cancel: null });
+    }
+    return false;
+  }
+
+  /* A short note at the foot of the screen after an action */
+  let noteTimer = 0;
+  function notify(text) {
+    let el = $('.toast');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'toast';
+      el.setAttribute('role', 'status');
+      document.body.appendChild(el);
+    }
+    el.textContent = text;
+    requestAnimationFrame(() => el.classList.add('is-on'));
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(() => el.classList.remove('is-on'), 5200);
   }
 
   /* Page chrome */
@@ -1034,6 +1282,9 @@
     confirmDialog,
     openReportForm,
     showPublishSteps,
+    authorAction,
+    canWriteFolder,
+    notify,
   });
 
   const boot = () => { initTheme(); initAuthor(); initChrome(); };

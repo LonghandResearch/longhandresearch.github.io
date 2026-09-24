@@ -90,6 +90,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 
 :focus { outline: none; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+/* Headings that only take focus so screen readers announce them */
+[tabindex="-1"]:focus-visible { outline: none; }
 
 .wrap {
   width: 100%;
@@ -645,6 +647,71 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 .empty .text-link { min-height: 0; }
 
 .index-note { margin-top: 16px; font: 400 13px/1.5 var(--font-sans); color: var(--ink-2); }
+
+/* Author tools on a row: only in author mode, never seen by readers */
+.author-tools {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 2;                 /* above the row's link, so the buttons can be pressed */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px 20px;
+  margin-top: 4px;
+}
+.author-note { margin-right: auto; font: 400 12.5px/1.4 var(--font-sans); color: var(--ink-3); }
+.tool {
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 500 12.5px/1 var(--font-sans);
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-2);
+  text-underline-offset: 4px;
+}
+.tool:hover { color: var(--ink); text-decoration-color: currentColor; }
+.tool-danger:hover, .text-link.tool-danger:hover { color: var(--error); }
+
+/* The short note after publishing or deleting */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 60;
+  max-width: min(560px, calc(100vw - 32px));
+  margin: 0;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--bg);
+  font: 500 14px/1.45 var(--font-sans);
+  box-shadow: 0 14px 34px -14px rgb(0 0 0 / 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 14px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* After saving a draft: publish in one step, or by hand */
+.publish-now {
+  margin-bottom: 18px;
+  padding: 16px 18px 18px;
+  border: 1px solid var(--rule-2);
+  border-radius: var(--radius);
+}
+.publish-now .hint { margin: 6px 0 14px; }
+.by-hand summary {
+  padding: 6px 0;
+  cursor: pointer;
+  font: 500 13.5px/1.4 var(--font-sans);
+  color: var(--ink-2);
+}
+.by-hand summary:hover { color: var(--ink); }
+.by-hand[open] summary { margin-bottom: 6px; }
 
 /* Author-only note about problems in reports.js */
 .catalog-note {

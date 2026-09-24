@@ -19,7 +19,7 @@ A static website with no server code and no build step. Open `index.html` in a b
 | `reports/reports.js` | The catalogue: one entry per published report |
 | `reports/*.pdf` | The report PDFs |
 | `assets/css/site.css` | All styling: light and dark themes, page transitions |
-| `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, page transitions |
+| `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
 | `assets/js/home.js` | Front page: the latest report |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/reader.js` | Report page: the PDF reader |
@@ -27,29 +27,43 @@ A static website with no server code and no build step. Open `index.html` in a b
 
 ## Publish a new report
 
+1. Press **Add report** on the site. It checks the details and saves the report in your browser as a draft. A draft is marked **Draft**, and only you can see it: it lives in your browser, not on the site.
+2. Open the draft to see exactly how it will look, then press **Publish**.
+3. The first time, choose the site folder (the one with `index.html` in it). The PDF is copied into `reports` and its entry is added to `reports/reports.js` for you.
+4. Push the change to Git, or upload the folder again. Readers see the report once it is online.
+
+Publishing in one step works in Chrome and Edge. In other browsers, **Publish** shows the same two steps to do by hand: copy the PDF into `reports`, and paste the ready-made entry into `reports.js`.
+
+To do it all by hand:
+
 1. Put the PDF in the `reports` folder.
 2. Open `reports/reports.js` and add an entry. Copy the ADRO entry as a template; the fields are explained at the top of the file. Any market works: set `ticker`, `exchange` (for example `NYSE`) and `currency` (for example `USD`).
 3. Upload the folder again.
-
-The easier way is **Add report** on the site. It checks the details, saves the report in your browser as a draft so you can see exactly how it will look, and then gives you the entry to paste into `reports.js`, ready to copy.
 
 If `reports.js` has a mistake, such as a missing comma, the library page tells you which line to look at (in author mode only). Readers just see that the list could not be loaded.
 
 Catalogue numbers (No. 001, No. 002 and so on) are given in order of publication date, oldest first. Adding a report with an earlier date than ones already published moves the later numbers up by one.
 
+## Delete a report
+
+Every delete asks first.
+
+- **A draft**: press **Delete** on it in the library, or **Delete draft** on its page. It only ever existed in your browser.
+- **A published report**: press **Delete** in the library, or **Delete from the site** on its page. In Chrome and Edge this takes its entry out of `reports.js` and its PDF out of `reports`. Push the change to Git and it is gone from the site. Other browsers show the two steps to do by hand.
+
 ## Author mode
 
-**Add report** is a tool for you, not for readers, so it is hidden on the live site.
+**Add report**, **Publish** and **Delete** are tools for you, not for readers, so they are hidden on the live site.
 
-- It is always on when the site is opened from your computer (double-clicking `index.html`, or `localhost`).
+- They are always on when the site is opened from your computer (double-clicking `index.html`, or `localhost`).
 - On the live site, visit it once with `?author=1` at the end of the address, for example `https://example.com/?author=1`. That browser remembers it.
-- On the live site, `?author=0` turns it off again.
+- On the live site, `?author=0` turns them off again.
 
-Drafts live only in the browser where you added them. They are marked **Draft** and nobody else can see them.
+Readers never see your drafts, and they cannot change the site: publishing and deleting only write to the folder on your computer, and the site changes when you push it.
 
 ## The globe
 
-It turns slowly on its tilted axis. Drag it in any direction to see it from every side; click it (or press Space) to stop or start it. Left alone, the view drifts back to its opening angle. Settings are at the top of `assets/js/globe.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), and `HIGHLIGHT` to pick out one country in gold (for example `'360'` for Indonesia).
+The ball turns slowly on its tilted axis while the stand and the brass ring stay still. Drag the ball in any direction to see it from every side; click it (or press Space) to stop or start it, and double-click it (or press Home) to set it straight. Left alone for a few seconds, it settles back onto its axis and carries on turning. Settings are at the top of `assets/js/globe.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), and `HIGHLIGHT` to pick out one country in gold (for example `'360'` for Indonesia).
 
 ## Change the name
 

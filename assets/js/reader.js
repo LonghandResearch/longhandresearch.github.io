@@ -74,11 +74,14 @@
               <span class="file-meta" data-file-meta>${esc(LH.fileMeta(r))}</span>
             </div>
             ${r.isLocal ? `
-              <p class="local-note">This draft is saved in this browser only. Readers will not see it until the PDF and its entry are published.</p>
+              <p class="local-note">This draft is saved in this browser only, so only you can see it. Publish it when it is ready.</p>
               <div class="local-tools">
-                <button type="button" class="text-link" data-publish>How to publish</button>
+                <button type="button" class="text-link" data-act="publish">Publish</button>
                 <button type="button" class="text-link" data-edit>Edit details</button>
-                <button type="button" class="text-link" data-remove>Remove</button>
+                <button type="button" class="text-link tool-danger" data-act="delete">Delete draft</button>
+              </div>` : LH.isAuthor ? `
+              <div class="local-tools">
+                <button type="button" class="text-link tool-danger" data-act="delete">Delete from the site</button>
               </div>` : ''}
           </div>
           ${ledger ? `<aside class="reader-side ledger" aria-label="Key data">${ledger}</aside>` : ''}
@@ -129,21 +132,12 @@
       });
     }
 
-    if (r.isLocal) {
-      $('[data-publish]', root).addEventListener('click', async () => LH.showPublishSteps((await LH.drafts.get(r.id)) || r));
-      $('[data-edit]', root).addEventListener('click', async () => {
+    // Author tools: publish or delete (the page follows through when they finish)
+    $$('[data-act]', root).forEach((b) => b.addEventListener('click', () => LH.authorAction(b.dataset.act, r)));
+    const editBtn = $('[data-edit]', root);
+    if (editBtn) {
+      editBtn.addEventListener('click', async () => {
         LH.openReportForm({ mode: 'edit', record: (await LH.drafts.get(r.id)) || r });
-      });
-      $('[data-remove]', root).addEventListener('click', async () => {
-        const ok = await LH.confirmDialog({
-          title: 'Remove this draft?',
-          text: `“${r.title}” will be deleted from this browser. Published reports are not affected.`,
-          confirm: 'Remove draft',
-          danger: true,
-        });
-        if (!ok) return;
-        try { await LH.drafts.remove(r.id); } catch (err) { /* already gone */ }
-        location.href = 'library.html';
       });
     }
 
@@ -527,6 +521,14 @@
     }
   }
 
-  document.addEventListener('longhand:changed', (e) => { if (e.detail && e.detail.id === id) init(); });
+  // After an edit the page redraws; after publishing it opens the published
+  // report; after deleting it goes back to the library
+  document.addEventListener('longhand:changed', (e) => {
+    const d = e.detail || {};
+    if (d.id !== id) return;
+    if (d.mode === 'delete') location.href = 'library.html';
+    else if (d.mode === 'publish') location.replace(`report.html?id=${encodeURIComponent(d.newId || id)}`);
+    else init();
+  });
   init();
 })();

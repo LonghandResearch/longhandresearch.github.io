@@ -128,6 +128,12 @@
           ${call.length ? `<dl class="call">${call.map((x) => `<div><dt>${esc(x.short || x.label)}</dt><dd${x.cls ? ` class="${x.cls}"` : ''}>${esc(x.value)}</dd></div>`).join('')}</dl>` : '<span></span>'}
           <span class="open-cue" aria-hidden="true">Open report ${icon('arrowRight')}</span>
         </div>
+        ${LH.isAuthor ? `
+        <div class="author-tools" role="group" aria-label="Author tools for ${esc(r.title)}">
+          ${r.isLocal ? `<span class="author-note">Only you can see this draft</span>
+          <button type="button" class="tool" data-act="publish" data-id="${esc(r.id)}">Publish</button>` : ''}
+          <button type="button" class="tool tool-danger" data-act="delete" data-id="${esc(r.id)}">Delete</button>
+        </div>` : ''}
       </li>`;
   }
 
@@ -220,6 +226,14 @@
     writeUrl();
   });
 
+  // Author tools on a row: publish a draft, or delete a report
+  listEl.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]');
+    if (!b) return;
+    const r = state.all.find((x) => x.id === b.dataset.id);
+    if (r) LH.authorAction(b.dataset.act, r);
+  });
+
   els.empty.addEventListener('click', (e) => {
     if (!e.target.closest('[data-reset]')) return;
     state.cat = 'All';
@@ -252,7 +266,8 @@
   const hasDrafts = (list) => list.some((r) => r.isLocal);
   function withDrafts({ now = false } = {}) {
     return Promise.all([LH.allReports(), now ? null : LH.afterTransition()]).then(([list]) => {
-      if (hasDrafts(list) || hasDrafts(state.all)) show(list);
+      // after an edit, publish or delete the list is always redrawn
+      if (now || hasDrafts(list) || hasDrafts(state.all)) show(list);
     });
   }
   if (LH.isAuthor) withDrafts();

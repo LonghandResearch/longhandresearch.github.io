@@ -42,7 +42,7 @@
   render(current);
   function withDrafts({ now = false } = {}) {
     return Promise.all([LH.allReports(), now ? null : LH.afterTransition()]).then(([list]) => {
-      if ((list[0] && list[0].id) !== (current[0] && current[0].id) || list.some((r) => r.isLocal)) {
+      if (now || (list[0] && list[0].id) !== (current[0] && current[0].id) || list.some((r) => r.isLocal)) {
         current = list;
         render(list);
       }
