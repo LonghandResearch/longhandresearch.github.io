@@ -117,3 +117,5 @@ The globe, the fonts and the PDF reader load from public CDNs (jsDelivr and Goog
 - Page transitions (the globe settling into the library emblem, a report title carried into its page, the theme spreading from the switch) run in current Chrome, Edge and Safari. Other browsers simply change page.
 - Everything that moves stays still for visitors who ask their system for reduced motion.
 - Opened straight from the disk, the report page uses the browser's own PDF viewer. Online it uses the built-in reader with zoom, page count, full screen, selectable text and a reading-progress rule.
+- Scripts and stylesheets are linked with a version tag (for example `site.js?v=2026-09-24h`) so browsers pick up changes at once instead of keeping an old copy for about ten minutes. After editing a file in `assets/css` or `assets/js`, change that tag in the HTML pages (one find-and-replace).
+- The reader starts downloading pdf.js as soon as the page opens, shows the download percentage for large files, and draws the first page before the rest have been read.

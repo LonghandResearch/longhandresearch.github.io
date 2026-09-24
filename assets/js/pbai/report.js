@@ -626,7 +626,8 @@
       { id: 'ev', name: 'EV/EBITDA', calc: (mc, s, i) => (s.netDebt[i] != null && s.ebitda[i] > 0 ? (mc + s.netDebt[i]) / s.ebitda[i] : null) },
     ];
     let metric = VM[0];
-    const cos = P.COMPANIES.filter((c) => c.unit === 'IDR bn' && c.priceHistory);
+    const cos = P.COMPANIES.filter((c) => c.priceHistory);
+    const fxEnd = P.DEFAULTS.fxYearEnd || {};
     const sharesAt = (c, y) => (c.sharesHistory && c.sharesHistory[y] != null ? c.sharesHistory[y] : (c.sharesConstant ? c.shares : null));
     mBox.innerHTML = VM.map((m, i) => `<button type="button" class="filter" data-vh="${m.id}" aria-pressed="${i === 0}">${m.name}</button>`).join('');
     const draw = () => {
@@ -636,7 +637,10 @@
         const s = series5(c);
         const vals = s.years.map((y, i) => {
           const px = c.priceHistory[y]; const sh = sharesAt(c, y);
-          return px && sh ? metric.calc(px * sh / 1e9, s, i) : null;
+          if (!px || !sh) return null;
+          // US$ reporters: convert the year-end market value at that year's closing rate
+          if (c.unit === 'USD m') return fxEnd[y] ? metric.calc(px * sh / 1e9 * 1000 / fxEnd[y], s, i) : null;
+          return metric.calc(px * sh / 1e9, s, i);
         });
         if (vals.some((v) => v != null)) shown++;
         const host = $(`[data-vh-co="${c.ticker}"]`, grid);

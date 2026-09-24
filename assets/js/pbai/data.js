@@ -80,6 +80,8 @@
     { id: 'dmas-lk', publisher: 'Puradelta Lestari', title: 'Audited consolidated financial statements FY2022, FY2023 and FY2025', date: '2023-2026', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'Equity attributable to owners, cash, the Rp500 billion loan repaid in April 2025, operating cash flow and fixed-asset acquisitions.' },
     { id: 'pgeo-lk', publisher: 'Pertamina Geothermal Energy', title: 'Audited consolidated financial statements FY2022, FY2023 and FY2025', date: '2023-2026', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'Cash, bank loans, long-term loans, green bond, leases, operating cash flow, fixed-asset additions and 41,815,763,396 shares issued at 31 December 2025.' },
     { id: 'ptba-lk', publisher: 'Bukit Asam', title: 'Audited consolidated financial statements FY2022, FY2023, FY2024 and FY2025', date: '2023-2026', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'Equity attributable to owners, cash, bank borrowings, leases, and FY2024-FY2025 operating cash flow and fixed-asset additions.' },
+    { id: 'fx-2023', publisher: 'Bank Indonesia', title: 'Perkembangan Indikator Stabilitas Nilai Rupiah (29 Desember 2023)', date: '29 December 2023', url: 'https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2534723.aspx', claim: 'Rupiah closed 2023 at Rp15,415 per US dollar.' },
+    { id: 'fx-2025', publisher: 'Bukit Asam', title: 'Audited consolidated financial statements FY2025, note on foreign currency', date: '2026', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'Rp16,720 per US dollar at 31 December 2025 and Rp16,157 at 31 December 2024.' },
     { id: 'px-dcii', publisher: 'Yahoo Finance', title: 'DCII.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/DCII.JK/history/', claim: 'Close of Rp201,000 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for splits).' },
     { id: 'px-tlkm', publisher: 'Yahoo Finance', title: 'TLKM.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/TLKM.JK/history/', claim: 'Close of Rp2,410 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for splits).' },
     { id: 'px-isat', publisher: 'Yahoo Finance', title: 'ISAT.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/ISAT.JK/history/', claim: 'Close of Rp2,400 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for splits).' },
@@ -330,6 +332,7 @@
       notes: ['FY2025 EBITDA is as reported in the annual report\'s target-versus-actual table. Net debt is bank loans, long-term loans, the US$400 million green bond and leases, less cash.', 'The share count is shares issued at 31 December 2025. Market value is not computed because the company reports in US dollars.'],
       yearSources: ['pgeo-ar25', 'pgeo-ar25', 'pgeo-ar25'],
       shares: 41815763396, sharesSource: 'pgeo-lk',
+      sharesHistory: { FY2023: 41396142000, FY2024: 41508024149, FY2025: 41815763396 },
       price: 1070, priceDate: '2026-09-24', priceNote: 'Close, 24 September 2026', priceSource: 'px-pgeo',
       priceHistory: { FY2021: null, FY2022: null, FY2023: 1170, FY2024: 935, FY2025: 1125 },
       methods: ['EV/EBITDA', 'DCF'],
@@ -422,7 +425,7 @@
 
   /* Calculator defaults, each tied to a source */
   const DEFAULTS = {
-    mw: 100, utilisation: 70, pue: 1.54, pueSource: 'uptime', price: 997, priceSource: 'tariff', fx: 17916, fxSource: 'dovish',
+    mw: 100, utilisation: 70, pue: 1.54, pueSource: 'uptime', price: 997, priceSource: 'tariff', fx: 17916, fxSource: 'dovish', fxYearEnd: { FY2023: 15415, FY2024: 16157, FY2025: 16720 }, fxYearEndSources: ['fx-2023', 'fx-2025'],
   };
 
   /* Power scenarios for 2030 (Longhand assumptions, anchored to PLN's figures) */
