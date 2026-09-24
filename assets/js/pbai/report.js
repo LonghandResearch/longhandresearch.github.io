@@ -529,8 +529,7 @@
     // FY2021..FY2025; prior holds FY2021 and FY2022 where verified
     const pr = c.prior || {};
     const pick = (k) => [...(pr[k] || [null, null]), ...(c[k] || [null, null, null])];
-    const nulls = [null, null];
-    return { years: ['FY2021', 'FY2022', ...c.years], revenue: pick('revenue'), ebitda: pick('ebitda'), netIncome: pick('netIncome'), capex: [...nulls, ...c.capex], cfo: [...nulls, ...c.cfo], netDebt: [...nulls, ...c.netDebt] };
+    return { years: ['FY2021', 'FY2022', ...c.years], revenue: pick('revenue'), ebitda: pick('ebitda'), netIncome: pick('netIncome'), capex: pick('capex'), cfo: pick('cfo'), netDebt: pick('netDebt'), equity: pick('equity') };
   }
   function initFinancials() {
     const grid = $('[data-fin-grid]', root);
@@ -553,11 +552,7 @@
         const host = $(`[data-fin-co="${c.ticker}"]`, grid);
         responsive(host, () => columns(host, years.map((y) => y.replace('FY', '')), vals, { fmt, h: 150, tipPrefix: `${c.ticker} ` }));
       });
-      note.textContent = metric.id === 'fcf'
-        ? 'No company in this set had both operating cash flow and capex verified for the same year, so free cash flow is unavailable throughout.'
-        : metric.id === 'netdebt' ? 'Net debt was verified only for Mitratel (derived from its reported ratio). Elsewhere it is unavailable.'
-          : metric.id === 'capex' ? 'Capex was verified for Indosat (2024 and 2025) and Telkom (2025) only; budgets are not shown as spending.'
-            : `${shown} of ${P.COMPANIES.length} companies have data for this measure.`;
+      note.textContent = `${shown} of ${P.COMPANIES.length} companies have data for this measure${period === 5 ? ' over five years' : ''}.`;
     };
     mBox.addEventListener('click', (e) => {
       const b = e.target.closest('[data-metric]'); if (!b) return;
@@ -614,6 +609,45 @@
     };
     P.COMPANIES.forEach(compute);
     t.addEventListener('input', (e) => { const i = e.target.closest('[data-price]'); if (i) compute(P.COMPANIES.find((c) => c.ticker === i.dataset.price)); });
+  }
+
+  /* 08: valuation history, year-end multiples from year-end prices and reported figures */
+  function initValHistory() {
+    const grid = $('[data-vh-grid]', root);
+    if (!grid) return;
+    const mBox = $('[data-vh-metric]', root);
+    const note = $('[data-vh-note]', root);
+    const VM = [
+      { id: 'pe', name: 'P/E', calc: (mc, s, i) => (s.netIncome[i] > 0 ? mc / s.netIncome[i] : null) },
+      { id: 'pb', name: 'P/B', calc: (mc, s, i) => (s.equity[i] > 0 ? mc / s.equity[i] : null) },
+      { id: 'ev', name: 'EV/EBITDA', calc: (mc, s, i) => (s.netDebt[i] != null && s.ebitda[i] > 0 ? (mc + s.netDebt[i]) / s.ebitda[i] : null) },
+    ];
+    let metric = VM[0];
+    const cos = P.COMPANIES.filter((c) => c.unit === 'IDR bn' && c.priceHistory);
+    const sharesAt = (c, y) => (c.sharesHistory && c.sharesHistory[y] != null ? c.sharesHistory[y] : (c.sharesConstant ? c.shares : null));
+    mBox.innerHTML = VM.map((m, i) => `<button type="button" class="filter" data-vh="${m.id}" aria-pressed="${i === 0}">${m.name}</button>`).join('');
+    const draw = () => {
+      let shown = 0;
+      grid.innerHTML = cos.map((c) => `<figure class="fin-card"><figcaption><span class="co-ticker">${c.ticker}</span> <span class="muted">${metric.name}, times</span></figcaption><div class="chart chart-xs" data-vh-co="${c.ticker}"></div></figure>`).join('');
+      cos.forEach((c) => {
+        const s = series5(c);
+        const vals = s.years.map((y, i) => {
+          const px = c.priceHistory[y]; const sh = sharesAt(c, y);
+          return px && sh ? metric.calc(px * sh / 1e9, s, i) : null;
+        });
+        if (vals.some((v) => v != null)) shown++;
+        const host = $(`[data-vh-co="${c.ticker}"]`, grid);
+        responsive(host, () => columns(host, s.years.map((y) => y.replace('FY', '')), vals, { fmt: (v) => `${v >= 100 ? nf(v, 0) : v.toFixed(v > 0 && v < 1 ? 2 : 1)}x`, h: 150, tipPrefix: `${c.ticker} ${metric.name} ` }));
+      });
+      note.textContent = `${shown} of ${cos.length} companies have the inputs for ${metric.name} in at least one year. Years without them are left blank${metric.id === 'pe' ? '; a loss year has no P/E' : ''}.`;
+    };
+    mBox.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-vh]'); if (!b) return;
+      metric = VM.find((m) => m.id === b.dataset.vh);
+      $$('[data-vh]', mBox).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      draw();
+    });
+    draw();
   }
 
   /* The DCF engine, shared with the scenarios and the Monte Carlo module */
@@ -816,6 +850,7 @@
   initExposure();
   initFinancials();
   initValuation();
+  initValHistory();
   initDcf();
   initScenarios();
   initMonteCarlo();
