@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The library · Longhand Research</title>
-<meta name="description" content="Every report in the Longhand library, newest first: company initiations and updates, sector studies and macro notes.">
+<title>The wire · Longhand Research</title>
+<meta name="description" content="Headlines from the financial press on markets, the economy, commodities and crypto, gathered every hour. Each one opens at its source.">
 <meta name="theme-color" content="#f3efe7">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Longhand Research">
-<meta property="og:title" content="The library · Longhand Research">
+<meta property="og:title" content="The wire · Longhand Research">
 <meta property="og:image" content="https://longhandresearch.github.io/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -50,11 +50,11 @@
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
 <script src="assets/js/site.js" defer blocking="render"></script>
-<script src="assets/js/library.js" defer blocking="render"></script>
+<script src="assets/js/wire.js" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
-<body class="page-library">
+<body class="page-wire">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -64,8 +64,8 @@
       <span class="brand-sub">Research</span>
     </a>
     <nav class="site-nav" aria-label="Main">
-      <a href="library.html" aria-current="page">Library</a>
-      <a href="wire.html">Wire</a>
+      <a href="library.html">Library</a>
+      <a href="wire.html" aria-current="page">Wire</a>
       <a href="about.html" class="nav-about">About</a>
       <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Switch theme">
         <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9Z"/></svg>
@@ -92,35 +92,34 @@
       <path d="M23.5 85c0-6.5 5.5-10 12.5-10s12.5 3.5 12.5 10z" stroke-width="1.5"/>
     </svg>
     <div>
-      <p class="eyebrow">The catalogue</p>
-      <h1 class="page-title">The collected <em>volumes.</em></h1>
-      <p class="page-lede">Every report on the shelf, the newest at the top. Find one by ticker, company or title, or browse by kind.</p>
+      <p class="eyebrow">The wire</p>
+      <h1 class="page-title">Markets, <em>as they move.</em></h1>
+      <p class="page-lede">Headlines from the financial press on markets, the economy, commodities and crypto, gathered every hour. Each one opens at its source.</p>
       <p class="page-folio" data-folio hidden></p>
     </div>
   </header>
 
-  <section class="section wrap" id="reports" aria-labelledby="reports-title">
+  <section class="section wrap" id="headlines" aria-labelledby="headlines-title">
     <div class="section-head">
-      <h2 class="section-label" id="reports-title">All reports</h2>
+      <h2 class="section-label" id="headlines-title">Headlines</h2>
       <p class="section-meta" data-count aria-live="polite"></p>
     </div>
     <div class="index-tools">
-      <div class="filters" role="group" aria-label="Filter by category" data-filters></div>
+      <div class="filters" role="group" aria-label="Filter by topic" data-filters></div>
       <label class="search">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg>
-        <span class="sr-only">Search reports</span>
-        <input type="search" data-search placeholder="Search ticker, company or title" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-keyshortcuts="/">
+        <span class="sr-only">Search headlines</span>
+        <input type="search" data-search placeholder="Search headlines or sources" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-keyshortcuts="/">
         <kbd class="kbd" aria-hidden="true" title="Press / to search">/</kbd>
         <button type="button" class="search-clear" data-search-clear aria-label="Clear search" hidden>
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </label>
     </div>
-    <div class="catalog-note" data-catalog-note role="note" hidden></div>
-    <ol class="report-list" data-list></ol>
-    <noscript><p class="empty-text">The library needs JavaScript. Please turn it on to browse and read the reports.</p></noscript>
+    <div class="wire" data-wire></div>
+    <noscript><p class="empty-text">The wire needs JavaScript. Please turn it on to read the headlines.</p></noscript>
     <div class="empty" data-empty hidden></div>
-    <p class="index-note" data-index-note hidden>Prices and targets are as at the date of publication.</p>
+    <p class="index-note">Headlines and links belong to their publishers. Longhand shows the headline only; every story is read at its source.</p>
   </section>
 </main>
 
