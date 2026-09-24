@@ -581,7 +581,7 @@
       return `<tr data-val-row="${c.ticker}">
         <th scope="row"><span class="co-ticker">${c.ticker}</span></th>
         <td><span class="methods">${c.methods.map(esc).join(', ')}</span><span class="muted small block">${esc(c.methodNote)}</span></td>
-        <td>${usd || !c.shares ? `<span class="na">${usd ? 'Reports in US$; not computed' : 'Share count not verified'}</span>` : `<input class="input input-sm" type="number" inputmode="numeric" min="1" step="1" aria-label="Price for ${c.ticker}, rupiah" data-price="${c.ticker}" value="${c.price || ''}" placeholder="Enter">${c.price ? `<span class="flag" title="${esc(c.priceNote)}">24 Sep 2026</span> ${cite(c.priceSource)}` : ''}`}</td>
+        <td>${!c.shares ? '<span class="na">Share count not verified</span>' : `<input class="input input-sm" type="number" inputmode="numeric" min="1" step="1" aria-label="Price for ${c.ticker}, rupiah" data-price="${c.ticker}" value="${c.price || ''}" placeholder="Enter">${c.price ? `<span class="flag" title="${esc(c.priceNote)}">24 Sep 2026</span> ${cite(c.priceSource)}` : ''}${usd ? `<span class="muted small block">Converted at Rp${nf(P.DEFAULTS.fx)}/US$ ${cite(P.DEFAULTS.fxSource)}</span>` : ''}`}</td>
         <td>${c.shares ? `${(c.shares / 1e9).toFixed(2)} bn ${cite(c.sharesSource)}` : '<span class="na">Data unavailable</span>'}</td>
         <td data-v="mcap"></td><td data-v="pe"></td><td data-v="pb"></td><td data-v="evebitda"></td><td data-v="evrev"></td>
       </tr>`;
@@ -596,13 +596,16 @@
         if (!input) ['mcap', 'pe', 'pb', 'evebitda', 'evrev'].forEach((k) => set(k, '<span class="na">n/a</span>'));
         return;
       }
-      const mcap = price * c.shares / 1e9; // Rp bn
+      const usd = c.unit === 'USD m';
+      const mcapRp = price * c.shares / 1e9; // Rp bn
+      // US$ reporters: convert market value to US$ m so it matches their accounts
+      const mcap = usd ? mcapRp * 1000 / P.DEFAULTS.fx : mcapRp;
       const ni = last(c.netIncome); const eq = last(c.equity); const eb = last(c.ebitda); const rev = last(c.revenue); const nd = last(c.netDebt);
       const x = (v) => `${v >= 100 ? nf(v, 0) : v.toFixed(1)}x`;
-      set('mcap', `Rp${nf(mcap / 1000, 1)} tn`);
-      set('pe', ni > 0 ? x(mcap / ni) : '<span class="na">Loss or n/a</span>');
+      set('mcap', usd ? `Rp${nf(mcapRp / 1000, 1)} tn<span class="muted small block">US$${nf(mcap / 1000, 2)} bn</span>` : `Rp${nf(mcap / 1000, 1)} tn`);
+      set('pe', ni > 0 ? x(mcap / ni) : `<span class="na">${ni < 0 ? 'Loss year' : 'n/a'}</span>`);
       set('pb', eq ? x(mcap / eq) : '<span class="na">Equity n/a</span>');
-      if (nd != null) { const ev = mcap + nd; set('evebitda', eb ? x(ev / eb) : 'n/a'); set('evrev', x(ev / rev)); } else {
+      if (nd != null) { const ev = mcap + nd; set('evebitda', eb ? x(ev / eb) : '<span class="na">EBITDA not reported</span>'); set('evrev', x(ev / rev)); } else {
         set('evebitda', '<span class="na">Net debt n/a</span>');
         set('evrev', `<span class="na">Net debt n/a</span>`);
       }
