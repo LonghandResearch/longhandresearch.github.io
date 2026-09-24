@@ -69,6 +69,7 @@ Readers never see your drafts, and they cannot change the site: publishing and d
 The Wire (`wire.html`, and **From the wire** on the front page) shows headlines on markets, the economy, commodities and crypto. It fills itself: every hour a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days.
 
 - **Change the sources**: edit `news/feeds.json`. Each source has a `name`, the address of its RSS feed (`url`), a `topic` (`Markets`, `Macro`, `Commodities` or `Crypto`) and, for headlines not in English, a `lang` such as `"id"`.
+- **Only market news**: a source that also carries general news is marked `"strict": true`, and its headlines are kept only when they are about shares, rates, currencies, commodities, crypto, company results and deals, or the economy. Sport, celebrities, accidents, promotions and how-to pieces are never kept, from any source. The word lists are at the top of `scripts/fetch-news.mjs`.
 - **Gather now**: on GitHub, open **Actions**, then **Gather the wire**, then **Run workflow**.
 - **A source stops working**: the job skips it and says so in its log; its older headlines stay until they age out.
 
