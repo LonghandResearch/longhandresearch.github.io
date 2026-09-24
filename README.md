@@ -29,7 +29,7 @@ A static website with no server code and no build step. Open `index.html` in a b
 
 1. Press **Add report** on the site. It checks the details and saves the report in your browser as a draft. A draft is marked **Draft**, and only you can see it: it lives in your browser, not on the site.
 2. Open the draft to see exactly how it will look, then press **Publish**.
-3. The first time, choose the site folder (the one with `index.html` in it). The PDF is copied into `reports` and its entry is added to `reports/reports.js` for you.
+3. The first time, choose the site folder (the one with `index.html` in it). The PDF is copied into `reports`, its entry is added to `reports/reports.js`, and its page is added to `sitemap.xml` so search engines find it, all for you.
 4. Push the change to Git, or upload the folder again. Readers see the report once it is online.
 
 Publishing in one step works in Chrome and Edge. In other browsers, **Publish** shows the same two steps to do by hand: copy the PDF into `reports`, and paste the ready-made entry into `reports.js`.
@@ -38,7 +38,8 @@ To do it all by hand:
 
 1. Put the PDF in the `reports` folder.
 2. Open `reports/reports.js` and add an entry. Copy the ADRO entry as a template; the fields are explained at the top of the file. Any market works: set `ticker`, `exchange` (for example `NYSE`) and `currency` (for example `USD`).
-3. Upload the folder again.
+3. Add a line for the report to `sitemap.xml`, copying the one for ADRO and changing the `id` and the date.
+4. Upload the folder again.
 
 If `reports.js` has a mistake, such as a missing comma, the library page tells you which line to look at (in author mode only). Readers just see that the list could not be loaded.
 
@@ -49,7 +50,7 @@ Catalogue numbers (No. 001, No. 002 and so on) are given in order of publication
 Every delete asks first.
 
 - **A draft**: press **Delete** on it in the library, or **Delete draft** on its page. It only ever existed in your browser.
-- **A published report**: press **Delete** in the library, or **Delete from the site** on its page. In Chrome and Edge this takes its entry out of `reports.js` and its PDF out of `reports`. Push the change to Git and it is gone from the site. Other browsers show the two steps to do by hand.
+- **A published report**: press **Delete** in the library, or **Delete from the site** on its page. In Chrome and Edge this takes its entry out of `reports.js` and `sitemap.xml`, and its PDF out of `reports`. Push the change to Git and it is gone from the site. Other browsers show the two steps to do by hand.
 
 ## Author mode
 

@@ -329,7 +329,7 @@
       date: r.date,
       summary: r.summary,
       rating: r.rating,
-      currency: r.currency,
+      currency: COMPANY_CATEGORIES.includes(r.category) ? r.currency : undefined,
       price: r.price,
       targetPrice: r.targetPrice,
       upside: r.upside,
@@ -874,7 +874,7 @@
       date: v.date,
       summary: v.summary,
       rating: company ? v.rating || null : null,
-      currency: company ? v.currency : 'IDR',
+      currency: company ? v.currency : null,
       price,
       targetPrice,
       upside: manualUpside,
@@ -969,23 +969,28 @@
   const fileOf = (pdfUrl) => decodeURIComponentSafe(String(pdfUrl || '').split('/').pop());
   const changed = (detail) => document.dispatchEvent(new CustomEvent('longhand:changed', { detail }));
 
-  // The reports folder, from the site folder chosen before or chosen now
-  async function reportsFolder() {
-    const saved = await settings.get('reportsDir');
+  // The site folder and its reports folder, chosen before or chosen now.
+  // The site folder itself is kept too, so sitemap.xml can be kept up to date.
+  const reportsIn = async (site) => {
+    const dir = await site.getDirectoryHandle('reports');
+    await dir.getFileHandle('reports.js');
+    return dir;
+  };
+  async function siteFolders() {
+    const saved = await settings.get('siteDir');
     if (saved) {
       try {
         let perm = await saved.queryPermission({ mode: 'readwrite' });
         if (perm !== 'granted') perm = await saved.requestPermission({ mode: 'readwrite' });
-        if (perm === 'granted') { await saved.getFileHandle('reports.js'); return saved; }
+        if (perm === 'granted') return { site: saved, dir: await reportsIn(saved) };
       } catch (e) { /* the folder has moved, or the browser forgot it: ask again */ }
     }
     const picked = await window.showDirectoryPicker({ id: 'longhand-site', mode: 'readwrite' });
     let dir = null;
-    try { dir = await picked.getDirectoryHandle('reports'); await dir.getFileHandle('reports.js'); } catch (e) { dir = null; }
-    if (!dir) { try { await picked.getFileHandle('reports.js'); dir = picked; } catch (e) { dir = null; } }
+    try { dir = await reportsIn(picked); } catch (e) { dir = null; }
     if (!dir) throw new Error('That folder has no reports/reports.js in it. Choose the site folder, the one that holds index.html.');
-    await settings.set('reportsDir', dir).catch(() => {});
-    return dir;
+    await settings.set('siteDir', picked).catch(() => {});
+    return { site: picked, dir };
   }
 
   async function readCatalogue(dir) {
@@ -1051,11 +1056,33 @@
     numbers = null;
   }
 
+  /* sitemap.xml lists the pages and every published report, so search
+     engines find a new report without waiting to crawl the library. The
+     site address is taken from the first entry already in the file. */
+  async function writeSitemap(site, list) {
+    try {
+      const fh = await site.getFileHandle('sitemap.xml');
+      const m = /<loc>\s*([^<\s]+)\s*<\/loc>/.exec(await (await fh.getFile()).text());
+      if (!m) return;
+      const base = new URL('./', m[1]).href;
+      const reports = list.map((x) => normalize(x || {}, 'published')).filter((r) => r.id).sort(byDateDesc);
+      const urls = [
+        ...['', 'library.html', 'about.html'].map((p) => `  <url><loc>${base}${p}</loc></url>`),
+        ...reports.map((r) => `  <url><loc>${esc(base + reportHref(r))}</loc>${r.date ? `<lastmod>${r.date}</lastmod>` : ''}</url>`),
+      ];
+      const w = await fh.createWritable();
+      await w.write(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`);
+      await w.close();
+    } catch (e) {
+      console.warn('sitemap.xml was not updated', e);   // the report itself is published
+    }
+  }
+
   async function publishDraft(id) {
     const rec = await drafts.get(id);
     if (!rec) throw new Error('This draft is no longer in this browser.');
     if (!rec.blob) throw new Error('This draft has no PDF attached. Edit it and choose the PDF again.');
-    const dir = await reportsFolder();
+    const { site, dir } = await siteFolders();
     const { fh, list } = await readCatalogue(dir);
     const entry = entryObject(rec);
     // the id must be free in the published catalogue
@@ -1077,12 +1104,13 @@
     await w.close();
     list.unshift(entry);
     await writeCatalogue(fh, list);
+    await writeSitemap(site, list);
     await drafts.remove(id);
     return entry.id;
   }
 
   async function deletePublished(id) {
-    const dir = await reportsFolder();
+    const { site, dir } = await siteFolders();
     const { fh, list } = await readCatalogue(dir);
     const i = list.findIndex((x) => x && normalize(x, 'published').id === id);
     if (i < 0) throw new Error('This report is not in reports/reports.js any more. It may have been removed already.');
@@ -1090,6 +1118,7 @@
     const file = fileOf(gone.pdfUrl);
     const shared = list.some((x) => fileOf(x && x.pdfUrl) === file);
     await writeCatalogue(fh, list);
+    await writeSitemap(site, list);
     // the PDF goes too, unless another entry still points at it
     if (file && !shared && /^reports\//.test(String(gone.pdfUrl))) {
       try { await dir.removeEntry(file); } catch (e) { /* already gone */ }

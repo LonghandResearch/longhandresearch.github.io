@@ -1,7 +1,7 @@
 # Longhand Research: auto publish
 # Runs quietly in the background. When Publish or Delete on the site changes
-# the reports folder, it commits that folder and pushes it to GitHub.
-# Only the reports folder is sent; other edits still go with publish.bat.
+# the reports folder (and sitemap.xml with it), it commits them and pushes
+# them to GitHub. Only those are sent; other edits still go with publish.bat.
 
 $ErrorActionPreference = 'Continue'
 $site = $PSScriptRoot
@@ -28,15 +28,15 @@ $stableSince = $null
 try {
   while ($true) {
     Start-Sleep -Seconds 5
-    $status = (git status --porcelain -- reports 2>$null) -join "`n"
+    $status = (git status --porcelain -- reports sitemap.xml 2>$null) -join "`n"
 
     if ($status) {
       # Wait until the folder has stopped changing for 10 seconds
       if ($status -ne $last) { $last = $status; $stableSince = Get-Date; continue }
       if (((Get-Date) - $stableSince).TotalSeconds -lt 10) { continue }
 
-      git add -A -- reports 2>$null
-      git commit -q -m "Update reports $(Get-Date -Format 'yyyy-MM-dd HH:mm')" -- reports 2>$null
+      git add -A -- reports sitemap.xml 2>$null
+      git commit -q -m "Update reports $(Get-Date -Format 'yyyy-MM-dd HH:mm')" -- reports sitemap.xml 2>$null
       Write-Log 'Committed report changes'
       $last = ''
     }
