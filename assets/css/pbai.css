@@ -142,6 +142,8 @@
 .viz .pmark { stroke: var(--ink-2); stroke-width: 1; }
 .viz .pmark.p50 { stroke: var(--ink); stroke-width: 2; }
 .viz .plab { font-size: 10.5px; fill: var(--ink); font-weight: 600; }
+.viz .pmark.mkt { stroke: var(--s2); stroke-width: 2; stroke-dasharray: 4 3; }
+.viz .plab.mkt { fill: var(--ink); }
 .legend { margin: 8px 0 0; font: 400 12.5px/1.6 var(--font-sans); color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
 .key { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-left: 8px; }
 .key:first-child { margin-left: 0; }

@@ -783,7 +783,7 @@
     const load = () => {
       if (loaded) return; loaded = true;
       const s = document.createElement('script');
-      s.src = 'assets/js/pbai/montecarlo.js';
+      s.src = `assets/js/pbai/montecarlo.js?v=${window.PBAI_VERSION || ''}`;
       s.onload = () => { if (window.PBAI_MC) window.PBAI_MC(box); };
       s.onerror = () => { box.innerHTML = '<p class="na">The simulation could not be loaded.</p>'; };
       document.body.appendChild(s);
@@ -791,6 +791,8 @@
     if (!('IntersectionObserver' in window)) { load(); return; }
     const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); load(); } }, { rootMargin: '600px 0px' });
     io.observe(box);
+    // Fallback: load anyway once the page is idle, so a fast jump never leaves the section empty
+    setTimeout(load, 4000);
   }
 
   /* 11: risk map */

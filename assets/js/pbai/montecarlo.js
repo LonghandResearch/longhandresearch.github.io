@@ -68,7 +68,7 @@
     return { sorted, p10: q(0.1), p25: q(0.25), p50: q(0.5), p75: q(0.75), p90: q(0.9), min: sorted[0], max: sorted[RUNS - 1], redraws };
   }
 
-  function histogram(host, res, unit) {
+  function histogram(host, res, unit, mkt) {
     const w = Math.max(280, host.clientWidth || 600);
     const h = 252; const padL = 46; const padR = 12; const padT = 44; const padB = 34;
     // Trim the far tails to the 1st to 99th percentile so the body is readable
@@ -97,11 +97,24 @@
       g += `<line class="pmark${n === 'P50' ? ' p50' : ''}" x1="${x}" x2="${x}" y1="${padT - 4}" y2="${h - padB}"/>`;
       g += `<text class="plab" x="${x}" y="${padT - 8 - (i % 2) * 11}" text-anchor="middle">${n}</text>`;
     });
+    if (mkt != null && mkt >= lo && mkt <= hi) {
+      const x = xs(mkt);
+      g += `<line class="pmark mkt" x1="${x}" x2="${x}" y1="${padT - 30}" y2="${h - padB}"/><text class="plab mkt" x="${x}" y="${padT - 32}" text-anchor="middle">Market EV</text>`;
+    }
     const xt = niceTicks(lo, hi, 4).filter((t) => t >= lo && t <= hi);
     xt.forEach((t) => { g += `<text class="tick" x="${xs(t)}" y="${h - padB + 16}" text-anchor="middle">${nf(t)}</text>`; });
     g += `<text class="axis-unit" x="${w - padR}" y="${h - 4}" text-anchor="end">Model enterprise value, ${esc(unit)}</text><text class="axis-unit" x="0" y="10">Runs</text>`;
     host.innerHTML = `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" class="viz">${g}</svg>`;
     bindTips(host);
+  }
+
+  // Today's market enterprise value in the model's currency, if price, shares and net debt are known
+  function marketEV(tk, base) {
+    const c = P.COMPANIES.find((x) => x.ticker === tk);
+    if (!c || !c.price || !c.shares || base.netDebt == null) return null;
+    const mcapRp = c.price * c.shares / 1e9;
+    const mcap = base.unit === 'USD m' ? mcapRp * 1000 / P.DEFAULTS.fx : mcapRp;
+    return mcap + base.netDebt;
   }
 
   window.PBAI_MC = function (box) {
@@ -121,7 +134,7 @@
         <figcaption class="fig-cap"><span class="fig-no">Figure 12.</span> Distribution of model enterprise value, 10,000 runs</figcaption>
         <div class="chart" data-chart="mc" role="img" aria-label="Histogram of simulated enterprise values"></div>
         <dl class="calc-results mc-stats" data-mc-stats aria-live="polite"></dl>
-        <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Seeded simulation of the section 08 DCF. Base-year revenue and margin as reported for FY2025; ranges default to the bear, base and bull presets. The chart trims the outer 1% at each end; percentiles use every run.</p>
+        <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Seeded simulation of the section 08 DCF. Base-year revenue and margin as reported for FY2025; ranges default to the bear, base and bull presets. The chart trims the outer 1% at each end; percentiles use every run. Market EV is the 24 September 2026 market value plus net debt at 31 December 2025 (Pertamina Geothermal converted at Rp17,916/US$); comparing it with the runs shows how much the price already assumes, not what the shares are worth.</p>
       </figure>`;
     const fill = () => {
       const rg = ranges(P.DCF[co]);
@@ -146,10 +159,15 @@
       const ms = performance.now() - t0;
       const unit = d.base.unit === 'USD m' ? 'US$ m' : 'Rp bn';
       const host = box.querySelector('[data-chart="mc"]');
-      responsive(host, () => histogram(host, res, unit));
+      const mkt = marketEV(co, d.base);
+      responsive(host, () => histogram(host, res, unit, mkt));
       const f = (v) => `${d.base.unit === 'USD m' ? 'US$' : 'Rp'}${nf(v)} ${d.base.unit === 'USD m' ? 'm' : 'bn'}`;
       box.querySelector('[data-mc-stats]').innerHTML = [['10th percentile', res.p10], ['25th percentile', res.p25], ['Median', res.p50], ['75th percentile', res.p75], ['90th percentile', res.p90]]
-        .map(([n, v]) => `<div><dt>${n}</dt><dd>${f(v)}</dd></div>`).join('') + `<div><dt>Runs, seed, time</dt><dd class="small">${nf(RUNS)} runs · seed ${seed} · ${ms.toFixed(0)} ms${res.redraws ? ` · ${nf(res.redraws)} redraws` : ''}</dd></div>`;
+        .map(([n, v]) => `<div><dt>${n}</dt><dd>${f(v)}</dd></div>`).join('') + (mkt != null ? (() => {
+          const above = res.sorted.filter((v) => v > mkt).length / RUNS * 100;
+          const where = mkt > res.max ? 'above every run' : mkt < res.min ? 'below every run' : `${above.toFixed(1)}% of runs are higher`;
+          return `<div><dt>Today’s market EV</dt><dd>${f(mkt)}<span class="small block muted">${where}</span></dd></div>`;
+        })() : '') + `<div><dt>Runs, seed, time</dt><dd class="small">${nf(RUNS)} runs · seed ${seed} · ${ms.toFixed(0)} ms${res.redraws ? ` · ${nf(res.redraws)} redraws` : ''}</dd></div>`;
       tableView(host, ['Percentile', `Model EV, ${unit}`], [['P10', nf(res.p10)], ['P25', nf(res.p25)], ['P50', nf(res.p50)], ['P75', nf(res.p75)], ['P90', nf(res.p90)]]);
     };
     box.querySelector('[data-mc-co]').addEventListener('click', (e) => {

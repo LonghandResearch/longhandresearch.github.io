@@ -44,15 +44,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/pbai.css">
+<link rel="stylesheet" href="assets/css/pbai.css?v=2026-09-24e">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
 <script src="assets/js/site.js" defer blocking="render"></script>
-<script src="assets/js/pbai/data.js" defer></script>
-<script src="assets/js/pbai/report.js" defer></script>
+<script>window.PBAI_VERSION = '2026-09-24e';</script>
+<script src="assets/js/pbai/data.js?v=2026-09-24e" defer></script>
+<script src="assets/js/pbai/report.js?v=2026-09-24e" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -448,6 +449,7 @@
         <div class="mc" data-mc>
           <p class="mc-loading" data-mc-loading>The simulation loads when this section comes into view.</p>
         </div>
+        <p>The dashed line marks today’s market enterprise value, so each run can be read against the price. With the default ranges and seed, the three companies land in very different places. For Mitratel, the market value sits almost exactly on the median: about half the runs are higher, so the price assumes roughly the base case. For Pertamina Geothermal, about one run in six is higher, so the price already leans toward the upper end of the ranges. For DCI Indonesia, the market value of about Rp481 trillion lies above every run, about 34 times the model’s median. The price assumes growth far faster, or lasting far longer, than even the bull preset. That gap is the main thing a reader has to take a view on.</p>
         <p class="model-flag">Simulation outputs are conditional on model assumptions and should not be interpreted as forecasts.</p>
       </section>
 
