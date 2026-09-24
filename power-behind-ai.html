@@ -43,18 +43,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/pbai.css?v=2026-09-24g">
+<link rel="stylesheet" href="assets/css/site.css?v=2026-09-24h">
+<link rel="stylesheet" href="assets/css/pbai.css?v=2026-09-24h">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
-<script src="assets/js/site.js" defer blocking="render"></script>
-<script>window.PBAI_VERSION = '2026-09-24g';</script>
-<script src="assets/js/pbai/data.js?v=2026-09-24g" defer></script>
-<script src="assets/js/pbai/report.js?v=2026-09-24g" defer></script>
-<script src="assets/js/pbai/map.js?v=2026-09-24g" defer></script>
+<script src="assets/js/site.js?v=2026-09-24h" defer blocking="render"></script>
+<script>window.PBAI_VERSION = '2026-09-24h';</script>
+<script src="assets/js/pbai/data.js?v=2026-09-24h" defer></script>
+<script src="assets/js/pbai/report.js?v=2026-09-24h" defer></script>
+<script src="assets/js/pbai/map.js?v=2026-09-24h" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -397,7 +397,7 @@
           <div class="fin-controls"><div class="filters" role="group" aria-label="Choose a multiple" data-vh-metric></div></div>
           <p class="fin-note" data-vh-note aria-live="polite"></p>
           <div class="fin-grid" data-vh-grid></div>
-          <p class="fig-src">Source: year-end closing prices (Yahoo Finance, adjusted for splits) and reported full-year figures as cited in each company panel. Market value uses the current share count where it has not changed, and year-by-year counts for Indosat, XLSMART and Mitratel where verified. EV adds reported or derived net debt. Pertamina Geothermal reports in US dollars and is left out. Multiples are Longhand calculations.</p>
+          <p class="fig-src">Source: year-end closing prices (Yahoo Finance, adjusted for splits) and reported full-year figures as cited in each company panel. Market value uses the current share count where it has not changed, and year-by-year counts for Indosat, XLSMART and Mitratel where verified. EV adds reported or derived net debt. Pertamina Geothermal reports in US dollars, so its year-end market value is converted at the year-end rupiah rate (Rp15,415 in 2023, Rp16,157 in 2024, Rp16,720 in 2025) <a class="cite" data-cite="fx-2023" href="#src-fx-2023">source</a> <a class="cite" data-cite="fx-2025" href="#src-fx-2025">source</a>. Multiples are Longhand calculations.</p>
         </figure>
 
         <h3 class="pbai-h3">A discounted cash flow you can change</h3>

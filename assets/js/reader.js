@@ -15,6 +15,14 @@
   const MAX_CANVAS_PIXELS = 14e6; // below the canvas limit on iPhone and iPad
   const id = (new URLSearchParams(location.search).get('id') || '').trim();
 
+  // Start fetching pdf.js straight away, alongside the page, instead of after it
+  let pdfjsReady = null;
+  const loadPdfjs = () => pdfjsReady || (pdfjsReady = import(`${PDFJS}pdf.min.mjs`).then((m) => {
+    m.GlobalWorkerOptions.workerSrc = `${PDFJS}pdf.worker.min.mjs`;
+    return m;
+  }));
+  if (location.protocol !== 'file:') loadPdfjs().catch(() => { pdfjsReady = null; });
+
   let view = null;
 
   async function init() {
@@ -192,10 +200,14 @@
       // Opened straight from the disk: pdf.js cannot read local files, the browser can
       if (!r.blob && location.protocol === 'file:') { this.native(); return; }
       try {
-        this.pdfjs = await import(`${PDFJS}pdf.min.mjs`);
-        this.pdfjs.GlobalWorkerOptions.workerSrc = `${PDFJS}pdf.worker.min.mjs`;
+        this.pdfjs = await loadPdfjs();
         const src = r.blob ? { data: new Uint8Array(await r.blob.arrayBuffer()) } : { url: LH.fileUrl(r) };
         this.task = this.pdfjs.getDocument({ ...src, isEvalSupported: false });
+        // Show how much has arrived while a large file downloads
+        this.task.onProgress = ({ loaded, total }) => {
+          if (this.built || this.dead || !total) return;
+          this.setStatus(`Loading ${Math.min(99, Math.round(loaded / total * 100))}%`);
+        };
         this.doc = await this.task.promise;
       } catch (err) {
         if (this.dead) return;
@@ -206,11 +218,13 @@
       }
       if (this.dead) return;
 
+      // Lay out every page at the first page's size and draw what is on screen at once;
+      // the other pages are fetched in the background and resized only if they differ
+      const first = await this.doc.getPage(1);
+      if (this.dead) return;
+      const vp = first.getViewport({ scale: 1 });
       for (let n = 1; n <= this.doc.numPages; n++) {
-        const page = await this.doc.getPage(n);
-        if (this.dead) return;
-        const vp = page.getViewport({ scale: 1 });
-        this.pages.push({ n, page, w: vp.width, h: vp.height, el: null, canvas: null, text: null, scale: 0, drawn: 0, task: null, taskScale: 0, token: 0 });
+        this.pages.push({ n, page: n === 1 ? first : null, w: vp.width, h: vp.height, el: null, canvas: null, text: null, scale: 0, drawn: 0, task: null, taskScale: 0, token: 0 });
       }
       this.build();
       this.built = true;
@@ -219,6 +233,25 @@
       this.observe();
       this.updateStatus();
       this.rememberPages();
+      this.fillPages();
+    }
+
+    async fillPages() {
+      let resized = false;
+      const get = async (p) => {
+        const page = await this.doc.getPage(p.n);
+        if (this.dead) return;
+        const vp = page.getViewport({ scale: 1 });
+        if (Math.abs(vp.width - p.w) > 0.5 || Math.abs(vp.height - p.h) > 0.5) { p.w = vp.width; p.h = vp.height; resized = true; }
+        p.page = page;
+        if (this.near.has(p) && !resized) this.draw(p);
+      };
+      // Pages near the reader first, then the rest, a few at a time
+      const order = [...this.pages].filter((p) => !p.page).sort((a, b) => (this.near.has(b) - this.near.has(a)) || a.n - b.n);
+      for (let i = 0; i < order.length && !this.dead; i += 4) {
+        try { await Promise.all(order.slice(i, i + 4).map(get)); } catch (err) { console.warn('A page could not be read', err); }
+      }
+      if (!this.dead && resized) this.layout();
     }
 
     /* Page count is only known once the PDF is open: show it, and keep it with a draft */
