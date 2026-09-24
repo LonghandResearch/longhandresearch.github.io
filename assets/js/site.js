@@ -283,10 +283,15 @@
      be drawn before the browser's draft store has answered. */
   const publishedSorted = () => published().sort(byDateDesc);
 
+  /* Drafts and the author tools exist only on this computer (the site opened
+     as a file or from localhost), never on the live site. */
+  const onThisComputer = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
+
   /* Every report, newest first. A draft whose id has since been published
      is hidden, so a report never shows twice. */
   async function allReports() {
     const pub = published();
+    if (!onThisComputer) return pub.sort(byDateDesc);
     const ids = new Set(pub.map((r) => r.id));
     const local = (await drafts.all()).map((r) => normalize(r, 'local')).filter((r) => r.id && !ids.has(r.id));
     return [...local, ...pub].sort(byDateDesc);
@@ -294,7 +299,7 @@
 
   async function findReport(id) {
     const pub = published().find((r) => r.id === id);
-    if (pub) return pub;
+    if (pub || !onThisComputer) return pub || null;
     const rec = await drafts.get(id);
     return rec ? normalize(rec, 'local') : null;
   }
@@ -400,7 +405,7 @@
 
   function initAuthor() {
     storage.del('longhand-author'); // an older switch that let the live site show them
-    LH.isAuthor = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
+    LH.isAuthor = onThisComputer;
     document.documentElement.classList.toggle('is-author', LH.isAuthor);
     $$('[data-add-report]').forEach((b) => {
       b.hidden = !LH.isAuthor;
