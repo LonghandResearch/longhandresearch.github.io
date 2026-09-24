@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-24T10:35:15.186Z",
+ "updated": "2026-09-24T10:41:24.574Z",
  "items": [
   {
    "title": "Bitcoin slides to $83,300 as bond yields hit highest level since 2007",
@@ -7,6 +7,13 @@
    "source": "CoinDesk",
    "topic": "Crypto",
    "time": "2026-09-24T10:30:28.000Z"
+  },
+  {
+   "title": "EU banking watchdog calls for crypto lending rules under MiCA",
+   "url": "https://cointelegraph.com/news/eu-eba-crypto-lending-defi-mica-rules?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T10:30:00.000Z"
   },
   {
    "title": "Global crude steel output falls 1.2% in August",
@@ -45,14 +52,6 @@
    "time": "2026-09-24T10:15:03.000Z"
   },
   {
-   "title": "Bahlil Ungkap Dampak El Nino terhadap Pembangkit Listrik Tenaga Air",
-   "url": "https://ekonomi.republika.co.id/berita/tlv5oh349/bahlil-ungkap-dampak-el-nino-terhadap-pembangkit-listrik-tenaga-air",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-24T10:12:17.000Z"
-  },
-  {
    "title": "Traders price in 4 Fed rate hikes by June 2027 as bitcoin slides below $83,000",
    "url": "https://www.coindesk.com/markets/2026/09/24/traders-are-pricing-in-4-fed-rate-hikes-as-bitcoin-slides-below-usd83-000",
    "source": "CoinDesk",
@@ -73,14 +72,6 @@
    "source": "Investing.com",
    "topic": "Commodities",
    "time": "2026-09-24T10:07:33.000Z"
-  },
-  {
-   "title": "Menko IPK: Ada 2.500 desa yang belum terhubung internet",
-   "url": "https://www.antaranews.com/berita/5756823/menko-ipk-ada-2500-desa-yang-belum-terhubung-internet",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T10:06:05.000Z"
   },
   {
    "title": "Uang Beredar di Indonesia Capai Rp10.448 Triliun di Agustus 2026",
@@ -105,12 +96,12 @@
    "time": "2026-09-24T09:54:27.000Z"
   },
   {
-   "title": "Didatangi 1.000 Petani dari Indramayu Terkait Irigasi, Ini Jawaban Mentan Amran",
-   "url": "https://ekonomi.republika.co.id/berita/tlv4s8349/didatangi-1000-petani-dari-indramayu-terkait-irigasi-ini-jawaban-mentan-amran",
-   "source": "Republika",
-   "topic": "Macro",
+   "title": "Seharian di Zona Merah, IHSG Ditutup Melemah 1,2%",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8677613/seharian-di-zona-merah-ihsg-ditutup-melemah-1-2",
+   "source": "detikFinance",
+   "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T09:52:56.000Z"
+   "time": "2026-09-24T09:50:28.000Z"
   },
   {
    "title": "The data proves it: Bitcoin doesn't care about rising bond yields over long-term",
@@ -147,14 +138,6 @@
    "source": "Cointelegraph",
    "topic": "Crypto",
    "time": "2026-09-24T09:32:44.000Z"
-  },
-  {
-   "title": "Karhutla di Lahan Konsesi Disorot, Hasil Investigasi Jadi Kunci Kepastian Investasi",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243980/karhutla-di-lahan-konsesi-disorot-hasil-investigasi-jadi-kunci-kepastian-investasi",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T09:26:12.000Z"
   },
   {
    "title": "Rupiah ke Rp17.916 per Dolar, Wisata ke Indonesia Makin Kompetitif",
@@ -209,14 +192,6 @@
    "time": "2026-09-24T09:00:00.000Z"
   },
   {
-   "title": "Kapasitas Pelabuhan Naik, Ekosistem Logistik Darat Diperkuat",
-   "url": "https://economy.okezone.com/read/2026/09/24/11/3243972/kapasitas-pelabuhan-naik-ekosistem-logistik-darat-diperkuat",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T08:54:51.000Z"
-  },
-  {
    "title": "Hartadinata Beli 50 Kg Emas Murni dari Freeport",
    "url": "https://economy.okezone.com/read/2026/09/24/278/3243970/hartadinata-beli-50-kg-emas-murni-dari-freeport",
    "source": "Okezone",
@@ -255,12 +230,12 @@
    "time": "2026-09-24T08:25:46.000Z"
   },
   {
-   "title": "Perumnas Kembangkan Hunian MBR Terintegrasi Transportasi Publik",
-   "url": "https://ekonomi.republika.co.id/berita/tlv0g6416/perumnas-kembangkan-hunian-mbr-terintegrasi-transportasi-publik",
-   "source": "Republika",
-   "topic": "Macro",
+   "title": "Suahasil Klaim Ekonomi RI Cukup Baik: Tumbuh 5,45%, Inflasi 3,19%",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8677370/suahasil-klaim-ekonomi-ri-cukup-baik-tumbuh-5-45-inflasi-3-19",
+   "source": "detikFinance",
+   "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T08:19:18.000Z"
+   "time": "2026-09-24T08:17:59.000Z"
   },
   {
    "title": "Global debt tops $365 trillion as economists sound alarm over 'vicious cycle'",
@@ -278,14 +253,6 @@
    "time": "2026-09-24T08:10:43.000Z"
   },
   {
-   "title": "Geopolitik Tekan Pariwisata Global, Turis Malaysia Jadi Andalan Indonesia",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243959/geopolitik-tekan-pariwisata-global-turis-malaysia-jadi-andalan-indonesia",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T08:02:31.000Z"
-  },
-  {
    "title": "Indian Refiners Lift LPG Output Nearly 20% as Hormuz Blockage Chokes Imports",
    "url": "https://oilprice.com/Latest-Energy-News/World-News/Indian-Refiners-Lift-LPG-Output-Nearly-20-as-Hormuz-Blockage-Chokes-Imports.html",
    "source": "OilPrice",
@@ -293,20 +260,12 @@
    "time": "2026-09-24T08:00:00.000Z"
   },
   {
-   "title": "Prabowo Siapkan Insentif Industri Tekstil, Begini Respons Kadin",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243957/prabowo-siapkan-insentif-industri-tekstil-begini-respons-kadin",
-   "source": "Okezone",
+   "title": "Dasco Kumpulkan Menkeu, BI, OJK hingga Danantara, Ada Apa?",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8677260/dasco-kumpulkan-menkeu-bi-ojk-hingga-danantara-ada-apa",
+   "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T07:57:43.000Z"
-  },
-  {
-   "title": "Rekening Gratis Rp50.000 Disarankan Pakai Data Dukcapil, Penerima Bansos Bakal Scan Wajah",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243951/rekening-gratis-rp50-000-disarankan-pakai-data-dukcapil-penerima-bansos-bakal-scan-wajah",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T07:32:03.000Z"
+   "time": "2026-09-24T07:35:01.000Z"
   },
   {
    "title": "74 Juta Rekening Warga Usia 17 Tahun, Saldo Rp50 Ribu Butuh Anggaran Rp3,8 Triliun",
@@ -315,22 +274,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-24T07:24:41.000Z"
-  },
-  {
-   "title": "Segini Gaji, Tunjangan dan Jadwal Mulai Kerja Manajer Koperasi Desa Merah Putih 2026",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243942/segini-gaji-tunjangan-dan-jadwal-mulai-kerja-manajer-koperasi-desa-merah-putih-2026",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T07:21:19.000Z"
-  },
-  {
-   "title": "Pengguna QRIS Tembus 67 Juta, Merchant Tetap Wajib Terima Uang Tunai",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243940/pengguna-qris-tembus-67-juta-merchant-tetap-wajib-terima-uang-tunai",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T07:20:54.000Z"
   },
   {
    "title": "Mercuria pledges $500m to Project Vault minerals initiative",
@@ -376,19 +319,19 @@
    "time": "2026-09-24T07:11:03.000Z"
   },
   {
-   "title": "Spesial BRI Prioritas: Nikmati Bonus 27.000 GarudaMiles dan Benefit Perjalanan Mewah",
-   "url": "https://ekonomi.republika.co.id/berita/tlux7j423/spesial-bri-prioritas-nikmati-bonus-27000-garudamiles-dan-benefit-perjalanan-mewah",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-24T07:09:19.000Z"
-  },
-  {
    "title": "Blue Moon Metals to acquire Turner deposit from Gold Coast Mining",
    "url": "https://www.mining-technology.com/news/blue-moon-to-acquire-turner-deposit/",
    "source": "Mining Technology",
    "topic": "Commodities",
    "time": "2026-09-24T07:07:40.000Z"
+  },
+  {
+   "title": "bank bjb dan UPI Perkuat Sinergi Pendidikan dan Layanan Perbankan",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8677087/bank-bjb-dan-upi-perkuat-sinergi-pendidikan-dan-layanan-perbankan",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T07:00:56.000Z"
   },
   {
    "title": "Southeast Asia Keeps Building Gas Plants Despite Hormuz LNG Shock",
@@ -398,6 +341,14 @@
    "time": "2026-09-24T07:00:00.000Z"
   },
   {
+   "title": "KRL Makin Padat, KAI Usul Impor Kereta Bekas untuk Tambah Armada",
+   "url": "https://finance.detik.com/foto-bisnis/d-8676756/krl-makin-padat-kai-usul-impor-kereta-bekas-untuk-tambah-armada",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T06:54:39.000Z"
+  },
+  {
    "title": "Trump administration weighs a global stablecoin plan to cement dollar's dominance",
    "url": "https://www.coindesk.com/markets/2026/09/24/trump-administration-weighs-a-global-stablecoin-plan-to-cement-dollar-s-dominance",
    "source": "CoinDesk",
@@ -405,35 +356,12 @@
    "time": "2026-09-24T06:33:23.000Z"
   },
   {
-   "title": "Ini Cara Siapkan Talenta Digital RI Sambut Era AI",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243916/ini-cara-siapkan-talenta-digital-ri-sambut-era-ai",
-   "source": "Okezone",
+   "title": "bank bjb Raih Anugerah Inovasi Pengembangan Ekonomi dan UMKM",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676998/bank-bjb-raih-anugerah-inovasi-pengembangan-ekonomi-dan-umkm",
+   "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T06:30:41.000Z"
-  },
-  {
-   "title": "France's fresh budget battle threatens to topple another government",
-   "url": "https://www.cnbc.com/2026/09/24/france-budget-debt-deficit-government.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-09-24T06:21:00.000Z"
-  },
-  {
-   "title": "Ini Para Pemenang PGTC 2026 yang Sukses Adu Debat hingga Ide Inovasi Energi",
-   "url": "https://economy.okezone.com/read/2026/09/24/11/3243914/selamat-ini-para-pemenang-pgtc-2026-yang-sukses-adu-debat-hingga-ide-inovasi-energi",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T06:04:04.000Z"
-  },
-  {
-   "title": "Airlangga Minta LPS Jamin Simpanan Nasabah di Koperasi",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243910/airlangga-minta-lps-jamin-simpanan-nasabah-di-koperasi",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-24T05:52:28.000Z"
+   "time": "2026-09-24T05:45:21.000Z"
   },
   {
    "title": "IHSG Anjlok 1 Persen ke 6.307, 472 Saham Kebakaran",
@@ -444,12 +372,12 @@
    "time": "2026-09-24T05:36:25.000Z"
   },
   {
-   "title": "Puskeswan dan Mobil Klinik Keliling Permudah Warga Jakarta Rawat Hewan Kesayangan",
-   "url": "https://economy.okezone.com/read/2026/09/24/11/3243904/puskeswan-dan-mobil-klinik-keliling-permudah-warga-jakarta-rawat-hewan-kesayangan",
-   "source": "Okezone",
+   "title": "Paramount-WBD Merger, 'Perang' Antar Pegawai Dimulai demi Hindari PHK",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8677004/paramount-wbd-merger-perang-antar-pegawai-dimulai-demi-hindari-phk",
+   "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T05:25:05.000Z"
+   "time": "2026-09-24T05:36:16.000Z"
   },
   {
    "title": "A week of AI coding cut a quantum-safe bitcoin transaction estimate from $320 to $66",
@@ -473,11 +401,27 @@
    "time": "2026-09-24T05:08:03.000Z"
   },
   {
+   "title": "bank bjb dan MNC Finance Kerja Sama Asset Buy Rp 100 Miliar",
+   "url": "https://finance.detik.com/moneter/d-8676960/bank-bjb-dan-mnc-finance-kerja-sama-asset-buy-rp-100-miliar",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T05:07:16.000Z"
+  },
+  {
    "title": "U.S.-China trade truce extended for two months, Bessent says, as Xi begins state visit",
    "url": "https://www.cnbc.com/2026/09/24/us-china-trade-truce-bessent-trump-xi.html",
    "source": "CNBC",
    "topic": "Markets",
    "time": "2026-09-24T04:55:59.000Z"
+  },
+  {
+   "title": "Rupiah Terjepit, Yield AS 5,11% hingga Minyak Tembus US $100",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8676910/rupiah-terjepit-yield-as-5-11-hingga-minyak-tembus-us-100",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T04:55:46.000Z"
   },
   {
    "title": "Bitcoin’s ‘last resort’ quantum-safe solution just got 79% cheaper: StarkWare",
@@ -503,12 +447,12 @@
    "time": "2026-09-24T04:48:54.000Z"
   },
   {
-   "title": "Menutup PGTC 2026, Pertamina Tegaskan Peran Generasi Muda dalam Mendorong Masa Depan Energi",
-   "url": "https://ekonomi.republika.co.id/berita/tluqj0430/menutup-pgtc-2026-pertamina-tegaskan-peran-generasi-muda-dalam-mendorong-masa-depan-energi",
-   "source": "Republika",
-   "topic": "Macro",
+   "title": "Mobilitas Tinggi, Kartu Kredit BCA Bisa Jadi Solusi Berbagai Transaksi",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676889/mobilitas-tinggi-kartu-kredit-bca-bisa-jadi-solusi-berbagai-transaksi",
+   "source": "detikFinance",
+   "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T04:45:00.000Z"
+   "time": "2026-09-24T04:46:15.000Z"
   },
   {
    "title": "US weighs overseas push for dollar-backed stablecoins: Bloomberg",
@@ -518,20 +462,28 @@
    "time": "2026-09-24T04:44:12.000Z"
   },
   {
-   "title": "Dari Debat Hingga Ide Inovasi Energi, Ini Para Pemenang PGTC 2026",
-   "url": "https://ekonomi.republika.co.id/berita/tluq9s430/dari-debat-hingga-ide-inovasi-energi-ini-para-pemenang-pgtc-2026",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-24T04:39:28.000Z"
-  },
-  {
-   "title": "Harga Pangan Hari Ini: Daging Naik Tembus Rp152.650 per Kg, Cabai Turun Jadi Rp92.400",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243891/harga-pangan-hari-ini-daging-naik-tembus-rp152-650-per-kg-cabai-turun-jadi-rp92-400",
-   "source": "Okezone",
+   "title": "Sinergi bank bjb-KAI Commuter Integrasikan Ekosistem Pembayaran Digital",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676867/sinergi-bank-bjb-kai-commuter-integrasikan-ekosistem-pembayaran-digital",
+   "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T04:15:16.000Z"
+   "time": "2026-09-24T04:40:27.000Z"
+  },
+  {
+   "title": "Kinerja Positif, bank bjb Raih Peringkat ke-62 di Fortune Indonesia 100",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676860/kinerja-positif-bank-bjb-raih-peringkat-ke-62-di-fortune-indonesia-100",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T04:27:45.000Z"
+  },
+  {
+   "title": "bank bjb Genjot Literasi-Inklusi Keuangan Lewat Bulan Dana Pensiun 2026",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676831/bank-bjb-genjot-literasi-inklusi-keuangan-lewat-bulan-dana-pensiun-2026",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T04:22:38.000Z"
   },
   {
    "title": "Dogecoin down 8%, bitcoin under $84,000 as Treasury yields hit highest level since 2007",
@@ -541,43 +493,20 @@
    "time": "2026-09-24T04:13:01.000Z"
   },
   {
-   "title": "World heads into food crises 'blind' as U.S. aid cuts squeeze UN food agency, experts warn",
-   "url": "https://www.cnbc.com/2026/09/24/hormuz-blacksea-ukraine-iran-food-security-united-nations-.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-09-24T04:02:26.000Z"
-  },
-  {
-   "title": "Mentan Amran Temui 1.000 Petani Indramayu, Selesaikan Masalah Sebelum Demo",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243889/mentan-amran-temui-1-000-petani-indramayu-selesaikan-masalah-sebelum-demo",
-   "source": "Okezone",
+   "title": "OJK Genjot Literasi Keuangan untuk Dorong Ekonomi Wisata Desa Luk Panenteng",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8675956/ojk-genjot-literasi-keuangan-untuk-dorong-ekonomi-wisata-desa-luk-panenteng",
+   "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T03:51:17.000Z"
+   "time": "2026-09-24T03:25:09.000Z"
   },
   {
-   "title": "Pemerintah Gandeng PGN Dukung Optimalisasi Jargas di Gresik dan Sidoarjo",
-   "url": "https://ekonomi.republika.co.id/berita/tlunz1522/pemerintah-gandeng-pgn-dukung-optimalisasi-jargas-di-gresik-dan-sidoarjo",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-24T03:49:49.000Z"
-  },
-  {
-   "title": "RUU Pelindungan Ketenagakerjaan Ditargetkan Rampung Oktober 2026",
-   "url": "https://economy.okezone.com/read/2026/09/24/320/3243879/ruu-pelindungan-ketenagakerjaan-ditargetkan-rampung-oktober-2026",
-   "source": "Okezone",
+   "title": "Harga Emas Antam Kembali Anjlok!",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676685/harga-emas-antam-kembali-anjlok",
+   "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T03:06:35.000Z"
-  },
-  {
-   "title": "Hari Tani Nasional:,Dari Energi Terbarukan, Tumbuh Pangan, dan Kemandirian Petani",
-   "url": "https://ekonomi.republika.co.id/berita/tlulmb430/hari-tani-nasionaldari-energi-terbarukan-tumbuh-pangan-dan-kemandirian-petani",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-24T02:58:59.000Z"
+   "time": "2026-09-24T03:02:14.000Z"
   },
   {
    "title": "Here's what happens to the economy when Treasury yields soar like they are now",
@@ -585,6 +514,22 @@
    "source": "CNBC",
    "topic": "Macro",
    "time": "2026-09-24T02:50:12.000Z"
+  },
+  {
+   "title": "Dolar AS Menguat Tembus ke Rp 17.905",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8676663/dolar-as-menguat-tembus-ke-rp-17-905",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T02:41:39.000Z"
+  },
+  {
+   "title": "IHSG Melemah ke Level 6.338 Pagi Ini",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8676633/ihsg-melemah-ke-level-6-338-pagi-ini",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T02:18:04.000Z"
   },
   {
    "title": "IHSG Kamis dibuka melemah 9,93 poin ke posisi 6.364",
@@ -603,26 +548,12 @@
    "time": "2026-09-24T02:13:40.000Z"
   },
   {
-   "title": "Here's who we know is going to the Trump-Xi dinner so far",
-   "url": "https://www.cnbc.com/2026/09/22/heres-who-we-know-is-going-to-the-trump-xi-dinner-so-far.html",
-   "source": "CNBC",
+   "title": "Literasi Keuangan ke Pelosok, OJK Gelar Edukasi di Banggai Kepulauan, Sulteng",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8675936/literasi-keuangan-ke-pelosok-ojk-gelar-edukasi-di-banggai-kepulauan-sulteng",
+   "source": "detikFinance",
    "topic": "Markets",
-   "time": "2026-09-24T01:54:35.000Z"
-  },
-  {
-   "title": "Menko Perekonomian Dorong Nilai Alquran Diterapkan dalam Kebijakan Ekonomi",
-   "url": "https://ekonomi.republika.co.id/berita/tluie8423/menko-perekonomian-dorong-nilai-alquran-diterapkan-dalam-kebijakan-ekonomi",
-   "source": "Republika",
-   "topic": "Macro",
    "lang": "id",
-   "time": "2026-09-24T01:49:20.000Z"
-  },
-  {
-   "title": "Trump-Xi meeting: Why China's self-sufficiency changes the calculus",
-   "url": "https://www.cnbc.com/2026/09/23/trump-xi-meeting-why-chinas-self-sufficiency-changes-the-calculus.html",
-   "source": "CNBC",
-   "topic": "Markets",
-   "time": "2026-09-24T01:44:14.000Z"
+   "time": "2026-09-24T02:05:39.000Z"
   },
   {
    "title": "BI: Ekonomi Global Masih Lemah, Domestik Tetap Terjaga",
@@ -633,14 +564,6 @@
    "time": "2026-09-24T01:30:00.000Z"
   },
   {
-   "title": "PNM dan Kementerian UMKM Luncurkan Program Laksmi, Perkuat Pemberdayaan Usaha Mikro Perempuan",
-   "url": "https://ekonomi.republika.co.id/berita/tluh6w416/pnm-dan-kementerian-umkm-luncurkan-program-laksmi-perkuat-pemberdayaan-usaha-mikro-perempuan",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-24T01:23:20.000Z"
-  },
-  {
    "title": "Kalshi says CFTC hasn’t contacted it over ‘unusual’ $5B trading activity",
    "url": "https://cointelegraph.com/news/kalshi-says-cftc-hasnt-contacted-it-over-unusual-5b-trading-activity?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
@@ -648,12 +571,20 @@
    "time": "2026-09-24T00:53:09.000Z"
   },
   {
-   "title": "SPBU Signature Pertamina: Pengertian, fasilitas, dan lokasinya",
-   "url": "https://www.antaranews.com/berita/5755795/spbu-signature-pertamina-pengertian-fasilitas-dan-lokasinya",
-   "source": "Antara",
-   "topic": "Macro",
+   "title": "Harga BBM Pertamina Hari Ini 24 September 2026, Pertamax Berapa?",
+   "url": "https://economy.okezone.com/read/2026/09/24/320/3243849/harga-bbm-pertamina-hari-ini-24-september-2026-pertamax-berapa",
+   "source": "Okezone",
+   "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-24T00:38:14.000Z"
+   "time": "2026-09-23T23:52:37.000Z"
+  },
+  {
+   "title": "Bahlil Buka Suara soal Harga BBM Nonsubsidi Bakal Naik Lagi",
+   "url": "https://economy.okezone.com/read/2026/09/23/320/3243778/bahlil-buka-suara-soal-harga-bbm-nonsubsidi-bakal-naik-lagi",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-23T23:15:44.000Z"
   },
   {
    "title": "Canada’s Oil Patch On Track For Biggest M&A Wave In A Decade",
@@ -789,6 +720,14 @@
    "time": "2026-09-23T15:56:20.000Z"
   },
   {
+   "title": "OJK Terbitkan Aturan Baru Efek Beragun Aset, Dukung 3 Juta Rumah",
+   "url": "https://finance.detik.com/moneter/d-8676423/ojk-terbitkan-aturan-baru-efek-beragun-aset-dukung-3-juta-rumah",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-23T15:40:55.000Z"
+  },
+  {
    "title": "Glencore Joins Project Vault With $500 Million Cobalt Commitment",
    "url": "https://oilprice.com/Latest-Energy-News/World-News/Glencore-Joins-Project-Vault-With-500-Million-Cobalt-Commitment.html",
    "source": "OilPrice",
@@ -860,11 +799,27 @@
    "time": "2026-09-23T13:30:00.000Z"
   },
   {
+   "title": "Dapat Aduan Serikat Pekerja, Komisi XI Minta OJK Evaluasi Aturan PIP Maybank",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676262/dapat-aduan-serikat-pekerja-komisi-xi-minta-ojk-evaluasi-aturan-pip-maybank",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-23T13:28:34.000Z"
+  },
+  {
    "title": "Bitcoin's $16 billion quarterly options settlement arrives with a 'call-heavy' book",
    "url": "https://www.coindesk.com/markets/2026/09/23/bitcoin-s-usd16-billion-quarterly-options-settlement-arrives-with-a-call-heavy-book",
    "source": "CoinDesk",
    "topic": "Crypto",
    "time": "2026-09-23T13:02:43.000Z"
+  },
+  {
+   "title": "ADB Ramal Inflasi RI Bengkak ke 3,3%!",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8676219/adb-ramal-inflasi-ri-bengkak-ke-3-3",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-23T13:01:35.000Z"
   },
   {
    "title": "MoonPay to acquire SEC-registered North Capital in $60 million all-stock deal",
@@ -895,12 +850,28 @@
    "time": "2026-09-23T12:22:56.000Z"
   },
   {
+   "title": "DANA Janji Kembalikan Limit Korban Pembobolan Kartu Kredit",
+   "url": "https://finance.detik.com/moneter/d-8676092/dana-janji-kembalikan-limit-korban-pembobolan-kartu-kredit",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-23T12:15:48.000Z"
+  },
+  {
    "title": "OJK: Jumlah investor pasar modal di Ciayumajakuning capai 686 ribu",
    "url": "https://www.antaranews.com/berita/5755080/ojk-jumlah-investor-pasar-modal-di-ciayumajakuning-capai-686-ribu",
    "source": "Antara",
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-23T12:06:55.000Z"
+  },
+  {
+   "title": "Tok! DPR Restui Impor KRL Bekas Jepang",
+   "url": "https://finance.detik.com/infrastruktur/d-8676090/tok-dpr-restui-impor-krl-bekas-jepang",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-23T12:00:45.000Z"
   },
   {
    "title": "Live updates: Bitcoin pulls back to $84,000 as bond yields fly higher",
@@ -924,12 +895,20 @@
    "time": "2026-09-23T11:04:44.000Z"
   },
   {
-   "title": "KKP dorong hilirisasi rumput laut Gracilaria untuk tarik investasi",
-   "url": "https://www.antaranews.com/berita/5754871/kkp-dorong-hilirisasi-rumput-laut-gracilaria-untuk-tarik-investasi",
-   "source": "Antara",
+   "title": "BI Ungkap Kondisi Ekonomi RI di Era Suku Bunga Tinggi",
+   "url": "https://finance.detik.com/moneter/d-8675996/bi-ungkap-kondisi-ekonomi-ri-di-era-suku-bunga-tinggi",
+   "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
-   "time": "2026-09-23T10:33:21.000Z"
+   "time": "2026-09-23T10:48:02.000Z"
+  },
+  {
+   "title": "Duta Literasi Keuangan OJK Dorong Warga Banggai Kepulauan Bijak Kelola Uang",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8675868/duta-literasi-keuangan-ojk-dorong-warga-banggai-kepulauan-bijak-kelola-uang",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-23T10:46:51.000Z"
   },
   {
    "title": "Bitcoin consolidates near $86,000 as rally narrows and Brent slips below $100",
@@ -1278,14 +1257,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-22T10:47:55.000Z"
-  },
-  {
-   "title": "Daftar 14 pejabat baru Kemenkeu yang dilantik Suahasil",
-   "url": "https://www.antaranews.com/berita/5753039/daftar-14-pejabat-baru-kemenkeu-yang-dilantik-suahasil",
-   "source": "Antara",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-22T10:05:29.000Z"
   },
   {
    "title": "Pendaftaran dibuka, Capital Market Run digelar 29 November 2026 di GBK",
