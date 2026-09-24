@@ -14,6 +14,34 @@ const KEEP_DAYS = 4;          // headlines older than this drop off
 const PER_SOURCE = 25;        // newest stories taken from each feed per run
 const MAX_ITEMS = 240;
 
+/* Only market news. A source marked "strict" in feeds.json also covers
+   general news, so its headlines are kept only when they name something a
+   market reader follows: shares, rates, currencies, commodities, crypto,
+   earnings, deals or the economy. Some subjects are never kept, from any
+   source: sport, celebrities, accidents, promotions, how-to pieces. */
+const MARKET = new RegExp([
+  // Indonesian
+  'ihsg', 'saham', 'bursa', 'bei', 'emiten', 'investor', 'obligasi', 'sbn', 'surat utang', 'rupiah', 'dolar', 'kurs', 'valas',
+  'suku bunga', 'bi[- ]?rate', 'bi', 'bank indonesia', 'rdg', 'ojk', 'inflasi', 'deflasi', 'pdb', 'pertumbuhan ekonomi',
+  'neraca (?:dagang|perdagangan|pembayaran)', 'cadangan devisa', 'ekspor', 'impor', 'dividen', 'laba', 'rugi bersih', 'pendapatan',
+  'ipo', 'rights? issue', 'buyback', 'reksa ?dana', 'sekuritas', 'pasar modal', 'emas', 'minyak', 'batu ?bara', 'nikel',
+  'cpo', 'timah', 'tembaga', 'komoditas', 'kripto', 'apbn', 'fiskal', 'moneter', 'perbankan', 'kredit', 'akuisisi', 'net (?:buy|sell)',
+  'asing', 'uang beredar', 'harga (?:bbm|pangan pokok)', 'triliun', 'miliar',
+  // English
+  'stocks?', 'shares?', 'equit(?:y|ies)', 'markets?', 's&p', 'nasdaq', 'dow', 'bonds?', 'yields?', 'treasur(?:y|ies)', 'rates?', 'fed',
+  'fomc', 'central banks?', 'inflation', 'cpi', 'ppi', 'gdp', 'recession', 'payrolls?', 'jobs report', 'earnings', 'revenue', 'profits?',
+  'dividends?', 'mergers?', 'acquisitions?', 'investors?', 'funds?', 'etfs?', 'dollar', 'currenc(?:y|ies)', 'forex', 'yen', 'euro',
+  'yuan', 'oil', 'crude', 'brent', 'gold', 'silver', 'copper', 'lithium', 'coal', 'commodit(?:y|ies)', 'opec', 'bitcoin', 'crypto',
+  'tariffs?', 'trade', 'econom(?:y|ic|ies)', 'banks?', 'lending', 'credit', 'debt', 'deficit', 'stimulus', 'wall street',
+  'hedge funds?', 'valuations?', 'rally', 'sell-?off', 'billion', 'trillion',
+].map((w) => `\\b${w}\\b`).join('|'), 'i');
+const NEVER = new RegExp([
+  'sepak ?bola', 'liga', 'timnas', 'artis', 'seleb\\w*', 'zodiak', 'resep', 'horoskop', 'gosip', 'viral', 'kecelakaan', 'banjir', 'gempa',
+  'pembunuhan', 'lowongan', 'cpns', 'bansos', 'hadiah', 'promo', 'diskon', 'bonus', 'kuis', 'pengertian', 'cara', 'tips',
+  'quiz', 'recipes?', 'celebrit(?:y|ies)', 'horoscopes?', 'nfl', 'nba', 'football', 'obituary',
+].map((w) => `\\b${w}\\b`).join('|'), 'i');
+const onTopic = (title, strict) => !NEVER.test(title) && (!strict || MARKET.test(title));
+
 const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', hellip: '…', mdash: '—', ndash: '–', lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”' };
 const decode = (s) => String(s || '')
   .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
@@ -75,7 +103,7 @@ results.forEach((r, i) => {
   }
   const topic = TOPICS.includes(f.topic) ? f.topic : 'Markets';
   const ok = r.value
-    .filter((x) => x.title && /^https?:\/\//i.test(x.url) && Number.isFinite(x.time))
+    .filter((x) => x.title && /^https?:\/\//i.test(x.url) && Number.isFinite(x.time) && onTopic(x.title, f.strict))
     .sort((a, b) => b.time - a.time)
     .slice(0, PER_SOURCE)
     .map((x) => ({
@@ -93,7 +121,9 @@ results.forEach((r, i) => {
 // The newest copy of each story wins; the same headline from two feeds shows once
 const seen = new Set();
 const key = (x) => x.title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-const items = [...fresh, ...previous]
+// Headlines kept earlier are checked again, so a tightened filter applies at once
+const strictSources = new Set(feeds.filter((f) => f.strict).map((f) => f.name));
+const items = [...fresh, ...previous.filter((x) => onTopic(x.title, strictSources.has(x.source)))]
   .filter((x) => Date.parse(x.time) >= oldest)
   .sort((a, b) => Date.parse(b.time) - Date.parse(a.time))
   .filter((x) => {
