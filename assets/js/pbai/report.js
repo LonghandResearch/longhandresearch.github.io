@@ -586,7 +586,7 @@
       return `<tr data-val-row="${c.ticker}">
         <th scope="row"><span class="co-ticker">${c.ticker}</span></th>
         <td><span class="methods">${c.methods.map(esc).join(', ')}</span><span class="muted small block">${esc(c.methodNote)}</span></td>
-        <td>${usd || !c.shares ? `<span class="na">${usd ? 'Reports in US$; not computed' : 'Share count not verified'}</span>` : `<input class="input input-sm" type="number" inputmode="numeric" min="1" step="1" aria-label="Price for ${c.ticker}, rupiah" data-price="${c.ticker}" value="${c.price || ''}" placeholder="Enter">${c.price ? `<span class="flag" title="${esc(c.priceNote)}">Indicative</span> ${cite(c.priceSource)}` : ''}`}</td>
+        <td>${usd || !c.shares ? `<span class="na">${usd ? 'Reports in US$; not computed' : 'Share count not verified'}</span>` : `<input class="input input-sm" type="number" inputmode="numeric" min="1" step="1" aria-label="Price for ${c.ticker}, rupiah" data-price="${c.ticker}" value="${c.price || ''}" placeholder="Enter">${c.price ? `<span class="flag" title="${esc(c.priceNote)}">24 Sep 2026</span> ${cite(c.priceSource)}` : ''}`}</td>
         <td>${c.shares ? `${(c.shares / 1e9).toFixed(2)} bn ${cite(c.sharesSource)}` : '<span class="na">Data unavailable</span>'}</td>
         <td data-v="mcap"></td><td data-v="pe"></td><td data-v="pb"></td><td data-v="evebitda"></td><td data-v="evrev"></td>
       </tr>`;
@@ -688,7 +688,7 @@
       if (c && c.price && shares && b.unit === 'IDR bn') {
         const target = c.price * shares / 1e9 + (nd || 0);
         const g = solveGrowth(b, a, target);
-        implied = `<div><dt>Growth the indicative price implies</dt><dd>${g == null ? 'beyond 150% a year' : `${g.toFixed(1)}<span>% a year for five years, other inputs held</span>`}</dd></div>`;
+        implied = `<div><dt>Growth the market price implies</dt><dd>${g == null ? 'beyond 150% a year' : `${g.toFixed(1)}<span>% a year for five years, other inputs held</span>`}</dd></div>`;
       }
       out.innerHTML = `
         <div><dt>Enterprise value</dt><dd>${money(r.ev, u)}</dd></div>
