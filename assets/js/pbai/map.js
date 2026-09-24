@@ -100,7 +100,7 @@
         <defs>
           <filter id="hm-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           <filter id="hm-glow2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="0.9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <radialGradient id="hm-sweep-g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(${jk[0]} ${jk[1]}) scale(170)"><stop offset="0" stop-color="#6fd3ff" stop-opacity="0.16"/><stop offset="1" stop-color="#6fd3ff" stop-opacity="0"/></radialGradient>
+          <radialGradient id="hm-sweep-g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(${jk[0]} ${jk[1]}) scale(170)"><stop class="hm-sweep-a" offset="0"/><stop class="hm-sweep-b" offset="1"/></radialGradient>
           <clipPath id="hm-lens-clip"><circle cx="${LENS.cx}" cy="${LENS.cy}" r="${LENS.r}"/></clipPath>
         </defs>
         <g class="hg-grid">${grid}</g>
