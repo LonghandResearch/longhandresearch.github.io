@@ -16,7 +16,7 @@
     exchange     optional, for example "IDX", "NYSE" or "HKEX"
     company      company name, or the subject of a sector or macro note
     sector       optional, shown on the report page
-    category     "Initiation", "Update", "Sector", "Macro" or "Industry Research"
+    category     "Initiation", "Update", "Sector" or "Macro"
     title        the report headline
     date         publication date, YYYY-MM-DD
     blurb        one or two sentences for the report list
@@ -40,7 +40,7 @@ window.LONGHAND_REPORTS = [
     "ticker": "",
     "company": "Power, grid, land and data centres",
     "sector": "AI infrastructure and energy, Indonesia",
-    "category": "Industry Research",
+    "category": "Sector",
     "title": "The Power Behind AI",
     "date": "2026-09-24",
     "blurb": "Indonesia’s data-centre boom is becoming an energy story. Where does the value accrue across power, grid, connectivity, industrial land and data centres?",
