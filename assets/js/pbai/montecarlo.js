@@ -131,7 +131,7 @@
       </table></div>
       <p class="calc-hint" data-mc-fixed></p>
       <figure class="pbai-figure">
-        <figcaption class="fig-cap"><span class="fig-no">Figure 12.</span> Distribution of model enterprise value, 10,000 runs</figcaption>
+        <figcaption class="fig-cap"><span class="fig-no">Figure 13.</span> Distribution of model enterprise value, 10,000 runs</figcaption>
         <div class="chart" data-chart="mc" role="img" aria-label="Histogram of simulated enterprise values"></div>
         <dl class="calc-results mc-stats" data-mc-stats aria-live="polite"></dl>
         <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Seeded simulation of the section 08 DCF. Base-year revenue and margin as reported for FY2025; ranges default to the bear, base and bull presets. The chart trims the outer 1% at each end; percentiles use every run. Market EV is the 24 September 2026 market value plus net debt at 31 December 2025 (Pertamina Geothermal converted at Rp17,916/US$); comparing it with the runs shows how much the price already assumes, not what the shares are worth.</p>

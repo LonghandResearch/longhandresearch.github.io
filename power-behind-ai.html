@@ -44,16 +44,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/pbai.css?v=2026-09-24e">
+<link rel="stylesheet" href="assets/css/pbai.css?v=2026-09-24f">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
 <script src="assets/js/site.js" defer blocking="render"></script>
-<script>window.PBAI_VERSION = '2026-09-24e';</script>
-<script src="assets/js/pbai/data.js?v=2026-09-24e" defer></script>
-<script src="assets/js/pbai/report.js?v=2026-09-24e" defer></script>
+<script>window.PBAI_VERSION = '2026-09-24f';</script>
+<script src="assets/js/pbai/data.js?v=2026-09-24f" defer></script>
+<script src="assets/js/pbai/report.js?v=2026-09-24f" defer></script>
+<script src="assets/js/pbai/map.js?v=2026-09-24f" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -224,10 +225,18 @@
           <p class="fig-src">Source: Cushman &amp; Wakefield H1 2025 and H1 2026 data centre updates <a class="cite" data-cite="cw-h125" href="#src-cw-h125">source</a> <a class="cite" data-cite="cw-h126" href="#src-cw-h126">source</a>; operating capacity via Indonesia Business Post <a class="cite" data-cite="ibp" href="#src-ibp">source</a>. Planned is the 1,699 MW pipeline less the 395 MW under construction (Longhand calculation). The H1 2025 pipeline is not split by stage in the source.</p>
         </figure>
 
-        <p>The pipeline grew about 140% in a year, from 709 MW to 1,699 MW, while operating capacity barely moved. It is now more than five times the capacity actually running. Most of what is planned is not yet a building, which is why the timeline below separates what exists from what has only been announced.</p>
+        <p>The pipeline grew about 140% in a year, from 709 MW to 1,699 MW, while operating capacity barely moved. It is now more than five times the capacity actually running. Most of what is planned is not yet a building, which is why the map and the timeline below separate what exists from what has only been announced.</p>
+
+        <figure class="pbai-figure pbai-figure-wide">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 3.</span> Where the data centres are: projects by site and status, 2020 to 2029</figcaption>
+          <div class="holo" data-holo><p class="muted small">The map needs JavaScript. The same projects are listed in Figure 4.</p></div>
+          <p class="fig-src">Source: company announcements and press as cited for each project, the same set as Figure 4. Sites are placed at the town or district named in the sources, not at exact addresses, and projects that share a place are spread on a small ring. Projects without a disclosed site are listed beside the map. The build-out replays by the date in the sources; announced dates are targets, not certainties. Map outline traced by Longhand, not survey accurate.</p>
+        </figure>
+
+        <p>The map makes the concentration plain. Almost every operating hall and most of the construction sit in one corridor, from central Jakarta east through Bekasi and Cikarang to Purwakarta, inside the Java-Madura-Bali system that carries 99% of PLN’s data-centre load. Batam and Bintan are the only other cluster, built on their fibre links to Singapore, and Surabaya is a single outpost. The largest numbers on the map are also the least certain: the 1,000 MW design at Bintan has no timetable, and the two biggest AI commitments, CoreWeave and Zankore, have not named a site.</p>
 
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 3.</span> Selected projects by status and expected date, 2020 to 2029</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 4.</span> Selected projects by status and expected date, 2020 to 2029</figcaption>
           <div class="timeline-filters" role="group" aria-label="Show projects by status" data-timeline-filters>
             <button type="button" class="filter" data-status="all" aria-pressed="true">All</button>
             <button type="button" class="filter" data-status="actual" aria-pressed="false"><span class="shape shape-actual" aria-hidden="true"></span>Operational</button>
@@ -258,7 +267,7 @@
         <p>Globally, data centres used about 415 TWh in 2024, about 1.5% of the world’s electricity, and the IEA expects about 945 TWh by 2030 <a class="cite" data-cite="iea" href="#src-iea">source</a> <a class="cite" data-cite="iea-dcd" href="#src-iea-dcd">source</a>. Indonesia is small in that total, but not small against its own grid. PLN sold 317.69 TWh in 2025, and it named data centres among the drivers of 5.4% growth in business-sector sales <a class="cite" data-cite="pln-sales" href="#src-pln-sales">source</a>. The calculator below turns a hall’s size into energy and cost, with every assumption on view.</p>
 
         <figure class="pbai-figure calc" data-calc>
-          <figcaption class="fig-cap"><span class="fig-no">Figure 4.</span> Data-centre power calculator</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 5.</span> Data-centre power calculator</figcaption>
           <div class="calc-grid">
             <form class="calc-inputs" data-calc-form onsubmit="return false">
               <div class="calc-field">
@@ -313,7 +322,7 @@
         <h3 class="pbai-h3">Three paths to 2030</h3>
         <p>The scenarios below start from PLN’s 580 MW for 2026. The base case follows PLN’s own path to 3.5 GW by 2030, which works out to about 56.7% a year. The bear and bull cases are mine, and each lever is shown so it can be argued with.</p>
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 5.</span> Data-centre electricity demand in 2030 under three scenarios, TWh a year</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 6.</span> Data-centre electricity demand in 2030 under three scenarios, TWh a year</figcaption>
           <div class="scen-table-wrap" data-power-scen></div>
           <div class="chart" data-chart="powerscen" role="img" aria-label="2030 data-centre electricity demand under three scenarios"></div>
           <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions anchored to PLN’s 580 MW (2026) and 3.5 GW (2030) <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a>. Labels give each scenario as a share of PLN’s 2025 electricity sales of 317.69 TWh <a class="cite" data-cite="pln-sales" href="#src-pln-sales">source</a>; a scenario is not a forecast.</p>
@@ -327,14 +336,14 @@
         <h2 class="pbai-h2" id="s05-title">Where the money flows</h2>
         <p>Nobody publishes how data-centre spending in Indonesia splits between power, grid, land, connectivity, cooling and the building. I did not find a reliable breakdown, so the diagram below shows where the money goes, not how much.</p>
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 6.</span> One dollar of data-centre spending, and who can capture it</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 7.</span> One dollar of data-centre spending, and who can capture it</figcaption>
           <p class="illustrative" role="note">Illustrative framework. Not observed market allocation.</p>
           <div class="moneyflow" data-moneyflow></div>
           <p class="fig-src">Source: Longhand framework. No percentages are shown because no reliable allocation data was found.</p>
         </figure>
         <p>What can be observed is how much capital a megawatt attracts, and what a megawatt pays for power each year. Announced investment per MW ranges from about US$8 million to US$16 million across three projects, a spread that depends on whether the budget includes IT equipment, which the announcements do not say. At the sourced tariff, one MW of IT capacity at 70% utilisation and a PUE of 1.54 buys about Rp9.4 billion of electricity a year, around US$0.5 million.</p>
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 7.</span> Announced investment per MW, US$ million</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 8.</span> Announced investment per MW, US$ million</figcaption>
           <div class="chart" data-chart="capexmw" role="img" aria-label="Announced investment per MW for three projects"></div>
           <p class="fig-src">Source: EDGNEX <a class="cite" data-cite="edgnex" href="#src-edgnex">source</a>, Digital Edge <a class="cite" data-cite="cgk" href="#src-cgk">source</a>, Princeton Digital Group <a class="cite" data-cite="pdg-jc3" href="#src-pdg-jc3">source</a>. Announced investment divided by planned MW (Longhand calculation). Scope of each budget is not disclosed.</p>
         </figure>
@@ -375,7 +384,7 @@
         <p class="pbai-num">08</p>
         <h2 class="pbai-h2" id="s08-title">Valuation</h2>
         <p>Different businesses call for different yardsticks. A developer with land is read on book value, a tower company on EV/EBITDA, and a company still building capacity on a discounted cash flow. Table 2 names the method used for each company and why.</p>
-        <p>Prices in the table are closing prices on 24 September 2026, adjusted for share splits, and each can be changed. Share counts are shares issued at 31 December 2025; for Mitratel and XLSMART, treasury shares are not deducted. Figure 8 puts the same multiples on each year-end since FY2021, using the year-end close and that year’s reported figures.</p>
+        <p>Prices in the table are closing prices on 24 September 2026, adjusted for share splits, and each can be changed. Share counts are shares issued at 31 December 2025; for Mitratel and XLSMART, treasury shares are not deducted. Figure 9 puts the same multiples on each year-end since FY2021, using the year-end close and that year’s reported figures.</p>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Valuation table, scrolls sideways on small screens">
           <table class="valuation" data-valuation>
             <caption class="fig-cap"><span class="fig-no">Table 2.</span> Current valuation on reported FY2025 figures</caption>
@@ -384,7 +393,7 @@
         <p class="fig-src">Source: reported FY2025 figures and share counts as cited in section 13; closing prices on 24 September 2026 (Yahoo Finance), editable. EV uses net debt from the audited statements. Pertamina Geothermal reports in US dollars, so its market value is converted at Rp17,916 per US dollar (24 September 2026) before comparing it with its accounts. Puradelta and Jababeka do not report EBITDA, so they are read on P/B and P/E. Multiples are Longhand calculations.</p>
 
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 8.</span> Valuation history: year-end multiples, FY2021 to FY2025</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 9.</span> Valuation history: year-end multiples, FY2021 to FY2025</figcaption>
           <div class="fin-controls"><div class="filters" role="group" aria-label="Choose a multiple" data-vh-metric></div></div>
           <p class="fin-note" data-vh-note aria-live="polite"></p>
           <div class="fin-grid" data-vh-grid></div>
@@ -394,7 +403,7 @@
         <h3 class="pbai-h3">A discounted cash flow you can change</h3>
         <p>A DCF suits businesses whose cash flows follow from capacity and contracts: DCI Indonesia, Mitratel and Pertamina Geothermal. The model is kept simple so each step can be checked. It projects five years, then a terminal value.</p>
         <figure class="pbai-figure dcf" data-dcf>
-          <figcaption class="fig-cap"><span class="fig-no">Figure 9.</span> Discounted cash flow</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 10.</span> Discounted cash flow</figcaption>
           <div class="dcf-top">
             <div class="filters" role="group" aria-label="Choose a company" data-dcf-company></div>
             <div class="filters" role="group" aria-label="Load a scenario" data-dcf-scen>
@@ -435,7 +444,7 @@
           </table>
         </div>
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 10.</span> Model enterprise value by scenario, indexed to the base case = 100</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 11.</span> Model enterprise value by scenario, indexed to the base case = 100</figcaption>
           <div class="chart" data-chart="scen" role="img" aria-label="Model enterprise value by scenario"></div>
           <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions; base-year figures as cited. Indexed so companies reporting in different currencies share one axis.</p>
         </figure>
@@ -459,7 +468,7 @@
         <h2 class="pbai-h2" id="s11-title">Risks</h2>
         <p>The risks are mapped to the links of the chain they act on, not scored. A score would suggest a precision the evidence does not have. Select a risk for the evidence, the mechanism and what to watch.</p>
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 11.</span> Risk map: where each risk acts on the chain</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 12.</span> Risk map: where each risk acts on the chain</figcaption>
           <div class="table-scroll" tabindex="0" role="region" aria-label="Risk map, scrolls sideways on small screens">
             <table class="riskmap" data-riskmap></table>
           </div>

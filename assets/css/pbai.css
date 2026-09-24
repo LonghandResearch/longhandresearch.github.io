@@ -436,3 +436,121 @@ caption.fig-cap { display: table-caption; caption-side: top; padding-bottom: 12p
 .valuation thead th:nth-child(2), .scen thead th:nth-child(2) { text-align: left; }
 .valuation td:nth-child(n + 4), .scen td:nth-child(n + 3), .fin td { white-space: nowrap; }
 .pbai-section > .pbai-figure + p, .pbai-section > .fig-src + p, .pbai-section > .table-scroll + .fig-src + p { margin-top: 28px; }
+
+/* Figure 3: holographic site map. The panel is dark in both themes, like a display. */
+.holo {
+  --h-bg: #06121b; --h-ink: #d7eef7; --h-dim: #7fa7b8; --h-line: #6fd3ff;
+  --h-a: #5b8fcc; --h-c: #c0843a; --h-n: #a27bc2;
+  display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 0; margin-top: 18px;
+  background: var(--h-bg); color: var(--h-ink); border: 1px solid #16384a; position: relative; overflow: hidden;
+  font-family: var(--font-sans);
+}
+.holo > .muted { padding: 20px; color: var(--h-dim); }
+.holo-frame { position: relative; padding: 14px 14px 10px; min-width: 0; }
+.holo-frame::before, .holo-frame::after { content: ""; position: absolute; width: 18px; height: 18px; border: 1px solid var(--h-line); opacity: 0.7; }
+.holo-frame::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+.holo-frame::after { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+.holo-hud { display: flex; justify-content: space-between; gap: 12px; font: 500 10.5px/1.4 var(--mono); letter-spacing: 0.12em; color: var(--h-dim); }
+.holo-svg { display: block; width: 100%; height: auto; margin: 6px 0; }
+.holo .hg { stroke: var(--h-line); stroke-opacity: 0.09; stroke-width: 0.3; }
+.holo .hm-city { font: 600 3.4px var(--mono); letter-spacing: 0.12em; fill: var(--h-ink); opacity: 0.85; pointer-events: none; }
+.holo .hg-t { font: 3px var(--mono); fill: var(--h-dim); opacity: 0.6; }
+.holo .hl-land { fill: rgb(111 211 255 / 0.10); stroke: var(--h-line); stroke-width: 0.45; stroke-linejoin: round; }
+.holo .hm-lens-bg { fill: #081b28; }
+.holo .hm-lens-ring { fill: none; stroke: var(--h-line); stroke-width: 0.5; }
+.holo .hm-lens-ring2 { fill: none; stroke: var(--h-line); stroke-width: 0.35; stroke-dasharray: 2 3; opacity: 0.6; }
+.holo .hm-lens-t { font: 500 3.2px var(--mono); letter-spacing: 0.1em; fill: var(--h-line); }
+.holo .hm-leader { stroke: var(--h-line); stroke-width: 0.35; stroke-dasharray: 1.5 1.5; opacity: 0.7; }
+.holo .hm-jk { fill: none; stroke: var(--h-line); stroke-width: 0.4; stroke-dasharray: 1 1; }
+.holo .hm { cursor: pointer; opacity: 0; transition: opacity 0.35s ease; outline: none; }
+.holo .hm.is-on { opacity: 1; }
+.holo .hm-hit { fill: transparent; }
+.holo .hm-actual .hm-core { fill: var(--h-a); }
+.holo .hm-actual .hm-pulse { fill: none; stroke: var(--h-a); stroke-width: 0.5; }
+.holo .hm-construction .hm-core { fill: var(--h-c); }
+.holo .hm-construction .hm-orbit { fill: none; stroke: var(--h-c); stroke-width: 0.45; stroke-dasharray: 1.6 1.2; }
+.holo .hm-announced .hm-hollow { fill: var(--h-bg); stroke: var(--h-n); stroke-width: 0.8; }
+.holo .hm-announced .hm-blink { fill: none; stroke: var(--h-n); stroke-width: 0.35; opacity: 0.6; }
+.holo .hm:hover .hm-hit, .holo .hm:focus-visible .hm-hit, .holo .hm.is-sel .hm-hit { fill: rgb(215 238 247 / 0.14); stroke: var(--h-ink); stroke-width: 0.35; }
+.holo-scan { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgb(111 211 255 / 0.035) 0 1px, transparent 1px 3px); }
+.holo-hud-bottom { align-items: center; margin-top: 4px; }
+.holo-play { font: 600 10.5px/1 var(--mono); letter-spacing: 0.12em; color: var(--h-bg); background: var(--h-line); border: 0; padding: 7px 10px; cursor: pointer; }
+.holo-play:focus-visible, .holo-range:focus-visible, .holo-float button:focus-visible { outline: 2px solid var(--h-ink); outline-offset: 2px; }
+.holo-range { flex: 1; accent-color: var(--h-line); min-width: 0; }
+.holo-year { font: 600 18px/1 var(--mono); color: var(--h-line); min-width: 3.2em; text-align: right; }
+.holo-counts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 10px 0 0; border-top: 1px solid #16384a; }
+.holo-counts .hc { padding: 8px 10px 2px 0; }
+.holo-counts dt { font: 500 10px/1.3 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.holo-counts .hc-actual dt { color: var(--h-a); } .holo-counts .hc-construction dt { color: var(--h-c); } .holo-counts .hc-announced dt { color: var(--h-n); }
+.holo-counts dd { margin: 2px 0 0; font: 600 15px/1.3 var(--font-sans); color: var(--h-ink); }
+.holo-counts dd span { font-weight: 400; font-size: 11px; color: var(--h-dim); }
+.holo-side { border-left: 1px solid #16384a; padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.holo-key { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 12.5px; }
+.holo-key li { display: flex; align-items: center; gap: 8px; }
+.hk { display: inline-block; width: 10px; height: 10px; flex: none; }
+.hk-actual { border-radius: 50%; background: var(--h-a); box-shadow: 0 0 6px var(--h-a); }
+.hk-construction { background: var(--h-c); transform: rotate(45deg) scale(0.8); box-shadow: 0 0 6px var(--h-c); }
+.hk-announced { border-radius: 50%; border: 2px solid var(--h-n); box-shadow: 0 0 6px var(--h-n); }
+.holo-float-t { margin: 4px 0 0; font: 500 10.5px/1.3 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--h-dim); }
+.holo-float { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.holo-float .hf { opacity: 0.25; transition: opacity 0.35s ease; }
+.holo-float .hf.is-on { opacity: 1; }
+.holo-float button { display: flex; gap: 8px; align-items: flex-start; width: 100%; text-align: left; background: rgb(111 211 255 / 0.05); border: 1px solid #16384a; color: var(--h-ink); padding: 7px 8px; font: 400 12.5px/1.35 var(--font-sans); cursor: pointer; }
+.holo-float button .hk { margin-top: 3px; }
+.holo-float .muted, .holo-detail .muted { color: var(--h-dim); }
+.holo-detail { border-top: 1px solid #16384a; padding-top: 10px; font-size: 13px; }
+.holo-detail h4 { margin: 2px 0 2px; font: 600 15px/1.3 var(--font-sans); color: var(--h-ink); }
+.holo-detail dl { margin: 8px 0; display: grid; gap: 3px; }
+.holo-detail dl div { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
+.holo-detail dt { color: var(--h-dim); font: 500 10.5px/1.6 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; }
+.holo-detail dd { margin: 0; }
+.holo-detail .cite { color: var(--h-line); }
+.hd-status { margin: 0; font: 600 10.5px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; }
+.hd-actual { color: var(--h-a); } .hd-construction { color: var(--h-c); } .hd-announced { color: var(--h-n); }
+.holo-frame { grid-column: 1; grid-row: 1; }
+.holo-side { grid-column: 2; grid-row: 1; }
+.holo > .viz-table { grid-column: 1 / -1; grid-row: 2; }
+.holo .viz-table { padding: 0 14px 12px; color: var(--h-ink); }
+.holo .viz-table table { color: var(--h-ink); }
+.holo .viz-table th, .holo .viz-table td { border-color: #16384a; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .holo .hl-main { stroke-dasharray: 1; stroke-dashoffset: 1; fill-opacity: 0; }
+  .holo.is-booted .hl-main { animation: holo-draw 2.4s ease-out forwards, holo-fill 1.2s 1.4s ease-out forwards; }
+  .holo .hg-grid, .holo .hm-lens { opacity: 0; }
+  .holo.is-booted .hg-grid { animation: holo-fade 1s 0.1s forwards; }
+  .holo.is-booted .hm-lens { animation: holo-fade 0.8s 1.2s forwards; }
+  .holo .holo-sweep { opacity: 0; }
+  .holo.is-booted .holo-sweep { opacity: 1; animation: holo-spin 7s linear infinite; }
+  .holo .hm-pulse { transform-box: fill-box; transform-origin: center; animation: holo-pulse 2.4s ease-out infinite; }
+  .holo .hm-orbit { transform-box: fill-box; transform-origin: center; animation: holo-spin 5s linear infinite; }
+  .holo .hm-blink { animation: holo-blink 1.8s ease-in-out infinite; }
+  .holo .hm-lens-ring2 { transform-box: fill-box; transform-origin: center; animation: holo-spin 30s linear infinite reverse; }
+  .holo .hm.is-on .hm-core, .holo .hm.is-on .hm-hollow { transform-box: fill-box; transform-origin: center; animation: holo-pop 0.5s ease-out; }
+  .holo-scan::after { content: ""; position: absolute; left: 0; right: 0; height: 60px; top: -60px; background: linear-gradient(to bottom, transparent, rgb(111 211 255 / 0.10), transparent); animation: holo-scan 5s linear infinite; }
+  .holo-svg { animation: holo-flicker 6s steps(1) infinite; }
+}
+.holo.is-still .hl-main { stroke-dashoffset: 0; fill-opacity: 1; }
+@keyframes holo-draw { to { stroke-dashoffset: 0; } }
+@keyframes holo-fill { to { fill-opacity: 1; } }
+@keyframes holo-fade { to { opacity: 1; } }
+@keyframes holo-spin { to { transform: rotate(360deg); } }
+@keyframes holo-pulse { 0% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(3.2); opacity: 0; } }
+@keyframes holo-blink { 50% { opacity: 0.1; } }
+@keyframes holo-pop { 0% { transform: scale(0); } 70% { transform: scale(1.6); } 100% { transform: scale(1); } }
+@keyframes holo-scan { to { top: 100%; } }
+@keyframes holo-flicker { 0%, 100% { opacity: 1; } 47% { opacity: 0.93; } 48% { opacity: 1; } 83% { opacity: 0.96; } }
+
+@media (max-width: 900px) {
+  .holo { grid-template-columns: minmax(0, 1fr); }
+  .holo-side { grid-column: 1; grid-row: 2; border-left: 0; border-top: 1px solid #16384a; }
+  .holo > .viz-table { grid-row: 3; }
+}
+.holo-map-scroll { overflow-x: auto; scrollbar-width: thin; }
+.holo-swipe { display: none; margin: 0; font: 500 10px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--h-dim); }
+@media (max-width: 560px) {
+  .holo-counts { grid-template-columns: minmax(0, 1fr); }
+  .holo-svg { min-width: 640px; }
+  .holo-swipe { display: block; }
+  .holo-hud-top span:first-child { display: none; }
+}
