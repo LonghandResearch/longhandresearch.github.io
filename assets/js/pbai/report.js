@@ -704,7 +704,7 @@
       const b = P.DCF[co].base;
       $('[data-nd-unit]', form).textContent = unitLabel(b.unit);
       form.elements.netDebt.value = b.netDebt != null ? b.netDebt : '';
-      $('[data-nd-hint]', form).textContent = b.netDebt != null ? 'Derived from the reported net debt to EBITDA ratio.' : 'Not verified in the sources reviewed. Left blank, the model shows enterprise value only.';
+      $('[data-nd-hint]', form).textContent = b.netDebt != null ? 'Borrowings, bonds and leases less cash at 31 December 2025, from the audited statements.' : 'Not verified in the sources reviewed. Left blank, the model shows enterprise value only.';
       load('mid');
       update();
     };
