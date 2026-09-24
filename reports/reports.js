@@ -7,7 +7,7 @@
   To publish a new report:
     1. Put the PDF in this folder (reports/).
     2. Add an entry below. "Add report" on the site (author mode) writes
-       the entry for you, ready to paste.
+       the entry for you, or publishes it straight into this folder.
 
   Fields
     id           unique, used in the report's web address
@@ -32,6 +32,22 @@
     extra        optional list of [label, value] pairs for the key data panel
 */
 window.LONGHAND_REPORTS = [
+  {
+    "id": "sector-2026-09-24",
+    "ticker": "",
+    "company": "DRAM, NAND, HBM",
+    "category": "Sector",
+    "title": "The Memory War",
+    "date": "2026-09-24",
+    "summary": "Memory has been one of the most cyclical corners of the chip industry for more than a decade. Oversupply and falling prices give way to shortages and price spikes, and then the whole thing repeats. Generative AI could break that pattern, or at least bend it. Every AI accelerator that ships needs HBM sitting right next to it, so memory demand is now tied directly to accelerator volumes.",
+    "rating": null,
+    "currency": "IDR",
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "pdfUrl": "reports/The_Memory_War.pdf",
+    "fileSize": 6020857
+  },
   {
     "id": "adro-2026-09-03",
     "ticker": "ADRO",
