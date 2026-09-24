@@ -33,6 +33,21 @@
 */
 window.LONGHAND_REPORTS = [
   {
+    "id": "macro-2026-09-12",
+    "ticker": "",
+    "company": "Rates, Currency. and Equities",
+    "category": "Macro",
+    "title": "Dovish or Hawkish",
+    "date": "2026-09-12",
+    "summary": "This report began as a question with no settled answer. For most of 2026 the Federal Reserve sat still while the rupiah fell to the weakest level ever recorded, which is the opposite of what the textbook spillover story predicts. On 16 September the Fed finally moved, and on 23 September Bank Indonesia gave its answer. That pair of decisions is the first clean test of the argument set out here, so this version is written around it.",
+    "rating": null,
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "pdfUrl": "reports/Dovish_or_Hawkish.pdf",
+    "fileSize": 619302
+  },
+  {
     "id": "sector-2026-09-24",
     "ticker": "",
     "company": "DRAM, NAND, HBM",
