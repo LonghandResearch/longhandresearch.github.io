@@ -374,13 +374,13 @@
         <p class="pbai-num">08</p>
         <h2 class="pbai-h2" id="s08-title">Valuation</h2>
         <p>Different businesses call for different yardsticks. A developer with land is read on book value, a tower company on EV/EBITDA, and a company still building capacity on a discounted cash flow. Table 2 names the method used for each company and why.</p>
-        <p>The weak point is market prices. I could not verify a closing price for 24 September 2026 against an exchange file for most of these shares, and I have not guessed one. The table below therefore takes a price you enter. Only DCI Indonesia is prefilled, with an indicative price from a market-data aggregator, and that value is marked as such. There is no historical valuation series because no verified price history was available.</p>
+        <p>Prices in the table are closing prices on 24 September 2026, adjusted for share splits, and each can be changed. Where a verified share count is missing (XLSMART and Mitratel), no market value is shown. Year-end prices for FY2021 to FY2025 are collected; a valuation history needs full-year financials for the same years, which are not yet complete for this edition.</p>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Valuation table, scrolls sideways on small screens">
           <table class="valuation" data-valuation>
             <caption class="fig-cap"><span class="fig-no">Table 2.</span> Current valuation on reported FY2025 figures</caption>
           </table>
         </div>
-        <p class="fig-src">Source: reported FY2025 figures and share counts as cited in section 13; prices as entered. EV uses reported or derived net debt only where available; otherwise EV-based multiples show as unavailable. Multiples are Longhand calculations.</p>
+        <p class="fig-src">Source: reported FY2025 figures and share counts as cited in section 13; closing prices on 24 September 2026 (Yahoo Finance), editable. EV uses reported or derived net debt only where available; otherwise EV-based multiples show as unavailable. Multiples are Longhand calculations.</p>
 
         <h3 class="pbai-h3">A discounted cash flow you can change</h3>
         <p>A DCF suits businesses whose cash flows follow from capacity and contracts: DCI Indonesia, Mitratel and Pertamina Geothermal. The model is kept simple so each step can be checked. It projects five years, then a terminal value.</p>
@@ -478,7 +478,7 @@
         <p>Figures are as reported, in the company’s reporting currency. Growth rates and margins are calculated from the reported figures. Where a figure is derived rather than reported (for example Mitratel’s net debt from its reported net debt to EBITDA ratio), the company panel says so and shows the method. Free cash flow is operating cash flow less capex, and is shown only where both were found. ROE and ROIC are not shown: consistent equity and invested-capital figures were not available for enough years to calculate them properly.</p>
 
         <h3 class="pbai-h3">Valuation assumptions</h3>
-        <p>Multiples use FY2025 reported figures and the share counts cited. Market prices are entered by the reader; the one prefilled price is indicative and marked as such. The DCF uses a five-year projection, free cash flow of (EBITDA − capex) × (1 − 22%), a Gordon-growth terminal value, and the reader’s WACC. Net debt enters only where it was reported or can be derived from a reported ratio; elsewhere the model shows enterprise value only.</p>
+        <p>Multiples use FY2025 reported figures and the share counts cited. Market prices are closing prices on 24 September 2026, adjusted for splits; the reader can change them. The DCF uses a five-year projection, free cash flow of (EBITDA − capex) × (1 − 22%), a Gordon-growth terminal value, and the reader’s WACC. Net debt enters only where it was reported or can be derived from a reported ratio; elsewhere the model shows enterprise value only.</p>
 
         <h3 class="pbai-h3">Scenario methodology</h3>
         <p>The power scenarios compound PLN’s 580 MW for 2026 to 2030 at the stated growth rate, then apply utilisation and PUE to get energy, and the tariff to get cost. The company scenarios set the DCF inputs to three coherent sets of assumptions. All scenario inputs are Longhand assumptions and are shown in full.</p>
@@ -491,7 +491,7 @@
           <li>Most sources were read through press coverage rather than the original filings.</li>
           <li>Market capacity figures come from different organisations using different definitions (IT MW, MVA connected, development stages) and are not additive.</li>
           <li>No reliable split of data-centre spending by component exists for Indonesia, so section 05 is a framework, not a measurement.</li>
-          <li>Verified market prices were not available for most shares, so the valuation depends on the price you enter.</li>
+          <li>Prices come from a market-data provider (Yahoo Finance), not an exchange closing file, and a single day’s close can move far from the average.</li>
           <li>The DCF ignores working capital, leases and minority interests, and treats depreciation as equal to capex. It shows how the inputs move the result; it is not a valuation opinion.</li>
           <li>Five-year financial histories were not assembled for this edition.</li>
         </ul>
