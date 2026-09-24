@@ -28,7 +28,7 @@
           ${text ? `<p class="lead-summary">${esc(text)}</p>` : ''}
           <div class="lead-actions">
             <a class="btn" href="${href}">Read the report ${icon('arrowRight', 'icon-arrow')}</a>
-            <a class="text-link" href="${esc(LH.fileUrl(r))}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>
+            ${r.pdfUrl || r.blob ? `<a class="text-link" href="${esc(LH.fileUrl(r))}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>` : ''}
             <span class="file-meta">${esc(LH.fileMeta(r))}</span>
           </div>
         </div>

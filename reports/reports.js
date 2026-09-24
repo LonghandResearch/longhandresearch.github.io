@@ -16,7 +16,7 @@
     exchange     optional, for example "IDX", "NYSE" or "HKEX"
     company      company name, or the subject of a sector or macro note
     sector       optional, shown on the report page
-    category     "Initiation", "Update", "Sector" or "Macro"
+    category     "Initiation", "Update", "Sector", "Macro" or "Industry Research"
     title        the report headline
     date         publication date, YYYY-MM-DD
     blurb        one or two sentences for the report list
@@ -27,11 +27,39 @@
     targetPrice  target price, or null
     upside       % to target; worked out from price and target if left out
     pdfUrl       path to the PDF, for example "reports/My_Report.pdf"
+    page         optional: an interactive report that is its own page, for example
+                 "power-behind-ai.html"; used instead of a PDF
+    tags         optional list of words the library search also looks at
     pages        optional, number of pages
     fileSize     optional, size of the PDF in bytes
     extra        optional list of [label, value] pairs for the key data panel
 */
 window.LONGHAND_REPORTS = [
+  {
+    "id": "the-power-behind-ai-2026-09-24",
+    "ticker": "",
+    "company": "Power, grid, land and data centres",
+    "sector": "AI infrastructure and energy, Indonesia",
+    "category": "Industry Research",
+    "title": "The Power Behind AI",
+    "date": "2026-09-24",
+    "blurb": "Indonesia’s data-centre boom is becoming an energy story. Where does the value accrue across power, grid, connectivity, industrial land and data centres?",
+    "summary": "Indonesia’s data-centre boom is becoming an energy story. PLN puts installed data-centre IT capacity at about 580 MW in 2026 and projects a power need of 25,297 MW by 2034, while Jakarta’s pipeline has grown to 1,699 MW. This interactive report maps where the economic value accrues across the chain from AI to connectivity, with a power calculator, exposure maps for nine listed companies, a DCF and a seeded Monte Carlo simulation. It makes no recommendations.",
+    "tags": [
+      "AI",
+      "Data Centers",
+      "Energy",
+      "Power",
+      "Infrastructure",
+      "Indonesia",
+      "Equity Research"
+    ],
+    "rating": null,
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "page": "power-behind-ai.html"
+  },
   {
     "id": "macro-2026-09-24",
     "ticker": "",

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Power Behind AI · Longhand Research</title>
+<meta name="description" content="Indonesia’s data-centre boom is becoming an energy story. Interactive industry research on power, grid, land, connectivity and listed-company exposure, 24 September 2026.">
+<meta name="theme-color" content="#f3efe7">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Longhand Research">
+<meta property="og:title" content="The Power Behind AI · Longhand Research">
+<meta property="og:description" content="Indonesia’s data-centre boom is becoming an energy story.">
+<meta property="og:image" content="https://longhandresearch.github.io/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+  /* Before the page paints: the theme (saved choice, then the system setting),
+     and a flag that scripts are running */
+  (function () {
+    var d = document.documentElement, t = null;
+    d.classList.add('js');
+    try { t = localStorage.getItem('longhand-theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    d.setAttribute('data-theme', t);
+  })();
+  window.addEventListener('error', function (e) {
+    if (e.filename && /reports\/reports\.js/.test(e.filename)) window.LONGHAND_CATALOG_ERROR = { message: e.message, line: e.lineno };
+  });
+  /* Page transitions: a step back runs the motion the other way */
+  window.addEventListener('pagereveal', function (e) {
+    var d = document.documentElement, vt = e.viewTransition, a = window.navigation && navigation.activation;
+    delete d.dataset.nav;
+    if (!vt) return;
+    ['ready', 'finished', 'updateCallbackDone'].forEach(function (k) { if (vt[k]) vt[k].catch(function () {}); });
+    window.LONGHAND_VT = vt;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry && a.entry.index < a.from.index) d.dataset.nav = 'back';
+    var done = function () { delete d.dataset.nav; window.LONGHAND_VT = null; };
+    vt.finished.then(done, done);
+  });
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/pbai.css">
+<script>
+  /* The catalogue changes whenever a report is published, so it is fetched fresh
+     (at most a minute old) instead of waiting out the browser cache */
+  document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
+</script>
+<script src="assets/js/site.js" defer blocking="render"></script>
+<script src="assets/js/pbai/data.js" defer></script>
+<script src="assets/js/pbai/report.js" defer></script>
+<!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
+<script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body class="page-pbai">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="brand" href="index.html" aria-label="Longhand Research, front page">
+      <span class="brand-name">Longhand</span>
+      <span class="brand-sub">Research</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="library.html">Library</a>
+      <a href="wire.html">Wire</a>
+      <a href="about.html" class="nav-about">About</a>
+      <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Switch theme">
+        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9Z"/></svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button type="button" class="btn btn-sm" data-add-report hidden>Add report</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="pbai" data-pbai>
+  <header class="pbai-hero wrap">
+    <p class="kicker"><span class="cat">Industry Research</span>&nbsp;<span class="dot" aria-hidden="true">&middot;</span> Energy, data centres and listed exposure</p>
+    <h1 class="pbai-title"><span>The Power</span> <em>Behind AI</em></h1>
+    <p class="pbai-sub">Indonesia’s Data Center Boom Is Becoming an Energy Story</p>
+    <p class="pbai-meta"><time datetime="2026-09-24">24 September 2026</time><span aria-hidden="true">/</span>Longhand Research<span aria-hidden="true">/</span>Indonesia</p>
+
+    <div class="pbai-question">
+      <p class="pbai-question-label">The research question</p>
+      <p class="pbai-question-text">As AI adoption accelerates and Indonesia expands its data-centre infrastructure, where does the economic value accrue across the power, grid, connectivity, industrial-estate and data-centre ecosystem?</p>
+    </div>
+
+    <dl class="pbai-keys" aria-label="Three figures that frame the report">
+      <div>
+        <dt>Installed data-centre IT capacity, 2026</dt>
+        <dd><span class="pbai-key-num">580</span><span class="pbai-key-unit">MW</span></dd>
+        <dd class="pbai-key-note"><span class="tag tag-estimate">Estimate</span> PLN <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a></dd>
+      </div>
+      <div>
+        <dt>Projected IT capacity, 2030</dt>
+        <dd><span class="pbai-key-num">3.5</span><span class="pbai-key-unit">GW</span></dd>
+        <dd class="pbai-key-note"><span class="tag tag-scenario">Projection</span> PLN <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a></dd>
+      </div>
+      <div>
+        <dt>Data-centre power need, 2034</dt>
+        <dd><span class="pbai-key-num">25,297</span><span class="pbai-key-unit">MW</span></dd>
+        <dd class="pbai-key-note"><span class="tag tag-scenario">Projection</span> PLN <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a></dd>
+      </div>
+    </dl>
+  </header>
+
+  <div class="wrap pbai-layout">
+    <nav class="pbai-toc" aria-label="Contents" data-toc>
+      <button type="button" class="pbai-toc-toggle" data-toc-toggle aria-expanded="false" aria-controls="pbai-toc-list">
+        <span class="pbai-toc-label">Contents</span>
+        <span class="pbai-toc-current" data-toc-current>01 Executive summary</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <ol class="pbai-toc-list" id="pbai-toc-list">
+        <li><a href="#s01"><span>01</span> Executive summary</a></li>
+        <li><a href="#s02"><span>02</span> The AI infrastructure chain</a></li>
+        <li><a href="#s03"><span>03</span> Indonesia’s data-centre market</a></li>
+        <li><a href="#s04"><span>04</span> The power bottleneck</a></li>
+        <li><a href="#s05"><span>05</span> Where the money flows</a></li>
+        <li><a href="#s06"><span>06</span> Listed company exposure</a></li>
+        <li><a href="#s07"><span>07</span> Financial analysis</a></li>
+        <li><a href="#s08"><span>08</span> Valuation</a></li>
+        <li><a href="#s09"><span>09</span> Scenario analysis</a></li>
+        <li><a href="#s10"><span>10</span> Monte Carlo</a></li>
+        <li><a href="#s11"><span>11</span> Risks</a></li>
+        <li><a href="#s12"><span>12</span> What to watch</a></li>
+        <li><a href="#s13"><span>13</span> Sources and methodology</a></li>
+      </ol>
+    </nav>
+
+    <div class="pbai-body">
+      <div class="pbai-legend-box" role="note">
+        <p><strong>How to read the figures.</strong> Each number carries its status:
+          <span class="tag tag-actual">Actual</span> reported by a company or official body;
+          <span class="tag tag-announced">Announced</span> stated as a plan;
+          <span class="tag tag-construction">Under construction</span>;
+          <span class="tag tag-estimate">Estimate</span> an estimate by the named source or by Longhand, with the method given;
+          <span class="tag tag-scenario">Scenario</span> a model output or projection, not a forecast.
+          Numbered links open the source list in section 13. This is research, not a recommendation to buy or sell anything.</p>
+      </div>
+
+      <!-- 01 -->
+      <section class="pbai-section" id="s01" aria-labelledby="s01-title">
+        <p class="pbai-num">01</p>
+        <h2 class="pbai-h2" id="s01-title">Executive summary</h2>
+        <p class="pbai-lede">The first wave of Indonesian data centres was a story about land and fibre. The next one is being decided by who can get megawatts connected, on time, in West Java. Five findings follow, each with the evidence behind it.</p>
+        <ol class="findings">
+          <li class="finding">
+            <p class="finding-no">1</p>
+            <div>
+              <h3 class="finding-title">The constraint has moved from floor space to megawatts.</h3>
+              <p>Jakarta’s capacity under construction more than doubled to 395 MW in the first half of 2026, inside a development pipeline of 1,699 MW. PLN already serves 159 data-centre customers with about 1,990 MVA connected, and 99% of that sits in the Java-Madura-Bali system.</p>
+              <p class="finding-src">Source: Cushman &amp; Wakefield <a class="cite" data-cite="cw-h126" href="#src-cw-h126">source</a>; PLN <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a></p>
+            </div>
+          </li>
+          <li class="finding">
+            <p class="finding-no">2</p>
+            <div>
+              <h3 class="finding-title">PLN’s own projection runs far ahead of today’s load.</h3>
+              <p>PLN puts installed data-centre IT capacity at about 580 MW in 2026 and projects a power need of 25,297 MW by 2034. Allowing for cooling and other overhead at an average PUE of 1.54, today’s IT capacity implies about 893 MW of facility load; the 2034 figure is roughly 28 times that.</p>
+              <p class="finding-src">Source: PLN <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a>; Uptime Institute <a class="cite" data-cite="uptime" href="#src-uptime">source</a>; Longhand calculation</p>
+            </div>
+          </li>
+          <li class="finding">
+            <p class="finding-no">3</p>
+            <div>
+              <h3 class="finding-title">Electricity is cheap per kWh; the scarce thing is the connection.</h3>
+              <p>The I-4 high-voltage tariff was held at about Rp997 per kWh for the third quarter of 2026. At that price a 100 MW hall running at 70% with a PUE of 1.54 pays about Rp941 billion a year for power. The harder problem is lines and substations: the 2025-2034 plan calls for about 48,000 kms of transmission and 108,000 MVA of substations.</p>
+              <p class="finding-src">Source: CNBC Indonesia <a class="cite" data-cite="tariff" href="#src-tariff">source</a>; RUPTL <a class="cite" data-cite="ruptl" href="#src-ruptl">source</a>; Longhand calculation</p>
+            </div>
+          </li>
+          <li class="finding">
+            <p class="finding-no">4</p>
+            <div>
+              <h3 class="finding-title">Listed exposure is narrow and uneven.</h3>
+              <p>Colocation was about 94% of DCI Indonesia’s revenue in the first half of 2026. NeutraDC, Telkom’s data-centre arm, was about 1.1% of Telkom’s. The clearest second-order exposure is land: data centres took about 75% of the 85 hectares of industrial land demand at Kota Deltamas in the same half.</p>
+              <p class="finding-src">Source: Bisnis Indonesia <a class="cite" data-cite="dcii-h126" href="#src-dcii-h126">source</a>; Selular.ID <a class="cite" data-cite="neutradc-h126" href="#src-neutradc-h126">source</a>; Kontan <a class="cite" data-cite="dmas-ms26" href="#src-dmas-ms26">source</a></p>
+            </div>
+          </li>
+          <li class="finding">
+            <p class="finding-no">5</p>
+            <div>
+              <h3 class="finding-title">The build-out is being paid for with capex and new debt.</h3>
+              <p>Indosat raised capex 33.6% to Rp13.28 trillion in 2025. DCI Indonesia agreed a Rp17 trillion investment credit facility in May 2026, against total liabilities of Rp2.64 trillion at the end of 2025. Returns now depend on how fast new halls fill.</p>
+              <p class="finding-src">Source: The Jakarta Post <a class="cite" data-cite="isat-fy25" href="#src-isat-fy25">source</a>; Halo Indonesia <a class="cite" data-cite="dcii-bca" href="#src-dcii-bca">source</a></p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 02 -->
+      <section class="pbai-section" id="s02" aria-labelledby="s02-title">
+        <p class="pbai-num">02</p>
+        <h2 class="pbai-h2" id="s02-title">The AI infrastructure chain</h2>
+        <p>AI spending does not land in one place. It passes down a chain, from the model to the chip, the building, the electricity, the plant that makes it, the wires that carry it, the land underneath and the fibre that connects it. Each link has a different owner, a different bottleneck and a different listed company, or none at all. Select a link to see its role.</p>
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 1.</span> The chain from AI demand to connectivity</figcaption>
+          <div class="chain" data-chain></div>
+          <p class="fig-src">Source: Longhand framework; evidence for each link as cited in the panel.</p>
+        </figure>
+      </section>
+
+      <!-- 03 -->
+      <section class="pbai-section" id="s03" aria-labelledby="s03-title">
+        <p class="pbai-num">03</p>
+        <h2 class="pbai-h2" id="s03-title">Indonesia’s data-centre market</h2>
+        <p>There is no official census of data-centre capacity in Indonesia, so the numbers below come from the grid operator and from a property consultant, and they measure different things. PLN counts installed IT capacity and connected MVA. Cushman &amp; Wakefield counts Jakarta’s capacity by stage of development. I keep them apart rather than add them.</p>
+
+        <div class="stat-row">
+          <div class="stat"><p class="stat-label">Jakarta, operating (H1 2026)</p><p class="stat-value">322 MW</p><p class="stat-note"><span class="tag tag-estimate">Estimate</span> Industry data via Indonesia Business Post <a class="cite" data-cite="ibp" href="#src-ibp">source</a></p></div>
+          <div class="stat"><p class="stat-label">Jakarta, under construction</p><p class="stat-value">395 MW</p><p class="stat-note"><span class="tag tag-construction">Under construction</span> Cushman &amp; Wakefield <a class="cite" data-cite="cw-h126" href="#src-cw-h126">source</a></p></div>
+          <div class="stat"><p class="stat-label">PLN data-centre load in Java-Madura-Bali</p><p class="stat-value">99%</p><p class="stat-note"><span class="tag tag-actual">Actual</span> Of about 1,990 MVA connected, PLN <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a></p></div>
+        </div>
+
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 2.</span> Jakarta’s data-centre capacity by stage, MW, H1 2025 and H1 2026</figcaption>
+          <div class="chart" data-chart="jakarta" role="img" aria-label="Jakarta data-centre capacity by stage"></div>
+          <p class="fig-src">Source: Cushman &amp; Wakefield H1 2025 and H1 2026 data centre updates <a class="cite" data-cite="cw-h125" href="#src-cw-h125">source</a> <a class="cite" data-cite="cw-h126" href="#src-cw-h126">source</a>; operating capacity via Indonesia Business Post <a class="cite" data-cite="ibp" href="#src-ibp">source</a>. Planned is the 1,699 MW pipeline less the 395 MW under construction (Longhand calculation). The H1 2025 pipeline is not split by stage in the source.</p>
+        </figure>
+
+        <p>Two things stand out. The pipeline grew about 140% in a year, from 709 MW to 1,699 MW, while operating capacity barely moved. And the pipeline is now more than five times the capacity actually running. Most of what is planned is not yet a building, which is why the timeline below separates what exists from what has only been announced.</p>
+
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 3.</span> Selected projects by status and expected date, 2020 to 2029</figcaption>
+          <div class="timeline-filters" role="group" aria-label="Show projects by status" data-timeline-filters>
+            <button type="button" class="filter" data-status="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-status="actual" aria-pressed="false"><span class="shape shape-actual" aria-hidden="true"></span>Operational</button>
+            <button type="button" class="filter" data-status="construction" aria-pressed="false"><span class="shape shape-construction" aria-hidden="true"></span>Under construction</button>
+            <button type="button" class="filter" data-status="announced" aria-pressed="false"><span class="shape shape-announced" aria-hidden="true"></span>Announced</button>
+          </div>
+          <div class="timeline" data-timeline></div>
+          <div class="timeline-detail" data-timeline-detail aria-live="polite"></div>
+          <p class="fig-src">Source: company announcements and press as cited for each project. Dates for projects under construction or announced are the developer’s target, not a certainty. Where the sources give no capacity, none is shown.</p>
+        </figure>
+
+        <p>Geographically the market is Greater Jakarta first, with Batam as the second hub because of its fibre routes to Singapore. The hyperscale cloud regions of Google (2020), Amazon (2021) and Microsoft (2025) all sit around Jakarta. The newer AI-oriented announcements, CoreWeave’s 360 MW for 2028 and the Zankore platform’s first 200 MW for 2027, are not yet tied to a disclosed site.</p>
+      </section>
+
+      <!-- 04 -->
+      <section class="pbai-section" id="s04" aria-labelledby="s04-title">
+        <p class="pbai-num">04</p>
+        <h2 class="pbai-h2" id="s04-title">The power bottleneck</h2>
+        <p class="pbai-lede">Why does AI need so much power? A chip turns electricity into computation and heat. An AI accelerator draws far more than an ordinary server, it runs close to flat out, and every watt of heat has to be removed by cooling that uses more electricity again.</p>
+        <ol class="flow" aria-label="From compute to grid capacity">
+          <li><strong>AI compute</strong><span>Accelerators and servers; the IEA expects their electricity use to grow about 30% a year to 2030 <a class="cite" data-cite="iea" href="#src-iea">source</a></span></li>
+          <li><strong>Data-centre load</strong><span>IT load plus cooling and losses, captured by the PUE ratio</span></li>
+          <li><strong>MW</strong><span>Demand at a moment: what the connection must carry</span></li>
+          <li><strong>MWh</strong><span>Energy over time: MW multiplied by hours in use</span></li>
+          <li><strong>Power generation</strong><span>Plants that must produce those MWh around the clock</span></li>
+          <li><strong>Grid capacity</strong><span>Lines and substations that deliver them to the site</span></li>
+        </ol>
+        <p>Globally, data centres used about 415 TWh in 2024, about 1.5% of the world’s electricity, and the IEA expects about 945 TWh by 2030 <a class="cite" data-cite="iea" href="#src-iea">source</a> <a class="cite" data-cite="iea-dcd" href="#src-iea-dcd">source</a>. Indonesia is small in that total, but not small against its own grid. PLN sold 317.69 TWh in 2025, and it named data centres among the drivers of 5.4% growth in business-sector sales <a class="cite" data-cite="pln-sales" href="#src-pln-sales">source</a>. The calculator below turns a hall’s size into energy and cost, with every assumption on view.</p>
+
+        <figure class="pbai-figure calc" data-calc>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 4.</span> Data-centre power calculator</figcaption>
+          <div class="calc-grid">
+            <form class="calc-inputs" data-calc-form onsubmit="return false">
+              <div class="calc-field">
+                <label for="c-mw">Data-centre IT capacity <output data-out="mw"></output></label>
+                <input type="range" id="c-mw" name="mw" min="1" max="1000" step="1">
+                <p class="calc-hint">MW of IT load the hall is built for</p>
+              </div>
+              <div class="calc-field">
+                <label for="c-util">Utilisation <output data-out="utilisation"></output></label>
+                <input type="range" id="c-util" name="utilisation" min="10" max="100" step="1">
+                <p class="calc-hint">Average IT load as a share of capacity</p>
+              </div>
+              <div class="calc-field">
+                <label for="c-pue">PUE <output data-out="pue"></output></label>
+                <input type="range" id="c-pue" name="pue" min="1.05" max="2.2" step="0.01">
+                <p class="calc-hint">Total facility power ÷ IT power. Default 1.54, the Uptime Institute survey average <a class="cite" data-cite="uptime" href="#src-uptime">source</a></p>
+              </div>
+              <div class="calc-field">
+                <label for="c-price">Electricity price, Rp per kWh</label>
+                <input type="number" class="input" id="c-price" name="price" min="100" max="5000" step="1" inputmode="numeric">
+                <p class="calc-hint">Default Rp997, the I-4 tariff for Q3 2026 <a class="cite" data-cite="tariff" href="#src-tariff">source</a></p>
+              </div>
+              <div class="calc-field">
+                <label for="c-fx">Rupiah per US dollar</label>
+                <input type="number" class="input" id="c-fx" name="fx" min="1000" max="50000" step="1" inputmode="numeric">
+                <p class="calc-hint">Default 17,916 on 24 September 2026 <a class="cite" data-cite="dovish" href="#src-dovish">source</a></p>
+              </div>
+              <button type="button" class="text-link" data-calc-reset>Reset to the sourced defaults</button>
+            </form>
+            <div class="calc-outputs" aria-live="polite">
+              <dl class="calc-results">
+                <div><dt>Annual electricity consumption</dt><dd data-res="gwh"></dd></div>
+                <div><dt>Estimated electricity cost</dt><dd data-res="cost"></dd></div>
+                <div><dt>Power requirement at full IT load</dt><dd data-res="peak"></dd></div>
+                <div><dt>Share of PLN’s 2025 sales</dt><dd data-res="share"></dd></div>
+              </dl>
+              <div class="calc-formula">
+                <p class="calc-formula-title">The formulas</p>
+                <p><code>Average facility load (MW) = capacity × utilisation × PUE</code></p>
+                <p><code>Annual energy (MWh) = average facility load × 8,760 hours</code></p>
+                <p><code>Annual cost = annual energy × price per kWh</code></p>
+                <p><code>Power requirement (MW) = capacity × PUE</code></p>
+                <p class="calc-note">Assumes a flat tariff with no demand charge, no on-site generation and steady load across the year. Share of PLN sales uses 317.69 TWh for 2025 <a class="cite" data-cite="pln-sales" href="#src-pln-sales">source</a>.</p>
+              </div>
+              <p class="calc-sens-title">Sensitivity: change in annual cost if each input moves 10%</p>
+              <div class="chart chart-sm" data-chart="sensitivity" role="img" aria-label="Sensitivity of annual electricity cost to each input"></div>
+            </div>
+          </div>
+          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Model output from the reader’s inputs. Defaults as cited.</p>
+        </figure>
+
+        <h3 class="pbai-h3">Three paths to 2030</h3>
+        <p>The scenarios below start from PLN’s 580 MW for 2026. The base case follows PLN’s own path to 3.5 GW by 2030, which works out to about 56.7% a year. The bear and bull cases are mine, and each lever is shown so it can be argued with.</p>
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 5.</span> Data-centre electricity demand in 2030 under three scenarios, TWh a year</figcaption>
+          <div class="scen-table-wrap" data-power-scen></div>
+          <div class="chart" data-chart="powerscen" role="img" aria-label="2030 data-centre electricity demand under three scenarios"></div>
+          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions anchored to PLN’s 580 MW (2026) and 3.5 GW (2030) <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a>. Labels give each scenario as a share of PLN’s 2025 electricity sales of 317.69 TWh <a class="cite" data-cite="pln-sales" href="#src-pln-sales">source</a>; a scenario is not a forecast.</p>
+        </figure>
+        <p>On PLN’s own path, data centres would use about 32 TWh a year by 2030. That is about a tenth of everything PLN sold in 2025, from an estimated 1.7% today (Longhand calculation, 580 MW at 70% utilisation and a PUE of 1.54). The grid question is not whether Indonesia can generate that much in total. It is whether it can deliver it to a few districts east of Jakarta within four years.</p>
+      </section>
+
+      <!-- 05 -->
+      <section class="pbai-section" id="s05" aria-labelledby="s05-title">
+        <p class="pbai-num">05</p>
+        <h2 class="pbai-h2" id="s05-title">Where the money flows</h2>
+        <p>The honest answer to “who gets each dollar” is that nobody publishes the split for Indonesia. I did not find a reliable breakdown of data-centre spending between power, grid, land, connectivity, cooling and the building, so the diagram below shows where money goes, not how much.</p>
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 6.</span> One dollar of data-centre spending, and who can capture it</figcaption>
+          <p class="illustrative" role="note">Illustrative framework — not observed market allocation.</p>
+          <div class="moneyflow" data-moneyflow></div>
+          <p class="fig-src">Source: Longhand framework. No percentages are shown because no reliable allocation data was found.</p>
+        </figure>
+        <p>What can be observed is how much capital a megawatt attracts, and what a megawatt pays for power each year. Announced investment per MW ranges from about US$8 million to US$16 million across three projects, a spread that depends on whether the budget includes IT equipment, which the announcements do not say. At the sourced tariff, one MW of IT capacity at 70% utilisation and a PUE of 1.54 buys about Rp9.4 billion of electricity a year, around US$0.5 million.</p>
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 7.</span> Announced investment per MW, US$ million</figcaption>
+          <div class="chart" data-chart="capexmw" role="img" aria-label="Announced investment per MW for three projects"></div>
+          <p class="fig-src">Source: EDGNEX <a class="cite" data-cite="edgnex" href="#src-edgnex">source</a>, Digital Edge <a class="cite" data-cite="cgk" href="#src-cgk">source</a>, Princeton Digital Group <a class="cite" data-cite="pdg-jc3" href="#src-pdg-jc3">source</a>. Announced investment divided by planned MW (Longhand calculation). Scope of each budget is not disclosed.</p>
+        </figure>
+      </section>
+
+      <!-- 06 -->
+      <section class="pbai-section" id="s06" aria-labelledby="s06-title">
+        <p class="pbai-num">06</p>
+        <h2 class="pbai-h2" id="s06-title">Listed company exposure</h2>
+        <p>This is a map, not a ranking. The companies are listed in chain order, from the data hall outward. No scores are given and nothing here is a view on the shares. Where a figure is not in the sources I reviewed, the table says so. Select a company for its financial history.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Company exposure table, scrolls sideways on small screens">
+          <table class="exposure" data-exposure>
+            <caption class="fig-cap"><span class="fig-no">Table 1.</span> Exposure map: nine listed companies</caption>
+          </table>
+        </div>
+        <p class="fig-src">Source: company reports and press as cited in each company panel. DSSA is also named by BRI Danareksa as directly exposed <a class="cite" data-cite="ibp" href="#src-ibp">source</a>; it is left out here because I did not find its data-centre figures in the sources reviewed.</p>
+      </section>
+
+      <!-- 07 -->
+      <section class="pbai-section" id="s07" aria-labelledby="s07-title">
+        <p class="pbai-num">07</p>
+        <h2 class="pbai-h2" id="s07-title">Financial analysis</h2>
+        <p>The charts compare the same measure across companies. Units differ (Pertamina Geothermal reports in US dollars), so each company has its own small chart rather than a shared axis. Years without a verified figure are marked n/a.</p>
+        <div class="fin-controls">
+          <div class="filters" role="group" aria-label="Choose a measure" data-fin-metric></div>
+          <div class="filters seg" role="group" aria-label="Choose a period" data-fin-period>
+            <button type="button" class="filter" data-period="3" aria-pressed="true">3Y</button>
+            <button type="button" class="filter" data-period="5" aria-pressed="false">5Y</button>
+          </div>
+        </div>
+        <p class="fin-note" data-fin-note aria-live="polite"></p>
+        <div class="fin-grid" data-fin-grid></div>
+        <p class="fig-src">Source: company reports and press as listed in section 13. Growth and margins are Longhand calculations from reported figures. The five-year view shows FY2021 to FY2025; only a few FY2022 figures and no FY2021 figures were verified for this edition, so most of those years read n/a.</p>
+      </section>
+
+      <!-- 08 -->
+      <section class="pbai-section" id="s08" aria-labelledby="s08-title">
+        <p class="pbai-num">08</p>
+        <h2 class="pbai-h2" id="s08-title">Valuation</h2>
+        <p>Different businesses call for different yardsticks. A developer with land is read on book value, a tower company on EV/EBITDA, and a company still building capacity on a discounted cash flow. Table 2 names the method used for each company and why.</p>
+        <p>The weak point is market prices. I could not verify a closing price for 24 September 2026 against an exchange file for most of these shares, and I have not guessed one. The table below therefore takes a price you enter. Only DCI Indonesia is prefilled, with an indicative price from a market-data aggregator, and that value is marked as such. There is no historical valuation series because no verified price history was available.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Valuation table, scrolls sideways on small screens">
+          <table class="valuation" data-valuation>
+            <caption class="fig-cap"><span class="fig-no">Table 2.</span> Current valuation on reported FY2025 figures</caption>
+          </table>
+        </div>
+        <p class="fig-src">Source: reported FY2025 figures and share counts as cited in section 13; prices as entered. EV uses reported or derived net debt only where available; otherwise EV-based multiples show as unavailable. Multiples are Longhand calculations.</p>
+
+        <h3 class="pbai-h3">A discounted cash flow you can change</h3>
+        <p>A DCF suits businesses whose cash flows follow from capacity and contracts: DCI Indonesia, Mitratel and Pertamina Geothermal. The model is deliberately simple so that every step is visible. It projects five years, then a terminal value.</p>
+        <figure class="pbai-figure dcf" data-dcf>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 8.</span> Discounted cash flow</figcaption>
+          <div class="dcf-top">
+            <div class="filters" role="group" aria-label="Choose a company" data-dcf-company></div>
+            <div class="filters" role="group" aria-label="Load a scenario" data-dcf-scen>
+              <button type="button" class="filter" data-scen="bear" aria-pressed="false">Bear</button>
+              <button type="button" class="filter" data-scen="mid" aria-pressed="true">Base</button>
+              <button type="button" class="filter" data-scen="bull" aria-pressed="false">Bull</button>
+            </div>
+          </div>
+          <div class="calc-grid">
+            <form class="calc-inputs" data-dcf-form onsubmit="return false"></form>
+            <div class="calc-outputs" aria-live="polite">
+              <p class="model-flag">Model output — not a price target.</p>
+              <dl class="calc-results" data-dcf-results></dl>
+              <div class="chart chart-sm" data-chart="dcf" role="img" aria-label="Projected free cash flow"></div>
+              <div class="calc-formula">
+                <p class="calc-formula-title">The formulas</p>
+                <p><code>Revenue(t) = Revenue(FY2025) × (1 + growth)^t × utilisation index ÷ 100</code></p>
+                <p><code>EBITDA margin = margin − unrecovered power share × power-cost change</code></p>
+                <p><code>Free cash flow = (EBITDA − capex) × (1 − 22% tax)</code></p>
+                <p><code>Terminal value = FCF(5) × (1 + g) ÷ (WACC − g)</code></p>
+                <p><code>Equity value = enterprise value − net debt</code></p>
+                <p class="calc-note">Treats depreciation as equal to capex for tax, ignores working capital, and uses Indonesia’s 22% corporate rate. The starting revenue and margin are reported FY2025 figures; every other input is an assumption.</p>
+              </div>
+            </div>
+          </div>
+          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Base-year figures as cited in section 13; all other inputs are assumptions you control.</p>
+        </figure>
+      </section>
+
+      <!-- 09 -->
+      <section class="pbai-section" id="s09" aria-labelledby="s09-title">
+        <p class="pbai-num">09</p>
+        <h2 class="pbai-h2" id="s09-title">Scenario analysis</h2>
+        <p>Three sets of assumptions, applied to the same three companies. Each lever maps to something in the chain: data-centre growth, utilisation, power cost, capex and margins. The outputs are what the model says under those assumptions, for the year 2030. They are not forecasts, and they are not a view on which shares to own.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Scenario table, scrolls sideways on small screens">
+          <table class="scen" data-scen-table>
+            <caption class="fig-cap"><span class="fig-no">Table 3.</span> Scenario levers and 2030 model outcomes</caption>
+          </table>
+        </div>
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 9.</span> Model enterprise value by scenario, indexed to the base case = 100</figcaption>
+          <div class="chart" data-chart="scen" role="img" aria-label="Model enterprise value by scenario"></div>
+          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions; base-year figures as cited. Indexed so companies reporting in different currencies share one axis.</p>
+        </figure>
+      </section>
+
+      <!-- 10 -->
+      <section class="pbai-section" id="s10" aria-labelledby="s10-title">
+        <p class="pbai-num">10</p>
+        <h2 class="pbai-h2" id="s10-title">Monte Carlo</h2>
+        <p>Three scenarios hide how wide the outcomes are. The simulation below draws each input from a range, runs the same DCF 10,000 times and plots the spread of the model’s enterprise value. It uses a fixed seed, so the same inputs always give the same result.</p>
+        <div class="mc" data-mc>
+          <p class="mc-loading" data-mc-loading>The simulation loads when this section comes into view.</p>
+        </div>
+        <p class="model-flag">Simulation outputs are conditional on model assumptions and should not be interpreted as forecasts.</p>
+      </section>
+
+      <!-- 11 -->
+      <section class="pbai-section" id="s11" aria-labelledby="s11-title">
+        <p class="pbai-num">11</p>
+        <h2 class="pbai-h2" id="s11-title">Risks</h2>
+        <p>The risks are mapped to the links of the chain they act on, not scored. A score would suggest a precision the evidence does not have. Select a risk for the evidence, the mechanism and what to watch.</p>
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 10.</span> Risk map: where each risk acts on the chain</figcaption>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Risk map, scrolls sideways on small screens">
+            <table class="riskmap" data-riskmap></table>
+          </div>
+          <div class="risk-detail" data-risk-detail aria-live="polite"></div>
+          <p class="fig-src">Source: Longhand framework; evidence as cited for each risk.</p>
+        </figure>
+      </section>
+
+      <!-- 12 -->
+      <section class="pbai-section" id="s12" aria-labelledby="s12-title">
+        <p class="pbai-num">12</p>
+        <h2 class="pbai-h2" id="s12-title">What to watch</h2>
+        <p>Ten indicators decide whether the scenarios above drift toward the bear or the bull case. The latest reading is shown where a sourced one exists.</p>
+        <div class="watch" data-watch></div>
+      </section>
+
+      <!-- 13 -->
+      <section class="pbai-section" id="s13" aria-labelledby="s13-title">
+        <p class="pbai-num">13</p>
+        <h2 class="pbai-h2" id="s13-title">Sources and methodology</h2>
+
+        <h3 class="pbai-h3">Data collection</h3>
+        <p>The research was carried out up to 24 September 2026. Priority went to official and company sources: PLN, the Ministry of Energy, company releases and filings. Where those were not directly readable, I used press reports of them and checked each material figure against at least one other outlet where one existed. Every source below was located and read through a search index rather than opened directly, because the workspace used for this edition could not reach most publishers’ sites. Figures that could not be confirmed, or that conflicted across sources, are marked unavailable rather than chosen.</p>
+
+        <h3 class="pbai-h3">Financial calculations</h3>
+        <p>Figures are as reported, in the company’s reporting currency. Growth rates and margins are calculated from the reported figures. Where a figure is derived rather than reported (for example Mitratel’s net debt from its reported net debt to EBITDA ratio), the company panel says so and shows the method. Free cash flow is operating cash flow less capex, and is shown only where both were found. ROE and ROIC are not shown: consistent equity and invested-capital figures were not available for enough years to calculate them properly.</p>
+
+        <h3 class="pbai-h3">Valuation assumptions</h3>
+        <p>Multiples use FY2025 reported figures and the share counts cited. Market prices are entered by the reader; the one prefilled price is indicative and marked as such. The DCF uses a five-year projection, free cash flow of (EBITDA − capex) × (1 − 22%), a Gordon-growth terminal value, and the reader’s WACC. Net debt enters only where it was reported or can be derived from a reported ratio; elsewhere the model shows enterprise value only.</p>
+
+        <h3 class="pbai-h3">Scenario methodology</h3>
+        <p>The power scenarios compound PLN’s 580 MW for 2026 to 2030 at the stated growth rate, then apply utilisation and PUE to get energy, and the tariff to get cost. The company scenarios set the DCF inputs to three coherent sets of assumptions. All scenario inputs are Longhand assumptions and are shown in full.</p>
+
+        <h3 class="pbai-h3">Monte Carlo methodology</h3>
+        <p>Each run draws revenue growth, EBITDA margin, WACC, terminal growth, a utilisation index and a power-cost change from triangular distributions (low, most likely, high) set by the reader. Runs where WACC does not exceed terminal growth by at least one percentage point are redrawn. The generator is a seeded Mulberry32, so results are reproducible for a given seed and set of inputs. The page runs 10,000 draws in the browser; the percentiles are read from the sorted results.</p>
+
+        <h3 class="pbai-h3">Limitations</h3>
+        <ul class="pbai-list">
+          <li>Most sources were read through press coverage rather than the original filings, and the original pages could not be opened from the research workspace.</li>
+          <li>Market capacity figures come from different organisations using different definitions (IT MW, MVA connected, development stages) and are not additive.</li>
+          <li>No reliable split of data-centre spending by component exists for Indonesia, so section 05 is a framework, not a measurement.</li>
+          <li>Verified market prices were not available for most shares, so the valuation depends on the price you enter.</li>
+          <li>The DCF ignores working capital, leases and minority interests, and treats depreciation as equal to capex. It is a teaching model, not a valuation opinion.</li>
+          <li>Five-year financial histories were not assembled for this edition.</li>
+        </ul>
+
+        <h3 class="pbai-h3">Source registry</h3>
+        <p>Accessed <span data-accessed></span>. Each entry states what this report takes from it.</p>
+        <ol class="sources" data-sources></ol>
+      </section>
+
+      <p class="pbai-disclaimer">This report is prepared for research and educational purposes. It is not investment advice and it is not a recommendation to buy or sell any security. It contains no ratings and no price targets. Figures drawn from media reports are indicative and should be checked against primary filings before being relied on.</p>
+    </div>
+  </div>
+
+  <dialog class="sheet company-sheet" data-company-sheet aria-labelledby="cs-title">
+    <div class="sheet-head">
+      <div>
+        <p class="kicker" data-cs-kicker></p>
+        <h2 class="sheet-title" id="cs-title" data-cs-title></h2>
+      </div>
+      <button type="button" class="icon-btn sheet-close" data-close aria-label="Close">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" data-cs-body></div>
+  </dialog>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="disclaimer"><strong>Disclaimer.</strong> These reports are personal research for educational purposes. They are not investment advice or a recommendation to buy or sell any security.</p>
+      <p class="colophon">&copy; <span data-year>2026</span> Longhand Research</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
