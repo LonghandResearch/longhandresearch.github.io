@@ -395,21 +395,12 @@
 
   /* Author mode
      Add report, and Publish and Delete on each report, are tools for the
-     author, not for readers. They show when the site is opened from this
-     computer (file or localhost), or on the live site after visiting once
-     with ?author=1 (?author=0 turns them off). */
+     author, not for readers. They only exist when the site is opened from
+     this computer (file or localhost); the live site never shows them. */
 
-  const AUTHOR_KEY = 'longhand-author';
   function initAuthor() {
-    const params = new URLSearchParams(location.search);
-    if (params.has('author')) {
-      if (params.get('author') === '0') storage.del(AUTHOR_KEY); else storage.set(AUTHOR_KEY, '1');
-      params.delete('author');
-      const qs = params.toString();
-      try { history.replaceState(history.state, '', location.pathname + (qs ? `?${qs}` : '') + location.hash); } catch (e) { /* file: URLs */ }
-    }
-    const onThisComputer = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
-    LH.isAuthor = onThisComputer || storage.get(AUTHOR_KEY) === '1';
+    storage.del('longhand-author'); // an older switch that let the live site show them
+    LH.isAuthor = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
     document.documentElement.classList.toggle('is-author', LH.isAuthor);
     $$('[data-add-report]').forEach((b) => {
       b.hidden = !LH.isAuthor;

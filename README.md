@@ -53,11 +53,7 @@ Every delete asks first.
 
 ## Author mode
 
-**Add report**, **Publish** and **Delete** are tools for you, not for readers, so they are hidden on the live site.
-
-- They are always on when the site is opened from your computer (double-clicking `index.html`, or `localhost`).
-- On the live site, visit it once with `?author=1` at the end of the address, for example `https://example.com/?author=1`. That browser remembers it.
-- On the live site, `?author=0` turns them off again.
+**Add report**, **Publish** and **Delete** are tools for you, not for readers. They appear only when the site is opened from your computer (double-clicking `index.html`, or `localhost`). The live site never shows them, to anyone.
 
 Readers never see your drafts, and they cannot change the site: publishing and deleting only write to the folder on your computer, and the site changes when you push it.
 
