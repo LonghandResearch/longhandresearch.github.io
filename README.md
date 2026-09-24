@@ -72,6 +72,8 @@ The Wire (`wire.html`, and **From the wire** on the front page) shows headlines 
 - **Gather now**: on GitHub, open **Actions**, then **Gather the wire**, then **Run workflow**.
 - **A source stops working**: the job skips it and says so in its log; its older headlines stay until they age out.
 
+Some publishers turn away automated readers (CNBC Indonesia, Kontan and Mining.com did when this was set up), so check a new source by running the job once and reading its log.
+
 Opened straight from the disk, the browser will not read `news/news.json`, so The Wire shows only on the live site (or from `localhost`).
 
 ## The globe
