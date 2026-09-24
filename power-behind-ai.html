@@ -366,7 +366,7 @@
         </div>
         <p class="fin-note" data-fin-note aria-live="polite"></p>
         <div class="fin-grid" data-fin-grid></div>
-        <p class="fig-src">Source: company reports and press as listed in section 13. Growth and margins are Longhand calculations from reported figures. The five-year view shows FY2021 to FY2025; only a few FY2022 figures and no FY2021 figures were verified for this edition, so most of those years read n/a.</p>
+        <p class="fig-src">Source: company reports and press as listed in section 13. Growth and margins are Longhand calculations from reported figures. The five-year view shows FY2021 to FY2025; FY2021 and FY2022 come from each company’s annual reports, and years a company did not report read n/a.</p>
       </section>
 
       <!-- 08 -->
@@ -374,7 +374,7 @@
         <p class="pbai-num">08</p>
         <h2 class="pbai-h2" id="s08-title">Valuation</h2>
         <p>Different businesses call for different yardsticks. A developer with land is read on book value, a tower company on EV/EBITDA, and a company still building capacity on a discounted cash flow. Table 2 names the method used for each company and why.</p>
-        <p>Prices in the table are closing prices on 24 September 2026, adjusted for share splits, and each can be changed. Where a verified share count is missing (XLSMART and Mitratel), no market value is shown. Year-end prices for FY2021 to FY2025 are collected; a valuation history needs full-year financials for the same years, which are not yet complete for this edition.</p>
+        <p>Prices in the table are closing prices on 24 September 2026, adjusted for share splits, and each can be changed. Mitratel has no market value because its current share count could not be confirmed. Figure 8 puts the same multiples on each year-end since FY2021, using the year-end close and that year’s reported figures.</p>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Valuation table, scrolls sideways on small screens">
           <table class="valuation" data-valuation>
             <caption class="fig-cap"><span class="fig-no">Table 2.</span> Current valuation on reported FY2025 figures</caption>
@@ -382,10 +382,18 @@
         </div>
         <p class="fig-src">Source: reported FY2025 figures and share counts as cited in section 13; closing prices on 24 September 2026 (Yahoo Finance), editable. EV uses reported or derived net debt only where available; otherwise EV-based multiples show as unavailable. Multiples are Longhand calculations.</p>
 
+        <figure class="pbai-figure">
+          <figcaption class="fig-cap"><span class="fig-no">Figure 8.</span> Valuation history: year-end multiples, FY2021 to FY2025</figcaption>
+          <div class="fin-controls"><div class="filters" role="group" aria-label="Choose a multiple" data-vh-metric></div></div>
+          <p class="fin-note" data-vh-note aria-live="polite"></p>
+          <div class="fin-grid" data-vh-grid></div>
+          <p class="fig-src">Source: year-end closing prices (Yahoo Finance, adjusted for splits) and reported full-year figures as cited in each company panel. Market value uses the current share count where it has not changed, and year-by-year counts for Indosat, XLSMART and Mitratel where verified. EV adds reported or derived net debt. Pertamina Geothermal reports in US dollars and is left out. Multiples are Longhand calculations.</p>
+        </figure>
+
         <h3 class="pbai-h3">A discounted cash flow you can change</h3>
         <p>A DCF suits businesses whose cash flows follow from capacity and contracts: DCI Indonesia, Mitratel and Pertamina Geothermal. The model is kept simple so each step can be checked. It projects five years, then a terminal value.</p>
         <figure class="pbai-figure dcf" data-dcf>
-          <figcaption class="fig-cap"><span class="fig-no">Figure 8.</span> Discounted cash flow</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 9.</span> Discounted cash flow</figcaption>
           <div class="dcf-top">
             <div class="filters" role="group" aria-label="Choose a company" data-dcf-company></div>
             <div class="filters" role="group" aria-label="Load a scenario" data-dcf-scen>
@@ -426,7 +434,7 @@
           </table>
         </div>
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 9.</span> Model enterprise value by scenario, indexed to the base case = 100</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 10.</span> Model enterprise value by scenario, indexed to the base case = 100</figcaption>
           <div class="chart" data-chart="scen" role="img" aria-label="Model enterprise value by scenario"></div>
           <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions; base-year figures as cited. Indexed so companies reporting in different currencies share one axis.</p>
         </figure>
@@ -449,7 +457,7 @@
         <h2 class="pbai-h2" id="s11-title">Risks</h2>
         <p>The risks are mapped to the links of the chain they act on, not scored. A score would suggest a precision the evidence does not have. Select a risk for the evidence, the mechanism and what to watch.</p>
         <figure class="pbai-figure">
-          <figcaption class="fig-cap"><span class="fig-no">Figure 10.</span> Risk map: where each risk acts on the chain</figcaption>
+          <figcaption class="fig-cap"><span class="fig-no">Figure 11.</span> Risk map: where each risk acts on the chain</figcaption>
           <div class="table-scroll" tabindex="0" role="region" aria-label="Risk map, scrolls sideways on small screens">
             <table class="riskmap" data-riskmap></table>
           </div>
@@ -472,7 +480,7 @@
         <h2 class="pbai-h2" id="s13-title">Sources and methodology</h2>
 
         <h3 class="pbai-h3">Data collection</h3>
-        <p>The research was carried out up to 24 September 2026. Priority went to official and company sources: PLN, the Ministry of Energy, company releases and filings. Where those were not directly readable, I used press reports of them and checked each material figure against at least one other outlet where one existed. Figures that could not be confirmed, or that conflicted across sources, are marked unavailable rather than chosen.</p>
+        <p>The research was carried out up to 24 September 2026. Priority went to official and company sources: PLN, the Ministry of Energy, company releases and filings. Company financials for FY2021 to FY2025 come from annual reports, audited statements and the June 2026 interim statements (for balance sheets at 31 December 2025). Where those were not available, I used press reports and checked each material figure against at least one other outlet where one existed. Figures that could not be confirmed, or that conflicted across sources, are marked unavailable rather than chosen.</p>
 
         <h3 class="pbai-h3">Financial calculations</h3>
         <p>Figures are as reported, in the company’s reporting currency. Growth rates and margins are calculated from the reported figures. Where a figure is derived rather than reported (for example Mitratel’s net debt from its reported net debt to EBITDA ratio), the company panel says so and shows the method. Free cash flow is operating cash flow less capex, and is shown only where both were found. ROE and ROIC are not shown: consistent equity and invested-capital figures were not available for enough years to calculate them properly.</p>
@@ -488,12 +496,12 @@
 
         <h3 class="pbai-h3">Limitations</h3>
         <ul class="pbai-list">
-          <li>Most sources were read through press coverage rather than the original filings.</li>
+          <li>Market and project figures were mostly read through press coverage rather than the original documents.</li>
           <li>Market capacity figures come from different organisations using different definitions (IT MW, MVA connected, development stages) and are not additive.</li>
           <li>No reliable split of data-centre spending by component exists for Indonesia, so section 05 is a framework, not a measurement.</li>
           <li>Prices come from a market-data provider (Yahoo Finance), not an exchange closing file, and a single day’s close can move far from the average.</li>
           <li>The DCF ignores working capital, leases and minority interests, and treats depreciation as equal to capex. It shows how the inputs move the result; it is not a valuation opinion.</li>
-          <li>Five-year financial histories were not assembled for this edition.</li>
+          <li>Some five-year series still have gaps: capex, operating cash flow and net debt are not reported in every year for every company.</li>
         </ul>
 
         <h3 class="pbai-h3">Source registry</h3>
