@@ -23,21 +23,23 @@ const MARKET = new RegExp([
   // Indonesian
   'ihsg', 'saham', 'bursa', 'bei', 'emiten', 'investor', 'obligasi', 'sbn', 'surat utang', 'rupiah', 'dolar', 'kurs', 'valas',
   'suku bunga', 'bi[- ]?rate', 'bi', 'bank indonesia', 'rdg', 'ojk', 'inflasi', 'deflasi', 'pdb', 'pertumbuhan ekonomi',
-  'neraca (?:dagang|perdagangan|pembayaran)', 'cadangan devisa', 'ekspor', 'impor', 'dividen', 'laba', 'rugi bersih', 'pendapatan',
+  'neraca (?:dagang|perdagangan|pembayaran)', 'cadangan devisa', 'dividen', 'laba', 'rugi bersih', 'pendapatan',
   'ipo', 'rights? issue', 'buyback', 'reksa ?dana', 'sekuritas', 'pasar modal', 'emas', 'minyak', 'batu ?bara', 'nikel',
-  'cpo', 'timah', 'tembaga', 'komoditas', 'kripto', 'apbn', 'fiskal', 'moneter', 'perbankan', 'kredit', 'akuisisi', 'net (?:buy|sell)',
+  'cpo', 'timah', 'tembaga', 'komoditas', 'kripto', 'apbn', 'fiskal', 'moneter', 'akuisisi', 'net (?:buy|sell)',
   'asing', 'uang beredar', 'harga (?:bbm|pangan pokok)', 'triliun', 'miliar',
   // English
   'stocks?', 'shares?', 'equit(?:y|ies)', 'markets?', 's&p', 'nasdaq', 'dow', 'bonds?', 'yields?', 'treasur(?:y|ies)', 'rates?', 'fed',
   'fomc', 'central banks?', 'inflation', 'cpi', 'ppi', 'gdp', 'recession', 'payrolls?', 'jobs report', 'earnings', 'revenue', 'profits?',
   'dividends?', 'mergers?', 'acquisitions?', 'investors?', 'funds?', 'etfs?', 'dollar', 'currenc(?:y|ies)', 'forex', 'yen', 'euro',
   'yuan', 'oil', 'crude', 'brent', 'gold', 'silver', 'copper', 'lithium', 'coal', 'commodit(?:y|ies)', 'opec', 'bitcoin', 'crypto',
-  'tariffs?', 'trade', 'econom(?:y|ic|ies)', 'banks?', 'lending', 'credit', 'debt', 'deficit', 'stimulus', 'wall street',
+  'tariffs?', 'trade', 'econom(?:y|ic|ies)', 'bank stocks?', 'lending', 'credit', 'debt', 'deficit', 'stimulus', 'wall street',
   'hedge funds?', 'valuations?', 'rally', 'sell-?off', 'billion', 'trillion',
 ].map((w) => `\\b${w}\\b`).join('|'), 'i');
 const NEVER = new RegExp([
   'sepak ?bola', 'liga', 'timnas', 'artis', 'seleb\\w*', 'zodiak', 'resep', 'horoskop', 'gosip', 'viral', 'kecelakaan', 'banjir', 'gempa',
   'pembunuhan', 'lowongan', 'cpns', 'bansos', 'hadiah', 'promo', 'diskon', 'bonus', 'kuis', 'pengertian', 'cara', 'tips',
+  // advertorials and outreach
+  'literasi', 'edukasi', 'sinergi', 'anugerah', 'penghargaan', 'raih', 'solusi', 'nikmati', 'pendaftaran', 'award',
   'quiz', 'recipes?', 'celebrit(?:y|ies)', 'horoscopes?', 'nfl', 'nba', 'football', 'obituary',
 ].map((w) => `\\b${w}\\b`).join('|'), 'i');
 const onTopic = (title, strict) => !NEVER.test(title) && (!strict || MARKET.test(title));
