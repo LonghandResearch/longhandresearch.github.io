@@ -1,17 +1,20 @@
 {
   "about": "The sources gathered into The Wire. Each has a name, the address of its RSS feed, a topic (Markets, Macro, Commodities or Crypto) and, for headlines not in English, a lang code such as \"id\". Add, remove or change sources here; the next hourly run picks them up.",
   "feeds": [
-    {"name": "CNBC Indonesia", "url": "https://www.cnbcindonesia.com/market/rss", "topic": "Markets", "lang": "id"},
-    {"name": "CNBC Indonesia", "url": "https://www.cnbcindonesia.com/news/rss", "topic": "Macro", "lang": "id"},
+    {"name": "Antara", "url": "https://www.antaranews.com/rss/ekonomi-bursa.xml", "topic": "Markets", "lang": "id"},
+    {"name": "detikFinance", "url": "https://finance.detik.com/rss", "topic": "Markets", "lang": "id"},
+    {"name": "Tempo", "url": "https://rss.tempo.co/bisnis", "topic": "Macro", "lang": "id"},
+    {"name": "Republika", "url": "https://www.republika.co.id/rss/ekonomi", "topic": "Macro", "lang": "id"},
+    {"name": "Okezone", "url": "https://sindikasi.okezone.com/index.php/rss/11/RSS2.0", "topic": "Markets", "lang": "id"},
     {"name": "Antara", "url": "https://www.antaranews.com/rss/ekonomi.xml", "topic": "Macro", "lang": "id"},
-    {"name": "Kontan", "url": "https://investasi.kontan.co.id/rss", "topic": "Markets", "lang": "id"},
     {"name": "CNBC", "url": "https://www.cnbc.com/id/10000664/device/rss/rss.html", "topic": "Markets"},
     {"name": "CNBC", "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html", "topic": "Macro"},
     {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/news/rssindex", "topic": "Markets"},
     {"name": "Federal Reserve", "url": "https://www.federalreserve.gov/feeds/press_all.xml", "topic": "Macro"},
     {"name": "OilPrice", "url": "https://oilprice.com/rss/main", "topic": "Commodities"},
-    {"name": "Mining.com", "url": "https://www.mining.com/feed/", "topic": "Commodities"},
     {"name": "CoinDesk", "url": "https://www.coindesk.com/arc/outboundfeeds/rss/", "topic": "Crypto"},
-    {"name": "Cointelegraph", "url": "https://cointelegraph.com/rss", "topic": "Crypto"}
+    {"name": "Cointelegraph", "url": "https://cointelegraph.com/rss", "topic": "Crypto"},
+    {"name": "Investing.com", "url": "https://www.investing.com/rss/news_11.rss", "topic": "Commodities"},
+    {"name": "Mining Technology", "url": "https://www.mining-technology.com/feed/", "topic": "Commodities"}
   ]
 }
