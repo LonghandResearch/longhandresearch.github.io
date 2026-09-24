@@ -68,7 +68,7 @@
             ${company ? `<p class="reader-company">${esc(company)}</p>` : ''}
             ${r.summary ? `<p class="reader-summary">${esc(r.summary)}</p>` : ''}
             <div class="reader-actions">
-              <a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(r))}">${icon('download')} Download PDF</a>
+              <a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>
               ${canFs ? `<button type="button" class="btn btn-quiet" data-fullscreen>${icon('maximize')} <span data-fs-label>Read full screen</span></button>` : ''}
               ${r.isLocal ? '' : `<button type="button" class="text-link" data-copy-link>${icon('link')} <span data-copy-label>Copy link</span></button>`}
               <span class="file-meta" data-file-meta>${esc(LH.fileMeta(r))}</span>
@@ -471,7 +471,7 @@
     native() {
       this.hideZoom();
       this.setStatus('');
-      this.pagesEl.innerHTML = `<iframe class="viewer-frame" src="${esc(LH.fileUrl(this.r))}" title="${esc(this.r.title)}, PDF"></iframe>`;
+      this.pagesEl.innerHTML = `<iframe class="viewer-frame" src="${esc(LH.fileUrl(this.r))}" title="${esc(this.r.title)}"></iframe>`;
     }
 
     error(kind) {
@@ -490,15 +490,15 @@
           ? `The file was not found at <code>${esc(this.r.pdfUrl || '(no path)')}</code>. Check that the PDF is in the reports folder and that the name in <code>reports.js</code> matches it exactly.`
           : 'The file for this report is not available at the moment. Please try again later.',
         invalid: 'The file is damaged or is not a PDF, so it cannot be shown here.',
-        failed: 'The viewer could not load. You may be offline, or the file may be unavailable. The PDF can still be downloaded or opened in your browser.',
+        failed: 'The viewer could not load. You may be offline, or the file may be unavailable. The report can still be downloaded or opened in your browser.',
       }[kind];
       const links = kind === 'missing'
         ? `<a class="btn" href="library.html">Browse the library ${icon('arrowRight', 'icon-arrow')}</a>`
-        : `<a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(this.r))}">${icon('download')} Download PDF</a>
+        : `<a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(this.r))}">${icon('download')} Download</a>
            <a class="text-link" href="${esc(url)}" target="_blank" rel="noopener">Open in a new tab ${icon('external')}</a>`;
       this.pagesEl.innerHTML = `
         <div class="viewer-error wrap">
-          <p class="state-title">This PDF could not be displayed.</p>
+          <p class="state-title">This report could not be displayed.</p>
           <p class="state-text">${text}</p>
           <div class="hero-actions">${links}</div>
         </div>`;

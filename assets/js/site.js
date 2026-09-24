@@ -146,7 +146,7 @@
   }
 
   function fileMeta(r) {
-    const bits = ['PDF'];
+    const bits = [];
     if (r.pages) bits.push(`${r.pages} ${r.pages === 1 ? 'page' : 'pages'}`);
     if (r.fileSize) bits.push(fmtBytes(r.fileSize));
     return bits.join(', ');
