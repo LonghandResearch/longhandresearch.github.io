@@ -3,7 +3,6 @@
   "feeds": [
     {"name": "Antara", "url": "https://www.antaranews.com/rss/ekonomi-bursa.xml", "topic": "Markets", "lang": "id"},
     {"name": "detikFinance", "url": "https://finance.detik.com/rss", "topic": "Markets", "lang": "id"},
-    {"name": "Tempo", "url": "https://rss.tempo.co/bisnis", "topic": "Macro", "lang": "id"},
     {"name": "Republika", "url": "https://www.republika.co.id/rss/ekonomi", "topic": "Macro", "lang": "id"},
     {"name": "Okezone", "url": "https://sindikasi.okezone.com/index.php/rss/11/RSS2.0", "topic": "Markets", "lang": "id"},
     {"name": "Antara", "url": "https://www.antaranews.com/rss/ekonomi.xml", "topic": "Macro", "lang": "id"},
