@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The library · Longhand Research</title>
+<meta name="description" content="Every report in the Longhand library, newest first: company initiations and updates, sector studies and macro notes.">
+<meta name="theme-color" content="#f3efe7">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+  /* Before the page paints: the theme (saved choice, then the system setting),
+     and a flag that scripts are running */
+  (function () {
+    var d = document.documentElement, t = null;
+    d.classList.add('js');
+    try { t = localStorage.getItem('longhand-theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    d.setAttribute('data-theme', t);
+  })();
+  /* Catch a typo in reports/reports.js so the site can say where it is */
+  window.addEventListener('error', function (e) {
+    if (e.filename && /reports\/reports\.js/.test(e.filename)) window.LONGHAND_CATALOG_ERROR = { message: e.message, line: e.lineno };
+  });
+  /* Page transitions: a step back runs the motion the other way */
+  window.addEventListener('pagereveal', function (e) {
+    var d = document.documentElement, vt = e.viewTransition, a = window.navigation && navigation.activation;
+    delete d.dataset.nav;
+    if (!vt) return;
+    ['ready', 'finished', 'updateCallbackDone'].forEach(function (k) { if (vt[k]) vt[k].catch(function () {}); });
+    window.LONGHAND_VT = vt;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry && a.entry.index < a.from.index) d.dataset.nav = 'back';
+    var done = function () { delete d.dataset.nav; window.LONGHAND_VT = null; };
+    vt.finished.then(done, done);
+  });
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="reports/reports.js" defer blocking="render"></script>
+<script src="assets/js/site.js" defer blocking="render"></script>
+<script src="assets/js/library.js" defer blocking="render"></script>
+</head>
+<body class="page-library">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="brand" href="index.html" aria-label="Longhand Research, front page">
+      <span class="brand-name">Longhand</span>
+      <span class="brand-sub">Research</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="library.html" aria-current="page">Library</a>
+      <a href="about.html" class="nav-about">About</a>
+      <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Switch theme">
+        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9Z"/></svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button type="button" class="btn btn-sm" data-add-report hidden>Add report</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-head wrap">
+    <svg class="page-emblem" viewBox="0 0 72 88" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true" focusable="false">
+      <circle cx="36" cy="34" r="27" stroke-width="1.5"/>
+      <circle cx="36" cy="34" r="21.5" stroke-width="1.2"/>
+      <g transform="rotate(-23.44 36 34)">
+        <ellipse cx="36" cy="34" rx="8.5" ry="21.5" stroke-width="1"/>
+        <ellipse cx="36" cy="34" rx="16" ry="21.5" stroke-width="0.8" opacity="0.55"/>
+        <path d="M14.5 34h43" class="gold" stroke-width="1.3"/>
+        <path d="M16.6 25h38.8M16.6 43h38.8" stroke-width="0.7" opacity="0.5"/>
+        <path d="M36 7V3.5M36 61v3.5" stroke-width="1.6"/>
+      </g>
+      <path d="M36 61v12" stroke-width="1.5"/>
+      <path d="M23.5 85c0-6.5 5.5-10 12.5-10s12.5 3.5 12.5 10z" stroke-width="1.5"/>
+    </svg>
+    <div>
+      <p class="eyebrow">The library</p>
+      <h1 class="page-title">Every report, <em>newest first.</em></h1>
+      <p class="page-lede">Search by ticker, company or title, or narrow the list by type. Each entry opens the report and its PDF.</p>
+      <p class="page-folio" data-folio hidden></p>
+    </div>
+  </header>
+
+  <section class="section wrap" id="reports" aria-labelledby="reports-title">
+    <div class="section-head">
+      <h2 class="section-label" id="reports-title">All reports</h2>
+      <p class="section-meta" data-count aria-live="polite"></p>
+    </div>
+    <div class="index-tools">
+      <div class="filters" role="group" aria-label="Filter by category" data-filters></div>
+      <label class="search">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg>
+        <span class="sr-only">Search reports</span>
+        <input type="search" data-search placeholder="Search ticker, company or title" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-keyshortcuts="/">
+        <kbd class="kbd" aria-hidden="true" title="Press / to search">/</kbd>
+        <button type="button" class="search-clear" data-search-clear aria-label="Clear search" hidden>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </label>
+    </div>
+    <div class="catalog-note" data-catalog-note role="note" hidden></div>
+    <ol class="report-list" data-list></ol>
+    <noscript><p class="empty-text">The library needs JavaScript. Please turn it on to browse and read the reports.</p></noscript>
+    <div class="empty" data-empty hidden></div>
+    <p class="index-note" data-index-note hidden>Prices and targets are as at the date of publication.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="disclaimer"><strong>Disclaimer.</strong> These reports are personal research for educational purposes. They are not investment advice or a recommendation to buy or sell any security.</p>
+      <p class="colophon">&copy; <span data-year>2026</span> Longhand Research</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .ink { stroke: #1c1a16; }
+    .gold { stroke: #a87a33; }
+    @media (prefers-color-scheme: dark) { .ink { stroke: #ece6d8; } .gold { stroke: #c9a05a; } }
+  </style>
+  <g fill="none" stroke-linecap="round">
+    <circle class="ink" cx="32" cy="30" r="17" stroke-width="3.5"/>
+    <ellipse class="gold" cx="32" cy="30" rx="7.5" ry="17" stroke-width="2.5"/>
+    <path class="gold" d="M15.5 30h33" stroke-width="2.5"/>
+    <path class="ink" d="M32 47v8M24 56h16" stroke-width="3.5"/>
+  </g>
+</svg>

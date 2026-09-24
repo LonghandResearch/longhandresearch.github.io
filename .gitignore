@@ -1,0 +1,7 @@
+# Local editor and preview settings
+.claude/
+
+# Files the operating system leaves behind
+Thumbs.db
+desktop.ini
+.DS_Store
