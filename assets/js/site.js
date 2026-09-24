@@ -64,7 +64,7 @@
 
   /* Report model */
 
-  const CATEGORIES = ['Initiation', 'Update', 'Sector', 'Macro'];
+  const CATEGORIES = ['Initiation', 'Update', 'Sector', 'Macro', 'Industry Research'];
   const COMPANY_CATEGORIES = ['Initiation', 'Update'];
   const RATINGS = ['BUY', 'HOLD', 'SELL'];
   const CURRENCIES = ['IDR', 'USD', 'EUR', 'GBP', 'JPY', 'CNY', 'HKD', 'SGD', 'MYR', 'THB', 'PHP', 'VND', 'INR', 'KRW', 'TWD', 'AUD', 'CAD', 'CHF'];
@@ -82,6 +82,8 @@
     if (upside == null && price && targetPrice != null) upside = Math.round((targetPrice / price - 1) * 1000) / 10;
     const rating = RATINGS.includes(String(r.rating || '').trim().toUpperCase()) ? String(r.rating).trim().toUpperCase() : null;
     const pdfUrl = String(r.pdfUrl || r.file || '').trim();
+    // An interactive report is its own page rather than a PDF in the reader
+    const page = /^[\w./-]+\.html$/.test(String(r.page || '').trim()) ? String(r.page).trim() : '';
     const category = normCategory(r.category || r.type);
     const ticker = String(r.ticker || '').trim().toUpperCase();
     const date = parseISO(r.date) ? String(r.date) : '';
@@ -95,6 +97,8 @@
       title: String(r.title || '').trim() || 'Untitled report',
       date,
       blurb: String(r.blurb || '').trim(),
+      page,
+      tags: Array.isArray(r.tags) ? r.tags.map((t) => String(t).trim()).filter(Boolean) : [],
       summary: String(r.summary || r.blurb || '').trim(),
       rating,
       currency: String(r.currency || 'IDR').trim().toUpperCase(),
@@ -119,7 +123,7 @@
 
   const subjectOf = (r) => r.ticker || r.category;
   const money = (r, v) => (v == null ? '' : `${r.currency} ${fmtNum(v)}`);
-  const reportHref = (r) => `report.html?id=${encodeURIComponent(r.id)}`;
+  const reportHref = (r) => r.page || `report.html?id=${encodeURIComponent(r.id)}`;
   const downloadName = (r) => r.fileName || `${subjectOf(r)}_${r.category}_${r.date || 'report'}.pdf`.replace(/\s+/g, '_');
 
   /* Relative paths in reports.js are written the way a person would type
@@ -210,8 +214,8 @@
       if (seen.has(r.id)) { found.push(`${where} uses the id “${r.id}”, which is already taken; it is not shown.`); return; }
       if (!raw.title) found.push(`${where} has no title.`);
       if (!parseISO(raw.date)) found.push(`${where}: write the date as YYYY-MM-DD, for example 2026-09-03.`);
-      if (!r.pdfUrl) found.push(`${where} has no pdfUrl, so there is no PDF to open.`);
-      if (raw.category && !CATEGORIES.includes(raw.category)) found.push(`${where}: the category should be Initiation, Update, Sector or Macro.`);
+      if (!r.pdfUrl && !r.page) found.push(`${where} has no pdfUrl, so there is no PDF to open.`);
+      if (raw.category && !CATEGORIES.includes(raw.category)) found.push(`${where}: the category should be Initiation, Update, Sector, Macro or Industry Research.`);
       seen.add(r.id);
       out.push(r);
     });
@@ -1025,7 +1029,7 @@
     exchange     optional, for example "IDX", "NYSE" or "HKEX"
     company      company name, or the subject of a sector or macro note
     sector       optional, shown on the report page
-    category     "Initiation", "Update", "Sector" or "Macro"
+    category     "Initiation", "Update", "Sector", "Macro" or "Industry Research"
     title        the report headline
     date         publication date, YYYY-MM-DD
     blurb        one or two sentences for the report list
@@ -1036,6 +1040,9 @@
     targetPrice  target price, or null
     upside       % to target; worked out from price and target if left out
     pdfUrl       path to the PDF, for example "reports/My_Report.pdf"
+    page         optional: an interactive report that is its own page, for example
+                 "power-behind-ai.html"; used instead of a PDF
+    tags         optional list of words the library search also looks at
     pages        optional, number of pages
     fileSize     optional, size of the PDF in bytes
     extra        optional list of [label, value] pairs for the key data panel

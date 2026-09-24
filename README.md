@@ -12,6 +12,7 @@ A static website with no server code and no build step. Open `index.html` in a b
 | `about.html` | How the reports are built, the rating key and the report types |
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
+| `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
 
 ## Files
 
@@ -25,6 +26,10 @@ A static website with no server code and no build step. Open `index.html` in a b
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/reader.js` | Report page: the PDF reader |
 | `assets/js/globe.js` | The globe on the front page |
+| `assets/js/pbai/data.js` | The Power Behind AI: every figure, its status and its sources |
+| `assets/js/pbai/report.js` | The Power Behind AI: charts, calculator, company panels, valuation and DCF |
+| `assets/js/pbai/montecarlo.js` | The Power Behind AI: the seeded Monte Carlo simulation, loaded on demand |
+| `assets/css/pbai.css` | Styles for the interactive report |
 | `assets/js/wire.js` | The Wire page, and the latest headlines on the front page |
 | `news/feeds.json` | The sources gathered into The Wire |
 | `news/news.json` | The gathered headlines (written by the hourly job; do not edit) |
@@ -50,6 +55,12 @@ To do it all by hand:
 If `reports.js` has a mistake, such as a missing comma, the library page tells you which line to look at (in author mode only). Readers just see that the list could not be loaded.
 
 Catalogue numbers (No. 001, No. 002 and so on) are given in order of publication date, oldest first. Adding a report with an earlier date than ones already published moves the later numbers up by one.
+
+## Interactive reports
+
+A report can also be its own page instead of a PDF. Give its catalogue entry a `page` (for example `"page": "power-behind-ai.html"`) and leave out `pdfUrl`; the library, the front page and old `report.html?id=` links all open that page. `tags` is an optional list of words the library search also looks at. The category `Industry Research` is for this kind of report.
+
+**The Power Behind AI** (`power-behind-ai.html`) is built this way. Every number it shows lives in `assets/js/pbai/data.js`, each with a status (actual, announced, under construction, estimate or scenario) and the sources it rests on; the page numbers the sources and lists them in section 13. To correct or update a figure, change it there, not in the page. The prose in the page repeats a few of those figures, so search the page for the old value too.
 
 ## Delete a report
 

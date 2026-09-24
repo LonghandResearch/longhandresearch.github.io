@@ -22,6 +22,7 @@
     // A published report is drawn at once, so the page arrives complete and
     // its title can travel in from the page before; drafts need a moment.
     const pub = id ? LH.published().find((x) => x.id === id) : null;
+    if (pub && pub.page) { location.replace(pub.page); return; }   // interactive reports live on their own page
     if (pub) { renderReport(pub); return; }
     const r = id ? await LH.findReport(id) : null;
     if (!r) { renderMissing(); return; }

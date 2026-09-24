@@ -47,7 +47,7 @@
 
   const fold = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
   const tokenize = (q) => fold(q).split(/[\s,]+/).map((t) => t.trim()).filter(Boolean);
-  const haystack = (r) => fold([r.ticker, r.exchange, r.company, r.title, r.sector, r.category].join(' '));
+  const haystack = (r) => fold([r.ticker, r.exchange, r.company, r.title, r.sector, r.category, ...(r.tags || [])].join(' '));
   const matches = (r, tokens) => { const h = haystack(r); return tokens.every((t) => h.includes(t)); };
 
   /* Wrap the matched words in <mark>, escaping everything else. */
