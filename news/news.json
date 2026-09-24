@@ -1,6 +1,342 @@
 {
- "updated": "2026-09-24T10:43:34.039Z",
+ "updated": "2026-09-24T15:49:58.389Z",
  "items": [
+  {
+   "title": "Crypto casino Duelbits goes offline after $7 million hot wallet hack",
+   "url": "https://www.coindesk.com/business/2026/09/24/crypto-casino-duelbits-goes-offline-after-usd7m-hot-wallet-hack",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T15:48:20.000Z"
+  },
+  {
+   "title": "Russia Begins Oil Exports From Its Giant Vostok Arctic Project",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Russia-Begins-Oil-Exports-From-Its-Giant-Vostok-Arctic-Project.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-24T15:35:00.000Z"
+  },
+  {
+   "title": "New York sues Polymarket over alleged illegal gambling business",
+   "url": "https://cointelegraph.com/news/new-york-polymarket-illegal-gambling-operation-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T15:27:29.000Z"
+  },
+  {
+   "title": "Bitcoin’s bear markets are getting milder. Bull markets may be next",
+   "url": "https://www.coindesk.com/markets/2026/09/24/bitcoin-s-bear-markets-are-getting-milder-the-bull-markets-may-be-next",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T15:26:34.000Z"
+  },
+  {
+   "title": "Kredit Nganggur Tembus Rp 2.548 Triliun, Bos BI Ungkap Biang Keroknya",
+   "url": "https://finance.detik.com/moneter/d-8678014/kredit-nganggur-tembus-rp-2-548-triliun-bos-bi-ungkap-biang-keroknya",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T15:09:49.000Z"
+  },
+  {
+   "title": "UK’s largest banks complete world’s first interbank transactions using tokenized deposits",
+   "url": "https://www.coindesk.com/business/2026/09/24/uk-s-largest-banks-complete-world-s-first-interbank-transactions-using-tokenized-deposits",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T15:07:18.000Z"
+  },
+  {
+   "title": "China Could Cut Fuel Exports in October as Inventories Plunge",
+   "url": "https://oilprice.com/Energy/Energy-General/China-Could-Cut-Fuel-Exports-in-October-as-Inventories-Plunge.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-24T15:00:00.000Z"
+  },
+  {
+   "title": "Crypto for Advisors:The hidden costs of holding your own bitcoin",
+   "url": "https://www.coindesk.com/coindesk-indices/2026/09/24/crypto-for-advisors-the-hidden-costs-of-holding-your-own-bitcoin",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T14:49:28.000Z"
+  },
+  {
+   "title": "UAE and Saudi Arabia eye India refinery investments, minister says",
+   "url": "https://www.investing.com/news/commodities-news/uae-and-saudi-arabia-eye-india-refinery-investments-minister-says-93CH-4915747",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T14:45:20.000Z"
+  },
+  {
+   "title": "European stablecoin issuer Qivalis sees transformation of global trade finance",
+   "url": "https://www.coindesk.com/business/2026/09/24/european-stablecoin-issuer-qivalis-sees-transformation-of-global-trade-finance",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T14:41:05.000Z"
+  },
+  {
+   "title": "Here's what happens to the economy when Treasury yields soar like they are now",
+   "url": "https://www.cnbc.com/2026/09/23/what-happens-to-the-economy-when-treasury-yields-soar.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-09-24T14:37:14.000Z"
+  },
+  {
+   "title": "Philadelphia Fed's Anna Paulson says 'modest' rate moves likely ahead to tame inflation",
+   "url": "https://www.cnbc.com/2026/09/24/philadelphia-feds-anna-paulson-says-modest-rate-moves-likely-ahead-to-tame-inflation.html",
+   "source": "CNBC",
+   "topic": "Markets",
+   "time": "2026-09-24T14:26:05.000Z"
+  },
+  {
+   "title": "China confirms first AI talks with U.S. have taken place, hints at trade truce extension",
+   "url": "https://www.cnbc.com/2026/09/24/china-confirms-first-ai-talks-with-us-have-taken-place-hints-at-trade-truce-extension.html",
+   "source": "CNBC",
+   "topic": "Markets",
+   "time": "2026-09-24T14:16:27.000Z"
+  },
+  {
+   "title": "Record Fuel Prices Send European EV Sales Soaring",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Record-Fuel-Prices-Send-European-EV-Sales-Soaring.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-24T14:15:00.000Z"
+  },
+  {
+   "title": "Suahasil Siapkan Rp824 Triliun Anggaran Pendidikan 2027, Sekolah Gratis dari SD sampai Kuliah",
+   "url": "https://economy.okezone.com/read/2026/09/24/320/3244046/suahasil-siapkan-rp824-triliun-anggaran-pendidikan-2027-sekolah-gratis-dari-sd-sampai-kuliah",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T14:03:47.000Z"
+  },
+  {
+   "title": "South Korea Follows Japan's Playbook With $22.3 Billion Texas Gas Bet",
+   "url": "https://oilprice.com/Energy/Natural-Gas/South-Korea-Follows-Japans-Playbook-With-223-Billion-Texas-Gas-Bet.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-24T14:00:00.000Z"
+  },
+  {
+   "title": "Besok Jatuh Tempo, Suahasil Siapkan Rp37,7 Triliun untuk Bayar Cicilan Kopdes Merah Putih",
+   "url": "https://economy.okezone.com/read/2026/09/24/320/3244037/besok-jatuh-tempo-suahasil-siapkan-rp37-7-triliun-untuk-bayar-cicilan-kopdes-merah-putih",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T13:43:56.000Z"
+  },
+  {
+   "title": "Prudential Syariah Catat Kontribusi Rp4,2 Triliun, Klaim dan Manfaat Capai Rp2,2 Triliun",
+   "url": "https://ekonomi.republika.co.id/berita/tlvff7522/prudential-syariah-catat-kontribusi-rp42-triliun-klaim-dan-manfaat-capai-rp22-triliun",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-09-24T13:42:43.000Z"
+  },
+  {
+   "title": "BI Ternyata Masih Cetak Uang Baru Bertanda Tangan Purbaya",
+   "url": "https://finance.detik.com/moneter/d-8677911/bi-ternyata-masih-cetak-uang-baru-bertanda-tangan-purbaya",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T13:39:44.000Z"
+  },
+  {
+   "title": "Gold prices edge lower amid higher oil prices, bond yields",
+   "url": "https://www.investing.com/news/commodities-news/gold-steadies-after-selloff-as-oil-strong-us-data-lift-fed-hike-bets-4914320",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T13:32:35.000Z"
+  },
+  {
+   "title": "Oil extends gains amid U.S.-Iran diplomacy doubts",
+   "url": "https://www.investing.com/news/commodities-news/oil-slips-1-after-sharp-gains-amid-usiran-diplomacy-doubts-4914284",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T13:30:12.000Z"
+  },
+  {
+   "title": "123 Aset Pengemplang Pajak Dilelang, Nilainya Rp 24,7 Miliar",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8677887/123-aset-pengemplang-pajak-dilelang-nilainya-rp-24-7-miliar",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T13:30:00.000Z"
+  },
+  {
+   "title": "Here’s what happened in crypto today",
+   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T13:29:50.000Z"
+  },
+  {
+   "title": "IBM opens beta Swift ledger link for 24/7 tokenized deposits",
+   "url": "https://cointelegraph.com/news/ibm-banks-swift-ledger-tokenized-deposit-transfers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T13:29:06.000Z"
+  },
+  {
+   "title": "Talisman Metals acquires three new licences at Tirzzit Copper Project",
+   "url": "https://www.mining-technology.com/news/talisman-acquires-licences-tirzzit-project/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-09-24T13:05:24.000Z"
+  },
+  {
+   "title": "Saudi Arabia Sells 100 Million Barrels of Crude to Asia via Hormuz",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Sells-100-Million-Barrels-of-Crude-to-Asia-via-Hormuz.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-24T13:00:00.000Z"
+  },
+  {
+   "title": "Cathie Wood's ARK teams with Securitize to tokenize venture fund with OpenAI, Anthropic stakes",
+   "url": "https://www.coindesk.com/business/2026/09/24/cathie-wood-s-ark-teams-with-securitize-to-tokenize-venture-fund-with-openai-anthropic-stakes",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T13:00:00.000Z"
+  },
+  {
+   "title": "Solana Foundation hires Binance, Polygon veterans as it ramps up tokenized finance push",
+   "url": "https://www.coindesk.com/business/2026/09/24/solana-foundation-hires-binance-polygon-veterans-as-it-ramps-up-tokenized-finance-push",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T13:00:00.000Z"
+  },
+  {
+   "title": "Solana Foundation hires ex-Binance CMO and payments exec as new partnerships expand",
+   "url": "https://cointelegraph.com/news/solana-foundation-binance-cmo-payments-executive?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T13:00:00.000Z"
+  },
+  {
+   "title": "Trump rolled back regulations for oil company campaign donors, Democrats say",
+   "url": "https://www.investing.com/news/commodities-news/trump-rolled-back-regulations-for-oil-company-campaign-donors-democrats-say-4915352",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T12:37:38.000Z"
+  },
+  {
+   "title": "BLM approves seven new drill pads for Spartan Metals in Nevada",
+   "url": "https://www.mining-technology.com/news/blm-seven-drill-pads-spartan-metals/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-09-24T12:35:59.000Z"
+  },
+  {
+   "title": "Crypto investment firm RockawayX is betting $150 million on yield becoming next big use case",
+   "url": "https://www.coindesk.com/business/2026/09/23/rockawayx-is-betting-usd150-million-on-yield-becoming-crypto-s-next-big-use-case",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T12:31:53.000Z"
+  },
+  {
+   "title": "EU's financial regulator to make AI and tokenization a supervisory priority in 2027",
+   "url": "https://www.coindesk.com/policy/2026/09/24/eu-s-financial-regulator-to-make-ai-and-tokenization-a-supervisory-priority-in-2027",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T12:26:43.000Z"
+  },
+  {
+   "title": "Oil gains on little sign of progress in US-Iran talks",
+   "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-as-iran-says-it-is-open-to-diplomacy-to-end-the-war-4914308",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T12:18:57.000Z"
+  },
+  {
+   "title": "US eases screwworm ban on Mexican cattle, but beef prices unlikely to budge",
+   "url": "https://www.investing.com/news/commodities-news/us-eases-screwworm-ban-on-mexican-cattle-but-beef-prices-unlikely-to-budge-4915287",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T12:18:37.000Z"
+  },
+  {
+   "title": "Australia agrees priority visa processing for vital farm workers, industry group says",
+   "url": "https://www.investing.com/news/commodities-news/australia-agrees-priority-visa-processing-for-vital-farm-workers-industry-group-says-4915259",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T12:06:39.000Z"
+  },
+  {
+   "title": "Europe’s Gas Prices Jump as Hormuz Standoff Drags On",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Europes-Gas-Prices-Jump-as-Hormuz-Standoff-Drags-On.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-24T12:00:00.000Z"
+  },
+  {
+   "title": "HIFI raises $37M to expand stablecoin payments, tokenized markets",
+   "url": "https://cointelegraph.com/news/hifi-raises-37m-to-expand-stablecoin-payments-tokenized-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T12:00:00.000Z"
+  },
+  {
+   "title": "Switzerland is keeping rates at 0% — for now",
+   "url": "https://www.cnbc.com/2026/09/24/swiss-national-bank-interest-rates-inflation.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-09-24T11:34:56.000Z"
+  },
+  {
+   "title": "Brooklyn man sent to prison for 12 years for stealing $16M in a Coinbase phishing scheme",
+   "url": "https://www.coindesk.com/business/2026/09/24/brooklyn-man-sent-to-prison-for-12-years-for-stealing-usd16m-in-a-coinbase-phishing-scheme",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T11:33:57.000Z"
+  },
+  {
+   "title": "Litecoin token has its moment as network activity booms",
+   "url": "https://www.coindesk.com/daybook-us/2026/09/24/litecoin-token-has-its-moment-as-network-activity-booms",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T11:26:18.000Z"
+  },
+  {
+   "title": "Era of pure crypto exchanges is ending, Bybit CEO says",
+   "url": "https://cointelegraph.com/news/era-pure-crypto-exchanges-end-bybit-ceo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T11:24:07.000Z"
+  },
+  {
+   "title": "Live updates: Bitcoin slips alongside continued gains in interest rates and oil",
+   "url": "https://www.coindesk.com/tech/2026/09/24/live-updates-bitcoin-edges-lower-as-bond-yields-take-center-stage",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-24T11:20:12.000Z"
+  },
+  {
+   "title": "Just One Commodity Vessel Left the Strait of Hormuz on Wednesday",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Just-One-Commodity-Vessel-Left-the-Strait-of-Hormuz-on-Wednesday.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-24T11:00:00.000Z"
+  },
+  {
+   "title": "Laba Bersih Astra Agro Lestari Tembus Rp 1,1 Triliun di Semester I 2026",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8677694/laba-bersih-astra-agro-lestari-tembus-rp-1-1-triliun-di-semester-i-2026",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-24T10:55:51.000Z"
+  },
+  {
+   "title": "Morning Bid: Bonds bomb",
+   "url": "https://www.investing.com/news/commodities-news/morning-bid-bonds-bomb-4914957",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T10:48:26.000Z"
+  },
+  {
+   "title": "US farmers push for China commitments on imports as Trump and Xi talk trade",
+   "url": "https://www.investing.com/news/commodities-news/us-farmers-push-for-china-commitments-on-imports-as-trump-and-xi-talk-trade-4914836",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-24T10:37:12.000Z"
+  },
   {
    "title": "Bitcoin slides to $83,300 as bond yields hit highest level since 2007",
    "url": "https://www.coindesk.com/markets/2026/09/24/bitcoin-steadies-near-usd84-000-after-bond-yields-hit-a-2007-high",
@@ -31,20 +367,6 @@
    "time": "2026-09-24T10:22:34.000Z"
   },
   {
-   "title": "China confirms first AI talks with U.S. have taken place, hints at trade truce extension",
-   "url": "https://www.cnbc.com/2026/09/24/china-confirms-first-ai-talks-with-us-have-taken-place-hints-at-trade-truce-extension.html",
-   "source": "CNBC",
-   "topic": "Markets",
-   "time": "2026-09-24T10:18:19.000Z"
-  },
-  {
-   "title": "Switzerland is keeping rates at 0% — for now",
-   "url": "https://www.cnbc.com/2026/09/24/swiss-national-bank-interest-rates-inflation.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-09-24T10:15:48.000Z"
-  },
-  {
    "title": "Bitcoin falls below $84K as 10-year Treasury yield hits 19-year high",
    "url": "https://cointelegraph.com/markets/bitcoin-fall-84k-treasury-yield-hits-19-year-high?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
@@ -57,13 +379,6 @@
    "source": "CoinDesk",
    "topic": "Crypto",
    "time": "2026-09-24T10:11:51.000Z"
-  },
-  {
-   "title": "US farmers push for China commitments on imports as Trump and Xi talk trade",
-   "url": "https://www.investing.com/news/commodities-news/us-farmers-push-for-china-commitments-on-imports-as-trump-and-xi-talk-trade-4914836",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-24T10:07:33.000Z"
   },
   {
    "title": "Uang Beredar di Indonesia Capai Rp10.448 Triliun di Agustus 2026",
@@ -79,13 +394,6 @@
    "source": "OilPrice",
    "topic": "Commodities",
    "time": "2026-09-24T10:00:00.000Z"
-  },
-  {
-   "title": "Oil extends gains on little sign of progress in US-Iran talks",
-   "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-as-iran-says-it-is-open-to-diplomacy-to-end-the-war-4914308",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-24T09:54:27.000Z"
   },
   {
    "title": "Seharian di Zona Merah, IHSG Ditutup Melemah 1,2%",
@@ -162,13 +470,6 @@
    "time": "2026-09-24T09:08:12.000Z"
   },
   {
-   "title": "Gold prices edge lower amid higher oil prices, bond yields",
-   "url": "https://www.investing.com/news/commodities-news/gold-steadies-after-selloff-as-oil-strong-us-data-lift-fed-hike-bets-4914320",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-24T09:06:04.000Z"
-  },
-  {
    "title": "BI Rate Tetap 5,75 Persen, Kadin: Bantu Dunia Usaha Terus Berkembang",
    "url": "https://economy.okezone.com/read/2026/09/24/320/3243974/bi-rate-tetap-5-75-persen-kadin-bantu-dunia-usaha-terus-berkembang",
    "source": "Okezone",
@@ -213,13 +514,6 @@
    "source": "Cointelegraph",
    "topic": "Crypto",
    "time": "2026-09-24T08:29:11.000Z"
-  },
-  {
-   "title": "Oil extends gains amid U.S.-Iran diplomacy doubts",
-   "url": "https://www.investing.com/news/commodities-news/oil-slips-1-after-sharp-gains-amid-usiran-diplomacy-doubts-4914284",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-24T08:25:46.000Z"
   },
   {
    "title": "Suahasil Klaim Ekonomi RI Cukup Baik: Tumbuh 5,45%, Inflasi 3,19%",
@@ -355,13 +649,6 @@
    "time": "2026-09-24T05:24:56.000Z"
   },
   {
-   "title": "Here’s what happened in crypto today",
-   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-09-24T05:23:34.000Z"
-  },
-  {
    "title": "Brent Holds Above $102 as Iran Talks Stall Over Hormuz Conditions",
    "url": "https://oilprice.com/Latest-Energy-News/World-News/Brent-Holds-Above-102-as-Iran-Talks-Stall-Over-Hormuz-Conditions.html",
    "source": "OilPrice",
@@ -435,13 +722,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-24T03:02:14.000Z"
-  },
-  {
-   "title": "Here's what happens to the economy when Treasury yields soar like they are now",
-   "url": "https://www.cnbc.com/2026/09/23/what-happens-to-the-economy-when-treasury-yields-soar.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-09-24T02:50:12.000Z"
   },
   {
    "title": "Dolar AS Menguat Tembus ke Rp 17.905",
@@ -963,6 +1243,34 @@
    "time": "2026-09-23T06:39:31.000Z"
   },
   {
+   "title": "Pressure from the bond market hits a new level, and US stocks slide on worries about inflation",
+   "url": "https://finance.yahoo.com/markets/world-indices/articles/asian-shares-mixed-oil-prices-060041660.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T06:00:41.000Z"
+  },
+  {
+   "title": "Palantir Reveals Its AI Sovereignty Strategy And Wall Street Is Starting to Believe It",
+   "url": "https://finance.yahoo.com/technology/ai/articles/palantir-reveals-ai-sovereignty-strategy-054053859.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T05:40:53.000Z"
+  },
+  {
+   "title": "Cantor Fitzgerald Sees Big Upside in Securitize (SECZ): Is It Time to Buy?",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/cantor-fitzgerald-sees-big-upside-052416150.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T05:24:16.000Z"
+  },
+  {
+   "title": "Lockheed Martin (LMT) Is Spending Ahead on JATM. Will a Multiyear Contract Follow?",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/lockheed-martin-lmt-spending-ahead-052004669.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T05:20:04.000Z"
+  },
+  {
    "title": "Solana starts testing upgrade that could cut finality from 12.8 seconds to 150 milliseconds",
    "url": "https://www.coindesk.com/tech/2026/09/23/solana-starts-testing-upgrade-that-could-cut-finality-from-12-8-seconds-to-150-milliseconds",
    "source": "CoinDesk",
@@ -977,6 +1285,13 @@
    "time": "2026-09-23T05:12:42.000Z"
   },
   {
+   "title": "Can Accenture (ACN) Profit From AI Safety While AI Pressures Its Own Business Model?",
+   "url": "https://finance.yahoo.com/technology/ai/articles/accenture-acn-profit-ai-safety-051220155.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T05:12:20.000Z"
+  },
+  {
    "title": "BI Minta DANA Investigasi Transaksi Tidak Sah",
    "url": "https://finance.detik.com/moneter/d-8675340/bi-minta-dana-investigasi-transaksi-tidak-sah",
    "source": "detikFinance",
@@ -985,11 +1300,116 @@
    "time": "2026-09-23T05:06:29.000Z"
   },
   {
+   "title": "Chewy (CHWY) vs. Petco (WOOF): Proven Growth Story or Turnaround Bet?",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/chewy-chwy-vs-petco-woof-045607515.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:56:07.000Z"
+  },
+  {
+   "title": "How Is Incyte’s Stock Performance Compared to Other Biotech Stocks?",
+   "url": "https://finance.yahoo.com/healthcare/articles/incyte-stock-performance-compared-other-045305372.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:53:05.000Z"
+  },
+  {
+   "title": "“The New Clippy”: Benioff Uses Salesforce’s Biggest Product Launch in Years to Challenge Microsoft",
+   "url": "https://finance.yahoo.com/technology/ai/articles/clippy-benioff-uses-salesforce-biggest-044653952.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:46:53.000Z"
+  },
+  {
+   "title": "SK Hynix Is Eyeing Intel’s (INTC) Ohio Site. Why Micron (MU) Should Pay Attention",
+   "url": "https://finance.yahoo.com/technology/articles/sk-hynix-eyeing-intel-intc-043316388.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:33:16.000Z"
+  },
+  {
+   "title": "This Little-Known AI Chip Stock Doubled. Its New Chips Now Double Optical Speed",
+   "url": "https://finance.yahoo.com/technology/ai/articles/little-known-ai-chip-stock-042916921.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:29:16.000Z"
+  },
+  {
+   "title": "Pat Gelsinger Just Backed a $100 Million Challenge to Nvidia’s AI Networking Moat. AMD Could Benefit",
+   "url": "https://finance.yahoo.com/technology/ai/articles/pat-gelsinger-just-backed-100-042433352.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:24:33.000Z"
+  },
+  {
+   "title": "Lumentum Jumped Nearly 10% While Corning Barely Moved. Is the AI Optics Trade Splitting Apart?",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/lumentum-jumped-nearly-10-while-041957023.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:19:57.000Z"
+  },
+  {
+   "title": "Intel (INTC) Could Get a Fresh Valuation for Altera. AMD (AMD) Is the Rival to Watch",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/intel-intc-could-fresh-valuation-041710849.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:17:10.000Z"
+  },
+  {
+   "title": "Why Bernstein Still Sees 46% Upside in Zscaler (ZS) but Downgraded Palo Alto (PANW)",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/why-bernstein-still-sees-46-041316215.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:13:16.000Z"
+  },
+  {
    "title": "Zcash leads crypto majors with a 10% gain as bitcoin holds near $87,000",
    "url": "https://www.coindesk.com/markets/2026/09/23/zcash-leads-crypto-majors-with-a-10-gain-as-bitcoin-holds-near-usd87-000",
    "source": "CoinDesk",
    "topic": "Crypto",
    "time": "2026-09-23T04:10:08.000Z"
+  },
+  {
+   "title": "Nike (NKE): Wall Street Tests Whether the Turnaround Can Outrun Weak Demand Ahead of Q1 Results",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/nike-nke-wall-street-tests-040747520.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:07:47.000Z"
+  },
+  {
+   "title": "Wedbush Goes Old School with Analog Economy ETF",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/wedbush-goes-old-school-analog-040300728.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:03:00.000Z"
+  },
+  {
+   "title": "For Sale: What Asset Managers Want in Indie ETF Shops",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/sale-asset-managers-want-indie-040200939.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:02:00.000Z"
+  },
+  {
+   "title": "Sports Betting Looks for a Parlay Into Funds",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/sports-betting-looks-parlay-funds-040100974.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:01:00.000Z"
+  },
+  {
+   "title": "Goldman Leads Bidding for $37 Billion Palmer Square, a CLO Powerhouse",
+   "url": "https://finance.yahoo.com/markets/options/articles/goldman-leads-bidding-37-billion-040100673.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T04:01:00.000Z"
+  },
+  {
+   "title": "Chinese beauty product exporters are sitting pretty despite US trade dispute",
+   "url": "https://finance.yahoo.com/economy/policy/articles/chinese-beauty-product-exporters-sitting-033541899.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T03:35:41.000Z"
   },
   {
    "title": "IHSG menguat di tengah pasar \"wait and see\" hasil RDG Bank Indonesia",
@@ -1000,12 +1420,47 @@
    "time": "2026-09-23T03:30:01.000Z"
   },
   {
+   "title": "On Holding (ONON) Outlines Ambitious Goals and $1B Buyback, Jumps 7.6%",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/holding-onon-outlines-ambitious-goals-025141918.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T02:51:41.000Z"
+  },
+  {
    "title": "IHSG BEI Rabu dibuka menguat 20,91 poin ke posisi 6.297",
    "url": "https://www.antaranews.com/berita/5753940/ihsg-bei-rabu-dibuka-menguat-2091-poin-ke-posisi-6297",
    "source": "Antara",
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-23T02:10:47.000Z"
+  },
+  {
+   "title": "A 45-Year-Old Inherits Dad’s $1 Million IRA and Discovers the IRS Already Owns a Chunk of It",
+   "url": "https://finance.yahoo.com/markets/currencies/articles/45-old-inherits-dad-1-020410593.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T02:04:10.000Z"
+  },
+  {
+   "title": "Nvidia doubles down on selling to both sides of the AI race",
+   "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-doubles-down-selling-both-020300627.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T02:03:00.000Z"
+  },
+  {
+   "title": "Bank of America backs Meta stock after Muse surprise",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-backs-meta-stock-020300157.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T02:03:00.000Z"
+  },
+  {
+   "title": "BMO Sees Loan Demand Surge as Returns Rise Toward 2027 Targets",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-sees-loan-demand-surge-020206941.html",
+   "source": "Yahoo Finance",
+   "topic": "Markets",
+   "time": "2026-09-23T02:02:06.000Z"
   },
   {
    "title": "Vista Gold (VGZ) Agrees to Sale. Can its Buyer Fund the Mt Todd Gold Mine?",
@@ -1287,13 +1742,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-21T06:42:08.000Z"
-  },
-  {
-   "title": "Why Japan’s markets flipped the usual script after central bank rate hike",
-   "url": "https://www.cnbc.com/2026/09/18/japan-rate-hike-stocks-rise-bond-yields-yen-fall.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-09-21T01:02:25.000Z"
   }
  ]
 }
