@@ -64,7 +64,7 @@
 
   /* Report model */
 
-  const CATEGORIES = ['Initiation', 'Update', 'Sector', 'Macro', 'Industry Research'];
+  const CATEGORIES = ['Initiation', 'Update', 'Sector', 'Macro'];
   const COMPANY_CATEGORIES = ['Initiation', 'Update'];
   const RATINGS = ['BUY', 'HOLD', 'SELL'];
   const CURRENCIES = ['IDR', 'USD', 'EUR', 'GBP', 'JPY', 'CNY', 'HKD', 'SGD', 'MYR', 'THB', 'PHP', 'VND', 'INR', 'KRW', 'TWD', 'AUD', 'CAD', 'CHF'];
@@ -215,7 +215,7 @@
       if (!raw.title) found.push(`${where} has no title.`);
       if (!parseISO(raw.date)) found.push(`${where}: write the date as YYYY-MM-DD, for example 2026-09-03.`);
       if (!r.pdfUrl && !r.page) found.push(`${where} has no pdfUrl, so there is no PDF to open.`);
-      if (raw.category && !CATEGORIES.includes(raw.category)) found.push(`${where}: the category should be Initiation, Update, Sector, Macro or Industry Research.`);
+      if (raw.category && !CATEGORIES.includes(raw.category)) found.push(`${where}: the category should be Initiation, Update, Sector or Macro.`);
       seen.add(r.id);
       out.push(r);
     });
@@ -1029,7 +1029,7 @@
     exchange     optional, for example "IDX", "NYSE" or "HKEX"
     company      company name, or the subject of a sector or macro note
     sector       optional, shown on the report page
-    category     "Initiation", "Update", "Sector", "Macro" or "Industry Research"
+    category     "Initiation", "Update", "Sector" or "Macro"
     title        the report headline
     date         publication date, YYYY-MM-DD
     blurb        one or two sentences for the report list
