@@ -19,4 +19,3 @@ quick handoff board for Codex, Claude, and the repository owner.
 
 Use the next short ID, describe one clear outcome, assign exactly one owner, and
 name its branch before work begins. Add the pull request link when it is opened.
-

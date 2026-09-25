@@ -49,4 +49,3 @@ the intended result is unclear.
   `scripts/fetch-news.mjs` instead.
 - Keep the site deployable as a static GitHub Pages site with no required build
   step.
-
