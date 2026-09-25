@@ -36,6 +36,25 @@
 */
 window.LONGHAND_REPORTS = [
   {
+    "id": "ihsg-weekly-2026-09-25",
+    "ticker": "IHSG",
+    "exchange": "IDX",
+    "company": "Indonesia equity market",
+    "sector": "Macro and equities",
+    "category": "Update",
+    "title": "The Fed Tightened. BI Held.",
+    "date": "2026-09-26",
+    "blurb": "The IHSG fell 3.09% in the week to 25 September as foreign selling and higher US rates weighed on large-cap shares.",
+    "summary": "A weekly read on the IHSG, policy and currency transmission, foreign flows, sector breadth, key stock moves and tactical levels for the week of 21–25 September 2026. Market-wide weekly foreign flows split by regular and negotiated markets were not available in the sources reviewed; reported Friday and stock-specific figures are identified by date and scope.",
+    "tags": ["IHSG", "Indonesia", "Weekly Market Update", "Macro", "Foreign Flow", "Rupiah", "Bank Indonesia", "Federal Reserve"],
+    "rating": null,
+    "currency": "IDR",
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "page": "ihsg-weekly-2026-09-25.html"
+  },
+  {
     "id": "the-power-behind-ai-2026-09-24",
     "ticker": "",
     "company": "Power, grid, land and data centres",
