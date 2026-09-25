@@ -3,6 +3,14 @@
 An independent research library: company initiations and updates, sector studies and macro notes, each published in full as a PDF.
 A static website with no server code and no build step. Open `index.html` in a browser, or upload the folder to any static host.
 
+## Codex and Claude collaboration
+
+Both agents use GitHub as the shared source of truth and work on separate
+branches. Read `AI_COLLABORATION.md` for the workflow, `TASKS.md` for current
+ownership, and the agent-specific `AGENTS.md` or `CLAUDE.md` before making
+changes. Work is handed over through pull requests rather than by sharing an
+uncommitted branch.
+
 ## Pages
 
 | Page | What it is |
