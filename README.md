@@ -21,6 +21,7 @@ uncommitted branch.
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
 | `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
+| `ihsg-weekly-2026-09-25.html` | IHSG Weekly Market Update for 21–25 September 2026 |
 
 ## Files
 
