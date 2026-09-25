@@ -29,4 +29,3 @@ Before changing files, read:
 - Run `node --check` on changed JavaScript files.
 - Parse changed JSON files before committing them.
 - Check `git diff` and `git status` so only task-related files are committed.
-
