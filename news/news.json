@@ -1,6 +1,64 @@
 {
- "updated": "2026-09-24T23:14:37.742Z",
+ "updated": "2026-09-25T01:36:48.516Z",
  "items": [
+  {
+   "title": "Utang Kopdes Merah Putih Rp37,7 Triliun Jatuh Tempo Hari Ini",
+   "url": "https://economy.okezone.com/read/2026/09/25/320/3244090/utang-kopdes-merah-putih-rp37-7-triliun-jatuh-tempo-hari-ini",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-25T01:25:22.000Z"
+  },
+  {
+   "title": "Emas Freeport Masuk ke HRTA, BYAN Mulai Produksi Lagi",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8678195/emas-freeport-masuk-ke-hrta-byan-mulai-produksi-lagi",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-25T01:23:05.000Z"
+  },
+  {
+   "title": "Oil prices fall as markets look to Iran truce, but remain wary of attacks on oil facilities",
+   "url": "https://www.investing.com/news/commodities-news/oil-prices-fall-as-markets-look-to-iran-truce-but-remain-wary-of-attacks-on-oil-facilities-4916502",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-25T01:12:32.000Z"
+  },
+  {
+   "title": "Gold edges lower, set for weekly loss as oil fuels Fed hike bets",
+   "url": "https://www.investing.com/news/commodities-news/gold-edges-lower-set-for-weekly-loss-as-oil-fuels-fed-hike-bets-4916501",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-25T01:12:15.000Z"
+  },
+  {
+   "title": "Oil dips after sharp gains as U.S., Iran reportedly explore Hormuz deal",
+   "url": "https://www.investing.com/news/commodities-news/oil-dips-after-sharp-gains-as-us-iran-reportedly-explore-hormuz-deal-4916483",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-25T00:47:21.000Z"
+  },
+  {
+   "title": "Bitget CEO suspects North Korea behind $352M hack, citing IP clues",
+   "url": "https://cointelegraph.com/news/bitget-ceo-suspects-north-korea-behind-352m-hack-citing-ip-clues?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-25T00:32:46.000Z"
+  },
+  {
+   "title": "5 Energy Stocks Positioned for a Prolonged Iran War",
+   "url": "https://oilprice.com/Energy/Crude-Oil/5-Energy-Stocks-Positioned-for-a-Prolonged-Iran-War.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-25T00:00:00.000Z"
+  },
+  {
+   "title": "Asia dominates Crypto Adoption Index, Bitget’s $352M hack: Asia Express",
+   "url": "https://cointelegraph.com/magazine/asia-dominates-crypto-adoption-index-bitgets-356m-hack-asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-24T23:27:17.000Z"
+  },
   {
    "title": "Harga BBM Pertalite hingga Pertamax 25 September 2026, Cek Daftarnya",
    "url": "https://economy.okezone.com/read/2026/09/24/320/3243930/harga-bbm-pertalite-hingga-pertamax-25-september-2026-cek-daftarnya",
@@ -52,7 +110,7 @@
    "time": "2026-09-24T21:59:32.000Z"
   },
   {
-   "title": "Bitget confirms $351M security breach, suspends withdrawals",
+   "title": "Bitget confirms $352M security breach, suspends withdrawals",
    "url": "https://cointelegraph.com/news/bitget-calls-security-withdrawal-claims-unverified-amid-178m-breach-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
    "topic": "Crypto",
@@ -458,13 +516,6 @@
    "time": "2026-09-24T13:05:24.000Z"
   },
   {
-   "title": "Saudi Arabia Sells 100 Million Barrels of Crude to Asia via Hormuz",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Sells-100-Million-Barrels-of-Crude-to-Asia-via-Hormuz.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-09-24T13:00:00.000Z"
-  },
-  {
    "title": "Cathie Wood's ARK teams with Securitize to tokenize venture fund with OpenAI, Anthropic stakes",
    "url": "https://www.coindesk.com/business/2026/09/24/cathie-wood-s-ark-teams-with-securitize-to-tokenize-venture-fund-with-openai-anthropic-stakes",
    "source": "CoinDesk",
@@ -483,6 +534,13 @@
    "url": "https://cointelegraph.com/news/solana-foundation-binance-cmo-payments-executive?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
    "topic": "Crypto",
+   "time": "2026-09-24T13:00:00.000Z"
+  },
+  {
+   "title": "Saudi Arabia Sells 100 Million Barrels of Crude to Asia via Hormuz",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Sells-100-Million-Barrels-of-Crude-to-Asia-via-Hormuz.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
    "time": "2026-09-24T13:00:00.000Z"
   },
   {
@@ -1680,62 +1738,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-23T02:10:47.000Z"
-  },
-  {
-   "title": "A 45-Year-Old Inherits Dad’s $1 Million IRA and Discovers the IRS Already Owns a Chunk of It",
-   "url": "https://finance.yahoo.com/markets/currencies/articles/45-old-inherits-dad-1-020410593.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T02:04:10.000Z"
-  },
-  {
-   "title": "Nvidia doubles down on selling to both sides of the AI race",
-   "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-doubles-down-selling-both-020300627.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T02:03:00.000Z"
-  },
-  {
-   "title": "Bank of America backs Meta stock after Muse surprise",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-backs-meta-stock-020300157.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T02:03:00.000Z"
-  },
-  {
-   "title": "BMO Sees Loan Demand Surge as Returns Rise Toward 2027 Targets",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-sees-loan-demand-surge-020206941.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T02:02:06.000Z"
-  },
-  {
-   "title": "Vista Gold (VGZ) Agrees to Sale. Can its Buyer Fund the Mt Todd Gold Mine?",
-   "url": "https://finance.yahoo.com/markets/commodities/articles/vista-gold-vgz-agrees-sale-014206537.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T01:42:06.000Z"
-  },
-  {
-   "title": "Titan International (TWI) Signs ITM Sale. How Much of the $285 Million is New Cash?",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/titan-international-twi-signs-itm-012718577.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T01:26:44.000Z"
-  },
-  {
-   "title": "NewAmsterdam Pharma (NAMS) Wins EU Approvals. Can Cholesterol Pills Drive Royalties?",
-   "url": "https://finance.yahoo.com/healthcare/articles/newamsterdam-pharma-nams-wins-eu-012024900.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T01:20:24.000Z"
-  },
-  {
-   "title": "Interparfums (IPAR) Extends Cavalli Fragrance Deal Through 2046. Can it Boost Profits?",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/interparfums-ipar-extends-cavalli-fragrance-011630256.html",
-   "source": "Yahoo Finance",
-   "topic": "Markets",
-   "time": "2026-09-23T01:16:30.000Z"
   }
  ]
 }
