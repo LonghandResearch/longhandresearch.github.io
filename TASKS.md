@@ -5,7 +5,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 
 | ID | Task | Owner | Branch | Status | Pull request |
 | --- | --- | --- | --- | --- | --- |
-| SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Review | — |
+| SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Done | Direct merge |
 
 ## Status values
 
