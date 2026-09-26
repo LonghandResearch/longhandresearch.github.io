@@ -1257,8 +1257,7 @@
   }
   // A transition is skipped when the tab is hidden; that is not an error
   const quiet = (vt) => { ['ready', 'finished', 'updateCallbackDone'].forEach((k) => { if (vt[k]) vt[k].catch(() => {}); }); };
-  // Between a page and the front page, the globe does not fly: it stays with
-  // its own page, which slides as one sheet
+  // Keep the Earth on its own page during the landing's camera transition.
   const toHome = (e) => {
     try { return !!(e.activation && e.activation.entry && /\/(index\.html)?$/.test(new URL(e.activation.entry.url).pathname)); } catch (err) { return false; }
   };
@@ -1276,11 +1275,11 @@
     $$('.is-arriving').forEach((el) => el.classList.remove('is-arriving'));
     const act = window.navigation && window.navigation.activation;
     nameTitle(act && act.from ? reportIdOf(act.from.url) : null);
-    // leaving the front page, the new page rises over it like a sheet of paper
+    // Use the landing's focused zoom when leaving the front page.
     let fromHome = false;
     try { fromHome = !!(act && act.from && /\/(index\.html)?$/.test(new URL(act.from.url).pathname)) && !document.body.classList.contains('page-home'); } catch (err) { /* no URL */ }
     document.documentElement.classList.toggle('from-home', fromHome);
-    // arriving on the front page, the Earth waits beneath the page sliding away
+    // The Earth appears with the returning front page, not as a separate element.
     const home = document.body.classList.contains('page-home');
     if (home) $$('.plate-stage').forEach((el) => { el.style.viewTransitionName = 'none'; });
     const done = () => {
