@@ -325,14 +325,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 /* The front page is a single screen: the plate runs up under the masthead
    and down to a small footer set in the same night colours */
 .page-home {
-  --bg: #07080b;
-  --ink: #f3efe7;
-  --ink-2: #c7bead;
-  --ink-3: #9e9684;
-  --rule: rgb(243 239 231 / 0.14);
-  --rule-2: rgb(243 239 231 / 0.3);
-  --gold: #c9a05a;
-  --gold-ink: #dbb574;
+  --bg: #111821;
+  --ink: #e9e5dc;
+  --ink-2: #c3beb4;
+  --ink-3: #a9a398;
+  --rule: rgb(233 229 220 / 0.12);
+  --rule-2: rgb(233 229 220 / 0.24);
+  --gold: #b9a07a;
+  --gold-ink: #cbb18b;
   display: flex;
   flex-direction: column;
   min-height: 100svh;
@@ -342,20 +342,20 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 .page-home .hero.night { flex: 1 0 auto; display: flex; flex-direction: column; }
 .page-home .night-grid { flex: 1 0 auto; }
 .page-home .plate-stage { max-width: min(66svh, 720px); }
-.page-home .site-footer { margin-top: 0; background: #0c0b09; }
+.page-home .site-footer { margin-top: 0; background: #141a21; }
 .page-home .footer-inner { padding-top: 14px; padding-bottom: max(18px, env(safe-area-inset-bottom, 0px)); border-top: 0; }
 .page-home .disclaimer, .page-home .colophon { font-size: 12px; color: var(--ink-3); }
 .page-home .disclaimer strong { color: var(--ink-2); }
 .hero.night {
-  --bg: #07080b;
-  --ink: #f3efe7;
-  --ink-2: #c7bead;
-  --ink-3: #9e9684;
-  --rule: rgb(243 239 231 / 0.14);
-  --rule-2: rgb(243 239 231 / 0.3);
-  --gold: #c9a05a;
-  --gold-ink: #dbb574;
-  --tint: rgb(201 160 90 / 0.1);
+  --bg: #111821;
+  --ink: #e9e5dc;
+  --ink-2: #c3beb4;
+  --ink-3: #a9a398;
+  --rule: rgb(233 229 220 / 0.12);
+  --rule-2: rgb(233 229 220 / 0.24);
+  --gold: #b9a07a;
+  --gold-ink: #cbb18b;
+  --tint: rgb(185 160 122 / 0.09);
   position: relative;
   isolation: isolate;
   display: block;
@@ -365,9 +365,9 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   color: var(--ink);
   color-scheme: dark;
   background:
-    radial-gradient(58% 64% at 70% 44%, rgb(22 44 78 / 0.55), rgb(22 44 78 / 0) 70%),
-    radial-gradient(46% 56% at 8% 96%, rgb(201 160 90 / 0.08), rgb(201 160 90 / 0) 70%),
-    linear-gradient(180deg, #05060a 0%, #08090d 60%, #0c0b09 100%);
+    radial-gradient(58% 64% at 70% 44%, rgb(42 60 78 / 0.38), rgb(42 60 78 / 0) 70%),
+    radial-gradient(46% 56% at 8% 96%, rgb(185 160 122 / 0.045), rgb(185 160 122 / 0) 70%),
+    linear-gradient(180deg, #10151c 0%, #111821 60%, #141a21 100%);
 }
 /* a gold hairline where the plate meets the page */
 .hero.night::after {
@@ -377,7 +377,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgb(201 160 90 / 0), rgb(201 160 90 / 0.55) 30%, rgb(201 160 90 / 0.55) 70%, rgb(201 160 90 / 0));
+  background: linear-gradient(90deg, rgb(185 160 122 / 0), rgb(185 160 122 / 0.25) 30%, rgb(185 160 122 / 0.25) 70%, rgb(185 160 122 / 0));
 }
 .night-stars {
   position: absolute;
@@ -413,7 +413,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   margin-top: clamp(20px, 3vh, 30px);
   font-size: clamp(18px, 0.35vw + 15px, 20px);
   line-height: 1.62;
-  color: #d4ccbb;
+  color: var(--ink-2);
   text-wrap: pretty;
 }
 .hero.night .hero-actions { margin-top: clamp(28px, 4vh, 40px); }
@@ -431,8 +431,8 @@ html.is-loading .loader, .loader.is-leaving {
   display: grid;
   place-content: center;
   justify-items: center;
-  background: #07080b;
-  color: #f3efe7;
+  background: #111821;
+  color: #e9e5dc;
   clip-path: inset(0 0 0 0);
   transition: clip-path 1s cubic-bezier(0.7, 0, 0.3, 1);
 }
@@ -453,7 +453,7 @@ html.is-loading .loader, .loader.is-leaving {
   letter-spacing: 0.5em;
   text-indent: 0.5em;
   text-transform: uppercase;
-  color: #dbb574;
+  color: #cbb18b;
   animation: fade-rise 0.8s var(--ease) 0.55s both;
 }
 .loader-count {
@@ -464,14 +464,14 @@ html.is-loading .loader, .loader.is-leaving {
   font: 500 11px/1 var(--font-sans);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #9e9684;
+  color: #a9a398;
   white-space: nowrap;
   transform: translateX(-50%);
   font-variant-numeric: tabular-nums;
 }
-.loader-count span { display: inline-block; min-width: 3ch; margin-left: 0.6em; color: #f3efe7; text-align: right; }
-.loader-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgb(243 239 231 / 0.08); }
-.loader-bar span { display: block; height: 100%; background: #c9a05a; transform: scaleX(0); transform-origin: left; }
+.loader-count span { display: inline-block; min-width: 3ch; margin-left: 0.6em; color: #e9e5dc; text-align: right; }
+.loader-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgb(233 229 220 / 0.08); }
+.loader-bar span { display: block; height: 100%; background: #b9a07a; transform: scaleX(0); transform-origin: left; }
 .loader.is-leaving .loader-mark, .loader.is-leaving .loader-sub { transform: translateY(-24px); opacity: 0; transition: transform 0.7s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.5s linear; }
 /* the front page waits behind the opening screen, then plays its entrance */
 html.is-loading .hero *, html.is-loading .hero *::before, html.is-loading .hero *::after { animation-play-state: paused !important; }
@@ -523,95 +523,6 @@ html.is-loading body { overflow: hidden; }
 }
 .plate.is-ready .plate-stage canvas { opacity: 1; }
 .plate.is-unavailable { display: none; }
-
-/* A gold orbit, drawn once when the Earth appears: the far half passes behind it */
-.orbit {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 0.5;
-  stroke-linecap: round;
-}
-.orbit path { transform: rotate(-16deg); }
-.orbit-back { z-index: 0; opacity: 0.38; }
-.orbit-front { z-index: 2; opacity: 0.85; }
-.js .orbit path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-.plate.is-ready .orbit-back path { animation: orbit-draw 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.35s forwards; }
-.plate.is-ready .orbit-front path { animation: orbit-draw 1.1s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards; }
-@keyframes orbit-draw { to { stroke-dashoffset: 0; } }
-
-/* Markets the catalogue covers: a label that follows its gold pin */
-.earth-pin {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  margin: 0;
-  padding-left: 14px;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  translate: 12px -50%;
-  transform: translate3d(-9999px, 0, 0);
-}
-.earth-pin::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 10px;
-  height: 1px;
-  background: var(--gold);
-}
-.earth-pin { text-shadow: 0 1px 2px rgb(0 0 0 / 0.85), 0 0 12px rgb(0 0 0 / 0.6); }
-.earth-pin-city { font: italic 400 17px/1 var(--font-serif); color: var(--ink); }
-.earth-pin-meta { font: 500 10px/1.2 var(--font-sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-ink); }
-
-/* How to turn it: shown once, then out of the way */
-.drag-hint {
-  position: absolute;
-  left: 50%;
-  bottom: 3%;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0;
-  padding: 7px 13px 7px 10px;
-  border: 1px solid var(--rule-2);
-  border-radius: 999px;
-  background: rgb(7 8 11 / 0.6);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  font: 500 11.5px/1 var(--font-sans);
-  letter-spacing: 0.06em;
-  color: var(--ink-2);
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateX(-50%);
-}
-.drag-hint .icon { width: 16px; height: 16px; color: var(--gold); }
-.hint-touch { display: none; }
-@media (hover: none) {
-  .hint-pointer { display: none; }
-  .hint-touch { display: inline; }
-}
-.plate.is-ready .drag-hint { animation: hint-in-out 7.5s var(--ease) 2.4s both; }
-.has-turned .plate.is-ready .drag-hint { animation: none; opacity: 0; transition: opacity 0.2s var(--ease); }
-@keyframes hint-in-out {
-  0% { opacity: 0; transform: translate(-50%, 6px); }
-  7%, 88% { opacity: 1; transform: translate(-50%, 0); }
-  100% { opacity: 0; transform: translate(-50%, 0); }
-}
 
 /* The catalogue in four numbers, along the foot of the plate */
 .night-ledger {
@@ -1547,23 +1458,31 @@ html[data-nav="back"]::view-transition-old(globe):only-child { animation-name: v
    gives way quickly instead of being blown up and blurred */
 html:has(body.page-home)::view-transition-old(globe) { animation-duration: 0.15s; }
 
-/* Leaving the front page, the next page rises over the night like a sheet of
-   paper with a gold edge, and the masthead comes up with it */
-html.from-home::view-transition-old(root) { animation: 0.95s cubic-bezier(0.7, 0, 0.3, 1) both vt-recede; }
-html.from-home::view-transition-new(root) { animation: 0.95s cubic-bezier(0.7, 0, 0.3, 1) both vt-sheet-in; box-shadow: 0 -1px 0 #c9a05a, 0 -28px 70px rgb(0 0 0 / 0.5); }
-html.from-home::view-transition-new(masthead) { animation: 0.95s cubic-bezier(0.7, 0, 0.3, 1) both vt-sheet-in-top; }
-@keyframes vt-sheet-in { from { transform: translateY(100%); } }
-@keyframes vt-sheet-in-top { from { transform: translateY(100vh); } }
-@keyframes vt-recede { to { transform: translateY(-6%) scale(0.95); filter: brightness(0.35); } }
-/* the new page's emblem rides up on the sheet */
-html.from-home::view-transition-new(globe):only-child { animation: 0.95s cubic-bezier(0.7, 0, 0.3, 1) both vt-sheet-in-top; }
-/* Coming back, the page slides down and away and the night is beneath it */
-html:has(body.page-home)::view-transition-old(root) { z-index: 2; animation: 0.85s cubic-bezier(0.7, 0, 0.3, 1) both vt-sheet-out; box-shadow: 0 -1px 0 #c9a05a; }
-html:has(body.page-home)::view-transition-new(root) { animation: 0.85s cubic-bezier(0.7, 0, 0.3, 1) both vt-rise-from; }
-html:has(body.page-home)::view-transition-old(masthead) { display: block; z-index: 2; animation: 0.85s cubic-bezier(0.7, 0, 0.3, 1) both vt-sheet-out-top; }
-@keyframes vt-sheet-out { to { transform: translateY(100%); } }
-@keyframes vt-sheet-out-top { to { transform: translateY(100vh); } }
-@keyframes vt-rise-from { from { transform: scale(0.95); filter: brightness(0.35); } }
+/* A short camera move between the night landing and the reading pages.
+   The page that leaves grows faintly; the next one settles into focus.
+   Both directions use the same rhythm, including the separate masthead. */
+html.from-home::view-transition-old(root),
+html.from-home::view-transition-old(masthead) {
+  display: block;
+  animation: 0.52s cubic-bezier(0.22, 1, 0.36, 1) both vt-home-away;
+}
+html.from-home::view-transition-new(root),
+html.from-home::view-transition-new(masthead) {
+  animation: 0.52s cubic-bezier(0.22, 1, 0.36, 1) both vt-page-arrive;
+}
+html:has(body.page-home)::view-transition-old(root),
+html:has(body.page-home)::view-transition-old(masthead) {
+  display: block;
+  animation: 0.52s cubic-bezier(0.22, 1, 0.36, 1) both vt-page-away;
+}
+html:has(body.page-home)::view-transition-new(root),
+html:has(body.page-home)::view-transition-new(masthead) {
+  animation: 0.52s cubic-bezier(0.22, 1, 0.36, 1) both vt-home-arrive;
+}
+@keyframes vt-home-away { to { opacity: 0; transform: scale(1.025); } }
+@keyframes vt-page-arrive { from { opacity: 0; transform: scale(0.985); } }
+@keyframes vt-page-away { to { opacity: 0; transform: scale(0.985); } }
+@keyframes vt-home-arrive { from { opacity: 0; transform: scale(1.025); } }
 
 /* Switching theme spreads the new colours out from the switch */
 html.theme-vt::view-transition-old(root),
