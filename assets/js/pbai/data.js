@@ -386,7 +386,7 @@
       capex: [229.6, 315.5, 466.2], cfo: [1031.1, 693.4, 329.7], netDebt: [189.5, 237.0, 921.0],
       equity: [1383.4, 1608.4, 1816.8],
       derived: {},
-      notes: ['EBITDA is not reported, and the segment depreciation note is incomplete for mining, so EBITDA is left as Data unavailable. Net income and equity are attributable to owners. Net debt is bank loans, loans from financial institutions, bonds and leases, less cash.', 'Share counts are restated for the 1:10 split (2024) and the 1:25 split (April 2026) so they match the split-adjusted prices; the current count is 6,189,284,930 shares at 31 December 2025 times 25.'],
+      notes: ['EBITDA is not reported, and the segment depreciation note is incomplete for mining, so EBITDA is left as Data unavailable. Net income and equity are attributable to owners. Net debt is bank loans, loans from financial institutions, bonds and leases, less cash.', 'Share counts are restated for the 1:10 split (2024) and the 1:25 split (April 2026) so they match the split-adjusted prices; the current count is 6,189,284,930 shares at 31 December 2025 times 25. FY2021-FY2022 counts are all issued shares because the 154,105,327 treasury shares were bought back in 2023.'],
       yearSources: ['dssa-lk', 'dssa-lk', 'dssa-lk'],
       shares: 154732123250, sharesSource: 'dssa-q126',
       sharesHistory: { FY2021: 192638080000, FY2022: 192638080000, FY2023: 154111748250, FY2024: 154732123250, FY2025: 154732123250 },
