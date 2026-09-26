@@ -15,7 +15,7 @@ uncommitted branch.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | The front page: the globe and the latest report |
+| `index.html` | The front page: the Earth, the catalogue in numbers, the titles strip and the latest report |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
 | `about.html` | How the reports are built, the rating key and the report types |
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
@@ -31,10 +31,11 @@ uncommitted branch.
 | `reports/*.pdf` | The report PDFs |
 | `assets/css/site.css` | All styling: light and dark themes, page transitions |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
-| `assets/js/home.js` | Front page: the latest report |
+| `assets/js/home.js` | Front page: stars, the catalogue in numbers, the titles strip, scroll motion and the latest report |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/reader.js` | Report page: the PDF reader |
-| `assets/js/globe.js` | The globe on the front page |
+| `assets/js/earth.js` | The Earth on the front page (three.js) |
+| `assets/img/earth/` | NASA imagery for the Earth: day, city lights, clouds and a water mask |
 | `assets/js/pbai/data.js` | The Power Behind AI: every figure, its status and its sources |
 | `assets/js/pbai/report.js` | The Power Behind AI: charts, calculator, company panels, valuation and DCF |
 | `assets/js/pbai/montecarlo.js` | The Power Behind AI: the seeded Monte Carlo simulation, loaded on demand |
@@ -101,9 +102,19 @@ Some publishers turn away automated readers (CNBC Indonesia, Kontan and Mining.c
 
 Opened straight from the disk, the browser will not read `news/news.json`, so The Wire shows only on the live site (or from `localhost`).
 
-## The globe
+## The front page
 
-The ball turns slowly on its tilted axis while the stand and the brass ring stay still. Drag the ball in any direction to see it from every side; click it (or press Space) to stop or start it, and double-click it (or press Home) to set it straight. Left alone for a few seconds, it settles back onto its axis and carries on turning. Settings are at the top of `assets/js/globe.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), and `HIGHLIGHT` to pick out one country in gold (for example `'360'` for Indonesia).
+The front page opens on a night plate that stays dark in both themes, with a photographic Earth turning in it. It is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
+
+- **Turning it.** Drag the Earth in any direction; on a touch screen, swipe sideways (an upward swipe still scrolls the page). Click it or press Space to stop or start it, and double-click it or press Home to set it straight. Arrow keys turn it too. Left alone, it settles back onto its axis.
+- **Scrolling.** As the page scrolls, the sun moves on and the lights of the night side come up; the headline lifts a little faster than the page and the stars move slower.
+- **Markets.** Each exchange a published report is listed on gets a gold pin with its city and report count, read from `reports/reports.js`. Exchange locations are in `MARKETS` at the top of `assets/js/earth.js`.
+- **Numbers.** Under the Earth, the catalogue in four numbers (reports, kinds of study, markets, latest date) rolls up once, and beneath the plate the titles strip drifts sideways as the page scrolls.
+- **Settings** at the top of `assets/js/earth.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), how far the sun moves on scroll (`SUN_SWEEP`) and the Earth's size in its frame (`RADIUS_SHARE`).
+
+Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), entrances on its easing and duration scale, and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view, and the titles strip becomes a plain index. The scroll reveal follows its `scroll-reveal` recipe (Apache-2.0).
+
+The imagery is NASA's (Visible Earth; public domain), cut down for the web: a 1024 px day map loads first and a 2048 or 4096 px one replaces it once the page is up.
 
 ## Change the name
 
@@ -123,11 +134,11 @@ Any static host works. Two free options:
 - **Netlify Drop**: drag the whole folder onto app.netlify.com/drop.
 - **GitHub Pages**: push the folder to a repository and turn on Pages in the repository settings.
 
-The globe, the fonts and the PDF reader load from public CDNs (jsDelivr and Google Fonts), so an internet connection is needed. If the globe cannot load, the front page falls back to a text-only header.
+three.js, the fonts and the PDF reader load from public CDNs (jsDelivr and Google Fonts), so an internet connection is needed. If the Earth cannot be drawn (no WebGL, or Data Saver is on), the front page keeps its night plate and headline without it.
 
 ## Notes
 
-- Page transitions (the globe settling into the library emblem, a report title carried into its page, the theme spreading from the switch) run in current Chrome, Edge and Safari. Other browsers simply change page.
+- Page transitions (the Earth settling into the library emblem, a report title carried into its page, the theme spreading from the switch) run in current Chrome, Edge and Safari. Other browsers simply change page.
 - Everything that moves stays still for visitors who ask their system for reduced motion.
 - Opened straight from the disk, the report page uses the browser's own PDF viewer. Online it uses the built-in reader with zoom, page count, full screen, selectable text and a reading-progress rule.
 - Scripts and stylesheets are linked with a version tag (for example `site.js?v=2026-09-24j`) so browsers pick up changes at once instead of keeping an old copy for about ten minutes. After editing a file in `assets/css` or `assets/js`, change that tag in the HTML pages (one find-and-replace).
