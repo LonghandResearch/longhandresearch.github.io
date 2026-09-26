@@ -6,7 +6,7 @@
 }
 .market-kicker { display: flex; gap: 10px; align-items: center; }
 .market-kicker .cat { padding: 2px 7px; border: 1px solid var(--rule-2); color: var(--ink-2); letter-spacing: .1em; }
-.market-hero h1 { margin-top: 22px; font: 500 clamp(46px, 7vw, 96px)/.98 var(--font-sans); letter-spacing: -.05em; text-transform: uppercase; }
+.market-hero h1 { margin-top: 22px; font: 500 clamp(44px, 5.2vw, 72px)/1.02 var(--font-sans); letter-spacing: -.05em; text-transform: uppercase; }
 .market-hero h1 em { display: inline-block; font: italic 400 1em/1 var(--font-serif); letter-spacing: -.045em; text-transform: none; }
 .market-deck { max-width: 36ch; margin-top: 18px; color: var(--ink-2); font: italic clamp(20px, 2vw, 27px)/1.35 var(--font-serif); }
 .market-meta { display: flex; flex-wrap: wrap; gap: 6px 13px; margin-top: 24px; color: var(--ink-2); font: 500 11px/1.6 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
@@ -98,7 +98,7 @@
 .index-point { fill: var(--bg); stroke: var(--chart-line); stroke-width: 2; }
 .index-point.selected { fill: var(--chart-line); stroke-width: 4; }
 .chart-buttons { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
-.chart-buttons button, .research-button, .chart-select select { color: var(--ink); background: var(--bg); border: 1px solid var(--rule-2); border-radius: 0; padding: 9px 12px; font: 500 12px/1.4 var(--font-sans); cursor: pointer; }
+.chart-buttons button, .research-button { color: var(--ink); background: var(--bg); border: 1px solid var(--rule-2); border-radius: 0; padding: 9px 12px; font: 500 12px/1.4 var(--font-sans); cursor: pointer; }
 .chart-buttons button[aria-pressed="true"] { color: var(--bg); background: var(--ink); border-color: var(--ink); }
 .research-button { display: inline-block; margin-top: 20px; border-color: var(--gold-ink); }
 .research-button:hover { background: var(--tint); }
@@ -137,18 +137,14 @@
 .formula-box { padding: 18px 0 0; margin-top: 22px; border-top: 1px solid var(--rule); overflow-wrap: anywhere; }
 .formula-box > span { font: 500 16px/1.7 ui-monospace, Consolas, monospace; }
 .formula-box p { margin-top: 8px; color: var(--ink-3); font: 400 12px/1.7 var(--font-sans); }
-.chart-select { display: flex; gap: 12px; align-items: center; font: 500 12px var(--font-sans); }
 .sector-axis { position: relative; margin: 20px 80px 7px 155px; display: flex; justify-content: space-between; font: 400 10px var(--font-sans); color: var(--ink-3); }
-.sector-axis span:nth-child(2) { position: absolute; left: 42.857%; transform: translateX(-50%); }
+.sector-axis span:nth-child(2) { position: absolute; left: 85.714%; transform: translateX(-50%); }
 .sector-row { display: grid; grid-template-columns: 145px minmax(0,1fr) 70px; align-items: center; gap: 10px; min-height: 35px; font: 400 11px/1.4 var(--font-sans); }
 .sector-row strong { text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; }
 .sector-track { position: relative; height: 24px; background: var(--tint); }
-.sector-track::after { content: ''; position: absolute; left: 42.857%; top: -6px; bottom: -6px; width: 1px; background: var(--rule-2); }
+.sector-track::after { content: ''; position: absolute; left: 85.714%; top: -6px; bottom: -6px; width: 1px; background: var(--rule-2); }
 .sector-bar { position: absolute; top: 5px; height: 14px; }
 .gain { background: var(--chart-up); } .loss { background: var(--chart-down); } .flat { background: var(--chart-neutral); }
-.breadth-bar { display: flex; height: 28px; width: 100%; gap: 2px; }
-.breadth-labels { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 15px; font: 400 12px var(--font-sans); }
-.breadth-labels i { display: inline-block; width: 9px; height: 9px; margin-right: 7px; }
 .liquidity-row { display: grid; grid-template-columns: 110px minmax(0,1fr) 100px; align-items: center; gap: 12px; margin: 18px 0; font: 400 12px/1.5 var(--font-sans); }
 .liquidity-row strong { font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
 .liquidity-track { background: var(--tint); height: 14px; }
@@ -161,6 +157,8 @@
 .market-table td:not(:first-child) { text-align: right; }
 .market-table small { display: block; margin-top: 3px; color: var(--ink-3); font-weight: 400; }
 .market-table td:last-child { min-width: 90px; width: auto; }
+.market-table .table-total th, .market-table .table-total td { border-top: 1px solid var(--gold-ink); color: var(--ink); font-weight: 600; }
+.market-sources code { font: .9em ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
 .event-row { display: grid; grid-template-columns: 100px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
 .event-row > span { color: var(--gold-ink); font: 600 11px/1.6 var(--font-sans); letter-spacing: .04em; }
 .event-row strong { font: 500 16px/1.4 var(--font-sans); }
@@ -180,7 +178,6 @@
   .figure-motion.figure-revealed .index-point { animation: chart-appear 250ms 350ms ease-out both; }
   .figure-motion.figure-revealed .sector-bar,
   .figure-motion.figure-revealed .liquidity-track > span { animation: extend-bar 450ms cubic-bezier(.2,.65,.3,1) both; }
-  .figure-motion.figure-revealed .breadth-bar { animation: chart-appear 400ms ease-out both; }
   .chart-buttons button { transition: background-color 150ms, color 150ms; }
 }
 @keyframes trace-index { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
@@ -197,10 +194,11 @@
   .finding-pair { gap: 15px; }
   .finding-pair strong { font-size: 30px; }
   .market-table { min-width: 420px; }
+  .market-table.compact-table { min-width: 0; }
 }
 @media print {
   .figure-motion .index-line { animation: none !important; stroke-dashoffset: 0 !important; }
-  .figure-motion .index-point, .figure-motion .breadth-bar { animation: none !important; opacity: 1 !important; }
+  .figure-motion .index-point { animation: none !important; opacity: 1 !important; }
   .figure-motion .sector-bar, .figure-motion .liquidity-track > span { animation: none !important; transform: none !important; }
   .market-rail, .chart-buttons, .lab-controls, #download-data { display: none; }
   .market-grid { display: block; }

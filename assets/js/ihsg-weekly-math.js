@@ -11,20 +11,23 @@
   };
   const metrics = data => {
     const c = data.closes.map(row => row.close);
-    const a = data.activity;
-    const breadth = data.breadth;
     const rebound = c[3] - c[2];
     const reversal = c[3] - c[5];
-    const unitValuePrior = a[0].prior / a[1].prior * 1000;
-    const unitValueCurrent = a[0].current / a[1].current * 1000;
+    const unitValuePrior = data.weeklyTotals.prior.value / data.weeklyTotals.prior.volume;
+    const unitValueCurrent = data.weeklyTotals.current.value / data.weeklyTotals.current.volume;
+    const foreignNet = data.foreignFlow.reduce((sum, row) => sum + row.netBn, 0);
+    const fxWeekly = change(data.jisdor.at(-1).rate, data.jisdor[0].rate);
+    const weekly = change(c[5], c[0]);
+    const laggardPoints = data.indexLaggards.reduce((sum, row) => sum + row.points, 0);
     return {
-      weekly: change(c[5], c[0]), points: c[5] - c[0],
+      weekly, points: c[5] - c[0],
       recovery: change(c[0], c[5]), postBI: change(c[5], c[3]),
       rebound, reversal, giveback: reversal / rebound * 100,
       unitValuePrior, unitValueCurrent, unitValueChange: change(unitValueCurrent, unitValuePrior),
-      declinerShare: breadth.down / (breadth.up + breadth.down) * 100,
-      breadthTotal: breadth.up + breadth.down + breadth.unchanged,
-      advanceDecline: breadth.up / breadth.down,
+      foreignNet, threeWeekNetBn: data.prior2WeekNetBn + data.priorWeekNetBn + foreignNet,
+      thursdayFlowShare: data.foreignFlow[3].netBn / foreignNet * 100,
+      fxWeekly, usdProxy: usdReturn(weekly, fxWeekly),
+      laggardPoints, laggardShare: laggardPoints / (c[5] - c[0]) * 100,
       policyGapBps: (data.policy.bi - (data.policy.fedLow + data.policy.fedHigh) / 2) * 100
     };
   };

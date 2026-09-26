@@ -40,8 +40,8 @@ uncommitted branch.
 | `assets/js/pbai/montecarlo.js` | The Power Behind AI: the seeded Monte Carlo simulation, loaded on demand |
 | `assets/css/pbai.css` | Styles for the interactive report |
 | `assets/css/market.css` | IHSG weekly report layout and responsive charts |
-| `assets/js/ihsg-weekly-data.js` | Source-linked observations and their time windows |
-| `assets/js/ihsg-weekly-math.js` | Pure return, currency-conversion and breadth calculations |
+| `assets/js/ihsg-weekly-data.js` | Source-linked IDX market observations and BI JISDOR rates |
+| `assets/js/ihsg-weekly-math.js` | Pure index, foreign-flow, turnover and currency calculations |
 | `assets/js/ihsg-weekly.js` | Native charts, the FX return lab and CSV export |
 | `assets/js/wire.js` | The Wire page, and the latest headlines on the front page |
 | `news/feeds.json` | The sources gathered into The Wire |
