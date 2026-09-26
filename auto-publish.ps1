@@ -94,7 +94,11 @@ function Send-FromBranch {
   $baseTree = New-ReportTree $parent $source
   $diskTree = New-ReportTree $parent $null
   if (-not $baseTree -or -not $diskTree) { return 'failed' }
-  $merged = @(git merge-tree --write-tree "--merge-base=$baseTree" $mainTree $diskTree 2>$null)
+  # merge-tree takes commits (older Git rejects bare trees), so wrap both sides
+  $baseCommit = git commit-tree $baseTree -m base 2>$null
+  $diskCommit = git commit-tree $diskTree -m disk 2>$null
+  if (-not $baseCommit -or -not $diskCommit) { return 'failed' }
+  $merged = @(git merge-tree --write-tree "--merge-base=$baseCommit" $parent $diskCommit 2>$null)
   if ($LASTEXITCODE -eq 1) { return 'clash' }
   if ($LASTEXITCODE -ne 0 -or -not $merged) { return 'failed' }
   $newTree = $merged[0]
