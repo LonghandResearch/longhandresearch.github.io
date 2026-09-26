@@ -24,7 +24,7 @@
 
   --maxw: 1240px;
   --gutter: clamp(20px, 4vw, 56px);
-  --masthead-h: 64px;
+  --masthead-h: calc(64px + env(safe-area-inset-top, 0px));
   --radius: 2px;
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
 
@@ -98,6 +98,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   max-width: calc(var(--maxw) + 2 * var(--gutter));
   margin-inline: auto;
   padding-inline: var(--gutter);
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
 }
 
 .sr-only {
@@ -112,7 +114,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 
 .skip {
   position: fixed;
-  top: 10px; left: 10px;
+  top: max(10px, env(safe-area-inset-top, 0px));
+  left: max(10px, env(safe-area-inset-left, 0px));
   z-index: 100;
   padding: 10px 14px;
   background: var(--ink);
@@ -222,6 +225,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   justify-content: space-between;
   gap: 16px;
   height: var(--masthead-h);
+  padding-top: env(safe-area-inset-top, 0px);
 }
 .brand {
   display: inline-flex;
@@ -339,7 +343,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 .page-home .night-grid { flex: 1 0 auto; }
 .page-home .plate-stage { max-width: min(66svh, 720px); }
 .page-home .site-footer { margin-top: 0; background: #0c0b09; }
-.page-home .footer-inner { padding-top: 14px; padding-bottom: 18px; border-top: 0; }
+.page-home .footer-inner { padding-top: 14px; padding-bottom: max(18px, env(safe-area-inset-bottom, 0px)); border-top: 0; }
 .page-home .disclaimer, .page-home .colophon { font-size: 12px; color: var(--ink-3); }
 .page-home .disclaimer strong { color: var(--ink-2); }
 .hero.night {
@@ -455,7 +459,7 @@ html.is-loading .loader, .loader.is-leaving {
 .loader-count {
   position: absolute;
   left: 50%;
-  bottom: 36px;
+  bottom: max(36px, calc(env(safe-area-inset-bottom, 0px) + 12px));
   margin: 0;
   font: 500 11px/1 var(--font-sans);
   letter-spacing: 0.2em;
@@ -1655,8 +1659,23 @@ html { scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transpar
   .lead-side, .reader-side { max-width: 460px; }
 }
 
+/* A phone turned sideways still opens on the proposition and the Earth
+   together. The portrait stack would otherwise spend the whole first screen
+   on the globe and leave the heading below the fold. */
+@media (max-height: 500px) and (min-width: 600px) {
+  .night-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 16px; padding-block: 8px; }
+  .plate { order: initial; }
+  .page-home .plate-stage { max-width: min(44vw, calc(100svh - var(--masthead-h) - 24px)); }
+  .hero.night .hero-copy { padding-top: 0; }
+  .hero.night .eyebrow { margin-bottom: 10px; font-size: 10.5px; }
+  .hero.night .hero-title { font-size: clamp(36px, 5.4vw, 52px); }
+  .hero.night .hero-lede { margin-top: 12px; font-size: 15px; line-height: 1.45; }
+  .hero.night .hero-actions { margin-top: 14px; }
+  .night-ledger { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0; }
+}
+
 @media (max-width: 760px) {
-  :root { --masthead-h: 58px; }
+  :root { --masthead-h: calc(58px + env(safe-area-inset-top, 0px)); }
   body { font-size: 17px; }
   .brand-name { font-size: 24px; }
   .brand-sub { display: none; }

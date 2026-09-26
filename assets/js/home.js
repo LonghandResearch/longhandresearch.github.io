@@ -160,9 +160,15 @@
       loader.classList.add('is-leaving');
       root.classList.remove('is-loading');
       document.dispatchEvent(new Event('longhand:loaded'));
-      const gone = () => loader.remove();
-      loader.addEventListener('transitionend', gone, { once: true });
-      setTimeout(gone, 1600);
+      const gone = (e) => {
+        // Child text also transitions. Wait for the loader's own clip before
+        // removing it, otherwise Safari and Chromium can cut the wipe short.
+        if (e && e.target !== loader) return;
+        loader.removeEventListener('transitionend', gone);
+        loader.remove();
+      };
+      loader.addEventListener('transitionend', gone);
+      setTimeout(() => gone(), 1600);
     };
     const tick = (now) => {
       const t = now - start;
