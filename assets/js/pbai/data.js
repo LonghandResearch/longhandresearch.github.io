@@ -91,6 +91,12 @@
     { id: 'px-dmas', publisher: 'Yahoo Finance', title: 'DMAS.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/DMAS.JK/history/', claim: 'Close of Rp192 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for splits).' },
     { id: 'px-kija', publisher: 'Yahoo Finance', title: 'KIJA.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/KIJA.JK/history/', claim: 'Close of Rp176 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for splits).' },
     { id: 'px-pgeo', publisher: 'Yahoo Finance', title: 'PGEO.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/PGEO.JK/history/', claim: 'Close of Rp1,070 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for splits).' },
+    { id: 'dssa-lk', publisher: 'Dian Swastatika Sentosa', title: 'Annual Reports 2022 to 2025, audited consolidated financial statements', date: '2023-2026', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'FY2021-FY2025 revenue, profit and equity attributable to owners, bank loans, bonds, leases and cash; FY2023-FY2025 operating cash flow and purchases of fixed assets; 6,189,284,930 shares outstanding at 31 December 2025.' },
+    { id: 'dssa-q126', publisher: 'Dian Swastatika Sentosa', title: 'Consolidated financial statements, 31 March 2026', date: '2026', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'Shareholders approved a 1:25 stock split on 11 March 2026; a 1:10 split was approved in June 2024.' },
+    { id: 'dssa-pe26', publisher: 'Dian Swastatika Sentosa', title: 'Annual Public Expose 2026', date: '9 June 2026', url: 'https://www.idx.co.id/id/perusahaan-tercatat/keterbukaan-informasi/', claim: 'Jakarta data centre with KIRA under construction: 18 MW initial IT load, scalable to 60 MW, Tier IV design, 24% complete at December 2025, ready for service in Q4 2026. Digital infrastructure revenue US$211.8 million in 2025, 7.6% of the total; mining 89.1%. Ekamas Mora Republik merger effective 22 April 2026 (50.5%).' },
+    { id: 'px-dssa', publisher: 'Yahoo Finance', title: 'DSSA.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/DSSA.JK/history/', claim: 'Close of Rp1,090 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for the 2024 and 2026 splits).' },
+    { id: 'fx-2021', publisher: 'Indosat Ooredoo Hutchison', title: 'Annual Report 2022, consolidated financial statements, note on foreign currency', date: '2023', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'Bank Indonesia rate of Rp14,269 per US dollar at 31 December 2021.' },
+    { id: 'fx-2022', publisher: 'Indosat Ooredoo Hutchison', title: 'Annual Report 2023, consolidated financial statements, note on foreign currency', date: '2024', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/', claim: 'Bank Indonesia rate of Rp15,731 per US dollar at 31 December 2022.' },
     { id: 'px-ptba', publisher: 'Yahoo Finance', title: 'PTBA.JK historical prices', date: '24 September 2026', url: 'https://finance.yahoo.com/quote/PTBA.JK/history/', claim: 'Close of Rp3,050 on 24 September 2026; year-end closes FY2021 to FY2025 (adjusted for splits).' },
     { id: 'ptba-shares', publisher: 'KSEI', title: 'PT Bukit Asam Tbk registered shares', date: 'May 2026', url: 'https://web.ksei.co.id/services/registered-securities/shares/lc/PTBA', claim: '11,520,659,250 shares outstanding.' },
     { id: 'dcii-shares', publisher: 'Indonesia Stock Exchange', title: 'DCII monthly share registry report', date: 'March 2026', url: 'https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/2272ea5f62_acc239d764.pdf', claim: '2,383,745,900 shares outstanding.' },
@@ -364,13 +370,38 @@
       methods: ['P/E', 'EV/EBITDA'],
       methodNote: 'A commodity producer: earnings multiples over the cycle, not a DCF built on a coal price forecast.',
     },
+    {
+      ticker: 'DSSA', name: 'Dian Swastatika Sentosa', unit: 'USD m',
+      business: 'Sinar Mas holding company: coal mining through Golden Energy Mines, renewable energy, chemicals, and digital infrastructure (fibre and data centres).',
+      dcExposure: 'Building. A Jakarta data centre with KIRA (Korea Investment Real Asset Management): 18 MW initial IT load, scalable to 60 MW, 24% complete at December 2025, ready for service targeted for Q4 2026.',
+      powerExposure: 'Coal producer through Golden Energy Mines; developing geothermal (440 MW of initial potential with First Gen, October 2025) and a 1 GW a year solar module plant in Kendal (June 2025).',
+      assets: 'Coal mines; Ekamas Mora Republik fibre network (50.5% after the April 2026 merger of MyRepublic and MORA); a Jakarta data centre under construction.',
+      capexNote: 'Data-centre capex is not disclosed in the sources reviewed; group purchases of fixed assets were US$466 million in 2025.',
+      revenueExposure: 'Digital infrastructure and technology was 7.6% of 2025 revenue (US$211.8 million), mostly fibre-to-the-home; the data centre is not yet operating.',
+      risks: 'Earnings follow coal prices (mining was 89.1% of 2025 revenue); the first data centre is still under construction; the fibre build-out needs capital.',
+      sources: ['dssa-lk', 'dssa-pe26', 'dssa-q126'],
+      prior: { revenue: [2164.95, 5956.11], ebitda: [null, null], netIncome: [120.08, 589.9], equity: [1598.6, 2072.7], capex: [null, null], cfo: [null, null], netDebt: [-168.2, 209.1], source: 'dssa-lk' },
+      years: ['FY2023', 'FY2024', 'FY2025'],
+      revenue: [5014.66, 3017.8, 2791.22], ebitda: [null, null, null], netIncome: [426.18, 309.08, 230.54],
+      capex: [229.6, 315.5, 466.2], cfo: [1031.1, 693.4, 329.7], netDebt: [189.5, 237.0, 921.0],
+      equity: [1383.4, 1608.4, 1816.8],
+      derived: {},
+      notes: ['EBITDA is not reported, and the segment depreciation note is incomplete for mining, so EBITDA is left as Data unavailable. Net income and equity are attributable to owners. Net debt is bank loans, loans from financial institutions, bonds and leases, less cash.', 'Share counts are restated for the 1:10 split (2024) and the 1:25 split (April 2026) so they match the split-adjusted prices; the current count is 6,189,284,930 shares at 31 December 2025 times 25.'],
+      yearSources: ['dssa-lk', 'dssa-lk', 'dssa-lk'],
+      shares: 154732123250, sharesSource: 'dssa-q126',
+      sharesHistory: { FY2021: 192638080000, FY2022: 192638080000, FY2023: 154111748250, FY2024: 154732123250, FY2025: 154732123250 },
+      price: 1090, priceDate: '2026-09-24', priceNote: 'Close, 24 September 2026', priceSource: 'px-dssa',
+      priceHistory: { FY2021: 196, FY2022: 159.2, FY2023: 320, FY2024: 1480, FY2025: 4040 },
+      methods: ['P/E', 'P/B'],
+      methodNote: 'A diversified holding still dominated by coal: earnings and book multiples; the data centre is too early to value on its own.',
+    },
   ];
 
   /* The chain from AI to connectivity */
   const CHAIN = [
     { id: 'ai', name: 'AI', explanation: 'Training and running models: the demand that starts the chain.', role: 'Sets how much compute is bought, and when.', bottleneck: 'Monetisation. Spending runs ahead of revenue, so demand can be revised quickly.', companies: [], companyNote: 'No listed Indonesian company earns most of its revenue from AI.', sources: ['iea'] },
     { id: 'compute', name: 'Compute', explanation: 'Accelerators, servers and networking gear inside the data hall.', role: 'Usually the largest share of project cost, owned by cloud providers and AI platforms rather than the building owner.', bottleneck: 'Chip supply and export rules; nearly all of it is imported.', companies: ['ISAT'], companyNote: 'ISAT, through Zankore (announced August 2026).', sources: ['zankore', 'coreweave'] },
-    { id: 'dc', name: 'Data centres', explanation: 'The building, power distribution, cooling and security that host compute.', role: 'Leases space and power under multi-year contracts.', bottleneck: 'A power connection on time. Floor space is easier to build than grid capacity.', companies: ['DCII', 'TLKM', 'ISAT'], companyNote: 'DCII directly; TLKM through NeutraDC; ISAT through BDx Indonesia.', sources: ['dcii-profile', 'neutradc-h126', 'bdx'] },
+    { id: 'dc', name: 'Data centres', explanation: 'The building, power distribution, cooling and security that host compute.', role: 'Leases space and power under multi-year contracts.', bottleneck: 'A power connection on time. Floor space is easier to build than grid capacity.', companies: ['DCII', 'TLKM', 'ISAT', 'DSSA'], companyNote: 'DCII directly; TLKM through NeutraDC; ISAT through BDx Indonesia; DSSA building its first (18 MW).', sources: ['dcii-profile', 'neutradc-h126', 'bdx', 'dssa-pe26'] },
     { id: 'power', name: 'Power', explanation: 'The electricity a data centre draws, measured in MW of demand and MWh of energy.', role: 'PLN is the single retailer; the tariff is set by the Ministry of Energy.', bottleneck: 'Connection capacity. 99% of PLN’s data-centre load sits in Java, Madura and Bali.', companies: [], companyNote: 'PLN is not listed.', sources: ['pln-forum', 'tariff'] },
     { id: 'generation', name: 'Generation', explanation: 'Power plants: coal, gas, geothermal, hydro, solar.', role: 'RUPTL 2025-2034 adds 69.5 GW, about 73% from independent power producers.', bottleneck: 'Clean firm capacity. Buyers want renewable power; the fleet is still mostly coal.', companies: ['PGEO', 'PTBA', 'KIJA'], companyNote: 'PGEO (geothermal), PTBA (Sumsel-8 coal plant), KIJA (Bekasi Power gas plant).', sources: ['ruptl', 'pgeo-cap', 'ptba-sumsel8', 'kija-power'] },
     { id: 'grid', name: 'Grid', explanation: 'Transmission lines and substations that move power to the site.', role: 'RUPTL plans about 48,000 kms of lines and 108,000 MVA of substations.', bottleneck: 'Timing. A plant that is built but cannot be absorbed earns little: Sumsel-8 runs at about half its capacity.', companies: [], companyNote: 'Transmission is PLN’s; no listed pure play.', sources: ['ruptl', 'ptba-sumsel8'] },
@@ -426,7 +457,7 @@
 
   /* Calculator defaults, each tied to a source */
   const DEFAULTS = {
-    mw: 100, utilisation: 70, pue: 1.54, pueSource: 'uptime', price: 997, priceSource: 'tariff', fx: 17916, fxSource: 'dovish', fxYearEnd: { FY2023: 15415, FY2024: 16157, FY2025: 16720 }, fxYearEndSources: ['fx-2023', 'fx-2025'],
+    mw: 100, utilisation: 70, pue: 1.54, pueSource: 'uptime', price: 997, priceSource: 'tariff', fx: 17916, fxSource: 'dovish', fxYearEnd: { FY2021: 14269, FY2022: 15731, FY2023: 15415, FY2024: 16157, FY2025: 16720 }, fxYearEndSources: ['fx-2021', 'fx-2022', 'fx-2023', 'fx-2025'],
   };
 
   /* Power scenarios for 2030 (Longhand assumptions, anchored to PLN's figures) */
