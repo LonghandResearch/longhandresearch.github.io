@@ -63,7 +63,7 @@ window.LONGHAND_REPORTS = [
     "title": "The Power Behind AI",
     "date": "2026-09-24",
     "blurb": "Indonesia’s data-centre boom is becoming an energy story. Where does the value accrue across power, grid, connectivity, industrial land and data centres?",
-    "summary": "Indonesia’s data-centre boom is becoming an energy story. PLN puts installed data-centre IT capacity at about 580 MW in 2026 and projects a power need of 25,297 MW by 2034, while Jakarta’s pipeline has grown to 1,699 MW. This interactive report maps where the economic value accrues across the chain from AI to connectivity, with a power calculator, exposure maps for nine listed companies, a DCF and a seeded Monte Carlo simulation. It makes no recommendations.",
+    "summary": "Indonesia’s data-centre boom is becoming an energy story. PLN puts installed data-centre IT capacity at about 580 MW in 2026 and projects a power need of 25,297 MW by 2034, while Jakarta’s pipeline has grown to 1,699 MW. This interactive report maps where the economic value accrues across the chain from AI to connectivity, with a power calculator, exposure maps for ten listed companies, a DCF and a seeded Monte Carlo simulation. It makes no recommendations.",
     "tags": [
       "AI",
       "Data Centers",
