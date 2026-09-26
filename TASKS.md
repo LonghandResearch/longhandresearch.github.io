@@ -17,6 +17,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | OPS-001 | Make auto publish send report changes to `main` whichever branch the site folder is on | Claude | `claude/auto-publish-main` | Done | [PR #31](https://github.com/LonghandResearch/longhandresearch.github.io/pull/31) |
 | RPT-006 | Add DSSA to The Power Behind AI: FY2021-FY2025 financials, prices, valuation history | Claude | `claude/pbai-data-refresh` | Done | [PR #32](https://github.com/LonghandResearch/longhandresearch.github.io/pull/32) |
 | RPT-007 | Update the Power Behind AI library summary to ten companies | Claude | `claude/pbai-catalogue-ten` | Review | [PR #33](https://github.com/LonghandResearch/longhandresearch.github.io/pull/33) |
+| RPT-008 | Put source context inline and remove the weekly CSV download | Codex | `codex/ihsg-inline-sources` | Done | [PR #34](https://github.com/LonghandResearch/longhandresearch.github.io/pull/34) |
 
 ## Status values
 

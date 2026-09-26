@@ -113,26 +113,4 @@
     });
   }
 
-  $('download-data').addEventListener('click', () => {
-    const rows = [['series','observation','period','value','unit','status','source_or_formula']];
-    d.closes.forEach(r => rows.push(['IHSG','close',r.date,r.close,'index points','IDX reported',d.sources.daily.url]));
-    d.sectors.forEach(r => rows.push(['sector',r.name,d.period,r.weekly,'% weekly','IDX reported',d.sources.weekly.url]));
-    d.foreignFlow.forEach(r => rows.push(['foreign flow','market net',r.date,r.netBn,'Rp bn','IDX reported, all venues combined',d.sources.daily.url]));
-    rows.push(['foreign flow','market net',d.period,d.weeklyNetBn,'Rp bn','IDX weekly reported',d.sources.weekly.url]);
-    rows.push(['foreign flow','market net','7–11 Sep',d.prior2WeekNetBn,'Rp bn','IDX weekly reported',d.sources.prior2.url]);
-    rows.push(['foreign flow','market net','14–18 Sep',d.priorWeekNetBn,'Rp bn','IDX weekly reported',d.sources.prior.url]);
-    for (const key of ['value','volume','frequency']) {
-      rows.push(['stock trading',key,'14–18 Sep',d.weeklyTotals.prior[key],key==='value'?'IDR':key==='volume'?'shares':'trades','IDX weekly total',d.sources.prior.url]);
-      rows.push(['stock trading',key,d.period,d.weeklyTotals.current[key],key==='value'?'IDR':key==='volume'?'shares':'trades','IDX weekly total',d.sources.weekly.url]);
-    }
-    for (const key of ['regular','cash','negotiated','total']) rows.push(['venue trading value',key,d.period,d.venues[key],'IDR','IDX reported; not foreign-flow split',d.sources.weekly.url]);
-    d.indexLaggards.forEach(r => { rows.push(['index mover',r.ticker+' price',d.period,r.pricePct,'% weekly','IDX reported',d.sources.weekly.url]); rows.push(['index mover',r.ticker+' contribution',d.period,r.points,'IHSG points','IDX reported',d.sources.weekly.url]); });
-    d.jisdor.forEach(r => rows.push(['USD/IDR JISDOR','reference rate',r.date,r.rate,'IDR per USD','BI reported',d.sources.jisdor.url]));
-    rows.push(['calculation','JISDOR-based USD price return',d.period,m.usdProxy,'%','indicative, time-mismatched proxy','(IHSG_end/IHSG_start)/(JISDOR_end/JISDOR_start)-1']);
-    ['bi','fedLow','fedHigh'].forEach(key => rows.push(['policy',key,key==='bi'?'2026-09-23':'2026-09-16',d.policy[key],'%','reported',d.sources[key==='bi'?'bi':'fed'].url]));
-    rows.push(['calculation','USD return','selected scenario',math.usdReturn(Number(equityInput.value),Number(fxInput.value)),'%','scenario',`equity=${equityInput.value}%; USD/IDR=${fxInput.value}%; ((1+equity/100)/(1+fx/100)-1)*100`]);
-    const csv = rows.map(row => row.map(value => '"'+String(value).replace(/"/g,'""')+'"').join(',')).join('\r\n');
-    const url = URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));
-    const link = document.createElement('a'); link.href = url; link.download = 'ihsg-weekly-2026-09-25-data.csv'; document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url),1000);
-  });
 })();

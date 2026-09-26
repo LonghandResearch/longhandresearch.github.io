@@ -43,7 +43,7 @@ uncommitted branch.
 | `assets/css/market.css` | IHSG weekly report layout and responsive charts |
 | `assets/js/ihsg-weekly-data.js` | Source-linked IDX market observations and BI JISDOR rates |
 | `assets/js/ihsg-weekly-math.js` | Pure index, foreign-flow, turnover and currency calculations |
-| `assets/js/ihsg-weekly.js` | Native charts, the FX return lab and CSV export |
+| `assets/js/ihsg-weekly.js` | Native charts and the FX return lab |
 | `assets/js/wire.js` | The Wire page |
 | `news/feeds.json` | The sources gathered into The Wire |
 | `news/news.json` | The gathered headlines (written by the hourly job; do not edit) |
