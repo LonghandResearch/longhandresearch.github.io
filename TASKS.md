@@ -16,7 +16,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Done | Direct merge |
 | OPS-001 | Make auto publish send report changes to `main` whichever branch the site folder is on | Claude | `claude/auto-publish-main` | Done | [PR #31](https://github.com/LonghandResearch/longhandresearch.github.io/pull/31) |
 | RPT-006 | Add DSSA to The Power Behind AI: FY2021-FY2025 financials, prices, valuation history | Claude | `claude/pbai-data-refresh` | Done | [PR #32](https://github.com/LonghandResearch/longhandresearch.github.io/pull/32) |
-| RPT-007 | Update the Power Behind AI library summary to ten companies | Claude | `claude/pbai-catalogue-ten` | Review | (opening) |
+| RPT-007 | Update the Power Behind AI library summary to ten companies | Claude | `claude/pbai-catalogue-ten` | Review | [PR #33](https://github.com/LonghandResearch/longhandresearch.github.io/pull/33) |
 
 ## Status values
 
