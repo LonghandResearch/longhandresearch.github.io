@@ -162,6 +162,24 @@
 .event-row strong { font: 500 16px/1.4 var(--font-sans); }
 .event-row p { margin-top: 7px; font-size: 15px; }
 .market-sources [id] { scroll-margin-top: 100px; }
+/* Reveal once on entry. No looping, count-ups or movement of text. */
+@media (prefers-reduced-motion: no-preference) {
+  .figure-motion:not(.figure-revealed) .index-line { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .figure-motion:not(.figure-revealed) .index-point { opacity: 0; }
+  .figure-motion:not(.figure-revealed) .sector-bar,
+  .figure-motion:not(.figure-revealed) .liquidity-track > span { transform: scaleX(0); }
+  .sector-bar, .liquidity-track > span { transform-origin: left center; }
+  .sector-bar.loss { transform-origin: right center; }
+  .figure-motion.figure-revealed .index-line { stroke-dasharray: 1; animation: trace-index 650ms ease-out both; }
+  .figure-motion.figure-revealed .index-point { animation: chart-appear 250ms 350ms ease-out both; }
+  .figure-motion.figure-revealed .sector-bar,
+  .figure-motion.figure-revealed .liquidity-track > span { animation: extend-bar 450ms cubic-bezier(.2,.65,.3,1) both; }
+  .figure-motion.figure-revealed .breadth-bar { animation: chart-appear 400ms ease-out both; }
+  .chart-buttons button { transition: background-color 150ms, color 150ms; }
+}
+@keyframes trace-index { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes extend-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes chart-appear { from { opacity: 0; } to { opacity: 1; } }
 @media (max-width: 800px) { .market-rail a span { display: inline; } }
 @media (max-width: 600px) {
   .lab-layout, .transmission-chain { grid-template-columns: 1fr; gap: 22px; }
@@ -175,6 +193,9 @@
   .market-table { min-width: 420px; }
 }
 @media print {
+  .figure-motion .index-line { animation: none !important; stroke-dashoffset: 0 !important; }
+  .figure-motion .index-point, .figure-motion .breadth-bar { animation: none !important; opacity: 1 !important; }
+  .figure-motion .sector-bar, .figure-motion .liquidity-track > span { animation: none !important; transform: none !important; }
   .market-rail, .chart-buttons, .lab-controls, #download-data { display: none; }
   .market-grid { display: block; }
   .research-figure, .return-lab { break-inside: avoid; }
