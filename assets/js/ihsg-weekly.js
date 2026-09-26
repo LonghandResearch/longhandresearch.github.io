@@ -25,7 +25,7 @@
     <desc id="index-svg-desc">The prior Friday close was 6,441.159. The index rebounded on Wednesday, then ended the week at 6,241.892. Truncated vertical scale from 6,200 to 6,480. A full data table follows.</desc>
     ${[6200,6300,6400].map(v => `<line class="chart-rule" x1="60" x2="700" y1="${y(v)}" y2="${y(v)}"/><text class="chart-axis" x="49" y="${y(v)+4}" text-anchor="end">${number(v,0)}</text>`).join('')}
     <line class="chart-baseline" x1="60" x2="700" y1="${y(d.closes[0].close)}" y2="${y(d.closes[0].close)}"/>
-    <polyline class="index-line" points="${points}"/>
+    <polyline class="index-line" pathLength="1" points="${points}"/>
     ${d.closes.map((row,i) => `<circle class="index-point" id="index-point-${i}" cx="${x(i)}" cy="${y(row.close)}" r="4.5"/><text class="chart-axis" x="${x(i)}" y="259" text-anchor="middle">${row.label}</text>`).join('')}
     <text class="chart-annotation" x="${x(3)}" y="${y(d.closes[3].close)-20}" text-anchor="middle">BI holds</text>
   </svg>`;
@@ -88,6 +88,28 @@
     return `<tr><th scope="row">${percent(fx)}</th><td>${percent(value)}</td><td>${fx<0?'Rupiah strengthens':fx>0?'Rupiah weakens':'Unchanged exchange rate'}</td></tr>`;
   }).join('');
   updateLab();
+
+  // A single quiet reveal per figure. Values stay readable throughout.
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!motionPreference.matches && 'IntersectionObserver' in window) {
+    const figures = document.querySelectorAll('.research-figure');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.closest('.research-figure').classList.add('figure-revealed');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -24px 0px' });
+    figures.forEach(figure => {
+      figure.classList.add('figure-motion');
+      observer.observe(figure.querySelector('.chart-scroll, #sector-bars, .breadth-bar, #liquidity-bars, #bank-bars'));
+    });
+    motionPreference.addEventListener('change', event => {
+      if (!event.matches) return;
+      observer.disconnect();
+      figures.forEach(figure => figure.classList.remove('figure-motion'));
+    });
+  }
 
   $('download-data').addEventListener('click',()=>{
     const rows=[['series','observation','period','value','unit','status','source_or_formula']];
