@@ -24,6 +24,8 @@
     try { t = localStorage.getItem('longhand-theme'); } catch (e) {}
     if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     d.setAttribute('data-theme', t);
+    /* The opening screen shows once per visit, and never to those who ask for less motion */
+    try { if (!sessionStorage.getItem('longhand-loaded') && !matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('is-loading'); } catch (e) {}
   })();
   /* Catch a typo in reports/reports.js so the site can say where it is */
   window.addEventListener('error', function (e) {
@@ -45,20 +47,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=2026-09-26a">
+<link rel="stylesheet" href="assets/css/site.css?v=2026-09-26b">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
 <script src="assets/js/site.js?v=2026-09-24j" defer blocking="render"></script>
-<script src="assets/js/home.js?v=2026-09-26a" defer blocking="render"></script>
-<script src="assets/js/wire.js?v=2026-09-24j" defer></script>
-<script src="assets/js/earth.js?v=2026-09-26a" defer></script>
+<script src="assets/js/home.js?v=2026-09-26b" defer blocking="render"></script>
+<script src="assets/js/earth.js?v=2026-09-26b" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body class="page-home">
+<div class="loader" data-loader aria-hidden="true">
+  <p class="loader-mark"><span style="--i:0">L</span><span style="--i:1">o</span><span style="--i:2">n</span><span style="--i:3">g</span><span style="--i:4">h</span><span style="--i:5">a</span><span style="--i:6">n</span><span style="--i:7">d</span></p>
+  <p class="loader-sub">Research</p>
+  <p class="loader-count">Opening the library <span data-loader-count>0</span></p>
+  <span class="loader-bar"><span data-loader-bar></span></span>
+</div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -107,7 +114,6 @@
           </p>
         </div>
         <p class="sr-only" id="globe-help">A photographic globe of the Earth, made from NASA imagery, turning slowly. Drag it, or use the arrow keys, to turn it any way; Home sets it straight. Gold marks show the markets the reports cover.</p>
-        <figcaption class="earth-credit">Earth imagery: NASA Visible Earth</figcaption>
       </figure>
     </div>
     <div class="wrap">
@@ -115,30 +121,6 @@
     </div>
   </section>
 
-  <a class="index-strip" href="library.html" data-index-strip hidden>
-    <span class="sr-only">Browse the library</span>
-    <span class="index-track" data-index-track aria-hidden="true"></span>
-  </a>
-
-  <section class="section wrap" data-latest-section aria-labelledby="latest-title" hidden>
-    <div class="section-head">
-      <h2 class="section-label" id="latest-title">Latest report</h2>
-      <a class="text-link section-link" href="library.html">All reports
-        <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-      </a>
-    </div>
-    <div data-latest data-reveal></div>
-  </section>
-
-  <section class="section wrap" data-wire-section aria-labelledby="wire-title" hidden>
-    <div class="section-head">
-      <h2 class="section-label" id="wire-title">From the wire</h2>
-      <a class="text-link section-link" href="wire.html">All headlines
-        <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-      </a>
-    </div>
-    <ol class="wire-list is-brief" data-wire-brief data-reveal></ol>
-  </section>
 </main>
 
 <footer class="site-footer">

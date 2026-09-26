@@ -10,6 +10,8 @@ quick handoff board for Codex, Claude, and the repository owner.
 | RPT-004 | Make the IHSG Update easier to read and audit all displayed data | Codex | `codex/ihsg-reading-audit` | Review | [PR #24](https://github.com/LonghandResearch/longhandresearch.github.io/pull/24) |
 | RPT-005 | Incorporate primary IDX statistics and BI JISDOR into the IHSG Update | Codex | `codex/ihsg-primary-data` | Done | [PR #25](https://github.com/LonghandResearch/longhandresearch.github.io/pull/25) |
 | WEB-001 | Redesign the front page: a photographic 3D Earth to turn by hand, scroll-linked motion and the catalogue in numbers | Claude | `claude/earth-landing` | Review | — |
+| WEB-002 | Make the front page a single-screen landing: opening screen, reading-size type, contour lines and a sheet-of-paper transition to the next page | Claude | `claude/landing-standalone` | Review | — |
+| WEB-003 | Review WEB-002 across browsers (Safari, Firefox without view transitions, iOS and Android touch) and report or fix anything off | Codex | `codex/landing-review` | Backlog | — |
 | SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Done | Direct merge |
 
 ## Status values

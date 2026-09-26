@@ -1,9 +1,8 @@
 /* Longhand Research: the front page.
-   The night plate (its stars, the catalogue in four numbers, the masthead over
-   it), the titles strip beneath it, and under those the newest report in the
-   library, set as a lead story. The Earth itself is drawn by earth.js. */
-
-/* The night plate and the titles strip */
+   A single screen: the night plate with its stars, the catalogue in four
+   numbers along its foot, and the masthead over it. The Earth itself is drawn
+   by earth.js. Every way on leads to another page, where the headline and the
+   Earth carry over in the page transition. */
 (function () {
   'use strict';
 
@@ -44,9 +43,49 @@
       ctx.arc(x, y, r, 0, Math.PI * 2);
       ctx.fill();
     }
+    drawContours(ctx, w, h, rand);
   }
 
-  /* A number that rolls up like an odometer the first time it is seen */
+  /* Contour lines, as on a survey map, in faint gold: marching squares over a
+     smooth seeded field, drawn once with the stars */
+  function drawContours(ctx, w, h, rand) {
+    const cell = 14;
+    const cols = Math.ceil(w / cell) + 1;
+    const rows = Math.ceil(h / cell) + 1;
+    // a few soft bumps make a landscape
+    const bumps = Array.from({ length: 9 }, () => ({ x: rand() * w, y: rand() * h, r: (0.18 + rand() * 0.3) * Math.max(w, h), a: rand() < 0.5 ? -1 : 1 }));
+    const field = new Float32Array(cols * rows);
+    for (let j = 0; j < rows; j++) {
+      for (let i = 0; i < cols; i++) {
+        const x = i * cell, y = j * cell;
+        let v = 0;
+        for (const b of bumps) { const d = ((x - b.x) ** 2 + (y - b.y) ** 2) / (b.r * b.r); v += b.a * Math.exp(-d); }
+        field[j * cols + i] = v;
+      }
+    }
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(201, 160, 90, 0.075)';
+    const at = (i, j) => field[j * cols + i];
+    const lerp = (a, b, lv) => (lv - a) / (b - a || 1e-6);
+    for (let lv = -1.4; lv <= 1.4; lv += 0.2) {
+      ctx.beginPath();
+      for (let j = 0; j < rows - 1; j++) {
+        for (let i = 0; i < cols - 1; i++) {
+          const a = at(i, j), b = at(i + 1, j), c = at(i + 1, j + 1), d = at(i, j + 1);
+          const pts = [];
+          const x = i * cell, y = j * cell;
+          if ((a > lv) !== (b > lv)) pts.push([x + lerp(a, b, lv) * cell, y]);
+          if ((b > lv) !== (c > lv)) pts.push([x + cell, y + lerp(b, c, lv) * cell]);
+          if ((d > lv) !== (c > lv)) pts.push([x + lerp(d, c, lv) * cell, y + cell]);
+          if ((a > lv) !== (d > lv)) pts.push([x, y + lerp(a, d, lv) * cell]);
+          for (let k = 0; k + 1 < pts.length; k += 2) { ctx.moveTo(pts[k][0], pts[k][1]); ctx.lineTo(pts[k + 1][0], pts[k + 1][1]); }
+        }
+      }
+      ctx.stroke();
+    }
+  }
+
+  /* A number that rolls up like an odometer when the page opens */
   const odo = (n) => {
     const digits = String(n).split('').map((d) => `<span class="odo-digit"><span class="odo-strip" data-to="${d}">${'0123456789'.split('').map((k) => `<span>${k}</span>`).join('')}</span></span>`).join('');
     return `<span class="sr-only">${n}</span><span class="odo" aria-hidden="true">${digits}</span>`;
@@ -54,77 +93,48 @@
   function roll(root) {
     const strips = $$('.odo-strip', root);
     const set = () => strips.forEach((s) => { s.style.transform = `translateY(calc(var(--odo-h) * -${s.dataset.to}))`; });
-    if (reduce.matches || !('IntersectionObserver' in window)) {
+    if (reduce.matches) {
       strips.forEach((s) => { s.style.transition = 'none'; });
       set();
       return;
     }
-    const io = new IntersectionObserver((entries) => {
-      if (!entries.some((e) => e.isIntersecting)) return;
-      io.disconnect();
-      requestAnimationFrame(() => requestAnimationFrame(set));
-    }, { threshold: 0.4 });
-    io.observe(root);
+    // after the headline has risen, so the eye meets one movement at a time
+    const go = () => setTimeout(() => requestAnimationFrame(set), 650);
+    if (document.documentElement.classList.contains('is-loading')) document.addEventListener('longhand:loaded', go, { once: true });
+    else go();
   }
 
-  /* The catalogue in four numbers, from the published reports */
+  /* The catalogue in four numbers; the first and the last are ways in */
   const ledger = $('[data-ledger]', hero);
-  function renderLedger(list) {
+  function renderLedger() {
     if (!ledger) return;
+    const list = LH.publishedSorted();
     if (!list.length) { ledger.hidden = true; return; }
     const kinds = [...new Set(list.map((r) => r.category).filter(Boolean))];
     const markets = [...new Set(list.map((r) => r.exchange).filter(Boolean))];
-    const cell = (label, value, note) => `<div><dt>${esc(label)}</dt><dd>${value}${note ? `<span class="ledger-note">${esc(note)}</span>` : ''}</dd></div>`;
+    const latest = list[0];
+    const cell = (label, value, note, href, aria) => `<div><dt>${esc(label)}</dt><dd>${href ? `<a class="ledger-link" href="${esc(href)}" aria-label="${esc(aria)}">${value}</a>` : value}${note ? `<span class="ledger-note">${esc(note)}</span>` : ''}</dd></div>`;
     ledger.innerHTML = [
-      cell('Reports', odo(list.length)),
+      cell('Reports', odo(list.length), 'All in the library', 'library.html', `${list.length} reports: browse the library`),
       cell('Kinds of study', odo(kinds.length), kinds.join(', ')),
       cell('Markets', odo(markets.length), markets.length ? markets.join(', ') : 'Sector and macro studies only'),
-      cell('Latest', `<time datetime="${esc(list[0].date)}">${esc(dateShort(list[0].date))}</time>`),
+      cell('Latest', `<time datetime="${esc(latest.date)}">${esc(dateShort(latest.date))}</time>`, latest.title, LH.reportHref(latest), `Latest report: ${latest.title}`),
     ].join('');
     ledger.hidden = false;
     roll(ledger);
   }
 
-  /* The titles strip: each report's catalogue number and title, run together */
-  const strip = $('[data-index-strip]');
-  const track = strip && $('[data-index-track]', strip);
-  function renderStrip(list) {
-    if (!strip || !track) return;
-    if (!list.length) { strip.hidden = true; return; }
-    const item = (r, copy) => `<span class="index-item${copy ? ' is-copy' : ''}"><span class="index-no">${esc(LH.catalogueNo(r))}</span>${esc(r.title)}</span>`;
-    // the list is repeated so it still fills the widest screen at the end of its run
-    const once = list.map((r) => item(r, false)).join('');
-    const copies = list.map((r) => item(r, true)).join('');
-    track.innerHTML = once + copies + copies;
-    $('.sr-only', strip).textContent = `Browse all ${list.length} ${list.length === 1 ? 'report' : 'reports'} in the library`;
-    strip.hidden = false;
-  }
-
-  /* Scroll: the masthead is clear while it sits over the plate; the headline
-     lifts a little faster than the page, the stars move slower, and the
-     titles strip drifts sideways as it passes */
+  /* The masthead is clear over the plate and turns to smoked glass once the
+     page moves (on a phone the plate is taller than the screen) */
   const mast = $('.masthead');
   let ticking = false;
   function update() {
     ticking = false;
-    const top = hero.getBoundingClientRect();
-    if (mast) mast.classList.toggle('is-over-night', top.bottom > mast.offsetHeight);
-    if (reduce.matches) {
-      hero.style.removeProperty('--lift');
-      hero.style.removeProperty('--stars-y');
-      if (strip) strip.style.removeProperty('--strip-x');
-      return;
-    }
-    const p = Math.max(0, Math.min(1, -top.top / (top.height || 1)));
-    hero.style.setProperty('--lift', `${(-p * 56).toFixed(1)}px`);
-    hero.style.setProperty('--stars-y', `${(p * top.height * 0.3).toFixed(1)}px`);
-    if (strip && !strip.hidden) {
-      const r = strip.getBoundingClientRect();
-      const vh = window.innerHeight || 1;
-      const q = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
-      const run = Math.min(Math.max(0, track.scrollWidth - strip.clientWidth), strip.clientWidth * 0.9);
-      strip.style.setProperty('--strip-x', `${(-q * run).toFixed(1)}px`);
-    }
+    const box = hero.getBoundingClientRect();
+    if (mast) mast.classList.toggle('is-over-night', box.bottom > mast.offsetHeight);
+    if (reduce.matches) { hero.style.removeProperty('--stars-y'); return; }
+    const p = Math.max(0, Math.min(1, -box.top / (box.height || 1)));
+    hero.style.setProperty('--stars-y', `${(p * box.height * 0.3).toFixed(1)}px`);
   }
   const onScroll = () => {
     if (ticking) return;
@@ -132,90 +142,51 @@
     requestAnimationFrame(update);
   };
 
-  /* Content below the plate rises into view as the page reaches it
-     (after the scroll-reveal recipe in nexu-io/motion-anything, Apache-2.0) */
-  function reveal() {
-    const els = $$('[data-reveal]');
-    if (reduce.matches || !('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-in'));
-      return;
-    }
-    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('is-in');
-      io.unobserve(e.target);
-    }), { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    els.forEach((el) => io.observe(el));
-  }
+  /* The opening screen, once per visit: the name, a count and a gold rule that
+     follow the Earth's imagery as it arrives, then the screen lifts away.
+     It never waits longer than four seconds. */
+  const root = document.documentElement;
+  const loader = $('[data-loader]');
+  if (loader && root.classList.contains('is-loading')) {
+    const count = $('[data-loader-count]', loader);
+    const bar = $('[data-loader-bar]', loader);
+    const start = performance.now();
+    let target = 0, shown = 0, finished = false, last = start;
+    document.addEventListener('longhand:earth-progress', (e) => { target = Math.max(target, e.detail.done / e.detail.total); });
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      try { sessionStorage.setItem('longhand-loaded', '1'); } catch (e) { /* private mode */ }
+      loader.classList.add('is-leaving');
+      root.classList.remove('is-loading');
+      document.dispatchEvent(new Event('longhand:loaded'));
+      const gone = () => loader.remove();
+      loader.addEventListener('transitionend', gone, { once: true });
+      setTimeout(gone, 1600);
+    };
+    const tick = (now) => {
+      const t = now - start;
+      const dt = Math.min(0.1, (now - last) / 1000);
+      last = now;
+      const goal = t > 4000 ? 1 : target;
+      // eased by time, not by frames, so a slow machine counts at the same pace
+      shown += (goal - shown) * (1 - Math.exp(-dt * 7));
+      if (goal - shown < 0.006) shown = goal;
+      count.textContent = String(Math.round(shown * 100));
+      bar.style.transform = `scaleX(${shown})`;
+      if (shown >= 1 && t > 1300) setTimeout(finish, 180);
+      else requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  } else if (loader) loader.remove();
 
-  function render() {
-    // newest first, and within a day in reverse catalogue order, so the numbers run down evenly
-    const list = LH.publishedSorted().sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.id.localeCompare(a.id));
-    renderLedger(list);
-    renderStrip(list);
-    onScroll();
-  }
-  render();
+  renderLedger();
   drawStars();
-  reveal();
+  onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   window.addEventListener('pageshow', onScroll);
   new ResizeObserver(() => requestAnimationFrame(drawStars)).observe(hero);
-  document.addEventListener('longhand:changed', render);
+  document.addEventListener('longhand:changed', renderLedger);
   if (reduce.addEventListener) reduce.addEventListener('change', onScroll);
-})();
-
-/* The latest report */
-(function () {
-  'use strict';
-
-  const LH = window.Longhand;
-  const { $, esc, icon, dateLong } = LH.util;
-
-  const section = $('[data-latest-section]');
-  const body = $('[data-latest]');
-  if (!section || !body) return;
-
-  function render(list) {
-    const r = list[0];
-    if (!r) { section.hidden = true; return; }
-    section.hidden = false;
-    const href = LH.reportHref(r);
-    // A lighter version of the report page's header: the short blurb and just the call
-    const ledger = LH.ledgerHtml(r, 'The call', { extra: false });
-    const company = r.company && r.company !== r.title ? r.company : '';
-    const text = r.blurb || r.summary;
-    body.innerHTML = `
-      <div class="lead${ledger ? '' : ' no-side'}">
-        <div class="lead-main">
-          <p class="kicker">${LH.kickerHtml(r, [esc(LH.tickerLabel(r)), `<time datetime="${esc(r.date)}">${esc(dateLong(r.date))}</time>`])}</p>
-          <h3 class="lead-title" data-vt-title="${esc(r.id)}"><a href="${href}">${esc(r.title)}</a></h3>
-          ${company ? `<p class="lead-company">${esc(company)}</p>` : ''}
-          ${text ? `<p class="lead-summary">${esc(text)}</p>` : ''}
-          <div class="lead-actions">
-            <a class="btn" href="${href}">Read the report ${icon('arrowRight', 'icon-arrow')}</a>
-            ${r.pdfUrl || r.blob ? `<a class="text-link" href="${esc(LH.fileUrl(r))}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>` : ''}
-            <span class="file-meta">${esc(LH.fileMeta(r))}</span>
-          </div>
-        </div>
-        ${ledger ? `<aside class="lead-side ledger" aria-label="The call">${ledger}</aside>` : ''}
-      </div>`;
-  }
-
-  // Published reports are drawn straight away. Drafts in this browser follow
-  // once any page transition is over, and only if one is now the latest.
-  let current = LH.publishedSorted();
-  render(current);
-  function withDrafts({ now = false } = {}) {
-    return Promise.all([LH.allReports(), now ? null : LH.afterTransition()]).then(([list]) => {
-      if (now || (list[0] && list[0].id) !== (current[0] && current[0].id) || list.some((r) => r.isLocal)) {
-        current = list;
-        render(list);
-      }
-    });
-  }
-  if (LH.isAuthor) withDrafts();
-  document.addEventListener('longhand:changed', () => withDrafts({ now: true }));
-  window.addEventListener('pageshow', (e) => { if (e.persisted && LH.isAuthor) withDrafts(); });
 })();
