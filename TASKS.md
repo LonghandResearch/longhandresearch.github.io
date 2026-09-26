@@ -14,6 +14,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | WEB-003 | Review the merged landing (PR #27) on the live site across Safari, Firefox (no view transitions), iOS and Android touch; fix anything off | Codex | `codex/landing-review` | Done | [PR #29](https://github.com/LonghandResearch/longhandresearch.github.io/pull/29) |
 | WEB-004 | Refine landing navigation motion and simplify the Earth presentation | Codex | `codex/landing-motion` | Done | [PR #30](https://github.com/LonghandResearch/longhandresearch.github.io/pull/30) |
 | SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Done | Direct merge |
+| OPS-001 | Make auto publish send report changes to `main` whichever branch the site folder is on | Claude | `claude/auto-publish-main` | Review | — |
 
 ## Status values
 
