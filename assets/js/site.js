@@ -1257,9 +1257,16 @@
   }
   // A transition is skipped when the tab is hidden; that is not an error
   const quiet = (vt) => { ['ready', 'finished', 'updateCallbackDone'].forEach((k) => { if (vt[k]) vt[k].catch(() => {}); }); };
+  // Between a page and the front page, the globe does not fly: it stays with
+  // its own page, which slides as one sheet
+  const toHome = (e) => {
+    try { return !!(e.activation && e.activation.entry && /\/(index\.html)?$/.test(new URL(e.activation.entry.url).pathname)); } catch (err) { return false; }
+  };
+  window.addEventListener('pageshow', () => { $$('.page-emblem, .plate-stage').forEach((el) => { el.style.viewTransitionName = ''; }); });
   window.addEventListener('pageswap', (e) => {
     if (!e.viewTransition) return;
     quiet(e.viewTransition);
+    if (document.body.classList.contains('page-home') || toHome(e)) $$('.page-emblem, .plate-stage').forEach((el) => { el.style.viewTransitionName = 'none'; });
     nameTitle(e.activation && e.activation.entry ? reportIdOf(e.activation.entry.url) : null);
   });
   window.addEventListener('pagereveal', (e) => {
@@ -1269,7 +1276,18 @@
     $$('.is-arriving').forEach((el) => el.classList.remove('is-arriving'));
     const act = window.navigation && window.navigation.activation;
     nameTitle(act && act.from ? reportIdOf(act.from.url) : null);
-    const done = () => nameTitle(null);
+    // leaving the front page, the new page rises over it like a sheet of paper
+    let fromHome = false;
+    try { fromHome = !!(act && act.from && /\/(index\.html)?$/.test(new URL(act.from.url).pathname)) && !document.body.classList.contains('page-home'); } catch (err) { /* no URL */ }
+    document.documentElement.classList.toggle('from-home', fromHome);
+    // arriving on the front page, the Earth waits beneath the page sliding away
+    const home = document.body.classList.contains('page-home');
+    if (home) $$('.plate-stage').forEach((el) => { el.style.viewTransitionName = 'none'; });
+    const done = () => {
+      nameTitle(null);
+      document.documentElement.classList.remove('from-home');
+      if (home) $$('.plate-stage').forEach((el) => { el.style.viewTransitionName = ''; });
+    };
     e.viewTransition.finished.then(done, done);
   });
 

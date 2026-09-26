@@ -15,7 +15,7 @@ uncommitted branch.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | The front page: the Earth, the catalogue in numbers, the titles strip and the latest report |
+| `index.html` | The front page: a single screen with the Earth and the catalogue in numbers |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
 | `about.html` | How the reports are built, the rating key and the report types |
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
@@ -31,7 +31,7 @@ uncommitted branch.
 | `reports/*.pdf` | The report PDFs |
 | `assets/css/site.css` | All styling: light and dark themes, page transitions |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
-| `assets/js/home.js` | Front page: stars, the catalogue in numbers, the titles strip, scroll motion and the latest report |
+| `assets/js/home.js` | Front page: the opening screen, stars and contour lines, the catalogue in numbers |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/reader.js` | Report page: the PDF reader |
 | `assets/js/earth.js` | The Earth on the front page (three.js) |
@@ -44,7 +44,7 @@ uncommitted branch.
 | `assets/js/ihsg-weekly-data.js` | Source-linked IDX market observations and BI JISDOR rates |
 | `assets/js/ihsg-weekly-math.js` | Pure index, foreign-flow, turnover and currency calculations |
 | `assets/js/ihsg-weekly.js` | Native charts, the FX return lab and CSV export |
-| `assets/js/wire.js` | The Wire page, and the latest headlines on the front page |
+| `assets/js/wire.js` | The Wire page |
 | `news/feeds.json` | The sources gathered into The Wire |
 | `news/news.json` | The gathered headlines (written by the hourly job; do not edit) |
 | `scripts/fetch-news.mjs` | Reads the sources and writes `news/news.json` |
@@ -91,7 +91,7 @@ Readers never see your drafts, and they cannot change the site: publishing and d
 
 ## The Wire
 
-The Wire (`wire.html`, and **From the wire** on the front page) shows headlines on markets, the economy, commodities and crypto. It fills itself: every hour a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days.
+The Wire (`wire.html`) shows headlines on markets, the economy, commodities and crypto. It fills itself: every hour a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days.
 
 - **Change the sources**: edit `news/feeds.json`. Each source has a `name`, the address of its RSS feed (`url`), a `topic` (`Markets`, `Macro`, `Commodities` or `Crypto`) and, for headlines not in English, a `lang` such as `"id"`.
 - **Only market news**: a source that also carries general news is marked `"strict": true`, and its headlines are kept only when they are about shares, rates, currencies, commodities, crypto, company results and deals, or the economy. Sport, celebrities, accidents, promotions and how-to pieces are never kept, from any source. The word lists are at the top of `scripts/fetch-news.mjs`.
@@ -104,15 +104,17 @@ Opened straight from the disk, the browser will not read `news/news.json`, so Th
 
 ## The front page
 
-The front page opens on a night plate that stays dark in both themes, with a photographic Earth turning in it. It is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
+The front page is a single screen, a night plate that stays dark in both themes, with a photographic Earth turning in it. Everything on it leads on to another page. It is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
 
 - **Turning it.** Drag the Earth in any direction; on a touch screen, swipe sideways (an upward swipe still scrolls the page). Click it or press Space to stop or start it, and double-click it or press Home to set it straight. Arrow keys turn it too. Left alone, it settles back onto its axis.
-- **Scrolling.** As the page scrolls, the sun moves on and the lights of the night side come up; the headline lifts a little faster than the page and the stars move slower.
+- **Opening screen.** On the first visit of a session, the name rises letter by letter while a count and a gold rule follow the Earth's imagery in (four seconds at most); then the screen lifts away and the headline and Earth make their entrance.
+- **Leaving it.** The next page rises over the night like a sheet of paper with a gold edge, its masthead and emblem riding up with it; coming back, the page slides down and away. These are cross-document view transitions (Chrome, Edge, Safari), set in `site.css` and `site.js`.
 - **Markets.** Each exchange a published report is listed on gets a gold pin with its city and report count, read from `reports/reports.js`. Exchange locations are in `MARKETS` at the top of `assets/js/earth.js`.
-- **Numbers.** Under the Earth, the catalogue in four numbers (reports, kinds of study, markets, latest date) rolls up once, and beneath the plate the titles strip drifts sideways as the page scrolls.
+- **Numbers.** Along the foot of the plate, the catalogue in four numbers (reports, kinds of study, markets, latest date) rolls up once. The report count opens the library and the date opens the latest report.
+- **Behind it.** Seeded stars and faint gold contour lines, as on a survey map, drawn once.
 - **Settings** at the top of `assets/js/earth.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), how far the sun moves on scroll (`SUN_SWEEP`) and the Earth's size in its frame (`RADIUS_SHARE`).
 
-Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), entrances on its easing and duration scale, and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view, and the titles strip becomes a plain index. The scroll reveal follows its `scroll-reveal` recipe (Apache-2.0).
+Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), entrances on its easing and duration scale, and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view, there is no opening screen, and pages change without the sheet.
 
 The imagery is NASA's (Visible Earth; public domain), cut down for the web: a 1024 px day map loads first and a 2048 or 4096 px one replaces it once the page is up.
 
