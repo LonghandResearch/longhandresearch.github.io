@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Fed Tightened. BI Held. · IHSG Weekly Market Update · Longhand Research</title>
+<meta name="description" content="IHSG Weekly Market Update, 21–25 September 2026: five charts, source-linked calculations, bank flows and an interactive currency-return lab.">
+<meta name="theme-color" content="#f3efe7">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Longhand Research">
+<meta property="og:title" content="The Fed Tightened. BI Held. · IHSG Weekly Market Update">
+<meta property="og:description" content="The IHSG lost 3.09%. Explore the failed rebound, sector breadth and FX sensitivity with transparent calculations and source-linked data.">
+<meta property="og:image" content="https://longhandresearch.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script>
+  (function () { var d=document.documentElement,t=null; d.classList.add('js'); try { t=localStorage.getItem('longhand-theme'); } catch(e) {} if(t!=='light'&&t!=='dark') t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'; d.setAttribute('data-theme',t); })();
+  window.addEventListener('pagereveal',function(e){var d=document.documentElement,vt=e.viewTransition,a=window.navigation&&navigation.activation;delete d.dataset.nav;if(!vt)return;window.LONGHAND_VT=vt;if(a&&a.navigationType==='traverse'&&a.from&&a.entry&&a.entry.index<a.from.index)d.dataset.nav='back';var done=function(){delete d.dataset.nav;window.LONGHAND_VT=null;};vt.finished.then(done,done);});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=2026-09-26a">
+<link rel="stylesheet" href="assets/css/market.css?v=2026-09-26c">
+<script src="assets/js/site.js?v=2026-09-26a" defer blocking="render"></script>
+<script src="assets/js/ihsg-weekly-data.js?v=2026-09-26c" defer></script>
+<script src="assets/js/ihsg-weekly-math.js?v=2026-09-26c" defer></script>
+<script src="assets/js/ihsg-weekly.js?v=2026-09-26c" defer></script>
+<!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
+<script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body class="page-market">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead"><div class="wrap masthead-inner">
+  <a class="brand" href="index.html" aria-label="Longhand Research, home"><span class="brand-name">Longhand</span><span class="brand-sub">Research</span></a>
+  <nav class="site-nav" aria-label="Main"><a href="library.html" aria-current="page">Library</a><a href="wire.html">Wire</a><a href="about.html" class="nav-about">About</a>
+    <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-label="Switch theme"><svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9Z"/></svg><svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <button type="button" class="btn btn-sm" data-add-report hidden>Add report</button></nav>
+</div></header>
+<main id="main" class="market wrap">
+<header class="market-hero">
+<p class="market-kicker"><span class="cat">Update</span> IHSG Weekly Market Update</p>
+<h1>The Fed tightened.<br><em>BI held.</em></h1>
+<p class="market-deck">Wednesday’s rebound lasted one session. The next two erased it.</p>
+<p class="market-meta"><time datetime="2026-09-26">26 September 2026</time><span>·</span>Trading week: 21–25 September 2026<span>·</span>Indonesia</p>
+<div class="market-stats" aria-label="Weekly market summary">
+<div><span class="market-stat-label">IHSG close</span><strong>6,241.89</strong><small>−3.09% week on week</small></div>
+<div><span class="market-stat-label">Gain needed to recover</span><strong data-metric="recovery">+3.19%</strong><small>To the prior Friday’s close</small></div>
+<div><span class="market-stat-label">Average daily value</span><strong>Rp11.98tn</strong><small>−21.32% as reported by source</small></div>
+<div><span class="market-stat-label">Foreign flow, Friday</span><strong>−Rp559bn</strong><small>Venue split unspecified</small></div>
+</div>
+<p class="market-source-note">Market figures: BEI weekly summary reported by Pasardana <a href="#source-1">[1]</a>. Recovery is our calculation. Charts distinguish daily observations, weekly comparisons and hypothetical scenarios.</p>
+</header>
+<div class="market-grid">
+<aside class="market-rail"><p class="market-rail-title">In this report</p><a href="#thesis">01 <span>Executive thesis</span></a><a href="#macro">02 <span>Macro & currency</span></a><a href="#sectors">03 <span>Sector rotation</span></a><a href="#stocks">04 <span>Stock theses</span></a><a href="#outlook">05 <span>Tactical outlook</span></a><a href="#sources">06 <span>Sources & audit</span></a></aside>
+<article class="market-content">
+<section id="thesis" class="market-section">
+<p class="market-number">01 / EXECUTIVE THESIS</p><h2>A rebound without follow-through</h2>
+<p class="market-lede">The IHSG lost 3.09% over the week. Wednesday’s 1.56% rebound lifted the index after Bank Indonesia’s rate decision, but Friday’s close fell below Tuesday’s. The decisive observation is the failed recovery: a 97.87-point advance was followed by a 133.02-point decline. One positive session did not repair the week’s price damage. <a href="#source-1">[1]</a> <a href="#source-3">[3]</a> <a href="#source-4">[4]</a></p>
+<p>The Fed’s 16 September hike carried into this week as a tighter external backdrop; BI’s 23 September hold kept currency stability at the centre of domestic policy. Broad declines and reported foreign selling in large banks support a cautious allocation stance. They do not isolate how much of the index loss came from monetary policy, FX expectations or company news. A credible recovery needs improving participation alongside price. <a href="#source-6">[6]</a> <a href="#source-7">[7]</a> <a href="#source-8">[8]</a> <a href="#source-9">[9]</a></p>
+<figure class="research-figure">
+<figcaption><span class="figure-label">01 / THE PRICE PATH</span><h3>Back below Tuesday’s close</h3></figcaption>
+<div id="index-chart" class="chart-scroll"></div>
+<div id="index-dates" class="chart-buttons" role="group" aria-label="Select a closing observation"></div>
+<output id="index-readout" class="chart-readout" aria-live="polite"></output>
+<p class="figure-note">Closing observations only; no intraday range is implied. The vertical scale is truncated to 6,200–6,480. The dashed line marks the previous week’s close.</p>
+<details><summary>Closing data and sources</summary><div class="market-table-wrap"><table class="market-table"><thead><tr><th>Date</th><th>Close</th><th>Session return</th><th>Source</th></tr></thead><tbody id="close-rows"></tbody></table></div></details>
+</figure>
+<div class="finding-pair"><div><strong data-metric="points" data-format="number">−199.27</strong><span>Index points lost over the week</span></div><div><strong data-metric="giveback">+135.92%</strong><span>Of Wednesday’s point gain erased by Friday</span></div></div>
+<details class="math-note"><summary>The arithmetic behind the thesis</summary><p id="return-math"></p><p>The recovery percentage is larger than the loss percentage because the recovery starts from a lower base.</p><p id="rebound-math"></p></details>
+<noscript><p>IHSG closes: 18 Sep 6,441.159; 21 Sep 6,384.73; 22 Sep 6,277.044; 23 Sep 6,374.91; 24 Sep 6,298.61; 25 Sep 6,241.892. Enable JavaScript for interactive charts and calculations.</p></noscript>
+</section>
+<section id="macro" class="market-section">
+<p class="market-number">02 / MACRO & CURRENCY TRANSMISSION</p><h2>The currency sets the hurdle</h2>
+<div class="market-policy"><div><span>Federal Reserve</span><strong>3.75–4.00%</strong><small>+25 bps on 16 Sep, the prior week</small></div><div><span>Bank Indonesia</span><strong>5.75%</strong><small>Held on 23 Sep</small></div><div><span>Policy-rate difference</span><strong>187.5 bps</strong><small>BI less the Fed target midpoint</small></div></div>
+<p>Higher US policy rates raise the opportunity cost of holding risky rupiah assets, all else equal. BI’s hold and FX stabilisation measures address the domestic side of that pressure. The 187.5-basis-point policy gap is descriptive: it is neither a bond-yield spread nor an investable carry return. No matched weekly USD/IDR or sovereign-yield series is used here. <a href="#source-8">[8]</a> <a href="#source-9">[9]</a></p>
+<details class="math-note"><summary>Calculate the policy gap</summary><p id="policy-math"></p></details>
+<div class="transmission-chain"><div><span>01 / Rates</span><p>A higher dollar return raises the required reward for Indonesian risk.</p></div><div><span>02 / FX</span><p>Rupiah depreciation reduces an unhedged foreign investor’s translated return.</p></div><div><span>03 / Earnings</span><p>Import costs and dollar debt can pressure margins; exporters’ exposure depends on revenue, costs and hedges.</p></div></div>
+<section class="return-lab" aria-labelledby="lab-title">
+<p class="figure-label">LONGHAND RETURN LAB / HYPOTHETICAL SCENARIOS</p><h3 id="lab-title">What survives after currency conversion?</h3>
+<p>Start with the IHSG’s weekly price return, then vary the exchange rate. A positive USD/IDR change means a weaker rupiah.</p>
+<div class="lab-layout"><div class="lab-controls">
+<label for="equity-return">Local equity return <output id="equity-output" for="equity-return"></output></label><input id="equity-return" type="range" min="-15" max="15" step="any" value="-3.0937">
+<label for="fx-change">USD/IDR change <output id="fx-output" for="fx-change"></output></label><input id="fx-change" type="range" min="-10" max="10" step="0.1" value="0">
+<button type="button" id="lab-reset" class="research-button">Reset to weekly return / flat FX</button>
+</div><div class="lab-result" aria-live="polite"><span>Unhedged USD price return</span><strong id="usd-result"></strong><p id="usd-wealth"></p><p id="fx-breakeven"></p></div></div>
+<div class="formula-box"><span>R<sub>USD</sub> = (1 + R<sub>IDR</sub>) / (1 + ΔUSD/IDR) − 1</span><p id="lab-formula"></p></div>
+<details><summary>Why the formula works, and five FX scenarios</summary><p>For initial dollar wealth W and USD/IDR rates S₀ and S₁, final dollar wealth is W × S₀ × (1 + R<sub>IDR</sub>) ÷ S₁. Since S₁/S₀ = 1 + ΔUSD/IDR, dividing final wealth by W gives the formula above. Inputs are decimal returns inside the formula.</p><p>The table holds the observed weekly equity return constant. Its currency changes are hypothetical.</p><div class="market-table-wrap"><table class="market-table"><thead><tr><th>USD/IDR change</th><th>USD return</th><th>Interpretation</th></tr></thead><tbody id="fx-matrix"></tbody></table></div></details>
+<p class="figure-note">This is a sensitivity calculation, not the realised dollar return or a forecast. It excludes dividends, fees, taxes, hedging and tracking costs. The initial flat-FX assumption is not an observation of the week’s exchange rate.</p>
+</section>
+<h3>Foreign selling: keep the windows separate</h3>
+<p>The source reports Rp559.16bn of foreign net selling on Friday and Rp77.52tn year to date. Neither measures the entire report week. The bank figures below cover a separately reported one-week window ending 24 September. Without a regular-versus-negotiated-market split or a complete weekly series, these figures cannot establish the strength of continuous foreign selling across the week. <a href="#source-1">[1]</a> <a href="#source-7">[7]</a></p>
+</section>
+<section id="sectors" class="market-section">
+<p class="market-number">03 / SECTOR ROTATION & THEMATIC ENGINE</p><h2>Participation failed the recovery test</h2>
+<p>All 11 sectors rose on Wednesday; all declined on Friday. Materials and energy led the rebound, while financials fell least in Friday’s sell-off. These two daily snapshots show changing participation, but cannot establish weekly sector leadership or identify “smart money” accumulation. <a href="#source-4">[4]</a> <a href="#source-6">[6]</a></p>
+<figure class="research-figure"><figcaption><span class="figure-label">02 / SECTOR PARTICIPATION</span><h3>One scale, two very different sessions</h3></figcaption>
+<label class="chart-select" for="sector-day">Session <select id="sector-day"><option value="fri">Friday, 25 September</option><option value="wed">Wednesday, 23 September</option></select></label>
+<p id="sector-summary" class="figure-note" aria-live="polite"></p><div class="sector-axis" aria-hidden="true"><span>−3%</span><span>0</span><span>+4%</span></div><div id="sector-bars"></div>
+<details><summary>Compare both daily observations</summary><div class="market-table-wrap"><table class="market-table"><thead><tr><th>Sector</th><th>Wed 23 Sep</th><th>Fri 25 Sep</th></tr></thead><tbody id="sector-rows"></tbody></table></div></details><p class="figure-note">Source: Katadata daily sector summaries <a href="#source-4">[4]</a> <a href="#source-6">[6]</a>. These are sector returns, not contributions to the IHSG.</p></figure>
+<figure class="research-figure"><figcaption><span class="figure-label">03 / FRIDAY BREADTH</span><h3>82.5% of moving shares declined</h3></figcaption><div id="breadth-bar" class="breadth-bar" aria-hidden="true"></div><div id="breadth-labels" class="breadth-labels"></div><p id="breadth-math" class="figure-note"></p><p class="figure-note">Source: 118 advances, 558 declines and 117 unchanged <a href="#source-6">[6]</a>. Counts are unweighted and do not measure index contribution.</p></figure>
+<figure class="research-figure"><figcaption><span class="figure-label">04 / LIQUIDITY ANATOMY</span><h3>More shares traded, fewer rupiah per share</h3></figcaption><div id="liquidity-bars"></div><p id="liquidity-math" class="figure-note"></p><p class="figure-note">Ratio of average daily traded value to average daily volume; common Rp0–600 scale. Source inputs: <a href="#source-1">[1]</a>.</p>
+<details><summary>Audit the rounded inputs against reported changes</summary><div class="market-table-wrap"><table class="market-table"><thead><tr><th>Measure / unit</th><th>Prior week</th><th>Report week</th><th>Calculated</th><th>Publisher</th></tr></thead><tbody id="activity-rows"></tbody></table></div><p class="figure-note">Calculated changes use the displayed rounded levels. The publisher’s percentages differ slightly; unrounded inputs were unavailable, so those differences are retained and disclosed. Market capitalisation fell Rp361tn between reported levels. This is a change in valuation, not Rp361tn of cash leaving the exchange.</p></details></figure>
+<p>The roughly 23% decline in traded value per share is consistent with a lower-priced trading mix, lower prices, or both. It does not measure net investment flows. Our rotation test therefore requires three separate improvements: broader advances, recovering traded value and easing foreign selling in comparable observation windows.</p>
+</section>
+<section id="stocks" class="market-section">
+<p class="market-number">04 / HIGH-CONVICTION STOCK THESIS</p><h2>Three bank theses to test</h2>
+<p>The strongest evidence here concerns selling pressure. The investment cases below are conditional; a re-rating needs operating evidence as well as better flows.</p>
+<figure class="research-figure"><figcaption><span class="figure-label">05 / FOREIGN BANK FLOWS</span><h3>Net selling across three large banks</h3></figcaption><div id="bank-bars"></div><p class="figure-note">Rp bn; bar lengths show net-selling magnitude on a common 0–1,000 scale. Source-reported one-week window ending 24 September; start date and venue split are unspecified <a href="#source-7">[7]</a>. These are not full report-week totals or index-point contributions.</p></figure>
+<div class="market-stock"><span class="market-ticker">BMRI</span><div><h3>Funding discipline before multiple expansion</h3><p>Reported foreign net selling: Rp886.53bn. A constructive thesis needs deposit costs to remain controlled as loans grow. Watch the next results for NIM and credit-cost resilience; slower selling alone would not prove an earnings catalyst.</p></div></div>
+<div class="market-stock"><span class="market-ticker">BBRI</span><div><h3>Credit costs must validate the recovery case</h3><p>Reported foreign net selling: Rp645.12bn. A stronger re-rating case would combine stable funding costs with improving asset quality. Lower provisions could support earnings, but weaker credit performance could offset that benefit.</p></div></div>
+<div class="market-stock"><span class="market-ticker">BBCA</span><div><h3>A smaller outflow is still an outflow</h3><p>Reported foreign net selling: Rp242.36bn. Look for deposit-franchise strength to sustain margins and returns on equity. Smaller nominal selling than peers does not establish accumulation or a valuation discount; the comparison is not normalised for market size.</p></div></div>
+<p class="market-caveat">Flow observations: <a href="#source-7">[7]</a>. Operating conditions above are analytical tests, not claims that results have improved. No current valuation, target price or verified issuer-specific re-rating event is asserted.</p>
+</section>
+<section id="outlook" class="market-section">
+<p class="market-number">05 / TACTICAL OUTLOOK & KEY EVENTS</p><h2>Make the recovery earn its credibility</h2>
+<p>Use 6,200 as a nearby psychological reference and 6,300 as the first recovery marker. Wednesday’s 6,374.91 close is a more demanding checkpoint. These levels are monitoring references, not statistically validated support or resistance; 6,374.91 is a closing level, not an intraday high.</p>
+<div class="market-table-wrap"><table class="market-table"><caption>Distance from the 25 September close of 6,241.892</caption><thead><tr><th>Index level</th><th>Required move</th><th>Basis</th></tr></thead><tbody id="level-rows"></tbody></table></div>
+<details class="math-note"><summary>Level-distance calculation</summary><p>Required move = (reference level ÷ 6,241.892 − 1) × 100. A negative number is downside to the reference; a positive number is the recovery required.</p></details>
+<h3>Watchlist: 28 September–2 October</h3>
+<div class="event-row"><span>30 SEP</span><div><strong>Quarter-end positioning</strong><p>Watch closing-auction concentration and whether flows persist into October. Rebalancing is a hypothesis to assess, not a confirmed explanation for trading.</p></div></div>
+<div class="event-row"><span>1 OCT</span><div><strong>BI’s strengthened RPIM framework takes effect</strong><p>Monitor banks’ implementation and inclusive-financing plans. The effective date does not establish an immediate earnings benefit. <a href="#source-9">[9]</a></p></div></div>
+<div class="event-row"><span>WEEK WATCH</span><div><strong>September inflation</strong><p>BI’s Indonesian calendar places this release in its 27 September–3 October week. Watch headline versus core inflation for domestic price pressure and implications for policy room. Exact release day and time remain unconfirmed here. <a href="#source-10">[10]</a></p></div></div>
+<p class="market-caveat">BI’s Indonesian and English calendar pages were inconsistent on other entries. The earlier draft’s specific broad-money and international-investment-position scheduling has been withdrawn. Confirm the publisher’s latest timetable before trading an event.</p>
+<div class="market-callout"><span class="market-callout-label">Tactical stance</span><p><strong>Defensive tilt; conditional, staged accumulation.</strong> Add risk only as price recovery gains participation and comparable foreign-flow data improve. For unhedged dollar investors, require an explicit FX assumption alongside the local equity thesis. Avoid treating a lower index level as sufficient evidence of value.</p></div>
+</section>
+<section id="sources" class="market-section market-sources">
+<p class="market-number">06 / SOURCES & CALCULATION AUDIT</p><h2>Follow every number back</h2>
+<p>Reviewed 26 September 2026. Policy claims use central-bank publications; trading observations use the named financial-media reports. These are source-attributed figures, not an independently certified exchange dataset.</p>
+<button type="button" id="download-data" class="research-button">Download chart inputs & selected scenario (.csv)</button>
+<details class="math-note"><summary>Corrections and checks in this edition</summary><ul>
+<li>Separated the prior week’s Fed hike from this week’s BI decision.</li>
+<li>Corrected the inflation calendar and withdrew ambiguous release dates.</li>
+<li>Labelled bank flows with the source’s one-week window ending 24 September, rather than implying Monday-to-Thursday totals.</li>
+<li>Removed the insufficiently supported TINS comparison; BBRI uses the same bank-flow source and window.</li>
+<li>Replaced turnover-as-outflow language with the traded-value-per-share calculation and its mix limitation.</li>
+<li>Corrected Wednesday’s “high” to its closing level and disclosed differences between rounded-input calculations and publisher percentages.</li>
+</ul></details>
+<ol>
+<li id="source-1"><a href="https://pasardana.id/news/2026/9/25/data-sepekan-perdagangan-bei-kapitalisasi-pasar-mencapai-rp10-905-triliun-merosot-3-20-dibanding-pekan-sebelumnya">Pasardana: BEI weekly summary, 21–25 September</a>. Index endpoints, market activity, capitalisation and market-wide foreign flows.</li>
+<li id="source-2"><a href="https://www.kabarbursa.com/market-hari-ini/ihsg-dan-rupiah-kompak-melemah-bursa-asia-terdongkrak-saham-teknologi">KabarBursa: Monday’s close</a>. 21 September closing observation.</li>
+<li id="source-3"><a href="https://www.metrotvnews.com/read/bzGCeopg-selasa-sore-ihsg-ditutup-ke-level-6-277">MetroTV: Tuesday’s close</a>. 6,277.044; <a href="https://databoks.katadata.co.id/pasar/statistik/6ab24c242dd19/ihsg-tertekan-sentuh-level-6277-selasa-22-september-2026">Katadata corroboration</a> rounds to 6,277.04.</li>
+<li id="source-4"><a href="https://databoks.katadata.co.id/pasar/statistik/6ab39d356f85e/semua-sektor-saham-naik-barang-baku-memimpin-rabu-23-september-2026">Katadata: Wednesday sectors and close</a>. 23 September.</li>
+<li id="source-5"><a href="https://databoks.katadata.co.id/pasar/statistik/6ab4ee039c0f9/semua-sektor-saham-turun-barang-baku-jatuh-paling-dalam-kamis-24-september-2026">Katadata: Thursday sectors and close</a>. 24 September.</li>
+<li id="source-6"><a href="https://databoks.katadata.co.id/pasar/statistik/6ab6400ad9347/semua-sektor-saham-turun-industri-paling-bawah-jumat-25-september-2026">Katadata: Friday sectors and breadth</a>. 25 September.</li>
+<li id="source-7"><a href="https://www.idxchannel.com/amp/market-news/saham-bank-besar-jadi-sasaran-jual-asing-ada-apa">IDXChannel: foreign selling in large banks</a>. Source-reported one-week window ending 24 September; no venue split.</li>
+<li id="source-8"><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm">Federal Reserve: FOMC statement, 16 September</a>. Target range and policy change.</li>
+<li id="source-9"><a href="https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2819326.aspx">Bank Indonesia: 22–23 September Board meeting</a>. BI-Rate, stabilisation measures and RPIM effective date.</li>
+<li id="source-10"><a href="https://www.bi.go.id/id/publikasi/Kalender/Default.aspx">BI publication calendar, Indonesian</a>. Weekly inflation-release placement; <a href="https://www.bi.go.id/en/publikasi/kalender/Default.aspx">English version</a> differs on other entries. Calendar pages can change after this review.</li>
+</ol>
+<p class="market-method">Returns are price returns. Calculations retain the precision available from each source and round only the displayed result. Rp bn means billion rupiah; Rp tn means trillion rupiah. Daily sectors, reported bank-flow windows and weekly activity are not interchangeable. Scenario assumptions carry no assigned probabilities.</p>
+</section>
+</article></div>
+</main>
+<footer class="site-footer"><div class="wrap"><div class="footer-inner"><p class="disclaimer"><strong>Disclaimer.</strong> This research is for educational and informational purposes. It is not investment advice or a recommendation to buy or sell any security.</p><p class="colophon">&copy; <span data-year>2026</span> Longhand Research</p></div></div></footer>
+</body>
+</html>
