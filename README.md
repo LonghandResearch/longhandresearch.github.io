@@ -15,7 +15,7 @@ uncommitted branch.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | The front page: the globe and the latest report |
+| `index.html` | The front page: a single screen with the Earth and the catalogue in numbers |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
 | `about.html` | How the reports are built, the rating key and the report types |
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
@@ -31,10 +31,11 @@ uncommitted branch.
 | `reports/*.pdf` | The report PDFs |
 | `assets/css/site.css` | All styling: light and dark themes, page transitions |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
-| `assets/js/home.js` | Front page: the latest report |
+| `assets/js/home.js` | Front page: the opening screen, stars and the catalogue in numbers |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/reader.js` | Report page: the PDF reader |
-| `assets/js/globe.js` | The globe on the front page |
+| `assets/js/earth.js` | The Earth on the front page (three.js) |
+| `assets/img/earth/` | NASA imagery for the Earth: day, city lights, clouds and a water mask |
 | `assets/js/pbai/data.js` | The Power Behind AI: every figure, its status and its sources |
 | `assets/js/pbai/report.js` | The Power Behind AI: charts, calculator, company panels, valuation and DCF |
 | `assets/js/pbai/montecarlo.js` | The Power Behind AI: the seeded Monte Carlo simulation, loaded on demand |
@@ -43,7 +44,7 @@ uncommitted branch.
 | `assets/js/ihsg-weekly-data.js` | Source-linked IDX market observations and BI JISDOR rates |
 | `assets/js/ihsg-weekly-math.js` | Pure index, foreign-flow, turnover and currency calculations |
 | `assets/js/ihsg-weekly.js` | Native charts and the FX return lab |
-| `assets/js/wire.js` | The Wire page, and the latest headlines on the front page |
+| `assets/js/wire.js` | The Wire page |
 | `news/feeds.json` | The sources gathered into The Wire |
 | `news/news.json` | The gathered headlines (written by the hourly job; do not edit) |
 | `scripts/fetch-news.mjs` | Reads the sources and writes `news/news.json` |
@@ -54,7 +55,7 @@ uncommitted branch.
 1. Press **Add report** on the site. It checks the details and saves the report in your browser as a draft. A draft is marked **Draft**, and only you can see it: it lives in your browser, not on the site.
 2. Open the draft to see exactly how it will look, then press **Publish**.
 3. The first time, choose the site folder (the one with `index.html` in it). The PDF is copied into `reports`, its entry is added to `reports/reports.js`, and its page is added to `sitemap.xml` so search engines find it, all for you.
-4. Push the change to Git, or upload the folder again. Readers see the report once it is online.
+4. Push the change to Git, or upload the folder again. With [auto publish](#auto-publish) on, this happens by itself. Readers see the report once it is online.
 
 Publishing in one step works in Chrome and Edge. In other browsers, **Publish** shows the same two steps to do by hand: copy the PDF into `reports`, and paste the ready-made entry into `reports.js`.
 
@@ -80,7 +81,23 @@ A report can also be its own page instead of a PDF. Give its catalogue entry a `
 Every delete asks first.
 
 - **A draft**: press **Delete** on it in the library, or **Delete draft** on its page. It only ever existed in your browser.
-- **A published report**: press **Delete** in the library, or **Delete from the site** on its page. In Chrome and Edge this takes its entry out of `reports.js` and `sitemap.xml`, and its PDF out of `reports`. Push the change to Git and it is gone from the site. Other browsers show the two steps to do by hand.
+- **A published report**: press **Delete** in the library, or **Delete from the site** on its page. In Chrome and Edge this takes its entry out of `reports.js` and `sitemap.xml`, and its PDF out of `reports`. Push the change to Git (auto publish does it by itself) and it is gone from the site. Other browsers show the two steps to do by hand.
+
+## Auto publish
+
+`auto-publish.ps1` sends published and deleted reports to GitHub by itself. `install-auto-publish.bat` turns it on: it starts at once and again at every login, from the Windows Startup folder. `stop-auto-publish.bat` turns it off. It runs hidden and keeps a log in `%LOCALAPPDATA%\LonghandAutoPublish.log`.
+
+It watches `reports` and `sitemap.xml` only. Once they have stopped changing for 10 seconds, the changes go to `main` on GitHub and a notice says the website updates in about a minute. Everything else still goes with `publish.bat` or a pull request.
+
+- **The folder is on `main`**: the changes are committed there and pushed.
+- **The folder is on another branch**, such as a Codex or Claude branch with work in progress: the changes are committed straight onto `main` and pushed, without switching branch and without touching that branch, its files or anything staged. Nothing but `main` is pushed. The published files stay in the folder as uncommitted changes, and they are already on `main`, so leave them out of the branch's commits. Before switching the folder back to `main`, set them aside with `git stash push --include-untracked -- reports sitemap.xml`; once `main` is checked out and pulled, that stash can be dropped.
+- **Offline**: it tries again every minute.
+- **A clash**: if the reports on GitHub changed in the same place since the branch was made (another report added to the catalogue, for example), nothing is sent and a notice says so. Publish again once the folder is on `main`.
+- **A rebase or merge under way** in the folder: it waits until it is finished.
+
+On another branch, a delete that takes `reports` and `sitemap.xml` back to exactly what the branch has (publishing one report and deleting it again, for example) looks just like tidying up with git, so it is not sent and that report stays online. Delete it again once the folder is back on `main`.
+
+Auto publish runs the copy of `auto-publish.ps1` that was in the folder when it started. After changing the script, restart it: run `stop-auto-publish.bat`, then `install-auto-publish.bat`.
 
 ## Author mode
 
@@ -90,7 +107,7 @@ Readers never see your drafts, and they cannot change the site: publishing and d
 
 ## The Wire
 
-The Wire (`wire.html`, and **From the wire** on the front page) shows headlines on markets, the economy, commodities and crypto. It fills itself: every hour a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days.
+The Wire (`wire.html`) shows headlines on markets, the economy, commodities and crypto. It fills itself: every hour a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days.
 
 - **Change the sources**: edit `news/feeds.json`. Each source has a `name`, the address of its RSS feed (`url`), a `topic` (`Markets`, `Macro`, `Commodities` or `Crypto`) and, for headlines not in English, a `lang` such as `"id"`.
 - **Only market news**: a source that also carries general news is marked `"strict": true`, and its headlines are kept only when they are about shares, rates, currencies, commodities, crypto, company results and deals, or the economy. Sport, celebrities, accidents, promotions and how-to pieces are never kept, from any source. The word lists are at the top of `scripts/fetch-news.mjs`.
@@ -101,9 +118,21 @@ Some publishers turn away automated readers (CNBC Indonesia, Kontan and Mining.c
 
 Opened straight from the disk, the browser will not read `news/news.json`, so The Wire shows only on the live site (or from `localhost`).
 
-## The globe
+## The front page
 
-The ball turns slowly on its tilted axis while the stand and the brass ring stay still. Drag the ball in any direction to see it from every side; click it (or press Space) to stop or start it, and double-click it (or press Home) to set it straight. Left alone for a few seconds, it settles back onto its axis and carries on turning. Settings are at the top of `assets/js/globe.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), and `HIGHLIGHT` to pick out one country in gold (for example `'360'` for Indonesia).
+The front page is a single screen, a night plate that stays dark in both themes, with a photographic Earth turning in it. Everything on it leads on to another page. It is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
+
+- **Turning it.** Drag the Earth in any direction; on a touch screen, swipe sideways (an upward swipe still scrolls the page). Click it or press Space to stop or start it, and double-click it or press Home to set it straight. Arrow keys turn it too. Left alone, it settles back onto its axis.
+- **Opening screen.** On the first visit of a session, the name rises letter by letter while a count and a gold rule follow the Earth's imagery in (four seconds at most); then the screen lifts away and the headline and Earth make their entrance.
+- **Leaving it.** A short zoom and fade carries the landing into the next page, and reverses on return. These are cross-document view transitions (Chrome, Edge, Safari), set in `site.css` and `site.js`.
+- **Markets.** The catalogue's market count is shown in the four numbers below the Earth, leaving the globe free of labels.
+- **Numbers.** Along the foot of the plate, the catalogue in four numbers (reports, kinds of study, markets, latest date) rolls up once. The report count opens the library and the date opens the latest report.
+- **Behind it.** Seeded stars, drawn once against the dark sky.
+- **Settings** at the top of `assets/js/earth.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), how far the sun moves on scroll (`SUN_SWEEP`) and the Earth's size in its frame (`RADIUS_SHARE`).
+
+Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), entrances on its easing and duration scale, and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view, there is no opening screen, and pages change without the zoom.
+
+The imagery is NASA's (Visible Earth; public domain), cut down for the web: a 1024 px day map loads first and a 2048 or 4096 px one replaces it once the page is up.
 
 ## Change the name
 
@@ -123,11 +152,11 @@ Any static host works. Two free options:
 - **Netlify Drop**: drag the whole folder onto app.netlify.com/drop.
 - **GitHub Pages**: push the folder to a repository and turn on Pages in the repository settings.
 
-The globe, the fonts and the PDF reader load from public CDNs (jsDelivr and Google Fonts), so an internet connection is needed. If the globe cannot load, the front page falls back to a text-only header.
+three.js, the fonts and the PDF reader load from public CDNs (jsDelivr and Google Fonts), so an internet connection is needed. If the Earth cannot be drawn (no WebGL, or Data Saver is on), the front page keeps its night plate and headline without it.
 
 ## Notes
 
-- Page transitions (the globe settling into the library emblem, a report title carried into its page, the theme spreading from the switch) run in current Chrome, Edge and Safari. Other browsers simply change page.
+- Page transitions (the Earth settling into the library emblem, a report title carried into its page, the theme spreading from the switch) run in current Chrome, Edge and Safari. Other browsers simply change page.
 - Everything that moves stays still for visitors who ask their system for reduced motion.
 - Opened straight from the disk, the report page uses the browser's own PDF viewer. Online it uses the built-in reader with zoom, page count, full screen, selectable text and a reading-progress rule.
 - Scripts and stylesheets are linked with a version tag (for example `site.js?v=2026-09-24j`) so browsers pick up changes at once instead of keeping an old copy for about ten minutes. After editing a file in `assets/css` or `assets/js`, change that tag in the HTML pages (one find-and-replace).

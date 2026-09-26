@@ -424,7 +424,7 @@
     if (host) {
       const flows = [
         { name: 'Compute', what: 'Accelerators, servers, storage, network gear', who: 'Global chip and server makers; owned by cloud and AI tenants', listed: 'No listed Indonesian supplier identified in this research' },
-        { name: 'Data centre', what: 'Building, fit-out, security, operations', who: 'Operators and developers', listed: 'DCII; TLKM (NeutraDC); ISAT (BDx Indonesia stake)' },
+        { name: 'Data centre', what: 'Building, fit-out, security, operations', who: 'Operators and developers', listed: 'DCII; TLKM (NeutraDC); ISAT (BDx Indonesia stake); DSSA (Jakarta site under construction)' },
         { name: 'Cooling and electrical', what: 'Chillers, liquid cooling, switchgear, UPS, generators', who: 'Equipment makers and contractors', listed: 'No listed Indonesian supplier identified in this research' },
         { name: 'Power', what: 'Electricity bought every month for the life of the site', who: 'PLN, and generators selling to PLN', listed: 'PGEO, PTBA, KIJA (as generators); PLN is not listed' },
         { name: 'Grid', what: 'Connection, substations, transmission', who: 'PLN', listed: 'None' },
