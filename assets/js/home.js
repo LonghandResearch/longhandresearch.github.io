@@ -43,46 +43,6 @@
       ctx.arc(x, y, r, 0, Math.PI * 2);
       ctx.fill();
     }
-    drawContours(ctx, w, h, rand);
-  }
-
-  /* Contour lines, as on a survey map, in faint gold: marching squares over a
-     smooth seeded field, drawn once with the stars */
-  function drawContours(ctx, w, h, rand) {
-    const cell = 14;
-    const cols = Math.ceil(w / cell) + 1;
-    const rows = Math.ceil(h / cell) + 1;
-    // a few soft bumps make a landscape
-    const bumps = Array.from({ length: 9 }, () => ({ x: rand() * w, y: rand() * h, r: (0.18 + rand() * 0.3) * Math.max(w, h), a: rand() < 0.5 ? -1 : 1 }));
-    const field = new Float32Array(cols * rows);
-    for (let j = 0; j < rows; j++) {
-      for (let i = 0; i < cols; i++) {
-        const x = i * cell, y = j * cell;
-        let v = 0;
-        for (const b of bumps) { const d = ((x - b.x) ** 2 + (y - b.y) ** 2) / (b.r * b.r); v += b.a * Math.exp(-d); }
-        field[j * cols + i] = v;
-      }
-    }
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(201, 160, 90, 0.075)';
-    const at = (i, j) => field[j * cols + i];
-    const lerp = (a, b, lv) => (lv - a) / (b - a || 1e-6);
-    for (let lv = -1.4; lv <= 1.4; lv += 0.2) {
-      ctx.beginPath();
-      for (let j = 0; j < rows - 1; j++) {
-        for (let i = 0; i < cols - 1; i++) {
-          const a = at(i, j), b = at(i + 1, j), c = at(i + 1, j + 1), d = at(i, j + 1);
-          const pts = [];
-          const x = i * cell, y = j * cell;
-          if ((a > lv) !== (b > lv)) pts.push([x + lerp(a, b, lv) * cell, y]);
-          if ((b > lv) !== (c > lv)) pts.push([x + cell, y + lerp(b, c, lv) * cell]);
-          if ((d > lv) !== (c > lv)) pts.push([x + lerp(d, c, lv) * cell, y + cell]);
-          if ((a > lv) !== (d > lv)) pts.push([x, y + lerp(a, d, lv) * cell]);
-          for (let k = 0; k + 1 < pts.length; k += 2) { ctx.moveTo(pts[k][0], pts[k][1]); ctx.lineTo(pts[k + 1][0], pts[k + 1][1]); }
-        }
-      }
-      ctx.stroke();
-    }
   }
 
   /* A number that rolls up like an odometer when the page opens */

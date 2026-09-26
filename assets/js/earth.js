@@ -4,8 +4,7 @@
    layer that drifts a little faster than the ground. It turns slowly on its
    tilted axis. Drag it to turn it any way; click it, or press Space, to stop
    it; double-click or press Home to set it straight. As the page scrolls, the
-   sun moves on and the cities come up out of the dark. The markets the
-   catalogue covers are marked in gold. */
+   sun moves on and the cities come up out of the dark. */
 (function () {
   'use strict';
 
@@ -24,17 +23,6 @@
   const RETURN_AFTER_MS = 5000;    // idle time before a hand-turned Earth settles back onto its axis
   const SUN_SWEEP = 75;            // degrees the sun moves on as the front page scrolls away
   const RADIUS_SHARE = 0.36;       // the Earth's radius as a share of the stage's shorter side
-
-  // Where each exchange in the catalogue sits on the map: [city, latitude, longitude]
-  const MARKETS = {
-    IDX: ['Jakarta', -6.18, 106.83], NYSE: ['New York', 40.71, -74.01], NASDAQ: ['New York', 40.76, -73.98],
-    LSE: ['London', 51.51, -0.09], HKEX: ['Hong Kong', 22.28, 114.16], SGX: ['Singapore', 1.28, 103.85],
-    TSE: ['Tokyo', 35.68, 139.77], SSE: ['Shanghai', 31.23, 121.47], SZSE: ['Shenzhen', 22.54, 114.06],
-    KRX: ['Seoul', 37.52, 126.93], TWSE: ['Taipei', 25.03, 121.56], ASX: ['Sydney', -33.87, 151.21],
-    NSE: ['Mumbai', 19.06, 72.86], BSE: ['Mumbai', 18.93, 72.83], Bursa: ['Kuala Lumpur', 3.15, 101.69],
-    SET: ['Bangkok', 13.76, 100.56], PSE: ['Manila', 14.55, 121.05], Euronext: ['Amsterdam', 52.37, 4.9],
-    XETRA: ['Frankfurt', 50.11, 8.68], SIX: ['Zurich', 47.37, 8.54], TSX: ['Toronto', 43.65, -79.38],
-  };
 
   /* The front page's opening screen waits on this: how much of the Earth is ready */
   const progress = (done, total) => document.dispatchEvent(new CustomEvent('longhand:earth-progress', { detail: { done, total } }));
@@ -58,23 +46,6 @@
   import(`${CDN}three@0.184.0/build/three.module.min.js`)
     .then((THREE) => new THREE.TextureLoader().loadAsync(`${IMG}earth-day-1024.jpg`).then((day) => build(THREE, day)))
     .catch(unavailable);
-
-  /* The markets that published reports are listed on, with how many reports each */
-  function marketsInCatalogue() {
-    const LH = window.Longhand;
-    const list = LH && LH.publishedSorted ? LH.publishedSorted() : (window.LONGHAND_REPORTS || []);
-    const out = new Map();
-    list.forEach((r) => {
-      const m = MARKETS[r.exchange];
-      if (!m) return;
-      const key = m[0];
-      const cur = out.get(key) || { city: m[0], lat: m[1], lon: m[2], codes: new Set(), n: 0 };
-      cur.codes.add(r.exchange);
-      cur.n += 1;
-      out.set(key, cur);
-    });
-    return [...out.values()];
-  }
 
   function build(THREE, dayLow) {
     /* Renderer and camera. The canvas is transparent: the sky behind it is the page's. */
@@ -249,35 +220,6 @@
     haloShell.renderOrder = 3;
     world.add(haloShell);
 
-    /* A point on the sphere for a latitude and longitude, matching the map's layout */
-    const onSphere = (lat, lon, r) => {
-      const phi = ((lon + 180) / 360) * Math.PI * 2;
-      const theta = ((90 - lat) / 180) * Math.PI;
-      return new THREE.Vector3(-Math.cos(phi) * Math.sin(theta), Math.cos(theta), Math.sin(phi) * Math.sin(theta)).multiplyScalar(r);
-    };
-
-    /* Markets in the catalogue: a gold point with a fine ring, and a label that follows it */
-    const GOLD = new THREE.Color(0xdbb574);
-    const pins = marketsInCatalogue().map((m) => {
-      const g = new THREE.Group();
-      const dir = onSphere(m.lat, m.lon, 1);
-      g.position.copy(dir).multiplyScalar(1.003);
-      g.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), dir);
-      const dot = new THREE.Mesh(new THREE.CircleGeometry(0.011, 24), new THREE.MeshBasicMaterial({ color: GOLD, toneMapped: false }));
-      const ring = new THREE.Mesh(new THREE.RingGeometry(0.02, 0.024, 48), new THREE.MeshBasicMaterial({ color: GOLD, transparent: true, opacity: 0.75, toneMapped: false }));
-      dot.renderOrder = ring.renderOrder = 4;   // drawn over the clouds, which do not write depth
-      g.add(dot, ring);
-      spin.add(g);
-      const label = document.createElement('p');
-      label.className = 'earth-pin';
-      label.setAttribute('aria-hidden', 'true');
-      label.innerHTML = `<span class="earth-pin-city"></span><span class="earth-pin-meta"></span>`;
-      label.firstChild.textContent = m.city;
-      label.lastChild.textContent = `${[...m.codes].join(', ')} · ${m.n} ${m.n === 1 ? 'report' : 'reports'}`;
-      stage.appendChild(label);
-      return { m, g, dir, label, seen: -1 };
-    });
-
     /* State. The camera never moves: only the Earth turns. */
     const AUTO = (Math.PI * 2) / TURN_SECONDS;
     const UPRIGHT = new THREE.Quaternion();
@@ -355,28 +297,6 @@
       requestFrame();
     }
 
-    /* Labels follow their pins and fade as they turn away */
-    const pv = new THREE.Vector3();
-    const nv = new THREE.Vector3();
-    const toCam = new THREE.Vector3();
-    function placePins() {
-      const w = stage.clientWidth;
-      const h = stage.clientHeight;
-      pins.forEach((p) => {
-        p.g.getWorldPosition(pv);
-        nv.copy(pv).sub(world.position).normalize();
-        toCam.copy(camera.position).sub(pv).normalize();
-        const facingAmt = nv.dot(toCam);
-        const a = Math.max(0, Math.min(1, (facingAmt - 0.18) / 0.22)) * intro;
-        const q = Math.round(a * 20) / 20;
-        if (q !== p.seen) { p.label.style.opacity = String(q); p.seen = q; }
-        if (q > 0) {
-          pv.project(camera);
-          p.label.style.transform = `translate3d(${((pv.x + 1) / 2) * w}px, ${((1 - pv.y) / 2) * h}px, 0)`;
-        }
-      });
-    }
-
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const sun = new THREE.Vector3();
     const yAxis = new THREE.Vector3(0, 1, 0);
@@ -438,7 +358,6 @@
       uniforms.sunDir.value.copy(sun);
 
       renderer.render(scene, camera);
-      placePins();
       dirty = false;
       if (!shown) { shown = true; plate.classList.add('is-ready'); arrived(); }
       if ((busy || playing || dirty) && visible && !document.hidden) raf = requestAnimationFrame(loop);
@@ -479,7 +398,6 @@
       if (!moved && Math.hypot(e.clientX - downX, e.clientY - downY) > 5) {
         moved = true;
         stage.classList.add('is-dragging');
-        hero && hero.classList.add('has-turned');
       }
       if (!moved) return;
       const dx = e.clientX - lastX;
@@ -527,7 +445,6 @@
       if (dir) {
         e.preventDefault();
         returning = false;
-        hero && hero.classList.add('has-turned');
         tv.copy(camUp).multiplyScalar(dir[0]).addScaledVector(camRight, dir[1]).normalize();
         if (reduceMotion.matches) turnBall(tv, 0.3);
         else omega.addScaledVector(tv, 2.4);
