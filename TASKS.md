@@ -7,7 +7,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | --- | --- | --- | --- | --- | --- |
 | RPT-002 | Audit and extend the English IHSG Update with charts, transparent calculations and an FX return lab | Codex | `codex/ihsg-weekly-update` | Done | [PR #22](https://github.com/LonghandResearch/longhandresearch.github.io/pull/22) |
 | RPT-003 | Add restrained chart animation to the IHSG Update and publish | Codex | `codex/ihsg-chart-motion` | Done | [PR #23](https://github.com/LonghandResearch/longhandresearch.github.io/pull/23) |
-| RPT-004 | Make the IHSG Update easier to read and audit all displayed data | Codex | `codex/ihsg-reading-audit` | In progress | Pending |
+| RPT-004 | Make the IHSG Update easier to read and audit all displayed data | Codex | `codex/ihsg-reading-audit` | Review | [PR #24](https://github.com/LonghandResearch/longhandresearch.github.io/pull/24) |
 | SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Done | Direct merge |
 
 ## Status values
