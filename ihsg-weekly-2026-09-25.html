@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=2026-09-26a">
-<link rel="stylesheet" href="assets/css/market.css?v=2026-09-26d">
+<link rel="stylesheet" href="assets/css/market.css?v=2026-09-26e">
 <script src="assets/js/site.js?v=2026-09-26a" defer blocking="render"></script>
 <script src="assets/js/ihsg-weekly-data.js?v=2026-09-26c" defer></script>
 <script src="assets/js/ihsg-weekly-math.js?v=2026-09-26c" defer></script>
@@ -64,17 +64,17 @@
 <div id="index-dates" class="chart-buttons" role="group" aria-label="Select a closing observation"></div>
 <output id="index-readout" class="chart-readout" aria-live="polite"></output>
 <p class="figure-note">Closing observations only; no intraday range is implied. The vertical scale is truncated to 6,200–6,480. The dashed line marks the previous week’s close.</p>
-<details><summary>Closing data and sources</summary><div class="market-table-wrap"><table class="market-table"><thead><tr><th>Date</th><th>Close</th><th>Session return</th><th>Source</th></tr></thead><tbody id="close-rows"></tbody></table></div></details>
+<div class="data-note"><h4>Every close behind the chart</h4><p>The session return compares each close with the preceding observation. The first row is the prior Friday baseline.</p><div class="market-table-wrap"><table class="market-table"><thead><tr><th scope="col">Date</th><th scope="col">Close</th><th scope="col">Session return</th><th scope="col">Source</th></tr></thead><tbody id="close-rows"></tbody></table></div></div>
 </figure>
-<div class="finding-pair"><div><strong data-metric="points" data-format="number">−199.27</strong><span>Index points lost over the week</span></div><div><strong data-metric="giveback">+135.92%</strong><span>Of Wednesday’s point gain erased by Friday</span></div></div>
-<details class="math-note"><summary>The arithmetic behind the thesis</summary><p id="return-math"></p><p>The recovery percentage is larger than the loss percentage because the recovery starts from a lower base.</p><p id="rebound-math"></p></details>
+<div class="finding-pair"><div><strong data-metric="points" data-format="number">−199.27</strong><span>Index points lost over the week</span></div><div><strong data-metric="giveback">135.92%</strong><span>Of Wednesday’s point gain erased by Friday</span></div></div>
+<div class="data-note math-note"><h4>How the weekly move is measured</h4><p id="return-math"></p><p>The recovery percentage is larger than the loss percentage because the recovery starts from a lower base.</p><p id="rebound-math"></p></div>
 <noscript><p>IHSG closes: 18 Sep 6,441.159; 21 Sep 6,384.73; 22 Sep 6,277.044; 23 Sep 6,374.91; 24 Sep 6,298.61; 25 Sep 6,241.892. Enable JavaScript for interactive charts and calculations.</p></noscript>
 </section>
 <section id="macro" class="market-section">
 <p class="market-number">02 / MACRO & CURRENCY TRANSMISSION</p><h2>The currency sets the hurdle</h2>
 <div class="market-policy"><div><span>Federal Reserve</span><strong>3.75–4.00%</strong><small>+25 bps on 16 Sep, the prior week</small></div><div><span>Bank Indonesia</span><strong>5.75%</strong><small>Held on 23 Sep</small></div><div><span>Policy-rate difference</span><strong>187.5 bps</strong><small>BI less the Fed target midpoint</small></div></div>
 <p>Higher US policy rates raise the opportunity cost of holding risky rupiah assets, all else equal. BI’s hold and FX stabilisation measures address the domestic side of that pressure. The 187.5-basis-point policy gap is descriptive: it is neither a bond-yield spread nor an investable carry return. No matched weekly USD/IDR or sovereign-yield series is used here. <a href="#source-8">[8]</a> <a href="#source-9">[9]</a></p>
-<details class="math-note"><summary>Calculate the policy gap</summary><p id="policy-math"></p></details>
+<div class="data-note math-note"><h4>Policy-rate comparison</h4><p id="policy-math"></p></div>
 <div class="transmission-chain"><div><span>01 / Rates</span><p>A higher dollar return raises the required reward for Indonesian risk.</p></div><div><span>02 / FX</span><p>Rupiah depreciation reduces an unhedged foreign investor’s translated return.</p></div><div><span>03 / Earnings</span><p>Import costs and dollar debt can pressure margins; exporters’ exposure depends on revenue, costs and hedges.</p></div></div>
 <section class="return-lab" aria-labelledby="lab-title">
 <p class="figure-label">LONGHAND RETURN LAB / HYPOTHETICAL SCENARIOS</p><h3 id="lab-title">What survives after currency conversion?</h3>
@@ -85,7 +85,7 @@
 <button type="button" id="lab-reset" class="research-button">Reset to weekly return / flat FX</button>
 </div><div class="lab-result" aria-live="polite"><span>Unhedged USD price return</span><strong id="usd-result"></strong><p id="usd-wealth"></p><p id="fx-breakeven"></p></div></div>
 <div class="formula-box"><span>R<sub>USD</sub> = (1 + R<sub>IDR</sub>) / (1 + ΔUSD/IDR) − 1</span><p id="lab-formula"></p></div>
-<details><summary>Why the formula works, and five FX scenarios</summary><p>For initial dollar wealth W and USD/IDR rates S₀ and S₁, final dollar wealth is W × S₀ × (1 + R<sub>IDR</sub>) ÷ S₁. Since S₁/S₀ = 1 + ΔUSD/IDR, dividing final wealth by W gives the formula above. Inputs are decimal returns inside the formula.</p><p>The table holds the observed weekly equity return constant. Its currency changes are hypothetical.</p><div class="market-table-wrap"><table class="market-table"><thead><tr><th>USD/IDR change</th><th>USD return</th><th>Interpretation</th></tr></thead><tbody id="fx-matrix"></tbody></table></div></details>
+<div class="data-note"><h4>How the conversion works</h4><p>For initial dollar wealth W and USD/IDR rates S₀ and S₁, final dollar wealth is W × S₀ × (1 + R<sub>IDR</sub>) ÷ S₁. Since S₁/S₀ = 1 + ΔUSD/IDR, dividing final wealth by W gives the formula above. Inputs are decimal returns inside the formula.</p><p>The five rows hold the observed equity return constant and vary only the hypothetical currency move.</p><div class="market-table-wrap"><table class="market-table"><thead><tr><th scope="col">USD/IDR change</th><th scope="col">USD return</th><th scope="col">Interpretation</th></tr></thead><tbody id="fx-matrix"></tbody></table></div></div>
 <p class="figure-note">This is a sensitivity calculation, not the realised dollar return or a forecast. It excludes dividends, fees, taxes, hedging and tracking costs. The initial flat-FX assumption is not an observation of the week’s exchange rate.</p>
 </section>
 <h3>Foreign selling: keep the windows separate</h3>
@@ -97,10 +97,10 @@
 <figure class="research-figure"><figcaption><span class="figure-label">02 / SECTOR PARTICIPATION</span><h3>One scale, two very different sessions</h3></figcaption>
 <label class="chart-select" for="sector-day">Session <select id="sector-day"><option value="fri">Friday, 25 September</option><option value="wed">Wednesday, 23 September</option></select></label>
 <p id="sector-summary" class="figure-note" aria-live="polite"></p><div class="sector-axis" aria-hidden="true"><span>−3%</span><span>0</span><span>+4%</span></div><div id="sector-bars"></div>
-<details><summary>Compare both daily observations</summary><div class="market-table-wrap"><table class="market-table"><thead><tr><th>Sector</th><th>Wed 23 Sep</th><th>Fri 25 Sep</th></tr></thead><tbody id="sector-rows"></tbody></table></div></details><p class="figure-note">Source: Katadata daily sector summaries <a href="#source-4">[4]</a> <a href="#source-6">[6]</a>. These are sector returns, not contributions to the IHSG.</p></figure>
+<div class="data-note"><h4>Both sessions, side by side</h4><p>The selector changes the bars; this table keeps both daily observations in view.</p><div class="market-table-wrap"><table class="market-table"><thead><tr><th scope="col">Sector</th><th scope="col">Wed 23 Sep</th><th scope="col">Fri 25 Sep</th></tr></thead><tbody id="sector-rows"></tbody></table></div></div><p class="figure-note">Source: Katadata daily sector summaries <a href="#source-4">[4]</a> <a href="#source-6">[6]</a>. These are sector returns, not contributions to the IHSG.</p></figure>
 <figure class="research-figure"><figcaption><span class="figure-label">03 / FRIDAY BREADTH</span><h3>82.5% of moving shares declined</h3></figcaption><div id="breadth-bar" class="breadth-bar" aria-hidden="true"></div><div id="breadth-labels" class="breadth-labels"></div><p id="breadth-math" class="figure-note"></p><p class="figure-note">Source: 118 advances, 558 declines and 117 unchanged <a href="#source-6">[6]</a>. Counts are unweighted and do not measure index contribution.</p></figure>
 <figure class="research-figure"><figcaption><span class="figure-label">04 / LIQUIDITY ANATOMY</span><h3>More shares traded, fewer rupiah per share</h3></figcaption><div id="liquidity-bars"></div><p id="liquidity-math" class="figure-note"></p><p class="figure-note">Ratio of average daily traded value to average daily volume; common Rp0–600 scale. Source inputs: <a href="#source-1">[1]</a>.</p>
-<details><summary>Audit the rounded inputs against reported changes</summary><div class="market-table-wrap"><table class="market-table"><thead><tr><th>Measure / unit</th><th>Prior week</th><th>Report week</th><th>Calculated</th><th>Publisher</th></tr></thead><tbody id="activity-rows"></tbody></table></div><p class="figure-note">Calculated changes use the displayed rounded levels. The publisher’s percentages differ slightly; unrounded inputs were unavailable, so those differences are retained and disclosed. Market capitalisation fell Rp361tn between reported levels. This is a change in valuation, not Rp361tn of cash leaving the exchange.</p></details></figure>
+<div class="data-note"><h4>Why the reported percentages differ slightly</h4><div class="market-table-wrap"><table class="market-table"><thead><tr><th scope="col">Measure / unit</th><th scope="col">Prior week</th><th scope="col">Report week</th><th scope="col">Calculated</th><th scope="col">Publisher</th></tr></thead><tbody id="activity-rows"></tbody></table></div><p class="figure-note">Calculated changes use the displayed rounded levels. The publisher’s percentages differ slightly; unrounded inputs were unavailable, so those differences are retained and disclosed. Market capitalisation fell Rp361tn between reported levels. This is a change in valuation, not Rp361tn of cash leaving the exchange.</p></div></figure>
 <p>The roughly 23% decline in traded value per share is consistent with a lower-priced trading mix, lower prices, or both. It does not measure net investment flows. Our rotation test therefore requires three separate improvements: broader advances, recovering traded value and easing foreign selling in comparable observation windows.</p>
 </section>
 <section id="stocks" class="market-section">
@@ -116,7 +116,7 @@
 <p class="market-number">05 / TACTICAL OUTLOOK & KEY EVENTS</p><h2>Make the recovery earn its credibility</h2>
 <p>Use 6,200 as a nearby psychological reference and 6,300 as the first recovery marker. Wednesday’s 6,374.91 close is a more demanding checkpoint. These levels are monitoring references, not statistically validated support or resistance; 6,374.91 is a closing level, not an intraday high.</p>
 <div class="market-table-wrap"><table class="market-table"><caption>Distance from the 25 September close of 6,241.892</caption><thead><tr><th>Index level</th><th>Required move</th><th>Basis</th></tr></thead><tbody id="level-rows"></tbody></table></div>
-<details class="math-note"><summary>Level-distance calculation</summary><p>Required move = (reference level ÷ 6,241.892 − 1) × 100. A negative number is downside to the reference; a positive number is the recovery required.</p></details>
+<div class="data-note math-note"><h4>How the level distances are calculated</h4><p>Required move = (reference level ÷ 6,241.892 − 1) × 100. A negative number is downside to the reference; a positive number is the recovery required.</p></div>
 <h3>Watchlist: 28 September–2 October</h3>
 <div class="event-row"><span>30 SEP</span><div><strong>Quarter-end positioning</strong><p>Watch closing-auction concentration and whether flows persist into October. Rebalancing is a hypothesis to assess, not a confirmed explanation for trading.</p></div></div>
 <div class="event-row"><span>1 OCT</span><div><strong>BI’s strengthened RPIM framework takes effect</strong><p>Monitor banks’ implementation and inclusive-financing plans. The effective date does not establish an immediate earnings benefit. <a href="#source-9">[9]</a></p></div></div>
@@ -128,14 +128,7 @@
 <p class="market-number">06 / SOURCES & CALCULATION AUDIT</p><h2>Follow every number back</h2>
 <p>Reviewed 26 September 2026. Policy claims use central-bank publications; trading observations use the named financial-media reports. These are source-attributed figures, not an independently certified exchange dataset.</p>
 <button type="button" id="download-data" class="research-button">Download chart inputs & selected scenario (.csv)</button>
-<details class="math-note"><summary>Corrections and checks in this edition</summary><ul>
-<li>Separated the prior week’s Fed hike from this week’s BI decision.</li>
-<li>Corrected the inflation calendar and withdrew ambiguous release dates.</li>
-<li>Labelled bank flows with the source’s one-week window ending 24 September, rather than implying Monday-to-Thursday totals.</li>
-<li>Removed the insufficiently supported TINS comparison; BBRI uses the same bank-flow source and window.</li>
-<li>Replaced turnover-as-outflow language with the traded-value-per-share calculation and its mix limitation.</li>
-<li>Corrected Wednesday’s “high” to its closing level and disclosed differences between rounded-input calculations and publisher percentages.</li>
-</ul></details>
+<h3 class="source-list-title">Source register</h3>
 <ol>
 <li id="source-1"><a href="https://pasardana.id/news/2026/9/25/data-sepekan-perdagangan-bei-kapitalisasi-pasar-mencapai-rp10-905-triliun-merosot-3-20-dibanding-pekan-sebelumnya">Pasardana: BEI weekly summary, 21–25 September</a>. Index endpoints, market activity, capitalisation and market-wide foreign flows.</li>
 <li id="source-2"><a href="https://www.kabarbursa.com/market-hari-ini/ihsg-dan-rupiah-kompak-melemah-bursa-asia-terdongkrak-saham-teknologi">KabarBursa: Monday’s close</a>. 21 September closing observation.</li>
@@ -148,6 +141,14 @@
 <li id="source-9"><a href="https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2819326.aspx">Bank Indonesia: 22–23 September Board meeting</a>. BI-Rate, stabilisation measures and RPIM effective date.</li>
 <li id="source-10"><a href="https://www.bi.go.id/id/publikasi/Kalender/Default.aspx">BI publication calendar, Indonesian</a>. Weekly inflation-release placement; <a href="https://www.bi.go.id/en/publikasi/kalender/Default.aspx">English version</a> differs on other entries. Calendar pages can change after this review.</li>
 </ol>
+<div class="data-note math-note"><h4>Corrections and checks in this edition</h4><ul>
+<li>Separated the prior week’s Fed hike from this week’s BI decision.</li>
+<li>Corrected the inflation calendar and withdrew ambiguous release dates.</li>
+<li>Labelled bank flows with the source’s one-week window ending 24 September, rather than implying Monday-to-Thursday totals.</li>
+<li>Removed the insufficiently supported TINS comparison; BBRI uses the same bank-flow source and window.</li>
+<li>Replaced turnover-as-outflow language with the traded-value-per-share calculation and its mix limitation.</li>
+<li>Corrected Wednesday’s “high” to its closing level and disclosed differences between rounded-input calculations and publisher percentages.</li>
+</ul></div>
 <p class="market-method">Returns are price returns. Calculations retain the precision available from each source and round only the displayed result. Rp bn means billion rupiah; Rp tn means trillion rupiah. Daily sectors, reported bank-flow windows and weekly activity are not interchangeable. Scenario assumptions carry no assigned probabilities.</p>
 </section>
 </article></div>
