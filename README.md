@@ -55,7 +55,7 @@ uncommitted branch.
 1. Press **Add report** on the site. It checks the details and saves the report in your browser as a draft. A draft is marked **Draft**, and only you can see it: it lives in your browser, not on the site.
 2. Open the draft to see exactly how it will look, then press **Publish**.
 3. The first time, choose the site folder (the one with `index.html` in it). The PDF is copied into `reports`, its entry is added to `reports/reports.js`, and its page is added to `sitemap.xml` so search engines find it, all for you.
-4. Push the change to Git, or upload the folder again. Readers see the report once it is online.
+4. Push the change to Git, or upload the folder again. With [auto publish](#auto-publish) on, this happens by itself. Readers see the report once it is online.
 
 Publishing in one step works in Chrome and Edge. In other browsers, **Publish** shows the same two steps to do by hand: copy the PDF into `reports`, and paste the ready-made entry into `reports.js`.
 
@@ -81,7 +81,23 @@ A report can also be its own page instead of a PDF. Give its catalogue entry a `
 Every delete asks first.
 
 - **A draft**: press **Delete** on it in the library, or **Delete draft** on its page. It only ever existed in your browser.
-- **A published report**: press **Delete** in the library, or **Delete from the site** on its page. In Chrome and Edge this takes its entry out of `reports.js` and `sitemap.xml`, and its PDF out of `reports`. Push the change to Git and it is gone from the site. Other browsers show the two steps to do by hand.
+- **A published report**: press **Delete** in the library, or **Delete from the site** on its page. In Chrome and Edge this takes its entry out of `reports.js` and `sitemap.xml`, and its PDF out of `reports`. Push the change to Git (auto publish does it by itself) and it is gone from the site. Other browsers show the two steps to do by hand.
+
+## Auto publish
+
+`auto-publish.ps1` sends published and deleted reports to GitHub by itself. `install-auto-publish.bat` turns it on: it starts at once and again at every login, from the Windows Startup folder. `stop-auto-publish.bat` turns it off. It runs hidden and keeps a log in `%LOCALAPPDATA%\LonghandAutoPublish.log`.
+
+It watches `reports` and `sitemap.xml` only. Once they have stopped changing for 10 seconds, the changes go to `main` on GitHub and a notice says the website updates in about a minute. Everything else still goes with `publish.bat` or a pull request.
+
+- **The folder is on `main`**: the changes are committed there and pushed.
+- **The folder is on another branch**, such as a Codex or Claude branch with work in progress: the changes are committed straight onto `main` and pushed, without switching branch and without touching that branch, its files or anything staged. Nothing but `main` is pushed. The published files stay in the folder as uncommitted changes, and they are already on `main`, so leave them out of the branch's commits. Before switching the folder back to `main`, set them aside with `git stash push --include-untracked -- reports sitemap.xml`; once `main` is checked out and pulled, that stash can be dropped.
+- **Offline**: it tries again every minute.
+- **A clash**: if the reports on GitHub changed in the same place since the branch was made (another report added to the catalogue, for example), nothing is sent and a notice says so. Publish again once the folder is on `main`.
+- **A rebase or merge under way** in the folder: it waits until it is finished.
+
+On another branch, a delete that takes `reports` and `sitemap.xml` back to exactly what the branch has (publishing one report and deleting it again, for example) looks just like tidying up with git, so it is not sent and that report stays online. Delete it again once the folder is back on `main`.
+
+Auto publish runs the copy of `auto-publish.ps1` that was in the folder when it started. After changing the script, restart it: run `stop-auto-publish.bat`, then `install-auto-publish.bat`.
 
 ## Author mode
 

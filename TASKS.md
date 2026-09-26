@@ -11,6 +11,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | RPT-005 | Incorporate primary IDX statistics and BI JISDOR into the IHSG Update | Codex | `codex/ihsg-primary-data` | Done | [PR #25](https://github.com/LonghandResearch/longhandresearch.github.io/pull/25) |
 | WEB-001 | Redesign the front page: a photographic 3D Earth to turn by hand, scroll-linked motion and the catalogue in numbers | Claude | `claude/earth-landing` | Review | — |
 | SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Done | Direct merge |
+| OPS-001 | Make auto publish send report changes to `main` whichever branch the site folder is on | Claude | `claude/auto-publish-main` | Review | — |
 
 ## Status values
 
