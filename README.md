@@ -23,6 +23,7 @@ uncommitted branch.
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
 | `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
 | `ihsg-weekly-2026-09-25.html` | IHSG Weekly Market Update for 21–25 September 2026 |
+| `ihsg-weekly.html?week=YYYY-MM-DD` | Shared page for future data-driven IHSG weekly editions; the date is the last trading day |
 
 ## Files
 
@@ -48,6 +49,8 @@ uncommitted branch.
 | `assets/js/ihsg-weekly-data.js` | Source-linked IDX market observations and BI JISDOR rates |
 | `assets/js/ihsg-weekly-math.js` | Pure index, foreign-flow, turnover and currency calculations |
 | `assets/js/ihsg-weekly.js` | Native charts and the FX return lab |
+| `assets/js/ihsg-weekly-template.js` | Shared renderer for data-driven weekly editions |
+| `weekly/YYYY-MM-DD.json` | One week's source-linked observations, editorial text and display metadata |
 | `assets/js/wire.js` | The Wire page |
 | `news/feeds.json` | The sources gathered into The Wire |
 | `news/news.json` | The gathered headlines (written by the hourly job; do not edit) |
@@ -55,6 +58,7 @@ uncommitted branch.
 | `.github/workflows/wire.yml` | Runs the gathering on GitHub every hour |
 | `scripts/build-feed.mjs` | Builds `feed.xml` from the report catalogue |
 | `scripts/check-site.mjs` | Checks the site before a merge (see [Checks](#checks)) |
+| `scripts/auto-publish-control.ps1` | Installs or stops the stable Windows background publisher |
 | `.github/workflows/checks.yml` | Runs those checks on every pull request |
 | `.github/workflows/reports-feed.yml` | Refreshes the feed when the catalogue changes on `main` |
 
@@ -99,6 +103,17 @@ A report can also be its own page instead of a PDF. Give its catalogue entry a `
 
 **The Power Behind AI** (`power-behind-ai.html`) is built this way. Every number it shows lives in `assets/js/pbai/data.js`, each with a status (actual, announced, under construction, estimate or scenario) and the sources it rests on; the page numbers the sources and lists them in section 13. To correct or update a figure, change it there, not in the page. The prose in the page repeats a few of those figures, so search the page for the old value too.
 
+## Publish an IHSG weekly edition
+
+The 25 September report remains at its original address. [Its data-only example](https://longhandresearch.github.io/ihsg-weekly.html?week=2026-09-25) demonstrates the reusable layout after this template is deployed; it does not replace the archived report. For a new week:
+
+1. Copy `weekly/2026-09-25.json` to a file named for the **last trading date** of the new week. Replace every date, observation, source description, summary statistic and piece of editorial text with reviewed facts for that week. Do not carry old figures or prose forward by default. The file's `weekEnding` must match its filename and the URL parameter. Remove the optional `canonical` field unless this data edition duplicates an older static page; when present it must name that local `.html` page. The `weekly/` folder sits outside `reports/` so auto publish will not push a draft edition before review.
+2. Use the `sections` array to arrange the story. Its blocks can be `paragraph`, `heading`, `callout`, `closes`, `flows`, `sectors`, `stocks`, `fxLab`, or `table`; unused blocks and observation arrays may be omitted. `sources` on a block is a list of keys from the file's `sources` map. A close chart and FX lab derive returns from the observations; do not type those calculations into page code.
+3. Add the normal catalogue entry to `reports/reports.js` with `"page": "ihsg-weekly.html?week=YYYY-MM-DD"`. Add that exact URL to `sitemap.xml`. The feed rebuild on `main` will use the same link. These are publication records, not new page code.
+4. Run `node scripts/check-site.mjs` and `node scripts/build-feed.mjs`, then preview the new URL at desktop and phone width. Review every figure, source and editorial claim using `QA.md` before merging. The checker verifies that the dated data file exists and matches the URL, but it cannot establish whether market facts are correct.
+
+The shared renderer and `ihsg-weekly.html` need no edits for a new edition. A missing or invalid week shows a clear unavailable state rather than reusing an older report. The template works when served over HTTP or on GitHub Pages; browsers generally block its JSON request when the file is opened directly from disk.
+
 ## Delete a report
 
 Every delete asks first.
@@ -108,7 +123,7 @@ Every delete asks first.
 
 ## Auto publish
 
-`auto-publish.ps1` sends published and deleted reports to GitHub by itself. `install-auto-publish.bat` turns it on: it starts at once and again at every login, from the Windows Startup folder. `stop-auto-publish.bat` turns it off. It runs hidden and keeps a log in `%LOCALAPPDATA%\LonghandAutoPublish.log`.
+`auto-publish.ps1` sends published and deleted reports to GitHub by itself. `install-auto-publish.bat` turns it on: it copies the script to `%LOCALAPPDATA%\LonghandResearch\AutoPublish\auto-publish.ps1`, starts that fixed copy, and makes the Windows Startup shortcut run that copy at every login. The shortcut passes the site folder as an argument, so the script version does not change when this folder switches branches. `stop-auto-publish.bat` stops this site's publisher and removes the shortcut, but keeps the installed copy for recovery. It runs hidden and keeps a log in `%LOCALAPPDATA%\LonghandAutoPublish.log`.
 
 It watches `reports` and `sitemap.xml` only. Once they have stopped changing for 10 seconds, the changes go to `main` on GitHub and a notice says the website updates in about a minute. Everything else still goes with `publish.bat` or a pull request.
 
@@ -120,7 +135,7 @@ It watches `reports` and `sitemap.xml` only. Once they have stopped changing for
 
 On another branch, a delete that takes `reports` and `sitemap.xml` back to exactly what the branch has (publishing one report and deleting it again, for example) looks just like tidying up with git, so it is not sent and that report stays online. Delete it again once the folder is back on `main`.
 
-Auto publish runs the copy of `auto-publish.ps1` that was in the folder when it started. After changing the script, restart it: run `stop-auto-publish.bat`, then `install-auto-publish.bat`.
+After an update to `auto-publish.ps1` is merged, run `install-auto-publish.bat` again from the site folder to refresh the fixed copy and restart it. Merely switching branches or logging in does not update the installed script. To disable it, run `stop-auto-publish.bat`.
 
 ## Author mode
 
