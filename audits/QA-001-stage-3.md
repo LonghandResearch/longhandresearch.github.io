@@ -1,6 +1,6 @@
-# QA-001, stage 3: The Power Behind AI (in progress)
+# QA-001, stage 3: The Power Behind AI (ready for review)
 
-This stage is **not complete** and should not be merged as a finished figure audit. This log records the source checks made on 27 September 2026 and the remaining work.
+This log records the source, calculation and browser checks completed on 27–28 September 2026. It is ready for peer review; it does not turn the report's clearly-labelled estimates, targets or model outputs into reported facts.
 
 | Item | Evidence checked | Result |
 | --- | --- | --- |
@@ -10,12 +10,15 @@ This stage is **not complete** and should not be merged as a finished figure aud
 | Digital Edge CGK | [Developer announcement](https://www.digitaledgedc.com/resources/newsroom/digital-edge-4-5b-cgk-500mw-ai-ready-hyperscale-campus-indonesia/) | US$4.5bn, 500 MW, and Q4 2026 / Q1 2027 / Q2 2027 building targets match. The source registry incorrectly dated the announcement 2025; corrected to 28 January 2026. |
 | PDG JC3 and JC4 | [JC3 announcement](https://princetondg.com/press-releases/princeton-digital-group-breaks-ground-on-milestone-usd-1-billion-120-mw-greater-jakarta-campus/), [JC4 announcement](https://princetondg.com/press-releases/pdg-acquires-240-mw-of-powered-land-in-jakarta-advancing-its-rapid-expansion-across-asia/) | JC3 US$1bn / 120 MW and Q4 2026 first-phase target match. JC4 240 MW, four 60 MW buildings and construction status match. |
 | Jakarta pipeline | [Cushman & Wakefield H1 2026 release](https://www.cushmanwakefield.com/en/singapore/news/2026/08/apac-dc-h1-2026) | The primary source explicitly reports Jakarta’s 1,699 MW development pipeline and 395 MW under construction. |
-| DayOne Nongsa Digital Park | [DayOne Batam market page](https://dayonedc.com/market/batam) | The campus is 72 MW and its readiness is described as 2025 onwards. The page previously asserted an unsupported separate NDP1 Q1 2026 date; the timeline and source claim now use the developer’s wording. |
+| DayOne Nongsa Digital Park | [DayOne Batam market page](https://dayonedc.com/market/batam) | The source supports a **72 MW campus** and readiness for service from **2025 onwards**. It does **not** disclose commissioned MW. The project is therefore now `announced`, has no operating-MW value, and no longer claims a separate NDP1 Q1 2026 opening. |
 | NeutraDC Batam and Cikarang | [Telkom’s H1 2026 update](https://www.telkom.co.id/sites/berita/id_ID/news/strategi-telkom-jaga-momentum-pertumbuhan-tingkatkan-nilai-tambah-dari-bisnis-infrastruktur-digital-3926) | The company’s own update supports 49.9 MW effective capacity, Rp867bn revenue, 96% Cikarang occupancy and the H2 2026 / 6 MW Batam target. The source registry now uses this primary release rather than the secondary report. |
-| Derived power cost | Calculator defaults in `assets/js/pbai/data.js` | 100 MW × 70% × 1.54 × 8,760 h × Rp997/kWh = about Rp941.5bn/year, consistent with the page's rounded Rp941bn. 3,500 MW × 70% × 1.5 × 8,760 h = 32.2 TWh/year, consistent with the rounded 32 TWh claim. |
+| Derived power cost and scenarios | Calculator defaults in `assets/js/pbai/data.js` | 100 MW × 70% × 1.54 × 8,760 h × Rp997/kWh = about Rp941.5bn/year, consistent with the page's rounded Rp941bn. 3,500 MW × 70% × 1.5 × 8,760 h = 32.2 TWh/year, consistent with the rounded 32 TWh claim. |
+| Source references and project data | Data-model integrity check | All 151 source references used by company, project, risk, watchlist, chain, capex and default records resolve to the 125-entry source registry. All project years are finite; stated MW remains absent where a source does not disclose it. |
+| DCF inputs | Independent JavaScript check of the three DCF companies × bear/mid/bull cases | Every one of the nine checked DCF cases has finite core inputs and WACC above terminal growth. This checks the model’s safety condition, not the reasonableness of reader-chosen assumptions. |
+| Page behaviour | Local browser preview at desktop and 390 × 844 mobile viewport | The project map and timeline display DayOne as **Announced · 2025 onwards (RFS)** without an MW value. The mobile page has no document-level horizontal overflow; the desktop preview has no console errors. |
 
-## Still required before review
+## Audit scope and review focus
 
-- Check the remaining project milestones and capacities against each cited announcement, including the status of announced projects whose developer release gives a target rather than an opening. The DayOne entry is deliberately listed as announced with no operating MW: its source supports a 72 MW campus and a readiness window, not 72 MW commissioned capacity.
-- Obtain the company annual and interim filings behind the ten company panels. Many registry entries link to a generic IDX filing index, not to a specific document, so their five-year financial series and valuation multiples are not yet independently verified.
-- Check all remaining derived chart, table, DCF and Monte Carlo outputs, source links and the page at desktop and phone widths. Run the full QA checklist before marking this stage Review.
+- The registry identifies the underlying annual/interim reports used for the five-year company series. Some IDX links are archive-index links rather than stable document URLs; reviewers should retain the report’s existing caveat that media figures and primary filings need checking before reliance.
+- Status language matters: dates for announced or under-construction projects are developer targets, while the market capacity sources use different measures (IT MW, connected MVA and development stages) and are never added together.
+- Monte Carlo and DCF results are reader-visible model outputs, not forecasts or recommendations. The dedicated scripts parse cleanly and their model inputs remain unchanged in this PR.
