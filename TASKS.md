@@ -7,7 +7,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | --- | --- | --- | --- | --- | --- |
 | RPT-002 | Audit and extend the English IHSG Update with charts, transparent calculations and an FX return lab | Codex | `codex/ihsg-weekly-update` | Done | [PR #22](https://github.com/LonghandResearch/longhandresearch.github.io/pull/22) |
 | RPT-003 | Add restrained chart animation to the IHSG Update and publish | Codex | `codex/ihsg-chart-motion` | Done | [PR #23](https://github.com/LonghandResearch/longhandresearch.github.io/pull/23) |
-| RPT-004 | Make the IHSG Update easier to read and audit all displayed data | Codex | `codex/ihsg-reading-audit` | Review | [PR #24](https://github.com/LonghandResearch/longhandresearch.github.io/pull/24) |
+| RPT-004 | Make the IHSG Update easier to read and audit all displayed data | Codex | `codex/ihsg-reading-audit` | Done | [PR #24](https://github.com/LonghandResearch/longhandresearch.github.io/pull/24) |
 | RPT-005 | Incorporate primary IDX statistics and BI JISDOR into the IHSG Update | Codex | `codex/ihsg-primary-data` | Done | [PR #25](https://github.com/LonghandResearch/longhandresearch.github.io/pull/25) |
 | WEB-001 | Redesign the front page: a photographic 3D Earth to turn by hand, scroll-linked motion and the catalogue in numbers | Claude | `claude/earth-landing` | Done | [PR #26](https://github.com/LonghandResearch/longhandresearch.github.io/pull/26) |
 | WEB-002 | Make the front page a single-screen landing: opening screen, reading-size type, contour lines and a sheet-of-paper transition to the next page | Claude | `claude/landing-standalone` | Done | [PR #27](https://github.com/LonghandResearch/longhandresearch.github.io/pull/27) |
@@ -16,7 +16,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | SETUP-001 | Add the Codex-Claude collaboration workflow | Codex | `codex/setup-agent-collaboration` | Done | Direct merge |
 | OPS-001 | Make auto publish send report changes to `main` whichever branch the site folder is on | Claude | `claude/auto-publish-main` | Done | [PR #31](https://github.com/LonghandResearch/longhandresearch.github.io/pull/31) |
 | RPT-006 | Add DSSA to The Power Behind AI: FY2021-FY2025 financials, prices, valuation history | Claude | `claude/pbai-data-refresh` | Done | [PR #32](https://github.com/LonghandResearch/longhandresearch.github.io/pull/32) |
-| RPT-007 | Update the Power Behind AI library summary to ten companies | Claude | `claude/pbai-catalogue-ten` | Review | [PR #33](https://github.com/LonghandResearch/longhandresearch.github.io/pull/33) |
+| RPT-007 | Update the Power Behind AI library summary to ten companies | Claude | `claude/pbai-catalogue-ten` | Done | [PR #33](https://github.com/LonghandResearch/longhandresearch.github.io/pull/33) |
 | RPT-008 | Put source context inline and remove the weekly CSV download | Codex | `codex/ihsg-inline-sources` | Done | [PR #34](https://github.com/LonghandResearch/longhandresearch.github.io/pull/34) |
 | RPT-009 | Publish the INET initiation (SELL, target Rp175) | Claude | `claude/inet-initiation` | Done | [PR #35](https://github.com/LonghandResearch/longhandresearch.github.io/pull/35) |
 
