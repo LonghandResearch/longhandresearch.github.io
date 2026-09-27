@@ -81,8 +81,60 @@ for (const r of reports) {
     if (r[k] != null && typeof r[k] !== 'number') bad(`has a ${k} that is not a number`);
   }
   if (r.page) {
-    if (!/^[\w./-]+\.html$/.test(r.page)) bad(`has page "${r.page}", which is not an .html file in the site`);
-    else if (!existsExactly(r.page)) bad(`points to page "${r.page}", which is not a file in the site (check upper and lower case)`);
+    const weekly = /^ihsg-weekly\.html\?week=(\d{4}-\d{2}-\d{2})$/.exec(r.page);
+    const pageFile = weekly ? 'ihsg-weekly.html' : r.page;
+    if (!weekly && !/^[\w./-]+\.html$/.test(r.page)) bad(`has page "${r.page}", which is not an .html file in the site`);
+    else if (!existsExactly(pageFile)) bad(`points to page "${pageFile}", which is not a file in the site (check upper and lower case)`);
+    if (weekly) {
+      const dataFile = `weekly/${weekly[1]}.json`;
+      if (!existsExactly(dataFile)) bad(`points to weekly data "${dataFile}", which is not a file in the site`);
+      else {
+        try {
+          const data = JSON.parse(read(dataFile));
+          const validDate = value => {
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value))) return false;
+            const parsed = new Date(`${value}T00:00:00Z`);
+            return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+          };
+          const arrays = data.observations || {};
+          const sources = data.sources || {};
+          const sections = data.sections || [];
+          const blocks = Array.isArray(sections) ? sections.flatMap(section => section.blocks || []) : [];
+          const types = new Set(blocks.map(block => block.type));
+          const numeric = (rows, field, minimum) => Array.isArray(rows) && rows.length >= minimum && rows.every(row => Number.isFinite(row[field]));
+          const weeklyBad = message => bad(`has invalid weekly data in "${dataFile}": ${message}`);
+          if (data.schemaVersion !== 1) weeklyBad('schemaVersion must be 1');
+          if (!validDate(data.weekEnding)) weeklyBad(`weekEnding "${data.weekEnding}" is not a valid date`);
+          else if (data.weekEnding !== weekly[1]) weeklyBad(`weekEnding "${data.weekEnding}" does not match the URL week "${weekly[1]}"`);
+          if (!validDate(data.published)) weeklyBad(`published "${data.published}" is not a valid date`);
+          else if (data.published !== r.date) weeklyBad(`published date "${data.published}" does not match the catalogue date "${r.date}"`);
+          if (data.title !== r.title) weeklyBad(`title "${data.title || ''}" does not match the catalogue title "${r.title}"`);
+          if (!data.period) weeklyBad('period is missing');
+          if (!data.deck) weeklyBad('deck is missing');
+          if (data.canonical != null) {
+            if (!/^[\w./-]+\.html$/.test(data.canonical) || data.canonical.split('/').includes('..')) weeklyBad(`canonical address "${data.canonical}" is invalid`);
+            else if (!existsExactly(data.canonical)) weeklyBad(`canonical page "${data.canonical}" does not exist`);
+          }
+          if (!Array.isArray(data.stats) || data.stats.length !== 4) weeklyBad('exactly four summary statistics are required');
+          else if (data.stats.some(s => !s.label || !s.value || !s.note)) weeklyBad('a summary statistic is missing its label, value or note');
+          if (!Object.keys(sources).length) weeklyBad('the source registry is empty');
+          else if (Object.values(sources).some(s => !s.label || !/^https:\/\//.test(s.url))) weeklyBad('every source needs a label and an https URL');
+          if (!Array.isArray(sections) || !sections.length) weeklyBad('sections are missing');
+          else if (sections.some(s => !s.id || !s.title || !Array.isArray(s.blocks))) weeklyBad('a section is missing its id, title or blocks list');
+          const allowedBlocks = ['paragraph', 'heading', 'callout', 'closes', 'flows', 'sectors', 'stocks', 'fxLab', 'table'];
+          const unknownBlock = blocks.find(block => !allowedBlocks.includes(block.type));
+          if (unknownBlock) weeklyBad(`unknown block type "${unknownBlock.type}"`);
+          const unknownSource = blocks.flatMap(block => Array.isArray(block.sources) ? block.sources : []).find(key => !sources[key]);
+          if (unknownSource) weeklyBad(`block refers to unknown source key "${unknownSource}"`);
+          if (blocks.some(block => block.sources && !Array.isArray(block.sources))) weeklyBad('a block sources field is not a list');
+          if ((types.has('closes') || types.has('fxLab')) && !numeric(arrays.closes, 'close', 2)) weeklyBad('closing observations need at least two numeric close values');
+          if (types.has('flows') && !numeric(arrays.foreignFlow, 'netBn', 1)) weeklyBad('foreign-flow observations need numeric netBn values');
+          if (types.has('sectors') && !numeric(arrays.sectors, 'weekly', 1)) weeklyBad('sector observations need numeric weekly values');
+          if (types.has('stocks') && !numeric(arrays.stocks, 'points', 1)) weeklyBad('stock observations need numeric points values');
+          if (types.has('fxLab') && !numeric(arrays.jisdor, 'rate', 2)) weeklyBad('the FX lab needs at least two numeric JISDOR rates');
+        } catch (e) { bad(`weekly data "${dataFile}" is not valid JSON: ${e.message}`); }
+      }
+    }
   } else if (!r.pdfUrl) {
     bad('has neither pdfUrl nor page');
   } else if (!/^[a-z]+:/i.test(r.pdfUrl) && !existsExactly(r.pdfUrl)) {
