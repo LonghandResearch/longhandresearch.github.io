@@ -4,7 +4,7 @@
 // letter for letter, because GitHub Pages is case-sensitive even when the
 // computer the site is edited on is not.
 import { execFileSync } from 'node:child_process';
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
@@ -19,7 +19,8 @@ const read = (file) => readFileSync(join(root, file), 'utf8');
 const tracked = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' })
   .split('\0').filter(Boolean);
 
-/* A path exists only if every part of it matches a real name exactly */
+/* A path is a file only if every part of it matches a real name exactly,
+   and it ends at a file rather than a folder */
 const listings = new Map();
 function existsExactly(path) {
   let dir = root;
@@ -28,7 +29,7 @@ function existsExactly(path) {
     if (!listings.get(dir).includes(part)) return false;
     dir = join(dir, part);
   }
-  return true;
+  return dir !== root && statSync(dir).isFile();
 }
 
 /* 1. Scripts parse */
@@ -60,7 +61,8 @@ try {
 }
 
 const ids = new Set();
-const reportUrl = (r) => (r.page ? r.page : `report.html?id=${r.id}`);
+// The same address site.js gives a report
+const reportUrl = (r) => (r.page ? r.page : `report.html?id=${encodeURIComponent(r.id)}`);
 for (const r of reports) {
   const where = `entry "${r.id || r.title || '?'}"`;
   const bad = (m) => fail('reports/reports.js', `${where}: ${m}`);
@@ -80,11 +82,11 @@ for (const r of reports) {
   }
   if (r.page) {
     if (!/^[\w./-]+\.html$/.test(r.page)) bad(`has page "${r.page}", which is not an .html file in the site`);
-    else if (!existsExactly(r.page)) bad(`points to page "${r.page}", which does not exist (check upper and lower case)`);
+    else if (!existsExactly(r.page)) bad(`points to page "${r.page}", which is not a file in the site (check upper and lower case)`);
   } else if (!r.pdfUrl) {
     bad('has neither pdfUrl nor page');
   } else if (!/^[a-z]+:/i.test(r.pdfUrl) && !existsExactly(r.pdfUrl)) {
-    bad(`points to "${r.pdfUrl}", which does not exist (check upper and lower case)`);
+    bad(`points to "${r.pdfUrl}", which is not a file in the site (check upper and lower case)`);
   }
 }
 
@@ -107,27 +109,35 @@ for (const r of reports) {
 
 /* 5. Links and files named in the pages exist */
 const SKIP = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;   // other sites, mailto:, data: and the like
-for (const file of tracked.filter((f) => f.endsWith('.html'))) {
+const pages = tracked.filter((f) => f.endsWith('.html'));
+
+/* The ids each page has: those in its markup, and, by prefix, those its own
+   scripts write in as it opens, such as id="src-${...}" */
+const anchorsOf = new Map(pages.map((file) => {
   const html = read(file);
-  const anchors = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((x) => x[1]));
-  // Ids a page's own scripts write in as it opens, such as id="src-${...}":
-  // a link into them is taken on trust by its prefix
-  const built = [...html.matchAll(/<script[^>]*\ssrc="([^"?#]+)/g)]
+  const own = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((x) => x[1]));
+  const prefixes = [...html.matchAll(/<script[^>]*\ssrc="([^"?#]+)/g)]
     .map((x) => x[1].replace(/^\//, ''))
     .filter((p) => !SKIP.test(p) && existsExactly(p))
     .flatMap((p) => [...read(p).matchAll(/id="([\w-]+)\$\{/g)].map((x) => x[1]));
-  for (const [, attr, value] of html.matchAll(/\s(href|src)="([^"]*)"/g)) {
+  return [file, (id) => own.has(id) || prefixes.some((prefix) => id.startsWith(prefix))];
+}));
+
+for (const file of pages) {
+  for (const [, attr, value] of read(file).matchAll(/\s(href|src)="([^"]*)"/g)) {
     if (!value || SKIP.test(value) || /[$'{}]/.test(value)) continue;   // outside links, and addresses built by scripts
-    if (value.startsWith('#')) {
-      const id = decodeURIComponent(value.slice(1));
-      if (id && !anchors.has(id) && !built.some((prefix) => id.startsWith(prefix))) fail(file, `links to ${value}, but no element has that id`);
-      continue;
-    }
-    const [path, query = ''] = value.split('#')[0].split('?');
-    const target = path.startsWith('/') ? path.slice(1) : relative(root, join(root, dirname(file), path)).split(sep).join('/');
-    if (target && !existsExactly(target)) { fail(file, `${attr}="${value}" leads to ${target}, which does not exist (check upper and lower case)`); continue; }
+    const [address, fragment = ''] = value.split('#');
+    const [path, query = ''] = address.split('?');
+    let target = !path ? file
+      : path.startsWith('/') ? path.slice(1)
+      : relative(root, join(root, dirname(file), path)).split(sep).join('/');
+    if (target && path.endsWith('/')) target += '/index.html';   // a folder opens its index.html, if it has one
+    if (!target) continue;   // the front page, "/"
+    if (!existsExactly(target)) { fail(file, `${attr}="${value}" leads to ${target}, which does not exist as a file (check upper and lower case)`); continue; }
     const id = target === 'report.html' && /(?:^|&)id=([^&]+)/.exec(query);
     if (id && !ids.has(decodeURIComponent(id[1]))) fail(file, `links to report "${id[1]}", which is not in the catalogue`);
+    const hasId = anchorsOf.get(target);
+    if (fragment && hasId && !hasId(decodeURIComponent(fragment))) fail(file, `links to ${value}, but ${target} has no element with id "${fragment}"`);
   }
 }
 
@@ -140,4 +150,4 @@ if (problems.length) {
   console.log(`\n${problems.length} ${problems.length === 1 ? 'problem' : 'problems'} found.`);
   process.exit(1);
 }
-console.log(`All checks passed: ${tracked.filter((f) => /\.(m?js)$/.test(f)).length} scripts, ${tracked.filter((f) => f.endsWith('.json')).length} JSON files, ${reports.length} catalogue entries, ${locs.length} sitemap pages and the links in ${tracked.filter((f) => f.endsWith('.html')).length} pages.`);
+console.log(`All checks passed: ${tracked.filter((f) => /\.(m?js)$/.test(f)).length} scripts, ${tracked.filter((f) => f.endsWith('.json')).length} JSON files, ${reports.length} catalogue entries, ${locs.length} sitemap pages and the links in ${pages.length} pages.`);
