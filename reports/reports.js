@@ -45,7 +45,7 @@ window.LONGHAND_REPORTS = [
     "title": "Priced for a Network Nobody Has Paid For Yet",
     "date": "2026-09-27",
     "blurb": "Initiating at SELL, target Rp175. Revenue rose twenty times on acquisitions, but the internet EBITDA the price assumes does not exist yet.",
-    "summary": "We initiate on INET with a SELL and a 12-month target of Rp175 (-39.7%), against a bear, base and bull range of Rp65, Rp158 and Rp325. About Rp4.2 trillion raised in H1 2026 bought companies and network capacity, lifting revenue twenty times, but mostly through a thin-margin outsourcing business. The internet segment earns 92.6% of operating profit; at Rp290 the market prices roughly double our 2027 base case for its EBITDA at peer multiples.",
+    "summary": "We initiate on INET with a SELL and a 12-month target of Rp175 (-39.7%), against a bear, base and bull range of Rp65, Rp158 and Rp325. INET raised about Rp4.2 trillion in H1 2026 but deployed only Rp849 billion by June, on acquisitions and network capacity, and held Rp4.34 trillion in cash. The deals lifted revenue twenty times, mostly through a thin-margin outsourcing business. The internet segment earns 92.6% of operating profit; at Rp290 the market prices roughly double our 2027 base case for its EBITDA at peer multiples.",
     "tags": ["INET", "Indonesia", "Internet", "Fiber", "Subsea cable", "Telecommunications", "Equity Research"],
     "rating": "SELL",
     "currency": "IDR",
