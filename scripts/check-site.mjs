@@ -81,8 +81,44 @@ for (const r of reports) {
     if (r[k] != null && typeof r[k] !== 'number') bad(`has a ${k} that is not a number`);
   }
   if (r.page) {
-    if (!/^[\w./-]+\.html$/.test(r.page)) bad(`has page "${r.page}", which is not an .html file in the site`);
-    else if (!existsExactly(r.page)) bad(`points to page "${r.page}", which is not a file in the site (check upper and lower case)`);
+    const weekly = /^ihsg-weekly\.html\?week=(\d{4}-\d{2}-\d{2})$/.exec(r.page);
+    const pageFile = weekly ? 'ihsg-weekly.html' : r.page;
+    if (!weekly && !/^[\w./-]+\.html$/.test(r.page)) bad(`has page "${r.page}", which is not an .html file in the site`);
+    else if (!existsExactly(pageFile)) bad(`points to page "${pageFile}", which is not a file in the site (check upper and lower case)`);
+    if (weekly) {
+      const dataFile = `weekly/${weekly[1]}.json`;
+      if (!existsExactly(dataFile)) bad(`points to weekly data "${dataFile}", which is not a file in the site`);
+      else {
+        try {
+          const data = JSON.parse(read(dataFile));
+          const validDate = value => {
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value))) return false;
+            const parsed = new Date(`${value}T00:00:00Z`);
+            return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+          };
+          const arrays = data.observations || {};
+          const sources = data.sources || {};
+          const sections = data.sections || [];
+          const blocks = Array.isArray(sections) ? sections.flatMap(section => section.blocks || []) : [];
+          const types = new Set(blocks.map(block => block.type));
+          const numeric = (rows, field, minimum) => Array.isArray(rows) && rows.length >= minimum && rows.every(row => Number.isFinite(row[field]));
+          if (data.schemaVersion !== 1 || data.weekEnding !== weekly[1] || !validDate(data.weekEnding)
+            || data.published !== r.date || data.title !== r.title || !data.period || !data.deck
+            || !Array.isArray(data.stats) || data.stats.length !== 4 || data.stats.some(s => !s.label || !s.value || !s.note)
+            || !Object.keys(sources).length || Object.values(sources).some(s => !s.label || !/^https:\/\//.test(s.url))
+            || !Array.isArray(sections) || !sections.length || sections.some(s => !s.id || !s.title || !Array.isArray(s.blocks))
+            || blocks.some(b => !['paragraph', 'heading', 'callout', 'closes', 'flows', 'sectors', 'stocks', 'fxLab', 'table'].includes(b.type)
+              || (b.sources && (!Array.isArray(b.sources) || b.sources.some(key => !sources[key]))))
+            || ((types.has('closes') || types.has('fxLab')) && !numeric(arrays.closes, 'close', 2))
+            || (types.has('flows') && !numeric(arrays.foreignFlow, 'netBn', 1))
+            || (types.has('sectors') && !numeric(arrays.sectors, 'weekly', 1))
+            || (types.has('stocks') && !numeric(arrays.stocks, 'points', 1))
+            || (types.has('fxLab') && !numeric(arrays.jisdor, 'rate', 2))) {
+            bad(`has incomplete or mismatched weekly data in "${dataFile}"`);
+          }
+        } catch (e) { bad(`weekly data "${dataFile}" is not valid JSON: ${e.message}`); }
+      }
+    }
   } else if (!r.pdfUrl) {
     bad('has neither pdfUrl nor page');
   } else if (!/^[a-z]+:/i.test(r.pdfUrl) && !existsExactly(r.pdfUrl)) {

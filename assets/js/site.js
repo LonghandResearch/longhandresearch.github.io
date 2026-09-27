@@ -83,7 +83,8 @@
     const rating = RATINGS.includes(String(r.rating || '').trim().toUpperCase()) ? String(r.rating).trim().toUpperCase() : null;
     const pdfUrl = String(r.pdfUrl || r.file || '').trim();
     // An interactive report is its own page rather than a PDF in the reader
-    const page = /^[\w./-]+\.html$/.test(String(r.page || '').trim()) ? String(r.page).trim() : '';
+    const rawPage = String(r.page || '').trim();
+    const page = (/^[\w./-]+\.html$/.test(rawPage) || /^ihsg-weekly\.html\?week=\d{4}-\d{2}-\d{2}$/.test(rawPage)) ? rawPage : '';
     const category = normCategory(r.category || r.type);
     const ticker = String(r.ticker || '').trim().toUpperCase();
     const date = parseISO(r.date) ? String(r.date) : '';
