@@ -29,6 +29,7 @@ uncommitted branch.
 | Path | What it is |
 | --- | --- |
 | `reports/reports.js` | The catalogue: one entry per published report |
+| `QA.md` | The checklist every report or page with figures goes through before merge |
 | `feed.xml` | RSS feed of published reports |
 | `reports/*.pdf` | The report PDFs |
 | `assets/css/site.css` | All styling: light and dark themes, page transitions |
