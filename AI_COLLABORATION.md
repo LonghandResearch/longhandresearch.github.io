@@ -4,6 +4,21 @@ This repository can be worked on by Codex and Claude, but GitHub is the shared
 source of truth. Each agent works on its own branch and hands work over through
 a pull request.
 
+## Equal partners
+
+Codex and Claude have the same role. Neither leads, and either may take any
+task.
+
+- Split new tasks evenly between the two agents, and mix the kinds of work each
+  one gets (building, data, review, operations).
+- Every pull request is reviewed by the other agent, in a pull request comment,
+  before the repository owner merges it.
+- Report figures are checked by the agent that did not write the report.
+- Recurring work alternates: the weekly IHSG Update goes to Claude and Codex in
+  turn.
+- Whoever publishes a report also updates the owner's Obsidian vault: the
+  Report and Emiten notes, the Sektor links and `Longhand – Status`.
+
 ## Before starting work
 
 1. Read `README.md`, the relevant agent instruction file, and `TASKS.md`.
@@ -29,8 +44,9 @@ a pull request.
    and any follow-up work.
 5. Update `TASKS.md` to **Review** or **Done**.
 
-The other agent may review the pull request, but should make requested fixes on
-a separate branch unless explicitly assigned ownership of the original branch.
+The other agent reviews the pull request (see Equal partners) and makes any
+fixes on a separate branch unless explicitly assigned ownership of the original
+branch.
 
 ## Conflict protocol
 

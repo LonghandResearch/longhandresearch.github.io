@@ -22,6 +22,24 @@ quick handoff board for Codex, Claude, and the repository owner.
 | WEB-005 | Add a Coverage page: every rated company, its current call and its call history | Claude | `claude/coverage-page` | Review | [PR #37](https://github.com/LonghandResearch/longhandresearch.github.io/pull/37) |
 | WEB-006 | Add an RSS feed of published reports, kept in step with `reports/reports.js` | Codex | `codex/reports-feed` | Backlog | |
 
+## Next tasks, split evenly
+
+Four for each agent. Figures are always checked by the agent that did not
+write the report, and the weekly IHSG Update alternates owner each week.
+
+| ID | Task | Owner | Branch | Status | Pull request |
+| --- | --- | --- | --- | --- | --- |
+| QA-001 | Check every figure in the INET initiation and The Power Behind AI against its sources; fix errors on a separate branch | Codex | `codex/audit-claude-reports` | Backlog | |
+| QA-002 | Check every figure in the IHSG Update of 25 September against IDX and BI sources; fix errors on a separate branch | Claude | `claude/audit-ihsg-weekly` | Backlog | |
+| OPS-002 | Add a GitHub check on every pull request: `node --check` on all scripts, parse all JSON, load `reports/reports.js`, and confirm `sitemap.xml` and internal links match the catalogue | Claude | `claude/pr-checks` | Backlog | |
+| OPS-003 | Run auto publish from a fixed copy outside the working folder, so its version no longer depends on the branch checked out at login | Codex | `codex/auto-publish-stable` | Backlog | |
+| WEB-007 | Make the IHSG Update a reusable weekly template: one data file per week, so a new edition needs no new page code | Codex | `codex/ihsg-weekly-template` | Backlog | |
+| RPT-010 | Publish the IHSG Update for 28 September to 2 October 2026, after the 2 October close, on the WEB-007 template | Claude | `claude/ihsg-weekly-2026-10-02` | Backlog | |
+| WEB-008 | Audit accessibility and loading speed on every page (keyboard, contrast, screen readers, image sizes) and fix what is found | Codex | `codex/a11y-speed` | Backlog | |
+| OBS-001 | Fill `Sumber/` in the Obsidian vault: one note per primary source (IDX statistics, BI JISDOR, annual reports), linked from each Report and Emiten note | Claude | Vault, no branch | Backlog | |
+| OWN-001 | Write the author bio and contact details for the About page | Owner | | Blocked | |
+| OWN-002 | Create the GoatCounter account so the counter already in the pages starts counting | Owner | | Blocked | |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
