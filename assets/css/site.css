@@ -878,6 +878,37 @@ html.is-loading body { overflow: hidden; }
 
 .index-note { margin-top: 16px; font: 400 13px/1.5 var(--font-sans); color: var(--ink-2); }
 
+/* Coverage: one row per rated company, its current call on the right.
+   The whole row opens the latest report; earlier calls keep their own links. */
+.cover-company a, .cover-latest a { text-decoration: none; }
+.cover-latest {
+  margin-top: 10px;
+  font: 400 14.5px/1.5 var(--font-sans);
+  color: var(--ink-2);
+}
+.cover-latest a { color: var(--ink); font-family: var(--font-serif); font-size: 17px; font-style: italic; }
+.cover-latest a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.cover:hover .cover-latest a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+.cover-history { position: relative; z-index: 2; margin-top: 18px; padding-top: 12px; border-top: 1px dotted var(--rule-2); }
+.cover-history-label {
+  font: 600 10.5px/1.4 var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.cover-history ol { list-style: none; margin: 6px 0 0; padding: 0; }
+.cover-history li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 14px;
+  padding: 4px 0;
+  font: 400 13.5px/1.45 var(--font-sans);
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.cover-history a { color: var(--ink); }
+
 /* Author tools on a row: only in author mode, never seen by readers */
 .author-tools {
   grid-column: 1 / -1;
@@ -1632,6 +1663,11 @@ html { scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent) transpar
 
   .sheet-head, .sheet-body, .sheet-foot { padding-left: 20px; padding-right: 20px; }
   .form-grid, .form-grid-call { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Phones have room for three links; Coverage is reached from the library there */
+@media (max-width: 560px) {
+  .site-nav .nav-coverage { display: none; }
 }
 
 @media (max-width: 420px) {
