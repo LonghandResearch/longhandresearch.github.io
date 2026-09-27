@@ -1,6 +1,60 @@
 {
- "updated": "2026-09-27T01:31:12.075Z",
+ "updated": "2026-09-27T08:15:55.706Z",
  "items": [
+  {
+   "title": "Sepekan Terakhir, IHSG dan Nilai Kapitalisasi Pasar Modal Melemah 3 Persen",
+   "url": "https://ekonomi.republika.co.id/berita/tm0i8g370/sepekan-terakhir-ihsg-dan-nilai-kapitalisasi-pasar-modal-melemah-3-persen",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-09-27T07:31:28.000Z"
+  },
+  {
+   "title": "Begini Pergerakan Harga Emas Sepekan, Naik atau Turun?",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8681160/begini-pergerakan-harga-emas-sepekan-naik-atau-turun",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-27T07:30:01.000Z"
+  },
+  {
+   "title": "Harga Emas Logam Mulia Diprediksi Fluktuatif Pekan Depan",
+   "url": "https://economy.okezone.com/read/2026/09/27/320/3244490/harga-emas-logam-mulia-diprediksi-fluktuatif-pekan-depan",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-27T07:24:45.000Z"
+  },
+  {
+   "title": "Saylor outlines ‘bill of digital rights’ to help build prosperity in future economy",
+   "url": "https://cointelegraph.com/news/saylor-outlines-bill-of-digital-rights-to-help-build-prosperity-in-future-economy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-27T07:18:42.000Z"
+  },
+  {
+   "title": "Pasar Kripto Berkembang, Ekosistem Nasional Perlu Diperkuat",
+   "url": "https://ekonomi.republika.co.id/berita/tm04fc416/pasar-kripto-berkembang-ekosistem-nasional-perlu-diperkuat",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-09-27T07:00:00.000Z"
+  },
+  {
+   "title": "Tokenisasi Saham AS Tumbuh, Akses Aset Global Makin Terbuka",
+   "url": "https://ekonomi.republika.co.id/berita/tm042v416/tokenisasi-saham-as-tumbuh-akses-aset-global-makin-terbuka",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-09-27T02:25:43.000Z"
+  },
+  {
+   "title": "Nor’easter brings flooding, power outages across US Northeast, over 400 flights canceled",
+   "url": "https://www.investing.com/news/commodities-news/noreaster-leaves-over-100000-customers-without-power-in-us-northeast-over-400-flights-canceled-4918608",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-27T02:13:28.000Z"
+  },
   {
    "title": "Enam Perusahaan Antre Masuk Bursa, Dua Punya Aset di Atas Rp 250 M",
    "url": "https://finance.detik.com/bursa-dan-valas/d-8680797/enam-perusahaan-antre-masuk-bursa-dua-punya-aset-di-atas-rp-250-m",
@@ -8,13 +62,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-27T01:15:00.000Z"
-  },
-  {
-   "title": "Nor’easter brings flooding, power outages across US Northeast, over 400 flights canceled",
-   "url": "https://www.investing.com/news/commodities-news/noreaster-leaves-over-100000-customers-without-power-in-us-northeast-over-400-flights-canceled-4918608",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-26T23:30:27.000Z"
   },
   {
    "title": "4 Fakta Rekening Gratis Rp50.000 untuk Warga 17 Tahun, Anggaran Rp3,8 Triliun hingga Dimulai 2027",
@@ -1715,48 +1762,6 @@
    "source": "OilPrice",
    "topic": "Commodities",
    "time": "2026-09-24T13:00:00.000Z"
-  },
-  {
-   "title": "Trump rolled back regulations for oil company campaign donors, Democrats say",
-   "url": "https://www.investing.com/news/commodities-news/trump-rolled-back-regulations-for-oil-company-campaign-donors-democrats-say-4915352",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-24T12:37:38.000Z"
-  },
-  {
-   "title": "BLM approves seven new drill pads for Spartan Metals in Nevada",
-   "url": "https://www.mining-technology.com/news/blm-seven-drill-pads-spartan-metals/",
-   "source": "Mining Technology",
-   "topic": "Commodities",
-   "time": "2026-09-24T12:35:59.000Z"
-  },
-  {
-   "title": "Crypto investment firm RockawayX is betting $150 million on yield becoming next big use case",
-   "url": "https://www.coindesk.com/business/2026/09/23/rockawayx-is-betting-usd150-million-on-yield-becoming-crypto-s-next-big-use-case",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-09-24T12:31:53.000Z"
-  },
-  {
-   "title": "EU's financial regulator to make AI and tokenization a supervisory priority in 2027",
-   "url": "https://www.coindesk.com/policy/2026/09/24/eu-s-financial-regulator-to-make-ai-and-tokenization-a-supervisory-priority-in-2027",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-09-24T12:26:43.000Z"
-  },
-  {
-   "title": "Oil gains on little sign of progress in US-Iran talks",
-   "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-as-iran-says-it-is-open-to-diplomacy-to-end-the-war-4914308",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-24T12:18:57.000Z"
-  },
-  {
-   "title": "US eases screwworm ban on Mexican cattle, but beef prices unlikely to budge",
-   "url": "https://www.investing.com/news/commodities-news/us-eases-screwworm-ban-on-mexican-cattle-but-beef-prices-unlikely-to-budge-4915287",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-24T12:18:37.000Z"
   }
  ]
 }
