@@ -29,6 +29,7 @@ uncommitted branch.
 | Path | What it is |
 | --- | --- |
 | `reports/reports.js` | The catalogue: one entry per published report |
+| `feed.xml` | RSS feed of published reports |
 | `reports/*.pdf` | The report PDFs |
 | `assets/css/site.css` | All styling: light and dark themes, page transitions |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
@@ -51,6 +52,8 @@ uncommitted branch.
 | `news/news.json` | The gathered headlines (written by the hourly job; do not edit) |
 | `scripts/fetch-news.mjs` | Reads the sources and writes `news/news.json` |
 | `.github/workflows/wire.yml` | Runs the gathering on GitHub every hour |
+| `scripts/build-feed.mjs` | Builds `feed.xml` from the report catalogue |
+| `.github/workflows/reports-feed.yml` | Refreshes the feed when the catalogue changes on `main` |
 
 ## Publish a new report
 
@@ -71,6 +74,10 @@ To do it all by hand:
 If `reports.js` has a mistake, such as a missing comma, the library page tells you which line to look at (in author mode only). Readers just see that the list could not be loaded.
 
 Catalogue numbers (No. 001, No. 002 and so on) are given in order of publication date, oldest first. Adding a report with an earlier date than ones already published moves the later numbers up by one.
+
+## Follow new reports
+
+Subscribe to [the RSS feed](feed.xml) in any feed reader. It lists every published report, newest first. When `reports/reports.js` changes on `main`, GitHub Actions rebuilds and commits `feed.xml`, then requests a GitHub Pages build. To refresh it by hand, run `node scripts/build-feed.mjs`.
 
 ## Interactive reports
 

@@ -20,7 +20,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | RPT-008 | Put source context inline and remove the weekly CSV download | Codex | `codex/ihsg-inline-sources` | Done | [PR #34](https://github.com/LonghandResearch/longhandresearch.github.io/pull/34) |
 | RPT-009 | Publish the INET initiation (SELL, target Rp175) | Claude | `claude/inet-initiation` | Done | [PR #35](https://github.com/LonghandResearch/longhandresearch.github.io/pull/35) |
 | WEB-005 | Add a Coverage page: every rated company, its current call and its call history | Claude | `claude/coverage-page` | Review | [PR #37](https://github.com/LonghandResearch/longhandresearch.github.io/pull/37) |
-| WEB-006 | Add an RSS feed of published reports, kept in step with `reports/reports.js` | Codex | `codex/reports-feed` | Backlog | |
+| WEB-006 | Add an RSS feed of published reports, kept in step with `reports/reports.js` | Codex | `codex/reports-feed` | In progress | |
 
 ## Status values
 
