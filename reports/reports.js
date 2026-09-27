@@ -36,6 +36,33 @@
 */
 window.LONGHAND_REPORTS = [
   {
+    "id": "inet-2026-09-27",
+    "ticker": "INET",
+    "exchange": "IDX",
+    "company": "Sinergi Inti Andalan Prima Tbk",
+    "sector": "Digital infrastructure",
+    "category": "Initiation",
+    "title": "Priced for a Network Nobody Has Paid For Yet",
+    "date": "2026-09-27",
+    "blurb": "Initiating at SELL, target Rp175. Revenue rose twenty times on acquisitions, but the internet EBITDA the price assumes does not exist yet.",
+    "summary": "We initiate on INET with a SELL and a 12-month target of Rp175 (-39.7%), against a bear, base and bull range of Rp65, Rp158 and Rp325. INET raised about Rp4.2 trillion in H1 2026 but deployed only Rp849 billion by June, on acquisitions and network capacity, and held Rp4.34 trillion in cash. The deals lifted revenue twenty times, mostly through a thin-margin outsourcing business. The internet segment earns 92.6% of operating profit; at Rp290 the market prices roughly double our 2027 base case for its EBITDA at peer multiples.",
+    "tags": ["INET", "Indonesia", "Internet", "Fiber", "Subsea cable", "Telecommunications", "Equity Research"],
+    "rating": "SELL",
+    "currency": "IDR",
+    "price": 290,
+    "targetPrice": 175,
+    "upside": -39.7,
+    "pdfUrl": "reports/INET_Initiation_Report.pdf",
+    "pages": 24,
+    "fileSize": 471328,
+    "extra": [
+      ["Market cap (Rp tn)", "6.49"],
+      ["Shares out. (bn)", "22.37"],
+      ["52-week range (Rp, rights adj.)", "157 to 685"],
+      ["Price to book (June)", "1.77x"]
+    ]
+  },
+  {
     "id": "ihsg-weekly-2026-09-25",
     "ticker": "IHSG",
     "exchange": "IDX",
