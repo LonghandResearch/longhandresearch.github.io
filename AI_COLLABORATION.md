@@ -29,6 +29,11 @@ task.
 3. Choose one task and mark it **In progress** in `TASKS.md`, including the
    agent name and branch.
 4. Start from an up-to-date `main` branch.
+5. Work in your own git worktree outside the owner's site folder, never in
+   the site folder itself. Auto publish watches `reports/` and `sitemap.xml`
+   there and sends any change in them straight to `main`, whatever branch is
+   checked out, so an agent's unreviewed edit or scratch file in `reports/`
+   would go live without review.
 
 ## Branch ownership
 
