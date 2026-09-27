@@ -30,8 +30,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | ID | Task | Owner | Branch | Status | Pull request |
 | --- | --- | --- | --- | --- | --- |
-| QA-001 | Check every figure in the INET initiation and The Power Behind AI against its sources; fix errors on a separate branch | Codex | `codex/audit-claude-reports` | Backlog | |
-| QA-002 | Check every figure in the IHSG Update of 25 September against IDX and BI sources; fix errors on a separate branch | Claude | `claude/audit-ihsg-weekly` | Backlog | |
+| QA-001 | Audit every figure on the whole site against the report or source it comes from: front page numbers, Library, each report page and its key data, Coverage, the RSS feed and The Power Behind AI. Pages Codex wrote go to QA-002 instead. Fix errors on a separate branch | Codex | `codex/site-audit` | Backlog | |
+| QA-002 | Audit the pages Codex wrote (the IHSG Update) the same way, and add `QA.md`: the standing checklist every new report or page goes through before merge (figures against sources, catalogue entry, sitemap, feed, Coverage, Obsidian notes) | Claude | `claude/site-audit-checklist` | Backlog | |
 | OPS-002 | Add a GitHub check on every pull request: `node --check` on all scripts, parse all JSON, load `reports/reports.js`, and confirm `sitemap.xml` and internal links match the catalogue | Claude | `claude/pr-checks` | Backlog | |
 | OPS-003 | Run auto publish from a fixed copy outside the working folder, so its version no longer depends on the branch checked out at login | Codex | `codex/auto-publish-stable` | Backlog | |
 | WEB-009 | Make the IHSG Update a reusable weekly template: one data file per week, so a new edition needs no new page code | Codex | `codex/ihsg-weekly-template` | Backlog | |
