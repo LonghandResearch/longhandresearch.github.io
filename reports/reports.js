@@ -28,7 +28,8 @@
     upside       % to target; worked out from price and target if left out
     pdfUrl       path to the PDF, for example "reports/My_Report.pdf"
     page         optional: an interactive report that is its own page, for example
-                 "power-behind-ai.html"; used instead of a PDF
+                 "power-behind-ai.html"; used instead of a PDF. For an IHSG
+                 weekly data edition, use "ihsg-weekly.html?week=YYYY-MM-DD"
     tags         optional list of words the library search also looks at
     pages        optional, number of pages
     fileSize     optional, size of the PDF in bytes
@@ -111,7 +112,7 @@ window.LONGHAND_REPORTS = [
     "ticker": "",
     "company": "Rates, Currency, and Equities",
     "category": "Macro",
-    "title": "Dovish or Hawkish",
+    "title": "Dovish or Hawkish?",
     "date": "2026-09-24",
     "summary": "This report began as a question with no settled answer. For most of 2026 the Federal Reserve sat still while the rupiah fell to the weakest level ever recorded, which is the opposite of what the textbook spillover story predicts. On 16 September the Fed finally moved, and on 23 September Bank Indonesia gave its answer. That pair of decisions is the first clean test of the argument set out here, so this version is written around it.",
     "rating": null,
