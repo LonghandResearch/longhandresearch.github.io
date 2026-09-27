@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://longhandresearch.github.io/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Longhand Research" href="feed.xml">
 <script>
   (function () { var d=document.documentElement,t=null; d.classList.add('js'); try { t=localStorage.getItem('longhand-theme'); } catch(e) {} if(t!=='light'&&t!=='dark') t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'; d.setAttribute('data-theme',t); })();
   window.addEventListener('pagereveal',function(e){var d=document.documentElement,vt=e.viewTransition,a=window.navigation&&navigation.activation;delete d.dataset.nav;if(!vt)return;window.LONGHAND_VT=vt;if(a&&a.navigationType==='traverse'&&a.from&&a.entry&&a.entry.index<a.from.index)d.dataset.nav='back';var done=function(){delete d.dataset.nav;window.LONGHAND_VT=null;};vt.finished.then(done,done);});
