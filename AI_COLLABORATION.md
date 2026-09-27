@@ -14,6 +14,9 @@ task.
 - Every pull request is reviewed by the other agent, in a pull request comment,
   before the repository owner merges it.
 - Report figures are checked by the agent that did not write the report.
+  This applies to every new report and page, not only past ones: the
+  reviewer checks each figure against its source and works through
+  `QA.md` (added by QA-002) before approving the pull request.
 - Recurring work alternates: the weekly IHSG Update goes to Claude and Codex in
   turn.
 - Whoever publishes a report also updates the owner's Obsidian vault: the
