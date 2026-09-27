@@ -39,7 +39,7 @@ const items = reports.map((report) => {
   const date = String(report.date || '');
   const pubDate = publicationDate(date, id);
   const page = String(report.page || '').trim();
-  if (page && !/^[\w./-]+\.html$/.test(page)) throw new Error(`Invalid page for ${id}`);
+  if (page && !/^[\w./-]+\.html$/.test(page) && !/^ihsg-weekly\.html\?week=\d{4}-\d{2}-\d{2}$/.test(page)) throw new Error(`Invalid page for ${id}`);
   const link = new URL(page || `report.html?id=${encodeURIComponent(id)}`, base).href;
   const description = String(report.blurb || '').trim() || String(report.summary || '').trim();
   return { id, title: `${subject}: ${headline}`, headline, date, link, pubDate, description };
