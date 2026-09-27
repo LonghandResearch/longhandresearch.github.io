@@ -54,7 +54,7 @@ window.LONGHAND_REPORTS = [
     "upside": -39.7,
     "pdfUrl": "reports/INET_Initiation_Report.pdf",
     "pages": 24,
-    "fileSize": 471241,
+    "fileSize": 471328,
     "extra": [
       ["Market cap (Rp tn)", "6.49"],
       ["Shares out. (bn)", "22.37"],
