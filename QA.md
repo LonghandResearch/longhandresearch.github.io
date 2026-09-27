@@ -16,6 +16,13 @@ approval.
 - [ ] Units and currency are stated and consistent (Rp, US$, bn, tn, %).
 - [ ] No figure was changed or rounded differently from the report without a
       note in the pull request.
+- [ ] Every number typed into the page's prose (shares, sums, differences,
+      "third week in a row") is recomputed from the data file. The site check
+      does not see these.
+- [ ] A run of weeks or days is checked against each period's own source,
+      not only the "last week" column of the latest one.
+- [ ] The source list names the document and page each figure came from,
+      and the audit record in `audits/` says where it was read.
 
 ## Catalogue and discovery
 
