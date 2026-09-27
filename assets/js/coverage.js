@@ -18,14 +18,26 @@
   /* One entry per company: its reports newest first. Only company reports
      with a ticker and a rating count as coverage. */
   function companies(reports) {
+    const eligible = reports.filter((r) => r.ticker && r.rating && LH.COMPANY_CATEGORIES.includes(r.category));
+    const exchangeOf = (r) => String(r.exchange || '').trim().toUpperCase();
+    const knownExchanges = new Map();
+    eligible.forEach((r) => {
+      const exchange = exchangeOf(r);
+      if (!exchange) return;
+      if (!knownExchanges.has(r.ticker)) knownExchanges.set(r.ticker, new Set());
+      knownExchanges.get(r.ticker).add(exchange);
+    });
     const byTicker = new Map();
-    reports
-      .filter((r) => r.ticker && r.rating && LH.COMPANY_CATEGORIES.includes(r.category))
-      .forEach((r) => {
-        const key = [r.exchange, r.ticker].join(':');
-        if (!byTicker.has(key)) byTicker.set(key, []);
-        byTicker.get(key).push(r);
-      });
+    eligible.forEach((r) => {
+      let exchange = exchangeOf(r);
+      const known = knownExchanges.get(r.ticker);
+      // Attach an older call without an exchange only when its ticker has
+      // one unambiguous listed exchange. Never combine different exchanges.
+      if (!exchange && known?.size === 1) exchange = known.values().next().value;
+      const key = [exchange, r.ticker].join(':');
+      if (!byTicker.has(key)) byTicker.set(key, []);
+      byTicker.get(key).push(r);
+    });
     return Array.from(byTicker.values())
       .map((calls) => calls.slice().sort((a, b) => (b.date || '').localeCompare(a.date || '')))
       .sort((a, b) => (b[0].date || '').localeCompare(a[0].date || '') || a[0].ticker.localeCompare(b[0].ticker));
