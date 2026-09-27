@@ -30,13 +30,13 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | ID | Task | Owner | Branch | Status | Pull request |
 | --- | --- | --- | --- | --- | --- |
-| QA-001 | Audit every figure on the whole site against the report or source it comes from: front page numbers, Library, each report page and its key data, Coverage, the RSS feed and The Power Behind AI. Pages Codex wrote go to QA-002 instead. Fix errors on a separate branch | Codex | `codex/site-audit` | Backlog | |
-| QA-002 | Audit the pages Codex wrote (the IHSG Update) the same way, and add `QA.md`: the standing checklist every new report or page goes through before merge (figures against sources, catalogue entry, sitemap, feed, Coverage, Obsidian notes) | Claude | `claude/site-audit-checklist` | Backlog | |
+| QA-001 | Audit every figure the site shows against the report or source it comes from, and fix errors. One pull request per stage, each Done when merged: (1) catalogue entries, Library, report pages and key data; (2) Coverage and the RSS feed; (3) The Power Behind AI; (4) the front page numbers. Pages Codex wrote go to QA-002 instead | Codex | `codex/site-audit` | Backlog | |
+| QA-002 | Audit the pages Codex wrote (the IHSG Update) against IDX and BI sources and fix errors, then extend `QA.md` with anything the audits show is missing | Claude | `claude/site-audit-checklist` | Backlog | |
 | OPS-002 | Add a GitHub check on every pull request: `node --check` on all scripts, parse all JSON, load `reports/reports.js`, and confirm `sitemap.xml` and internal links match the catalogue | Claude | `claude/pr-checks` | Backlog | |
 | OPS-003 | Run auto publish from a fixed copy outside the working folder, so its version no longer depends on the branch checked out at login | Codex | `codex/auto-publish-stable` | Backlog | |
 | WEB-009 | Make the IHSG Update a reusable weekly template: one data file per week, so a new edition needs no new page code | Codex | `codex/ihsg-weekly-template` | Backlog | |
-| RPT-010 | Publish the IHSG Update for 28 September to 2 October 2026, after the 2 October close, on the WEB-009 template | Claude | `claude/ihsg-weekly-2026-10-02` | Backlog | |
-| WEB-008 | Audit accessibility and loading speed on every page (keyboard, contrast, screen readers, image sizes) and fix what is found | Codex | `codex/a11y-speed` | Backlog | |
+| RPT-010 | Publish the IHSG Update for 28 September to 2 October 2026 after the 2 October close: on the WEB-009 template if it is merged by then, otherwise on the current page pattern, moved to the template later | Claude | `claude/ihsg-weekly-2026-10-02` | Backlog | |
+| WEB-008 | Audit accessibility and loading speed (keyboard, contrast, screen readers, image sizes) and fix what is found. One pull request per stage, each Done when merged: (1) shared layout and the front page; (2) Library, Coverage and report pages; (3) The Power Behind AI, the IHSG Update and The Wire. Hold if a site redesign is in progress | Codex | `codex/a11y-speed` | Backlog | |
 | OBS-001 | Fill `Sumber/` in the Obsidian vault: one note per primary source (IDX statistics, BI JISDOR, annual reports), linked from each Report and Emiten note | Claude | Vault, no branch | Backlog | |
 | OWN-001 | Write the author bio and contact details for the About page | Owner | | Blocked | |
 | OWN-002 | Create the GoatCounter account so the counter already in the pages starts counting | Owner | | Blocked | |
