@@ -9,9 +9,12 @@
 # that branch, its files or its index: the commit is built in a scratch index
 # with git's own plumbing and pushed straight to main.
 
+param([string]$SitePath)
+
 $ErrorActionPreference = 'Continue'
-$site = $PSScriptRoot
-Set-Location $site
+$site = if ($SitePath) { (Resolve-Path -LiteralPath $SitePath -ErrorAction Stop).Path } else { $PSScriptRoot }
+if (-not (Test-Path -LiteralPath (Join-Path $site 'reports') -PathType Container)) { throw "Reports folder not found in $site" }
+Set-Location -LiteralPath $site
 
 # One copy at a time
 $mutex = New-Object System.Threading.Mutex($false, 'Local\LonghandAutoPublish')

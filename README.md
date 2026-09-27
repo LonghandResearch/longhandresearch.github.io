@@ -55,6 +55,7 @@ uncommitted branch.
 | `.github/workflows/wire.yml` | Runs the gathering on GitHub every hour |
 | `scripts/build-feed.mjs` | Builds `feed.xml` from the report catalogue |
 | `scripts/check-site.mjs` | Checks the site before a merge (see [Checks](#checks)) |
+| `scripts/auto-publish-control.ps1` | Installs or stops the stable Windows background publisher |
 | `.github/workflows/checks.yml` | Runs those checks on every pull request |
 | `.github/workflows/reports-feed.yml` | Refreshes the feed when the catalogue changes on `main` |
 
@@ -108,7 +109,7 @@ Every delete asks first.
 
 ## Auto publish
 
-`auto-publish.ps1` sends published and deleted reports to GitHub by itself. `install-auto-publish.bat` turns it on: it starts at once and again at every login, from the Windows Startup folder. `stop-auto-publish.bat` turns it off. It runs hidden and keeps a log in `%LOCALAPPDATA%\LonghandAutoPublish.log`.
+`auto-publish.ps1` sends published and deleted reports to GitHub by itself. `install-auto-publish.bat` turns it on: it copies the script to `%LOCALAPPDATA%\LonghandResearch\AutoPublish\auto-publish.ps1`, starts that fixed copy, and makes the Windows Startup shortcut run that copy at every login. The shortcut passes the site folder as an argument, so the script version does not change when this folder switches branches. `stop-auto-publish.bat` stops this site's publisher and removes the shortcut, but keeps the installed copy for recovery. It runs hidden and keeps a log in `%LOCALAPPDATA%\LonghandAutoPublish.log`.
 
 It watches `reports` and `sitemap.xml` only. Once they have stopped changing for 10 seconds, the changes go to `main` on GitHub and a notice says the website updates in about a minute. Everything else still goes with `publish.bat` or a pull request.
 
@@ -120,7 +121,7 @@ It watches `reports` and `sitemap.xml` only. Once they have stopped changing for
 
 On another branch, a delete that takes `reports` and `sitemap.xml` back to exactly what the branch has (publishing one report and deleting it again, for example) looks just like tidying up with git, so it is not sent and that report stays online. Delete it again once the folder is back on `main`.
 
-Auto publish runs the copy of `auto-publish.ps1` that was in the folder when it started. After changing the script, restart it: run `stop-auto-publish.bat`, then `install-auto-publish.bat`.
+After an update to `auto-publish.ps1` is merged, run `install-auto-publish.bat` again from the site folder to refresh the fixed copy and restart it. Merely switching branches or logging in does not update the installed script. To disable it, run `stop-auto-publish.bat`.
 
 ## Author mode
 

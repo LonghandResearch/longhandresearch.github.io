@@ -1,7 +1,6 @@
 @echo off
-rem Stops auto publish and keeps it from starting at login.
-rem To turn it back on, ask for it or run install-auto-publish.bat.
-powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='powershell.exe'\" | Where-Object { $_.CommandLine -like '*auto-publish.ps1*' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }"
-del "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\Longhand auto publish.lnk" 2>nul
-echo Auto publish is off. Use publish.bat to send changes by hand.
+rem Stops this site's publisher and removes its login shortcut.
+cd /d "%~dp0"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\auto-publish-control.ps1" -Action Stop -SitePath "%~dp0"
+if errorlevel 1 echo Auto publish could not be stopped. Read the error above.
 pause
