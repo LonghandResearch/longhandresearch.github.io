@@ -37,7 +37,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | WEB-009 | Make the IHSG Update a reusable weekly template: one data file per week, so a new edition needs no new page code | Codex | `codex/ihsg-weekly-template` | Backlog | |
 | RPT-010 | Publish the IHSG Update for 28 September to 2 October 2026 after the 2 October close: on the WEB-009 template if it is merged by then, otherwise on the current page pattern, moved to the template later | Claude | `claude/ihsg-weekly-2026-10-02` | Backlog | |
 | WEB-008 | Audit accessibility and loading speed (keyboard, contrast, screen readers, image sizes) and fix what is found. One pull request per stage, each Done when merged: (1) shared layout and the front page; (2) Library, Coverage and report pages; (3) The Power Behind AI, the IHSG Update and The Wire. Hold if a site redesign is in progress | Codex | `codex/a11y-speed` | Backlog | |
-| OBS-001 | Fill `Sumber/` in the Obsidian vault: one note per primary source (IDX statistics, BI JISDOR, annual reports), linked from each Report and Emiten note | Claude | Vault, no branch | Backlog | |
+| OBS-001 | Fill `Sumber/` in the Obsidian vault: one note per primary source (IDX statistics, BI JISDOR, annual reports), linked from each Report and Emiten note | Claude | Vault, no branch | Done | |
 | OWN-001 | Write the author bio and contact details for the About page | Owner | | Blocked | |
 | OWN-002 | Create the GoatCounter account so the counter already in the pages starts counting | Owner | | Blocked | |
 
