@@ -21,7 +21,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | RPT-009 | Publish the INET initiation (SELL, target Rp175) | Claude | `claude/inet-initiation` | Done | [PR #35](https://github.com/LonghandResearch/longhandresearch.github.io/pull/35) |
 | WEB-005 | Add a Coverage page: every rated company, its current call and its call history | Claude | `claude/coverage-page` | Done | [PR #37](https://github.com/LonghandResearch/longhandresearch.github.io/pull/37) |
 | WEB-006 | Add an RSS feed of published reports, kept in step with `reports/reports.js` | Codex | `codex/reports-feed` | Done | [PR #38](https://github.com/LonghandResearch/longhandresearch.github.io/pull/38) |
-| WEB-007 | Keep Coverage calls together when exchange is missing or case-varied | Codex | `codex/coverage-grouping` | Review | [PR #39](https://github.com/LonghandResearch/longhandresearch.github.io/pull/39) |
+| WEB-007 | Keep Coverage calls together when exchange is missing or case-varied | Codex | `codex/coverage-grouping` | Done | [PR #39](https://github.com/LonghandResearch/longhandresearch.github.io/pull/39) |
 
 ## Next tasks, split evenly
 
@@ -34,8 +34,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | QA-002 | Check every figure in the IHSG Update of 25 September against IDX and BI sources; fix errors on a separate branch | Claude | `claude/audit-ihsg-weekly` | Backlog | |
 | OPS-002 | Add a GitHub check on every pull request: `node --check` on all scripts, parse all JSON, load `reports/reports.js`, and confirm `sitemap.xml` and internal links match the catalogue | Claude | `claude/pr-checks` | Backlog | |
 | OPS-003 | Run auto publish from a fixed copy outside the working folder, so its version no longer depends on the branch checked out at login | Codex | `codex/auto-publish-stable` | Backlog | |
-| WEB-007 | Make the IHSG Update a reusable weekly template: one data file per week, so a new edition needs no new page code | Codex | `codex/ihsg-weekly-template` | Backlog | |
-| RPT-010 | Publish the IHSG Update for 28 September to 2 October 2026, after the 2 October close, on the WEB-007 template | Claude | `claude/ihsg-weekly-2026-10-02` | Backlog | |
+| WEB-009 | Make the IHSG Update a reusable weekly template: one data file per week, so a new edition needs no new page code | Codex | `codex/ihsg-weekly-template` | Backlog | |
+| RPT-010 | Publish the IHSG Update for 28 September to 2 October 2026, after the 2 October close, on the WEB-009 template | Claude | `claude/ihsg-weekly-2026-10-02` | Backlog | |
 | WEB-008 | Audit accessibility and loading speed on every page (keyboard, contrast, screen readers, image sizes) and fix what is found | Codex | `codex/a11y-speed` | Backlog | |
 | OBS-001 | Fill `Sumber/` in the Obsidian vault: one note per primary source (IDX statistics, BI JISDOR, annual reports), linked from each Report and Emiten note | Claude | Vault, no branch | Backlog | |
 | OWN-001 | Write the author bio and contact details for the About page | Owner | | Blocked | |
