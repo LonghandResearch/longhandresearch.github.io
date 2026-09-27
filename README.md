@@ -17,6 +17,7 @@ uncommitted branch.
 | --- | --- |
 | `index.html` | The front page: a single screen with the Earth and the catalogue in numbers |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
+| `coverage.html` | Every rated company: its current call and the calls before it, built from the catalogue |
 | `about.html` | How the reports are built, the rating key and the report types |
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
@@ -33,6 +34,7 @@ uncommitted branch.
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
 | `assets/js/home.js` | Front page: the opening screen, stars and the catalogue in numbers |
 | `assets/js/library.js` | Library page: the list, filters and search |
+| `assets/js/coverage.js` | Coverage page: groups rated Initiation and Update reports by ticker |
 | `assets/js/reader.js` | Report page: the PDF reader |
 | `assets/js/earth.js` | The Earth on the front page (three.js) |
 | `assets/img/earth/` | NASA imagery for the Earth: day, city lights, clouds and a water mask |
