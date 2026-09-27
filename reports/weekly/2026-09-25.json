@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "weekEnding": "2026-09-25",
+  "published": "2026-09-26",
+  "reviewed": "2026-09-26",
+  "period": "21-25 September 2026",
+  "title": "Foreign Selling Persisted. The Rebound Failed.",
+  "deck": "Primary IDX data show five selling days and a narrow path to recovery.",
+  "description": "IHSG Weekly Market Update, 21-25 September 2026: IDX foreign flows, weekly sectors, index movers and BI JISDOR with transparent calculations.",
+  "stats": [
+    { "label": "IHSG close", "value": "6,241.89", "note": "-3.09% week on week" },
+    { "label": "Foreign net flow, week", "value": "-Rp3.16tn", "note": "Five selling days; all stock venues combined" },
+    { "label": "JISDOR USD/IDR", "value": "17,917", "note": "+0.97% vs 18 Sep; weaker rupiah" },
+    { "label": "Average daily value", "value": "Rp11.98tn", "note": "-21.32% week on week" }
+  ],
+  "sources": {
+    "weekly": { "label": "IDX Weekly Statistics, 25 September 2026", "url": "https://www.idx.id/en/market-data/statistical-reports/statistics", "note": "Select the dated weekly report. Sector indices are on page 7; index movers on page 5." },
+    "daily": { "label": "IDX Daily Statistics, 18 and 21-25 September 2026", "url": "https://www.idx.id/en/market-data/statistical-reports/statistics", "note": "Select the dated daily reports for closing levels and foreign net purchases." },
+    "jisdor": { "label": "Bank Indonesia JISDOR, 18-25 September 2026", "url": "https://www.bi.go.id/en/statistik/informasi-kurs/jisdor/Default.aspx", "note": "Daily reference rates; not synchronised with the equity closing auction." }
+  },
+  "observations": {
+    "closes": [
+      { "date": "2026-09-18", "label": "18 Sep", "close": 6441.159 },
+      { "date": "2026-09-21", "label": "Mon 21", "close": 6384.726 },
+      { "date": "2026-09-22", "label": "Tue 22", "close": 6277.044 },
+      { "date": "2026-09-23", "label": "Wed 23", "close": 6374.912 },
+      { "date": "2026-09-24", "label": "Thu 24", "close": 6298.607 },
+      { "date": "2026-09-25", "label": "Fri 25", "close": 6241.892 }
+    ],
+    "foreignFlow": [
+      { "date": "2026-09-21", "label": "Mon 21", "netBn": -510.06 },
+      { "date": "2026-09-22", "label": "Tue 22", "netBn": -131.71 },
+      { "date": "2026-09-23", "label": "Wed 23", "netBn": -460.78 },
+      { "date": "2026-09-24", "label": "Thu 24", "netBn": -1493.37 },
+      { "date": "2026-09-25", "label": "Fri 25", "netBn": -559.16 }
+    ],
+    "sectors": [
+      { "name": "Consumer cyclicals", "weekly": 0.02 },
+      { "name": "Healthcare", "weekly": -2.37 },
+      { "name": "Financials", "weekly": -2.41 },
+      { "name": "Transport & logistics", "weekly": -2.47 },
+      { "name": "Basic materials", "weekly": -2.59 },
+      { "name": "Energy", "weekly": -2.94 },
+      { "name": "Property", "weekly": -2.95 },
+      { "name": "Consumer non-cyclicals", "weekly": -3.50 },
+      { "name": "Technology", "weekly": -3.96 },
+      { "name": "Infrastructure", "weekly": -4.10 },
+      { "name": "Industrials", "weekly": -5.48 }
+    ],
+    "stocks": [
+      { "ticker": "BYAN", "points": -28.09 },
+      { "ticker": "BBRI", "points": -23.33 },
+      { "ticker": "BMRI", "points": -14.68 }
+    ],
+    "jisdor": [
+      { "date": "2026-09-18", "rate": 17745 },
+      { "date": "2026-09-21", "rate": 17813 },
+      { "date": "2026-09-22", "rate": 17883 },
+      { "date": "2026-09-23", "rate": 17803 },
+      { "date": "2026-09-24", "rate": 17898 },
+      { "date": "2026-09-25", "rate": 17917 }
+    ]
+  },
+  "sections": [
+    {
+      "id": "thesis", "nav": "Executive thesis", "title": "A rebound without follow-through",
+      "blocks": [
+        { "type": "paragraph", "lede": true, "text": "The IHSG fell 3.09% while IDX statistics recorded Rp3.16tn of foreign net selling across all five sessions. Thursday alone contributed Rp1.49tn of that total. Wednesday's 97.868-point rebound was followed by a 133.020-point decline through Friday. The price recovery lacked flow confirmation.", "sources": ["weekly", "daily"] },
+        { "type": "closes", "label": "01 / THE PRICE PATH", "title": "Back below Tuesday's close", "sources": ["daily"] }
+      ]
+    },
+    {
+      "id": "currency", "nav": "Currency & flows", "title": "The currency sets the hurdle",
+      "blocks": [
+        { "type": "paragraph", "text": "JISDOR rose 0.97% between the two Fridays, increasing the currency hurdle for an unhedged dollar investor. The reference-rate timing differs from the equity close, so this is an indicative comparison rather than an executable return.", "sources": ["jisdor"] },
+        { "type": "fxLab", "title": "The dollar investor's extra loss", "sources": ["daily", "jisdor"] },
+        { "type": "flows", "label": "02 / FOREIGN FLOW", "title": "Foreign selling persisted across all five sessions", "note": "Daily net foreign stock purchases, Rp bn. The weekly figure combines stock-trading venues.", "sources": ["daily", "weekly"] }
+      ]
+    },
+    {
+      "id": "sectors", "nav": "Sector rotation", "title": "Ten sectors declined for the week",
+      "blocks": [
+        { "type": "paragraph", "text": "Only consumer cyclicals finished positive, by 0.02%. Industrials fell 5.48%, infrastructure 4.10% and technology 3.96%. Price performance establishes where risk was borne; it does not identify foreign accumulation.", "sources": ["weekly"] },
+        { "type": "sectors", "label": "03 / WEEKLY SECTOR RETURNS", "title": "The full-week ranking", "note": "These are sector-index price returns, not contributions to IHSG points.", "sources": ["weekly"] }
+      ]
+    },
+    {
+      "id": "stocks", "nav": "Stock contributions", "title": "Three names drove a third of the index loss",
+      "blocks": [
+        { "type": "paragraph", "text": "IDX's index-mover table attributes 66.10 negative IHSG points to BYAN, BBRI and BMRI combined, against the index's net 199.267-point fall. This is roughly one-third of the net decline before gains elsewhere offset losses.", "sources": ["weekly"] },
+        { "type": "stocks", "label": "04 / INDEX CONTRIBUTION", "title": "Concentrated negative points", "sources": ["weekly"] }
+      ]
+    },
+    {
+      "id": "outlook", "nav": "Tactical outlook", "title": "Make the recovery earn its credibility",
+      "blocks": [
+        { "type": "callout", "label": "Tactical stance", "text": "Defensive tilt; conditional, staged accumulation. Add risk only as price recovery gains sector participation and daily foreign selling eases. For unhedged dollar investors, test the FX hurdle against an executable rate before acting." },
+        { "type": "paragraph", "text": "Monitoring references and scenarios are not statistically validated support or resistance and carry no assigned probabilities." }
+      ]
+    }
+  ],
+  "method": "Returns are price returns. Rp bn means billion rupiah; Rp tn means trillion rupiah. IDX classifies foreign investors by the domicile entered into its trading system, not necessarily ultimate beneficial ownership. The JISDOR-based USD return excludes dividends, fees, taxes, hedging and tracking costs."
+}

@@ -28,7 +28,8 @@
     upside       % to target; worked out from price and target if left out
     pdfUrl       path to the PDF, for example "reports/My_Report.pdf"
     page         optional: an interactive report that is its own page, for example
-                 "power-behind-ai.html"; used instead of a PDF
+                 "power-behind-ai.html"; used instead of a PDF. For an IHSG
+                 weekly data edition, use "ihsg-weekly.html?week=YYYY-MM-DD"
     tags         optional list of words the library search also looks at
     pages        optional, number of pages
     fileSize     optional, size of the PDF in bytes
