@@ -17,6 +17,7 @@
     requireField(data && data.schemaVersion === 1, 'Unsupported weekly data version.');
     requireField(data.weekEnding === week && date(data.weekEnding), 'The report week does not match its data file.');
     requireField(date(data.published) && typeof data.period === 'string' && typeof data.title === 'string' && typeof data.deck === 'string', 'Report metadata is incomplete.');
+    requireField(!data.canonical || (/^[\w./-]+\.html$/.test(data.canonical) && !data.canonical.split('/').includes('..')), 'The canonical report address is invalid.');
     requireField(Array.isArray(data.stats) && data.stats.length === 4 && data.stats.every(s => s.label && s.value && s.note), 'Four summary statistics are required.');
     requireField(data.sources && typeof data.sources === 'object' && Object.values(data.sources).every(s => s.label && /^https:\/\//.test(s.url)), 'Source links are incomplete.');
     requireField(Array.isArray(data.sections) && data.sections.length > 0, 'Report sections are missing.');
@@ -108,6 +109,15 @@
     document.title = `${data.title} · IHSG Weekly Market Update · Longhand Research`;
     document.querySelector('meta[name="description"]').content = data.description || data.deck;
     document.querySelector('meta[property="og:title"]').content = `${data.title} · IHSG Weekly Market Update`;
+    if (data.canonical) {
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.append(canonical);
+      }
+      canonical.href = new URL(data.canonical, location.href).href;
+    }
     document.querySelectorAll('#weekly-fx-lab').forEach(lab => {
       const math = window.IHSGWeeklyMath;
       const equity = lab.querySelector('#weekly-equity');
