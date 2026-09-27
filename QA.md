@@ -19,10 +19,10 @@ approval.
 
 ## Catalogue and discovery
 
-- [ ] `reports/reports.js` loads (`node --check`) and the entry has a unique
-      `id`, the right `category`, `rating`, `date` and file path.
+- [ ] The "Check the site" check on the pull request passes (it covers the
+      catalogue loading, ids, dates, file paths, sitemap and links).
+- [ ] The entry has the right `category`, `rating` and `date` for the report.
 - [ ] The report file or page exists at that path and opens.
-- [ ] `sitemap.xml` has the report's page.
 - [ ] `feed.xml` will pick it up (run `node scripts/build-feed.mjs` if in doubt).
 - [ ] A rated company report shows correctly on `coverage.html`.
 

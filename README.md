@@ -54,6 +54,8 @@ uncommitted branch.
 | `scripts/fetch-news.mjs` | Reads the sources and writes `news/news.json` |
 | `.github/workflows/wire.yml` | Runs the gathering on GitHub every hour |
 | `scripts/build-feed.mjs` | Builds `feed.xml` from the report catalogue |
+| `scripts/check-site.mjs` | Checks the site before a merge (see [Checks](#checks)) |
+| `.github/workflows/checks.yml` | Runs those checks on every pull request |
 | `.github/workflows/reports-feed.yml` | Refreshes the feed when the catalogue changes on `main` |
 
 ## Publish a new report
@@ -79,6 +81,17 @@ Catalogue numbers (No. 001, No. 002 and so on) are given in order of publication
 ## Follow new reports
 
 Subscribe to [the RSS feed](feed.xml) in any feed reader. It lists every published report, newest first. When `reports/reports.js` changes on `main`, GitHub Actions rebuilds and commits `feed.xml`, then requests a GitHub Pages build. To refresh it by hand, run `node scripts/build-feed.mjs`.
+
+## Checks
+
+Every pull request is checked on GitHub by `scripts/check-site.mjs`, and so is every push to `main` apart from the hourly wire and the feed rebuild. The check fails, with a note naming the file, when:
+
+- a script does not parse, or a JSON file is not valid;
+- `reports/reports.js` does not load, or an entry has no id, a repeated id, an invalid date, category or rating, or a file or page that does not exist;
+- `sitemap.xml` is missing a report, or lists one that is not in the catalogue;
+- a link or file named in a page leads nowhere, or to a report id that does not exist.
+
+Paths are matched letter for letter, because GitHub Pages treats `Report.pdf` and `report.pdf` as different files even though Windows does not. Run it on your own computer with `node scripts/check-site.mjs`. It checks the structure only; figures are checked by the other agent against `QA.md`.
 
 ## Interactive reports
 

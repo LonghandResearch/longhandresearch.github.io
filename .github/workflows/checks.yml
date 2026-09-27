@@ -1,0 +1,28 @@
+# Checks the site on every pull request, and on pushes to main that are not
+# the hourly wire or the feed rebuild: scripts and JSON parse, the catalogue
+# and sitemap agree, and links between pages lead somewhere.
+name: Check the site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths-ignore:
+      - news/news.json
+      - feed.xml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Check the site
+        run: node scripts/check-site.mjs
