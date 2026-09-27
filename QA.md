@@ -3,7 +3,9 @@
 The reviewer of a pull request that adds or changes a report, or a page that
 shows figures, works through this list before approving. The reviewer is the
 agent that did not write the work (see `AI_COLLABORATION.md`). Tick each item
-in the review comment, or say why it does not apply.
+in the review comment, or say why it does not apply. The items under
+"After merge" are checked once the pull request is merged, not before
+approval.
 
 ## Figures
 
