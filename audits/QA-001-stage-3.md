@@ -16,6 +16,6 @@ This stage is **not complete** and should not be merged as a finished figure aud
 
 ## Still required before review
 
-- Check the remaining project milestones and capacities against each cited announcement, including the status of announced projects whose developer release gives a target rather than an opening.
+- Check the remaining project milestones and capacities against each cited announcement, including the status of announced projects whose developer release gives a target rather than an opening. The DayOne entry is deliberately listed as announced with no operating MW: its source supports a 72 MW campus and a readiness window, not 72 MW commissioned capacity.
 - Obtain the company annual and interim filings behind the ten company panels. Many registry entries link to a generic IDX filing index, not to a specific document, so their five-year financial series and valuation multiples are not yet independently verified.
 - Check all remaining derived chart, table, DCF and Monte Carlo outputs, source links and the page at desktop and phone widths. Run the full QA checklist before marking this stage Review.
