@@ -1,0 +1,48 @@
+# Keep the public feed in step with published report entries.
+name: Update reports feed
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - reports/reports.js
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: reports-feed-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Build and publish the feed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898499+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch -q origin main
+            git switch -q -c "feed-attempt-${attempt}" FETCH_HEAD
+            node scripts/build-feed.mjs
+            if git diff --quiet -- feed.xml; then exit 0; fi
+            git add feed.xml
+            git commit -q -m "Update reports feed"
+            if git push -q origin HEAD:main; then
+              # A GITHUB_TOKEN push does not trigger a branch-source Pages build.
+              gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
