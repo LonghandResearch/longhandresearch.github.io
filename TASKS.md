@@ -21,7 +21,7 @@ quick handoff board for Codex, Claude, and the repository owner.
 | RPT-009 | Publish the INET initiation (SELL, target Rp175) | Claude | `claude/inet-initiation` | Done | [PR #35](https://github.com/LonghandResearch/longhandresearch.github.io/pull/35) |
 | WEB-005 | Add a Coverage page: every rated company, its current call and its call history | Claude | `claude/coverage-page` | Done | [PR #37](https://github.com/LonghandResearch/longhandresearch.github.io/pull/37) |
 | WEB-006 | Add an RSS feed of published reports, kept in step with `reports/reports.js` | Codex | `codex/reports-feed` | Backlog | |
-| WEB-007 | Keep Coverage calls together when exchange is missing or case-varied | Codex | `codex/coverage-grouping` | In progress | |
+| WEB-007 | Keep Coverage calls together when exchange is missing or case-varied | Codex | `codex/coverage-grouping` | Review | [PR #39](https://github.com/LonghandResearch/longhandresearch.github.io/pull/39) |
 
 ## Status values
 
