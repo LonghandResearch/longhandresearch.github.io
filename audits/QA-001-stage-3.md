@@ -17,6 +17,17 @@ This log records the source, calculation and browser checks completed on 27–28
 | DCF inputs | Independent JavaScript check of the three DCF companies × bear/mid/bull cases | Every one of the nine checked DCF cases has finite core inputs and WACC above terminal growth. This checks the model’s safety condition, not the reasonableness of reader-chosen assumptions. |
 | Page behaviour | Local browser preview at desktop and 390 × 844 mobile viewport | The project map and timeline display DayOne as **Announced · 2025 onwards (RFS)** without an MW value. The mobile page has no document-level horizontal overflow; the desktop preview has no console errors. |
 
+## Local owner-filings check (28 September 2026)
+
+I read the filing set at `C:\Users\user\OneDrive\Documents\The power behind AI` as read-only. Its `_INDEX.md` decodes the opaque DCII, EXCL and PTBA filenames. The check covered the FY2021-FY2025 arrays for DCII, TLKM, ISAT, EXCL, MTEL, DMAS, KIJA, PGEO, PTBA and DSSA in `assets/js/pbai/data.js`.
+
+| Scope | Result |
+| --- | --- |
+| Reported revenue, EBITDA where reported, profit attributable to owners, equity, capex and operating cash flow | Compared to the local annual-report/financial-statement set in each ticker folder, allowing for the site's stated units (IDR bn or USD m) and later restatements. No additional discrepancy was demonstrated by this filing check. Fields that the companies do not report, such as EBITDA for DMAS, KIJA and DSSA, remain `null` rather than being inferred. |
+| Net debt | Not a reported line item. Each site value is a calculation from filed cash, borrowings, bonds/sukuk and lease liabilities, as described in the company notes. It cannot be checked as one verbatim filing figure; the underlying balance-sheet inputs are in the local filings. |
+| EXCL FY2023 | The standalone FY2023 annual report is absent from the owner folder. The FY2025 XLSMART annual report provides FY2023 **restated** comparatives for revenue (Rp32,341bn), EBITDA (Rp15,885bn), profit attributable to owners (Rp1,257bn), total equity (Rp26,470bn) and operating cash flow (Rp16,096bn), which match `data.js`. The original, pre-restatement FY2023 report therefore could not be checked. The FY2023 capex and derived net-debt figures are not separately stated in that comparative summary. |
+| EXCL FY2025 revenue definition | **Review item; no data change in this follow-up.** `data.js` uses Rp42,485bn, matching the annual report's management financial summary labelled *Pendapatan Bruto* (PDF page 62). The audited revenue note reports total revenue of Rp42,445.960bn (PDF page 413). The Rp39.040bn difference is a measurement/definition difference that the PR reviewer should resolve before treating the series as a single audited-revenue measure. |
+
 ## Audit scope and review focus
 
 - The registry identifies the underlying annual/interim reports used for the five-year company series. Some IDX links are archive-index links rather than stable document URLs; reviewers should retain the report’s existing caveat that media figures and primary filings need checking before reliance.
