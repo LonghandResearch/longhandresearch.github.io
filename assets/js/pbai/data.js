@@ -235,7 +235,7 @@
       capex: [10424.6, 9496.9, 9303.6], cfo: [16096, 17834, 17501], netDebt: [44952, 44701.5, 60161],
       equity: [26470, 26222, 30009],
       derived: {},
-      notes: ['FY2021 to FY2024 are XL Axiata before the merger; FY2025 is XLSMART after it (from 16 April 2025), so the series breaks. FY2023 is restated.', 'FY2025 net income is the reported loss attributable to owners. Net debt includes Rp39.2 trillion of lease liabilities.', 'The share count is shares issued at 31 December 2025; shares bought back in 2026 are not deducted. Capex is fixed-asset purchases in the cash flow statement; from FY2024 the statement combines them with intangible assets.'],
+      notes: ['FY2021 to FY2024 are XL Axiata before the merger; FY2025 is XLSMART after it (from 16 April 2025), so the series breaks. FY2023 is restated.', 'Revenue is gross revenue (Pendapatan Bruto) from the financial summary of the FY2025 annual report, used for all three years so the revenue measure is the same; the series still breaks at the FY2025 merger. Audited total revenue for FY2025 is Rp42,446 billion, 0.09% lower.', 'FY2025 net income is the reported loss attributable to owners. Net debt includes Rp39.2 trillion of lease liabilities.', 'The share count is shares issued at 31 December 2025; shares bought back in 2026 are not deducted. Capex is fixed-asset purchases in the cash flow statement; from FY2024 the statement combines them with intangible assets.'],
       yearSources: ['excl-ar25', 'excl-ar25', 'excl-ar25'],
       shares: 18199862451, sharesSource: 'excl-1h26',
       sharesHistory: { FY2025: 18199862451 },
