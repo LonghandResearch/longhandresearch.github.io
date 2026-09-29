@@ -1,0 +1,139 @@
+/* The two catalogue pages share a more deliberate editorial rhythm. */
+.page-library .page-head,
+.page-coverage .page-head {
+  position: relative;
+  grid-template-columns: clamp(70px, 8vw, 112px) minmax(0, 1fr);
+  gap: 0 clamp(22px, 3vw, 42px);
+  margin-top: clamp(18px, 3vw, 38px);
+  padding-block: clamp(38px, 6vw, 76px) clamp(42px, 5vw, 68px);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--rule-2);
+  background: radial-gradient(circle at 92% 20%, var(--tint) 0, transparent 48%);
+}
+
+.page-library .page-emblem,
+.page-coverage .page-emblem {
+  width: clamp(62px, 7vw, 86px);
+  margin-top: 11px;
+}
+
+.page-library .page-title,
+.page-coverage .page-title {
+  max-width: 15ch;
+  font-size: clamp(46px, 6.2vw, 82px);
+  line-height: 0.98;
+}
+
+.page-library .page-lede,
+.page-coverage .page-lede {
+  max-width: 49ch;
+  margin-top: clamp(22px, 2.7vw, 34px);
+  font-size: clamp(19px, 1.65vw, 23px);
+  line-height: 1.5;
+}
+
+.catalogue-route {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 44px;
+  margin-top: 20px;
+  padding: 0 0 3px;
+  border-bottom: 1px solid var(--gold);
+  color: var(--ink);
+  font: 500 13px/1.3 var(--font-sans);
+  text-decoration: none;
+}
+.catalogue-route span { color: var(--gold-ink); font-size: 20px; line-height: 1; transition: transform 0.2s var(--ease); }
+.catalogue-route:hover span { transform: translate(3px, -3px); }
+
+.page-library .page-folio,
+.page-coverage .page-folio {
+  max-width: 60ch;
+  margin-top: 28px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule-2);
+  line-height: 1.8;
+}
+
+.page-library .section:first-of-type,
+.page-coverage .section:first-of-type { padding-top: clamp(40px, 5vw, 68px); }
+
+.page-library .section-head,
+.page-coverage .section-head { margin-bottom: 24px; }
+
+.page-library .index-tools {
+  align-items: center;
+  gap: 16px 24px;
+  margin: 0 0 22px;
+  padding: 16px;
+  border: 1px solid var(--rule);
+  background: var(--tint);
+}
+.page-library .filters { gap: 8px; }
+.page-library .filter {
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid var(--rule-2);
+  color: var(--ink-2);
+  background: var(--bg);
+  font-size: 13px;
+}
+.page-library .filter:hover { border-color: var(--ink); color: var(--ink); }
+.page-library .filter[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.page-library .filter[aria-pressed="true"] .filter-n { color: var(--bg); }
+.page-library .search {
+  width: min(100%, 330px);
+  padding: 0 11px;
+  border: 1px solid var(--rule-2);
+  background: var(--bg);
+}
+.page-library .search:focus-within { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+
+.page-library .report,
+.page-coverage .report {
+  margin-inline: -16px;
+  padding-inline: 16px;
+  transition: background-color 0.2s var(--ease);
+}
+.page-library .report:hover,
+.page-library .report:focus-within,
+.page-coverage .report:hover,
+.page-coverage .report:focus-within { background-color: var(--tint); }
+.page-library .report::before,
+.page-coverage .report::before { left: 0; }
+
+.page-library .report-call,
+.page-coverage .report-call {
+  padding-left: clamp(14px, 2vw, 26px);
+  border-left: 1px solid var(--rule);
+}
+.page-coverage .call .rating,
+.page-library .call .rating {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 1px solid var(--rule-2);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+.page-coverage .cover-history { margin-top: 24px; }
+.page-coverage .cover-history li { padding-block: 7px; }
+
+@media (max-width: 760px) {
+  .page-library .page-head,
+  .page-coverage .page-head { grid-template-columns: minmax(0, 1fr); }
+  .page-library .page-emblem,
+  .page-coverage .page-emblem { margin: 0 0 24px; }
+  .page-library .page-title,
+  .page-coverage .page-title { font-size: clamp(42px, 9vw, 68px); }
+  .page-library .index-tools { align-items: stretch; padding: 12px; }
+  .page-library .search { width: 100%; }
+  .page-library .report,
+  .page-coverage .report { margin-inline: -12px; padding-inline: 12px; }
+  .page-library .report-call,
+  .page-coverage .report-call {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
