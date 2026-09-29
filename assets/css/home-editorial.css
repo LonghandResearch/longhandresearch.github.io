@@ -83,7 +83,7 @@
 @media (max-width: 1000px) {
   .page-home .night-grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "copy" "latest" "globe";
+    grid-template-areas: "copy" "globe" "latest";
     justify-items: center;
     gap: clamp(28px, 5vh, 48px);
     padding-block: clamp(42px, 6vh, 68px) 42px;
@@ -103,6 +103,6 @@
   .page-home .hero.night .hero-title { font-size: clamp(39px, 10vw, 52px); line-height: 1.06; }
   .page-home .hero.night .hero-lede { font-size: 17px; line-height: 1.52; }
   .page-home .hero.night .hero-actions { margin-top: 24px; }
-  .home-latest { margin-top: 30px; }
+  .home-latest { margin-top: 0; }
   .page-home .plate-stage { max-width: min(100%, 390px); }
 }
