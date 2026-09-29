@@ -1,6 +1,188 @@
 {
- "updated": "2026-09-29T15:56:20.127Z",
+ "updated": "2026-09-29T20:51:41.350Z",
  "items": [
+  {
+   "title": "Prediction market traders think the U.S. added more jobs in September than economists estimate",
+   "url": "https://www.cnbc.com/2026/09/29/prediction-market-traders-september-jobs-report-will-beat-estimates.html",
+   "source": "CNBC",
+   "topic": "Markets",
+   "time": "2026-09-29T20:33:08.000Z"
+  },
+  {
+   "title": "California and the EU Move to Rein In the Environmental Cost of AI",
+   "url": "https://oilprice.com/Energy/Energy-General/California-and-the-EU-Move-to-Rein-In-the-Environmental-Cost-of-AI.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-29T20:00:00.000Z"
+  },
+  {
+   "title": "Crypto regulation at SEC, CFTC to come down to 3 commissioners following key resignation",
+   "url": "https://cointelegraph.com/news/us-sec-cftc-crypto-regulation-few-commissioners?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-29T19:59:43.000Z"
+  },
+  {
+   "title": "OpenAI valuation could hit $1.4T in new funding round: Report",
+   "url": "https://cointelegraph.com/news/openai-30-billion-funding-round-1-4-trillion-valuation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-29T19:55:49.000Z"
+  },
+  {
+   "title": "Oil slips as Middle East flows improve, U.S. to release more crude from reserves",
+   "url": "https://www.investing.com/news/commodities-news/oil-extends-gains-as-usiran-stalemate-overshadows-saudi-flows-4921487",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:51:23.000Z"
+  },
+  {
+   "title": "Kakaopay partners with Dinari, Ondo to explore tokenized Korean stocks",
+   "url": "https://cointelegraph.com/news/kakaopay-securities-dinari-ondo-tokenized-korean-stocks-push?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-29T19:49:53.000Z"
+  },
+  {
+   "title": "Here’s what happened in crypto today",
+   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-29T19:42:02.000Z"
+  },
+  {
+   "title": "Crude Oil WTI teeters at $89.31 cliff edge: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-tests-95609773-resistance-wall-live-levels-93CH-4919472",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:18:54.000Z"
+  },
+  {
+   "title": "London Gas Oil tests support at $1,374 with bears in charge: Live",
+   "url": "https://www.investing.com/news/commodities-news/london-gas-oil-tests-1400-support-in-distribution-range-live-93CH-4921028",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:18:53.000Z"
+  },
+  {
+   "title": "Natural Gas squeezed at $3.018 between key MAs: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/natural-gas-trapped-in-30813203-range-live-levels-93CH-4919473",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:18:48.000Z"
+  },
+  {
+   "title": "Silver tests Fibonacci support at $61.17 after steep drop: Live",
+   "url": "https://www.investing.com/news/commodities-news/silver-breaks-below-sma-200-and-ichimoku-cloud-live-levels-93CH-4919471",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:18:46.000Z"
+  },
+  {
+   "title": "Brent Oil tests $94.70 support as bears tighten grip: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/brent-oil-breaks-10150-neckline-eyes-9749-support-live-93CH-4919470",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:18:40.000Z"
+  },
+  {
+   "title": "Gold bears eye $4,143 retest below key resistance: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/gold-breaks-below-4200-with-rsi-at-286-live-levels-93CH-4919469",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:18:35.000Z"
+  },
+  {
+   "title": "Copper consolidates at 200 SMA support near $6.65: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/copper-tests-200period-sma-at-663-live-levels-93CH-4919468",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:18:34.000Z"
+  },
+  {
+   "title": "Iran Threatens Middle East Energy Infrastructure as Hormuz Standoff Deepens",
+   "url": "https://oilprice.com/Energy/Energy-General/Iran-Threatens-Middle-East-Energy-Infrastructure-as-Hormuz-Standoff-Deepens.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-29T19:00:00.000Z"
+  },
+  {
+   "title": "Corn futures edge lower ahead of USDA stocks report",
+   "url": "https://www.investing.com/news/commodities-news/corn-futures-edge-lower-ahead-of-usda-stocks-report-93CH-4923344",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T18:59:39.000Z"
+  },
+  {
+   "title": "Shell approves C$33 billion LNG Canada expansion",
+   "url": "https://www.investing.com/news/commodities-news/shell-approves-c33-billion-lng-canada-expansion-4923342",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-09-29T18:58:11.000Z"
+  },
+  {
+   "title": "Cboe, S&P Dow Jones may explore tokenized options contracts under extended licensing deal",
+   "url": "https://www.coindesk.com/business/2026/09/29/cboe-s-and-p-dow-jones-may-explore-tokenized-options-contracts-under-extended-licensing-deal",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-29T18:21:07.000Z"
+  },
+  {
+   "title": "U.S. Taps Strategic Oil Reserve Again as Diesel Tops $6",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Taps-Strategic-Oil-Reserve-Again-as-Diesel-Tops-6.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-29T18:20:00.000Z"
+  },
+  {
+   "title": "Trump and Xi Buy Time, But Solve Almost Nothing",
+   "url": "https://oilprice.com/Energy/Energy-General/Trump-and-Xi-Buy-Time-But-Solve-Almost-Nothing.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-29T18:00:00.000Z"
+  },
+  {
+   "title": "Bitwise launches first US spot NEAR ETF after token’s recent surge",
+   "url": "https://cointelegraph.com/news/bitwise-launches-first-us-spot-near-etf-after-tokens-recent-surge?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-29T17:14:36.000Z"
+  },
+  {
+   "title": "World's Tallest Dam Project Gets New Life With Fresh World Bank Funding",
+   "url": "https://oilprice.com/Alternative-Energy/Hydroelectric/Worlds-Tallest-Dam-Project-Gets-New-Life-With-Fresh-World-Bank-Funding.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-29T17:00:00.000Z"
+  },
+  {
+   "title": "EU Weighs One-Year Delay to Methane Rules as Winter Energy Risks Rise",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/EU-Weighs-One-Year-Delay-to-Methane-Rules-as-Winter-Energy-Risks-Rise.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-09-29T17:00:00.000Z"
+  },
+  {
+   "title": "Bitcoin gives back gains as long-term holder supply keeps $85K out of reach",
+   "url": "https://cointelegraph.com/markets/bitcoin-gives-back-gains-long-term-holder-supply-keeps-85k-out-of-reach?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-29T16:26:11.000Z"
+  },
+  {
+   "title": "Bitget CEO ‘not very optimistic’ on recovering funds from $388M breach",
+   "url": "https://cointelegraph.com/news/bitget-ceo-gracy-chen-chances-recovering-funds-security-breach?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-09-29T16:18:06.000Z"
+  },
+  {
+   "title": "Ethereum users get another way to pay privately as zk.money returns after three years",
+   "url": "https://www.coindesk.com/tech/2026/09/29/embargo-12-et-ethereum-users-get-another-way-to-pay-privately-as-zk-money-returns-after-three-years",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-09-29T16:00:00.000Z"
+  },
   {
    "title": "Iran Talks Take the Heat Out of the Oil Rally",
    "url": "https://oilprice.com/Energy/Crude-Oil/Iran-Talks-Take-the-Heat-Out-of-the-Oil-Rally.html",
@@ -29,6 +211,14 @@
    "source": "Investing.com",
    "topic": "Commodities",
    "time": "2026-09-29T14:37:47.000Z"
+  },
+  {
+   "title": "Bank Indonesia Diprediksi Naikkan Suku Bunga",
+   "url": "https://finance.detik.com/moneter/d-8685115/bank-indonesia-diprediksi-naikkan-suku-bunga",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T14:37:36.000Z"
   },
   {
    "title": "Trump’s municipal bond portfolio reaches as much as $1 billion as policy overlaps mount",
@@ -90,13 +280,6 @@
    "time": "2026-09-29T13:57:22.000Z"
   },
   {
-   "title": "Oil retreats as investors await U.S.-Iran diplomacy developments",
-   "url": "https://www.investing.com/news/commodities-news/oil-extends-gains-as-usiran-stalemate-overshadows-saudi-flows-4921487",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T13:32:34.000Z"
-  },
-  {
    "title": "LNG Canada to Double Export Capacity After Shell Approves Phase 2",
    "url": "https://oilprice.com/Latest-Energy-News/World-News/LNG-Canada-to-Double-Export-Capacity-After-Shell-Approves-Phase-2.html",
    "source": "OilPrice",
@@ -118,11 +301,12 @@
    "time": "2026-09-29T13:24:31.000Z"
   },
   {
-   "title": "Here’s what happened in crypto today",
-   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-09-29T13:08:04.000Z"
+   "title": "Bakal Jadi Anak Usaha KAI, INKA Masih Punya Utang Rp 4,7 Triliun",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8684992/bakal-jadi-anak-usaha-kai-inka-masih-punya-utang-rp-4-7-triliun",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T13:02:49.000Z"
   },
   {
    "title": "Rethinking leaching tank design to improve mineral recovery",
@@ -196,7 +380,7 @@
    "time": "2026-09-29T11:54:49.000Z"
   },
   {
-   "title": "Bitcoin beats gold, surge to $100,000 in play",
+   "title": "Bitcoin surging to $100,000 may be in play, after outperforming gold",
    "url": "https://www.coindesk.com/daybook-us/2026/09/29/bitcoin-outperforms-gold-usd100-000-surge-in-play",
    "source": "CoinDesk",
    "topic": "Crypto",
@@ -319,6 +503,14 @@
    "time": "2026-09-29T09:57:54.000Z"
   },
   {
+   "title": "IHSG Seharian di Zona Merah, Ditutup Turun ke Level 6.121",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8684633/ihsg-seharian-di-zona-merah-ditutup-turun-ke-level-6-121",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T09:54:22.000Z"
+  },
+  {
    "title": "Greece gets first MiCA entrants as watchdog denies Binance-Lagarde claim",
    "url": "https://cointelegraph.com/news/greece-first-mica-entrants-hcmc-binance-lagarde?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
@@ -347,6 +539,14 @@
    "time": "2026-09-29T09:30:00.000Z"
   },
   {
+   "title": "Dasco Kumpulkan 3 Bos OJK, Ada Apa?",
+   "url": "https://finance.detik.com/moneter/d-8684544/dasco-kumpulkan-3-bos-ojk-ada-apa",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T09:28:24.000Z"
+  },
+  {
    "title": "BEI: Harga saham Rp1 tak berkontribusi signifikan ke koreksi IHSG",
    "url": "https://www.antaranews.com/berita/5763188/bei-harga-saham-rp1-tak-berkontribusi-signifikan-ke-koreksi-ihsg",
    "source": "Antara",
@@ -361,6 +561,14 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-29T09:23:17.000Z"
+  },
+  {
+   "title": "DJP Kejar Pajak Platform Asing Lewat Sistem Ini",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8684543/djp-kejar-pajak-platform-asing-lewat-sistem-ini",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T09:22:27.000Z"
   },
   {
    "title": "IHSG Hari Ini Ditutup Melemah ke 6.121",
@@ -440,6 +648,14 @@
    "time": "2026-09-29T08:27:21.000Z"
   },
   {
+   "title": "Dolar AS Diramal Masih Rp 18.000 sampai Akhir Tahun, Setelah Itu?",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8684344/dolar-as-diramal-masih-rp-18-000-sampai-akhir-tahun-setelah-itu",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T08:05:11.000Z"
+  },
+  {
    "title": "Argentina Threatens UK with Court Action Over Falklands Oil Drilling",
    "url": "https://oilprice.com/Latest-Energy-News/World-News/Argentina-Threatens-UK-with-Court-Action-Over-Falklands-Oil-Drilling.html",
    "source": "OilPrice",
@@ -454,60 +670,11 @@
    "time": "2026-09-29T07:20:56.000Z"
   },
   {
-   "title": "Natural Gas stalls at $3.129 with bearish MACD cross: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/natural-gas-trapped-in-30813203-range-live-levels-93CH-4919473",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T07:12:17.000Z"
-  },
-  {
-   "title": "Brent Oil nears double top breakdown at $96.20: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/brent-oil-breaks-10150-neckline-eyes-9749-support-live-93CH-4919470",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T07:11:52.000Z"
-  },
-  {
-   "title": "Crude Oil WTI trapped in bear flag at $93.81: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-tests-95609773-resistance-wall-live-levels-93CH-4919472",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T07:11:35.000Z"
-  },
-  {
-   "title": "London Gas Oil stuck in doji chop near $1,432: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/london-gas-oil-tests-1400-support-in-distribution-range-live-93CH-4921028",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T07:11:19.000Z"
-  },
-  {
-   "title": "Silver flashes bearish warning near $61.24: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/silver-breaks-below-sma-200-and-ichimoku-cloud-live-levels-93CH-4919471",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T07:11:05.000Z"
-  },
-  {
    "title": "GEL to build $57m lithium extraction facility in Cornwall",
    "url": "https://www.mining-technology.com/news/gel-lithium-extraction-facility-cornwall/",
    "source": "Mining Technology",
    "topic": "Commodities",
    "time": "2026-09-29T07:11:01.000Z"
-  },
-  {
-   "title": "Copper deadlocked at 200-hour MA support: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/copper-tests-200period-sma-at-663-live-levels-93CH-4919468",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T07:11:01.000Z"
-  },
-  {
-   "title": "Gold nears oversold at $4,175 in fierce downtrend: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/gold-breaks-below-4200-with-rsi-at-286-live-levels-93CH-4919469",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-29T07:10:58.000Z"
   },
   {
    "title": "Subsidi Energi 2027 Dipangkas, Pemerintah dan DPR Sepakati Rp 261,5 Triliun",
@@ -538,6 +705,38 @@
    "topic": "Macro",
    "lang": "id",
    "time": "2026-09-29T06:12:29.000Z"
+  },
+  {
+   "title": "Pemerintah Mulai Coba Olah Batu Bara Jadi Bahan Campuran BBM",
+   "url": "https://finance.detik.com/energi/d-8684103/pemerintah-mulai-coba-olah-batu-bara-jadi-bahan-campuran-bbm",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T06:05:22.000Z"
+  },
+  {
+   "title": "Rupiah Tertekan, Dolar AS Tembus Rp18.000 Lagi",
+   "url": "https://finance.detik.com/foto-bisnis/d-8684048/rupiah-tertekan-dolar-as-tembus-rp18-000-lagi",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T06:00:17.000Z"
+  },
+  {
+   "title": "95% RKAB Batu Bara 2026 Disetujui, Produksi Sekitar 720 Juta Ton",
+   "url": "https://finance.detik.com/energi/d-8684084/95-rkab-batu-bara-2026-disetujui-produksi-sekitar-720-juta-ton",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T05:51:55.000Z"
+  },
+  {
+   "title": "Biodiesel Disebut Hemat Devisa Ratusan Triliun, Pengamat Ungkap Hal Ini",
+   "url": "https://finance.detik.com/energi/d-8684068/biodiesel-disebut-hemat-devisa-ratusan-triliun-pengamat-ungkap-hal-ini",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T05:51:02.000Z"
   },
   {
    "title": "Kejar Target Minyak 1 Juta Barel, Intip Potensi Harta Karun Migas di RI",
@@ -577,12 +776,44 @@
    "time": "2026-09-29T05:19:50.000Z"
   },
   {
+   "title": "Daerah Kebagian Rp 735 T dari APBN 2027, Naik Rp 38 T",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8683986/daerah-kebagian-rp-735-t-dari-apbn-2027-naik-rp-38-t",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T05:12:52.000Z"
+  },
+  {
+   "title": "BI Ungkap Penyebab Dolar AS Tembus Rp 18.000",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8683972/bi-ungkap-penyebab-dolar-as-tembus-rp-18-000",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T05:06:20.000Z"
+  },
+  {
+   "title": "Investasi Asing Perlu Digenjot, Batam Bisa Jadi Pintu Masuk",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8683933/investasi-asing-perlu-digenjot-batam-bisa-jadi-pintu-masuk",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T04:47:54.000Z"
+  },
+  {
    "title": "RI Ubah Batu Bara Jadi BBM, ESDM Siapkan Kalimantan-Sumsel Jadi Pusat Produksiamp;nbsp;",
    "url": "https://economy.okezone.com/read/2026/09/29/320/3244821/ri-ubah-batu-bara-jadi-bbm-esdm-siapkan-kalimantan-sumsel-jadi-pusat-produksi",
    "source": "Okezone",
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-29T04:43:44.000Z"
+  },
+  {
+   "title": "Saham AADI, ADRO, hingga PTBA Loyo Usai Anak Usaha Dilarang Garap Tambang",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8683923/saham-aadi-adro-hingga-ptba-loyo-usai-anak-usaha-dilarang-garap-tambang",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T04:37:46.000Z"
   },
   {
    "title": "Rupiah Kembali Tembus Rp 18 Ribu, Begini Penjelasan BI",
@@ -607,6 +838,14 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-29T04:25:45.000Z"
+  },
+  {
+   "title": "APBN 2027 Disahkan, Belanja Naik Jadi Rp 4.106 T",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8683895/apbn-2027-disahkan-belanja-naik-jadi-rp-4-106-t",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T04:22:35.000Z"
   },
   {
    "title": "Sah! Paripurna DPR Tetapkan APBN 2027 Rp4.106 Triliun, Ekonomi Ditarget 6 Persen",
@@ -639,12 +878,28 @@
    "time": "2026-09-29T04:02:29.000Z"
   },
   {
+   "title": "Terungkap Status Low Tuck Kwong Usai Haji Isam Borong 30% Saham BYAN",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8683823/terungkap-status-low-tuck-kwong-usai-haji-isam-borong-30-saham-byan",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T03:42:16.000Z"
+  },
+  {
    "title": "Pemerintah Suntik BPJS Kesehatan Rp20 Triliun, Cair Oktober-November 2026",
    "url": "https://economy.okezone.com/read/2026/09/29/320/3244795/pemerintah-suntik-bpjs-kesehatan-rp20-triliun-cair-oktober-november-2026",
    "source": "Okezone",
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-29T03:06:55.000Z"
+  },
+  {
+   "title": "Bos Bursa Buka-bukaan Dampak Batas Saham Gocap Dihapus ke IHSG",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8683745/bos-bursa-buka-bukaan-dampak-batas-saham-gocap-dihapus-ke-ihsg",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T02:57:57.000Z"
   },
   {
    "title": "IHSG melemah ikuti bursa kawasan Asia seiring kekhawatiran inflasi",
@@ -662,6 +917,22 @@
    "time": "2026-09-29T02:32:36.000Z"
   },
   {
+   "title": "Dolar AS Tembus Rp 18.000 Lagi",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8683720/dolar-as-tembus-rp-18-000-lagi",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T02:32:24.000Z"
+  },
+  {
+   "title": "Bursa Tetapkan Saham Short Selling, Ada BCA hingga Astra",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8683718/bursa-tetapkan-saham-short-selling-ada-bca-hingga-astra",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T02:28:57.000Z"
+  },
+  {
    "title": "IHSG Hari Ini Dibuka Melemah 0,33 Persen ke 6.127",
    "url": "https://economy.okezone.com/read/2026/09/29/278/3244786/ihsg-hari-ini-dibuka-melemah-0-33-persen-ke-6-127",
    "source": "Okezone",
@@ -670,12 +941,28 @@
    "time": "2026-09-29T02:23:08.000Z"
   },
   {
+   "title": "IHSG Turun 1%, Dekati Level 6.000",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8683713/ihsg-turun-1-dekati-level-6-000",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T02:19:53.000Z"
+  },
+  {
    "title": "IHSG Selasa dibuka melemah 29,05 poin ke posisi 6.118",
    "url": "https://www.antaranews.com/berita/5762575/ihsg-selasa-dibuka-melemah-2905-poin-ke-posisi-6118",
    "source": "Antara",
    "topic": "Markets",
    "lang": "id",
    "time": "2026-09-29T02:17:33.000Z"
+  },
+  {
+   "title": "Harga Emas Belum Berhenti Turun, Buyback Jatuh!",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8683707/harga-emas-belum-berhenti-turun-buyback-jatuh",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-09-29T02:11:37.000Z"
   },
   {
    "title": "MDKA Balik Cetak Laba US$ 101,56 Juta, ANTM Borong 9 Ton Emas",
@@ -1481,298 +1768,6 @@
    "source": "CoinDesk",
    "topic": "Crypto",
    "time": "2026-09-28T07:50:00.000Z"
-  },
-  {
-   "title": "BEI sempurnakan ketentuan papan pemantauan khusus",
-   "url": "https://www.antaranews.com/berita/5761533/bei-sempurnakan-ketentuan-papan-pemantauan-khusus",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T07:48:51.000Z"
-  },
-  {
-   "title": "Middle East Oil Exports Rebound to 12.8 Million Bpd",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Middle-East-Oil-Exports-Rebound-to-128-Million-Bpd.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-09-28T07:00:00.000Z"
-  },
-  {
-   "title": "BI Ramal The Fed Naikkan Bunga Lagi, Berdampak ke RI?",
-   "url": "https://finance.detik.com/moneter/d-8682503/bi-ramal-the-fed-naikkan-bunga-lagi-berdampak-ke-ri",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T06:33:30.000Z"
-  },
-  {
-   "title": "IHSG Sesi I Anjlok 0,97 Persen ke Level 6.181",
-   "url": "https://economy.okezone.com/read/2026/09/28/278/3244616/ihsg-sesi-i-anjlok-0-97-persen-ke-level-6-181",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T06:23:55.000Z"
-  },
-  {
-   "title": "California's Newsom signs memecoin ban and calls it 'The Opposite of Trump'",
-   "url": "https://www.coindesk.com/markets/2026/09/28/california-s-newsom-signs-memecoin-ban-and-calls-it-the-opposite-of-trump",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-09-28T06:21:52.000Z"
-  },
-  {
-   "title": "Solana ETFs draw record $188 million in a week as Bitwise takes two-thirds of inflows",
-   "url": "https://www.coindesk.com/markets/2026/09/28/solana-etfs-draw-record-usd188-million-in-a-week-as-bitwise-takes-two-thirds-of-inflows",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-09-28T06:21:06.000Z"
-  },
-  {
-   "title": "Pertumbuhan Ekonomi pada Semester II 2026 Diproyeksikan Hanya Tumbuh 5,2 Persen",
-   "url": "https://ekonomi.republika.co.id/berita/tm28qf370/pertumbuhan-ekonomi-pada-semester-ii-2026-diproyeksikan-hanya-tumbuh-52-persen",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-28T06:01:27.000Z"
-  },
-  {
-   "title": "IHSG Masih Tertekan di Sesi I Usai Batas Saham Gocap Dihapus",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682423/ihsg-masih-tertekan-di-sesi-i-usai-batas-saham-gocap-dihapus",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T05:50:44.000Z"
-  },
-  {
-   "title": "South Korea weighs crypto market makers after JPYC trades at 4 times peg",
-   "url": "https://cointelegraph.com/news/south-korea-weighs-crypto-market-makers-after-jpyc-trades-at-4-times-peg?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-09-28T05:42:45.000Z"
-  },
-  {
-   "title": "Oil Prices Jump 3% on Rekindled War Fears",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Moves-Higher-on-Rekindled-War-Fears.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-09-28T05:37:00.000Z"
-  },
-  {
-   "title": "BEI Ubah Aturan ARA-ARB Mulai Hari Ini, Cek Rinciannya",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682336/bei-ubah-aturan-ara-arb-mulai-hari-ini-cek-rinciannya",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T05:05:09.000Z"
-  },
-  {
-   "title": "China to cut tariffs on US farm goods, but list excludes soybeans",
-   "url": "https://www.investing.com/news/commodities-news/china-says-to-cut-tariffs-on-us-farm-goods-but-soybeans-excluded-4919307",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-28T05:01:09.000Z"
-  },
-  {
-   "title": "Vitalik Buterin says Hegotá could be Ethereum’s last ‘normal’ fork",
-   "url": "https://cointelegraph.com/news/vitalik-hegota-ethereum-last-normal-fork?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-09-28T04:44:15.000Z"
-  },
-  {
-   "title": "92 Saham Keluar dari FCA, Cek Daftar Lengkapnya",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682257/92-saham-keluar-dari-fca-cek-daftar-lengkapnya",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T04:30:40.000Z"
-  },
-  {
-   "title": "BEI Keluarkan 92 Saham dari Papan Pemantauan Khusus, Ada BUMN",
-   "url": "https://economy.okezone.com/read/2026/09/28/278/3244604/bei-keluarkan-92-saham-dari-papan-pemantauan-khusus-ada-bumn",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T04:29:31.000Z"
-  },
-  {
-   "title": "14 Saham Kompak Nyungsep ke Bawah Gocap!",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682242/14-saham-kompak-nyungsep-ke-bawah-gocap",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T04:20:03.000Z"
-  },
-  {
-   "title": "China posts weakest industrial profit growth this year, expanding 4.2% in August",
-   "url": "https://www.cnbc.com/2026/09/28/china-posts-weakest-industrial-profit-growth-this-year-expanding-4point2percent-in-august-.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-09-28T04:04:16.000Z"
-  },
-  {
-   "title": "Batas Harga Rp50 Dihapus, Saham GOTO Turun 14 Persen ke Rp43",
-   "url": "https://economy.okezone.com/read/2026/09/28/278/3244595/batas-harga-rp50-dihapus-saham-goto-turun-14-persen-ke-rp43",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T04:00:08.000Z"
-  },
-  {
-   "title": "Bitcoin, Nasdaq futures decline as Trump won’t rule out more Iran strikes",
-   "url": "https://www.coindesk.com/markets/2026/09/28/bitcoin-and-nasdaq-futures-decline-as-trump-won-t-rule-out-more-iran-strikes",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-09-28T03:58:52.000Z"
-  },
-  {
-   "title": "Harga Emas Antam Hari Ini Turun Rp16.000 Jadi Rp2.597.000 per Gram",
-   "url": "https://economy.okezone.com/read/2026/09/28/320/3244593/harga-emas-antam-hari-ini-turun-rp16-000-jadi-rp2-597-000-per-gram",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T03:57:02.000Z"
-  },
-  {
-   "title": "Rupiah Kembali Dekati Level Rp18 Ribu, Ini Pemicunya",
-   "url": "https://ekonomi.republika.co.id/berita/tm22gx490/rupiah-kembali-dekati-level-rp18-ribu-ini-pemicunya",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-28T03:46:09.000Z"
-  },
-  {
-   "title": "Harga Saham Nyungsep di Bawah Gocap, GOTO Buka Suara",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682160/harga-saham-nyungsep-di-bawah-gocap-goto-buka-suara",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T03:43:44.000Z"
-  },
-  {
-   "title": "IHSG Melemah Ditekan Aturan Saham Rp 1, Ini Proyeksi Pasar",
-   "url": "https://ekonomi.republika.co.id/berita/tm210n370/ihsg-melemah-ditekan-aturan-saham-rp-1-ini-proyeksi-pasar",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-28T03:14:47.000Z"
-  },
-  {
-   "title": "Harga Emas Antam Ambruk!",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8682108/harga-emas-antam-ambruk",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T03:05:09.000Z"
-  },
-  {
-   "title": "IHSG melemah seiring sentimen jangka pendek penerapan harga saham Rp1",
-   "url": "https://www.antaranews.com/berita/5761164/ihsg-melemah-seiring-sentimen-jangka-pendek-penerapan-harga-saham-rp1",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T02:58:10.000Z"
-  },
-  {
-   "title": "Dolar AS Makin Dekat ke Rp 18.000!",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682094/dolar-as-makin-dekat-ke-rp-18-000",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T02:52:14.000Z"
-  },
-  {
-   "title": "Harga Emas Antam Turun Rp 16 Ribu Hari Ini, Cek Rincian Lengkapnya",
-   "url": "https://ekonomi.republika.co.id/berita/tm1zfw370/harga-emas-antam-turun-rp-16-ribu-hari-ini-cek-rincian-lengkapnya",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-28T02:40:44.000Z"
-  },
-  {
-   "title": "Saham GOTO-DADA Anjlok Usai Batas Saham Gocap Dihapus",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682083/saham-goto-dada-anjlok-usai-batas-saham-gocap-dihapus",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T02:38:41.000Z"
-  },
-  {
-   "title": "Newsom signs California ban on public officials issuing memecoins",
-   "url": "https://cointelegraph.com/news/newsom-signs-california-ban-on-public-officials-issuing-memecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-09-28T02:23:42.000Z"
-  },
-  {
-   "title": "Harga Terendah Saham Rp 1 Mulai Berlaku, IHSG Langsung Merah",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682070/harga-terendah-saham-rp-1-mulai-berlaku-ihsg-langsung-merah",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T02:21:47.000Z"
-  },
-  {
-   "title": "Bursa Ubah Aturan FCA, 92 Saham Keluar dari Papan Pemantauan Khusus",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682062/bursa-ubah-aturan-fca-92-saham-keluar-dari-papan-pemantauan-khusus",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T02:16:02.000Z"
-  },
-  {
-   "title": "IHSG dibuka melemah 32,14 poin ke posisi 6.209 pada Senin ini",
-   "url": "https://www.antaranews.com/berita/5761117/ihsg-dibuka-melemah-3214-poin-ke-posisi-6209-pada-senin-ini",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T02:10:54.000Z"
-  },
-  {
-   "title": "HRUM Gelontorkan Rp 120 Miliar untuk Buyback Saham, Ini Jadwalnya",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8682025/hrum-gelontorkan-rp-120-miliar-untuk-buyback-saham-ini-jadwalnya",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T01:45:11.000Z"
-  },
-  {
-   "title": "Zano rolls blockchain back a month after Gateway Address exploit",
-   "url": "https://cointelegraph.com/news/zano-rolls-blockchain-back-a-month-after-gateway-address-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-09-28T01:09:22.000Z"
-  },
-  {
-   "title": "Trump Tolak Tawaran Damai Iran, Harga Minyak Langsung Terbang",
-   "url": "https://finance.detik.com/energi/d-8682002/trump-tolak-tawaran-damai-iran-harga-minyak-langsung-terbang",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T01:01:36.000Z"
-  },
-  {
-   "title": "Daftar Harga BBM Pertamina, Shell, Vivo dan BP Hari Ini, 28 September 2026",
-   "url": "https://economy.okezone.com/read/2026/09/28/320/3244567/daftar-harga-bbm-pertamina-shell-vivo-dan-bp-hari-ini-28-september-2026",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-09-28T01:00:51.000Z"
-  },
-  {
-   "title": "Iran insists on diplomatic solution after Trump rejects peace plan",
-   "url": "https://www.investing.com/news/commodities-news/iran-insists-on-diplomatic-solution-after-trump-rejects-peace-plan-4919219",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-09-28T00:30:30.000Z"
-  },
-  {
-   "title": "BI Rate Tetap, Ekonom: BI Memperluas Instrumen Stabilisasi Rupiah di Luar Suku Bunga",
-   "url": "https://ekonomi.republika.co.id/berita/tlwwv7423/bi-rate-tetap-ekonom-bi-memperluas-instrumen-stabilisasi-rupiah-di-luar-suku-bunga",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-09-28T00:30:00.000Z"
   }
  ]
 }
