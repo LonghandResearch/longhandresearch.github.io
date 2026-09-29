@@ -11,6 +11,11 @@
   padding-block: clamp(50px, 7vh, 86px) clamp(48px, 7vh, 86px);
 }
 
+.page-home .hero.no-globe .night-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "copy latest";
+}
+
 .page-home .hero.night .hero-copy { grid-area: copy; max-width: 38rem; }
 .page-home .plate { grid-area: globe; width: 100%; }
 .page-home .hero.night .eyebrow {
@@ -95,6 +100,10 @@
   .page-home .hero.night .hero-actions { flex-direction: row; align-items: center; }
   .home-latest { max-width: 42rem; }
   .page-home .plate-stage { max-width: min(100%, 58svh, 540px); }
+  .page-home .hero.no-globe .night-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "copy" "latest";
+  }
 }
 
 @media (max-width: 560px) {

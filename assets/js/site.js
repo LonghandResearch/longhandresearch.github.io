@@ -414,6 +414,7 @@
     document.documentElement.classList.toggle('is-author', LH.isAuthor);
     $$('[data-add-report]').forEach((b) => {
       b.hidden = !LH.isAuthor;
+      b.setAttribute('aria-label', 'Add report');
       b.addEventListener('click', () => openReportForm({ mode: 'add' }));
     });
   }

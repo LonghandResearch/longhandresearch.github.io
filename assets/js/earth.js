@@ -24,15 +24,10 @@
   const SUN_SWEEP = 75;            // degrees the sun moves on as the front page scrolls away
   const RADIUS_SHARE = 0.36;       // the Earth's radius as a share of the stage's shorter side
 
-  /* The front page's opening screen waits on this: how much of the Earth is ready */
-  const progress = (done, total) => document.dispatchEvent(new CustomEvent('longhand:earth-progress', { detail: { done, total } }));
-  const waiting = () => document.documentElement.classList.contains('is-loading');
-
   function unavailable(err) {
     if (err) console.warn('The Earth could not be shown:', err);
     plate.classList.add('is-unavailable');
     if (hero) hero.classList.add('no-globe');
-    progress(1, 1);
   }
 
   const saveData = navigator.connection && navigator.connection.saveData;
@@ -308,8 +303,7 @@
       let busy = false;
 
       // opening: a short turn into place while the halo blooms
-      // (held back while the opening screen is still up)
-      if (intro < 1 && !waiting()) {
+      if (intro < 1) {
         intro = Math.min(1, intro + dt / 1.6);
         busy = true;
       }
@@ -359,7 +353,7 @@
 
       renderer.render(scene, camera);
       dirty = false;
-      if (!shown) { shown = true; plate.classList.add('is-ready'); arrived(); }
+      if (!shown) { shown = true; plate.classList.add('is-ready'); }
       if ((busy || playing || dirty) && visible && !document.hidden) raf = requestAnimationFrame(loop);
     }
     function requestFrame() {
@@ -459,10 +453,10 @@
       }
     });
 
-    // A toggle button: "Stop the Earth turning", pressed while it is stopped
+    // The button names the action available in its current state.
     function setPlaying(on) {
       playing = on;
-      stage.setAttribute('aria-pressed', String(!on));
+      stage.setAttribute('aria-label', on ? 'Pause the Earth turning' : 'Resume the Earth turning');
       stage.title = on ? 'Drag to turn the Earth any way. Click to stop it.' : 'Drag to turn the Earth any way. Click to set it turning again.';
       requestFrame();
     }
@@ -496,14 +490,11 @@
        water mask for the sun's glint, the clouds, and a sharper day map */
     const loader = new THREE.TextureLoader();
     const later = (file, srgb) => loader.loadAsync(IMG + file).then((t) => prep(t, srgb));
-    // the first frame and the three layers that dress the Earth count towards
-    // the opening screen; the sharper day map comes in later on its own
-    let ready = 0;
-    function arrived() { ready += 1; progress(ready, 4); requestFrame(); }
+    // The sharper day map comes in later on its own.
     requestAnimationFrame(() => {
-      later('earth-night-2048.jpg', true).then((t) => { uniforms.nightMap.value = t; nightTarget = 1; }).catch(() => {}).then(arrived);
-      later('earth-water-2048.png', false).then((t) => { uniforms.waterMap.value = t; }).catch(() => {}).then(arrived);
-      later('earth-clouds-2048.jpg', false).then((t) => { uniforms.cloudMap.value = t; cloudTarget = 1; }).catch(() => {}).then(arrived);
+      later('earth-night-2048.jpg', true).then((t) => { uniforms.nightMap.value = t; nightTarget = 1; }).catch(() => {}).then(requestFrame);
+      later('earth-water-2048.png', false).then((t) => { uniforms.waterMap.value = t; }).catch(() => {}).then(requestFrame);
+      later('earth-clouds-2048.jpg', false).then((t) => { uniforms.cloudMap.value = t; cloudTarget = 1; }).catch(() => {}).then(requestFrame);
       later(small ? 'earth-day-2048.jpg' : 'earth-day-4096.jpg', true).then((t) => {
         const old = uniforms.dayMap.value;
         uniforms.dayMap.value = t;
