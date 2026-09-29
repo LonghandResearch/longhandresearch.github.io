@@ -1,15 +1,13 @@
 /* Longhand Research: the front page.
-   A single screen: the night plate with its stars, the catalogue in four
-   numbers along its foot, and the masthead over it. The Earth itself is drawn
-   by earth.js. Every way on leads to another page, where the headline and the
-   Earth carry over in the page transition. */
+   The Earth is drawn by earth.js. This file draws the quiet star field and
+   places the newest published report beside the introduction. */
 (function () {
   'use strict';
 
   const LH = window.Longhand;
   const hero = document.querySelector('[data-hero]');
   if (!LH || !hero) return;
-  const { $, $$, esc, dateShort } = LH.util;
+  const { $, esc, dateShort } = LH.util;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /* Stars, drawn once to the size of the plate. The generator is seeded, so
@@ -30,7 +28,7 @@
     ctx.clearRect(0, 0, w, h);
     let seed = 20260926;
     const rand = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
-    const n = Math.round((w * h) / 2400);
+    const n = Math.round((w * h) / 3800);
     for (let i = 0; i < n; i++) {
       const x = rand() * w;
       const y = rand() * h;
@@ -45,43 +43,18 @@
     }
   }
 
-  /* A number that rolls up like an odometer when the page opens */
-  const odo = (n) => {
-    const digits = String(n).split('').map((d) => `<span class="odo-digit"><span class="odo-strip" data-to="${d}">${'0123456789'.split('').map((k) => `<span>${k}</span>`).join('')}</span></span>`).join('');
-    return `<span class="sr-only">${n}</span><span class="odo" aria-hidden="true">${digits}</span>`;
-  };
-  function roll(root) {
-    const strips = $$('.odo-strip', root);
-    const set = () => strips.forEach((s) => { s.style.transform = `translateY(calc(var(--odo-h) * -${s.dataset.to}))`; });
-    if (reduce.matches) {
-      strips.forEach((s) => { s.style.transition = 'none'; });
-      set();
-      return;
-    }
-    // after the headline has risen, so the eye meets one movement at a time
-    const go = () => setTimeout(() => requestAnimationFrame(set), 650);
-    if (document.documentElement.classList.contains('is-loading')) document.addEventListener('longhand:loaded', go, { once: true });
-    else go();
-  }
-
-  /* The catalogue in four numbers; the first and the last are ways in */
-  const ledger = $('[data-ledger]', hero);
-  function renderLedger() {
-    if (!ledger) return;
-    const list = LH.publishedSorted();
-    if (!list.length) { ledger.hidden = true; return; }
-    const kinds = [...new Set(list.map((r) => r.category).filter(Boolean))];
-    const markets = [...new Set(list.map((r) => r.exchange).filter(Boolean))];
-    const latest = list[0];
-    const cell = (label, value, note, href, aria) => `<div><dt>${esc(label)}</dt><dd>${href ? `<a class="ledger-link" href="${esc(href)}" aria-label="${esc(aria)}">${value}</a>` : value}${note ? `<span class="ledger-note">${esc(note)}</span>` : ''}</dd></div>`;
-    ledger.innerHTML = [
-      cell('Reports', odo(list.length), 'All in the library', 'library.html', `${list.length} reports: browse the library`),
-      cell('Kinds of study', odo(kinds.length), kinds.join(', ')),
-      cell('Markets', odo(markets.length), markets.length ? markets.join(', ') : 'Sector and macro studies only'),
-      cell('Latest', `<time datetime="${esc(latest.date)}">${esc(dateShort(latest.date))}</time>`, latest.title, LH.reportHref(latest), `Latest report: ${latest.title}`),
-    ].join('');
-    ledger.hidden = false;
-    roll(ledger);
+  /* A real publication gives the opening screen its point of view. */
+  const latest = $('[data-latest]', hero);
+  function renderLatest() {
+    if (!latest) return;
+    const report = LH.publishedSorted()[0];
+    if (!report) { latest.hidden = true; return; }
+    const details = [report.ticker, report.category].filter(Boolean).join(' · ');
+    latest.innerHTML = `
+      <p class="home-latest-label">Latest report <time datetime="${esc(report.date)}">${esc(dateShort(report.date))}</time></p>
+      <a class="home-latest-title" href="${esc(LH.reportHref(report))}">${esc(report.title)}</a>
+      ${details ? `<p class="home-latest-meta">${esc(details)}</p>` : ''}`;
+    latest.hidden = false;
   }
 
   /* The masthead is clear over the plate and turns to smoked glass once the
@@ -102,57 +75,13 @@
     requestAnimationFrame(update);
   };
 
-  /* The opening screen, once per visit: the name, a count and a gold rule that
-     follow the Earth's imagery as it arrives, then the screen lifts away.
-     It never waits longer than four seconds. */
-  const root = document.documentElement;
-  const loader = $('[data-loader]');
-  if (loader && root.classList.contains('is-loading')) {
-    const count = $('[data-loader-count]', loader);
-    const bar = $('[data-loader-bar]', loader);
-    const start = performance.now();
-    let target = 0, shown = 0, finished = false, last = start;
-    document.addEventListener('longhand:earth-progress', (e) => { target = Math.max(target, e.detail.done / e.detail.total); });
-    const finish = () => {
-      if (finished) return;
-      finished = true;
-      try { sessionStorage.setItem('longhand-loaded', '1'); } catch (e) { /* private mode */ }
-      loader.classList.add('is-leaving');
-      root.classList.remove('is-loading');
-      document.dispatchEvent(new Event('longhand:loaded'));
-      const gone = (e) => {
-        // Child text also transitions. Wait for the loader's own clip before
-        // removing it, otherwise Safari and Chromium can cut the wipe short.
-        if (e && e.target !== loader) return;
-        loader.removeEventListener('transitionend', gone);
-        loader.remove();
-      };
-      loader.addEventListener('transitionend', gone);
-      setTimeout(() => gone(), 1600);
-    };
-    const tick = (now) => {
-      const t = now - start;
-      const dt = Math.min(0.1, (now - last) / 1000);
-      last = now;
-      const goal = t > 4000 ? 1 : target;
-      // eased by time, not by frames, so a slow machine counts at the same pace
-      shown += (goal - shown) * (1 - Math.exp(-dt * 7));
-      if (goal - shown < 0.006) shown = goal;
-      count.textContent = String(Math.round(shown * 100));
-      bar.style.transform = `scaleX(${shown})`;
-      if (shown >= 1 && t > 1300) setTimeout(finish, 180);
-      else requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  } else if (loader) loader.remove();
-
-  renderLedger();
+  renderLatest();
   drawStars();
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   window.addEventListener('pageshow', onScroll);
   new ResizeObserver(() => requestAnimationFrame(drawStars)).observe(hero);
-  document.addEventListener('longhand:changed', renderLedger);
+  document.addEventListener('longhand:changed', renderLatest);
   if (reduce.addEventListener) reduce.addEventListener('change', onScroll);
 })();

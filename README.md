@@ -15,7 +15,7 @@ uncommitted branch.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | The front page: a single screen with the Earth and the catalogue in numbers |
+| `index.html` | The front page: the Earth, a direct introduction and the latest published report |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
 | `coverage.html` | Every rated company: its current call and the calls before it, built from the catalogue |
 | `about.html` | How the reports are built, the rating key and the report types |
@@ -33,9 +33,10 @@ uncommitted branch.
 | `QA.md` | The checklist every report or page with figures goes through before merge |
 | `feed.xml` | RSS feed of published reports |
 | `reports/*.pdf` | The report PDFs |
-| `assets/css/site.css` | All styling: light and dark themes, page transitions |
+| `assets/css/site.css` | Shared styling: light and dark themes, page transitions |
+| `assets/css/home-editorial.css` | Front-page layout and latest-report treatment |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
-| `assets/js/home.js` | Front page: the opening screen, stars and the catalogue in numbers |
+| `assets/js/home.js` | Front page: the stars and the latest report from the catalogue |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/coverage.js` | Coverage page: groups rated Initiation and Update reports by ticker |
 | `assets/js/reader.js` | Report page: the PDF reader |
@@ -158,17 +159,16 @@ Opened straight from the disk, the browser will not read `news/news.json`, so Th
 
 ## The front page
 
-The front page is a single screen, a night plate that stays dark in both themes, with a photographic Earth turning in it. Everything on it leads on to another page. It is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
+The front page is a night plate that stays dark in both themes. It introduces the library immediately, shows the latest published report from the catalogue, and keeps a photographic Earth as its one visual feature. The Earth is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
 
 - **Turning it.** Drag the Earth in any direction; on a touch screen, swipe sideways (an upward swipe still scrolls the page). Click it or press Space to stop or start it, and double-click it or press Home to set it straight. Arrow keys turn it too. Left alone, it settles back onto its axis.
-- **Opening screen.** On the first visit of a session, the name rises letter by letter while a count and a gold rule follow the Earth's imagery in (four seconds at most); then the screen lifts away and the headline and Earth make their entrance.
+- **Opening.** The heading and report link are available at once while the Earth imagery loads. On narrow screens they come before the globe.
 - **Leaving it.** A short zoom and fade carries the landing into the next page, and reverses on return. These are cross-document view transitions (Chrome, Edge, Safari), set in `site.css` and `site.js`.
-- **Markets.** The catalogue's market count is shown in the four numbers below the Earth, leaving the globe free of labels.
-- **Numbers.** Along the foot of the plate, the catalogue in four numbers (reports, kinds of study, markets, latest date) rolls up once. The report count opens the library and the date opens the latest report.
+- **Latest report.** The front page draws its link, date, ticker and category from the newest published catalogue entry. It does not need a manual edit after publication.
 - **Behind it.** Seeded stars, drawn once against the dark sky.
 - **Settings** at the top of `assets/js/earth.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), how far the sun moves on scroll (`SUN_SWEEP`) and the Earth's size in its frame (`RADIUS_SHARE`).
 
-Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), entrances on its easing and duration scale, and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view, there is no opening screen, and pages change without the zoom.
+Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view and pages change without the zoom.
 
 The imagery is NASA's (Visible Earth; public domain), cut down for the web: a 1024 px day map loads first and a 2048 or 4096 px one replaces it once the page is up.
 
