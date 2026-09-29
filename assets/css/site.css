@@ -1053,15 +1053,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   box-shadow: var(--sheet-shadow);
 }
 .pdf-page canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.pdf-page.is-loading::before {
-  content: attr(data-label);
+.pdf-page-placeholder { display: none; }
+.pdf-page.is-loading .pdf-page-placeholder {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
   font: 400 12.5px/1 var(--font-sans);
   letter-spacing: 0.08em;
-  color: #8a8478;
+  color: #6b655a;
 }
 .viewer-frame {
   width: 100%;

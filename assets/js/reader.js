@@ -78,8 +78,9 @@
             ${r.summary ? `<p class="reader-summary">${esc(r.summary)}</p>` : ''}
             <div class="reader-actions">
               <a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>
+              <a class="text-link" data-open-file href="${esc(url)}" target="_blank" rel="noopener">Open file in a new tab ${icon('external')}</a>
               ${canFs ? `<button type="button" class="btn btn-quiet" data-fullscreen>${icon('maximize')} <span data-fs-label>Read full screen</span></button>` : ''}
-              ${r.isLocal ? '' : `<button type="button" class="text-link" data-copy-link>${icon('link')} <span data-copy-label>Copy link</span></button>`}
+              ${r.isLocal ? '' : `<button type="button" class="text-link" data-copy-link>${icon('link')} <span data-copy-label aria-live="polite">Copy link</span></button>`}
               <span class="file-meta" data-file-meta>${esc(LH.fileMeta(r))}</span>
             </div>
             ${r.isLocal ? `
@@ -98,6 +99,7 @@
       </div>
 
       <section class="viewer" data-viewer aria-label="The full report">
+        <span class="sr-only" data-reader-announcement role="status" aria-atomic="true"></span>
         <div class="viewer-bar">
           <div class="wrap viewer-bar-inner">
             <span class="viewer-title">The full report</span>
@@ -161,6 +163,7 @@
       this.el = el;
       this.pagesEl = $('[data-pages]', el);
       this.statusEl = $('[data-status]', el);
+      this.announcementEl = $('[data-reader-announcement]', el);
       this.zoom = 1;
       this.pages = [];
       this.near = new Set();
@@ -232,6 +235,7 @@
       this.layout();
       this.observe();
       this.updateStatus();
+      this.announce(`Report loaded, ${this.doc.numPages} ${this.doc.numPages === 1 ? 'page' : 'pages'}.`);
       this.rememberPages();
       this.fillPages();
     }
@@ -273,7 +277,9 @@
         const d = document.createElement('div');
         d.className = 'pdf-page is-loading';
         d.dataset.n = String(p.n);
-        d.dataset.label = `Page ${p.n}`;
+        d.setAttribute('role', 'group');
+        d.setAttribute('aria-label', `Page ${p.n} of ${this.pages.length}`);
+        d.innerHTML = `<span class="pdf-page-placeholder" aria-hidden="true">Page ${p.n}</span>`;
         p.el = d;
         frag.appendChild(d);
       });
@@ -476,6 +482,8 @@
 
     setStatus(text) { if (this.statusEl.textContent !== text) this.statusEl.textContent = text; }
 
+    announce(text) { this.announcementEl.textContent = text; }
+
     toggleFullscreen() {
       if (this.isFullscreen()) {
         const exit = document.exitFullscreen || document.webkitExitFullscreen;
@@ -506,17 +514,19 @@
       this.hideZoom();
       this.setStatus('');
       this.pagesEl.innerHTML = `<iframe class="viewer-frame" src="${esc(LH.fileUrl(this.r))}" title="${esc(this.r.title)}"></iframe>`;
+      this.announce('Report opened in the browser viewer.');
     }
 
     error(kind) {
       this.hideZoom();
       this.setStatus('');
+      this.announce('This report could not be displayed.');
       // Nothing to show full screen; and a missing file cannot be downloaded either
       this.fsButtons.forEach((b) => { b.hidden = true; });
       const divider = $('.viewer-controls .divider', this.el);
       if (divider) divider.hidden = true;
       if (kind === 'missing') {
-        $$('.reader-actions a[download], [data-file-meta]', root).forEach((el) => { el.hidden = true; });
+        $$('.reader-actions a[download], [data-open-file], [data-file-meta]', root).forEach((el) => { el.hidden = true; });
       }
       const url = LH.fileUrl(this.r);
       const text = {
