@@ -46,16 +46,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=2026-09-27a">
-<link rel="stylesheet" href="assets/css/home-editorial.css?v=2026-09-29c">
+<link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
+<link rel="stylesheet" href="assets/css/home-editorial.css?v=2026-09-29d">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
-<script src="assets/js/site.js?v=2026-09-27b" defer blocking="render"></script>
-<script src="assets/js/home.js?v=2026-09-29a" defer blocking="render"></script>
-<script src="assets/js/earth.js?v=2026-09-26d" defer></script>
+<script src="assets/js/site.js?v=2026-09-29a" defer></script>
+<script src="assets/js/home.js?v=2026-09-29a" defer></script>
+<script src="assets/js/earth.js?v=2026-09-29a" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -99,10 +99,10 @@
       </div>
 
       <figure class="plate" data-globe>
-        <div class="plate-stage" data-globe-stage role="button" tabindex="0" aria-pressed="false"
-             aria-label="Stop the Earth turning" aria-describedby="globe-help">
+        <div class="plate-stage" data-globe-stage role="button" tabindex="0"
+             aria-label="Control the Earth's rotation" aria-describedby="globe-help">
         </div>
-        <p class="sr-only" id="globe-help">A photographic globe of the Earth, made from NASA imagery, turning slowly. Drag it, or use the arrow keys, to turn it any way; Home sets it straight.</p>
+        <p class="sr-only" id="globe-help">A photographic globe of the Earth, made from NASA imagery. Use the arrow keys to turn it, Home to reset it, and Enter or Space to pause or resume its rotation.</p>
       </figure>
       <aside class="home-latest" data-latest aria-label="Latest report" hidden></aside>
     </div>
