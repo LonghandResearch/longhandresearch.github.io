@@ -1,0 +1,108 @@
+/* Let the work lead the front page. The Earth remains its one visual gesture. */
+.page-home .hero.night {
+  background: radial-gradient(48% 62% at 50% 47%, #1a2937 0, #111821 74%);
+}
+
+.page-home .night-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-areas: "copy globe latest";
+  align-items: center;
+  gap: clamp(22px, 3vw, 48px);
+  padding-block: clamp(50px, 7vh, 86px) clamp(48px, 7vh, 86px);
+}
+
+.page-home .hero.night .hero-copy { grid-area: copy; max-width: 38rem; }
+.page-home .plate { grid-area: globe; width: 100%; }
+.page-home .hero.night .eyebrow {
+  margin-bottom: clamp(16px, 2.5vh, 24px);
+  color: var(--gold-ink);
+  letter-spacing: 0.15em;
+}
+.page-home .hero.night .hero-title {
+  max-width: 13ch;
+  font-size: clamp(39px, 3.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.024em;
+}
+.page-home .hero.night .hero-lede {
+  max-width: 43ch;
+  margin-top: clamp(20px, 3vh, 30px);
+  font-size: clamp(17px, 1.2vw, 19px);
+  line-height: 1.55;
+}
+.page-home .hero.night .hero-actions {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: clamp(25px, 4vh, 36px);
+}
+
+/* The catalogue supplies the subject and date; this block is never hard coded. */
+.home-latest {
+  grid-area: latest;
+  width: 100%;
+  max-width: 20rem;
+  margin-top: 0;
+  padding-top: 17px;
+  border-top: 1px solid var(--rule-2);
+}
+.home-latest-label,
+.home-latest-meta {
+  font: 500 11px/1.5 var(--font-sans);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.home-latest-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+.home-latest-label time { font-variant-numeric: tabular-nums; }
+.home-latest-title {
+  display: block;
+  width: fit-content;
+  max-width: 29ch;
+  margin-top: 12px;
+  font-size: clamp(21px, 1.9vw, 27px);
+  line-height: 1.18;
+  text-decoration: none;
+}
+.home-latest-title:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+.home-latest-meta { margin-top: 9px; letter-spacing: 0.08em; }
+
+.page-home .plate-stage { max-width: min(68svh, 680px); }
+
+/* The text is ready immediately; the globe can arrive as its imagery loads. */
+.page-home .hero .eyebrow,
+.page-home .hero-lede,
+.page-home .hero .hero-actions { animation: none !important; }
+
+@media (max-width: 1000px) {
+  .page-home .night-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "copy" "globe" "latest";
+    justify-items: center;
+    gap: clamp(28px, 5vh, 48px);
+    padding-block: clamp(42px, 6vh, 68px) 42px;
+  }
+  .page-home .plate { order: initial; }
+  .page-home .hero.night .hero-copy { max-width: 42rem; padding-top: 0; }
+  .page-home .hero.night .hero-title { font-size: clamp(48px, 6vw, 68px); }
+  .page-home .hero.night .hero-title { max-width: 17ch; }
+  .page-home .hero.night .hero-actions { flex-direction: row; align-items: center; }
+  .home-latest { max-width: 42rem; }
+  .page-home .plate-stage { max-width: min(100%, 58svh, 540px); }
+}
+
+@media (max-width: 560px) {
+  .page-home .night-grid { gap: 24px; padding-block: 34px 34px; }
+  .page-home .hero.night .eyebrow { font-size: 10.5px; }
+  .page-home .hero.night .hero-title { font-size: clamp(39px, 10vw, 52px); line-height: 1.06; }
+  .page-home .hero.night .hero-lede { font-size: 17px; line-height: 1.52; }
+  .page-home .hero.night .hero-actions { margin-top: 24px; }
+  .home-latest { margin-top: 0; }
+  .page-home .plate-stage { max-width: min(100%, 390px); }
+}
