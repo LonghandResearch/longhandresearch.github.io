@@ -45,6 +45,7 @@
 .market-policy small, .market-levels small { display: block; margin-top: 5px; color: var(--ink-3); font: 400 12px/1.5 var(--font-sans); }
 .market-caveat, .market-method { margin-top: 18px !important; color: var(--ink-3); font: 400 12px/1.65 var(--font-sans); }
 .market-table-wrap { max-width: 760px; margin-top: 22px; overflow-x: auto; }
+.market-table-wrap:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 2px; }
 .market-table { width: 100%; border-collapse: collapse; font: 400 14px/1.45 var(--font-sans); font-variant-numeric: tabular-nums; }
 .market-table caption { padding: 0 0 11px; color: var(--ink-2); text-align: left; font-size: 12px; }
 .market-table th, .market-table td { padding: 8px 10px; border-top: 1px solid var(--rule); text-align: left; }

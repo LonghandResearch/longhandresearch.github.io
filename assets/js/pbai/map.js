@@ -146,13 +146,28 @@
   const yearEl = host.querySelector('[data-holo-year]');
   const counts = host.querySelector('[data-holo-counts]');
   const marks = [...host.querySelectorAll('[data-year]')];
+  let lastCountKey = '';
 
   function show(t) {
-    marks.forEach((el) => el.classList.toggle('is-on', Number(el.dataset.year) <= t + 1e-9));
-    yearEl.textContent = t >= y1 ? 'ALL' : Math.floor(t);
-    const sum = (st) => projects.filter((p) => p.status === st && p.year <= t).reduce((a, p) => a + (p.mw || 0), 0);
-    const n = (st) => projects.filter((p) => p.status === st && p.year <= t).length;
-    counts.innerHTML = ['actual', 'construction', 'announced'].map((st) => `<div class="hc hc-${st}"><dt>${STATUS[st]}</dt><dd>${n(st)} <span>projects</span> · ${nf(sum(st))} <span>MW stated</span></dd></div>`).join('');
+    marks.forEach((el) => {
+      const visible = Number(el.dataset.year) <= t + 1e-9;
+      if (el.classList.contains('is-on') === visible) return;
+      el.classList.toggle('is-on', visible);
+      if (el.matches('g[data-project]')) {
+        el.setAttribute('tabindex', visible ? '0' : '-1');
+        el.setAttribute('aria-hidden', String(!visible));
+      }
+    });
+    const label = t >= y1 ? 'ALL' : String(Math.floor(t));
+    if (yearEl.textContent !== label) yearEl.textContent = label;
+    const visibleProjects = projects.filter((p) => p.year <= t);
+    const countKey = visibleProjects.map((p) => p.i).join(',');
+    if (countKey === lastCountKey) return;
+    lastCountKey = countKey;
+    counts.innerHTML = ['actual', 'construction', 'announced'].map((st) => {
+      const group = visibleProjects.filter((p) => p.status === st);
+      return `<div class="hc hc-${st}"><dt>${STATUS[st]}</dt><dd>${group.length} <span>projects</span> · ${nf(group.reduce((a, p) => a + (p.mw || 0), 0))} <span>MW stated</span></dd></div>`;
+    }).join('');
   }
 
   function detail(i) {
@@ -184,7 +199,7 @@
 
   // Boot sequence the first time the map comes into view
   if (reduce || !('IntersectionObserver' in window)) { host.classList.add('is-booted', 'is-still'); return; }
-  show(y0 - 1);
+  // Keep the slider, counts and focusable map markers consistent before the map enters view.
   const io = new IntersectionObserver((es) => {
     if (!es.some((e) => e.isIntersecting)) return;
     io.disconnect();
