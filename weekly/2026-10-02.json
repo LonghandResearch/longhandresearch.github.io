@@ -267,7 +267,7 @@
           "type": "flows",
           "label": "02 FOREIGN FLOW",
           "title": "Selling in every session, heaviest on Wednesday",
-          "note": "Net foreign buying of shares each day, in Rp bn. IDX puts the weekly total at −5,036.31. The daily figures shown add up to −5,036.32 because each one is rounded.",
+          "note": "Net foreign buying of shares each day, in Rp bn. IDX puts the weekly total at −5,036.31. The daily figures shown add up to −5,036.32, a Rp0.01bn difference in the published figures.",
           "sources": [
             "daily",
             "weekly"
@@ -393,7 +393,7 @@
     {
       "id": "turnover",
       "nav": "Turnover",
-      "title": "More shares changed hands, but not more money",
+      "title": "Share volume jumped, trading value rose much less",
       "blocks": [
         {
           "type": "paragraph",
@@ -712,5 +712,5 @@
       ]
     }
   ],
-  "method": "All returns are price returns. Rp bn means billions of rupiah and Rp tn means trillions. IDX classes investors as foreign or domestic by the home country recorded in its trading system, which is not always the ultimate owner. The seller and buyer table adds up IDX's rounded daily figures, so its total of Rp63,127bn differs slightly from the exact weekly value of Rp63,125.87bn. Value per share traded is the week's trading value divided by the week's volume, both from IDX's trading summary. Breadth shares are worked out from IDX's counts. The dollar return based on JISDOR leaves out dividends, fees, taxes, hedging and tracking costs."
+  "method": "All returns are price returns. Rp bn means billions of rupiah and Rp tn means trillions. IDX marks trades as foreign or domestic using the domicile recorded in its trading system. That does not always tell us who ultimately owns the shares. The seller and buyer table adds up IDX's rounded daily figures, so its total of Rp63,127bn differs slightly from the exact weekly value of Rp63,125.87bn. Value per share traded is the week's trading value divided by the week's volume, both from IDX's trading summary. Breadth shares are worked out from IDX's counts. The dollar return based on JISDOR leaves out dividends, fees, taxes, hedging and tracking costs."
 }
