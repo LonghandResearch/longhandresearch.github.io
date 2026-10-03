@@ -1,0 +1,18 @@
+{
+  "asOf": "2026-10-02",
+  "runtimeCommit": "182fe27",
+  "origin": "Flowless local terminal, using IDX Daily Trading Summary",
+  "method": {
+    "marketCapRp": "2 October close multiplied by reported shares outstanding",
+    "adtv20Rp": "Mean daily trading value over 20 IDX trading sessions ending 2 October",
+    "foreignNet5RpEstimate": "Sum of five daily (foreign buy shares minus foreign sell shares) multiplied by each day's close. This is an estimate, not IDX's published foreign trading value."
+  },
+  "selection": "Five largest by market capitalization with market cap at least Rp10tn, ADTV20 at least Rp50bn, no zero-trade days in the last 20 sessions, and Flowless is_illiquid false. The threshold describes trading depth, not investment safety.",
+  "stocks": [
+    { "ticker": "BBCA", "marketCapRp": 744458026950000, "adtv20Rp": 799596002750, "foreignNet5RpEstimate": -292942997500, "zeroTradeDays20": 0, "isIlliquid": false },
+    { "ticker": "BBRI", "marketCapRp": 462133707687960, "adtv20Rp": 538806130250, "foreignNet5RpEstimate": -184361473000, "zeroTradeDays20": 0, "isIlliquid": false },
+    { "ticker": "BMRI", "marketCapRp": 372371999983880, "adtv20Rp": 537892822450, "foreignNet5RpEstimate": -855886602000, "zeroTradeDays20": 0, "isIlliquid": false },
+    { "ticker": "AMMN", "marketCapRp": 307477242861440, "adtv20Rp": 435498932000, "foreignNet5RpEstimate": -13063114000, "zeroTradeDays20": 0, "isIlliquid": false },
+    { "ticker": "TLKM", "marketCapRp": 222889987350000, "adtv20Rp": 352367460400, "foreignNet5RpEstimate": -468252626000, "zeroTradeDays20": 0, "isIlliquid": false }
+  ]
+}

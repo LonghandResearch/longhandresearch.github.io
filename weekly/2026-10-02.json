@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "weekEnding": "2026-10-02",
   "published": "2026-10-03",
-  "reviewed": "2026-10-03",
+  "reviewed": "2026-10-04",
   "period": "28 September to 2 October 2026",
   "title": "Foreign Selling Deepened. Technology Led the Fall.",
   "titleLead": "Foreign selling deepened.",
@@ -56,6 +56,11 @@
       "label": "Federal Reserve FOMC statement, 16 September 2026",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
       "note": "The latest Fed rate decision before this week."
+    },
+    "flowlessSnapshot": {
+      "label": "Flowless stock snapshot, 2 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-02.json",
+      "note": "Frozen readings derived from IDX Daily Trading Summary. The file gives the selection rule, exact values and calculation methods. Its five-day foreign net values are estimates from share volume times closing price, not IDX's official foreign trading values."
     }
   },
   "observations": {
@@ -588,6 +593,46 @@
           "text": "GOTO also helped Friday's rebound. It rose 7.14% that day and added 3.70 of the IHSG's 27.386-point gain, according to the 2 October daily report. Even so, it was still the biggest drag on the index for the week.",
           "sources": [
             "daily"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "The largest actively traded shares"
+        },
+        {
+          "type": "paragraph",
+          "text": "Flowless's 2 October snapshot puts these five stocks at the top by market value after screening for at least Rp50bn in average daily trading value over 20 sessions and no days without a trade. This describes size and trading depth. It does not say a share is a safe investment.",
+          "sources": [
+            "flowlessSnapshot"
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Large, actively traded stocks at the 2 October close",
+          "headers": [
+            "Ticker",
+            "Market cap, Rp tn",
+            "20-day average value, Rp bn",
+            "Estimated foreign net flow, 5 days, Rp bn"
+          ],
+          "rows": [
+            ["BBCA", "744.46", "799.60", "−292.94"],
+            ["BBRI", "462.13", "538.81", "−184.36"],
+            ["BMRI", "372.37", "537.89", "−855.89"],
+            ["AMMN", "307.48", "435.50", "−13.06"],
+            ["TLKM", "222.89", "352.37", "−468.25"]
+          ],
+          "sources": [
+            "flowlessSnapshot",
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Four of the five, AMMN, TLKM, BBCA and BBRI, appear among IDX's ten biggest negative IHSG contributors this week. Flowless estimates each stock's foreign net flow from shares traded at the daily close, so the negative values in the table mean estimated net selling. They are not directly comparable with IDX's official market-wide foreign value. Flowless's average trading value also uses a stock-summary series that differs from the all-market totals in IDX Daily Statistics.",
+          "sources": [
+            "weekly",
+            "flowlessSnapshot"
           ]
         }
       ]

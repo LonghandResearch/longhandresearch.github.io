@@ -113,6 +113,8 @@ The 25 September report remains at its original address. [Its data-only example]
 3. Add the normal catalogue entry to `reports/reports.js` with `"page": "ihsg-weekly.html?week=YYYY-MM-DD"`. Add that exact URL to `sitemap.xml`. The feed rebuild on `main` will use the same link. These are publication records, not new page code.
 4. Run `node scripts/check-site.mjs` and `node scripts/build-feed.mjs`, then preview the new URL at desktop and phone width. Review every figure, source and editorial claim using `QA.md` before merging. The checker verifies that the dated data file exists and matches the URL, but it cannot establish whether market facts are correct.
 
+For optional stock context from Flowless, freeze a snapshot at the same weekly close and record the exact screen, data date, units and method in `weekly/` and `audits/`. Cross-check market-cap figures with the dated IDX Daily Statistics and recompute rolling fields from Flowless's daily series. Keep Flowless's close-price estimate of foreign net flow separate from IDX's official foreign trading value, and do not describe a stock as safe on the basis of market cap or liquidity alone. The 2 October example is `weekly/flowless-2026-10-02.json` and `audits/RPT-011-2026-10-02.md`.
+
 The shared renderer and `ihsg-weekly.html` need no edits for a new edition. A missing or invalid week shows a clear unavailable state rather than reusing an older report. The template works when served over HTTP or on GitHub Pages; browsers generally block its JSON request when the file is opened directly from disk.
 
 ## Delete a report
