@@ -185,7 +185,7 @@
     stop();
     const t0 = performance.now(); const dur = 7000;
     const step = (now) => {
-      const k = Math.min(1, (now - t0) / dur); const t = y0 + (y1 - y0) * k;
+      const k = Math.max(0, Math.min(1, (now - t0) / dur)); const t = y0 + (y1 - y0) * k;
       range.value = t; show(t);
       if (k < 1) raf = requestAnimationFrame(step);
     };
@@ -199,7 +199,9 @@
 
   // Boot sequence the first time the map comes into view
   if (reduce || !('IntersectionObserver' in window)) { host.classList.add('is-booted', 'is-still'); return; }
-  // Keep the slider, counts and focusable map markers consistent before the map enters view.
+  // Keep the slider, counts and focusable map markers consistent before the map enters view,
+  // at the replay's first year, so the replay builds forward instead of hiding markers already shown.
+  range.value = y0; show(y0);
   const io = new IntersectionObserver((es) => {
     if (!es.some((e) => e.isIntersecting)) return;
     io.disconnect();
