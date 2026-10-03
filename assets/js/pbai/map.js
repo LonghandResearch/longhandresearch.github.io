@@ -146,13 +146,28 @@
   const yearEl = host.querySelector('[data-holo-year]');
   const counts = host.querySelector('[data-holo-counts]');
   const marks = [...host.querySelectorAll('[data-year]')];
+  let lastCountKey = '';
 
   function show(t) {
-    marks.forEach((el) => el.classList.toggle('is-on', Number(el.dataset.year) <= t + 1e-9));
-    yearEl.textContent = t >= y1 ? 'ALL' : Math.floor(t);
-    const sum = (st) => projects.filter((p) => p.status === st && p.year <= t).reduce((a, p) => a + (p.mw || 0), 0);
-    const n = (st) => projects.filter((p) => p.status === st && p.year <= t).length;
-    counts.innerHTML = ['actual', 'construction', 'announced'].map((st) => `<div class="hc hc-${st}"><dt>${STATUS[st]}</dt><dd>${n(st)} <span>projects</span> · ${nf(sum(st))} <span>MW stated</span></dd></div>`).join('');
+    marks.forEach((el) => {
+      const visible = Number(el.dataset.year) <= t + 1e-9;
+      if (el.classList.contains('is-on') === visible) return;
+      el.classList.toggle('is-on', visible);
+      if (el.matches('g[data-project]')) {
+        el.setAttribute('tabindex', visible ? '0' : '-1');
+        el.setAttribute('aria-hidden', String(!visible));
+      }
+    });
+    const label = t >= y1 ? 'ALL' : String(Math.floor(t));
+    if (yearEl.textContent !== label) yearEl.textContent = label;
+    const visibleProjects = projects.filter((p) => p.year <= t);
+    const countKey = visibleProjects.map((p) => p.i).join(',');
+    if (countKey === lastCountKey) return;
+    lastCountKey = countKey;
+    counts.innerHTML = ['actual', 'construction', 'announced'].map((st) => {
+      const group = visibleProjects.filter((p) => p.status === st);
+      return `<div class="hc hc-${st}"><dt>${STATUS[st]}</dt><dd>${group.length} <span>${group.length === 1 ? 'project' : 'projects'}</span> · ${nf(group.reduce((a, p) => a + (p.mw || 0), 0))} <span>MW stated</span></dd></div>`;
+    }).join('');
   }
 
   function detail(i) {
@@ -162,21 +177,22 @@
   }
   host.addEventListener('click', (e) => { const el = e.target.closest('[data-project]'); if (el) detail(Number(el.dataset.project)); });
   host.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('g[data-project]')) { e.preventDefault(); detail(Number(e.target.dataset.project)); } });
-  range.addEventListener('input', () => { stop(); show(Number(range.value)); });
+  range.addEventListener('input', () => { touched = true; stop(); show(Number(range.value)); });
 
-  let raf = 0;
-  const stop = () => { cancelAnimationFrame(raf); raf = 0; };
+  // Once a visitor moves the slider or presses Play, the boot replay (running or still queued) gives way.
+  let raf = 0; let queued = 0; let touched = false;
+  const stop = () => { cancelAnimationFrame(raf); raf = 0; clearTimeout(queued); queued = 0; };
   function play() {
     stop();
     const t0 = performance.now(); const dur = 7000;
     const step = (now) => {
-      const k = Math.min(1, (now - t0) / dur); const t = y0 + (y1 - y0) * k;
+      const k = Math.max(0, Math.min(1, (now - t0) / dur)); const t = y0 + (y1 - y0) * k;
       range.value = t; show(t);
       if (k < 1) raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
   }
-  host.querySelector('[data-holo-play]').addEventListener('click', () => { host.classList.add('is-booted'); play(); });
+  host.querySelector('[data-holo-play]').addEventListener('click', () => { touched = true; host.classList.add('is-booted'); play(); });
 
   show(y1);
   tableView(host.querySelector('.holo-frame'), ['Project', 'Developer', 'Status', 'Date', 'MW', 'Site'],
@@ -184,12 +200,14 @@
 
   // Boot sequence the first time the map comes into view
   if (reduce || !('IntersectionObserver' in window)) { host.classList.add('is-booted', 'is-still'); return; }
-  show(y0 - 1);
+  // Keep the slider, counts and focusable map markers consistent before the map enters view,
+  // at the replay's first year, so the replay builds forward instead of hiding markers already shown.
+  range.value = y0; show(y0);
   const io = new IntersectionObserver((es) => {
     if (!es.some((e) => e.isIntersecting)) return;
     io.disconnect();
     host.classList.add('is-booted');
-    setTimeout(play, 1400);
+    if (!touched) queued = setTimeout(play, 1400);
   }, { threshold: 0.35 });
   io.observe(host);
 })();
