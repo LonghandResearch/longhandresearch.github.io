@@ -7,55 +7,55 @@
   "title": "Foreign Selling Deepened. Technology Led the Fall.",
   "titleLead": "Foreign selling deepened.",
   "titleEmphasis": "Technology led the fall.",
-  "deck": "Primary IDX data show Rp5.04tn of foreign net selling, eleven falling sectors, a 40% drop in GOTO and who took the other side.",
+  "deck": "IDX figures show Rp5.04tn of foreign net selling, all eleven sectors lower, GOTO down 40%, and who bought what foreigners sold.",
   "description": "IHSG Weekly Market Update, 28 September to 2 October 2026: IDX foreign flows, weekly sectors, index movers and BI JISDOR with transparent calculations.",
   "stats": [
     {
       "label": "IHSG close",
       "value": "6,036.89",
-      "note": "-3.28% week on week"
+      "note": "-3.28% on the week"
     },
     {
       "label": "Foreign net flow, week",
       "value": "-Rp5.04tn",
-      "note": "Five selling days; all stock venues combined"
+      "note": "Net selling on all five days, all stock markets combined"
     },
     {
       "label": "JISDOR USD/IDR",
       "value": "17,898",
-      "note": "-0.11% vs 25 Sep; slightly firmer rupiah"
+      "note": "-0.11% from 25 Sep, a slightly firmer rupiah"
     },
     {
       "label": "Average daily value",
       "value": "Rp12.63tn",
-      "note": "+5.40% week on week; volume +72.51%"
+      "note": "+5.40% on the week, while volume rose 72.51%"
     }
   ],
   "sources": {
     "weekly": {
       "label": "IDX Weekly Statistics, 2 October 2026",
       "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
-      "note": "Select the dated weekly report. Market activity is on page 1, net foreign on page 2, weekly losers and the trading recapitulation on page 4, index movers on page 5 and sector indices on page 7."
+      "note": "Choose the weekly report for this date. Market activity is on page 1, net foreign trading on page 2, the biggest losers and the trading summary on page 4, index movers on page 5 and sector indices on page 7."
     },
     "daily": {
       "label": "IDX Daily Statistics, 28 September to 2 October 2026",
       "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
-      "note": "Select the dated daily reports for closing levels and foreign net purchases. The 25 September close is the previous close on the 28 September report."
+      "note": "Choose the daily report for each date for closing levels and net foreign buying. The 25 September close is shown as the previous close in the 28 September report."
     },
     "jisdor": {
       "label": "Bank Indonesia JISDOR, 25 September to 2 October 2026",
       "url": "https://www.bi.go.id/en/statistik/informasi-kurs/jisdor/Default.aspx",
-      "note": "Daily reference rates; not synchronised with the equity closing auction."
+      "note": "Daily reference rates, set at a different time from the stock market close."
     },
     "biDecision": {
       "label": "Bank Indonesia Board of Governors decision, 23 September 2026",
       "url": "https://www.bi.go.id/en/publikasi/ruang-media/news-release/Pages/sp_2819326.aspx",
-      "note": "The latest BI-Rate decision before this reporting week."
+      "note": "The latest BI-Rate decision before this week."
     },
     "fedDecision": {
       "label": "Federal Reserve FOMC statement, 16 September 2026",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
-      "note": "The latest FOMC rate decision before this reporting week."
+      "note": "The latest Fed rate decision before this week."
     }
   },
   "observations": {
@@ -228,13 +228,13 @@
   "sections": [
     {
       "id": "thesis",
-      "nav": "Executive thesis",
-      "title": "Four declines and an unconfirmed bounce",
+      "nav": "The week in brief",
+      "title": "Four down days, then a weak bounce",
       "blocks": [
         {
           "type": "paragraph",
           "lede": true,
-          "text": "The IHSG fell 3.28% to 6,036.888 while IDX statistics recorded Rp5.04tn of foreign net selling, with all five sessions net sales. That is 59.6% more than the previous week's Rp3.16tn. The index declined for four sessions before Friday's 27.386-point gain, and foreign investors sold a net Rp1.27tn into that rise. The price steadied without flow confirmation.",
+          "text": "The IHSG fell 3.28% to 6,036.888 as foreign investors sold a net Rp5.04tn of shares, according to IDX. They were net sellers on all five days, and sold 59.6% more than the week before, when the figure was Rp3.16tn. The index fell four days in a row before gaining 27.386 points on Friday, and foreigners sold a net Rp1.27tn into that rise. The price steadied, but the selling did not stop.",
           "sources": [
             "weekly",
             "daily"
@@ -242,7 +242,7 @@
         },
         {
           "type": "closes",
-          "label": "01 / THE PRICE PATH",
+          "label": "01 THE PRICE PATH",
           "title": "Four lower closes, then a small rebound",
           "sources": [
             "daily"
@@ -257,7 +257,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Wednesday's Rp1.61tn was the largest daily net sale, 32.0% of the week. The weekly IDX table also shows Rp3.16tn of net selling in the previous week; this week's Rp5.04tn was 59.6% more. Year to date, IDX records Rp82.55tn of foreign net selling; this week alone accounts for 6.1% of it.",
+          "text": "Wednesday was the heaviest day, with Rp1.61tn of net selling, or 32.0% of the week. IDX's weekly table puts the previous week's net selling at Rp3.16tn, so this week's Rp5.04tn was 59.6% more. Since the start of the year foreigners have sold a net Rp82.55tn, and this week alone was 6.1% of that.",
           "sources": [
             "daily",
             "weekly"
@@ -265,9 +265,9 @@
         },
         {
           "type": "flows",
-          "label": "02 / FOREIGN FLOW",
+          "label": "02 FOREIGN FLOW",
           "title": "Selling in every session, heaviest on Wednesday",
-          "note": "Daily net foreign stock purchases, Rp bn. IDX reports the weekly total as −5,036.31; the displayed daily figures sum to −5,036.32, a Rp0.01bn difference at published precision.",
+          "note": "Net foreign buying of shares each day, in Rp bn. IDX puts the weekly total at −5,036.31. The daily figures shown add up to −5,036.32, a Rp0.01bn difference in the published figures.",
           "sources": [
             "daily",
             "weekly"
@@ -275,11 +275,11 @@
         },
         {
           "type": "heading",
-          "text": "Who took the other side"
+          "text": "Who bought what foreigners sold"
         },
         {
           "type": "paragraph",
-          "text": "IDX's transaction table splits each trade by the seller's and buyer's domicile. Foreign investors sold Rp14.19tn of stock to domestic buyers and bought Rp9.15tn from domestic sellers; the difference is the Rp5.04tn net sale, and it reconciles day by day with the daily statistics. Domestic investors were therefore the net buyers: Rp39.99tn bought against Rp34.96tn sold. Foreign investors' share of weekly trading value rose from 34% to 41%, but Rp13.98tn of the week's value, 22.1%, changed hands between foreign accounts and moved no money across the domestic and foreign line.",
+          "text": "IDX's transaction table records whether the seller and the buyer in each trade were domestic or foreign. Foreign investors sold Rp14.19tn of shares to domestic buyers and bought Rp9.15tn from domestic sellers. The gap between the two is the Rp5.04tn net sale, and it matches the daily figures day by day. So domestic investors were the net buyers, with Rp39.99tn bought against Rp34.96tn sold. Foreign investors' share of trading value rose from 34% to 41%. But Rp13.98tn of the week's value, 22.1%, was trading between foreign accounts, which moves no money between foreign and domestic hands.",
           "sources": [
             "weekly"
           ]
@@ -325,7 +325,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Wednesday stood out on both counts. Foreign-to-foreign trades reached Rp4.23tn, 30.1% of that day's value against about 20% on each of the other four days, and the same session carried the week's heaviest net selling. The table records domicile, not motive, so it cannot show whether those trades were block transfers or ordinary dealing.",
+          "text": "Wednesday stood out on both counts. Trades between foreign accounts reached Rp4.23tn, or 30.1% of that day's value, against about 20% on each of the other four days. The same day had the week's heaviest net selling. The table shows who traded, not why, so it cannot tell us whether these were block transfers or ordinary trades.",
           "sources": [
             "weekly"
           ]
@@ -393,11 +393,11 @@
     {
       "id": "turnover",
       "nav": "Turnover",
-      "title": "Volume rose; money did not",
+      "title": "Share volume jumped, trading value rose much less",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Average daily volume rose 72.51% from the previous week while average daily value rose 5.40%. This week's stock trading value divided by shares traded was Rp250.65 per share. On Friday GOTO traded 99,890 million shares, 82.77% of the day's volume; Friday's 120,681 million shares were 47.9% of the week's total. Excluding GOTO, Friday's 20,791 million shares were fewer than any other day's total, and Friday's value of Rp12.25tn was close to the week's daily average.",
+          "text": "Average daily volume rose 72.51% from the previous week, while average daily value rose 5.40%. Divide the week's trading value by the shares traded and you get Rp250.65 a share. On Friday GOTO alone traded 99,890 million shares, 82.77% of the day's volume, and Friday's 120,681 million shares were 47.9% of the week's total. Leave GOTO out and Friday's 20,791 million shares were fewer than any other day's total, while Friday's value of Rp12.25tn was close to the week's daily average.",
           "sources": [
             "daily",
             "weekly"
@@ -405,14 +405,14 @@
         },
         {
           "type": "paragraph",
-          "text": "Eight of IDX's ten weekly top losers, GOTO among them, began the week at Rp50 and ended between Rp24 and Rp33. IDX's statistics do not give a reason. Separately, the negotiated market accounted for 13.83% of the week's trading value (Rp8.73tn).",
+          "text": "Eight of IDX's ten biggest weekly losers, GOTO among them, started the week at Rp50 and ended between Rp24 and Rp33. IDX's statistics do not say why. Separately, trades in the negotiated market made up 13.83% of the week's trading value, or Rp8.73tn.",
           "sources": [
             "weekly"
           ]
         },
         {
           "type": "table",
-          "caption": "Weekly top losers that began the week at Rp50",
+          "caption": "Biggest weekly losers that started the week at Rp50",
           "headers": [
             "Stock",
             "25 Sep (Rp)",
@@ -477,12 +477,12 @@
     },
     {
       "id": "breadth",
-      "nav": "Breadth & sectors",
+      "nav": "Breadth and sectors",
       "title": "A broad decline across sectors",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Of 963 stocks in IDX's breadth breakdown, 559 (58.0%) fell over the week and 224 (23.3%) rose. Stocks that fell more than 2% represented Rp6,256tn of market capitalisation, 59.2% of the total in that breakdown, against Rp2,482tn in stocks that rose.",
+          "text": "Of the 963 stocks in IDX's breakdown, 559 (58.0%) fell over the week and 224 (23.3%) rose. Stocks that fell more than 2% were worth Rp6,256tn, 59.2% of the total market value in that breakdown, against Rp2,482tn for the stocks that rose.",
           "sources": [
             "weekly"
           ]
@@ -547,16 +547,16 @@
         },
         {
           "type": "paragraph",
-          "text": "No sector index finished the week higher. Technology fell 12.45%, more than twice the next-worst sector, basic materials at 5.29%. Energy held up best at 0.99% lower. Price performance establishes where losses were taken; it does not identify who sold.",
+          "text": "No sector index ended the week higher. Technology fell 12.45%, more than twice as much as the next worst, basic materials, at 5.29%. Energy held up best, down 0.99%. These returns show where the losses fell. They do not show who did the selling.",
           "sources": [
             "weekly"
           ]
         },
         {
           "type": "sectors",
-          "label": "03 / WEEKLY SECTOR RETURNS",
-          "title": "The full-week ranking",
-          "note": "These are sector-index price returns, not contributions to IHSG points.",
+          "label": "03 WEEKLY SECTOR RETURNS",
+          "title": "How each sector did",
+          "note": "These are price changes in each sector index, not points added to or taken from the IHSG.",
           "sources": [
             "weekly"
           ]
@@ -565,19 +565,19 @@
     },
     {
       "id": "stocks",
-      "nav": "Stock contributions",
+      "nav": "Biggest movers",
       "title": "GOTO took the largest share of the decline",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "IDX's index-mover table attributes 36.71 negative IHSG points to GOTO alone, 17.9% of the index's net 205.004-point fall, as its price dropped 40% from Rp50 to Rp30. GOTO, AMMN and TLKM together account for 70.59 points, about a third of the net decline. The three largest positive contributors, DSSA, UNTR and VKTR, added 16.37 points.",
+          "text": "IDX's index-mover table puts GOTO alone at 36.71 points of the IHSG's fall, 17.9% of the net 205.004-point drop, as its price fell 40% from Rp50 to Rp30. GOTO, AMMN and TLKM together took off 70.59 points, about a third of the net decline. The three biggest positive contributors, DSSA, UNTR and VKTR, added 16.37 points.",
           "sources": [
             "weekly"
           ]
         },
         {
           "type": "stocks",
-          "label": "04 / INDEX CONTRIBUTION",
+          "label": "04 INDEX CONTRIBUTION",
           "title": "Three leaders against five laggards",
           "sources": [
             "weekly"
@@ -585,7 +585,7 @@
         },
         {
           "type": "paragraph",
-          "text": "GOTO also contributed to Friday's rebound: it rose 7.14% that day and added 3.70 of the IHSG's 27.386-point gain, according to the 2 October daily report. It still finished the week as the index's largest negative contributor.",
+          "text": "GOTO also helped Friday's rebound. It rose 7.14% that day and added 3.70 of the IHSG's 27.386-point gain, according to the 2 October daily report. Even so, it was still the biggest drag on the index for the week.",
           "sources": [
             "daily"
           ]
@@ -594,12 +594,12 @@
     },
     {
       "id": "regional",
-      "nav": "Region & currency",
+      "nav": "Region and currency",
       "title": "A weak region, a weaker IHSG",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Every ASEAN index in IDX's comparison fell. The IHSG fell further than every ASEAN peer except the Philippines' PSEi. Of the 32 other indices in the table, only four fell more, and four rose, led by Japan's Nikkei 225 at 2.93% and Brazil's Ibovespa at 2.03%.",
+          "text": "Every ASEAN index in IDX's comparison fell, and the IHSG fell more than all of them except the Philippines' PSEi. Of the 32 other indices in the table, only four fell more, and four rose, led by Japan's Nikkei 225, up 2.93%, and Brazil's Ibovespa, up 2.03%.",
           "sources": [
             "weekly"
           ]
@@ -664,14 +664,14 @@
         },
         {
           "type": "paragraph",
-          "text": "JISDOR eased 0.11% between the two Fridays, from 17,917 to 17,898, so the rupiah slightly softened the equity loss for an unhedged dollar investor. Within the week the rate ranged from 17,877 on Wednesday to 17,998 on Tuesday. The reference-rate timing differs from the equity close, so this is an indicative comparison rather than an executable return.",
+          "text": "The JISDOR rate eased 0.11% between the two Fridays, from 17,917 to 17,898. That slightly softened the loss for someone holding Indonesian shares in dollars without a currency hedge. During the week the rate moved between 17,877 on Wednesday and 17,998 on Tuesday. JISDOR is set at a different time from the stock market close, so this is a rough guide, not a return anyone could actually have locked in.",
           "sources": [
             "jisdor"
           ]
         },
         {
           "type": "paragraph",
-          "text": "The latest policy decisions before the week were Bank Indonesia's 23 September hold of the BI-Rate at 5.75% and the Federal Reserve's 16 September increase of its federal funds target by 0.25 percentage point to a range of 3.75% to 4.00%. Neither release identifies the cause of this week's equity moves.",
+          "text": "The latest rate decisions before the week were Bank Indonesia's hold of the BI-Rate at 5.75% on 23 September and the Federal Reserve's 0.25 percentage point increase on 16 September, which took its target range to 3.75% to 4.00%. Neither announcement points to a cause for this week's moves in shares.",
           "sources": [
             "biDecision",
             "fedDecision"
@@ -689,28 +689,28 @@
     },
     {
       "id": "outlook",
-      "nav": "Tactical outlook",
-      "title": "Read value, not volume",
+      "nav": "Outlook",
+      "title": "Watch the money, not the share count",
       "blocks": [
         {
           "type": "callout",
-          "label": "Tactical stance",
-          "text": "Defensive; hold back new broad exposure until daily foreign selling eases and more than one sector recovers. Judge participation by trading value rather than share volume, which low-priced stocks inflated this week. For unhedged dollar investors the currency was close to neutral; the equity price did the damage."
+          "label": "Our stance",
+          "text": "Stay defensive. Hold off on adding broad exposure until daily foreign selling eases and more than one sector recovers. Judge activity by trading value rather than share volume, which low-priced stocks pushed up this week. For investors holding in dollars without a hedge, the currency made little difference this week. The fall in share prices did the damage."
         },
         {
           "type": "heading",
-          "text": "What would change the view"
+          "text": "What would change our mind"
         },
         {
           "type": "paragraph",
-          "text": "First, a rising session with foreign net buying; this week had none, and Friday's gain came with Rp1.27tn of net selling. Second, breadth: this week 434 stocks fell more than 2% and 144 rose more than 2%, and a recovery worth trusting would reverse that ratio. Third, technology, the sector that fell most, steadying without one stock's volume carrying the day. Fourth, daily value holding near this week's Rp12.6tn average while those signals appear."
+          "text": "First, a day when the index rises and foreigners are net buyers. This week had none, and Friday's gain came with Rp1.27tn of foreign net selling. Second, breadth. This week 434 stocks fell more than 2% and 144 rose more than 2%, and a recovery worth trusting would turn that around. Third, technology, the sector that fell most, steadying without one stock's volume carrying it. Fourth, daily trading value staying near this week's Rp12.6tn average while those signs appear."
         },
         {
           "type": "paragraph",
-          "text": "Monitoring references and scenarios are not statistically validated support or resistance and carry no assigned probabilities."
+          "text": "These are things to watch, not forecasts. They are not tested support or resistance levels, and we do not put odds on them."
         }
       ]
     }
   ],
-  "method": "Returns are price returns. Rp bn means billion rupiah; Rp tn means trillion rupiah. IDX classifies foreign investors by the domicile entered into its trading system, not necessarily ultimate beneficial ownership. The seller-to-buyer table sums the rounded buyer-seller cells for five days; its Rp63,127bn total differs from the exact weekly value of Rp63,125.87bn. Value per share traded is weekly stock trading value divided by weekly volume, both from IDX's trading recapitulation. Breadth shares are computed from IDX's counts. The JISDOR-based USD return excludes dividends, fees, taxes, hedging and tracking costs."
+  "method": "All returns are price returns. Rp bn means billions of rupiah and Rp tn means trillions. IDX marks trades as foreign or domestic using the domicile recorded in its trading system. That does not always tell us who ultimately owns the shares. The seller and buyer table adds up IDX's rounded daily figures, so its total of Rp63,127bn differs slightly from the exact weekly value of Rp63,125.87bn. Value per share traded is the week's trading value divided by the week's volume, both from IDX's trading summary. Breadth shares are worked out from IDX's counts. The dollar return based on JISDOR leaves out dividends, fees, taxes, hedging and tracking costs."
 }

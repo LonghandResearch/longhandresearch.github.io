@@ -85,8 +85,6 @@
 .market-loading, .market-error { padding-block: clamp(48px, 8vw, 110px); }
 .market-error h1 { font: 400 clamp(32px, 5vw, 52px)/1.1 var(--font-serif); }
 .market-error p { margin-block: 18px; color: var(--ink-2); }
-.market-citations { display: block; margin-top: 8px; color: var(--ink-3); font: 400 11px/1.5 var(--font-sans); }
-.market-citations a + a { margin-left: 8px; }
 .market-template-bars { margin-top: 16px; }
 .market-template-bars + .market-table-wrap { margin-top: 24px; }
 @media (max-width: 400px) {
