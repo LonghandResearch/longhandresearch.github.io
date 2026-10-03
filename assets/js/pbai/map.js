@@ -177,10 +177,11 @@
   }
   host.addEventListener('click', (e) => { const el = e.target.closest('[data-project]'); if (el) detail(Number(el.dataset.project)); });
   host.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('g[data-project]')) { e.preventDefault(); detail(Number(e.target.dataset.project)); } });
-  range.addEventListener('input', () => { stop(); show(Number(range.value)); });
+  range.addEventListener('input', () => { touched = true; stop(); show(Number(range.value)); });
 
-  let raf = 0;
-  const stop = () => { cancelAnimationFrame(raf); raf = 0; };
+  // Once a visitor moves the slider or presses Play, the boot replay (running or still queued) gives way.
+  let raf = 0; let queued = 0; let touched = false;
+  const stop = () => { cancelAnimationFrame(raf); raf = 0; clearTimeout(queued); queued = 0; };
   function play() {
     stop();
     const t0 = performance.now(); const dur = 7000;
@@ -191,7 +192,7 @@
     };
     raf = requestAnimationFrame(step);
   }
-  host.querySelector('[data-holo-play]').addEventListener('click', () => { host.classList.add('is-booted'); play(); });
+  host.querySelector('[data-holo-play]').addEventListener('click', () => { touched = true; host.classList.add('is-booted'); play(); });
 
   show(y1);
   tableView(host.querySelector('.holo-frame'), ['Project', 'Developer', 'Status', 'Date', 'MW', 'Site'],
@@ -206,7 +207,7 @@
     if (!es.some((e) => e.isIntersecting)) return;
     io.disconnect();
     host.classList.add('is-booted');
-    setTimeout(play, 1400);
+    if (!touched) queued = setTimeout(play, 1400);
   }, { threshold: 0.35 });
   io.observe(host);
 })();
