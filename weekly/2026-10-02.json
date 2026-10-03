@@ -40,7 +40,7 @@
     "daily": {
       "label": "IDX Daily Statistics, 28 September to 2 October 2026",
       "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
-      "note": "Choose the daily report for each date for closing levels and net foreign buying. The 25 September close is shown as the previous close in the 28 September report."
+      "note": "Choose the daily report for each date for closing levels and net foreign buying. The 2 October report lists the largest stocks by market capitalisation on page 4. Its figures are rounded to whole Rp trillion and can be compared with the Flowless table. The 25 September close is shown as the previous close in the 28 September report."
     },
     "jisdor": {
       "label": "Bank Indonesia JISDOR, 25 September to 2 October 2026",
