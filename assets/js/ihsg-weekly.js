@@ -8,7 +8,6 @@
   const number = (n, places = 2) => n.toLocaleString('en-US', { minimumFractionDigits: places, maximumFractionDigits: places });
   const signed = (n, places = 2) => `${n < -0.0000001 ? '−' : n > 0.0000001 ? '+' : ''}${number(Math.abs(n), places)}`;
   const percent = n => `${signed(n)}%`;
-  const sourceLink = key => `<a href="${d.sources[key].url}">${d.sources[key].label}</a>`;
   document.querySelectorAll('[data-metric]').forEach(el => {
     const value = m[el.dataset.metric];
     if (value === undefined) return;
@@ -22,7 +21,7 @@
   const points = d.closes.map((row, i) => `${x(i)},${y(row.close)}`).join(' ');
   $('index-chart').innerHTML = `<svg viewBox="0 0 ${chartWidth} ${chartHeight}" role="img" aria-labelledby="index-svg-title index-svg-desc">
     <title id="index-svg-title">IHSG closing levels, 18 to 25 September 2026</title>
-    <desc id="index-svg-desc">The prior Friday close was 6,441.159. The index rebounded on Wednesday, then ended the week at 6,241.892. Truncated vertical scale from 6,200 to 6,480. A full data table follows.</desc>
+    <desc id="index-svg-desc">The previous Friday's close was 6,441.159. The index rose on Wednesday, then ended the week at 6,241.892. The vertical scale runs from 6,200 to 6,480. A full data table follows.</desc>
     ${[6200,6300,6400].map(v => `<line class="chart-rule" x1="60" x2="700" y1="${y(v)}" y2="${y(v)}"/><text class="chart-axis" x="49" y="${y(v)+4}" text-anchor="end">${number(v,0)}</text>`).join('')}
     <line class="chart-baseline" x1="60" x2="700" y1="${y(d.closes[0].close)}" y2="${y(d.closes[0].close)}"/>
     <polyline class="index-line" pathLength="1" points="${points}"/>
@@ -32,15 +31,15 @@
   $('index-dates').innerHTML = d.closes.map((row,i) => `<button type="button" data-close="${i}" aria-pressed="${i===5}">${row.label}</button>`).join('');
   function selectClose(i) {
     const row = d.closes[i];
-    $('index-readout').innerHTML = `<strong>${row.label}: ${number(row.close,3)}</strong><span>${i ? percent(math.change(row.close,d.closes[i-1].close)) + ' vs previous close' : 'Previous-week baseline'} · ${row.note}</span>`;
+    $('index-readout').innerHTML = `<strong>${row.label}: ${number(row.close,3)}</strong><span>${i ? percent(math.change(row.close,d.closes[i-1].close)) + ' from the previous close' : 'Previous Friday’s close'}. ${row.note}</span>`;
     document.querySelectorAll('[data-close]').forEach(btn => btn.setAttribute('aria-pressed',String(Number(btn.dataset.close)===i)));
     document.querySelectorAll('.index-point').forEach((point,j) => point.classList.toggle('selected',i===j));
   }
   $('index-dates').addEventListener('click', e => { const btn=e.target.closest('[data-close]'); if(btn) selectClose(Number(btn.dataset.close)); });
   selectClose(5);
-  $('close-rows').innerHTML = d.closes.map((row,i) => `<tr><th scope="row">${row.date}</th><td>${number(row.close,3)}</td><td>${i ? percent(math.change(row.close,d.closes[i-1].close)) : 'Baseline'}</td><td>${sourceLink(row.source)}</td></tr>`).join('');
-  $('return-math').textContent = `(6,241.892 ÷ 6,441.159 − 1) × 100 = ${percent(m.weekly)}. Recovery required: (6,441.159 ÷ 6,241.892 − 1) × 100 = ${percent(m.recovery)}.`;
-  $('rebound-math').textContent = `Wednesday gain: 6,374.912 − 6,277.044 = ${number(m.rebound,3)} points. Thursday + Friday loss: 6,374.912 − 6,241.892 = ${number(m.reversal,3)} points. Loss ÷ gain = ${number(m.giveback,1)}%.`;
+  $('close-rows').innerHTML = d.closes.map((row,i) => `<tr><th scope="row">${row.date}</th><td>${number(row.close,3)}</td><td>${i ? percent(math.change(row.close,d.closes[i-1].close)) : 'Previous Friday'}</td></tr>`).join('');
+  $('return-math').textContent = `The weekly change was (6,241.892 ÷ 6,441.159 − 1) × 100 = ${percent(m.weekly)}. To get back to the previous Friday's level, the index would need to rise (6,441.159 ÷ 6,241.892 − 1) × 100 = ${percent(m.recovery)}.`;
+  $('rebound-math').textContent = `Wednesday's gain was 6,374.912 − 6,277.044 = ${number(m.rebound,3)} points. The loss from Wednesday's close to Friday's close was 6,374.912 − 6,241.892 = ${number(m.reversal,3)} points. That loss was ${number(m.giveback,1)}% of Wednesday's gain.`;
 
   const sectorRows = d.sectors.slice().sort((a,b) => b.weekly-a.weekly);
   $('sector-bars').innerHTML = sectorRows.map(row => {
@@ -48,24 +47,24 @@
     return `<div class="sector-row"><span>${row.name}</span><div class="sector-track" aria-hidden="true"><span class="sector-bar ${v<0?'loss':'gain'}" style="left:${left}%;width:${width}%"></span></div><strong>${percent(v)}</strong></div>`;
   }).join('');
   $('sector-rows').innerHTML = sectorRows.map(row => `<tr><th scope="row">${row.name}</th><td>${percent(row.weekly)}</td></tr>`).join('');
-  $('sector-summary').textContent = `${sectorRows.filter(row => row.weekly > 0).length} of 11 sector indices finished the week higher. Fixed −6% to +1% scale.`;
+  $('sector-summary').textContent = `${sectorRows.filter(row => row.weekly > 0).length} of 11 sectors finished the week higher. The bars share a scale from −6% to +1%.`;
 
   $('flow-bars').innerHTML = d.foreignFlow.map(row => `<div class="liquidity-row"><span>${row.label}</span><div class="liquidity-track" aria-hidden="true"><span class="loss" style="width:${Math.abs(row.netBn)/1500*100}%"></span></div><strong>${signed(row.netBn)}bn</strong></div>`).join('');
   $('flow-rows').innerHTML = d.foreignFlow.map(row => `<tr><th scope="row">${row.date}</th><td>${signed(row.netBn)}bn</td></tr>`).join('') + `<tr class="table-total"><th scope="row">Week total</th><td>${signed(m.foreignNet)}bn</td></tr>`;
-  $('flow-math').textContent = `−(${d.foreignFlow.map(row => number(Math.abs(row.netBn))).join(' + ')}) = ${signed(m.foreignNet)}bn. Thursday accounts for ${number(m.thursdayFlowShare,1)}% of the week's net selling. Three weeks: ${signed(d.prior2WeekNetBn)} − ${number(Math.abs(d.priorWeekNetBn))} − ${number(Math.abs(m.foreignNet))} = ${signed(m.threeWeekNetBn)}bn.`;
+  $('flow-math').textContent = `The five daily figures add up to −(${d.foreignFlow.map(row => number(Math.abs(row.netBn))).join(' + ')}) = ${signed(m.foreignNet)}bn. Thursday accounted for ${number(m.thursdayFlowShare,1)}% of the week's net selling. For the three weeks: ${signed(d.prior2WeekNetBn)} − ${number(Math.abs(d.priorWeekNetBn))} − ${number(Math.abs(m.foreignNet))} = ${signed(m.threeWeekNetBn)}bn.`;
 
   $('activity-rows').innerHTML = d.activity.map(row => {
     const places = row.key === 'cap' ? 0 : 3;
     const calculated = row.key === 'cap' ? math.change(row.current,row.prior) : math.change(d.weeklyTotals.current[row.key],d.weeklyTotals.prior[row.key]);
     return `<tr><th scope="row">${row.label}<small>${row.unit}</small></th><td>${number(row.prior,places)}</td><td>${number(row.current,places)}</td><td>${percent(calculated)}</td><td>${percent(row.reportedPct)}</td></tr>`;
   }).join('');
-  $('liquidity-math').textContent = `Previous: Rp${number(d.weeklyTotals.prior.value/1e12,4)}tn ÷ ${number(d.weeklyTotals.prior.volume/1e9,4)}bn shares = Rp${number(m.unitValuePrior)}. Current: Rp${number(d.weeklyTotals.current.value/1e12,4)}tn ÷ ${number(d.weeklyTotals.current.volume/1e9,4)}bn shares = Rp${number(m.unitValueCurrent)}. Change = ${percent(m.unitValueChange)}.`;
+  $('liquidity-math').textContent = `The previous week's Rp${number(d.weeklyTotals.prior.value/1e12,4)}tn of trading value divided by ${number(d.weeklyTotals.prior.volume/1e9,4)}bn shares was Rp${number(m.unitValuePrior)} per share. This week's Rp${number(d.weeklyTotals.current.value/1e12,4)}tn divided by ${number(d.weeklyTotals.current.volume/1e9,4)}bn shares was Rp${number(m.unitValueCurrent)}. That is a change of ${percent(m.unitValueChange)}.`;
   $('liquidity-bars').innerHTML = [['Previous week',m.unitValuePrior],['Report week',m.unitValueCurrent]].map(([label,value]) => `<div class="liquidity-row"><span>${label}</span><div class="liquidity-track"><span style="width:${value/600*100}%"></span></div><strong>Rp${number(value)}</strong></div>`).join('');
 
   $('laggard-bars').innerHTML = d.indexLaggards.map(row => `<div class="liquidity-row"><span>${row.ticker}</span><div class="liquidity-track" aria-hidden="true"><span class="loss" style="width:${Math.abs(row.points)/30*100}%"></span></div><strong>${signed(row.points)} pts</strong></div>`).join('');
-  $('laggard-math').textContent = `${d.indexLaggards.map(row => signed(row.points)).join(' + ')} = ${signed(m.laggardPoints)} IHSG points. That equals ${number(m.laggardShare,1)}% of the net ${number(Math.abs(m.points))}-point weekly decline before positive-stock offsets; it is not a share of gross negative contributions.`;
-  $('policy-math').textContent = `Fed midpoint = (3.75% + 4.00%) ÷ 2 = 3.875%. BI-Rate less midpoint = 5.75% − 3.875% = 1.875 percentage points = ${number(m.policyGapBps,1)} bps.`;
-  $('level-rows').innerHTML = [['6,200',6200,'Psychological reference'],['6,300',6300,'Round-number recovery reference'],['6,374.912',6374.912,'Wednesday close'],['6,441.159',6441.159,'Prior Friday close']].map(([label,value,meaning]) => `<tr><th scope="row">${label}</th><td>${percent(math.change(value,d.closes[5].close))}</td><td>${meaning}</td></tr>`).join('');
+  $('laggard-math').textContent = `${d.indexLaggards.map(row => signed(row.points)).join(' + ')} = ${signed(m.laggardPoints)} IHSG points. That is ${number(m.laggardShare,1)}% of the net ${number(Math.abs(m.points))}-point weekly fall. Gains in other stocks partly offset these losses, so this percentage compares them with the net fall.`;
+  $('policy-math').textContent = `The midpoint of the Fed's 3.75% to 4.00% range is (3.75% + 4.00%) ÷ 2 = 3.875%. BI's rate was 5.75%, leaving a difference of 5.75% − 3.875% = 1.875 percentage points, or ${number(m.policyGapBps,1)} bps.`;
+  $('level-rows').innerHTML = [['6,200',6200,'Nearby round number'],['6,300',6300,'First round number above the close'],['6,374.912',6374.912,'Wednesday close'],['6,441.159',6441.159,'Previous Friday close']].map(([label,value,meaning]) => `<tr><th scope="row">${label}</th><td>${percent(math.change(value,d.closes[5].close))}</td><td>${meaning}</td></tr>`).join('');
 
   const equityInput = $('equity-return'), fxInput = $('fx-change');
   function updateLab() {
@@ -75,18 +74,18 @@
     $('fx-output').textContent = percent(fx);
     $('usd-result').textContent = percent(usd);
     $('usd-result').className = usd < 0 ? 'negative' : 'positive';
-    $('usd-wealth').textContent = `$100 becomes $${number(100+usd)} before costs and dividends.`;
+    $('usd-wealth').textContent = `A $100 starting value becomes $${number(100+usd)}, before costs and dividends.`;
     $('lab-formula').textContent = `(1 + ${number(equity,4)} / 100) ÷ (1 + ${number(fx,4)} / 100) − 1 = ${percent(usd)} in USD.`;
-    $('fx-breakeven').textContent = Math.abs(equity) < 1e-8 ? 'With flat local prices, USD/IDR must also stay flat to break even.' : `For a flat USD return, USD/IDR would need to ${equity < 0 ? 'fall' : 'rise'} ${number(Math.abs(equity))}% over the same holding period.`;
+    $('fx-breakeven').textContent = Math.abs(equity) < 1e-8 ? 'If the local price is unchanged, the exchange rate must also stay unchanged for a flat dollar return.' : `For a flat dollar return, USD/IDR would need to ${equity < 0 ? 'fall' : 'rise'} ${number(Math.abs(equity))}% over the same period.`;
   }
   function resetLab() { equityInput.value = String(m.weekly); fxInput.value = String(m.fxWeekly); updateLab(); }
   [equityInput,fxInput].forEach(input => input.addEventListener('input',updateLab));
   $('lab-reset').addEventListener('click',resetLab);
   $('fx-matrix').innerHTML = [-2,0,m.fxWeekly,2,4].map(fx => {
     const observed = fx === m.fxWeekly;
-    return `<tr${observed?' class="table-total"':''}><th scope="row">${percent(fx)}</th><td>${percent(math.usdReturn(m.weekly,fx))}</td><td>${observed?'BI JISDOR endpoints':fx<0?'Rupiah strengthens':fx>0?'Rupiah weakens':'Unchanged exchange rate'}</td></tr>`;
+    return `<tr${observed?' class="table-total"':''}><th scope="row">${percent(fx)}</th><td>${percent(math.usdReturn(m.weekly,fx))}</td><td>${observed?'Change between the two BI JISDOR rates':fx<0?'Rupiah strengthens':fx>0?'Rupiah weakens':'Exchange rate stays the same'}</td></tr>`;
   }).join('');
-  $('fx-math').textContent = `JISDOR: Rp${number(d.jisdor[0].rate,0)} on 18 Sep to Rp${number(d.jisdor.at(-1).rate,0)} on 25 Sep. FX move = (17,917 ÷ 17,745 − 1) × 100 = ${percent(m.fxWeekly)}. Indicative USD price return = (6,241.892 ÷ 6,441.159) ÷ (17,917 ÷ 17,745) − 1 = ${percent(m.usdProxy)}.`;
+  $('fx-math').textContent = `JISDOR rose from Rp${number(d.jisdor[0].rate,0)} on 18 Sep to Rp${number(d.jisdor.at(-1).rate,0)} on 25 Sep. The currency change was (17,917 ÷ 17,745 − 1) × 100 = ${percent(m.fxWeekly)}. The estimated dollar price return was (6,241.892 ÷ 6,441.159) ÷ (17,917 ÷ 17,745) − 1 = ${percent(m.usdProxy)}.`;
   resetLab();
 
   // A single quiet reveal per figure. Values stay readable throughout.
