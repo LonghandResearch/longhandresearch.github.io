@@ -166,7 +166,7 @@
     lastCountKey = countKey;
     counts.innerHTML = ['actual', 'construction', 'announced'].map((st) => {
       const group = visibleProjects.filter((p) => p.status === st);
-      return `<div class="hc hc-${st}"><dt>${STATUS[st]}</dt><dd>${group.length} <span>projects</span> · ${nf(group.reduce((a, p) => a + (p.mw || 0), 0))} <span>MW stated</span></dd></div>`;
+      return `<div class="hc hc-${st}"><dt>${STATUS[st]}</dt><dd>${group.length} <span>${group.length === 1 ? 'project' : 'projects'}</span> · ${nf(group.reduce((a, p) => a + (p.mw || 0), 0))} <span>MW stated</span></dd></div>`;
     }).join('');
   }
 
