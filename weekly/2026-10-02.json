@@ -42,15 +42,20 @@
       "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
       "note": "Select the dated daily reports for closing levels and foreign net purchases. The 25 September close is the previous close on the 28 September report."
     },
-    "priorWeekly": {
-      "label": "IDX Weekly Statistics, 11, 18 and 25 September 2026",
-      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
-      "note": "Net foreign for each earlier week is on page 2 of each report; the 25 September weekly volume and value are on page 4 of that report."
-    },
     "jisdor": {
       "label": "Bank Indonesia JISDOR, 25 September to 2 October 2026",
       "url": "https://www.bi.go.id/en/statistik/informasi-kurs/jisdor/Default.aspx",
       "note": "Daily reference rates; not synchronised with the equity closing auction."
+    },
+    "biDecision": {
+      "label": "Bank Indonesia Board of Governors decision, 23 September 2026",
+      "url": "https://www.bi.go.id/en/publikasi/ruang-media/news-release/Pages/sp_2819326.aspx",
+      "note": "The latest BI-Rate decision before this reporting week."
+    },
+    "fedDecision": {
+      "label": "Federal Reserve FOMC statement, 16 September 2026",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+      "note": "The latest FOMC rate decision before this reporting week."
     }
   },
   "observations": {
@@ -248,22 +253,21 @@
     {
       "id": "flows",
       "nav": "Foreign flow",
-      "title": "The fourth week of foreign selling",
+      "title": "Foreign selling on all five days",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Wednesday's Rp1.61tn was the largest daily net sale, 32.0% of the week. The week follows net sales of Rp3.36tn, Rp2.95tn and Rp3.16tn in the three weeks to 25 September, bringing four weeks of foreign net selling to Rp14.50tn. Year to date, IDX records Rp82.55tn of foreign net selling; this week alone accounts for 6.1% of it.",
+          "text": "Wednesday's Rp1.61tn was the largest daily net sale, 32.0% of the week. The weekly IDX table also shows Rp3.16tn of net selling in the previous week; this week's Rp5.04tn was 59.6% more. Year to date, IDX records Rp82.55tn of foreign net selling; this week alone accounts for 6.1% of it.",
           "sources": [
             "daily",
-            "weekly",
-            "priorWeekly"
+            "weekly"
           ]
         },
         {
           "type": "flows",
           "label": "02 / FOREIGN FLOW",
           "title": "Selling in every session, heaviest on Wednesday",
-          "note": "Daily net foreign stock purchases, Rp bn. IDX reports the weekly total as −5,036.31; the daily figures sum to −5,036.32 because each is rounded.",
+          "note": "Daily net foreign stock purchases, Rp bn. IDX reports the weekly total as −5,036.31; the displayed daily figures sum to −5,036.32, a Rp0.01bn difference at published precision.",
           "sources": [
             "daily",
             "weekly"
@@ -393,19 +397,17 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Average daily volume rose 72.51% while average daily value rose only 5.40%, and value per share traded fell from Rp410.24 to Rp250.65. One stock explains most of the gap. On Friday GOTO traded 99,890 million shares, 82.77% of the day's volume, lifting Friday to 120,681 million shares, 47.9% of the week's total. Excluding GOTO, Friday's 20,791 million shares were fewer than any other day's total, and Friday's value of Rp12.25tn was close to the week's daily average.",
+          "text": "Average daily volume rose 72.51% from the previous week while average daily value rose 5.40%. This week's stock trading value divided by shares traded was Rp250.65 per share. On Friday GOTO traded 99,890 million shares, 82.77% of the day's volume; Friday's 120,681 million shares were 47.9% of the week's total. Excluding GOTO, Friday's 20,791 million shares were fewer than any other day's total, and Friday's value of Rp12.25tn was close to the week's daily average.",
           "sources": [
             "daily",
-            "weekly",
-            "priorWeekly"
+            "weekly"
           ]
         },
         {
           "type": "paragraph",
-          "text": "Eight of IDX's ten weekly top losers, GOTO among them, began the week at Rp50 and ended between Rp24 and Rp33. IDX's statistics do not give a reason. Separately, negotiated trades, which are agreed outside the order book, made up 13.83% of the week's value (Rp8.73tn), up from 10.40% (Rp6.23tn) the week before.",
+          "text": "Eight of IDX's ten weekly top losers, GOTO among them, began the week at Rp50 and ended between Rp24 and Rp33. IDX's statistics do not give a reason. Separately, the negotiated market accounted for 13.83% of the week's trading value (Rp8.73tn).",
           "sources": [
-            "weekly",
-            "priorWeekly"
+            "weekly"
           ]
         },
         {
@@ -476,11 +478,11 @@
     {
       "id": "breadth",
       "nav": "Breadth & sectors",
-      "title": "A broad decline, heaviest among the largest",
+      "title": "A broad decline across sectors",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Of 963 listed stocks, 559 (58.0%) fell over the week and 224 (23.3%) rose. The losses were heaviest among the largest companies: stocks that fell more than 2% held Rp6,256tn of market capitalisation, 59.2% of the total in IDX's breakdown, against Rp2,482tn in stocks that rose.",
+          "text": "Of 963 stocks in IDX's breadth breakdown, 559 (58.0%) fell over the week and 224 (23.3%) rose. Stocks that fell more than 2% represented Rp6,256tn of market capitalisation, 59.2% of the total in that breakdown, against Rp2,482tn in stocks that rose.",
           "sources": [
             "weekly"
           ]
@@ -583,7 +585,7 @@
         },
         {
           "type": "paragraph",
-          "text": "GOTO also supplied part of Friday's rebound: it rose 7.14% that day and added 3.70 of the IHSG's 27.386-point gain, according to the 2 October daily report. Without broader buying, the bounce rested partly on the week's largest index laggard recovering a little of its fall.",
+          "text": "GOTO also contributed to Friday's rebound: it rose 7.14% that day and added 3.70 of the IHSG's 27.386-point gain, according to the 2 October daily report. It still finished the week as the index's largest negative contributor.",
           "sources": [
             "daily"
           ]
@@ -597,7 +599,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Every ASEAN index in IDX's comparison fell, so regional weakness explains part of the move. It does not explain all of it: the IHSG fell further than every ASEAN peer except the Philippines' PSEi. Of the 32 other indices in the table, only four fell more, and four rose, led by Japan's Nikkei 225 at 2.93% and Brazil's Ibovespa at 2.03%.",
+          "text": "Every ASEAN index in IDX's comparison fell. The IHSG fell further than every ASEAN peer except the Philippines' PSEi. Of the 32 other indices in the table, only four fell more, and four rose, led by Japan's Nikkei 225 at 2.93% and Brazil's Ibovespa at 2.03%.",
           "sources": [
             "weekly"
           ]
@@ -668,6 +670,14 @@
           ]
         },
         {
+          "type": "paragraph",
+          "text": "The latest policy decisions before the week were Bank Indonesia's 23 September hold of the BI-Rate at 5.75% and the Federal Reserve's 16 September increase of its federal funds target by 0.25 percentage point to a range of 3.75% to 4.00%. Neither release identifies the cause of this week's equity moves.",
+          "sources": [
+            "biDecision",
+            "fedDecision"
+          ]
+        },
+        {
           "type": "fxLab",
           "title": "The currency barely moved the result",
           "sources": [
@@ -702,5 +712,5 @@
       ]
     }
   ],
-  "method": "Returns are price returns. Rp bn means billion rupiah; Rp tn means trillion rupiah. IDX classifies foreign investors by the domicile entered into its trading system, not necessarily ultimate beneficial ownership. The seller-to-buyer table sums IDX's five daily rows, so its total differs from IDX's weekly value by Rp1bn of rounding. Value per share traded is weekly stock trading value divided by weekly volume, both from IDX's trading recapitulation. Breadth shares are computed from IDX's counts. The JISDOR-based USD return excludes dividends, fees, taxes, hedging and tracking costs."
+  "method": "Returns are price returns. Rp bn means billion rupiah; Rp tn means trillion rupiah. IDX classifies foreign investors by the domicile entered into its trading system, not necessarily ultimate beneficial ownership. The seller-to-buyer table sums the rounded buyer-seller cells for five days; its Rp63,127bn total differs from the exact weekly value of Rp63,125.87bn. Value per share traded is weekly stock trading value divided by weekly volume, both from IDX's trading recapitulation. Breadth shares are computed from IDX's counts. The JISDOR-based USD return excludes dividends, fees, taxes, hedging and tracking costs."
 }
