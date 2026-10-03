@@ -68,7 +68,7 @@
     const bars = rows.map(r => `<div class="liquidity-row"><span>${esc(kind === 'flows' ? r.label || r.date : kind === 'stocks' ? r.ticker : r.name)}</span><div class="liquidity-track" aria-hidden="true"><span class="${value(r) < 0 ? 'loss' : ''}" style="width:${Math.abs(value(r)) / maximum * 100}%"></span></div><strong>${signed(value(r))}${kind === 'sectors' ? '%' : ''}</strong></div>`).join('');
     const raw = rows.map(r => [kind === 'flows' ? r.date : kind === 'stocks' ? r.ticker : r.name, signed(value(r)) + (kind === 'sectors' ? '%' : '')]);
     let calculation = '';
-    if (kind === 'flows') calculation = `The daily figures add up to ${rows.map(r => signed(r.netBn)).join(' + ')} = ${signed(rows.reduce((sum, r) => sum + r.netBn, 0))} Rp bn. This is net buying of shares by foreign investors, not a measure of money leaving Indonesia.`;
+    if (kind === 'flows') calculation = `The daily figures add up to ${rows.map(r => signed(r.netBn)).join(' + ')} = ${signed(rows.reduce((sum, r) => sum + r.netBn, 0))} Rp bn. Net purchase means foreign purchases minus foreign sales. A negative total means net selling, while a positive total means net buying. This does not measure money leaving Indonesia.`;
     if (kind === 'stocks') calculation = `Together these stocks account for ${signed(rows.reduce((sum, r) => sum + r.points, 0))} IHSG points. The rest of the index's move came from other stocks.`;
     return figure(data, block, `<div class="market-template-bars">${bars}</div>${table([kind === 'flows' ? 'Date' : kind === 'stocks' ? 'Ticker' : 'Sector', unit], raw)}${calculation ? `<p class="figure-note">${esc(calculation)}</p>` : ''}`);
   }
