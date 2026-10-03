@@ -42,6 +42,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | WEB-010 | Refine the Library and Coverage catalogue design across desktop and mobile | Codex | `codex/catalogue-design` | Done | [PR #52](https://github.com/LonghandResearch/longhandresearch.github.io/pull/52) |
 | OBS-001 | Fill `Sumber/` in the Obsidian vault: one note per primary source (IDX statistics, BI JISDOR, annual reports), linked from each Report and Emiten note | Claude | Vault, no branch | Done | |
 | QA-003 | Review the published IHSG Update for 2 October (RPT-010, merged without a second-agent review) against `QA.md`, using the source record in `audits/RPT-010-2026-10-02.md`, and fix any error on a separate branch | Codex | `codex/rpt-010-review` | Review (independent source audit and corrections completed) | [PR #60](https://github.com/LonghandResearch/longhandresearch.github.io/pull/60) |
+| WEB-013 | Make the IHSG Update read more naturally: drop the source line under every block (sources stay listed once at the end), and rewrite the 2 October edition and the template's own sentences in plain language, without semicolons, separators or stiff phrasing. Figures unchanged | Claude | `claude/ihsg-plain-language` | Review | PR_LINK |
 | OWN-001 | Write the author bio and contact details for the About page | Owner | | Blocked | |
 | OWN-002 | Create the GoatCounter account so the counter already in the pages starts counting | Owner | | Blocked | |
 
