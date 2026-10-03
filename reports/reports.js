@@ -64,6 +64,25 @@ window.LONGHAND_REPORTS = [
     ]
   },
   {
+    "id": "ihsg-weekly-2026-10-02",
+    "ticker": "IHSG",
+    "exchange": "IDX",
+    "company": "Indonesia equity market",
+    "sector": "Macro and equities",
+    "category": "Update",
+    "title": "Foreign Selling Deepened. Technology Led the Fall.",
+    "date": "2026-10-03",
+    "blurb": "The IHSG fell 3.28% as IDX recorded Rp5.04tn of foreign net selling, absorbed by domestic buyers. All eleven sectors fell, and GOTO alone cost the index 36.71 points.",
+    "summary": "An English IHSG Weekly Market Update for 28 September to 2 October 2026 built on IDX daily and weekly statistics and Bank Indonesia JISDOR. It reconciles five daily foreign flows to the weekly total, places them in a fourth consecutive week of net selling and uses IDX's seller-to-buyer table to show that domestic investors absorbed the selling. It also measures market breadth and all 11 weekly sector indices, traces the leading and lagging stock contributions, shows how one low-priced stock inflated share volume, and compares the IHSG with its ASEAN peers. The currency-return lab starts from observed JISDOR endpoints.",
+    "tags": ["IHSG", "Indonesia", "Weekly Market Update", "Macro", "Foreign Flow", "Rupiah", "GOTO", "Technology"],
+    "rating": null,
+    "currency": "IDR",
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "page": "ihsg-weekly.html?week=2026-10-02"
+  },
+  {
     "id": "ihsg-weekly-2026-09-25",
     "ticker": "IHSG",
     "exchange": "IDX",
