@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Longhand World · Longhand Research</title>
+  <meta name="description" content="A quiet virtual research institution. Explore six rooms and four simulated research agents in Longhand World V0.1.">
+  <meta name="theme-color" content="#111916">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="world.css?v=2026-10-05a">
+  <script src="state.js?v=2026-10-05a" defer></script>
+  <script src="movement.js?v=2026-10-05a" defer></script>
+  <script src="mock-events.js?v=2026-10-05a" defer></script>
+  <script src="world.js?v=2026-10-05a" defer></script>
+</head>
+<body class="world-page">
+  <a class="world-skip" href="#main">Skip to the institution</a>
+  <header class="world-masthead">
+    <a class="world-brand" href="../index.html" aria-label="Longhand Research, front page">Longhand<span>Research</span></a>
+    <nav aria-label="Longhand Research">
+      <a href="../library.html">Library / Reports</a>
+      <a href="../wire.html">Wire</a>
+      <a href="../coverage.html">Coverage</a>
+      <a href="../about.html">About</a>
+    </nav>
+    <a class="world-return" href="../index.html">Back to research <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main" class="world-main">
+    <header class="world-intro">
+      <div>
+        <p class="world-eyebrow">Longhand Research / An open door</p>
+        <h1>Longhand <em>World</em><span class="world-version">V0.1</span></h1>
+        <p class="world-lede">A quiet place for research to take shape.</p>
+      </div>
+      <div class="world-disclosure"><span class="world-indicator" aria-hidden="true"></span><strong>Simulated activity</strong><p>Four prototype agents. No live AI work.<br>No reports are created or published here.</p></div>
+    </header>
+
+    <section class="world-layout" aria-label="The research institution">
+      <div class="world-building">
+        <div class="world-map-heading"><div><p class="world-eyebrow">The institution</p><p>Select a member to see their work.</p></div><span class="world-map-index">Floor 01 / Six rooms</span></div>
+        <figure class="world-map-figure">
+          <div class="world-map-scroll" tabindex="0" role="region" aria-label="Institution floor plan" aria-describedby="map-help">
+            <div class="world-map" id="world-map">
+              <img src="assets/institution.svg" width="960" height="620" alt="Pixel-art cutaway of a walnut library and research offices joined by Main Hall. Room labels and interactive staff are overlaid on the floor plan." draggable="false">
+              <span class="world-room" style="--x:208;--y:104">01 <strong>Library</strong></span>
+              <span class="world-room" style="--x:474;--y:104">02 <strong>Research Office</strong></span>
+              <span class="world-room" style="--x:754;--y:104">03 <strong>Data Lab</strong></span>
+              <span class="world-room world-room-hall" style="--x:155;--y:291">04 <strong>Main Hall</strong></span>
+              <span class="world-room" style="--x:208;--y:391">05 <strong>Editor Office</strong></span>
+              <span class="world-room" style="--x:754;--y:391">06 <strong>Director Office</strong></span>
+              <span class="world-entrance" aria-hidden="true">LONGHAND / RESEARCH INSTITUTION</span>
+              <div class="world-characters" id="characters"></div>
+            </div>
+          </div>
+          <figcaption id="map-help">Follow the work between rooms. On a small screen, scroll the floor plan or use the staff list below.</figcaption>
+        </figure>
+        <div class="world-roster" id="roster" role="group" aria-label="Select a research agent"></div>
+        <div class="world-controls">
+          <span id="simulation-status">Preparing the institution…</span>
+          <div><button type="button" id="pause" aria-pressed="false" disabled>Pause simulation</button><button type="button" id="next" disabled>Next event <span aria-hidden="true">→</span></button><button type="button" id="reset" disabled>Restart</button></div>
+        </div>
+      </div>
+
+      <aside class="world-dossier" aria-labelledby="agent-name">
+        <div class="world-dossier-top"><p class="world-eyebrow">Staff dossier</p><span id="agent-number">01 / 04</span></div>
+        <div class="world-portrait" id="agent-portrait" aria-hidden="true"></div>
+        <h2 id="agent-name">Research Director</h2>
+        <p class="world-role" id="agent-role">Research direction</p>
+        <p class="world-agent-description" id="agent-description">Sets the question, assigns the work and considers the final argument.</p>
+        <dl class="world-agent-facts">
+          <div><dt>Status</dt><dd class="world-status" id="agent-status">THINKING</dd></div>
+          <div><dt>Location</dt><dd id="agent-location">Director Office</dd></div>
+        </dl>
+        <div class="world-task"><p class="world-eyebrow">Current task / Simulation</p><h3 id="agent-task">Setting the research agenda</h3><div class="world-progress-caption"><label for="agent-progress">Task progress</label><span id="agent-percent">18%</span></div><progress id="agent-progress" value="18" max="100">18%</progress></div>
+        <div class="world-last-activity"><p class="world-eyebrow">Last activity</p><p id="agent-activity">At work in the institution</p><time id="agent-time"></time></div>
+        <p class="world-dossier-note">The work shown here is a prototype sequence. Published research stays in the <a href="../library.html">Longhand library</a>.</p>
+      </aside>
+    </section>
+
+    <section class="world-journal" aria-labelledby="journal-title">
+      <header><p class="world-eyebrow">Institution journal</p><h2 id="journal-title">Notes from the floor</h2><p>Recent simulated events</p></header>
+      <ol id="event-log"><li class="world-journal-empty">The team is at work. The next event will appear here.</li></ol>
+    </section>
+    <p class="world-sr-only" id="world-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+    <noscript><p class="world-noscript">Enable JavaScript to see and select the four agents. The floor plan and links to the existing research site remain available.</p></noscript>
+  </main>
+
+  <footer class="world-footer"><span>Longhand World <span aria-hidden="true">/</span> A research institution in miniature</span><a href="../library.html">Open the research library <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

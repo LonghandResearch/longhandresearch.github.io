@@ -1,0 +1,385 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" shape-rendering="crispEdges" role="img" aria-labelledby="title description">
+  <title id="title">Longhand research institution</title>
+  <desc id="description">A quiet architectural cutaway with a private library, research office, data laboratory, editorial office, director's office and a central hall. Walnut shelves, paper-covered desks and restrained brass fixtures surround clear walking routes.</desc>
+  <defs>
+    <pattern id="walnut" width="48" height="20" patternUnits="userSpaceOnUse">
+      <rect width="48" height="20" fill="#4a3d31"/>
+      <path d="M0 0H48M0 10H48" stroke="#342f28" stroke-width="2"/>
+      <path d="M16 0V10M40 10V20" stroke="#342f28" stroke-width="2"/>
+      <path d="M2 4H13M20 6H43M3 16H32" stroke="#64503b" stroke-width="1" opacity=".36"/>
+    </pattern>
+    <pattern id="officeFloor" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="#454740"/>
+      <path d="M0 0H32V32" fill="none" stroke="#353b36" stroke-width="2"/>
+      <path d="M2 2H30" stroke="#53544a" stroke-width="1"/>
+    </pattern>
+    <pattern id="labFloor" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#303c3e"/>
+      <path d="M0 0H24V24" fill="none" stroke="#233133" stroke-width="1"/>
+      <rect x="3" y="3" width="2" height="2" fill="#4b5754" opacity=".5"/>
+    </pattern>
+    <pattern id="hallFloor" width="48" height="32" patternUnits="userSpaceOnUse">
+      <rect width="48" height="32" fill="#383d37"/>
+      <path d="M0 0L24 16L48 0M0 16L24 32L48 16" fill="none" stroke="#42463d" stroke-width="2"/>
+      <path d="M0 2L24 18M24 18L48 2" stroke="#30372f" stroke-width="1"/>
+    </pattern>
+    <pattern id="runner" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#625644"/>
+      <rect x="6" y="6" width="4" height="4" fill="#78694e"/>
+      <path d="M0 0H16V16" fill="none" stroke="#554d3e" stroke-width="1"/>
+    </pattern>
+    <g id="shelf">
+      <rect x="2" y="5" width="96" height="24" fill="#171f1d" opacity=".65"/>
+      <rect width="96" height="24" fill="#282b25"/>
+      <rect x="3" y="3" width="90" height="15" fill="#1c2624"/>
+      <rect x="5" y="5" width="5" height="12" fill="#a39876"/>
+      <rect x="12" y="7" width="4" height="10" fill="#62766a"/>
+      <rect x="18" y="4" width="7" height="13" fill="#69533d"/>
+      <rect x="28" y="5" width="4" height="12" fill="#aa8a59"/>
+      <rect x="34" y="7" width="6" height="10" fill="#758071"/>
+      <rect x="43" y="4" width="5" height="13" fill="#918568"/>
+      <rect x="51" y="6" width="8" height="11" fill="#4c6661"/>
+      <rect x="62" y="4" width="4" height="13" fill="#a58b67"/>
+      <rect x="69" y="7" width="5" height="10" fill="#737267"/>
+      <rect x="77" y="5" width="6" height="12" fill="#68594a"/>
+      <rect x="86" y="4" width="4" height="13" fill="#b2a687"/>
+      <path d="M6 10H9M19 9H24M29 11H31M44 9H47M63 10H65M87 9H89" stroke="#d0bd83" stroke-width="1"/>
+      <rect y="18" width="96" height="4" fill="#746047"/>
+      <rect y="22" width="96" height="2" fill="#302c23"/>
+      <rect width="96" height="3" fill="#756447"/>
+      <rect width="3" height="24" fill="#645239"/>
+      <rect x="93" width="3" height="24" fill="#514735"/>
+    </g>
+    <g id="bookstack">
+      <rect x="1" y="9" width="21" height="5" fill="#1a2320" opacity=".5"/>
+      <rect y="7" width="20" height="4" fill="#51695c"/>
+      <rect x="2" y="4" width="19" height="3" fill="#c4b792"/>
+      <rect x="1" width="17" height="4" fill="#896a4a"/>
+      <path d="M3 2H16M4 6H19M3 9H17" stroke="#d0c1a0" stroke-width="1" opacity=".65"/>
+    </g>
+    <g id="papers">
+      <rect x="3" y="3" width="18" height="13" fill="#26302a" opacity=".5"/>
+      <rect width="18" height="13" fill="#a79d84"/>
+      <rect x="2" y="1" width="16" height="11" fill="#d9cfb5"/>
+      <path d="M5 4H14M5 7H12M5 9H15" stroke="#86816e" stroke-width="1"/>
+    </g>
+    <g id="openBook">
+      <rect x="1" y="4" width="28" height="17" fill="#1b2923" opacity=".65"/>
+      <path d="M0 0H12L14 3L16 0H28V17H17L14 19L11 17H0Z" fill="#9f8763"/>
+      <path d="M2 1H11L13 3V16L11 14H2ZM15 3L17 1H26V14H17L15 16Z" fill="#d6c9a9"/>
+      <path d="M4 5H10M4 8H10M4 11H9M18 5H24M18 8H24M18 11H23" stroke="#938c75" stroke-width="1"/>
+      <rect x="13" y="3" width="2" height="13" fill="#b6a786"/>
+    </g>
+    <g id="lamp">
+      <rect x="1" y="19" width="18" height="5" fill="#202921" opacity=".5"/>
+      <rect x="5" y="17" width="10" height="4" fill="#a18b53"/>
+      <rect x="9" y="6" width="2" height="13" fill="#b6a16a"/>
+      <path d="M3 2H17V5H20V10H0V5H3Z" fill="#718273"/>
+      <rect x="2" y="8" width="16" height="2" fill="#c8b983"/>
+      <rect x="5" y="3" width="10" height="2" fill="#95a092"/>
+      <rect x="7" y="11" width="6" height="2" fill="#c3ae6a" opacity=".6"/>
+    </g>
+    <g id="plant">
+      <rect x="2" y="21" width="25" height="8" fill="#17221d" opacity=".7"/>
+      <rect x="8" y="16" width="14" height="10" fill="#6d6250"/>
+      <rect x="9" y="16" width="12" height="3" fill="#9b8767"/>
+      <rect x="11" y="19" width="8" height="6" fill="#88755a"/>
+      <path d="M14 19V7H17V19M6 8H14V14H6ZM18 6H25V12H18ZM10 1H18V8H10ZM1 13H9V18H1ZM21 12H29V17H21Z" fill="#516d55"/>
+      <path d="M7 9H12V11H7ZM11 2H16V4H11ZM19 7H23V9H19ZM22 13H26V15H22Z" fill="#839073"/>
+      <path d="M4 16H8V19H4M18 15H23V20H18" fill="#3a5745"/>
+    </g>
+    <g id="chair">
+      <rect x="3" y="20" width="26" height="9" fill="#17221e" opacity=".7"/>
+      <rect x="5" y="19" width="3" height="6" fill="#9a8051"/>
+      <rect x="22" y="19" width="3" height="6" fill="#9a8051"/>
+      <rect x="3" y="3" width="24" height="17" fill="#263b35"/>
+      <rect x="6" y="6" width="18" height="11" fill="#62756b"/>
+      <rect x="2" y="1" width="26" height="6" fill="#455d50"/>
+      <rect y="8" width="5" height="14" fill="#354c41"/>
+      <rect x="25" y="8" width="5" height="14" fill="#354c41"/>
+      <rect x="4" y="18" width="22" height="4" fill="#87907c"/>
+    </g>
+    <g id="monitor">
+      <rect x="2" y="4" width="32" height="22" fill="#1a2421" opacity=".6"/>
+      <rect width="32" height="21" fill="#1c2929"/>
+      <rect x="3" y="3" width="26" height="14" fill="#426763"/>
+      <rect x="5" y="5" width="11" height="2" fill="#9aae95"/>
+      <path d="M5 10H13M5 13H17M21 13V8M24 13V6M27 13V10" stroke="#84a59a" stroke-width="1"/>
+      <rect x="13" y="21" width="6" height="4" fill="#718074"/>
+      <rect x="9" y="25" width="14" height="2" fill="#b1a485"/>
+      <rect x="3" y="1" width="26" height="1" fill="#819188"/>
+    </g>
+    <g id="rack">
+      <rect x="4" y="6" width="38" height="88" fill="#121e1e" opacity=".7"/>
+      <rect width="38" height="86" fill="#1b2a2a"/>
+      <rect x="3" y="3" width="32" height="80" fill="#334442"/>
+      <path d="M6 8H32V22H6ZM6 27H32V41H6ZM6 46H32V60H6ZM6 65H32V79H6Z" fill="#243230"/>
+      <path d="M9 11H25M9 14H25M9 17H25M9 30H25M9 33H25M9 36H25M9 49H25M9 52H25M9 55H25M9 68H25M9 71H25M9 74H25" stroke="#52665c" stroke-width="1"/>
+      <path d="M29 12H31V14H29ZM29 31H31V33H29ZM29 50H31V52H29ZM29 69H31V71H29Z" fill="#afa573"/>
+      <rect x="1" y="1" width="36" height="2" fill="#718174"/>
+      <rect x="1" y="83" width="36" height="3" fill="#132321"/>
+    </g>
+    <g id="deskSmall">
+      <rect x="3" y="7" width="80" height="38" fill="#1d2922" opacity=".7"/>
+      <rect y="2" width="80" height="34" fill="#514736"/>
+      <rect width="80" height="29" fill="#9d8965"/>
+      <rect x="3" y="3" width="74" height="23" fill="#8e7b59"/>
+      <rect y="29" width="80" height="5" fill="#67553e"/>
+      <path d="M6 36V41M72 36V41" stroke="#292d25" stroke-width="4"/>
+      <rect x="29" y="6" width="38" height="17" fill="#54635a"/>
+      <use href="#papers" x="33" y="7"/>
+      <use href="#lamp" x="4" y="-6"/>
+      <rect x="63" y="19" width="7" height="5" fill="#cabfa3"/>
+      <rect x="65" y="20" width="3" height="2" fill="#675444"/>
+    </g>
+  </defs>
+
+  <!-- The plate is a single still architectural scene. Walking routes stay clear. -->
+  <rect width="960" height="620" fill="#101a1c"/>
+  <rect x="40" y="54" width="886" height="500" fill="#0a1113"/>
+  <path d="M44 62H916V536H570V574H390V536H44Z" fill="#141f20"/>
+  <path d="M60 92H914V534H564V574H400V534H60Z" fill="#080f11"/>
+  <rect x="60" y="70" width="840" height="448" fill="#273230"/>
+  <rect x="76" y="86" width="808" height="414" fill="url(#hallFloor)"/>
+
+  <!-- Distinct, muted floor plates. Rugs are flush with the floor. -->
+  <rect x="76" y="86" width="248" height="168" fill="url(#walnut)"/>
+  <rect x="340" y="86" width="268" height="168" fill="url(#officeFloor)"/>
+  <rect x="624" y="86" width="260" height="168" fill="url(#labFloor)"/>
+  <rect x="76" y="374" width="248" height="126" fill="url(#walnut)"/>
+  <rect x="624" y="374" width="260" height="126" fill="url(#walnut)"/>
+  <rect x="188" y="162" width="58" height="82" fill="#3b5045"/>
+  <rect x="193" y="167" width="48" height="72" fill="#455b4e"/>
+  <path d="M197 172H237V235H197Z" fill="none" stroke="#928563" stroke-width="1"/>
+  <rect x="420" y="193" width="108" height="51" fill="#4e5c4d"/>
+  <path d="M425 198H523V239H425Z" fill="none" stroke="#78836c" stroke-width="1"/>
+  <rect x="182" y="309" width="620" height="20" fill="#706248"/>
+  <rect x="184" y="311" width="616" height="16" fill="url(#runner)"/>
+  <path d="M184 312H800M184 326H800" stroke="#a29267" stroke-width="1"/>
+  <rect x="430" y="360" width="88" height="135" fill="#5b5444"/>
+  <rect x="434" y="361" width="80" height="134" fill="url(#runner)"/>
+  <path d="M437 364V492M511 364V492" stroke="#8c7e5e" stroke-width="1"/>
+  <rect x="162" y="398" width="108" height="88" fill="#3b5045"/>
+  <path d="M167 403H265V482H167Z" fill="none" stroke="#7c8165" stroke-width="1"/>
+  <rect x="682" y="398" width="152" height="88" fill="#454f42"/>
+  <path d="M687 403H829V482H687Z" fill="none" stroke="#9a8962" stroke-width="1"/>
+
+  <!-- Exterior masonry: a thin extruded face, a walnut cap and inset windows. -->
+  <path d="M60 518H398V534H60ZM550 518H900V534H550Z" fill="#192321"/>
+  <path d="M900 86L914 98V534L900 518Z" fill="#172320"/>
+  <rect x="60" y="70" width="840" height="16" fill="#737262"/>
+  <rect x="60" y="70" width="840" height="4" fill="#9b8e70"/>
+  <rect x="76" y="80" width="808" height="6" fill="#454c42"/>
+  <rect x="60" y="86" width="16" height="432" fill="#626451"/>
+  <rect x="60" y="86" width="4" height="432" fill="#8c8264"/>
+  <rect x="72" y="86" width="4" height="414" fill="#303c33"/>
+  <rect x="884" y="86" width="16" height="432" fill="#59614e"/>
+  <rect x="884" y="86" width="4" height="414" fill="#7b7c63"/>
+  <rect x="897" y="86" width="3" height="432" fill="#333f34"/>
+  <path d="M76 86H884V93H76ZM76 86H83V500H76ZM877 86H884V500H877Z" fill="#182721" opacity=".28"/>
+  <g fill="#152a2b">
+    <rect x="116" y="76" width="56" height="5"/>
+    <rect x="230" y="76" width="56" height="5"/>
+    <rect x="369" y="76" width="68" height="5"/>
+    <rect x="511" y="76" width="68" height="5"/>
+    <rect x="663" y="76" width="56" height="5"/>
+    <rect x="794" y="76" width="56" height="5"/>
+  </g>
+  <path d="M118 77H170M232 77H284M371 77H435M513 77H577M665 77H717M796 77H848" stroke="#8f9d85" stroke-width="1"/>
+
+  <!-- Library: wall shelves, writing tables and a clear central reading position. -->
+  <use href="#shelf" x="122" y="118"/>
+  <use href="#shelf" x="218" y="118"/>
+  <g transform="translate(114 140) rotate(90)"><use href="#shelf"/></g>
+  <rect x="122" y="188" width="57" height="43" fill="#272e23" opacity=".6"/>
+  <rect x="120" y="182" width="57" height="40" fill="#6e5b3f"/>
+  <rect x="120" y="182" width="57" height="34" fill="#9e8963"/>
+  <rect x="123" y="185" width="51" height="28" fill="#8c7756"/>
+  <use href="#openBook" x="142" y="191"/>
+  <use href="#lamp" x="122" y="181"/>
+  <rect x="265" y="181" width="44" height="52" fill="#19261f" opacity=".6"/>
+  <rect x="262" y="176" width="44" height="48" fill="#6e6047"/>
+  <rect x="262" y="176" width="44" height="41" fill="#9b8762"/>
+  <rect x="266" y="179" width="36" height="34" fill="#897552"/>
+  <use href="#bookstack" x="274" y="187"/>
+  <use href="#papers" x="276" y="201"/>
+  <use href="#chair" x="130" y="222"/>
+  <use href="#plant" x="279" y="224"/>
+
+  <!-- Research office: two peripheral desks and a source table above the station. -->
+  <use href="#deskSmall" x="356" y="135"/>
+  <use href="#deskSmall" x="515" y="135"/>
+  <use href="#chair" x="379" y="173"/>
+  <use href="#chair" x="538" y="173"/>
+  <rect x="442" y="160" width="64" height="28" fill="#263328" opacity=".7"/>
+  <rect x="438" y="156" width="64" height="25" fill="#6c6047"/>
+  <rect x="438" y="156" width="64" height="20" fill="#a3916c"/>
+  <rect x="442" y="159" width="56" height="15" fill="#958361"/>
+  <use href="#openBook" x="444" y="159"/>
+  <use href="#bookstack" x="475" y="162"/>
+  <rect x="353" y="218" width="56" height="24" fill="#2c352a"/>
+  <rect x="353" y="214" width="56" height="20" fill="#6b614b"/>
+  <rect x="353" y="214" width="56" height="4" fill="#9a8a65"/>
+  <path d="M356 223H406M379 218V234" stroke="#3d4637" stroke-width="2"/>
+  <use href="#bookstack" x="358" y="204"/>
+  <use href="#papers" x="385" y="204"/>
+  <use href="#plant" x="565" y="219"/>
+
+  <!-- Data lab: warm indicator lights, matte racks and a small analysis console. -->
+  <use href="#rack" x="642" y="131"/>
+  <use href="#rack" x="829" y="131"/>
+  <rect x="644" y="221" width="34" height="9" fill="#1c2a27"/>
+  <rect x="831" y="221" width="34" height="9" fill="#1c2a27"/>
+  <path d="M648 225H674M835 225H861" stroke="#647064" stroke-width="1"/>
+  <rect x="705" y="164" width="105" height="27" fill="#132723" opacity=".65"/>
+  <rect x="702" y="158" width="105" height="25" fill="#63716a"/>
+  <rect x="702" y="158" width="105" height="19" fill="#8b9785"/>
+  <rect x="706" y="160" width="97" height="13" fill="#7c8777"/>
+  <use href="#monitor" x="710" y="138"/>
+  <use href="#monitor" x="767" y="138"/>
+  <rect x="742" y="168" width="26" height="5" fill="#364b43"/>
+  <path d="M745 170H765" stroke="#829382" stroke-width="1"/>
+  <rect x="691" y="121" width="14" height="5" fill="#738579"/>
+  <rect x="808" y="121" width="14" height="5" fill="#738579"/>
+  <rect x="643" y="238" width="47" height="6" fill="#6a7769"/>
+  <rect x="823" y="238" width="44" height="6" fill="#6a7769"/>
+
+  <!-- Partition caps have literal doorway gaps at the agreed route coordinates. -->
+  <rect x="324" y="86" width="16" height="188" fill="#676756"/>
+  <rect x="324" y="86" width="4" height="168" fill="#8f8669"/>
+  <rect x="336" y="86" width="4" height="188" fill="#343e32"/>
+  <rect x="608" y="86" width="16" height="188" fill="#626650"/>
+  <rect x="608" y="86" width="4" height="168" fill="#898466"/>
+  <rect x="620" y="86" width="4" height="188" fill="#303e34"/>
+  <path d="M76 254H208V274H76ZM232 254H462V274H232ZM486 254H746V274H486ZM770 254H884V274H770Z" fill="#555f4e"/>
+  <path d="M76 254H208V258H76ZM232 254H462V258H232ZM486 254H746V258H486ZM770 254H884V258H770Z" fill="#908a68"/>
+  <path d="M76 268H208V274H76ZM232 268H462V274H232ZM486 268H746V274H486ZM770 268H884V274H770Z" fill="#283b30"/>
+  <path d="M208 254H212V274H208ZM228 254H232V274H228ZM462 254H466V274H462ZM482 254H486V274H482ZM746 254H750V274H746ZM766 254H770V274H766Z" fill="#b19c6b"/>
+  <path d="M212 264H228M466 264H482M750 264H766" stroke="#8d805c" stroke-width="2"/>
+  <path d="M212 271H228M466 271H482M750 271H766" stroke="#aa9a70" stroke-width="1"/>
+  <path d="M76 275H208M232 275H462M486 275H746M770 275H884" stroke="#182d24" stroke-width="5" opacity=".45"/>
+
+  <!-- Hall furniture remains above or below the cross-institution corridor at y318. -->
+  <rect x="91" y="340" width="95" height="13" fill="#1e3028"/>
+  <rect x="91" y="335" width="95" height="13" fill="#697661"/>
+  <rect x="95" y="337" width="87" height="7" fill="#87907a"/>
+  <path d="M97 348V353M179 348V353" stroke="#a48e61" stroke-width="3"/>
+  <use href="#plant" x="289" y="281"/>
+  <use href="#plant" x="646" y="332"/>
+  <rect x="820" y="286" width="43" height="18" fill="#213328"/>
+  <rect x="818" y="282" width="43" height="17" fill="#7b7155"/>
+  <rect x="821" y="285" width="37" height="10" fill="#9a8a64"/>
+  <use href="#papers" x="837" y="280"/>
+  <rect x="568" y="282" width="36" height="17" fill="#574f3b"/>
+  <rect x="570" y="284" width="32" height="12" fill="#b4a47d"/>
+  <path d="M574 287H584M574 290H598M574 293H594" stroke="#7c7e65" stroke-width="1"/>
+  <rect x="564" y="298" width="44" height="3" fill="#1c3125" opacity=".5"/>
+
+  <!-- South wing doorway gaps and central hall opening. -->
+  <path d="M76 358H208V374H76ZM232 358H340V374H232ZM608 358H746V374H608ZM770 358H884V374H770Z" fill="#626751"/>
+  <path d="M76 358H208V362H76ZM232 358H340V362H232ZM608 358H746V362H608ZM770 358H884V362H770Z" fill="#938d6d"/>
+  <path d="M76 370H208V374H76ZM232 370H340V374H232ZM608 370H746V374H608ZM770 370H884V374H770Z" fill="#293b2e"/>
+  <path d="M208 358H212V374H208ZM228 358H232V374H228ZM746 358H750V374H746ZM766 358H770V374H766Z" fill="#ad9a68"/>
+  <path d="M212 364H228M750 364H766" stroke="#8f825e" stroke-width="2"/>
+  <rect x="324" y="374" width="16" height="126" fill="#666850"/>
+  <rect x="324" y="374" width="4" height="126" fill="#96906c"/>
+  <rect x="336" y="374" width="4" height="126" fill="#303f32"/>
+  <rect x="608" y="374" width="16" height="126" fill="#656b52"/>
+  <rect x="608" y="374" width="4" height="126" fill="#98916b"/>
+  <rect x="620" y="374" width="4" height="126" fill="#314331"/>
+
+  <!-- Editor office: proofs, filing cabinets, dictionaries and a green task light. -->
+  <g transform="translate(114 394) rotate(90)"><use href="#shelf"/></g>
+  <rect x="172" y="459" width="94" height="25" fill="#202c22" opacity=".7"/>
+  <rect x="168" y="452" width="94" height="27" fill="#645640"/>
+  <rect x="168" y="452" width="94" height="21" fill="#9d8c68"/>
+  <rect x="171" y="455" width="88" height="14" fill="#8d7d5a"/>
+  <rect x="194" y="456" width="42" height="11" fill="#546951"/>
+  <use href="#papers" x="198" y="454"/>
+  <use href="#papers" x="219" y="459"/>
+  <rect x="220" y="459" width="3" height="10" fill="#9f654c"/>
+  <use href="#lamp" x="171" y="443"/>
+  <use href="#bookstack" x="240" y="452"/>
+  <rect x="278" y="414" width="29" height="61" fill="#504b3a"/>
+  <rect x="278" y="409" width="29" height="59" fill="#7e7b63"/>
+  <rect x="281" y="412" width="23" height="12" fill="#94907b"/>
+  <rect x="281" y="429" width="23" height="12" fill="#8b8771"/>
+  <rect x="281" y="446" width="23" height="12" fill="#827c65"/>
+  <path d="M288 417H297M288 434H297M288 451H297" stroke="#4b5141" stroke-width="2"/>
+  <use href="#plant" x="122" y="452"/>
+
+  <!-- Director office: a long walnut desk, correspondence and two visitor chairs. -->
+  <rect x="704" y="462" width="118" height="26" fill="#192b20" opacity=".7"/>
+  <rect x="700" y="454" width="118" height="28" fill="#5b4d39"/>
+  <rect x="700" y="454" width="118" height="22" fill="#90794f"/>
+  <rect x="704" y="457" width="110" height="16" fill="#9e895d"/>
+  <rect x="733" y="456" width="53" height="17" fill="#3e5544"/>
+  <use href="#openBook" x="744" y="457"/>
+  <use href="#lamp" x="701" y="443"/>
+  <use href="#papers" x="791" y="457"/>
+  <use href="#chair" x="643" y="414"/>
+  <use href="#chair" x="838" y="414"/>
+  <rect x="645" y="389" width="40" height="8" fill="#6e7158"/>
+  <rect x="648" y="390" width="34" height="4" fill="#a6a384"/>
+  <use href="#plant" x="643" y="457"/>
+  <use href="#plant" x="837" y="459"/>
+  <rect x="827" y="385" width="35" height="20" fill="#6b6247"/>
+  <rect x="830" y="388" width="29" height="14" fill="#263e35"/>
+  <path d="M832 398L840 392L845 395L853 390L857 396" fill="none" stroke="#8a9a74" stroke-width="2"/>
+
+  <!-- Atrium: a brass globe and stepped book display, clear of the central route. -->
+  <rect x="359" y="422" width="52" height="15" fill="#1b2e23" opacity=".7"/>
+  <rect x="365" y="410" width="35" height="17" fill="#706646"/>
+  <rect x="368" y="410" width="29" height="12" fill="#9b8a5a"/>
+  <rect x="378" y="399" width="9" height="15" fill="#bba16a"/>
+  <path d="M369 389H374V384H391V389H396V399H391V404H374V399H369Z" fill="#657b67"/>
+  <path d="M374 387H391M372 394H394M375 401H390" stroke="#b8a46d" stroke-width="1"/>
+  <path d="M381 386V403M374 388L389 402M391 388L376 402" stroke="#9d9c6b" stroke-width="1"/>
+  <path d="M365 390V398H369M396 390H400V398H396" fill="none" stroke="#b59d67" stroke-width="2"/>
+  <use href="#chair" x="363" y="451"/>
+  <rect x="406" y="457" width="20" height="26" fill="#273a29"/>
+  <rect x="404" y="454" width="20" height="24" fill="#9a865e"/>
+  <use href="#bookstack" x="403" y="451"/>
+  <rect x="539" y="398" width="54" height="78" fill="#243326"/>
+  <path d="M539 398H593V408H539ZM539 414H593V424H539ZM539 430H593V440H539ZM539 446H593V456H539ZM539 462H593V472H539Z" fill="#6b6a50"/>
+  <path d="M541 399H591M541 415H591M541 431H591M541 447H591M541 463H591" stroke="#b2a278" stroke-width="2"/>
+  <path d="M541 408H591M541 424H591M541 440H591M541 456H591M541 472H591" stroke="#344430" stroke-width="3"/>
+  <use href="#bookstack" x="544" y="388"/>
+  <use href="#papers" x="570" y="389"/>
+  <rect x="558" y="480" width="38" height="3" fill="#152a1e" opacity=".65"/>
+
+  <!-- Entrance threshold, broad steps and brass inlay. -->
+  <path d="M76 500H398V518H76ZM550 500H884V518H550Z" fill="#666952"/>
+  <path d="M76 500H398V504H76ZM550 500H884V504H550Z" fill="#9a906f"/>
+  <path d="M76 512H398V518H76ZM550 512H884V518H550Z" fill="#34472f"/>
+  <rect x="398" y="500" width="152" height="16" fill="#7c795d"/>
+  <rect x="406" y="502" width="136" height="12" fill="#8d8466"/>
+  <path d="M409 505H539M409 511H539" stroke="#b6a276" stroke-width="1"/>
+  <rect x="398" y="510" width="152" height="12" fill="#8b856a"/>
+  <rect x="398" y="522" width="152" height="12" fill="#76745d"/>
+  <rect x="398" y="534" width="152" height="12" fill="#666b55"/>
+  <rect x="398" y="546" width="152" height="12" fill="#58614e"/>
+  <rect x="398" y="558" width="152" height="8" fill="#455441"/>
+  <path d="M402 511H546M402 523H546M402 535H546M402 547H546M402 559H546" stroke="#a59a77" stroke-width="2"/>
+  <path d="M402 520H546M402 532H546M402 544H546M402 556H546M402 565H546" stroke="#303f32" stroke-width="2"/>
+  <rect x="398" y="511" width="5" height="50" fill="#b49b68"/>
+  <rect x="545" y="511" width="5" height="50" fill="#b49b68"/>
+  <rect x="401" y="516" width="3" height="44" fill="#3b4c39"/>
+  <rect x="544" y="516" width="3" height="44" fill="#3b4c39"/>
+  <use href="#plant" x="352" y="526"/>
+  <use href="#plant" x="568" y="526"/>
+  <rect x="362" y="550" width="16" height="5" fill="#837651"/>
+  <rect x="578" y="550" width="16" height="5" fill="#837651"/>
+  <path d="M346 579H602" stroke="#293b31" stroke-width="1"/>
+  <path d="M374 583H574" stroke="#1d3027" stroke-width="1"/>
+
+  <!-- Quiet structural brass marks. -->
+  <g fill="#bcaa75">
+    <rect x="65" y="75" width="4" height="4"/>
+    <rect x="891" y="75" width="4" height="4"/>
+    <rect x="65" y="506" width="4" height="4"/>
+    <rect x="891" y="506" width="4" height="4"/>
+    <rect x="329" y="90" width="3" height="3"/>
+    <rect x="613" y="90" width="3" height="3"/>
+  </g>
+</svg>
