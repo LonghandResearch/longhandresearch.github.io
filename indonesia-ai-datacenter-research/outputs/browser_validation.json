@@ -1,0 +1,51 @@
+{
+  "review_date": "2026-10-04",
+  "desktop_viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      1440,
+      1240
+    ]
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "page_horizontal_overflow": false,
+  "newsletter_sections": 7,
+  "essential_sources": 7,
+  "unresolved_narrative_placeholders": false,
+  "console_messages": [
+    {
+      "level": "error",
+      "message": "AbortError: The play() request was interrupted by a call to pause().",
+      "assessment": "Recorded by the in-app browser during review. Shipped HTML contains no media elements and shipped scripts contain no play/pause calls. Origin is not confirmed. No failed app interaction was observed."
+    }
+  ],
+  "checked_interactions": [
+    "100 MW capacity updates bills, flow SVG values and separate mobile flow readings",
+    "Low case permits zero cooling consumption",
+    "Monthly costs equal annual costs divided by 12",
+    "Blank capacity exposes missing-input message",
+    "Batam construction filter selects BTM-1 with separate 90 MVA connection",
+    "2032 outlook displays the matching capacity and resource case",
+    "PUE change alters electricity while preserving water at fixed IT energy",
+    "Light and dark themes",
+    "Mobile flow fits 329px host and optional 1000px enlarged scroll stays within the page",
+    "SVG callout click selects Batam and updates projects",
+    "Keyboard Enter selects Batam and preserves focus on replacement callout",
+    "Batam/Bintan focus callouts do not overlap",
+    "Mobile selected-region focus uses cropped viewBox while overview retains all Indonesia",
+    "Greater Jakarta and West Java group includes Bandung",
+    "All-status map callout counts are distinct from filtered record counts"
+  ],
+  "model_reconciliation": "All 18 Python capacity cases match JavaScript calculations",
+  "previews": [
+    "outputs/interactive_preview.jpg",
+    "outputs/resource_flow_preview.jpg",
+    "outputs/project_atlas_preview.jpg"
+  ]
+}

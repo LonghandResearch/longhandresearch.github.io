@@ -1,0 +1,17 @@
+company,facility,country,pue,year,source_id,data_class,notes,measurement_status,comparator
+Digital Edge,EDGE1 Jakarta,Indonesia,1.7,NaN,WB008,S,"Undated annual metric; year and actual/design status undisclosed. Conservatively treated as unverified specification, not audited annual actual.",published_specification_measurement_unverified,NaN
+Digital Edge,EDGE2 Jakarta,Indonesia,1.25,NaN,WB008,S,Undated annual metric differs from2025 disclosed1.24 design value. Preserve distinct source/measurement status; not a data correction.,published_specification_measurement_unverified,NaN
+Digital Edge,EDGE2 Jakarta design,Indonesia,1.24,2024.0,WB009,S,"ESG2025 review of2024; design at100%load, not observed annual PUE. Source printed p11.",annualized_design_at_100pct_load,NaN
+Digital Edge,CGK1 design,Indonesia,1.25,2025.0,WB010,S,ESG2026 review of2025; printed p16 design criterion at100%load.,annualized_design_at_100pct_load,NaN
+Princeton Digital Group,JC1 Jakarta Cibitung,Indonesia,1.95,2021.0,WB011,A,Historical2021 reported facility PUE; no2026 update inferred. Source ratio-description typo separately flagged; numeric table preserved.,operator_reported_annual_actual,NaN
+Princeton Digital Group,JB1 Jakarta Bintaro,Indonesia,1.79,2021.0,WB011,A,Historical2021 reported facility PUE; no2026 update inferred. Source ratio-description typo separately flagged; numeric table preserved.,operator_reported_annual_actual,NaN
+Princeton Digital Group,PE1 Pekanbaru,Indonesia,1.83,2021.0,WB011,A,Historical2021 reported facility PUE; no2026 update inferred. Source ratio-description typo separately flagged; numeric table preserved.,operator_reported_annual_actual,NaN
+Princeton Digital Group,SB1 Surabaya,Indonesia,1.79,2021.0,WB011,A,Historical2021 reported facility PUE; no2026 update inferred. Source ratio-description typo separately flagged; numeric table preserved.,operator_reported_annual_actual,NaN
+Princeton Digital Group,BD1 Bandung,Indonesia,1.83,2021.0,WB011,A,Historical2021 reported facility PUE; no2026 update inferred. Source ratio-description typo separately flagged; numeric table preserved.,operator_reported_annual_actual,NaN
+Princeton Digital Group,JC2 Cibitung design,Indonesia,1.4,2022.0,WB012,S,Source specifies <=1.4; recorded ceiling is not measured PUE.,design_ceiling,<=
+Microsoft,Global FY24,Global / Global,1.16,2024.0,WB013,B,"NON-INDONESIAN aggregate benchmark; FYJuly-June, twelve-month operational fully-owned controlled sites.",reported_fiscal_year_actual,NaN
+Microsoft,Asia Pacific FY24,Global / Asia Pacific,1.25,2024.0,WB013,B,"NON-INDONESIAN aggregate benchmark; FYJuly-June, twelve-month operational fully-owned controlled sites.",reported_fiscal_year_actual,NaN
+Microsoft,Global FY25,Global / Global,1.17,2025.0,WB013,B,"NON-INDONESIAN aggregate benchmark; FYJuly-June, twelve-month operational fully-owned controlled sites.",reported_fiscal_year_actual,NaN
+Microsoft,Asia Pacific FY25,Global / Asia Pacific,1.28,2025.0,WB013,B,"NON-INDONESIAN aggregate benchmark; FYJuly-June, twelve-month operational fully-owned controlled sites.",reported_fiscal_year_actual,NaN
+AWS,Global fleet,Global,1.15,2024.0,WB014,B,NON-INDONESIAN global aggregate; no Indonesia allocation.,reported_calendar_year_actual,NaN
+AWS,Global fleet,Global,1.14,2025.0,WB014,B,NON-INDONESIAN global aggregate; no Indonesia allocation.,reported_calendar_year_actual,NaN

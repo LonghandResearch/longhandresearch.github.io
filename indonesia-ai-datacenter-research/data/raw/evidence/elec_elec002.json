@@ -1,0 +1,30 @@
+{
+  "source_id": "ELEC002",
+  "url": "https://www.pln.co.id/webapi/media/file/webkorp/asset/1fa2814b-6ffd-459b-ac16-d46e515a0b3b.pdf",
+  "retrieved_from": "https://www.pln.co.id/webapi/media/file/webkorp/asset/1fa2814b-6ffd-459b-ac16-d46e515a0b3b.pdf",
+  "retrieval_date": "2026-10-04",
+  "publication_date": "2026-07-01",
+  "evidence_type": "analyst paraphrase and numeric transcription; full publication not redistributed",
+  "locators": [
+    "Official archive:https://www.pln.co.id/dokumen-tariff-adjustment-id",
+    "PDFpage1 tariff table rows7,8,9 and notes; signed1July2026"
+  ],
+  "observations": {
+    "effective_start": "2026-07-01",
+    "effective_end": "2026-09-30",
+    "b3_i3_lwbp_rp_per_kwh": 1035.78,
+    "b3_i3_wbp_formula": "K*1035.78",
+    "k_range": [
+      1.4,
+      2.0
+    ],
+    "b3_i3_reactive_rp_per_kvarh": 1114.74,
+    "i4_energy_rp_per_kwh": 996.74,
+    "i4_reactive_rp_per_kvarh": 996.74,
+    "minimum_bill_hours": 40,
+    "reactive_trigger_monthly_average_pf_below": 0.85,
+    "i4_connection_kva_at_least": 30000,
+    "q4_schedule_verified": false
+  },
+  "retrieved_pdf_sha256": "66084e5d949b54f74f7d9856393831696280ab3ce9affa1ed62eeaa83d2f1bc9"
+}

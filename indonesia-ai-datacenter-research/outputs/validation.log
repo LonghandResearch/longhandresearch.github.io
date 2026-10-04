@@ -1,0 +1,14 @@
+WARNING [market_anchors] Missing values retained: observation_period=13, derivation=21, comparison=21
+WARNING [datacenter_projects] Missing values retained: operational_mw=53, under_construction_mw=61, committed_mw=66, planned_mw=60, potential_mw=64, power_connection_mva=60, power_connection_mw=60, ai_specific=33, hyperscale=18, investment_usd=61, announcement_date=44, expected_completion=57, reported_capacity_mw=48, operational_source_date=54, supporting_source_ids=54, reported_power_connection_mw=66, connection_feed_count=65, connection_data_class=60, conversion_power_factor=61, power_connection_mw_data_class=60, conversion_power_factor_data_class=61
+WARNING [datacenter_projects] Operator announcements overlap and are not a complete Indonesia census. Source-date and definitions may differ.
+WARNING [indonesia_electricity] Missing values retained: coal_share_pct=6, gas_share_pct=5, hydro_share_pct=5, geothermal_share_pct=5, solar_share_pct=5, other_renewables_pct=5, mix_data_class=5, other_renewables_share_pct=5, steam_share_pct=5, diesel_share_pct=5, mix_formula=5, gas_share_pct_data_class=5, hydro_share_pct_data_class=5, geothermal_share_pct_data_class=5, solar_share_pct_data_class=5, other_renewables_pct_data_class=5, other_renewables_share_pct_data_class=5, steam_share_pct_data_class=5, diesel_share_pct_data_class=5
+WARNING [indonesia_electricity] Generation, national electricity consumption and PLN sales use distinct boundaries. Do not substitute one for another.
+WARNING [electricity_tariffs] Missing values retained: tariff_rp_per_kwh=3, minimum_connection_kva=1, minimum_connection_exclusive=1, peak_multiplier_min=1, peak_multiplier_max=1, reactive_tariff_rp_per_kvarh=1
+WARNING [electricity_tariffs] Published rates may exclude contract premiums, fixed charges, taxes and site-specific conditions.
+WARNING [water_tariffs] Missing values retained: consumption_band=2, tariff_rp_per_m3=3, effective_date=27, band_min_m3=3, band_max_m3=11, secondary_source_id=28, source_locator=27, reported_range_low_rp_per_m3=36, reported_range_high_rp_per_m3=36
+WARNING [water_tariffs] Published rates may exclude contract premiums, fixed charges, taxes and site-specific conditions.
+WARNING [climate] Missing values retained: month=3, avg_temperature_c=3, avg_relative_humidity_pct=3, rainfall_mm=3, wet_bulb_c=27, station=3
+WARNING [pue_benchmarks] Missing values retained: year=2, comparator=15
+WARNING [wue_benchmarks] Missing values retained: wue_l_per_kwh=2, cooling_type=11, year=4, source_year=2, reported_unit=11, reported_wue_value=11, value_precision=12, forecast_start_year=11, forecast_end_year=11
+WARNING [wue_benchmarks] Consumption, withdrawal and unspecified use definitions are not interchangeable.
+WARNING [ai_hardware] Missing values retained: tdp_watts=4, estimated_server_power_kw=10, rack_density_kw=9, server_max_power_kw=7, gpu_count=6, listed_system_power_kw=9, cpu_count=9, secondary_source_id=9, rated_rack_power_kw=9

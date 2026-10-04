@@ -1,0 +1,75 @@
+{
+  "source_id": "ELEC001",
+  "url": "https://www.esdm.go.id/assets/media/content/content-handbook-of-energy-and-economic-statistics-of-indonesia-2025.pdf",
+  "retrieved_from": "https://www.esdm.go.id/assets/media/content/content-handbook-of-energy-and-economic-statistics-of-indonesia-2025.pdf",
+  "retrieval_date": "2026-10-04",
+  "publication_date": "2026-08-12",
+  "evidence_type": "analyst paraphrase and numeric transcription; full publication not redistributed",
+  "locators": [
+    "Official edition index:https://www.esdm.go.id/en/publikasi/handbook-of-energy-economic-statistics-of-indonesia",
+    "Table6.4.4 printed112-113, PDF128-129",
+    "Tables6.4.1A/B printed100-103, PDF116-119",
+    "Tables6.4.2A/B printed106-110, PDF122-126",
+    "Table6.4.8 printed117, PDF133"
+  ],
+  "observations": {
+    "years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "national_utilization_gwh": [
+      292953,
+      314123,
+      340642,
+      369722,
+      409605,
+      455001
+    ],
+    "pln_sales_gwh": [
+      243583,
+      257634,
+      273761,
+      288436,
+      306219,
+      317692
+    ],
+    "non_pln_consumption_gwh": [
+      49371,
+      56489,
+      66881,
+      81286,
+      103386,
+      137309
+    ],
+    "reported_generation_gwh": [
+      291831,
+      309076,
+      333537,
+      350609,
+      371572,
+      494353
+    ],
+    "installed_capacity_mw": [
+      72766.77,
+      74556.89,
+      83842.83,
+      91203.03,
+      100648.77,
+      107498.89
+    ],
+    "pln_peak_mw": [
+      41761,
+      42785,
+      42814,
+      58282,
+      61288,
+      65134
+    ],
+    "scope_warning": "2025 generation is reclassified by ownership and includes144470GWh IUPTLS/PPU; historical generation figures cannot be reconciled to wider consumption coverage. Coal share unverified."
+  },
+  "retrieved_pdf_sha256": "7e4a75eb00b99208f3004b8b934b6cb304241699f6ffe97526f938c1738fdec2"
+}

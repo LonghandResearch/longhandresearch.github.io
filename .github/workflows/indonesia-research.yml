@@ -1,0 +1,39 @@
+name: Reproduce Indonesia resource research
+
+on:
+  pull_request:
+    paths:
+      - 'indonesia-ai-datacenter-research/**'
+      - '.github/workflows/indonesia-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: indonesia-ai-datacenter-research
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: indonesia-ai-datacenter-research/requirements.txt
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Install research requirements
+        run: python -m pip install -r requirements.txt
+      - name: Reproduce all model outputs and run Python tests
+        run: python src/pipeline.py
+      - name: Verify browser model against Python
+        run: node tests/test_interactive.cjs
+      - name: Execute the four research notebooks
+        run: python src/build_notebooks.py --execute
+      - name: Check deterministic calculation tables
+        run: git diff --exit-code -- data/processed outputs/tables interactive/data.json interactive/data.js
