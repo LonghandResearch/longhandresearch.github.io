@@ -1,0 +1,48 @@
+{
+  "source_id": "ELEC003",
+  "url": "https://www.pln.co.id/webapi/media/file/webkorp/asset/b967d-ruptl-pln-2025-2034-pub-.pdf",
+  "retrieved_from": "https://web.archive.org/web/20260311161557id_/https://gatrik.esdm.go.id/assets/uploads/download_index/files/b967d-ruptl-pln-2025-2034-pub-.pdf",
+  "retrieval_date": "2026-10-04",
+  "publication_date": "2025-05-26",
+  "evidence_type": "analyst paraphrase and numeric transcription; full publication not redistributed",
+  "locators": [
+    "RUPTL decree188.K/TL.03/MEM.L/2025 dated26May2025",
+    "Table5.67 printedV87 / PDF323",
+    "DKIJakarta demandtext printedB6 / PDF816",
+    "WestJava demandtext printedB37 / PDF847",
+    "Data-center connectionplan annexE printedE25-E29 / PDF1226-1230",
+    "275kVGITETSinarmas discussion printedV292 / PDF528"
+  ],
+  "observations": {
+    "years": [
+      2025,
+      2026,
+      2027,
+      2028,
+      2029,
+      2030,
+      2031,
+      2032,
+      2033,
+      2034
+    ],
+    "pln_sales_forecast_gwh": [
+      323044,
+      339974,
+      360120,
+      377709,
+      396065,
+      416035,
+      440337,
+      467876,
+      491843,
+      510575
+    ],
+    "forecast_scope": "PLN-only; not national consumption",
+    "dc_energy_forecast": "No separate national data-center GWh forecast found in entire1253pagePDF",
+    "stt_planned_connection_mva_2030": 450,
+    "sinarmas_planned_connection_mva_2029": 400,
+    "grid_implication": "PLN plans specific substations, switching stations and transmission for clustered DC loads. MVA connection plans cannot be converted to IT capacity without powerfactor and PUE assumptions."
+  },
+  "retrieved_pdf_sha256": "1308ee580c7c1642fe7817e000c87cb2dc87053e1fcef90606dcc1da396fd002"
+}

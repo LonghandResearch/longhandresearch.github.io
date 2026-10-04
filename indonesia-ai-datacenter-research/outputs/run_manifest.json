@@ -1,0 +1,54 @@
+{
+  "python": "3.12.10",
+  "packages": {
+    "pandas": "2.2.3",
+    "numpy": "2.2.6",
+    "matplotlib": "3.10.3",
+    "openpyxl": "3.1.5",
+    "requests": "2.32.4",
+    "PyYAML": "6.0.2",
+    "nbformat": "5.10.4",
+    "nbclient": "0.10.2"
+  },
+  "hash_policy": "SHA-256 after CRLF-to-LF normalization for text files. Binary files use original bytes.",
+  "inputs_sha256": {
+    "assumptions.yaml": "e124e746f775fa4519f7d9737bae45c99a0392e53d8ca174c4d13f7a09642305",
+    "sources.csv": "ac7063b7103973575b0492c5e76228165617ce1f61b6c4ab06128b4c77ecb7c5",
+    "docs/newsletter_copy.md": "a9daa0fc91db12e111c94ec9c1b07f9f398c1d2b363a04dc9cae4fb22624ac33",
+    "data/raw/evidence/indonesia_geometry.json": "1f81d02aef0f2294148f6d75f11b2a9e294421aaf2aa2caa879b67ebbd6cd67a",
+    "data/raw/observations/electricity.json": "2cd7ec4e1b6d55d36323b0d9c56cee31f801ab032be353a5994baab9cc1edc42",
+    "data/raw/observations/projects.json": "9b43edcbbd1844c4476eb031c129e9c4f99bf5125fec54c3258e7de5b76080a3",
+    "data/raw/observations/water_benchmarks.json": "71a8c2722cb659bf79f1bd98b95dd6f81bdcacaada30146b94b881281737954c"
+  },
+  "interactive_sha256": {
+    "app.js": "c04f80d5060b8cd62b9591739110a7cc9b61f12fc0a8b2b66f4516280e7bebdd",
+    "data.js": "5579f1e85048a8292c84cc6b5fb6373fe4bed3cbc0c12c177b293b0ec2966c32",
+    "data.json": "1c0442e35812c744d2c839b6a6fe3f7e4ebccaebadf99524a7ea5e7e4c5a1d2a",
+    "flow-design.svg": "7e8fe25423c971cc98e943467a7a1265d3d21049ec70507f9d87dea0aacba8ab",
+    "index.html": "2b175c09b5d5fd86f34e91743033a6925173b4c24822600d5e427ff2b2b0ab9e",
+    "model.js": "74065c60f24848eac960096cd80d25b8dfe248a32fcede048a842c176b002078",
+    "style.css": "616a9595ac6a4a80f3a07c1ee5d4c75a2fc228b86bdce1b5cc61a5351b079b23"
+  },
+  "processed_sha256": {
+    "additional_1gw.csv": "b58f1c46a481ea2befacf7feace758dbbe856cf2c318daa10f5eca30cea84954",
+    "ai_hardware.csv": "930fcd610c51c19eea8b24f08391cd863845ea033ca057549ea08ea13309a85e",
+    "capacity_scenarios.csv": "641876d7e965b0b0ea741da1f39f3af99e3db75fcdfe632ce03b17854e8de450",
+    "climate.csv": "128a37ef5932fea9eb311c75b79ceaff48fd14f3a9b37fa7dea7e97973521e45",
+    "cooling_tradeoff.csv": "20edfd0553a7fc712b0d86d577aac2ffd6ac068f22286a639a739b00578de0ef",
+    "current_baseline_estimates.csv": "30d8a3ade8600335132d9707f94e7a5b74da4ec336207adc7ed32ab8d1e90af7",
+    "datacenter_projects.csv": "6aa6c403bcbdd9de61806ec99e3aa3de7f9e4757b596c345b2b4f25e18ff31f5",
+    "documented_inventory_estimates.csv": "b32ba99ece07df5abb9f5a585b2b656f2077e160817d804cf927bc17c6ae3201",
+    "electricity_tariffs.csv": "d1e378e7a2d61fce9dbb2a0dcd034abfb54c4818abeedc14b2dee38d9921189b",
+    "indonesia_electricity.csv": "ac1684a165297974fc431c167c56ca4052d06944008b68c5040890f0fefaae2b",
+    "market_anchors.csv": "6979b5f82402c5f3a2af43a043dd956d16321a1687cadd306567f98ecb686551",
+    "national_impact.csv": "216c04f59ed68c867657dae79971574aab02d4b3c4b05c0411715ff59c20123a",
+    "outlook_2030_2032.csv": "88e72d3afb1c2fb1f3a59874a4ed0e0bb976383f884a278140a241b340e6c83e",
+    "pue_benchmarks.csv": "84fba7723406f716947ad877b03bd977bd3f0c39d0bd9049ad09c66543608678",
+    "sensitivity.csv": "0d56722293ac56b9a47b88821c6c66c452c8049d19a0811468d0e1535f3439d8",
+    "source_numeric_observations.csv": "77139f3892f311e6c70dfdc7944341319bbdace6f5d34675c691c6b37a069a37",
+    "water_tariffs.csv": "4b3b7bdacbbf3d5a783dfb7bbdd6fcfa96bce7655a8c5e57ea5abdf973fa3048",
+    "wue_benchmarks.csv": "f43eeb6d8ecf7ce5ca075bfdcd26e9250fce92209c721415f7cf690850914109"
+  },
+  "research_cutoff": "2026-10-04",
+  "mode": "offline curated evidence; no live data substitution"
+}

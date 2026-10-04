@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" class="idn-flow-design" role="img" aria-label="An isometric data center with grid electricity entering from a substation, recirculating cooling on the right and local make-up water below" aria-describedby="flow-description" focusable="false">
+  <desc id="flow-description">Gold paths show electricity. Teal paths show cooling fluid and make-up water. The three model-linked labels describe IT electricity, facility overhead and direct consumptive cooling water. Recirculating coolant is distinct from water consumption. Intake and returned flows require a site water balance.</desc>
+  <defs>
+    <radialGradient id="f-backdrop" cx="51%" cy="42%" r="72%">
+      <stop stop-color="#193440"/><stop offset=".57" stop-color="#102633"/><stop offset="1" stop-color="#07141f"/>
+    </radialGradient>
+    <linearGradient id="f-card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#193341"/><stop offset="1" stop-color="#10222e"/>
+    </linearGradient>
+    <linearGradient id="f-front" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#223c49"/><stop offset="1" stop-color="#0b1d2a"/>
+    </linearGradient>
+    <linearGradient id="f-side" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#193b46"/><stop offset="1" stop-color="#0b202c"/>
+    </linearGradient>
+    <linearGradient id="f-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#79d4cb" stop-opacity=".14"/><stop offset="1" stop-color="#79d4cb" stop-opacity=".025"/>
+    </linearGradient>
+    <linearGradient id="f-metal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#587980"/><stop offset="1" stop-color="#243f4b"/>
+    </linearGradient>
+    <linearGradient id="f-water-tank" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#1b4851"/><stop offset=".45" stop-color="#3b7073"/><stop offset="1" stop-color="#20434e"/>
+    </linearGradient>
+    <radialGradient id="f-amber-halo">
+      <stop stop-color="#d4ad68" stop-opacity=".2"/><stop offset="1" stop-color="#d4ad68" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="f-teal-halo">
+      <stop stop-color="#74c8bc" stop-opacity=".2"/><stop offset="1" stop-color="#74c8bc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="f-light" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="f-shadow" x="-35%" y="-35%" width="170%" height="190%">
+      <feDropShadow dx="0" dy="11" stdDeviation="12" flood-color="#020b13" flood-opacity=".65"/>
+    </filter>
+    <marker id="f-power-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#ddba79" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="f-water-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#87d4c6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <g id="f-rack">
+      <path d="M0 0L24-12L47-5L23 7Z" fill="#385864" stroke="#55727c" stroke-width=".8"/>
+      <path d="M23 7L47-5V72L23 84Z" fill="#132d3b" stroke="#3d606c" stroke-width=".8"/>
+      <path d="M0 0L23 7V84L0 77Z" fill="#071822" stroke="#557782" stroke-width=".8"/>
+      <g stroke="#567b88" stroke-width="1.2" opacity=".75">
+        <path d="M4 9L19 13M4 19L19 23M4 29L19 33M4 39L19 43M4 49L19 53M4 59L19 63M4 69L19 73"/>
+      </g>
+      <g fill="#8ccfbe">
+        <circle cx="17" cy="16" r="1.1"/><circle cx="17" cy="36" r="1.1"/><circle cx="17" cy="56" r="1.1"/>
+      </g>
+      <path d="M27 18L41 11M27 33L41 26M27 48L41 41M27 63L41 56" stroke="#365662" stroke-width="1"/>
+      <path d="M1 76L23 83L46 71" fill="none" stroke="#71b9ac" stroke-opacity=".45"/>
+    </g>
+    <g id="f-transformer">
+      <path d="M0 0L29-15L66-4L37 11Z" fill="#52636b" stroke="#8e927e" stroke-width=".9"/>
+      <path d="M0 0L37 11V57L0 46Z" fill="#263b46" stroke="#697475" stroke-width=".9"/>
+      <path d="M37 11L66-4V42L37 57Z" fill="#152c38" stroke="#586c71" stroke-width=".9"/>
+      <g stroke="#738886" stroke-width="1.5">
+        <path d="M6 9V40M12 11V42M18 13V44M24 15V46M30 17V48"/>
+        <path d="M43 16V43M49 13V40M55 10V37M61 7V34"/>
+      </g>
+      <path d="M8-3V-15M29 3V-9M49-6V-18" stroke="#d1ac72" stroke-width="2"/>
+      <g fill="#344d57" stroke="#bfab82" stroke-width="1">
+        <ellipse cx="8" cy="-14" rx="4" ry="2"/><ellipse cx="29" cy="-8" rx="4" ry="2"/><ellipse cx="49" cy="-17" rx="4" ry="2"/>
+      </g>
+      <circle cx="28" cy="29" r="2.1" fill="#dfbd80"/>
+    </g>
+    <g id="f-fan">
+      <circle r="27" fill="#102a36" stroke="#63858b" stroke-width="2"/>
+      <circle r="23" fill="none" stroke="#577c83" stroke-width=".7"/>
+      <g fill="#75a7a7" opacity=".75">
+        <path d="M0-4C-11-21-24-12-17-4C-12 3-7 5 0 4Z"/>
+        <path d="M0-4C-11-21-24-12-17-4C-12 3-7 5 0 4Z" transform="rotate(120)"/>
+        <path d="M0-4C-11-21-24-12-17-4C-12 3-7 5 0 4Z" transform="rotate(240)"/>
+      </g>
+      <circle r="4.5" fill="#a4b9b2"/>
+      <path d="M-22-11L22 11M-22 11L22-11M0-24V24" stroke="#93adaa" stroke-opacity=".28" stroke-width=".8"/>
+    </g>
+  </defs>
+  <style>
+    .idn-flow-design{display:block;width:100%;height:auto;background:#091924;color:#edf2ea;font-family:Arial,Helvetica,sans-serif}
+    .idn-flow-design text{font-family:Arial,Helvetica,sans-serif}
+    .idn-flow-design .f-label{font-size:13px;font-weight:600;letter-spacing:1.6px;fill:#b3c9cc}
+    .idn-flow-design .f-caption{font-size:15px;fill:#a5bfc2}
+    .idn-flow-design .f-path-label{font-size:14px;fill:#c3d4d2}
+    .idn-flow-design .f-card-label{font-size:12px;font-weight:600;letter-spacing:1.3px;fill:#b5c9cb}
+    .idn-flow-design .f-value{font-size:26px;letter-spacing:-.4px;font-weight:500;fill:#edd5a8}
+    .idn-flow-design #flow-water{font-size:21px;letter-spacing:-.25px;font-weight:500;fill:#a9ddd0}
+    .idn-flow-design .f-footnote{font-size:12.5px;fill:#adc2c3}
+    .idn-flow-design .f-power{fill:none;stroke:#d3ab6a;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+    .idn-flow-design .f-water{fill:none;stroke:#77c7b9;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .idn-flow-design .f-energy-trace{fill:none;stroke:#f3d79d;stroke-width:1.2;stroke-dasharray:4 24;animation:f-energy 12s linear infinite;opacity:.8}
+    .idn-flow-design .f-water-trace{fill:none;stroke:#c0efe2;stroke-width:1;stroke-dasharray:3 20;animation:f-water 15s linear infinite;opacity:.8}
+    .idn-flow-design .f-circulation{fill:none;stroke:#70b7b1;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    @keyframes f-energy{to{stroke-dashoffset:-224}}
+    @keyframes f-water{to{stroke-dashoffset:-184}}
+    @media(prefers-reduced-motion:reduce){.idn-flow-design .f-energy-trace,.idn-flow-design .f-water-trace{animation:none;stroke-dasharray:none;opacity:.35}}
+  </style>
+
+  <rect width="1100" height="560" rx="16" fill="url(#f-backdrop)"/>
+  <ellipse cx="217" cy="312" rx="245" ry="130" fill="url(#f-amber-halo)"/>
+  <ellipse cx="854" cy="338" rx="292" ry="165" fill="url(#f-teal-halo)"/>
+  <g fill="none" stroke="#87a7b3" stroke-opacity=".07" stroke-width=".8">
+    <path d="M0 346L556 85M0 394L657 85M0 442L758 85M28 478L859 85M129 478L960 85M230 478L1061 85M331 478L1100 115M432 478L1100 163M533 478L1100 211M634 478L1100 259M735 478L1100 307"/>
+    <path d="M0 228L587 506M0 276L486 506M0 324L385 506M0 372L284 506M0 420L183 506M91 223L690 506M192 223L791 506M293 223L892 506M394 223L993 506M495 223L1094 506M596 223L1100 461M697 223L1100 413M798 223L1100 365"/>
+  </g>
+
+  <g>
+    <rect x="24" y="22" width="285" height="82" rx="9" fill="url(#f-card)" stroke="#38505a" stroke-opacity=".8"/>
+    <path d="M24 43V84" stroke="#d1ad70" stroke-width="2"/>
+    <text class="f-card-label" x="46" y="47">IT ELECTRICITY</text>
+    <text class="f-value" id="flow-it" x="46" y="81">Linked to model</text>
+    <rect x="321" y="22" width="289" height="82" rx="9" fill="url(#f-card)" stroke="#38505a" stroke-opacity=".8"/>
+    <path d="M321 43V84" stroke="#d1ad70" stroke-width="2"/>
+    <text class="f-card-label" x="343" y="47">FACILITY OVERHEAD</text>
+    <text class="f-value" id="flow-overhead" x="343" y="81">Linked to model</text>
+    <rect x="622" y="22" width="454" height="82" rx="9" fill="url(#f-card)" stroke="#3e6d71" stroke-opacity=".8"/>
+    <path d="M622 43V84" stroke="#8ad1c2" stroke-width="2"/>
+    <text class="f-card-label" x="644" y="47">CONSUMPTIVE COOLING WATER</text>
+    <text id="flow-water" x="644" y="80">Linked to model</text>
+  </g>
+
+  <g>
+    <text class="f-label" x="59" y="140">01 / POWER SUPPLY</text>
+    <text class="f-caption" x="59" y="162">Local grid and substation</text>
+    <text class="f-label" x="443" y="140">02 / COMPUTE</text>
+    <text class="f-caption" x="443" y="162">Inside the data center</text>
+    <text class="f-label" x="809" y="140">03 / HEAT REJECTION</text>
+    <text class="f-caption" x="809" y="162">Fans, pumps and cooling plant</text>
+  </g>
+
+  <g filter="url(#f-shadow)">
+    <path d="M59 314L184 253L348 302L223 365Z" fill="#203846" stroke="#5c6a66" stroke-opacity=".65"/>
+    <path d="M59 314L223 365V374L59 323Z" fill="#102634"/>
+    <path d="M223 365L348 302V311L223 374Z" fill="#122c37"/>
+    <path d="M78 313L185 262L330 304L223 355Z" fill="#142b37" stroke="#7c8b7f" stroke-opacity=".3"/>
+    <path d="M119 299L268 344M163 277L311 323" stroke="#708878" stroke-opacity=".25"/>
+    <use href="#f-transformer" transform="translate(206 252)"/>
+    <use href="#f-transformer" transform="translate(154 278)"/>
+    <use href="#f-transformer" transform="translate(101 303)"/>
+    <g fill="none" stroke="#9c9f83" stroke-width="2">
+      <path d="M84 262V224L205 165V205M121 273V236L241 177V217"/>
+      <path d="M77 225L120 238M200 166L242 178"/>
+    </g>
+    <g stroke="#d4b27a" stroke-width="1.3" fill="none">
+      <path d="M85 235L204 177M122 247L240 189M85 245L204 187M122 257L240 199"/>
+      <path d="M137 250L142 259M188 226L193 235M218 212L223 221"/>
+    </g>
+    <g fill="#bfac87">
+      <ellipse cx="83" cy="237" rx="4" ry="2"/><ellipse cx="120" cy="249" rx="4" ry="2"/>
+      <ellipse cx="204" cy="178" rx="4" ry="2"/><ellipse cx="240" cy="190" rx="4" ry="2"/>
+    </g>
+    <path d="M35 208L84 231M23 225L84 245" fill="none" stroke="#aa9c7b" stroke-opacity=".5" stroke-width="1.2"/>
+  </g>
+  <path class="f-power" d="M278 294L336 312L390 339" marker-end="url(#f-power-arrow)"/>
+  <path class="f-energy-trace" d="M278 294L336 312L390 339" filter="url(#f-light)"/>
+  <text class="f-path-label" x="262" y="366">Electricity enters</text>
+
+  <g filter="url(#f-shadow)">
+    <path d="M364 348L508 278L757 352L613 422Z" fill="#2b424a" stroke="#5f8587" stroke-width="1"/>
+    <path d="M364 348L613 422V435L364 361Z" fill="#172c37"/>
+    <path d="M613 422L757 352V365L613 435Z" fill="#112632"/>
+    <path d="M385 233L516 170L735 236L604 299Z" fill="url(#f-glass)" stroke="#619c9d" stroke-width="1"/>
+    <path d="M385 233L604 299V410L385 344Z" fill="url(#f-front)" stroke="#587e89" stroke-width="1"/>
+    <path d="M604 299L735 236V347L604 410Z" fill="url(#f-side)" stroke="#456e7b" stroke-width="1"/>
+    <path d="M403 253L590 309V390L403 334Z" fill="#061823" stroke="#5d8990" stroke-width=".8"/>
+    <path d="M620 307L718 260V334L620 381Z" fill="#102733" stroke="#4b6d7b" stroke-width=".8"/>
+    <g stroke="#466570" stroke-opacity=".5" stroke-width="1">
+      <path d="M431 345L560 282M480 359L609 297M529 374L658 312"/>
+      <path d="M411 325L622 388M456 302L666 365M501 280L711 343"/>
+    </g>
+    <g>
+      <use href="#f-rack" transform="translate(445 239) scale(.84)"/>
+      <use href="#f-rack" transform="translate(489 252) scale(.84)"/>
+      <use href="#f-rack" transform="translate(533 265) scale(.84)"/>
+      <use href="#f-rack" transform="translate(577 278) scale(.84)"/>
+      <use href="#f-rack" transform="translate(406 269) scale(.84)"/>
+      <use href="#f-rack" transform="translate(450 282) scale(.84)"/>
+      <use href="#f-rack" transform="translate(494 295) scale(.84)"/>
+      <use href="#f-rack" transform="translate(538 308) scale(.84)"/>
+    </g>
+    <path d="M385 233L516 170L735 236L604 299Z" fill="url(#f-glass)" stroke="#6ba8a8" stroke-width="1.2"/>
+    <g fill="none" stroke="#80b1ae" stroke-opacity=".35" stroke-width=".8">
+      <path d="M419 243L550 180M463 257L594 193M507 270L638 207M551 283L682 220"/>
+      <path d="M430 211L649 277M472 191L691 257"/>
+    </g>
+    <path d="M385 233L604 299V410M385 344L604 410L735 347M735 236V347" fill="none" stroke="#76b2b0" stroke-opacity=".7" stroke-width="1.2"/>
+    <path d="M403 342L594 399M619 399L723 349" fill="none" stroke="#a4dfca" stroke-opacity=".55" stroke-width="1.4"/>
+    <path d="M634 293L706 259" stroke="#ddb977" stroke-opacity=".75" stroke-width="1.7"/>
+    <g fill="#d9b87b"><circle cx="650" cy="286" r="1.8"/><circle cx="663" cy="280" r="1.8"/><circle cx="676" cy="274" r="1.8"/></g>
+    <g stroke="#557b82" stroke-width="1">
+      <path d="M640 323V363M657 315V355M674 307V347M691 299V339"/>
+    </g>
+  </g>
+
+  <path class="f-power" d="M735 279L776 292L814 274" marker-end="url(#f-power-arrow)"/>
+  <path class="f-energy-trace" d="M735 279L776 292L814 274" filter="url(#f-light)"/>
+
+  <g filter="url(#f-shadow)">
+    <path d="M788 344L916 283L1034 318L906 380Z" fill="#253f48" stroke="#528383" stroke-opacity=".8"/>
+    <path d="M788 344L906 380V391L788 355Z" fill="#17303c"/>
+    <path d="M906 380L1034 318V329L906 391Z" fill="#102b35"/>
+    <path d="M812 249L900 207L992 235L904 277Z" fill="url(#f-metal)" stroke="#6e9598" stroke-width="1"/>
+    <path d="M812 249L904 277V359L812 331Z" fill="url(#f-front)" stroke="#527d89" stroke-width="1"/>
+    <path d="M904 277L992 235V317L904 359Z" fill="url(#f-side)" stroke="#527d89" stroke-width="1"/>
+    <use href="#f-fan" transform="translate(859 244) rotate(17) scale(1 .55)"/>
+    <use href="#f-fan" transform="translate(925 242) rotate(17) scale(1 .55)"/>
+    <g stroke="#6a8f98" stroke-width="1.3" opacity=".7">
+      <path d="M824 269L891 289M824 277L891 297M824 285L891 305M824 293L891 313M824 301L891 321M824 309L891 329M824 317L891 337"/>
+      <path d="M916 292L978 262M916 300L978 270M916 308L978 278M916 316L978 286M916 324L978 294M916 332L978 302"/>
+    </g>
+    <path d="M895 277V353M944 257V333" stroke="#89a7a5" stroke-opacity=".55" stroke-width="1"/>
+    <path d="M812 331L904 359L992 317" stroke="#77c0b3" stroke-opacity=".55" fill="none"/>
+  </g>
+  <g fill="none" stroke="#cfbb8a" stroke-linecap="round">
+    <path d="M860 217Q847 205 859 191Q868 180 862 177" stroke-width="1.4" stroke-opacity=".6"/>
+    <path d="M902 211Q890 199 902 185Q911 174 905 171" stroke-width="1.4" stroke-opacity=".45"/>
+    <path d="M944 220Q932 208 944 194Q953 184 947 180" stroke-width="1.4" stroke-opacity=".6"/>
+  </g>
+  <path class="f-circulation" d="M735 326L778 339L816 321" marker-end="url(#f-water-arrow)"/>
+  <path class="f-circulation" d="M855 350L820 367L746 412L651 383" marker-end="url(#f-water-arrow)"/>
+  <path class="f-water-trace" d="M735 326L778 339L816 321"/>
+  <path class="f-water-trace" d="M855 350L820 367L746 412L651 383"/>
+  <text class="f-path-label" x="670" y="448">Coolant recirculates</text>
+
+  <g filter="url(#f-shadow)">
+    <path d="M85 448L172 405L279 437L192 480Z" fill="#1c3843" stroke="#467e7d" stroke-opacity=".7"/>
+    <path d="M85 448L192 480V487L85 455Z" fill="#112b37"/>
+    <path d="M192 480L279 437V444L192 487Z" fill="#12323b"/>
+    <path d="M130 388V438C130 449 220 449 220 438V388Z" fill="url(#f-water-tank)" stroke="#6d9b9b" stroke-width="1"/>
+    <ellipse cx="175" cy="388" rx="45" ry="13.5" fill="#426c74" stroke="#8eafab" stroke-width="1"/>
+    <ellipse cx="175" cy="388" rx="32" ry="8" fill="#284f5c" stroke="#649692" stroke-width=".8"/>
+    <path d="M131 402C131 413 219 413 219 402M131 420C131 431 219 431 219 420" fill="none" stroke="#a2c5bb" stroke-opacity=".28"/>
+    <path d="M202 395V436" stroke="#b4d4c9" stroke-opacity=".45" stroke-width="1.4"/>
+    <rect x="230" y="425" width="15" height="17" rx="3" fill="#315c66" stroke="#6aa7a1" stroke-width="1"/>
+    <circle cx="237.5" cy="433" r="3.5" fill="#0f3441" stroke="#8abfb4" stroke-width="1"/>
+    <path d="M220 428H229M245 433L262 439" stroke="#7ebbb0" stroke-width="2.4" fill="none"/>
+  </g>
+  <path class="f-water" d="M263 439L310 453L463 453L632 502L940 354" marker-end="url(#f-water-arrow)"/>
+  <path class="f-water-trace" d="M263 439L310 453L463 453L632 502L940 354" filter="url(#f-light)"/>
+  <path class="f-water" d="M940 354V341"/>
+  <circle cx="940" cy="354" r="4" fill="#122e3a" stroke="#8bd2c3" stroke-width="1.5"/>
+  <text class="f-label" x="86" y="506">LOCAL WATER SUPPLY</text>
+  <text class="f-path-label" x="294" y="440">Make-up water</text>
+
+  <path d="M24 520H1076" stroke="#42606a" stroke-opacity=".6"/>
+  <text class="f-footnote" x="25" y="540">Schematic only. Cooling loops recirculate fluid. Consumption is water not returned to the source.</text>
+  <text class="f-footnote" x="25" y="555">Intake, return flows and discharge need a site water balance. Proportions do not show measured volumes.</text>
+</svg>

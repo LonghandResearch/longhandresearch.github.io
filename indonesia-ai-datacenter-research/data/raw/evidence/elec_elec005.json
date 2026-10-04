@@ -1,0 +1,22 @@
+{
+  "source_id": "ELEC005",
+  "url": "https://portal.komdigi.go.id/kanal-publik/berita-kini/10247",
+  "retrieved_from": "https://portal.komdigi.go.id/kanal-publik/berita-kini/10247",
+  "retrieval_date": "2026-10-04",
+  "publication_date": "2026-05-22",
+  "evidence_type": "analyst paraphrase and numeric transcription; full publication not redistributed",
+  "locators": [
+    "Press release77/HM-KKD/5/2026,22May2026",
+    "Paragraph describing185 centers and274MW; targetabove2000MWby2029"
+  ],
+  "observations": {
+    "reported_centers": 185,
+    "reported_capacity_mw": 274,
+    "capacity_definition": "Not disclosed",
+    "target_year": 2029,
+    "target_capacity_mw_lower_bound": 2000,
+    "comparison": ">",
+    "included_in_it_capacity_model": false,
+    "reason": "IT vs facility and coverage not disclosed; incompatible metropolitan industry estimate"
+  }
+}

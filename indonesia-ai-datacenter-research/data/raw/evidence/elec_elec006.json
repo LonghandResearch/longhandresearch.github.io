@@ -1,0 +1,22 @@
+{
+  "source_id": "ELEC006",
+  "url": "https://cw-prod-amrgws-a-cd.cushwake.com/en/singapore/news/2026/08/apac-dc-h1-2026",
+  "retrieved_from": "https://cw-prod-amrgws-a-cd.cushwake.com/en/singapore/news/2026/08/apac-dc-h1-2026",
+  "retrieval_date": "2026-10-04",
+  "publication_date": "2026-08-05",
+  "evidence_type": "analyst paraphrase and numeric transcription; full publication not redistributed",
+  "locators": [
+    "H12026 release5August2026 Jakarta market paragraph",
+    "Pipeline and construction growth discussion"
+  ],
+  "observations": {
+    "geography": "Jakarta",
+    "observation_period": "2026 H1",
+    "development_pipeline_it_mw": 1699,
+    "under_construction_it_mw": 395,
+    "analyst_planned_remainder_it_mw": 1304,
+    "derivation": "1699-395",
+    "operational_it_mw": null,
+    "commissioning_year": null
+  }
+}

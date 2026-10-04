@@ -1,0 +1,98 @@
+# Research cutoff and all analyst-selected numerical values are explicit.
+# S = scenario, E = derived, A = reported. Source IDs resolve in sources.csv.
+research_cutoff: '2026-10-04'
+hours_per_year: 8760 # S: non-leap steady-state annual convention; not commissioning-year energy.
+power_factor:
+  base: 0.95 # S: engineering conversion assumption; source-reported real MW retained if available.
+  rationale: 'Use near-unity power factor for an illustrative connection conversion. Not measured at Indonesian sites; never converts a grid connection into IT capacity.'
+generation_capacity_factor: 0.80 # S: firm-generation annual energy illustration, not hourly reliability or Indonesian observed fleet factor.
+generation_capacity_factor_rationale: 'Makes installed-generation versus continuous delivered-power distinction explicit. Does not add losses, reserves or outage coverage.'
+assumptions_source_ids: [ELEC001, ELEC002, WB001, WB008, WB009, WB011, WB016, WB017]
+
+tariffs:
+  electricity_rp_per_kwh: 996.74 # A tariff ELEC002; S application to a qualifying I-4 high-voltage contract.
+  electricity_source_id: ELEC002
+  electricity_rationale: 'PLN Q3 2026 I-4 high-voltage energy rate; qualifying >=30 MVA industrial connection assumed. Energy charges only. Published schedule is a dated observation, not a verified October private contract.'
+  water_rp_per_m3: 21500 # A schedule WB001; S application of Jakarta industrial-large marginal >20m3 band.
+  water_source_id: WB001
+  water_rationale: 'PAM JAYA 2025 industrial-large >20 m3 marginal band for Jakarta. Explicit local price proxy, not a national tariff; actual purchased withdrawals may exceed modeled consumption.'
+
+# Expansion resource intensities are conditional stress cases, not measured fleet averages.
+scenarios:
+  low:
+    utilization: 0.60 # S: requested sensitivity grid lower electrical-load boundary; not occupancy.
+    pue: 1.20 # S: efficient new-build boundary near EDGE2 design1.24(WB009), above global efficient designs.
+    wue_l_per_kwh: 0.0 # S: dry heat-rejection evaporative-consumption boundary WB017; excludes domestic/indirect water.
+    rationale: 'Lower demand case: partial electrical loading plus efficient dry heat rejection. PUE1.20/WUE0 combination is an exploratory bound, not a validated joint engineering design.'
+  base:
+    utilization: 0.80 # S: central requested load-factor test. No reliable AI-specific national utilization observation available.
+    pue: 1.30 # S: expansion planning value modestly above disclosed EDGE2/CGK design1.24-1.25(WB009/WB010).
+    wue_l_per_kwh: 0.50 # S: rounded planning stress around LBNL modeled0.45-0.48(WB017), not Indonesian actual.
+    rationale: 'Mature electrical loading with efficient tropical new-build overhead and moderate consumptive cooling water. Foreign water modeling is used only as a labeled technical benchmark.'
+  high:
+    utilization: 0.95 # S: near-continuous electrical nameplate load, requested stress endpoint.
+    pue: 1.50 # S: expansion stress above efficient design; below observed legacy PDG1.79-1.95(WB011), so not fleet maximum.
+    wue_l_per_kwh: 1.50 # S: consumptive stress above Google1.15(WB016), aligned range EDGE design ambitions but not identical boundary.
+    rationale: 'Near-full electrical loading and less favorable new-build overhead/water use. Not a worst-case bound for all legacy cooling systems.'
+
+# Current legacy fleet must not inherit efficient expansion PUE by default.
+current_resource_scenarios:
+  low:
+    utilization: 0.60 # S electrical-load assumption; benchmark lower boundary.
+    pue: 1.25 # S: EDGE2 published annual value WB008; measurement year unclear, not fleet mean.
+    wue_l_per_kwh: 0.0 # S: direct cooling consumptive boundary, same limitation as expansion low.
+  base:
+    utilization: 0.80 # S: no observed aggregate electrical utilization.
+    pue: 1.70 # S: EDGE1 published annual PUE WB008; representative stress, not capacity-weighted fleet mean.
+    wue_l_per_kwh: 0.50 # S: same labeled LBNL-calibrated planning water intensity.
+  high:
+    utilization: 0.95 # S: near-full electrical load.
+    pue: 1.95 # S applied fleet stress; A historic Indonesian JC1 PUE WB011 anchor, not current fleet maximum.
+    wue_l_per_kwh: 1.50 # S: consumptive stress, no actual national metered water intensity.
+
+capacity_scenarios_mw: [10, 50, 100, 500, 1000, 2000] # S: user-requested IT capacity cases.
+sensitivity_capacity_mw: 1000 # S: user-requested final incremental IT capacity calculation.
+sensitivity:
+  pue: [1.10, 1.20, 1.30, 1.40, 1.50] # S: user-requested independent sensitivity grid.
+  wue_l_per_kwh: [0, 0.2, 0.5, 1.0, 1.5] # S, L per ITkWh: user-requested grid.
+  utilization: [0.60, 0.70, 0.80, 0.90, 0.95] # S: requested load-factor grid.
+  electricity_tariff_multiplier: [0.8, 1.0, 1.2] # S: requested -20%,base,+20% tariff tests.
+  water_tariff_multiplier: [0.8, 1.0, 1.2] # S: requested -20%,base,+20% local price tests.
+
+baseline:
+  it_capacity_mw: 322 # E market estimate, ELEC004 C&W H2 2025. NOT a national current capacity observation.
+  observation_date: '2025-12-31'
+  source_id: ELEC004
+  data_class: E
+  scope: 'Greater Jakarta operational IT market estimate, H2 2025; excludes unknown national and island capacity.'
+
+national_denominator:
+  year: 2025 # A: latest HEESI2025 observations, ELEC001; consumption455.001TWh, PLN inclBatam317.692TWh.
+  source_id: ELEC001
+  outlook_consumption_cagr: 0.06 # S: national demand sensitivity, rounded below 2020-25 observed growth; not official national forecast.
+  rationale: 'Future national shares use a transparent 6% planning assumption. Also retain comparison against latest actual. RUPTL PLN-only sales forecast must not substitute national consumption.'
+
+# Outlook anchors: dated operational metroIT322 plus Surabaya9 (DC001),
+# H1 2026 Jakarta pipeline1699 with construction395/planned1304 (ELEC006),
+# plus explicit non-Jakarta Batam construction18, Batam planned120 and Bintan planned1000.
+# Nationwide documented subset totals: operating331, construction413, planned2424.
+# This is a partial Indonesia project-realization scenario, not a national IT census.
+# All adoption fractions are analyst S stress assumptions, not commissioning probabilities.
+# The pipeline snapshot may contain changes after the baseline; this mixed-date bridge
+# is explicitly retained and does not claim a measured current total.
+outlook:
+  Conservative:
+    resource_case: low
+    anchor_source_id: ELEC004;ELEC006;DC001;DC017;DC036
+    capacity_mw: {2030: 640.75, 2031: 692.375, 2032: 744}
+    rationale: 'Partial nationwide documented capacity: operating331 plus75%,87.5%,100% of413MW construction by2030/31/32; no planned pipeline activated. 25% construction slippage at2030 is an explicit timing stress with linear recovery by2032. Non-Jakarta components are separately sourced and do not overlap metro inventory.'
+  Base Case:
+    resource_case: base
+    anchor_source_id: ELEC004;ELEC006;DC001;DC017;DC036
+    capacity_mw: {2030: 1956, 2031: 2319.6, 2032: 2683.2}
+    rationale: 'Partial nationwide documented capacity: operating331 plus413MW construction plus50%,65%,80% of2424MW planned pipeline. Half of planned capacity by2030 and15 percentage-point annual realization are analyst execution assumptions; sourced inventory sets the scale. Unknown capacity remains excluded.'
+  Aggressive AI Boom:
+    resource_case: high
+    anchor_source_id: ELEC004;ELEC006;DC001;DC017;DC036
+    capacity_mw: {2030: 3168, 2031: 3168, 2032: 3168}
+    rationale: 'Partial nationwide documented capacity: operating331 plus full413MW construction and2424MW planned by2030, then held at identified pipeline ceiling. AI-led acceleration, not a claim all capacity is AI. No unannounced expansion or undisclosed national capacity invented.'

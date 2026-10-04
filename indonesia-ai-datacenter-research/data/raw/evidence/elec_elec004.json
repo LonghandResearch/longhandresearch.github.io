@@ -1,0 +1,21 @@
+{
+  "source_id": "ELEC004",
+  "url": "https://cw-prod-amrgws-a-cd.cushwake.com/en/singapore/news/2026/03/apac-data-centre-development-pipeline-hits-record-in-2025",
+  "retrieved_from": "https://cw-prod-amrgws-a-cd.cushwake.com/en/singapore/news/2026/03/apac-data-centre-development-pipeline-hits-record-in-2025",
+  "retrieval_date": "2026-10-04",
+  "publication_date": "2026-03-27",
+  "evidence_type": "analyst paraphrase and numeric transcription; full publication not redistributed",
+  "locators": [
+    "Table Data Centre Market2025H2, GreaterJakarta row",
+    "Article publication27March2026; capacity described as operational IT load"
+  ],
+  "observations": {
+    "geography": "Greater Jakarta",
+    "observation_period": "2025 H2",
+    "operational_it_mw": 322,
+    "under_construction_it_mw": 186,
+    "planned_it_mw": 901,
+    "colocation_vacancy_pct": 24.9,
+    "country_total": false
+  }
+}

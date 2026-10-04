@@ -1,0 +1,234 @@
+[
+  {
+    "path": "data/raw/observations/electricity.json",
+    "sha256": "2cd7ec4e1b6d55d36323b0d9c56cee31f801ab032be353a5994baab9cc1edc42"
+  },
+  {
+    "path": "data/raw/observations/projects.json",
+    "sha256": "9b43edcbbd1844c4476eb031c129e9c4f99bf5125fec54c3258e7de5b76080a3"
+  },
+  {
+    "path": "data/raw/observations/water_benchmarks.json",
+    "sha256": "71a8c2722cb659bf79f1bd98b95dd6f81bdcacaada30146b94b881281737954c"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc001.json",
+    "sha256": "110bca0d7c1d99d0baae35ec1b33856f4fdc7c07d703d732b6d801919a03e029"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc002.json",
+    "sha256": "67e1232743a4c097bf9425723cd86c114a62f44417da2da63da4367a75e3f0c2"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc003.json",
+    "sha256": "620dbf7450592f237528a1d38b30fd4bce708073b6ed0b0f06a927e579aa96de"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc004.json",
+    "sha256": "663497c1e7da001f7d327c79e1ce5ccd05c908ba4d8497d7c4b09bafa61d90e7"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc005.json",
+    "sha256": "ccbe860409162a54639f847b5348be2b09e97d217e92c4fcf880ef378ec25fa7"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc006.json",
+    "sha256": "f2fc3629615db477a8d0dc55eeef338943ff8b9ea361f660ea880cf451ae937c"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc007.json",
+    "sha256": "a4f6f256db7eb01dc6bf072e576235e4fe43650eda0c3d42dd0d8c24a363b5a1"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc008.json",
+    "sha256": "1315ebb1ccbd189c644721c0982307466af4602187a4fd5cece1b7e62b6a4aa5"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc009.json",
+    "sha256": "5ba23c0aeca02278766074da01df379d842f6bf7dc0a2a30d582ca506e88f8d8"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc010.json",
+    "sha256": "f1ad3c3fd4fc857dfa1309bc3f0da73f7066a11c3ad92f8fb5f8ace1de43a80c"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc011.json",
+    "sha256": "456e8d26e28fadc3ec53b58b16da737caeac61c0b560e4a63251479dfa557535"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc012.json",
+    "sha256": "f5c1d5ca9a4d93d5ec163a41d4336dfc02d42e979ffec491fa07e3d79836108d"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc013.json",
+    "sha256": "1e165340a36c8a24a2281041a8be2deff484ed401858838d2d05b2a481e89de3"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc014.json",
+    "sha256": "ba6a5daf8ea2d554de1d96e965ae42e1b1dd2c3c3c2e6ffb1835ff6017a50b24"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc015.json",
+    "sha256": "4ac98695d165179215a686356ecea67690e9666b244a9c5cce79d8c0919e09b5"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc016.json",
+    "sha256": "c310f21da2780c1de08727064df837d2cf45ea198f4ebc533b82ead531f03a06"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc017.json",
+    "sha256": "fe0116c9c4e692d786e672ee8a85599680f5e9feb5c8f6df25b5940a5419eb57"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc018.json",
+    "sha256": "eea349d83fb8f7d7039f246dce4d8e5d5c1abfad981d2f0baca32cb3f7c8497b"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc019.json",
+    "sha256": "edb05fbe0ed6b62a4ee93eda17582e5fce247cc130a3f539559e3b393d9af2d4"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc020.json",
+    "sha256": "a7deac0109b269616dba244427a2c93e1e502480ee6534d7b2546901c096bc8c"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc021.json",
+    "sha256": "47a470de44bfac71c0797b5674357b3fa35609663443765c27d570fbb93e378e"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc022.json",
+    "sha256": "575da33d59b070f716bc042e598096d0cea1f0ae7e3159be710e4526081de882"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc023.json",
+    "sha256": "467368083ab48624b2470bf302907a00b5c8617ac15aff3c478fbb5b1ce722a3"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc024.json",
+    "sha256": "809662d1ca6ce784d1eae82bd8326d2a51d2e6ed0cb0a7d9a62e280c7b2acddd"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc025.json",
+    "sha256": "1585a281926f9845cad390222a0de1e031c36de12fb47be809ee06d4b6b62fe9"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc026.json",
+    "sha256": "363bb21455ba0e1d449f491f47c41a114b1809eee5058e45d1ba061bf5a5cab4"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc027.json",
+    "sha256": "cea6f8cf6bff0f5a0bbad2ccac408c63cd8278d36e1af95959ca8ed87017f671"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc028.json",
+    "sha256": "4a265159a4daa0cad2cf190ca68e1a794b662e15b7d649ceb5e5ed3f611ca847"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc029.json",
+    "sha256": "9a33a6bc22f4b425d885d37fb1050f663839655f50005fe412c4cd980f3217d5"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc030.json",
+    "sha256": "7fb9a371400dc73e95a70641a527aec1eefec14d02165e23adf00edddd74fd22"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc031.json",
+    "sha256": "d6b2adbdd8d4e94ffd1e9a726bec2c02909bcccb96f59b3c93bc25761b48da44"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc032.json",
+    "sha256": "1bd3b2c8ae65890cccec6c62fd891b54b3ec5cdeb278c82f021351ddc81ca145"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc033.json",
+    "sha256": "d68a5377ec1c71c9d1b62f66f06ea3a1df487404304a403c8ca010393990fabc"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc034.json",
+    "sha256": "c58bd3c216f464cb8d47b1aa3dd992d2a67f0bafdd5768cea80a8e7addfc60cc"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc035.json",
+    "sha256": "ce0c8ff565d14861d6f5e3744c74fd2056a9cdd70105356f0185c7eb3bd85a63"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc036.json",
+    "sha256": "52702e3b4f39e1fb25b386883d580ceee88ad5b9fad94eb3f7e81cec0d3016be"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc037.json",
+    "sha256": "d344b431678e28f4663026583b8496bbf915ef126f8f1d6802d101f04632abad"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc038.json",
+    "sha256": "29d42d097e312f93b03b2f40c32a38403e7d2e1d641ed44220c6631a6d5903fe"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc039.json",
+    "sha256": "267c15c3cdd07583f5627aab7a3d77b89421cef14230a8c4590a964d45ab09f4"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc040.json",
+    "sha256": "472616c82f7b84ece0304afbc83f4397cf247f7b41c961b8f8e7f532b8eed0d4"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc041.json",
+    "sha256": "341724eb24322d0c0f162b27c2068770b598d19e7b1f246ad51600d2d1f44134"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc042.json",
+    "sha256": "4561fd7c5af7a41a4aabb361926a8638859b0004f7f12d3b1403d6dae05ddd2c"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc043.json",
+    "sha256": "95b74aadfa5ba62e3c965173ff0703318937cb8d1fee488cddbc1284f2c6e6d0"
+  },
+  {
+    "path": "data/raw/evidence/dc_dc044.json",
+    "sha256": "1cf0f4326d24831a3ee3c1df0f910f621d8819554a15b20f431d7140342bbe5a"
+  },
+  {
+    "path": "data/raw/evidence/elec_elec001.json",
+    "sha256": "68be773072d0283b55878148fcb35cd7deb9646e6c2d78c3b637bf0b16ed46af"
+  },
+  {
+    "path": "data/raw/evidence/elec_elec002.json",
+    "sha256": "8b623d4384ece0c5e3dc23b3f8cc08eeb71a199627e35fb20e00aede795a782e"
+  },
+  {
+    "path": "data/raw/evidence/elec_elec003.json",
+    "sha256": "330d197a1dbdbead9d22b4f437c6550b435a62aab82cb476a950e31f62647ecb"
+  },
+  {
+    "path": "data/raw/evidence/elec_elec004.json",
+    "sha256": "fa03de8ca854c03a57e6a19e894eed91274515720a7847a61ce17d643a75da5a"
+  },
+  {
+    "path": "data/raw/evidence/elec_elec005.json",
+    "sha256": "93b082ebed6727d864b93c00cd67144fa8f2a9ac682d78ea48b482b5321ba1c1"
+  },
+  {
+    "path": "data/raw/evidence/elec_elec006.json",
+    "sha256": "7a348d08bd0e5d8468730209ac750ac97536fee75af0c898b4e80edbd6a4752a"
+  },
+  {
+    "path": "data/raw/evidence/indonesia_geometry.json",
+    "sha256": "1f81d02aef0f2294148f6d75f11b2a9e294421aaf2aa2caa879b67ebbd6cd67a"
+  },
+  {
+    "path": "data/raw/evidence/water_airbatam_tariff_2021.jpg",
+    "sha256": "c3bc246c6335aff607d49678dc78db9fcfc71e7e8fd8bc3c42ddba6b57dbd799"
+  },
+  {
+    "path": "data/raw/evidence/water_evidence.json",
+    "sha256": "80570fd793c1e0ace4f39333fd051aec2ad8c5c31bf639bab28707222050b070"
+  },
+  {
+    "path": "data/raw/evidence/water_pamjaya_tariff_page1.png",
+    "sha256": "eb80b512fd3a7977cfd85ef771bfaefa154406f744d36f7978eb7b1a391888e4"
+  },
+  {
+    "path": "data/raw/evidence/water_pamjaya_tariff_page2.png",
+    "sha256": "0ec1c1f64c6b8253c4ce31da96d31dbef0cf92454269848cd246f381607677c6"
+  }
+]

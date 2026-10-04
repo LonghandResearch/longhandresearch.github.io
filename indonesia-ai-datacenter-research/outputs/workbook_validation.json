@@ -1,0 +1,269 @@
+{
+  "workbook": "indonesia_ai_datacenter_model.xlsx",
+  "worksheet_names": [
+    "Executive Summary",
+    "Data Center Projects",
+    "Indonesia Electricity",
+    "Electricity Tariffs",
+    "Water Tariffs",
+    "Climate",
+    "PUE",
+    "WUE",
+    "AI Hardware",
+    "Scenario Model",
+    "Sensitivity",
+    "2030 Outlook",
+    "National Impact",
+    "Sources",
+    "Assumptions"
+  ],
+  "formula_cache_method": "Python independently evaluates model inputs and inserts Open XML cached values. Excel formulas retained; automatic full recalculation requested on open.",
+  "formula_cache_reopen_check": true,
+  "pipeline_capacity_reconciliation": true,
+  "raw_rows": {
+    "Data Center Projects": 67,
+    "Indonesia Electricity": 6,
+    "Electricity Tariffs": 6,
+    "Water Tariffs": 37,
+    "Climate": 27,
+    "PUE": 16,
+    "WUE": 13,
+    "AI Hardware": 10,
+    "Sources": 80
+  },
+  "partial_disclosed_operational_it_mw": 283.6,
+  "artifact_tool_recalculation": {
+    "engine": "Artifact Tool bundled runtime; disposable imported workbook",
+    "checks": [
+      {
+        "name": "Base 1 GW facility TWh",
+        "actual": 9.1104,
+        "expected": 9.1104,
+        "pass": true
+      },
+      {
+        "name": "Base 1 GW electricity cost Rp trillion",
+        "actual": 9.080700096,
+        "expected": 9.080700096,
+        "pass": true
+      },
+      {
+        "name": "Base 1 GW water million m3",
+        "actual": 3.504,
+        "expected": 3.504,
+        "pass": true
+      },
+      {
+        "name": "Base 1 GW water cost Rp billion",
+        "actual": 75.336,
+        "expected": 75.336,
+        "pass": true
+      },
+      {
+        "name": "National consumption share is fraction",
+        "actual": 0.020022813136674426,
+        "expected": 0.020022813136674426,
+        "pass": true
+      },
+      {
+        "name": "Disclosed inventory row contributions and SUM",
+        "actual": 283.6,
+        "expected": 283.6,
+        "pass": true
+      },
+      {
+        "name": "Comparison year selects matching national consumption",
+        "actual": 409.605,
+        "expected": 409.605,
+        "pass": true
+      },
+      {
+        "name": "Comparison year updates headline share",
+        "actual": 0.022241915992236422,
+        "expected": 0.022241915992236422,
+        "pass": true
+      },
+      {
+        "name": "Unreported comparison year exposes missing denominator",
+        "actual": "Missing input",
+        "expected": "Missing input",
+        "pass": true
+      },
+      {
+        "name": "Missing denominator reaches executive share",
+        "actual": "Missing input",
+        "expected": "Missing input",
+        "pass": true
+      },
+      {
+        "name": "Blank matched source consumption is missing rather than zero",
+        "actual": "Missing input",
+        "expected": "Missing input",
+        "pass": true
+      },
+      {
+        "name": "Editable power factor changes converted connection MW",
+        "actual": 54,
+        "expected": 54,
+        "pass": true
+      },
+      {
+        "name": "Changing power factor preserves reported apparent MVA",
+        "actual": 60,
+        "expected": 60,
+        "pass": true
+      },
+      {
+        "name": "Editable PUE changes shared scenario build",
+        "actual": 9.8112,
+        "expected": 9.8112,
+        "pass": true
+      },
+      {
+        "name": "Editable PUE changes linked executive output",
+        "actual": 9.8112,
+        "expected": 9.8112,
+        "pass": true
+      },
+      {
+        "name": "Source actual unchanged after driver change",
+        "actual": 455.001,
+        "expected": 455.001,
+        "pass": true
+      },
+      {
+        "name": "Permitted zero WUE yields zero modeled cooling water",
+        "actual": 0,
+        "expected": 0,
+        "pass": true
+      },
+      {
+        "name": "Zero WUE yields zero water cost",
+        "actual": 0,
+        "expected": 0,
+        "pass": true
+      },
+      {
+        "name": "Blank WUE is missing rather than zero",
+        "actual": "Missing input",
+        "expected": "Missing input",
+        "pass": true
+      },
+      {
+        "name": "Missing water reaches summary",
+        "actual": "Missing input",
+        "expected": "Missing input",
+        "pass": true
+      },
+      {
+        "name": "Blank base WUE does not block independent low case",
+        "actual": 0,
+        "expected": 0,
+        "pass": true
+      },
+      {
+        "name": "2032 capacity change reaches outlook capacity",
+        "actual": 2951.52,
+        "expected": 2951.52,
+        "pass": true
+      },
+      {
+        "name": "2032 capacity change reaches outlook electricity",
+        "actual": 26.889527808,
+        "expected": 26.889527808,
+        "pass": true
+      },
+      {
+        "name": "Inputs restored to original base headline",
+        "actual": 9.1104,
+        "expected": 9.1104,
+        "pass": true
+      }
+    ],
+    "all_checks_pass": true,
+    "error_scan_file": "outputs/.qa/error_scan.ndjson",
+    "original_workbook_overwritten": false
+  },
+  "native_excel_recalculation": "Not performed. No native Excel engine available in this task.",
+  "visual_review": {
+    "status": "Reviewed all 15 rendered worksheet ranges. Executive summary, tariff notes and model headings are readable. Only recorded ranges were inspected.",
+    "previews": [
+      {
+        "sheet": "Executive Summary",
+        "range": "A1:F42",
+        "path": "outputs/.qa/01_Executive_Summary.png"
+      },
+      {
+        "sheet": "Data Center Projects",
+        "range": "A1:H12",
+        "path": "outputs/.qa/02_Data_Center_Projects.png"
+      },
+      {
+        "sheet": "Indonesia Electricity",
+        "range": "A1:H12",
+        "path": "outputs/.qa/03_Indonesia_Electricity.png"
+      },
+      {
+        "sheet": "Electricity Tariffs",
+        "range": "A1:H12",
+        "path": "outputs/.qa/04_Electricity_Tariffs.png"
+      },
+      {
+        "sheet": "Water Tariffs",
+        "range": "A1:H12",
+        "path": "outputs/.qa/05_Water_Tariffs.png"
+      },
+      {
+        "sheet": "Climate",
+        "range": "A1:H12",
+        "path": "outputs/.qa/06_Climate.png"
+      },
+      {
+        "sheet": "PUE",
+        "range": "A1:H12",
+        "path": "outputs/.qa/07_PUE.png"
+      },
+      {
+        "sheet": "WUE",
+        "range": "A1:H12",
+        "path": "outputs/.qa/08_WUE.png"
+      },
+      {
+        "sheet": "AI Hardware",
+        "range": "A1:H12",
+        "path": "outputs/.qa/09_AI_Hardware.png"
+      },
+      {
+        "sheet": "Scenario Model",
+        "range": "A1:K12",
+        "path": "outputs/.qa/10_Scenario_Model.png"
+      },
+      {
+        "sheet": "Sensitivity",
+        "range": "A1:K12",
+        "path": "outputs/.qa/11_Sensitivity.png"
+      },
+      {
+        "sheet": "2030 Outlook",
+        "range": "A1:K12",
+        "path": "outputs/.qa/12_2030_Outlook.png"
+      },
+      {
+        "sheet": "National Impact",
+        "range": "A1:K12",
+        "path": "outputs/.qa/13_National_Impact.png"
+      },
+      {
+        "sheet": "Sources",
+        "range": "A1:H12",
+        "path": "outputs/.qa/14_Sources.png"
+      },
+      {
+        "sheet": "Assumptions",
+        "range": "A1:H14",
+        "path": "outputs/.qa/15_Assumptions.png"
+      }
+    ]
+  },
+  "errors": []
+}

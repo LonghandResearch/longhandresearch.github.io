@@ -1,0 +1,277 @@
+{
+  "description": "Short paraphrases and locators for curated records; not full source transcriptions. Source URL and source_id are provenance keys.",
+  "access_date": "2026-10-04",
+  "evidence": [
+    {
+      "source_id": "WB001",
+      "url": "https://pelanggan.pamjaya.co.id/pdf/tarif_air_minum.pdf",
+      "access_date": "2026-10-04",
+      "locator": "Official tariff PDF p2 (PDF index1)",
+      "paraphrase": "Official tariff PDF p2 (PDF index1). Fixed monthly meter fees are on p1. Archived water_pamjaya_tariff_2025.pdf and rendered pages visually verified. Effective January 2025 verified by WB002. Local customer categories and marginal bands; no national tariff or actual facility category inferred.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": "data/raw/evidence/water_pamjaya_tariff_2025.pdf",
+      "rendered_page": "data/raw/evidence/water_pamjaya_tariff_page2.png",
+      "raw_file_sha256": "9a43b3f7a1e152dbe49bc62a36ddb7ee79802696b364fcb4cfe6cb73ef39c514",
+      "raw_file_bytes": 3327920,
+      "snapshot_access_date": "2026-10-04"
+    },
+    {
+      "source_id": "WB002",
+      "url": "https://www.pamjaya.co.id/bacapage/terapkan-tarif-baru-pam-jaya-pastikan-tarif-berkeadilan-dan-peningkatan-pelayanan-itW5e",
+      "access_date": "2026-10-04",
+      "locator": "New rates effective January 2025 and billed from February 2025.",
+      "paraphrase": "New rates effective January 2025 and billed from February 2025.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB003",
+      "url": "https://hilir.airbatam.com/index.php?dua=tabel-tarif&satu=berita&tiga=1000",
+      "access_date": "2026-10-04",
+      "locator": "Official embedded tariff table archived as water_airbatam_tariff_2021.jpg",
+      "paraphrase": "Official embedded tariff table archived as water_airbatam_tariff_2021.jpg. Posting date is not a verified regulatory effective date; 2026 contract applicability not established.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": "data/raw/evidence/water_airbatam_tariff_2021.jpg",
+      "raw_file_sha256": "c3bc246c6335aff607d49678dc78db9fcfc71e7e8fd8bc3c42ddba6b57dbd799",
+      "raw_file_bytes": 750931,
+      "snapshot_access_date": "2026-10-04"
+    },
+    {
+      "source_id": "WB004",
+      "url": "https://tirtabhagasasi.co.id/empat-tahun-tidak-naik-pdam-tirta-bhagasasi-bekasi-segera-lakukan-penyesuaian-tarif-air-bersih/",
+      "access_date": "2026-10-04",
+      "locator": "Utility-hosted republication attributed to Independensi; original2018-08-09, revised2023-08-03",
+      "paraphrase": "Utility-hosted republication attributed to Independensi; original2018-08-09, revised2023-08-03. Industrial range12,132-16,984 without exact category/band schedule. No current scalar rate inferred.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB005",
+      "url": "https://www.tirtatarum.co.id",
+      "access_date": "2026-10-04",
+      "locator": "No accessible current official industrial tariff schedule retrieved",
+      "paraphrase": "No accessible current official industrial tariff schedule retrieved. Numeric rate remains null; retrieval failure is not evidence of zero water price.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB006",
+      "url": "https://batamkota.bps.go.id/id/publication/2025/02/28/a5735c3be81a8a72f8a1e9f0/kota-batam-dalam-angka-2025.html",
+      "access_date": "2026-10-04",
+      "locator": "Tables 1.2.1,1.2.2,1.2.5 printed pp20,21,24 / PDF pp62,63,66",
+      "paraphrase": "Tables 1.2.1,1.2.2,1.2.5 printed pp20,21,24 / PDF pp62,63,66. Monthly station data; no site wet bulb. Rain table unit header says mm/year but monthly row totals preserved.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB007",
+      "url": "https://jakarta.bps.go.id/id/publication/2025/02/28/30874e042a98939928603ee5/provinsi-dki-jakarta-dalam-angka-2025.html",
+      "access_date": "2026-10-04",
+      "locator": "Table 1.2.2 printed pp30,31,34 / PDF pp104,105,108",
+      "paraphrase": "Table 1.2.2 printed pp30,31,34 / PDF pp104,105,108. Actual station observations; do not substitute Jakarta for other campuses.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB008",
+      "url": "https://www.digitaledgedc.com/products-services/data-centers/indonesia/",
+      "access_date": "2026-10-04",
+      "locator": "Undated page reports annual PUE EDGE1 1.7, EDGE2 1.25; annual WUE both 1.082",
+      "paraphrase": "Undated page reports annual PUE EDGE1 1.7, EDGE2 1.25; annual WUE both 1.082. Year, measurement/design status and WUE numerator/denominator not specified. These figures are not verified audited actual water consumption.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB009",
+      "url": "https://www.digitaledgedc.com/wp-content/uploads/2025/04/ESG_2025_Report_APR28.pdf",
+      "access_date": "2026-10-04",
+      "locator": "Printed p11: EDGE2 annualized DESIGN PUE1.24 at 100% load",
+      "paraphrase": "Printed p11: EDGE2 annualized DESIGN PUE1.24 at 100% load. p18: historical annualized WUE ambition1-1.5 and EDGE2 achievement without a precisely defined measured consumptive figure.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB010",
+      "url": "https://www.digitaledgedc.com/wp-content/uploads/2026/04/digital_edge_esg_report_2026.pdf",
+      "access_date": "2026-10-04",
+      "locator": "Printed p16 CGK1 design PUE1.25 at 100% load",
+      "paraphrase": "Printed p16 CGK1 design PUE1.25 at 100% load. p23 WUE applicability limited to water-cooled sites, excluding air-cooled sites. Global fleet water total must not be allocated to Indonesia. Archived water_digital_edge_2026.pdf.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": "data/raw/evidence/water_digital_edge_2026.pdf",
+      "raw_file_sha256": "516d5e2df9cfad891082329471b30da09b82d53af7bd25a560f15b214231722e",
+      "raw_file_bytes": 4982313,
+      "snapshot_access_date": "2026-10-04"
+    },
+    {
+      "source_id": "WB011",
+      "url": "https://princetondg.com/wp-content/uploads/2022/04/PDG-Sustainability-Report-2021.pdf",
+      "access_date": "2026-10-04",
+      "locator": "Printed pp10-11 actual reported Indonesian facility PUE table",
+      "paraphrase": "Printed pp10-11 actual reported Indonesian facility PUE table. Source explanatory prose reverses conventional PUE ratio; use standard total facility/IT definition, retain numeric disclosures with this source issue flagged.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB012",
+      "url": "https://princetondg.com/press-releases/epi-awarded-pdg-cibitung-dcs-tia-942-rated-3-design-certifications/",
+      "access_date": "2026-10-04",
+      "locator": "Design PUE <=1.4; design target, not observed annual PUE.",
+      "paraphrase": "Design PUE <=1.4; design target, not observed annual PUE.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB013",
+      "url": "https://datacenters.microsoft.com/sustainability/efficiency/",
+      "access_date": "2026-10-04",
+      "locator": "FY covers July-June; only sites operational twelve months",
+      "paraphrase": "FY covers July-June; only sites operational twelve months. WUE cooling/humidification use per IT electricity; withdrawal versus consumption not explicitly distinguished. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB014",
+      "url": "https://sustainability.aboutamazon.com/products-services/aws-cloud?energy=true",
+      "access_date": "2026-10-04",
+      "locator": "Explicit numerator is water withdrawn, not evaporative consumption",
+      "paraphrase": "Explicit numerator is water withdrawn, not evaporative consumption. 2025 PUE1.14 WUE0.12; 2024 PUE1.15 WUE0.15. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB015",
+      "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/12/09/sustainable-by-design-next-generation-datacenters-consume-zero-water-for-cooling/",
+      "access_date": "2026-10-04",
+      "locator": "Closed loop avoids evaporative cooling; mechanical heat rejection can increase PUE",
+      "paraphrase": "Closed loop avoids evaporative cooling; mechanical heat rejection can increase PUE. Claim is cooling water, excluding other water demand. No numeric Indonesian performance or quantified PUE penalty supplied. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB016",
+      "url": "https://services.google.com/fh/files/misc/measuring_the_environmental_impact_of_delivering_ai_at_google_scale.pdf",
+      "access_date": "2026-10-04",
+      "locator": "Section3.3 printed p6 / PDF p6: Category2 WUE subtracts returned water from input; same1.15 for 2023 and2024",
+      "paraphrase": "Section3.3 printed p6 / PDF p6: Category2 WUE subtracts returned water from input; same1.15 for 2023 and2024. Scope is LLM-serving data centers, not every Google site. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB017",
+      "url": "https://eta-publications.lbl.gov/sites/default/files/2024-12/us_data_center_energy_usage_report_lbnl-2001637_0.pdf",
+      "access_date": "2026-10-04",
+      "locator": "Printed pp44-48: modeled aggregate2023 site WUE just over0.36; modeled future0.45-0.48",
+      "paraphrase": "Printed pp44-48: modeled aggregate2023 site WUE just over0.36; modeled future0.45-0.48. Not metered Indonesian data. Water-use differences follow final heat rejection; liquid-cooled IT may still require evaporation. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB018",
+      "url": "https://dataonline.bmkg.go.id/dataonline-home",
+      "access_date": "2026-10-04",
+      "locator": "Daily portal available; authorized download and relevant station observations were not retrieved",
+      "paraphrase": "Daily portal available; authorized download and relevant station observations were not retrieved. Null placeholders record gaps, not zero weather values.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB019",
+      "url": "https://www.nvidia.com/en-in/data-center/h100/",
+      "access_date": "2026-10-04",
+      "locator": "SXM up to700W",
+      "paraphrase": "SXM up to700W. Different NVL/PCIe configurations must not be mixed. GPU rating excludes host CPU, memory, networking and cooling. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB020",
+      "url": "https://www.nvidia.com/en-us/data-center/h200/",
+      "access_date": "2026-10-04",
+      "locator": "SXM700W versus NVL600W",
+      "paraphrase": "SXM700W versus NVL600W. SKU-specific power limits, not average energy. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB021",
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "access_date": "2026-10-04",
+      "locator": "8 GPUs; 10.2kW maximum system power; air cooled",
+      "paraphrase": "8 GPUs; 10.2kW maximum system power; air cooled. System maximum not PSU installed rating and not a measured average. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB022",
+      "url": "https://docs.nvidia.com/dgx/dgxb200-user-guide/introduction-to-dgxb200.html",
+      "access_date": "2026-10-04",
+      "locator": "8 B200 GPUs;14.3kW max whole-system power; air cooled",
+      "paraphrase": "8 B200 GPUs;14.3kW max whole-system power; air cooled. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB023",
+      "url": "https://dam-cdn.nvd.orangelogic.com/AssetLink/gl2l4l4812s5fw0p614s6i8bv6mi3vx5.pdf",
+      "access_date": "2026-10-04",
+      "locator": "Table3 p26 distinguishes B2001000W and B3001100W",
+      "paraphrase": "Table3 p26 distinguishes B2001000W and B3001100W. NON-INDONESIAN benchmark. Retrieved via official NVIDIA resource landing page.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB024",
+      "url": "https://docs.nvidia.com/dgx/dgxb300-user-guide/introduction-to-dgxb300.html",
+      "access_date": "2026-10-04",
+      "locator": "Power specifications list15kW system maximum; physical table lists14.5kW power consumption",
+      "paraphrase": "Power specifications list15kW system maximum; physical table lists14.5kW power consumption. Preserve labels separately; do not treat either as measured average. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB025",
+      "url": "https://developer.nvidia.com/blog/?p=100010",
+      "access_date": "2026-10-04",
+      "locator": "Body under Inside the MGX rack system:120kW/rack GB200NVL72 energy demand",
+      "paraphrase": "Body under Inside the MGX rack system:120kW/rack GB200NVL72 energy demand. Separate from a GPU TDP or single-server rating. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB026",
+      "url": "https://developer.nvidia.com/blog/nvidia-contributes-nvidia-gb200-nvl72-designs-to-open-compute-project/",
+      "access_date": "2026-10-04",
+      "locator": "72GPU domain,18compute trays and liquid cooling with120kW thermal capacity",
+      "paraphrase": "72GPU domain,18compute trays and liquid cooling with120kW thermal capacity. Thermal figure corroborates density but is not electricity bill energy. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB027",
+      "url": "https://dam-cdn.nvd.orangelogic.com/AssetLink/1k0p832eq8r5ca0u5383ie5o4tp3bst1.pdf",
+      "access_date": "2026-10-04",
+      "locator": "p5:1400W/GB300NVL72 GPU versus1100W/HGXB300 GPU",
+      "paraphrase": "p5:1400W/GB300NVL72 GPU versus1100W/HGXB300 GPU. Different Blackwell Ultra configurations. NON-INDONESIAN benchmark.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB028",
+      "url": "https://tirtabhagasasi.co.id/perda-spam-dan-dukungan-bupati-jadi-kunci-penguatan-perumda-tirta-bhagasasi/",
+      "access_date": "2026-10-04",
+      "locator": "Utility discussion of groundwater restrictions and infrastructure needs describes policy proposals/support, not proof that a groundwater ban has already been enacted.",
+      "paraphrase": "Utility discussion of groundwater restrictions and infrastructure needs describes policy proposals/support, not proof that a groundwater ban has already been enacted.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    },
+    {
+      "source_id": "WB029",
+      "url": "https://hilir.airbatam.com/tarif-pelanggan",
+      "access_date": "2026-10-04",
+      "locator": "Page inspected but readable numeric schedule not exposed",
+      "paraphrase": "Page inspected but readable numeric schedule not exposed. Does not independently validate2021 tariff table for2026.",
+      "evidence_type": "curated numeric transcription and boundary notes",
+      "raw_file": null
+    }
+  ]
+}
