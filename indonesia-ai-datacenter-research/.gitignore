@@ -5,3 +5,4 @@ __pycache__/
 outputs/.qa/
 data/raw/downloads/
 data/raw/evidence/*.pdf
+~$*.xlsx

@@ -16,4 +16,7 @@ assert.equal(calculate({...base,capacity:0}).facilityTwh,0);
 assert.throws(()=>calculate({...base,wue:NaN}));
 assert.throws(()=>calculate({...base,pue:.9}));
 assert.throws(()=>calculate({...base,capacity:-1}));
+assert.throws(()=>calculate({...base,electricityTariff:1e308}),/numerical range/);
+assert.throws(()=>calculate({...base,waterTariff:1e308}),/numerical range/);
+assert.equal(calculate({...base,capacity:0,electricityTariff:1e308,waterTariff:1e308}).electricityCost,0);
 console.log('Interactive model reconciles all '+checked+' Python scenarios. Zero and invalid-input checks pass.');

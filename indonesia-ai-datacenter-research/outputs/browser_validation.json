@@ -1,13 +1,9 @@
 {
-  "review_date": "2026-10-04",
+  "review_date": "2026-10-05",
   "desktop_viewports": [
     [
-      1440,
-      1000
-    ],
-    [
-      1440,
-      1240
+      1280,
+      720
     ]
   ],
   "mobile_viewport": [
@@ -18,13 +14,6 @@
   "newsletter_sections": 7,
   "essential_sources": 7,
   "unresolved_narrative_placeholders": false,
-  "console_messages": [
-    {
-      "level": "error",
-      "message": "AbortError: The play() request was interrupted by a call to pause().",
-      "assessment": "Recorded by the in-app browser during review. Shipped HTML contains no media elements and shipped scripts contain no play/pause calls. Origin is not confirmed. No failed app interaction was observed."
-    }
-  ],
   "checked_interactions": [
     "100 MW capacity updates bills, flow SVG values and separate mobile flow readings",
     "Low case permits zero cooling consumption",
@@ -40,12 +29,57 @@
     "Batam/Bintan focus callouts do not overlap",
     "Mobile selected-region focus uses cropped viewBox while overview retains all Indonesia",
     "Greater Jakarta and West Java group includes Bandung",
-    "All-status map callout counts are distinct from filtered record counts"
+    "All-status map callout counts are distinct from filtered record counts",
+    "Outlook year 2031 Enter updates the base case to 21.13 TWh",
+    "Outlook ArrowRight selects 2032, updates base to 24.45 TWh and preserves keyboard focus",
+    "Outlook legend focuses the selected case and dims two other lines, then clears on repeat",
+    "Commentary belongs to its corresponding section without a desktop left margin",
+    "Commentary becomes one column on phone widths",
+    "Blank capacity clears bills, comparisons and all resource diagram figures",
+    "1001 MW numeric input synchronizes the capacity slider exactly",
+    "1 MW base case displays 9.11 GWh and 3504 cubic meters instead of rounded zero TWh",
+    "Selected WUE outside the reference set is included in the sensitivity chart",
+    "Numerically overflowing prices are rejected and clear dependent values",
+    "Zero selected cooling use remains valid when another comparison case overflows",
+    "Zero modeled charges do not produce a misleading water-cost share",
+    "Energy component values remain readable outside the bar on narrow screens",
+    "Chapter links and fragment reloads place headings with consistent top clearance"
   ],
   "model_reconciliation": "All 18 Python capacity cases match JavaScript calculations",
   "previews": [
     "outputs/interactive_preview.jpg",
     "outputs/resource_flow_preview.jpg",
-    "outputs/project_atlas_preview.jpg"
-  ]
+    "outputs/project_atlas_preview.jpg",
+    "outputs/outlook_preview.jpg",
+    "outputs/paragraph_layout_preview.jpg"
+  ],
+  "previous_console_observation": [
+    {
+      "level": "error",
+      "message": "AbortError: The play() request was interrupted by a call to pause().",
+      "assessment": "Recorded by the in-app browser during review. Shipped HTML contains no media elements and shipped scripts contain no play/pause calls. Origin is not confirmed. No failed app interaction was observed."
+    }
+  ],
+  "research_cutoff": "2026-10-04",
+  "tablet_viewport": [
+    820,
+    900
+  ],
+  "mobile_viewports": [
+    [
+      390,
+      844
+    ],
+    [
+      320,
+      740
+    ]
+  ],
+  "text_overflow": false,
+  "commentary_section_placement": {
+    "1": "evidence-section",
+    "5": "geography",
+    "6": "outlook"
+  },
+  "console_messages": []
 }

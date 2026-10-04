@@ -11,12 +11,14 @@
     const itKwh = i.capacity * 1000 * i.utilization * i.hours;
     const facilityKwh = itKwh * i.pue;
     const waterM3 = itKwh * i.wue / 1000;
-    return {itKwh, facilityKwh, overheadKwh: facilityKwh - itKwh,
+    const result = {itKwh, facilityKwh, overheadKwh: facilityKwh - itKwh,
       facilityTwh: facilityKwh / 1e9, electricityCost: facilityKwh * i.electricityTariff,
       waterM3, waterDaily: waterM3 / 365, waterCost: waterM3 * i.waterTariff,
       nationalShare: facilityKwh / 1e9 / i.nationalTwh * 100,
       averageLoadMw: facilityKwh / i.hours / 1000,
       fullLoadMw: i.capacity * i.pue};
+    if (Object.values(result).some(value => !Number.isFinite(value))) throw new Error('Inputs produce a value outside the supported numerical range. Reduce the resource prices.');
+    return result;
   }
   const api = { calculate };
   if (typeof module === 'object' && module.exports) module.exports = api;

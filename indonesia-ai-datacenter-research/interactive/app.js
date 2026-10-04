@@ -12,9 +12,10 @@
   $('flow-illustration').innerHTML=D.flow_svg;
   let period='annual', region='Greater Jakarta & West Java', year=2030, caseName='base';
   const fields=['capacity','utilization','pue','wue','electricityTariff','waterTariff'];
-  const price = v => v >= 1e12 ? ['Rp'+nf(v/1e12),'trillion'] : v >= 1e9 ? ['Rp'+nf(v/1e9),'billion'] : v >= 1e6 ? ['Rp'+nf(v/1e6),'million'] : ['Rp'+nf(v,0),''];
+  const price = v => v >= 1e18 ? ['Rp'+new Intl.NumberFormat('en-US',{notation:'scientific',maximumFractionDigits:2}).format(v),''] : v >= 1e12 ? ['Rp'+nf(v/1e12),'trillion'] : v >= 1e9 ? ['Rp'+nf(v/1e9),'billion'] : v >= 1e6 ? ['Rp'+nf(v/1e6),'million'] : ['Rp'+nf(v,0),''];
   const money = v => {const [n,u]=price(v);return n+' '+u;};
   const volume = v => v>=1e6 ? nf(v/1e6)+' million m³' : nf(v,0)+' m³';
+  const energy = kwh => kwh>=1e9?nf(kwh/1e9)+' TWh':kwh>=1e6?nf(kwh/1e6)+' GWh':kwh>=1000?nf(kwh/1000)+' MWh':nf(kwh,1)+' kWh';
   const safeUrl = url => /^https?:\/\//i.test(url || '') ? url : '#';
   function input() {
     const values=Object.fromEntries(fields.map(k=>[k,$(k).value.trim()===''?NaN:Number($(k).value)]));
@@ -33,33 +34,48 @@
     $('utilization-value').textContent=$('utilization').value+'%';
     $('pue-value').textContent=nf(Number($('pue').value)); $('wue-value').textContent=nf(Number($('wue').value));
     let i,r;
-    try {i=input();r=window.IDN_MODEL.calculate(i);} catch(e) {$('input-error').textContent=e.message;$('input-error').hidden=false;$('results').classList.add('invalid');return;}
-    $('input-error').hidden=true;$('results').classList.remove('invalid');
+    try {i=input();r=window.IDN_MODEL.calculate(i);} catch(e) {
+      $('input-error').textContent=e.message;$('input-error').hidden=false;$('results').classList.add('invalid');
+      ['electricity-cost','water-cost','electricity-volume','water-volume','average-load','daily-water','national-share','flow-it','flow-overhead','flow-water','energy-it-label','energy-overhead-label'].forEach(id=>$(id).textContent='Unavailable');
+      document.querySelectorAll('[data-flow-value]').forEach(el=>{el.textContent='Unavailable';});
+      $('energy-bars').innerHTML='';$('water-chart').innerHTML='';
+      $('water-chart').setAttribute('aria-label','Water comparisons unavailable while calculator inputs are invalid.');
+      $('case-comparison').innerHTML='<p class="micro">Enter valid calculator inputs to compare operating cases.</p>';
+      $('calculation-story').textContent='Enter valid inputs to calculate resource demand.';
+      $('flow-error').hidden=false;$('live-status').textContent='Resource values unavailable while calculator inputs are invalid.';
+      return;
+    }
+    $('input-error').hidden=true;$('results').classList.remove('invalid');$('flow-error').hidden=true;
     $('capacity-range').value=i.capacity;
     const divisor=period==='annual'?1:12, suffix=period==='annual'?'per year':'per month';
     const [en,eu]=price(r.electricityCost/divisor),[wn,wu]=price(r.waterCost/divisor);
     $('electricity-cost').innerHTML=esc(en)+' <small>'+esc(eu)+'</small>';
     $('water-cost').innerHTML=esc(wn)+' <small>'+esc(wu)+'</small>';
-    $('electricity-volume').textContent=nf(r.facilityTwh/divisor)+' TWh '+suffix;
+    $('electricity-volume').textContent=energy(r.facilityKwh/divisor)+' '+suffix;
     $('water-volume').textContent=volume(r.waterM3/divisor)+' '+suffix;
     const itShare=r.facilityKwh ? r.itKwh/r.facilityKwh*100 : 0;
     const overheadShare=r.facilityKwh?100-itShare:0;
-    const label=(value,share)=>share>15?nf(value/1e9)+' TWh':'';
-    $('energy-bars').innerHTML='<div class="build-bar" role="img" aria-label="'+esc(nf(r.itKwh/1e9)+' TWh IT plus '+nf(r.overheadKwh/1e9)+' TWh overhead')+'"><span class="it-part" style="width:'+itShare+'%">'+label(r.itKwh,itShare)+'</span><span class="overhead-part" style="width:'+overheadShare+'%">'+label(r.overheadKwh,overheadShare)+'</span></div>';
-    const waterTests=[0,.2,.5,1,1.5], waterMax=Math.max(1,r.itKwh*1.5/1000);
-    $('water-chart').innerHTML='<text x="15" y="17">Million m³ / year</text>'+waterTests.map((w,j)=>{
-      const value=r.itKwh*w/1000, height=value/waterMax*78, x=25+j*116;
-      return '<g><rect x="'+x+'" y="'+(111-height)+'" width="80" height="'+Math.max(1,height)+'" fill="'+(Math.abs(i.wue-w)<.001?'var(--teal)':'#8bb8a6')+'"/><text x="'+(x+40)+'" y="'+(101-height)+'" text-anchor="middle">'+nf(value/1e6)+'</text><text x="'+(x+40)+'" y="136" text-anchor="middle">WUE '+nf(w,1)+'</text></g>';
+    const label=(value,share)=>share>15?energy(value):'';
+    $('energy-unit').textContent='Annual electricity';
+    $('energy-it-label').textContent=energy(r.itKwh);$('energy-overhead-label').textContent=energy(r.overheadKwh);
+    $('energy-bars').innerHTML='<div class="build-bar" role="img" aria-label="'+esc(energy(r.itKwh)+' IT plus '+energy(r.overheadKwh)+' overhead')+'"><span class="it-part" style="width:'+itShare+'%">'+label(r.itKwh,itShare)+'</span><span class="overhead-part" style="width:'+overheadShare+'%">'+label(r.overheadKwh,overheadShare)+'</span></div>';
+    const waterTests=[...new Set([0,.2,.5,1,1.5,i.wue])].sort((a,b)=>a-b), waterMax=Math.max(1,r.itKwh*Math.max(...waterTests)/1000),barStep=580/waterTests.length,barWidth=Math.min(80,barStep*.69);
+    const waterDiv=waterMax>=1e6?1e6:waterMax>=1000?1000:1,waterUnits=waterDiv===1e6?'Million m³ / year':waterDiv===1000?'Thousand m³ / year':'m³ / year';
+    $('water-chart').setAttribute('aria-label','Annual consumptive cooling-water comparisons. '+waterTests.map(w=>'WUE '+nf(w,2)+' liters per IT kWh: '+volume(r.itKwh*w/1000)+'.').join(' '));
+    $('water-chart').innerHTML='<text x="15" y="17">'+waterUnits+'</text>'+waterTests.map((w,j)=>{
+      const value=r.itKwh*w/1000, height=value/waterMax*78, x=10+j*barStep+(barStep-barWidth)/2;
+      return '<g><rect x="'+x+'" y="'+(111-height)+'" width="'+barWidth+'" height="'+Math.max(1,height)+'" fill="'+(Math.abs(i.wue-w)<.001?'var(--teal)':'#8bb8a6')+'"/><text x="'+(x+barWidth/2)+'" y="'+(101-height)+'" text-anchor="middle">'+nf(value/waterDiv)+'</text><text x="'+(x+barWidth/2)+'" y="136" text-anchor="middle">'+nf(w,w*10===Math.round(w*10)?1:2)+'</text></g>';
     }).join('');
-    $('average-load').textContent=nf(r.averageLoadMw,0)+' MW';$('daily-water').textContent=nf(r.waterDaily,0)+' m³';$('national-share').textContent=nf(r.nationalShare)+'%';
-    const waterShare=r.electricityCost+r.waterCost ? r.waterCost/(r.electricityCost+r.waterCost)*100 : 0;
-    $('calculation-story').textContent='At '+nf(i.capacity,0)+' MW IT, the selected load factor draws '+nf(r.itKwh/1e9)+' TWh of server electricity each year. Facility overhead adds '+nf(r.overheadKwh/1e9)+' TWh. Water represents '+nf(waterShare)+'% of these modeled resource costs. Its local availability still needs a separate supply check.';
-    $('flow-it').textContent=nf(r.itKwh/1e9)+' TWh / year';$('flow-overhead').textContent=nf(r.overheadKwh/1e9)+' TWh / year';$('flow-water').textContent=volume(r.waterM3)+' consumed / year';
-    document.querySelectorAll('[data-flow-value]').forEach(el=>{el.textContent=el.dataset.flowValue==='water'?volume(r.waterM3):nf((el.dataset.flowValue==='it'?r.itKwh:r.overheadKwh)/1e9)+' TWh';});
-    $('live-status').textContent=nf(i.capacity,0)+' MW IT. '+nf(r.facilityTwh)+' TWh electricity per year. '+nf(r.waterM3,0)+' cubic meters of cooling water per year.';
+    $('average-load').textContent=nf(r.averageLoadMw,r.averageLoadMw>0&&r.averageLoadMw<10?2:0)+' MW';$('daily-water').textContent=nf(r.waterDaily,r.waterDaily>0&&r.waterDaily<100?1:0)+' m³';$('national-share').textContent=r.nationalShare>0&&r.nationalShare<.01?'<0.01%':nf(r.nationalShare)+'%';
+    const costScale=Math.max(r.electricityCost,r.waterCost),waterShare=costScale?((r.waterCost/costScale)/(r.electricityCost/costScale+r.waterCost/costScale))*100:null;
+    const costStory=waterShare===null?'The selected inputs imply no modeled resource charges.':'Water represents '+nf(waterShare)+'% of these modeled resource costs.';
+    $('calculation-story').textContent='At '+nf(i.capacity,Number.isInteger(i.capacity)?0:2)+' MW IT, the selected load factor draws '+energy(r.itKwh)+' of server electricity each year. Facility overhead adds '+energy(r.overheadKwh)+'. '+costStory+' Local water availability needs a separate supply check.';
+    $('flow-it').textContent=energy(r.itKwh)+' / year';$('flow-overhead').textContent=energy(r.overheadKwh)+' / year';$('flow-water').textContent=volume(r.waterM3)+' consumed / year';
+    document.querySelectorAll('[data-flow-value]').forEach(el=>{el.textContent=el.dataset.flowValue==='water'?volume(r.waterM3):energy(el.dataset.flowValue==='it'?r.itKwh:r.overheadKwh);});
+    $('live-status').textContent=nf(i.capacity,Number.isInteger(i.capacity)?0:2)+' MW IT. '+energy(r.facilityKwh)+' electricity per year. '+nf(r.waterM3,0)+' cubic meters of cooling water per year.';
     $('case-comparison').innerHTML='<div class="compare-head"><span>Case</span><span>TWh / year</span><span>Electricity / year</span><span>Water m³ / year</span></div>'+Object.entries(D.scenarios).map(([name,s])=>{
-      const c=window.IDN_MODEL.calculate({...i,utilization:s.utilization,pue:s.pue,wue:s.wue_l_per_kwh});
-      return '<div class="compare-row '+name+'"><strong>'+name[0].toUpperCase()+name.slice(1)+'</strong><span>'+nf(c.facilityTwh)+'</span><span>'+esc(money(c.electricityCost))+'</span><span>'+nf(c.waterM3,0)+'</span></div>';
+      let c;try{c=window.IDN_MODEL.calculate({...i,utilization:s.utilization,pue:s.pue,wue:s.wue_l_per_kwh});}catch{return '<div class="compare-row"><strong>'+esc(name[0].toUpperCase()+name.slice(1))+'</strong><span>Unavailable</span><span>Numerical limit</span><span>Unavailable</span></div>';}
+      return '<div class="compare-row '+name+'"><strong>'+name[0].toUpperCase()+name.slice(1)+'</strong><span>'+nf(c.facilityTwh,c.facilityTwh>0&&c.facilityTwh<.01?5:2)+'</span><span>'+esc(money(c.electricityCost))+'</span><span>'+nf(c.waterM3,0)+'</span></div>';
     }).join('');
   }
   fields.forEach(k=>$(k).addEventListener('input',()=>{
@@ -86,6 +102,7 @@
   const includedProjects=()=>D.projects.filter(p=>p.include_in_inventory===true);
   const inRegion=p=>region==='Other / undisclosed'?!locations.some(([n])=>n===p.map_region):p.map_region===region;
   function renderMap() {
+    const activeMapRegion=document.activeElement?.closest('[data-map-region]')?.dataset.mapRegion;
     const point=locations.find(([name])=>name===region);
     const focus=mapFocused&&point[1]!==null;
     $('project-map').setAttribute('viewBox',focus&&window.matchMedia('(max-width:780px)').matches?'190 80 630 340':'0 0 980 460');
@@ -129,6 +146,7 @@
     $('map-focus').disabled=point[1]===null;
     $('map-focus').textContent=focus?'Return to Indonesia':'Focus selected region';
     $('map-focus').setAttribute('aria-pressed',String(focus));
+    if(activeMapRegion)[...document.querySelectorAll('.map-callout-button')].find(b=>b.getAttribute('aria-label')==='Select '+activeMapRegion+' project region')?.focus();
   }
   function selectRegion(name) {
     region=name;renderMap();renderProjects();
@@ -152,25 +170,72 @@
   $('project-map').addEventListener('click',e=>{const marker=e.target.closest('[data-map-region]');if(marker)selectRegion(marker.dataset.mapRegion);});
   $('project-map').addEventListener('keydown',e=>{const marker=e.target.closest('[data-map-region]');if(marker&&['Enter',' '].includes(e.key)){e.preventDefault();selectRegion(marker.dataset.mapRegion);[...document.querySelectorAll('.map-callout-button')].find(b=>b.getAttribute('aria-label')==='Select '+region+' project region')?.focus();}});
   $('map-focus').addEventListener('click',()=>{mapFocused=!mapFocused;renderMap();});
-  window.addEventListener('resize',renderMap);
   $('flow-enlarge').addEventListener('click',()=>{const enlarged=$('flow-illustration').classList.toggle('enlarged');$('flow-enlarge').setAttribute('aria-pressed',String(enlarged));$('flow-enlarge').textContent=enlarged?'Fit diagram':'Enlarge diagram';});
   $('project-status').addEventListener('change',renderProjects);
-  const outlookCases=[['Conservative','#758671'],['Base Case','#32796b'],['Aggressive AI Boom','#ae762b']];
+  const outlookCases=[['Conservative','var(--case-low)'],['Base Case','var(--case-base)'],['Aggressive AI Boom','var(--gold)']];
+  let outlookFocus=null;
   function renderOutlook() {
-    const X=y=>85+(y-2030)*230,Y=v=>260-v/45*220;
-    let svg='';for(let value=0;value<=40;value+=10)svg+='<path class="axis" d="M65 '+Y(value)+'H600"/><text x="35" y="'+(Y(value)+4)+'">'+value+'</text>';
-    svg+='<text x="65" y="20">Facility TWh / year</text>';
-    [2030,2031,2032].forEach(y=>{svg+='<text x="'+(X(y)-16)+'" y="288">'+y+'</text>';});
+    const activeYear=document.activeElement?.closest('[data-outlook-year]')?.dataset.outlookYear;
+    const compact=window.matchMedia('(max-width:600px)').matches;
+    const width=compact?500:800, left=compact?44:62, right=compact?305:590, top=42, bottom=330;
+    const years=[...new Set(D.outlook.map(r=>r.year))].sort((a,b)=>a-b);
+    const max=Math.max(...D.outlook.map(r=>r.facility_electricity_twh));
+    const ceiling=Math.max(10,Math.ceil(max*1.12/10)*10),tick=ceiling/5;
+    const X=y=>left+(y-years[0])/(years.at(-1)-years[0])*(right-left),Y=v=>bottom-v/ceiling*(bottom-top);
+    $('outlook-chart').setAttribute('viewBox','0 0 '+width+' 410');
+    $('outlook-selected-year').textContent=year+' comparison';
+    const selectedX=X(year);
+    let svg='';
+    for(let value=tick/2;value<ceiling;value+=tick)svg+='<path class="outlook-grid-minor" d="M'+left+' '+Y(value)+'H'+right+'"/>';
+    for(let i=0;i<years.length-1;i++)svg+='<path class="outlook-grid-minor" d="M'+((X(years[i])+X(years[i+1]))/2)+' '+top+'V'+bottom+'"/>';
+    for(let value=0;value<=ceiling+.001;value+=tick)svg+='<path class="axis" d="M'+left+' '+Y(value)+'H'+right+'"/><text class="outlook-tick" x="'+(left-12)+'" y="'+(Y(value)+5)+'" text-anchor="end">'+nf(value,0)+'</text>';
+    years.forEach(y=>{svg+='<path class="axis" d="M'+X(y)+' '+top+'V'+bottom+'"/>';});
+    svg+='<path class="outlook-selection-line" d="M'+selectedX+' '+top+'V'+bottom+'"/>';
     outlookCases.forEach(([name,color],idx)=>{
-      const rows=D.outlook.filter(r=>r.outlook_case===name).sort((a,b)=>a.year-b.year);
-      svg+='<path d="'+rows.map((r,j)=>(j?'L':'M')+X(r.year)+' '+Y(r.facility_electricity_twh)).join('')+'" fill="none" stroke="'+color+'" stroke-width="3"/>';
-      rows.forEach(r=>{svg+='<circle cx="'+X(r.year)+'" cy="'+Y(r.facility_electricity_twh)+'" r="'+(r.year===year?5:3)+'" fill="'+color+'"/>';});
-      svg+='<text x="'+(65+idx*210)+'" y="320" style="fill:'+color+'">'+esc(name)+'</text>';
+      const rows=D.outlook.filter(r=>r.outlook_case===name).sort((a,b)=>a.year-b.year),dim=outlookFocus&&outlookFocus!==name;
+      svg+='<g class="outlook-series '+(dim?'dimmed':'')+'" style="--series-color:'+color+'" pointer-events="none">'+
+        '<path d="'+rows.map((r,j)=>(j?'L':'M')+X(r.year)+' '+Y(r.facility_electricity_twh)).join('')+'" fill="none" stroke="'+color+'" stroke-width="'+(idx===1?4:3)+'" stroke-linejoin="round"/>';
+      rows.forEach(r=>{
+        const x=X(r.year),y=Y(r.facility_electricity_twh);
+        if(r.year===year)svg+='<circle cx="'+x+'" cy="'+y+'" r="17" fill="'+color+'" opacity=".16"/>';
+        svg+='<circle cx="'+x+'" cy="'+y+'" r="'+(r.year===year?11:9)+'" fill="'+color+'" stroke="var(--plot-paper)" stroke-width="2"/>';
+      });
+      const last=rows.at(-1);
+      svg+='<path class="outlook-end-rule" d="M'+(right+9)+' '+Y(last.facility_electricity_twh)+'h15"/><text class="outlook-end-value" x="'+(right+34)+'" y="'+(Y(last.facility_electricity_twh)+7)+'">'+nf(last.facility_electricity_twh)+'</text></g>';
+    });
+    years.forEach(y=>{
+      const x=X(y);
+      svg+='<g class="outlook-year-target" data-outlook-year="'+y+'" role="button" tabindex="0" aria-label="Select '+y+' outlook year" aria-pressed="'+(y===year)+'">'+
+        '<rect class="outlook-hit" x="'+(x-25)+'" y="'+top+'" width="50" height="345" rx="4"/>'+
+        '<text class="outlook-year-label '+(y===year?'selected':'')+'" x="'+x+'" y="370" text-anchor="middle">'+y+'</text></g>';
     });
     $('outlook-chart').innerHTML=svg;
-    $('outlook-values').innerHTML=outlookCases.map(([name,color])=>{const r=D.outlook.find(r=>r.outlook_case===name&&r.year===year);return '<article class="outlook-case"><h3><i style="background:'+color+'"></i>'+esc(name)+'</h3><strong>'+nf(r.facility_electricity_twh)+' TWh</strong><span>'+nf(r.it_capacity_mw,0)+' MW IT</span><p>'+esc(money(r.electricity_cost_rp))+' electricity / year</p><p>'+esc(volume(r.water_m3_per_year))+' direct cooling water / year</p></article>';}).join('');
+    $('outlook-chart').setAttribute('aria-label','Annual facility electricity scenarios from '+years[0]+' to '+years.at(-1)+'. Select a year to update the three resource panels.');
+    $('outlook-end-year').textContent=years.at(-1);
+    document.querySelectorAll('[data-year]').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.year)===year));
+    document.querySelectorAll('[data-outlook-case]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.outlookCase===outlookFocus));
+    $('outlook-values').innerHTML=outlookCases.map(([name,color])=>{
+      const r=D.outlook.find(r=>r.outlook_case===name&&r.year===year);
+      return '<article class="outlook-case '+(outlookFocus===name?'focused':'')+'" style="--series-color:'+color+'"><h3><i></i>'+esc(name)+'</h3><div class="outlook-demand"><strong>'+nf(r.facility_electricity_twh)+' <small>TWh</small></strong><span>'+nf(r.it_capacity_mw,0)+' MW IT</span></div><dl><div><dt>Electricity / year</dt><dd>'+esc(money(r.electricity_cost_rp))+'</dd></div><div><dt>Cooling consumption / year</dt><dd>'+esc(volume(r.water_m3_per_year))+'</dd></div></dl></article>';
+    }).join('');
+    $('outlook-live').textContent=year+' outlook. '+outlookCases.map(([name])=>{const r=D.outlook.find(r=>r.outlook_case===name&&r.year===year);return name+': '+nf(r.facility_electricity_twh)+' TWh.';}).join(' ');
+    if(activeYear)document.querySelector('[data-outlook-year="'+activeYear+'"]')?.focus();
   }
-  document.querySelectorAll('[data-year]').forEach(b=>b.addEventListener('click',()=>{year=Number(b.dataset.year);document.querySelectorAll('[data-year]').forEach(x=>x.setAttribute('aria-pressed',x===b));renderOutlook();}));
+  function chooseOutlookYear(value) {year=Number(value);renderOutlook();}
+  document.querySelectorAll('[data-year]').forEach(b=>b.addEventListener('click',()=>chooseOutlookYear(b.dataset.year)));
+  document.querySelectorAll('[data-outlook-case]').forEach(b=>b.addEventListener('click',()=>{outlookFocus=outlookFocus===b.dataset.outlookCase?null:b.dataset.outlookCase;renderOutlook();}));
+  $('outlook-chart').addEventListener('click',e=>{const hit=e.target.closest('[data-outlook-year]');if(hit)chooseOutlookYear(hit.dataset.outlookYear);});
+  $('outlook-chart').addEventListener('keydown',e=>{
+    const hit=e.target.closest('[data-outlook-year]');if(!hit)return;
+    if(['Enter',' '].includes(e.key)){e.preventDefault();chooseOutlookYear(hit.dataset.outlookYear);}
+    if(['ArrowLeft','ArrowRight'].includes(e.key)){
+      e.preventDefault();const years=[2030,2031,2032],index=years.indexOf(Number(hit.dataset.outlookYear));
+      chooseOutlookYear(years[Math.max(0,Math.min(years.length-1,index+(e.key==='ArrowRight'?1:-1)))]);
+      document.querySelector('[data-outlook-year="'+year+'"]')?.focus();
+    }
+  });
+  let resizePending=false;
+  window.addEventListener('resize',()=>{if(resizePending)return;resizePending=true;requestAnimationFrame(()=>{renderMap();renderOutlook();resizePending=false;});});
   const keySources=[
     ['ELEC001','ESDM. Indonesia electricity statistics, 2025','National electricity consumption used for the scale comparison.'],
     ['ELEC002','PLN. Electricity tariffs, Q3 2026','I-4 high-voltage energy rate. Contract qualification is an assumption.'],
@@ -191,8 +256,27 @@
   ledger.querySelector(':scope > .micro').textContent='Base expansion case. '+nf(base.utilization*100,0)+'% average electrical load, PUE '+nf(base.pue)+' and consumptive WUE '+nf(base.wue_l_per_kwh)+' L/IT kWh.';
   document.querySelector('.evidence-grid article strong').innerHTML=nf(D.baseline.it_capacity_mw,0)+' <small>MW IT</small>';
   document.querySelector('.evidence-grid article:nth-child(2) p').textContent='The current-fleet base case uses '+nf(current.utilization*100,0)+'% electrical loading and PUE '+nf(current.pue)+'. Efficient new-build PUE should not be applied to the entire existing fleet.';
-  $('national-share').previousElementSibling.textContent='Share of '+D.national.year+' national electricity';
+  $('national-share').previousElementSibling.textContent='Share of '+D.national.year+' national consumption';
   $('electricityTariff').value=D.tariffs.electricity_rp_per_kwh;$('waterTariff').value=D.tariffs.water_rp_per_m3;
   $('theme').addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';document.documentElement.dataset.theme=dark?'dark':'light';$('theme').setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');});
+  function jumpToChapter(id) {
+    const target=id?$(id):null;
+    if(id&&!target)return;
+    if(target){
+      target.setAttribute('tabindex','-1');target.focus({preventScroll:true});
+      const inset=parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0;
+      window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-inset),behavior:'auto'});
+    }
+    else window.scrollTo({top:0,behavior:'auto'});
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',e=>{
+    if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+    const hash=link.getAttribute('href');e.preventDefault();
+    if(location.hash!==hash)location.hash=hash;
+    jumpToChapter(hash.slice(1));
+  }));
+  window.addEventListener('hashchange',()=>jumpToChapter(location.hash.slice(1)));
   preset('base');renderMap();renderProjects();renderOutlook();
+  const restoreChapter=()=>requestAnimationFrame(()=>{if(location.hash)jumpToChapter(location.hash.slice(1));});
+  if(document.readyState==='complete')restoreChapter();else window.addEventListener('load',restoreChapter,{once:true});
 })();

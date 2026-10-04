@@ -29,9 +29,10 @@
   box-sizing:border-box
 }
 html{
-  scroll-behavior:smooth;
-  scroll-padding-top:90px
+  scroll-behavior:auto;
+  scroll-padding-top:20px
 }
+main [tabindex="-1"]:focus{outline:none;}
 body{
   margin:0;
   background:var(--paper);
@@ -261,12 +262,13 @@ em{
   grid-template-columns:1fr 1fr;
   gap:70px;
   margin-bottom:36px;
-  align-items:end
+  align-items:start
 }
 .section-heading .eyebrow{
   margin-bottom:13px
 }
 .section-heading>p{
+  padding-top:30px;
   max-width:510px;
   color:var(--muted);
   font-size:15px;
@@ -1331,13 +1333,6 @@ details .micro{
   color:var(--muted);
   margin-top:8px
 }
-.newsletter-wide{
-  padding-top:5px;
-  padding-bottom:52px
-}
-.newsletter-wide .newsletter{
-  margin-left:330px
-}
 .flow-newsletter{
   max-width:900px;
   margin:40px auto 0;
@@ -1351,9 +1346,6 @@ details .micro{
   .research-letter{
     grid-template-columns:220px 1fr;
     gap:40px
-  }
-  .newsletter-wide .newsletter{
-    margin-left:260px
   }
 }
 @media(max-width:780px){
@@ -1374,13 +1366,6 @@ details .micro{
     gap:24px;
     margin-top:35px;
     padding-top:28px
-  }
-  .newsletter-wide{
-    padding-top:0;
-    padding-bottom:35px
-  }
-  .newsletter-wide .newsletter{
-    margin-left:0
   }
   .newsletter p{
     font-size:14px;
@@ -1534,4 +1519,185 @@ details .micro{
   .project-panel-top{display:block;}
   .project-panel-top label{width:100%;margin-top:12px;}
   #project-list{display:block;max-height:360px;}
+}
+/* Reading rhythm, responsive outlook and explicit calculation states. */
+:root{--case-low:#61765e;--case-base:#b94c2b;}
+:root[data-theme=dark]{--case-low:#b1c7a7;--case-base:#ff875f;}
+.newsletter{max-width:72ch;}
+.newsletter p{font-size:16px;line-height:1.85;margin-bottom:22px;}
+.newsletter h3{font-size:24px;max-width:36ch;}
+.narrative-note{
+  margin-top:35px;
+  padding-top:20px;
+  border-top:1px solid var(--rule);
+  font-size:12px;
+  line-height:1.75;
+  max-width:82ch;
+}
+.newsletter-pair{border-top:0;margin-top:20px;padding-top:0;gap:48px;}
+.section-commentary{
+  display:grid;
+  grid-template-columns:280px minmax(0,1fr);
+  gap:0 48px;
+  max-width:none;
+  margin-top:34px;
+  padding-top:30px;
+  border-top:1px solid var(--rule);
+}
+.section-commentary h3{grid-column:1;grid-row:1/span 2;max-width:24ch;}
+.section-commentary p{grid-column:2;max-width:70ch;}
+.section-commentary p:last-child{margin-bottom:0;}
+.flow-error{
+  padding:12px 16px;
+  border:1px solid #d8b06c;
+  color:#edd5a8;
+  border-radius:5px;
+  margin-bottom:15px;
+  font-size:13px;
+  line-height:1.7;
+}
+.outlook-grid{grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:24px;align-items:stretch;}
+.outlook-plot,.outlook-detail{background:var(--sheet);border:1px solid var(--rule);border-radius:8px;min-width:0;}
+.outlook-plot{
+  --plot-paper:#14292f;
+  --case-low:#b5c4ac;
+  --case-base:#ff875f;
+  --gold:#dfb263;
+  --teal:#a3d0c5;
+  padding:24px;
+  background:var(--plot-paper);
+  color:#f4eee1;
+  border-color:#29454b;
+}
+.outlook-plot .eyebrow{color:#bacdca;}
+.outlook-plot-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;}
+.outlook-plot-heading h3{font-family:Georgia,serif;font-size:23px;font-weight:400;margin-top:8px;line-height:1.35;}
+.outlook-year-chip{
+  border:1px solid #49616a;
+  padding:6px 9px;
+  font-size:10px;
+  color:var(--teal);
+  white-space:nowrap;
+  border-radius:4px;
+}
+.outlook-legend{display:flex;flex-wrap:wrap;gap:6px 10px;margin:21px 0 18px;}
+.outlook-legend button{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-size:11px;
+  padding:8px 9px;
+  border:1px solid transparent;
+  border-radius:4px;
+}
+.outlook-legend button:hover{background:#223e45;}
+.outlook-legend button[aria-pressed=true]{border-color:#829c9b;background:#223e45;}
+.outlook-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.outlook-legend i.conservative{background:var(--case-low);}
+.outlook-legend i.base{background:var(--case-base);}
+.outlook-legend i.aggressive{background:var(--gold);}
+.outlook-axis-heading{display:flex;justify-content:space-between;gap:12px;color:#b4c6c5;font-size:10px;padding:0 10px;}
+#outlook-chart{width:100%;display:block;overflow:hidden;}
+#outlook-chart .axis{stroke:#8ea5ab;stroke-width:1;opacity:.5;}
+#outlook-chart .outlook-grid-minor{stroke:#8ea5ab;stroke-width:1;opacity:.2;}
+#outlook-chart .outlook-tick{font-size:16px;fill:#b4c6c5;}
+#outlook-chart .outlook-year-label{font-size:20px;fill:#b4c6c5;}
+#outlook-chart .outlook-year-label.selected{fill:var(--teal);font-weight:600;}
+#outlook-chart .outlook-end-value{font-size:26px;fill:var(--series-color);font-weight:600;letter-spacing:-.5px;}
+#outlook-chart .outlook-end-rule{stroke:var(--series-color);stroke-width:1.2;opacity:.65;}
+.outlook-selection-line{stroke:#dce9e3;stroke-width:1.5;opacity:.55;}
+.outlook-series.dimmed{opacity:.28;}
+.outlook-year-target{cursor:pointer;outline:none;}
+.outlook-hit{fill:transparent;stroke:transparent;}
+.outlook-year-target:focus-visible .outlook-hit{stroke:var(--teal);stroke-width:2;}
+.outlook-year-target:hover .outlook-year-label{fill:var(--teal);}
+.outlook-chart-hint{font-size:11px;color:var(--teal);margin-top:3px;}
+.outlook-boundary{margin-top:16px;padding-top:16px;border-top:1px solid #49616a;font-size:11px;line-height:1.75;color:#b4c6c5;}
+.outlook-detail{padding:22px;display:flex;flex-direction:column;}
+.outlook-detail>.eyebrow{margin-bottom:12px;}
+.outlook-detail .years{margin-bottom:8px;}
+.outlook-detail .years button{min-height:44px;}
+.outlook-case{padding:19px 0 19px 13px;border-left:3px solid transparent;}
+.outlook-case:last-child{border-bottom:0;padding-bottom:0;}
+.outlook-case.focused{border-left-color:var(--series-color);}
+.outlook-case h3{font-size:13px;margin-bottom:13px;line-height:1.45;}
+.outlook-case h3 i{background:var(--series-color);border-radius:50%;flex-shrink:0;}
+.outlook-demand{display:flex;flex-wrap:wrap;gap:7px 15px;align-items:baseline;}
+.outlook-case strong{font-family:Georgia,serif;font-size:31px;line-height:1.2;letter-spacing:-.03em;}
+.outlook-case strong small{font-size:13px;}
+.outlook-case span{font-size:11px;margin-left:0;color:var(--muted);}
+.outlook-case dl{margin:15px 0 0;display:grid;gap:9px;}
+.outlook-case dl>div{display:flex;justify-content:space-between;gap:12px;align-items:baseline;}
+.outlook-case dt{font-size:10px;color:var(--muted);line-height:1.6;}
+.outlook-case dd{font-size:11px;margin:0;text-align:right;line-height:1.6;}
+@media(max-width:1050px){
+  .section-commentary{grid-template-columns:220px minmax(0,1fr);gap:0 32px;}
+  .outlook-grid{grid-template-columns:1fr;}
+  #outlook-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+  .outlook-case{border-bottom:0;padding:10px 0 0 12px;}
+  .outlook-case:last-child{padding-top:10px;}
+  .outlook-case dl>div{display:block;}
+  .outlook-case dd{text-align:left;margin-top:3px;font-size:12px;}
+  .outlook-case strong{font-size:29px;}
+  .outlook-detail .years{max-width:360px;margin-bottom:18px;}
+}
+@media(max-width:780px){
+  .section-commentary{display:block;margin-top:28px;padding-top:25px;}
+  .section-commentary h3{max-width:36ch;}
+  .newsletter p{font-size:15px;line-height:1.85;}
+  .newsletter-pair{gap:24px;margin-top:18px;}
+  .narrative-note{margin-top:28px;font-size:12px;}
+  .outlook-plot{padding:18px;}
+  .outlook-plot-heading h3{font-size:22px;}
+  .outlook-legend button{min-height:44px;font-size:11px;}
+}
+@media(max-width:600px){
+  .outlook-plot{padding:16px;}
+  .outlook-plot-heading{display:block;}
+  .outlook-year-chip{display:inline-block;margin-top:12px;}
+  .outlook-legend{gap:2px 6px;margin:14px 0;}
+  .outlook-legend button{padding:7px 4px;}
+  #outlook-chart .outlook-tick{font-size:18px;}
+  #outlook-chart .outlook-end-value{font-size:24px;}
+  .outlook-axis-heading{font-size:9px;padding:0;}
+  .outlook-detail{padding:18px;}
+  #outlook-values{display:block;}
+  .outlook-case{padding:18px 0 18px 12px;border-bottom:1px solid var(--rule);}
+  .outlook-case:last-child{padding-top:18px;}
+  .outlook-case dl>div{display:flex;}
+  .outlook-case dd{text-align:right;margin-top:0;}
+  .outlook-demand{justify-content:space-between;}
+}
+@media(max-width:780px){
+  .section-heading>p{padding-top:0;}
+}
+@media(max-width:600px){
+  .masthead{display:grid;grid-template-columns:1fr;gap:8px;height:auto;min-height:76px;padding:15px 22px;}
+  .masthead .brand{font-size:24px;}
+  .masthead nav{width:100%;margin-left:0;justify-content:space-between;gap:12px;}
+  .masthead nav a{font-size:12px;display:inline-flex;align-items:center;min-height:44px;}
+  .bills{grid-template-columns:1fr;}
+  .bill{padding:8px 0 18px;}
+  .bill+.bill{border-left:0;border-top:1px solid var(--rule);padding:18px 0;}
+  .bill>.micro{margin-top:12px;}
+  .bill h3{overflow-wrap:anywhere;}
+  .footer{flex-direction:column;align-items:flex-start;gap:12px;}
+  .footer span{text-align:left;max-width:none;}
+  .compare-head span,.compare-row span{overflow-wrap:anywhere;}
+}
+@media(max-width:420px){
+  .controls{grid-template-columns:1fr;gap:0;}
+}
+.chart-legend strong{display:block;font-size:12px;font-weight:500;color:var(--ink);margin:3px 0 0 14px;}
+.driver .micro,.water-sensitivity .micro,.outlook-boundary{font-size:12px;line-height:1.75;}
+.project-panel .micro{font-size:11px;line-height:1.75;}
+.project-row{font-size:12px;line-height:1.7;}
+.project-row h3{font-size:14px;}
+.project-row a{font-size:11px;display:inline-block;padding-top:5px;}
+.outlook-case dt{font-size:11px;}
+.outlook-case dd{font-size:12px;}
+@media(max-width:600px){
+  .build-bar>span{font-size:0;}
+  .chart-legend{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .project-panel .micro{font-size:12px;}
 }
