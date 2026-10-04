@@ -37,6 +37,24 @@
 */
 window.LONGHAND_REPORTS = [
   {
+    "id": "indonesia-ai-power-water-2026-10-05",
+    "ticker": "",
+    "company": "Indonesia data centers, electricity and water",
+    "sector": "AI infrastructure and utilities",
+    "category": "Sector",
+    "title": "AI Runs on Power and Water",
+    "date": "2026-10-05",
+    "blurb": "An interactive Indonesia study of electricity demand, cooling water and operating costs, with a resource calculator, project atlas and reproducible research model.",
+    "summary": "The investment case for Indonesian AI infrastructure depends on usable power, dependable cooling and pipeline execution. This report separates disclosed capacity from metered consumption, models electricity and direct cooling water under explicit assumptions, and examines local infrastructure requirements. It includes an interactive calculator, a regional project atlas, conditional expansion scenarios, an Excel model and the Python research files. Research cutoff: 4 October 2026.",
+    "tags": ["AI", "Indonesia", "Data Centers", "Electricity", "Water", "Infrastructure", "Energy", "Utilities", "Scenarios"],
+    "rating": null,
+    "currency": "IDR",
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "page": "indonesia-ai-datacenter-research/interactive/index.html"
+  },
+  {
     "id": "inet-2026-09-27",
     "ticker": "INET",
     "exchange": "IDX",

@@ -1,4 +1,8 @@
 /* Editorial palette and type hierarchy follow the parent Longhand report. */
+@view-transition{navigation:auto;}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none;}
+}
 :root{
   --paper:#f3efe7;
   --sheet:#fffdf9;

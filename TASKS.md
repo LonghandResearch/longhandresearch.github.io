@@ -48,7 +48,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | OPS-004 | Connect Flowless's weekly foreign-flow export, initially built by Claude, to the IHSG publishing workflow with regular-market caveats and QA checks | Codex | `codex/flowless-weekly-workflow` | Done | [Flowless PR #1](https://github.com/Ridwanns/flowless/pull/1), [site PR #63](https://github.com/LonghandResearch/longhandresearch.github.io/pull/63), [site PR #67](https://github.com/LonghandResearch/longhandresearch.github.io/pull/67) |
 | OWN-001 | Write the author bio and contact details for the About page | Owner | | Blocked | |
 | OWN-002 | Create the GoatCounter account so the counter already in the pages starts counting | Owner | | Blocked | |
-| RPT-012 | Build reproducible Indonesia AI/data-center resource research and an interactive visual report | Codex | `codex/indonesia-ai-research` | Review | [PR #70](https://github.com/LonghandResearch/longhandresearch.github.io/pull/70) |
+| RPT-012 | Build and publish reproducible Indonesia AI/data-center resource research and an interactive visual report | Codex | `codex/indonesia-ai-research` | Review | [PR #70](https://github.com/LonghandResearch/longhandresearch.github.io/pull/70) |
 
 ## Status values
 
