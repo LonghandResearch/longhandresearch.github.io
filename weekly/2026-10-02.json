@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "weekEnding": "2026-10-02",
   "published": "2026-10-03",
-  "reviewed": "2026-10-03",
+  "reviewed": "2026-10-04",
   "period": "28 September to 2 October 2026",
   "title": "Foreign Selling Deepened. Technology Led the Fall.",
   "titleLead": "Foreign selling deepened.",
@@ -35,27 +35,30 @@
     "weekly": {
       "label": "IDX Weekly Statistics, 2 October 2026",
       "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
-      "note": "Choose the weekly report for this date. Market activity is on page 1, net foreign trading on page 2, the biggest losers and the trading summary on page 4, index movers on page 5 and sector indices on page 7."
+      "note": "Market activity is on page 1, foreign trading on page 2, breadth and weekly losers on page 4, index movers on page 5, and sectors on page 7."
     },
     "daily": {
       "label": "IDX Daily Statistics, 28 September to 2 October 2026",
       "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
-      "note": "Choose the daily report for each date for closing levels and net foreign buying. The 25 September close is shown as the previous close in the 28 September report."
+      "note": "Use the report for each trading day. The 2 October report, page 4, lists the market capitalisation figures checked against the Flowless table."
     },
     "jisdor": {
       "label": "Bank Indonesia JISDOR, 25 September to 2 October 2026",
       "url": "https://www.bi.go.id/en/statistik/informasi-kurs/jisdor/Default.aspx",
-      "note": "Daily reference rates, set at a different time from the stock market close."
+      "note": "Daily reference rates."
     },
     "biDecision": {
       "label": "Bank Indonesia Board of Governors decision, 23 September 2026",
-      "url": "https://www.bi.go.id/en/publikasi/ruang-media/news-release/Pages/sp_2819326.aspx",
-      "note": "The latest BI-Rate decision before this week."
+      "url": "https://www.bi.go.id/en/publikasi/ruang-media/news-release/Pages/sp_2819326.aspx"
     },
     "fedDecision": {
       "label": "Federal Reserve FOMC statement, 16 September 2026",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
-      "note": "The latest Fed rate decision before this week."
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+    },
+    "flowlessSnapshot": {
+      "label": "Flowless stock snapshot, 2 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-02.json",
+      "note": "Frozen regular-market stock readings and selection rule. Five-day foreign net is estimated from share volume and closing prices, not official IDX foreign trading value."
     }
   },
   "observations": {
@@ -570,7 +573,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "IDX's index-mover table puts GOTO alone at 36.71 points of the IHSG's fall, 17.9% of the net 205.004-point drop, as its price fell 40% from Rp50 to Rp30. GOTO, AMMN and TLKM together took off 70.59 points, about a third of the net decline. The three biggest positive contributors, DSSA, UNTR and VKTR, added 16.37 points.",
+          "text": "GOTO dominated the week's index movers. Its price fell 40% from Rp50 to Rp30, taking 36.71 points off the IHSG. That was 17.9% of the index's net 205.004-point decline. Add AMMN and TLKM, and the three stocks account for 70.59 points, about a third of the fall. There was some support on the other side: DSSA, UNTR and VKTR, the three largest positive contributors, added 16.37 points between them.",
           "sources": [
             "weekly"
           ]
@@ -585,9 +588,55 @@
         },
         {
           "type": "paragraph",
-          "text": "GOTO also helped Friday's rebound. It rose 7.14% that day and added 3.70 of the IHSG's 27.386-point gain, according to the 2 October daily report. Even so, it was still the biggest drag on the index for the week.",
+          "text": "Friday's rise did little to change GOTO's place in the weekly picture. It gained 7.14% that day and added 3.70 points to the IHSG's 27.386-point rebound, yet remained the index's largest drag over the full five sessions.",
           "sources": [
             "daily"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Large shares with active trading"
+        },
+        {
+          "type": "paragraph",
+          "text": "A large market value does not always mean a share is easy to trade. For this view, a stock needed at least Rp50bn in average daily trading value over the last 20 sessions, with a trade on every one of those days. The five largest that passed were BBCA, BBRI, BMRI, AMMN and TLKM. The ranking shows which large names had substantial recent trading, not whether their prices are attractive or an investment in them is safe.",
+          "sources": [
+            "flowlessSnapshot"
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Large, actively traded stocks at the 2 October close",
+          "headers": [
+            "Ticker",
+            "Market cap, Rp tn",
+            "20-day average value, Rp bn",
+            "Estimated foreign net flow, 5 days, Rp bn"
+          ],
+          "rows": [
+            ["BBCA", "744.46", "799.60", "−292.94"],
+            ["BBRI", "462.13", "538.81", "−184.36"],
+            ["BMRI", "372.37", "537.89", "−855.89"],
+            ["AMMN", "307.48", "435.50", "−13.06"],
+            ["TLKM", "222.89", "352.37", "−468.25"]
+          ],
+          "sources": [
+            "flowlessSnapshot",
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The week's losses reached this large, actively traded group too. AMMN, TLKM, BBCA and BBRI were among the ten stocks that pulled the IHSG down most. GOTO was the single largest drag, but those four names show that the fall also ran through shares with substantial recent trading.",
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "All five foreign-flow estimates in the table are negative, with the largest estimated net sale in BMRI. The calculation values foreign share volumes at each day's closing price, so it gives a stock-level signal rather than IDX's official traded value. The estimates cover regular-market trading and cannot be added to the official market-wide foreign-flow figure. The 20-day trading averages use the regular-market stock summary, while the wider daily values elsewhere in this report include other markets.",
+          "sources": [
+            "flowlessSnapshot"
           ]
         }
       ]
