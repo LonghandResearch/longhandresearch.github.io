@@ -19,6 +19,12 @@ approval.
 - [ ] Every number typed into the page's prose (shares, sums, differences,
       "third week in a row") is recomputed from the data file. The site check
       does not see these.
+- [ ] Stock and sector foreign-flow figures from flowless are called regular-market
+      estimates on the page, are not added to or compared with IDX's official totals
+      as if they were the same measure, and match a fresh run of
+      `python -m idxflow.weekly` for the same week.
+- [ ] Each explanation of a sector or stock move fits both the flow data and a
+      dated source, and moves with no source are described, not explained.
 - [ ] A run of weeks or days is checked against each period's own source,
       not only the "last week" column of the latest one.
 - [ ] The source list names the document and page each figure came from,
