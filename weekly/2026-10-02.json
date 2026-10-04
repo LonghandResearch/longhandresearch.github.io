@@ -35,7 +35,7 @@
     "weekly": {
       "label": "IDX Weekly Statistics, 2 October 2026",
       "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
-      "note": "Pages 1, 2, 4, 5 and 7 contain the figures used here."
+      "note": "Market activity is on page 1, foreign trading on page 2, breadth and weekly losers on page 4, index movers on page 5, and sectors on page 7."
     },
     "daily": {
       "label": "IDX Daily Statistics, 28 September to 2 October 2026",
@@ -58,7 +58,7 @@
     "flowlessSnapshot": {
       "label": "Flowless stock snapshot, 2 October 2026",
       "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-02.json",
-      "note": "Frozen stock readings and selection rule. Five-day foreign net is estimated from share volume and closing prices, not official IDX foreign trading value."
+      "note": "Frozen regular-market stock readings and selection rule. Five-day foreign net is estimated from share volume and closing prices, not official IDX foreign trading value."
     }
   },
   "observations": {
@@ -634,7 +634,7 @@
         },
         {
           "type": "paragraph",
-          "text": "All five foreign-flow estimates in the table are negative, with the largest estimated net sale in BMRI. The calculation values foreign share volumes at each day's closing price, so it gives a stock-level signal rather than IDX's official traded value. The estimates cannot be added to the official market-wide foreign-flow figure. The 20-day trading averages come from a stock-summary series whose daily values differ from the market statistics used elsewhere in this report.",
+          "text": "All five foreign-flow estimates in the table are negative, with the largest estimated net sale in BMRI. The calculation values foreign share volumes at each day's closing price, so it gives a stock-level signal rather than IDX's official traded value. The estimates cover regular-market trading and cannot be added to the official market-wide foreign-flow figure. The 20-day trading averages use the regular-market stock summary, while the wider daily values elsewhere in this report include other markets.",
           "sources": [
             "flowlessSnapshot"
           ]

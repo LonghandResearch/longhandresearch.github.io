@@ -1,11 +1,11 @@
 {
   "asOf": "2026-10-02",
   "runtimeCommit": "182fe27",
-  "origin": "Flowless local terminal, using IDX Daily Trading Summary",
+  "origin": "Flowless local terminal, using the regular-market stock series in IDX Daily Trading Summary",
   "method": {
     "marketCapRp": "2 October close multiplied by reported shares outstanding",
-    "adtv20Rp": "Mean daily trading value over 20 IDX trading sessions ending 2 October",
-    "foreignNet5RpEstimate": "Sum of five daily (foreign buy shares minus foreign sell shares) multiplied by each day's close. This is an estimate, not IDX's published foreign trading value."
+    "adtv20Rp": "Mean regular-market daily stock trading value over 20 IDX trading sessions ending 2 October",
+    "foreignNet5RpEstimate": "Sum of five daily (foreign buy shares minus foreign sell shares) multiplied by each day's close, using the regular-market stock series. This is an estimate, not IDX's published foreign trading value across all markets."
   },
   "selection": "Five largest by market capitalization with market cap at least Rp10tn, ADTV20 at least Rp50bn, no zero-trade days in the last 20 sessions, and Flowless is_illiquid false. The threshold describes trading depth, not investment safety.",
   "stocks": [
