@@ -25,7 +25,15 @@
     { type: 'agent.started_task', agentId: 'researcher', task: 'Reading AI infrastructure sources', status: 'READING', location: 'library', progress: 4 },
     { type: 'agent.started_task', agentId: 'analyst', task: 'Checking the model assumptions', location: 'data', progress: 6 },
     { type: 'agent.started_task', agentId: 'editor', task: 'Reviewing clarity and source notes', status: 'REVIEWING', location: 'editor', progress: 9 },
-    { type: 'agent.started_task', agentId: 'director', task: 'Setting the next research agenda', status: 'THINKING', location: 'director', progress: 12 }
+    { type: 'agent.started_task', agentId: 'director', task: 'Setting the next research agenda', status: 'THINKING', location: 'director', progress: 12 },
+    { type: 'agent.started_task', agentId: 'researcher-ii', task: 'Comparing the supporting source notes', status: 'READING', location: 'library', progress: 15 },
+    { type: 'agent.started_task', agentId: 'analyst-ii', task: 'Discussing the scenario checks', location: 'research', progress: 23 },
+    { type: 'agent.started_task', agentId: 'editor-ii', task: 'Checking the simulated source pack', status: 'REVIEWING', location: 'library', progress: 31 },
+    { type: 'agent.started_task', agentId: 'associate', task: 'Preparing the next team handoff', location: 'research', progress: 19 },
+    { type: 'agent.completed_task', agentId: 'researcher-ii', location: 'research' },
+    { type: 'agent.completed_task', agentId: 'analyst-ii', location: 'data' },
+    { type: 'agent.completed_task', agentId: 'editor-ii', location: 'editor' },
+    { type: 'agent.completed_task', agentId: 'associate', location: 'hall' }
   ].map(Object.freeze));
   function createSource(dispatch) {
     let cursor = 0;

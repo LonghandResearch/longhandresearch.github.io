@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Longhand World · Longhand Research</title>
-  <meta name="description" content="A quiet virtual research institution. Explore six rooms and four simulated research agents in Longhand World V0.1.">
-  <meta name="theme-color" content="#111916">
+  <meta name="description" content="A modern high-rise research headquarters. Explore six departments and eight simulated professionals in Longhand World V0.1.">
+  <meta name="theme-color" content="#11171f">
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="world.css?v=2026-10-05a">
-  <script src="state.js?v=2026-10-05a" defer></script>
-  <script src="movement.js?v=2026-10-05a" defer></script>
-  <script src="mock-events.js?v=2026-10-05a" defer></script>
-  <script src="world.js?v=2026-10-05a" defer></script>
+  <link rel="stylesheet" href="world.css?v=2026-10-05d">
+  <script src="state.js?v=2026-10-05d" defer></script>
+  <script src="movement.js?v=2026-10-05d" defer></script>
+  <script src="mock-events.js?v=2026-10-05d" defer></script>
+  <script src="sprites.js?v=2026-10-05d" defer></script>
+  <script src="world.js?v=2026-10-05d" defer></script>
 </head>
 <body class="world-page">
   <a class="world-skip" href="#main">Skip to the institution</a>
@@ -29,27 +30,27 @@
   <main id="main" class="world-main">
     <header class="world-intro">
       <div>
-        <p class="world-eyebrow">Longhand Research / An open door</p>
+        <p class="world-eyebrow">Longhand Research / Research headquarters</p>
         <h1>Longhand <em>World</em><span class="world-version">V0.1</span></h1>
-        <p class="world-lede">A quiet place for research to take shape.</p>
+        <p class="world-lede">Above the city. Close to the evidence.</p>
       </div>
-      <div class="world-disclosure"><span class="world-indicator" aria-hidden="true"></span><strong>Simulated activity</strong><p>Four prototype agents. No live AI work.<br>No reports are created or published here.</p></div>
+      <div class="world-disclosure"><span class="world-indicator" aria-hidden="true"></span><strong>Simulated activity</strong><p>Eight research professionals. Prototype tasks.<br>No live AI work or report publishing.</p></div>
     </header>
 
     <section class="world-layout" aria-label="The research institution">
       <div class="world-building">
-        <div class="world-map-heading"><div><p class="world-eyebrow">The institution</p><p>Select a member to see their work.</p></div><span class="world-map-index">Floor 01 / Six rooms</span></div>
+        <div class="world-map-heading"><div><p class="world-eyebrow">The research floor</p><p>Select a member to see their work.</p></div><span class="world-map-index">High-rise HQ / Six departments</span></div>
         <figure class="world-map-figure">
           <div class="world-map-scroll" tabindex="0" role="region" aria-label="Institution floor plan" aria-describedby="map-help">
             <div class="world-map" id="world-map">
-              <img src="assets/institution.svg" width="960" height="620" alt="Pixel-art cutaway of a walnut library and research offices joined by Main Hall. Room labels and interactive staff are overlaid on the floor plan." draggable="false">
+              <img src="assets/institution.svg?v=2026-10-05d" width="960" height="620" alt="Detailed pixel-art cutaway of a modern skyscraper research floor, with panoramic city windows, glass offices, large monitors and a warm executive workspace. Six departments and interactive staff are labelled on the floor plan." draggable="false">
               <span class="world-room" style="--x:208;--y:104">01 <strong>Library</strong></span>
               <span class="world-room" style="--x:474;--y:104">02 <strong>Research Office</strong></span>
               <span class="world-room" style="--x:754;--y:104">03 <strong>Data Lab</strong></span>
               <span class="world-room world-room-hall" style="--x:155;--y:291">04 <strong>Main Hall</strong></span>
               <span class="world-room" style="--x:208;--y:391">05 <strong>Editor Office</strong></span>
               <span class="world-room" style="--x:754;--y:391">06 <strong>Director Office</strong></span>
-              <span class="world-entrance" aria-hidden="true">LONGHAND / RESEARCH INSTITUTION</span>
+              <span class="world-entrance" aria-hidden="true">LONGHAND / RESEARCH HEADQUARTERS</span>
               <div class="world-characters" id="characters"></div>
             </div>
           </div>
@@ -63,7 +64,7 @@
       </div>
 
       <aside class="world-dossier" aria-labelledby="agent-name">
-        <div class="world-dossier-top"><p class="world-eyebrow">Staff dossier</p><span id="agent-number">01 / 04</span></div>
+        <div class="world-dossier-top"><p class="world-eyebrow">Staff dossier</p><span id="agent-number">01 / 08</span></div>
         <div class="world-portrait" id="agent-portrait" aria-hidden="true"></div>
         <h2 id="agent-name">Research Director</h2>
         <p class="world-role" id="agent-role">Research direction</p>
@@ -83,9 +84,9 @@
       <ol id="event-log"><li class="world-journal-empty">The team is at work. The next event will appear here.</li></ol>
     </section>
     <p class="world-sr-only" id="world-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
-    <noscript><p class="world-noscript">Enable JavaScript to see and select the four agents. The floor plan and links to the existing research site remain available.</p></noscript>
+    <noscript><p class="world-noscript">Enable JavaScript to see and select the eight staff. The floor plan and links to the existing research site remain available.</p></noscript>
   </main>
 
-  <footer class="world-footer"><span>Longhand World <span aria-hidden="true">/</span> A research institution in miniature</span><a href="../library.html">Open the research library <span aria-hidden="true">↗</span></a></footer>
+  <footer class="world-footer"><span>Longhand World <span aria-hidden="true">/</span> A research headquarters in miniature</span><a href="../library.html">Open the research library <span aria-hidden="true">↗</span></a></footer>
 </body>
 </html>

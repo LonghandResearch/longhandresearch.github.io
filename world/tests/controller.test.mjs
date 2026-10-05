@@ -49,7 +49,7 @@ function controller(options = {}) {
     addEventListener() {}
   });
   context.window = context;
-  for (const file of ['state.js', 'movement.js', 'mock-events.js', 'world.js']) {
+  for (const file of ['state.js', 'movement.js', 'mock-events.js', 'sprites.js', 'world.js']) {
     vm.runInContext(fs.readFileSync(path.join(root, 'world', file), 'utf8'), context, { filename: file });
   }
   return {
@@ -68,6 +68,29 @@ function moveTogether(app) {
   assert.equal(app.world.dispatch({ type: 'agent.moved', agentId: 'researcher', location: 'hall' }), true);
   assert.equal(app.world.dispatch({ type: 'agent.moved', agentId: 'analyst', location: 'hall' }), true);
 }
+
+test('all eight visual staff can be selected from the map and roster', () => {
+  const app = controller();
+  const agents = app.world.getSnapshot().agents;
+  const map = app.elements.get('characters').children;
+  const roster = app.elements.get('roster').children;
+  assert.equal(map.length, 8);
+  assert.equal(roster.length, 8);
+  assert.equal(new Set(map.map(button => button.attributes['aria-label'])).size, 8);
+  for (const [index, agent] of agents.entries()) {
+    assert.ok(Object.hasOwn(app.world.Visual.DESIGNS, agent.id));
+    for (const button of [map[index], roster[index]]) {
+      assert.ok(button.querySelector('svg').children.length > 30, 'detailed native sprite exists');
+      button.emit('click');
+      assert.equal(app.elements.get('agent-name').textContent, agent.name);
+      assert.equal(app.elements.get('agent-number').textContent, String(index + 1).padStart(2, '0') + ' / 08');
+      assert.equal(app.elements.get('agent-portrait').dataset.agent, agent.id);
+      assert.equal(button.attributes['aria-pressed'], 'true');
+    }
+  }
+  app.click('reset');
+  assert.equal(app.elements.get('world-announcement').textContent, 'Simulation restarted. All 8 staff are back at their initial tasks.');
+});
 
 test('concurrent travel and first arrival retain at most one animation frame', () => {
   const app = controller(); moveTogether(app);

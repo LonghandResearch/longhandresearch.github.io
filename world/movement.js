@@ -7,12 +7,12 @@
     editor: { x: 220, y: 448 }, director: { x: 758, y: 448 }, hall: { x: 474, y: 418 }
   });
   const OFFSETS = {
-    hall: { director: -48, researcher: -16, analyst: 16, editor: 48 },
-    library: { editor: 38, analyst: -38, director: 18 },
-    research: { analyst: 38, editor: -38, director: 70 },
-    data: { researcher: -38, editor: 38, director: 70 },
-    editor: { researcher: -38, analyst: 38, director: -18 },
-    director: { researcher: -38, analyst: 38, editor: 70 }
+    hall: { director: -48, researcher: -16, analyst: 16, editor: 48, 'researcher-ii': -70, 'analyst-ii': 70, 'editor-ii': -36, associate: 32 },
+    library: { editor: 38, analyst: -38, director: 18, 'researcher-ii': -70, 'analyst-ii': -18, 'editor-ii': 70, associate: 54 },
+    research: { analyst: 38, editor: -38, director: 70, 'researcher-ii': -70, 'analyst-ii': -18, 'editor-ii': 54, associate: 70 },
+    data: { researcher: -38, editor: 38, director: 70, 'researcher-ii': -70, 'analyst-ii': -38, 'editor-ii': 54, associate: -18 },
+    editor: { researcher: -38, analyst: 38, director: -18, 'researcher-ii': -70, 'analyst-ii': 54, 'editor-ii': 38, associate: 70 },
+    director: { researcher: -38, analyst: 38, editor: 70, 'researcher-ii': -70, 'analyst-ii': -18, 'editor-ii': 54, associate: 18 }
   };
   const station = (room, id) => ({ ...STATIONS[room], x: STATIONS[room].x + (OFFSETS[room][id] || 0) });
   const equal = (a, b) => Math.abs(a.x - b.x) < 0.01 && Math.abs(a.y - b.y) < 0.01;

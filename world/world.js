@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const World = window.LonghandWorld;
-  if (!World || !World.State || !World.Movement || !World.Mock) {
+  if (!World || !World.State || !World.Movement || !World.Mock || !World.Visual) {
     document.getElementById('simulation-status').textContent = 'The institution could not load. Refresh to try again.';
     return;
   }
@@ -24,35 +24,7 @@
   const behavior = (status) => ({ READING: 'read', WORKING: 'work', REVIEWING: 'review', THINKING: 'think', MEETING: 'meeting', COMPLETED: 'complete', ERROR: 'error', IDLE: 'idle' })[status];
 
   function sprite(id) {
-    const palette = {
-      director: { coat: '#4d5c55', shade: '#303e37', skin: '#c9a78a', hair: '#bdbaa8', tie: '#d5bf8e' },
-      researcher: { coat: '#8d8165', shade: '#625d48', skin: '#bd8c70', hair: '#433c30', tie: '#e0d4b6' },
-      analyst: { coat: '#64837f', shade: '#3c5955', skin: '#d5b592', hair: '#383c34', tie: '#bed0c0' },
-      editor: { coat: '#8b706f', shade: '#604e51', skin: '#b98467', hair: '#342e29', tie: '#d1b99c' }
-    }[id];
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', '0 0 12 20');
-    svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('focusable', 'false');
-    svg.setAttribute('shape-rendering', 'crispEdges');
-    svg.classList.add('world-sprite');
-    const rect = (x, y, width, height, fill) => {
-      const pixel = document.createElementNS(svg.namespaceURI, 'rect');
-      Object.entries({ x, y, width, height, fill }).forEach(([key, value]) => pixel.setAttribute(key, value));
-      svg.append(pixel);
-    };
-    rect(4, 1, 5, 6, palette.skin); rect(3, 1, 6, 2, palette.hair);
-    rect(3, 3, 1, 3, palette.hair); rect(8, 3, 1, 1, palette.hair);
-    rect(5, 4, 1, 1, '#423b32'); rect(7, 4, 1, 1, '#423b32');
-    rect(5, 7, 2, 1, palette.skin); rect(3, 8, 6, 7, palette.coat);
-    rect(2, 9, 1, 6, palette.shade); rect(9, 9, 1, 6, palette.shade);
-    rect(5, 8, 2, 4, palette.tie); rect(6, 10, 1, 3, palette.shade);
-    rect(2, 15, 1, 1, palette.skin); rect(9, 15, 1, 1, palette.skin);
-    rect(3, 15, 3, 4, '#34392f'); rect(7, 15, 2, 4, '#34392f');
-    rect(2, 19, 4, 1, '#21281f'); rect(7, 19, 3, 1, '#21281f');
-    if (id === 'editor') { rect(3, 5, 2, 3, palette.hair); rect(8, 4, 2, 4, palette.hair); }
-    if (id === 'director') { rect(4, 4, 5, 1, '#999c8d'); }
-    return svg;
+    return World.Visual.createSprite(document, id);
   }
 
   function createMember(agent) {
@@ -71,7 +43,7 @@
     name.className = 'world-member-name'; name.textContent = agent.name;
     const status = document.createElement('span');
     status.className = 'world-member-status';
-    member.append(name, status);
+    member.append(sprite(agent.id), name, status);
     member.addEventListener('click', () => select(agent.id));
     $('roster').append(member);
     elements.set(agent.id, { character, member, status });
@@ -84,7 +56,7 @@
     announce(agent.name + ', ' + agent.status.toLowerCase() + ', ' + World.State.ROOMS[agent.location] + '. ' + agent.currentTask + ', ' + agent.progress + ' percent.');
   }
   function renderPanel(agent) {
-    $('agent-number').textContent = String(snapshot.agents.indexOf(agent) + 1).padStart(2, '0') + ' / 04';
+    $('agent-number').textContent = String(snapshot.agents.indexOf(agent) + 1).padStart(2, '0') + ' / ' + String(snapshot.agents.length).padStart(2, '0');
     $('agent-name').textContent = agent.name;
     $('agent-role').textContent = agent.role;
     $('agent-description').textContent = agent.description;
@@ -225,7 +197,7 @@
     source.reset(); store.reset();
     render(store.getSnapshot());
     eventRemaining = 4000; schedule(); updateControls();
-    announce('Simulation restarted. All four agents are back at their initial tasks.');
+    announce('Simulation restarted. All ' + snapshot.agents.length + ' staff are back at their initial tasks.');
   });
   document.addEventListener('visibilitychange', syncActivity);
   window.addEventListener('pagehide', () => {

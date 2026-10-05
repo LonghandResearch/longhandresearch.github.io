@@ -1,6 +1,6 @@
 # Longhand World V0.1
 
-A self-contained, simulated research institution. This page creates no research,
+A self-contained, simulated high-rise research headquarters. This page creates no research,
 calls no AI service and publishes nothing. All tasks and agent activity are mock
 data. Existing research stays in the parent site's library.
 
@@ -33,16 +33,28 @@ and local SVG, so it also supports `file://`.
 | `state.js` | DOM-free agent model, validated event reducer and bounded journal |
 | `movement.js` | DOM-free waypoint behavior, independent of event production |
 | `mock-events.js` | Deterministic, repeating prototype event source |
+| `sprites.js` | Eight original professional pixel sprites; visual configuration keyed by agent ID |
 | `world.js` | Rendering, selection, simulation clock and adapter surface |
 | `tests/state.test.mjs` | Independent state, event and movement invariant tests |
 | `tests/controller.test.mjs` | Timer, animation, pause, restart and reduced-motion regression tests |
 
 The six rooms are Main Hall, Library, Research Office, Data Lab, Editor Office and
-Director Office. The Research Director, Researcher, Data Analyst and Editor have
-distinct professional sprites, roles and initial tasks. Every character and staff
+Director Office. Eight staff have distinct professional sprites, roles and initial
+tasks: a generic Research Director, male and female Researchers, male and female
+Data Analysts, male and female Editors, and a female Research Associate.
+The second member of each department uses the suffix II. Every character and staff
 list entry is a native button. Selecting either updates the same staff dossier:
 name, role, status, last confirmed location, destination when moving, current
 task, progress and timestamped last activity.
+
+The environment is original SVG pixel art of a modern skyscraper floor: cool city
+glazing, glass partitions, warm stone and wood, slim monitors and a furnished
+executive office. The six-room geometry, corridor and door gaps are retained.
+Appearance lives separately from state in `Visual.DESIGNS`; each design specifies
+hair, clothing, skin tone and a work accessory. To personalize the Director from a
+future reference photo, edit only `DESIGNS.director` and, if necessary, its drawing
+details in `createSprite`. All staff use the same 24 × 38 sprite canvas. No real
+person or reference image is embedded in this prototype.
 
 The model holds `id`, `name`, `role`, `location`, `status`, `currentTask`, `progress`
 and `lastActivity`, plus a description, `destination` and readable activity text.
@@ -95,6 +107,10 @@ Restart restores the agents and sequence, preserving selection and pause choice.
 Hidden pages suspend timers and animation. Reduced motion starts in manual mode
 and always uses immediate arrival rather than animated travel.
 
+The original four IDs and mock event sequence remain intact. Four added staff use
+the same data schema, with additional station offsets and an appended mock handoff
+and return sequence; the reducer, waypoint algorithm and event producer are unchanged.
+
 Movement uses clear room exits and one corridor, with a few waypoints. It supports
 replacement destinations during a walk and emits arrivals only after reaching
 the target. Small per-agent station offsets keep visiting colleagues separate.
@@ -113,7 +129,7 @@ V0.1 does not implement a request submission flow, storage or real agent executi
 
 World loads no parent site JavaScript, stylesheet, catalogue, analytics or CDN.
 Its typography follows the parent's serif/sans editorial language using system
-fallbacks, with restrained brass, paper and dark green. Parent HTML navigation is
+fallbacks, with charcoal, muted navy, steel and a restrained amber accent. Parent HTML navigation is
 unchanged because it is repeated across pages; World is independently accessible.
 The only existing-file change is the required `TASKS.md` ownership/review row.
 
@@ -139,12 +155,14 @@ PR review and GitHub Pages process; this addition does not alter that workflow.
 
 Checked on 5 October 2026:
 
-- All 19 state, event, movement and controller tests pass, including all 144
+- All 20 state, event, movement and controller tests pass, including all 288
   agent/room-pair doorway routes, interrupted travel, simultaneous arrivals,
   one animation loop, pause/restart, hidden-page suspension and reduced motion.
+  Both complete mock cycles keep every colleague's sprite center outside other
+  staff hitboxes at the floor plan's minimum 700 pixel width.
 - The shared site checker passes script parsing, all existing JSON, catalogue,
   sitemap and exact-case links, including the new nested World page.
-- Browser preview confirms six rooms, four selectable characters, matching
+- Browser preview confirms six rooms, eight selectable characters, matching
   dossiers, Enter/Space selection, the complete mock cycle including ERROR and
   COMPLETED, animated travel and arrival, manual Next event and pause/restart.
 - Direct HTTP `world/` and `world/index.html` load; refresh works. Artwork loads
