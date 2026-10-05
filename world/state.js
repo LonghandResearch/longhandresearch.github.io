@@ -2,14 +2,14 @@
 (function (root) {
   'use strict';
   const World = root.LonghandWorld = root.LonghandWorld || {};
-  const STATUSES = Object.freeze(['IDLE', 'WORKING', 'THINKING', 'READING', 'MEETING', 'REVIEWING', 'COMPLETED', 'ERROR']);
+  const STATUSES = Object.freeze(['IDLE', 'WORKING', 'THINKING', 'DIRECTING', 'READING', 'MEETING', 'REVIEWING', 'COMPLETED', 'ERROR']);
   const ROOMS = Object.freeze({
     hall: 'Main Hall', library: 'Library', research: 'Research Office',
     data: 'Data Lab', editor: 'Editor Office', director: 'Director Office'
   });
   const INITIAL_AGENTS = Object.freeze([
-    { id: 'director', name: 'Research Director', role: 'Research direction', location: 'director', status: 'THINKING', currentTask: 'Setting the research agenda', progress: 18,
-      description: 'Sets the question, assigns the work and considers the final argument.' },
+    { id: 'director', name: 'Research Director', role: 'Founder & Research Lead', location: 'director', status: 'THINKING', currentTask: 'Setting the research agenda', progress: 18,
+      description: 'Leads Longhand Research, sets the research agenda and reviews the team\'s evidence and final argument.' },
     { id: 'researcher', name: 'Researcher I', role: 'Primary research', location: 'library', status: 'READING', currentTask: 'Reading AI infrastructure sources', progress: 34,
       description: 'Reads original sources and builds a reasoned research draft.' },
     { id: 'researcher-ii', name: 'Researcher II', role: 'Research and synthesis', location: 'research', status: 'THINKING', currentTask: 'Structuring the research questions', progress: 27,

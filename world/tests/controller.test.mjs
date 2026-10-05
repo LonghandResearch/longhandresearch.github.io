@@ -92,6 +92,27 @@ test('all eleven visual staff can be selected from the map and roster', () => {
   assert.equal(app.elements.get('world-announcement').textContent, 'Simulation restarted. All 11 staff are back at their initial tasks.');
 });
 
+test('director states and department visits reuse the shared controller without changing colleagues', () => {
+  const app = controller({ reduced: true });
+  const colleagues = () => JSON.parse(JSON.stringify(app.world.getSnapshot().agents.filter(agent => agent.id !== 'director')));
+  const before = colleagues();
+  const director = app.elements.get('characters').children[0];
+  for (const status of ['IDLE', 'THINKING', 'REVIEWING', 'DIRECTING', 'MEETING', 'WORKING', 'COMPLETED']) {
+    assert.equal(app.world.dispatch({ type: 'agent.changed_status', agentId: 'director', status }), true);
+    assert.equal(app.elements.get('agent-status').textContent, status);
+    assert.equal(director.dataset.status, status);
+    assert.ok(director.dataset.behavior, 'supported status has an existing visual behavior');
+  }
+  for (const location of ['research', 'data', 'editor', 'hall', 'director']) {
+    assert.equal(app.world.dispatch({ type: 'agent.changed_status', agentId: 'director', status: location === 'director' ? 'IDLE' : 'MEETING', location }), true);
+    assert.equal(app.world.getSnapshot().agents[0].location, location);
+    assert.equal(app.world.getSnapshot().agents[0].destination, null);
+    assert.equal(app.elements.get('agent-location').textContent, app.world.State.ROOMS[location]);
+  }
+  assert.deepEqual(colleagues(), before);
+  assert.equal(app.frames.size, 0);
+});
+
 test('concurrent travel and first arrival retain at most one animation frame', () => {
   const app = controller(); moveTogether(app);
   assert.equal(app.frames.size, 1);

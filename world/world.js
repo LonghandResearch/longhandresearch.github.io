@@ -21,7 +21,7 @@
   const timeFormat = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   const showTime = (value) => timeFormat.format(new Date(value));
   const active = () => !userPaused && !document.hidden;
-  const behavior = (status) => ({ READING: 'read', WORKING: 'work', REVIEWING: 'review', THINKING: 'think', MEETING: 'meeting', COMPLETED: 'complete', ERROR: 'error', IDLE: 'idle' })[status];
+  const behavior = (status) => ({ READING: 'read', WORKING: 'work', REVIEWING: 'review', THINKING: 'think', DIRECTING: 'meeting', MEETING: 'meeting', COMPLETED: 'complete', ERROR: 'error', IDLE: 'idle' })[status];
 
   function sprite(id) {
     return World.Visual.createSprite(document, id);

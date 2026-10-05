@@ -3,7 +3,7 @@
   'use strict';
   const World = root.LonghandWorld = root.LonghandWorld || {};
   const DESIGNS = Object.freeze({
-    director: { coat: '#344250', shade: '#202d3a', shirt: '#e6e0d3', skin: '#ba967e', hair: '#4b4844', hairShade: '#303538', trousers: '#26323f', accent: '#b79d71', hairStyle: 'executive', outfit: 'executive', pose: 'director', stance: 'balanced', build: 'broad', glasses: false },
+    director: { coat: '#37434b', shade: '#263139', shirt: '#d9dbd1', skin: '#b58b6d', hair: '#252b2d', hairShade: '#1d2529', trousers: '#33404a', accent: '#8b9a9d', hairStyle: 'center-part', outfit: 'smart-casual', pose: 'director', stance: 'balanced', build: 'average', glasses: true },
     researcher: { coat: '#827a6c', shade: '#5c5b55', shirt: '#ddd9cd', skin: '#c29b7e', hair: '#574637', hairShade: '#3a3530', trousers: '#36414b', accent: '#ac9879', hairStyle: 'part', outfit: 'cardigan', pose: 'reading', stance: 'offset', build: 'slim', glasses: false },
     'researcher-ii': { coat: '#637581', shade: '#415461', shirt: '#d9dfdf', skin: '#946b51', hair: '#292e32', hairShade: '#20272c', trousers: '#3c4145', accent: '#9eaeb3', hairStyle: 'crop', outfit: 'shirt', pose: 'laptop', stance: 'relaxed', build: 'broad', glasses: false },
     'researcher-female': { coat: '#c4bca9', shade: '#8f928c', shirt: '#e7e2d7', skin: '#b58b70', hair: '#443a34', hairShade: '#2d3030', trousers: '#35414a', accent: '#a89a7e', hairStyle: 'bun', outfit: 'longline', pose: 'notes', stance: 'close', build: 'female', glasses: false },
@@ -64,7 +64,7 @@
     rect(left+3,47,right-left-4,5,p.trousers);
     const leftLeg = p.stance === 'relaxed' ? left+1 : left+3;
     const rightLeg = p.stance === 'close' ? 26 : p.stance === 'offset' ? 29 : 28;
-    const legWidth = female ? 8 : broad ? 9 : 7;
+    const legWidth = female || p.build === 'average' ? 8 : broad ? 9 : 7;
     const leftFoot = p.stance === 'offset' ? 76 : 77;
     shape([[leftLeg,51],[leftLeg+legWidth,51],[leftLeg+legWidth,60],[leftLeg+legWidth-1,60],[leftLeg+legWidth-1,leftFoot],[leftLeg,leftFoot]],p.trousers);
     shape([[rightLeg,51],[rightLeg+legWidth,51],[rightLeg+legWidth,77],[rightLeg,77],[rightLeg,64],[rightLeg-1,64],[rightLeg-1,58],[rightLeg,58]],tint(p.trousers,-8));
@@ -104,6 +104,12 @@
     } else if (p.outfit === 'cardigan') {
       rect(23,28,2,19,p.shade); rect(25,30,2,16,p.shirt); rect(23,43,1,1,p.accent);
       rect(left+3,44,5,2,p.shade); rect(right-9,44,5,2,p.shade);
+    } else if (p.outfit === 'smart-casual') {
+      // An open neutral jacket and clean shirt keep the Director approachable, without a tie or luxury details.
+      rect(23,27,6,19,p.shirt); rect(24,28,1,17,tint(p.shirt,-17));
+      rect(27,30,1,1,p.accent); rect(27,36,1,1,p.accent); rect(27,42,1,1,p.accent);
+      rect(left+4,41,5,1,p.shade); rect(right-9,41,5,1,p.shade);
+      rect(left+3,31,1,12,tint(p.coat,11)); rect(right-3,31,1,12,tint(p.coat,-10));
     } else if (p.outfit === 'executive') {
       shape([[23,28],[28,28],[28,33],[30,33],[30,45],[25,48],[21,45],[21,33],[23,33]],'#24323e');
       rect(25,25,2,13,p.accent); rect(24,25,3,2,tint(p.accent,9)); rect(25,39,1,1,p.accent); rect(25,43,1,1,p.accent);
@@ -122,7 +128,13 @@
     rect(23,17,3,1,tint(p.skin,-24)); rect(22,16,1,1,skinLight);
     shape([[20,3],[27,3],[27,4],[30,4],[30,6],[31,6],[31,9],[29,9],[29,7],[23,7],[23,8],[20,8],[20,11],[18,11],[18,6],[19,6],[19,4],[20,4]],p.hairShade);
     rect(20,4,8,2,p.hair); rect(19,6,3,1,p.hair); rect(29,6,1,3,p.hair);
-    if (['part','executive','temples','sweep'].includes(p.hairStyle)) {
+    if (p.hairStyle === 'center-part') {
+      // A one-pixel central part and two dark sweeps remain legible at the existing map scale.
+      rect(20,4,5,3,p.hair); rect(26,4,4,3,p.hair); rect(25,4,1,2,skinShade);
+      rect(25,6,1,2,p.skin); rect(22,7,3,2,p.hair); rect(26,7,3,2,p.hair);
+      rect(21,5,3,1,tint(p.hair,15)); rect(27,5,2,1,tint(p.hair,11));
+      rect(19,8,1,3,p.hairShade); rect(29,8,1,3,p.hairShade);
+    } else if (['part','executive','temples','sweep'].includes(p.hairStyle)) {
       rect(21,5,7,1,tint(p.hair,17)); rect(22,6,4,1,p.hair); rect(25,7,3,1,p.hairShade);
       if (p.hairStyle === 'sweep') { rect(21,2,5,2,p.hair); rect(23,2,3,1,tint(p.hair,12)); }
       if (p.hairStyle === 'temples') { rect(18,8,2,4,p.hair); rect(29,8,2,3,p.hair); rect(19,9,1,2,tint(p.hair,20)); }
@@ -168,10 +180,11 @@
     };
 
     if (p.pose === 'director') {
-      sleeve(left-2,28,5,17); hand(left-1,45); rect(left-1,42,4,2,p.accent); rect(left,42,2,1,'#e0d6b9');
+      sleeve(left-2,28,5,17); hand(left-1,45); rect(left-1,42,4,2,p.accent); rect(left,42,2,1,'#b7c2c0');
       sleeve(right-1,28,5,13); rect(right-2,39,5,5,p.coat); hand(right-3,42,5,4);
-      rect(right-2,43,6,15,'#45474a'); rect(right-1,44,4,13,'#5e5d56'); rect(right-1,46,3,1,p.accent); rect(right-2,57,6,1,edge);
-      rect(right-3,43,3,2,p.skin); rect(right,44,1,8,'#7b7566');
+      rect(right-2,43,6,15,'#424f58'); rect(right-1,44,4,13,'#6b797d'); rect(right-1,45,3,2,p.shirt); rect(right-2,57,6,1,edge);
+      rect(right-1,49,3,1,'#aab4b2'); rect(right-1,52,2,1,'#aab4b2');
+      rect(right-3,43,3,2,p.skin); rect(right,47,1,8,'#8d9a9b');
     } else if (p.pose === 'reading') {
       sleeve(left-2,28,5,9); shape([[left-1,35],[left+3,35],[left+3,37],[23,37],[23,41],[left+1,41],[left+1,39],[left-1,39]],p.coat);
       sleeve(right-1,28,5,8); rect(29,34,9,4,p.coat); paper(23,28,13,16); hand(21,38,4,4); hand(34,35,4,4);
