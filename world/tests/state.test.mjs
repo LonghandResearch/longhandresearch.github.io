@@ -14,17 +14,31 @@ const { State, Movement, Mock } = context.LonghandWorld;
 const plain = (value) => JSON.parse(JSON.stringify(value));
 const member = (store, id = 'researcher') => store.getSnapshot().agents.find(agent => agent.id === id);
 const create = () => State.createStore({ clock: () => '2026-10-05T00:00:00.000Z' });
+function assertSelectableStations(store, movement) {
+  const positions = movement.getPositions();
+  for (const [index, position] of positions.entries()) {
+    for (const colleague of positions.slice(index + 1)) {
+      if (member(store, position.id).location !== member(store, colleague.id).location) continue;
+      // At the minimum map width, a colleague's 44px hitbox must not cover this sprite's center.
+      assert.ok(Math.abs(position.x - colleague.x) * 700 / 960 > 22,
+        position.id + ' and ' + colleague.id + ' remain individually selectable');
+    }
+  }
+}
 
-test('initial state has eight distinct staff and every required field', () => {
-  const agents = create().getSnapshot().agents;
-  assert.equal(agents.length, 8);
-  assert.equal(new Set(agents.map(agent => agent.id)).size, 8);
-  assert.deepEqual(plain(agents.map(agent => agent.id)), ['director', 'researcher', 'researcher-ii', 'analyst', 'analyst-ii', 'editor', 'editor-ii', 'associate']);
+test('initial state has eleven distinct staff, required fields and selectable stations', () => {
+  const store = create();
+  const agents = store.getSnapshot().agents;
+  assert.equal(agents.length, 11);
+  assert.equal(new Set(agents.map(agent => agent.id)).size, 11);
+  assert.deepEqual(plain(agents.map(agent => agent.id)), ['director', 'researcher', 'researcher-ii', 'researcher-female', 'analyst', 'analyst-ii', 'analyst-female', 'editor', 'editor-ii', 'editor-female', 'associate']);
   for (const agent of agents) {
     for (const key of ['id', 'name', 'role', 'location', 'status', 'currentTask', 'progress', 'lastActivity']) assert.ok(Object.hasOwn(agent, key), key);
     assert.ok(State.STATUSES.includes(agent.status));
     assert.ok(Object.hasOwn(State.ROOMS, agent.location));
   }
+  const movement = Movement.createMovement(); movement.reset(agents);
+  assertSelectableStations(store, movement);
 });
 
 test('invalid events never mutate state, sequence, logs or notifications', () => {
@@ -174,15 +188,7 @@ test('two complete mock cycles dispatch and arrive successfully without invalid 
     for (const agent of store.getSnapshot().agents) {
       assert.ok(agent.progress >= 0 && agent.progress <= 100); assert.ok(State.STATUSES.includes(agent.status)); assert.equal(agent.destination, null);
     }
-    const positions = movement.getPositions();
-    for (const [index, position] of positions.entries()) {
-      for (const colleague of positions.slice(index + 1)) {
-        if (member(store, position.id).location !== member(store, colleague.id).location) continue;
-        // At the minimum map width, a colleague's 44px hitbox must not cover this sprite's center.
-        assert.ok(Math.abs(position.x - colleague.x) * 700 / 960 > 22,
-          position.id + ' and ' + colleague.id + ' remain individually selectable during the mock cycle');
-      }
-    }
+    assertSelectableStations(store, movement);
   }
   assert.equal(source.getCursor(), 0); assert.equal(store.getSnapshot().events.length, 12);
 });

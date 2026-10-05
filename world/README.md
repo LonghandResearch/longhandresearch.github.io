@@ -30,30 +30,36 @@ and local SVG, so it also supports `file://`.
 | `index.html` | Accessible page structure and links back to Longhand Research |
 | `world.css` | World-only editorial styling, small-screen layout and pixel characters |
 | `assets/institution.svg` | Original 960 × 620 pixel-art floor plan and furnishings |
+| `assets/city-outlook.svg` | Original 960 × 240 panoramic high-rise glazing and city view |
 | `state.js` | DOM-free agent model, validated event reducer and bounded journal |
 | `movement.js` | DOM-free waypoint behavior, independent of event production |
 | `mock-events.js` | Deterministic, repeating prototype event source |
-| `sprites.js` | Eight original professional pixel sprites; visual configuration keyed by agent ID |
+| `sprites.js` | Eleven original professional pixel sprites; visual configuration keyed by agent ID |
 | `world.js` | Rendering, selection, simulation clock and adapter surface |
 | `tests/state.test.mjs` | Independent state, event and movement invariant tests |
 | `tests/controller.test.mjs` | Timer, animation, pause, restart and reduced-motion regression tests |
 
 The six rooms are Main Hall, Library, Research Office, Data Lab, Editor Office and
-Director Office. Eight staff have distinct professional sprites, roles and initial
-tasks: a generic Research Director, male and female Researchers, male and female
-Data Analysts, male and female Editors, and a female Research Associate.
-The second member of each department uses the suffix II. Every character and staff
+Director Office. Eleven staff have distinct professional sprites, roles and initial
+tasks: a generic Research Director; Researcher I, Researcher II and Female
+Researcher; Data Analyst I, Data Analyst II and Female Data Analyst; Editor I,
+Editor II and Female Editor; and a female Research Associate.
+Every character and staff
 list entry is a native button. Selecting either updates the same staff dossier:
 name, role, status, last confirmed location, destination when moving, current
 task, progress and timestamped last activity.
 
-The environment is original SVG pixel art of a modern skyscraper floor: cool city
-glazing, glass partitions, warm stone and wood, slim monitors and a furnished
-executive office. The six-room geometry, corridor and door gaps are retained.
+The environment is original architectural SVG pixel art of a modern skyscraper
+floor: a substantial panoramic city outlook, cool glazing, glass partitions,
+warm stone and wood, varied workstations and a furnished executive office.
+The outlook remains at least 170 CSS pixels high on small screens. The floor's
+decorative ceiling strip is cropped together with its entire character wrapper;
+the 960 × 620 coordinates, six-room geometry, corridor and door gaps are retained.
 Appearance lives separately from state in `Visual.DESIGNS`; each design specifies
 hair, clothing, skin tone and a work accessory. To personalize the Director from a
 future reference photo, edit only `DESIGNS.director` and, if necessary, its drawing
-details in `createSprite`. All staff use the same 24 × 38 sprite canvas. No real
+details in `createSprite`. All staff use the same 48 × 80 sprite canvas. Their
+tailoring, stance, hairstyles, shading and held equipment vary. No real
 person or reference image is embedded in this prototype.
 
 The model holds `id`, `name`, `role`, `location`, `status`, `currentTask`, `progress`
@@ -107,16 +113,19 @@ Restart restores the agents and sequence, preserving selection and pause choice.
 Hidden pages suspend timers and animation. Reduced motion starts in manual mode
 and always uses immediate arrival rather than animated travel.
 
-The original four IDs and mock event sequence remain intact. Four added staff use
-the same data schema, with additional station offsets and an appended mock handoff
-and return sequence; the reducer, waypoint algorithm and event producer are unchanged.
+The eleven-person visual redesign keeps `mock-events.js` and its 31-event sequence
+unchanged. Three added professionals use the existing initial-data schema and
+station-offset metadata. The reducer, waypoint algorithm and controller are
+unchanged. Those three staff begin at their own tasks and accept the same future
+events through the dispatcher; no new simulation events are introduced.
 
 Movement uses clear room exits and one corridor, with a few waypoints. It supports
 replacement destinations during a walk and emits arrivals only after reaching
 the target. Small per-agent station offsets keep visiting colleagues separate.
 This is a compact prototype, not a collision engine or general pathfinder.
-Reading/reviewing behavior adds a quiet paper mark; walking has a two-frame step;
-other states change the character/status treatment without ambient animation.
+Work accessories are part of each professional silhouette; walking has a quiet
+two-frame step. Statuses remain readable in the operations panel and staff list,
+without game-style rings or overhead status indicators.
 Only active travel requests animation frames. State changes trigger DOM updates.
 
 To connect a future service, replace the mock producer in `world.js` with an
@@ -155,14 +164,14 @@ PR review and GitHub Pages process; this addition does not alter that workflow.
 
 Checked on 5 October 2026:
 
-- All 20 state, event, movement and controller tests pass, including all 288
+- All 20 state, event, movement and controller tests pass, including all 396
   agent/room-pair doorway routes, interrupted travel, simultaneous arrivals,
   one animation loop, pause/restart, hidden-page suspension and reduced motion.
   Both complete mock cycles keep every colleague's sprite center outside other
   staff hitboxes at the floor plan's minimum 700 pixel width.
 - The shared site checker passes script parsing, all existing JSON, catalogue,
   sitemap and exact-case links, including the new nested World page.
-- Browser preview confirms six rooms, eight selectable characters, matching
+- Browser preview confirms six rooms, eleven selectable characters, matching
   dossiers, Enter/Space selection, the complete mock cycle including ERROR and
   COMPLETED, animated travel and arrival, manual Next event and pause/restart.
 - Direct HTTP `world/` and `world/index.html` load; refresh works. Artwork loads
@@ -180,3 +189,8 @@ Checked on 5 October 2026:
 
 Diff review confirms only `world/` additions and the task-board row. No existing
 public page, shared asset, research fact, catalogue, sitemap or workflow changed.
+
+The latest visual pass modifies `index.html`, `world.css`, `sprites.js`,
+`assets/institution.svg`, initial records in `state.js`, station offsets in
+`movement.js`, both test files, this README and the root `TASKS.md` row. It adds
+`assets/city-outlook.svg`. `world.js` and `mock-events.js` have no changes in this pass.
