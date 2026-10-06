@@ -1,6 +1,380 @@
 {
- "updated": "2026-10-06T10:25:03.295Z",
+ "updated": "2026-10-06T17:14:18.081Z",
  "items": [
+  {
+   "title": "IPO Market Stalls Four Months After SpaceX's $75 Billion Debut",
+   "url": "https://oilprice.com/Finance/investing-and-trading-reports/IPO-Market-Stalls-Four-Months-After-SpaceXs-75-Billion-Debut.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T17:00:00.000Z"
+  },
+  {
+   "title": "Peter Thiel-backed Founders Fund leads a $5 million token buy in crypto collateral protocol Anvil",
+   "url": "https://www.coindesk.com/business/2026/10/06/peter-thiel-backed-founders-fund-leads-a-usd5-million-token-buy-in-crypto-collateral-protocol-anvil",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T17:00:00.000Z"
+  },
+  {
+   "title": "Crypto is expanding the boundaries of what can be priced",
+   "url": "https://www.coindesk.com/opinion/2026/10/06/crypto-is-expanding-the-boundaries-of-what-can-be-priced",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T16:50:26.000Z"
+  },
+  {
+   "title": "ECB policymaker warns of fragmentation without digital euro",
+   "url": "https://cointelegraph.com/news/european-central-bank-fragmentation-digital-euro?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T16:32:57.000Z"
+  },
+  {
+   "title": "Saudi East-West Pipeline Moves 5.8 Million Barrels as Red Sea Route Recovers",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-East-West-Pipeline-Moves-58-Million-Barrels-as-Red-Sea-Route-Recovers.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T16:30:00.000Z"
+  },
+  {
+   "title": "EIA expects a mixed picture for US households winter fuel costs this year",
+   "url": "https://www.investing.com/news/commodities-news/eia-expects-a-mixed-picture-for-us-households-winter-fuel-costs-this-year-4934991",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T16:18:53.000Z"
+  },
+  {
+   "title": "US EIA hikes oil price forecasts again as Iran war drains global stockpile",
+   "url": "https://www.investing.com/news/commodities-news/us-eia-hikes-oil-price-forecasts-again-as-iran-war-drains-global-stockpile-4934987",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T16:12:46.000Z"
+  },
+  {
+   "title": "The Hidden Cost of Saudi Arabia’s Oil Export Recovery",
+   "url": "https://oilprice.com/Energy/Crude-Oil/The-Hidden-Cost-of-Saudi-Arabias-Oil-Export-Recovery.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T16:05:00.000Z"
+  },
+  {
+   "title": "Gulf Storm Threat Could Put 3 Million Bpd of Refining Capacity at Risk",
+   "url": "https://oilprice.com/Energy/Energy-General/Gulf-Storm-Threat-Could-Put-3-Million-Bpd-of-Refining-Capacity-at-Risk.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T16:00:00.000Z"
+  },
+  {
+   "title": "Trade deficit hits $105.6 billion, widest since just before Trump tariffs enacted last year",
+   "url": "https://www.cnbc.com/2026/10/06/trade-deficit-hits-105point6-billion-widest-since-just-before-trump-tariffs-enacted-last-year.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-10-06T15:52:22.000Z"
+  },
+  {
+   "title": "RI Tanam Modal ke Proyek Ladang Minyak AS, Ini Lokasinya",
+   "url": "https://finance.detik.com/energi/d-8695658/ri-tanam-modal-ke-proyek-ladang-minyak-as-ini-lokasinya",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T15:35:46.000Z"
+  },
+  {
+   "title": "Low Wind Generation Prompts Another Power Margin Warning in UK",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Low-Wind-Generation-Prompts-Another-Power-Margin-Warning-in-UK.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T15:30:00.000Z"
+  },
+  {
+   "title": "Westwin plans $502m Class 1 nickel refinery in Mississippi, US",
+   "url": "https://www.mining-technology.com/news/westwin-502m-nickel-refinery-mississippi/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-10-06T15:26:15.000Z"
+  },
+  {
+   "title": "Ripple expands Brevan Howard deal with prime brokerage services",
+   "url": "https://cointelegraph.com/news/ripple-expands-brevan-howard-deal-with-prime-brokerage-services?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T15:24:51.000Z"
+  },
+  {
+   "title": "OKX draws investment from StanChart, Circle, Ripple as it pushes beyond crypto exchange roots",
+   "url": "https://www.coindesk.com/business/2026/10/06/okx-draws-investment-from-stanchart-circle-ripple-as-it-pushes-beyond-crypto-exchange-roots",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T15:20:30.000Z"
+  },
+  {
+   "title": "IEA to decide on details of diesel stocks release next week, sources say, as market confusion grows",
+   "url": "https://www.investing.com/news/commodities-news/iea-to-decide-details-of-g7-diesel-and-oil-stocks-release-on-october-1415-sources-say-4934649",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T15:06:24.000Z"
+  },
+  {
+   "title": "Gulf Producers Say Importers Should Share the Cost of Hormuz Workarounds",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Gulf-Producers-Say-Importers-Should-Share-the-Cost-of-Hormuz-Workarounds.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T14:30:00.000Z"
+  },
+  {
+   "title": "Emiten ENRG Investasikan Rp3,6 Triliun di Perusahaan Migas AS",
+   "url": "https://economy.okezone.com/read/2026/10/06/278/3246373/emiten-enrg-investasikan-rp3-6-triliun-di-perusahaan-migas-as",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T14:24:06.000Z"
+  },
+  {
+   "title": "Energy Shock Wipes $264 Billion Off the World's Top Mining Stocks",
+   "url": "https://oilprice.com/Metals/Commodities/Energy-Shock-Wipes-264-Billion-Off-the-Worlds-Top-Mining-Stocks.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T14:00:00.000Z"
+  },
+  {
+   "title": "Ethereum’s Glamsterdam upgrade launches on Sepolia testnet",
+   "url": "https://cointelegraph.com/news/ethereums-glamsterdam-upgrade-launches-on-sepolia-testnet?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T14:00:00.000Z"
+  },
+  {
+   "title": "Macmahon obtains two-year Daisy Milano contract extension",
+   "url": "https://www.mining-technology.com/news/macmahon-two-year-daisy-milano-extension/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:57:20.000Z"
+  },
+  {
+   "title": "Gold firms as easing oil prices soothe some inflation worries",
+   "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4140-as-dollar-yields-offset-lower-fed-hike-expectations-4933176",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:43:40.000Z"
+  },
+  {
+   "title": "Oil prices slide amid upbeat Mideast supply data, G7 stockpile release pledge",
+   "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-as-markets-weigh-aramco-price-cuts-meast-supplies-4933124",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:42:18.000Z"
+  },
+  {
+   "title": "Baltic dry bulk freight index hits six-week low",
+   "url": "https://www.investing.com/news/commodities-news/baltic-dry-bulk-freight-index-hits-sixweek-low-93CH-4934745",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:41:40.000Z"
+  },
+  {
+   "title": "Here’s what happened in crypto today",
+   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T13:41:33.000Z"
+  },
+  {
+   "title": "OKX exchange raises fresh capital at $25B valuation",
+   "url": "https://cointelegraph.com/news/okx-exchange-raises-capital-25b-valuation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T13:32:32.000Z"
+  },
+  {
+   "title": "EU Delays Methane Rules, Opens Refinery Talks as Fuel Prices Hit Records",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/EU-Delays-Methane-Rules-Opens-Refinery-Talks-as-Fuel-Prices-Hit-Records.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:30:00.000Z"
+  },
+  {
+   "title": "Capital starting to rotate back to crypto from AI: Raoul Pal",
+   "url": "https://cointelegraph.com/features/weaker-dollar-crypto-green-light-raoul-pal-trade-secrets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T13:30:00.000Z"
+  },
+  {
+   "title": "Bayan (BYAN) Ubah Perjanjian dengan Haji Isam, Saham yang Dilepas Bertambah",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8695518/bayan-byan-ubah-perjanjian-dengan-haji-isam-saham-yang-dilepas-bertambah",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T13:22:33.000Z"
+  },
+  {
+   "title": "CBOT soybeans rise on slow US harvest progress",
+   "url": "https://www.investing.com/news/commodities-news/cbot-soybeans-rise-on-slow-us-harvest-progress-93CH-4934668",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:20:31.000Z"
+  },
+  {
+   "title": "Corn prices rise as harvest lags behind average pace",
+   "url": "https://www.investing.com/news/commodities-news/corn-prices-rise-as-harvest-lags-behind-average-pace-93CH-4934666",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:19:49.000Z"
+  },
+  {
+   "title": "Wheat futures rise on Black Sea disruptions and slow US planting",
+   "url": "https://www.investing.com/news/commodities-news/wheat-futures-rise-on-black-sea-disruptions-and-slow-us-planting-93CH-4934663",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T13:18:51.000Z"
+  },
+  {
+   "title": "Arbitrum joins Paxos-led stablecoin group Global Dollar to capture digital dollar growth",
+   "url": "https://www.coindesk.com/business/2026/10/05/arbitrum-joins-paxos-led-stablecoin-group-global-dollar-to-capture-digital-dollar-growth",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T13:02:33.000Z"
+  },
+  {
+   "title": "US crypto rules need to survive the next election",
+   "url": "https://cointelegraph.com/opinion/us-crypto-rules-need-to-survive-the-next-election?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T13:00:00.000Z"
+  },
+  {
+   "title": "Paxos’ $3B USDG stablecoin launches on Arbitrum",
+   "url": "https://cointelegraph.com/news/paxos-3b-usdg-stablecoin-launches-arbitrum?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T13:00:00.000Z"
+  },
+  {
+   "title": "Polymarket overhauls smart contracts with new Protocol V2 rollout",
+   "url": "https://cointelegraph.com/news/polymarket-smart-contract-overhaul-protocol-v2?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-06T12:54:15.000Z"
+  },
+  {
+   "title": "Rp 13,24 Triliun Hasil Satgas PKH Masuk Kas Negara",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8695485/rp-13-24-triliun-hasil-satgas-pkh-masuk-kas-negara",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T12:52:59.000Z"
+  },
+  {
+   "title": "Self-styled 'Godfather' gets 6 years in prison for $37 million Meta fraud scheme",
+   "url": "https://www.coindesk.com/policy/2026/10/06/self-styled-crypto-godfather-gets-more-than-6-years-in-usd37-million-meta-fraud-case",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T12:31:51.000Z"
+  },
+  {
+   "title": "India Could Boost Crude and Critical Minerals Supply from Ecuador",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/India-Could-Boost-Crude-and-Critical-Minerals-Supply-from-Ecuador.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T12:30:00.000Z"
+  },
+  {
+   "title": "Makmur yakin industri reksa dana tetap prospektif meski AUM tertekan",
+   "url": "https://www.antaranews.com/berita/5773885/makmur-yakin-industri-reksa-dana-tetap-prospektif-meski-aum-tertekan",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T12:07:36.000Z"
+  },
+  {
+   "title": "Trump holds Nebraska rally in bid to keep deep-red state in Republican column",
+   "url": "https://www.investing.com/news/commodities-news/trump-holds-nebraska-rally-in-bid-to-keep-deepred-state-in-republican-column-4934200",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-06T11:54:25.000Z"
+  },
+  {
+   "title": "Danantara Umumkan Investasi Rp 4,4 Triliun di Raksasa Migas AS",
+   "url": "https://finance.detik.com/energi/d-8695333/danantara-umumkan-investasi-rp-4-4-triliun-di-raksasa-migas-as",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T11:30:29.000Z"
+  },
+  {
+   "title": "Japan Courts Saudi Arabia and UAE as Asia's Oil Supply Fears Persist",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Japan-Courts-Saudi-Arabia-and-UAE-as-Asias-Oil-Supply-Fears-Persist.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T11:30:00.000Z"
+  },
+  {
+   "title": "The VIX of bonds is rising but bitcoin and stocks aren't hearing it yet",
+   "url": "https://www.coindesk.com/daybook-us/2026/10/06/the-vix-of-bonds-is-rising-but-bitcoin-and-stocks-aren-t-hearing-it-yet",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T11:30:00.000Z"
+  },
+  {
+   "title": "Pandai Gadai Kantongi Izin Nasional dari OJK, Bidik Perluasan Layanan",
+   "url": "https://ekonomi.republika.co.id/berita/tmhh29349/pandai-gadai-kantongi-izin-nasional-dari-ojk-bidik-perluasan-layanan",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-06T11:25:21.000Z"
+  },
+  {
+   "title": "Prabowo Pamer PT Timah Untung 900 Persen dalam 1 Tahun",
+   "url": "https://economy.okezone.com/read/2026/10/06/320/3246336/prabowo-pamer-pt-timah-untung-900-persen-dalam-1-tahun",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T11:22:30.000Z"
+  },
+  {
+   "title": "Prabowo Mau Tambah Jumlah Polisi Hutan Jadi 70.000 Orang: Saya Ajukan APBN",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8695294/prabowo-mau-tambah-jumlah-polisi-hutan-jadi-70-000-orang-saya-ajukan-apbn",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T10:46:52.000Z"
+  },
+  {
+   "title": "Dolar Menguat-Komponen Elektronik Naik, Pendapatan Emiten Ini Tumbuh 16%",
+   "url": "https://finance.detik.com/portofolio/d-8695418/dolar-menguat-komponen-elektronik-naik-pendapatan-emiten-ini-tumbuh-16",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-06T10:44:28.000Z"
+  },
+  {
+   "title": "Live updates: Bitcoin remains locked in range as stocks notch another new record high",
+   "url": "https://www.coindesk.com/markets/2026/10/06/live-updates-a-drop-below-usd84-000-could-put-usd80-000-in-play-for-bitcoin",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T10:35:49.000Z"
+  },
+  {
+   "title": "Supply chain shifts are reshaping Australia’s manganese sector",
+   "url": "https://www.mining-technology.com/comment/supply-chain-shifts-are-reshaping-australias-manganese-sector/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-10-06T10:32:22.000Z"
+  },
+  {
+   "title": "China Accelerates Ultra-Deep Drilling to Boost Domestic Oil Supply",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/China-Accelerates-Ultra-Deep-Drilling-to-Boost-Domestic-Oil-Supply.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-06T10:30:00.000Z"
+  },
+  {
+   "title": "Smaller altcoins shine as bitcoin stills trades around $85,000",
+   "url": "https://www.coindesk.com/markets/2026/10/06/smaller-altcoins-shine-as-bitcoin-stills-trades-around-usd85-000",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-06T10:30:00.000Z"
+  },
   {
    "title": "IHSG ditutup menguat ikuti bursa kawasan Asia dan global",
    "url": "https://www.antaranews.com/berita/5773705/ihsg-ditutup-menguat-ikuti-bursa-kawasan-asia-dan-global",
@@ -23,6 +397,13 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-10-06T10:10:54.000Z"
+  },
+  {
+   "title": "EBRD provides up to $62m for greener Bulgarian copper mining",
+   "url": "https://www.mining-technology.com/news/ebrd-62m-bulgarian-copper-mining/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-10-06T10:02:21.000Z"
   },
   {
    "title": "Binance BTC outflows hit highest since mid-2023 as whales deposit stablecoins",
@@ -107,14 +488,7 @@
    "time": "2026-10-06T09:11:26.000Z"
   },
   {
-   "title": "Gold firms as easing oil prices soothe some inflation worries",
-   "url": "https://www.investing.com/news/commodities-news/gold-holds-near-4140-as-dollar-yields-offset-lower-fed-hike-expectations-4933176",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-06T09:07:36.000Z"
-  },
-  {
-   "title": "OKX Money lets users save, earn 10% yield and spend dollar stablecoins in one app",
+   "title": "OKX looks to abstract blockchain mechanics to bring stablecoin balances to everyday consumers",
    "url": "https://www.coindesk.com/business/2026/10/06/okx-money-lets-users-save-earn-10-yield-and-spend-dollar-stablecoins-in-one-app",
    "source": "CoinDesk",
    "topic": "Crypto",
@@ -133,13 +507,6 @@
    "source": "OilPrice",
    "topic": "Commodities",
    "time": "2026-10-06T09:00:00.000Z"
-  },
-  {
-   "title": "Oil prices slip amid upbeat Mideast supply data, G7 stockpile release pledge",
-   "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-as-markets-weigh-aramco-price-cuts-meast-supplies-4933124",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-06T08:42:48.000Z"
   },
   {
    "title": "Greenland approves Tanbreez mine plans through 2050",
@@ -231,13 +598,6 @@
    "source": "OilPrice",
    "topic": "Commodities",
    "time": "2026-10-06T07:00:00.000Z"
-  },
-  {
-   "title": "Here’s what happened in crypto today",
-   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-06T06:00:00.000Z"
   },
   {
    "title": "Better Markets says CFTC is ‘wrong agency’ to regulate retail crypto",
@@ -739,18 +1099,18 @@
    "time": "2026-10-05T13:47:17.000Z"
   },
   {
+   "title": "Stripe to expand stablecoin cards to over 100 countries by the end of the year",
+   "url": "https://www.coindesk.com/business/2026/10/01/stripe-to-expand-stablecoin-cards-to-over-100-countries-by-the-end-of-the-year",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-05T13:46:31.000Z"
+  },
+  {
    "title": "OJK: IHSG Mulai Bangkit dari Titik Terendah",
    "url": "https://ekonomi.republika.co.id/berita/tmfsxj370/ojk-ihsg-mulai-bangkit-dari-titik-terendah",
    "source": "Republika",
    "topic": "Macro",
    "lang": "id",
-   "time": "2026-10-05T13:46:31.000Z"
-  },
-  {
-   "title": "Stripe to expand stablecoin cards to over 100 countries by the end of the year",
-   "url": "https://www.coindesk.com/business/2026/10/01/stripe-to-expand-stablecoin-cards-to-over-100-countries-by-the-end-of-the-year",
-   "source": "CoinDesk",
-   "topic": "Crypto",
    "time": "2026-10-05T13:46:31.000Z"
   },
   {
@@ -1397,375 +1757,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-10-05T01:34:28.000Z"
-  },
-  {
-   "title": "OPEC+ Sepakat Tahan Produksi Minyak",
-   "url": "https://finance.detik.com/energi/d-8692410/opec-sepakat-tahan-produksi-minyak",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-05T01:30:00.000Z"
-  },
-  {
-   "title": "Ancaman Trump Picu G7 Lepas Cadangan Minyak dan Solar",
-   "url": "https://ekonomi.republika.co.id/berita/tmeuti423/ancaman-trump-picu-g7-lepas-cadangan-minyak-dan-solar",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-05T01:29:42.000Z"
-  },
-  {
-   "title": "Adu Harga BBM Pertamina, Shell, Vivo, dan BP Hari Ini",
-   "url": "https://economy.okezone.com/read/2026/10/05/320/3245969/adu-harga-bbm-pertamina-shell-vivo-dan-bp-hari-ini",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-05T01:06:23.000Z"
-  },
-  {
-   "title": "In crude Ohio rally speech, Trump says he may not help if Democrats win",
-   "url": "https://www.investing.com/news/commodities-news/in-crude-ohio-rally-speech-trump-says-he-may-not-help-if-democrats-win-4930974",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-05T00:43:42.000Z"
-  },
-  {
-   "title": "Merz unveils fresh military aid in Kyiv, says Germany won’t be intimidated",
-   "url": "https://www.investing.com/news/commodities-news/germanys-merz-arrives-in-kyiv-to-the-sound-of-sirens-and-explosions-4930915",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-05T00:38:40.000Z"
-  },
-  {
-   "title": "Zcash gets a Washington lobbyist to push crypto policy",
-   "url": "https://cointelegraph.com/news/zcash-gets-a-washington-lobbyist-to-push-crypto-policy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-05T00:35:34.000Z"
-  },
-  {
-   "title": "Harga BBM 5 Oktober 2026, Pertalite hingga Pertamax Masih Segini",
-   "url": "https://economy.okezone.com/read/2026/10/05/320/3245964/harga-bbm-5-oktober-2026-pertalite-hingga-pertamax-masih-segini",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-05T00:27:15.000Z"
-  },
-  {
-   "title": "Harga Emas Diprediksi Bergerak Fluktuatif di Kisaran Rp 2,42—Rp 2,68 Juta per Gram pada Pekan Ini",
-   "url": "https://ekonomi.republika.co.id/berita/tmeqin423/harga-emas-diprediksi-bergerak-fluktuatif-di-kisaran-rp-242rp-268-juta-per-gram-pada-pekan-ini",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-04T23:56:47.000Z"
-  },
-  {
-   "title": "IPO Saham Masih Sesepi Ini",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8692156/ipo-saham-masih-sesepi-ini",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T23:30:55.000Z"
-  },
-  {
-   "title": "Fuel Price Shock Pushes Global Gas Car Sales Below 50% for First Time",
-   "url": "https://oilprice.com/Energy/Energy-General/Fuel-Price-Shock-Pushes-Global-Gas-Car-Sales-Below-50-for-First-Time.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-04T23:00:00.000Z"
-  },
-  {
-   "title": "Former SEC boss made AI Czar, Bitcoin may hit $600K this cycle: Hodler’s Digest",
-   "url": "https://cointelegraph.com/magazine/former-sec-boss-made-ai-czar-bitcoin-may-hit-600k-this-cycle-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-04T22:31:12.000Z"
-  },
-  {
-   "title": "Oil climbs after Yemeni Houthis attack Saudi Aramco sites",
-   "url": "https://www.investing.com/news/commodities-news/oil-climbs-after-yemeni-houthis-attack-saudi-aramco-sites-4930963",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-04T22:18:32.000Z"
-  },
-  {
-   "title": "Europe’s Diesel Woes Just Got Even Worse",
-   "url": "https://oilprice.com/Energy/Crude-Oil/Europes-Diesel-Woes-Just-Got-Even-Worse.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-04T21:00:00.000Z"
-  },
-  {
-   "title": "Pentagon Backs Ambitious Plan to Beam Solar Power From Space",
-   "url": "https://oilprice.com/Energy/Energy-General/Pentagon-Backs-Ambitious-Plan-to-Beam-Solar-Power-From-Space.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-04T19:00:00.000Z"
-  },
-  {
-   "title": "There's an election next month: State of Crypto",
-   "url": "https://www.coindesk.com/policy/2026/10/04/there-s-an-election-next-month-state-of-crypto",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-04T18:30:00.000Z"
-  },
-  {
-   "title": "Floating Power Plants Are Opening a New Energy Frontier",
-   "url": "https://oilprice.com/Energy/Energy-General/Floating-Power-Plants-Are-Opening-a-New-Energy-Frontier.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-04T17:00:00.000Z"
-  },
-  {
-   "title": "Private Equity Firms Double Down on Fossil Fuels",
-   "url": "https://oilprice.com/Energy/Energy-General/Private-Equity-Firms-Double-Down-on-Fossil-Fuels.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-04T15:00:00.000Z"
-  },
-  {
-   "title": "Crypto poured years into new products. The next challenge is keeping users",
-   "url": "https://www.coindesk.com/business/2026/10/04/crypto-poured-years-into-new-products-the-next-challenge-is-keeping-users",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-04T14:00:00.000Z"
-  },
-  {
-   "title": "Trump taps intel chief Jay Clayton to lead new Super Intelligence Force",
-   "url": "https://cointelegraph.com/news/trump-taps-jay-clayton-to-lead-new-super-intelligence-force?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-04T13:48:48.000Z"
-  },
-  {
-   "title": "Explainer-Who are the Houthis, Iran’s allies in Yemen?",
-   "url": "https://www.investing.com/news/commodities-news/explainerwho-are-the-houthis-irans-allies-in-yemen-4930937",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-04T13:36:33.000Z"
-  },
-  {
-   "title": "The Clarity Act stalled. Bankers aren’t hitting the brakes yet on crypto dealmaking",
-   "url": "https://www.coindesk.com/business/2026/10/04/the-clarity-act-stalled-crypto-dealmakers-aren-t-hitting-the-brakes-yet",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-04T13:00:00.000Z"
-  },
-  {
-   "title": "Japan adds Garantex to list of Russia sanctions over Ukraine war",
-   "url": "https://cointelegraph.com/news/japan-adds-garantex-to-list-of-russia-sanctions-over-ukraine-war?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-04T12:42:00.000Z"
-  },
-  {
-   "title": "OPEC+ holds output targets steady as Middle East conflict tightens supply",
-   "url": "https://www.investing.com/news/commodities-news/opec-set-to-hold-november-oil-quotas-steady-as-middle-east-conflict-hits-output-4930914",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-04T12:38:26.000Z"
-  },
-  {
-   "title": "Pemerintah Siapkan Stimulus Rp 31 Triliun, Ini Daftarnya",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8692086/pemerintah-siapkan-stimulus-rp-31-triliun-ini-daftarnya",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T12:27:10.000Z"
-  },
-  {
-   "title": "El Salvador receives $138 million from IMF after Bitcoin waivers granted",
-   "url": "https://cointelegraph.com/news/el-salvador-receives-138-million-from-imf-after-bitcoin-waivers-granted?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-04T09:40:00.000Z"
-  },
-  {
-   "title": "Harga Tiket Pesawat Natal dan Tahun Baru Diupayakan Terjangkau, Stimulus Disiapkan",
-   "url": "https://economy.okezone.com/read/2026/10/04/320/3245888/harga-tiket-pesawat-natal-dan-tahun-baru-diupayakan-terjangkau-stimulus-disiapkan",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T09:35:20.000Z"
-  },
-  {
-   "title": "KDM Setop Proyek Pusat Data AI di Jatiluhur, Bisa Bikin Investor Kabur?",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8691802/kdm-setop-proyek-pusat-data-ai-di-jatiluhur-bisa-bikin-investor-kabur",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T09:00:38.000Z"
-  },
-  {
-   "title": "IHSG Berpotensi Turun ke 5.850, Ini 4 Saham yang Layak Dicermati",
-   "url": "https://economy.okezone.com/read/2026/10/04/278/3245886/ihsg-berpotensi-turun-ke-5-850-ini-4-saham-yang-layak-dicermati",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T07:25:29.000Z"
-  },
-  {
-   "title": "Russia’s Finance Ministry pays wages in digital rubles for first time",
-   "url": "https://cointelegraph.com/news/russias-finance-ministry-pays-wages-in-digital-rubles-for-first-time?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-04T07:18:00.000Z"
-  },
-  {
-   "title": "Pasal Reshuffle Kabinet Berdampak pada Pasar Modal, IHSG Melemah ke Level 6.036",
-   "url": "https://ekonomi.republika.co.id/berita/tmdbsr370/pasal-reshuffle-kabinet-berdampak-pada-pasar-modal-ihsg-melemah-ke-level-6036",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-04T05:41:15.000Z"
-  },
-  {
-   "title": "Masih Jauh dari Target, Baru 7 Perusahaan yang Melantai di Bursa",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8691564/masih-jauh-dari-target-baru-7-perusahaan-yang-melantai-di-bursa",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T04:57:23.000Z"
-  },
-  {
-   "title": "Emas Antam, Galeri24, dan UBS: Apa bedanya?",
-   "url": "https://www.antaranews.com/berita/5770432/emas-antam-galeri24-dan-ubs-apa-bedanya",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T03:37:18.000Z"
-  },
-  {
-   "title": "Harga Emas Antam Minggu 4 Oktober 2026 Masih Rp2.574.000 per Gram",
-   "url": "https://economy.okezone.com/read/2026/10/04/320/3245853/harga-emas-antam-minggu-4-oktober-2026-masih-rp2-574-000-per-gram",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T03:12:08.000Z"
-  },
-  {
-   "title": "Harga Emas Antam Turun Sedalam Ini Sepekan",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8691417/harga-emas-antam-turun-sedalam-ini-sepekan",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T01:52:30.000Z"
-  },
-  {
-   "title": "Yemen’s Houthis say they attacked Aramco facility in Riyadh with missiles, drones",
-   "url": "https://www.investing.com/news/commodities-news/yemens-houthis-say-they-attacked-aramco-facility-in-riyadh-with-missiles-drones-4930877",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-04T01:12:30.000Z"
-  },
-  {
-   "title": "6 Fakta Neraca Perdagangan Surplus tapi Impor hingga Agustus Terus Meroket",
-   "url": "https://economy.okezone.com/read/2026/10/03/320/3245828/6-fakta-neraca-perdagangan-surplus-tapi-impor-hingga-agustus-terus-meroket",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-04T00:29:58.000Z"
-  },
-  {
-   "title": "Amankan Rute Ekspor Minyak, Arab Saudi Mau Serang Houthi di Laut Merah",
-   "url": "https://finance.detik.com/energi/d-8690845/amankan-rute-ekspor-minyak-arab-saudi-mau-serang-houthi-di-laut-merah",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-03T23:30:19.000Z"
-  },
-  {
-   "title": "The Iran War Is Showing What ADNOC’s AI Can Really Do",
-   "url": "https://oilprice.com/Energy/Energy-General/The-Iran-War-Is-Showing-What-ADNOCs-AI-Can-Really-Do.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-03T23:00:00.000Z"
-  },
-  {
-   "title": "Could White Hydrogen Succeed Where Green Hydrogen Stumbled?",
-   "url": "https://oilprice.com/Energy/Energy-General/Could-White-Hydrogen-Succeed-Where-Green-Hydrogen-Stumbled.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-03T21:00:00.000Z"
-  },
-  {
-   "title": "Iraq’s state tanker firm moves crude through Hormuz strait",
-   "url": "https://www.investing.com/news/commodities-news/iraqs-state-tanker-firm-moves-crude-through-hormuz-strait-93CH-4930883",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-03T20:38:15.000Z"
-  },
-  {
-   "title": "Iran Is Losing Some of Its Leverage Over the Strait of Hormuz",
-   "url": "https://oilprice.com/Energy/Energy-General/Iran-Is-Losing-Some-of-Its-Leverage-Over-the-Strait-of-Hormuz.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-03T19:00:00.000Z"
-  },
-  {
-   "title": "New Research Strengthens the Link Between Warming and Extreme Weather",
-   "url": "https://oilprice.com/The-Environment/Global-Warming/New-Research-Strengthens-the-Link-Between-Warming-and-Extreme-Weather.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-03T17:00:00.000Z"
-  },
-  {
-   "title": "Payments firm OpenPayd targets year-end Nasdaq listing to fund U.S. expansion and acquisitions",
-   "url": "https://www.coindesk.com/business/2026/10/03/openpayd-targets-year-end-nasdaq-listing-to-fund-u-s-expansion-and-acquisitions",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-03T16:00:00.000Z"
-  },
-  {
-   "title": "Crypto job postings triple to over 1,200 in September, but applications fall",
-   "url": "https://www.coindesk.com/business/2026/10/03/crypto-job-postings-triple-to-over-1-200-in-september-but-applications-fall",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-03T16:00:00.000Z"
-  },
-  {
-   "title": "BCA Bidik Asuransi Jiwa Berdenominasi Dolar AS",
-   "url": "https://economy.okezone.com/read/2026/10/03/320/3245822/bca-bidik-asuransi-jiwa-berdenominasi-dolar-as",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-03T15:31:58.000Z"
-  },
-  {
-   "title": "Cathie Wood says smart investors need to start watching where AI agents spend money",
-   "url": "https://www.coindesk.com/markets/2026/10/01/cathie-wood-says-smart-investors-need-to-start-watching-where-ai-agents-spend-money",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-03T15:00:00.000Z"
-  },
-  {
-   "title": "Latin America Could Double Its Onshore Wind Capacity by 2035",
-   "url": "https://oilprice.com/Energy/Energy-General/Latin-America-Could-Double-Its-Onshore-Wind-Capacity-by-2035.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-03T15:00:00.000Z"
-  },
-  {
-   "title": "BPDLH Kelola Dana Abadi Rp8,3 Triliun, Hasil Investasi Dialokasikan untuk Asuransi BMN",
-   "url": "https://economy.okezone.com/read/2026/10/03/320/3245806/bpdlh-kelola-dana-abadi-rp8-3-triliun-hasil-investasi-dialokasikan-untuk-asuransi-bmn",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-03T13:28:24.000Z"
-  },
-  {
-   "title": "Lula or Bolsonaro: Wall Street braces for two wildly different results in Brazil election",
-   "url": "https://www.cnbc.com/2026/10/03/lula-or-bolsonaro-wall-street-braces-for-two-wildly-different-results-in-brazil-election.html",
-   "source": "CNBC",
-   "topic": "Markets",
-   "time": "2026-10-03T13:12:27.000Z"
-  },
-  {
-   "title": "Crypto's Sisyphean struggle",
-   "url": "https://www.coindesk.com/opinion/2026/10/03/crypto-s-sisyphean-struggle",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-03T13:00:00.000Z"
   }
  ]
 }
