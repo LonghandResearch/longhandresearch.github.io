@@ -9,16 +9,26 @@
   const fail = message => { throw new Error(message); };
   const statuses = ['DRAFT', 'IN_REVIEW', 'APPROVED'];
   const agents = ['associate', 'researcher', 'analyst', 'editor', 'director'];
+  const REASONING_FIELDS = Object.freeze(['thesis', 'analysis', 'assumptions', 'alternatives', 'uncertainty', 'reviewConditions', 'horizon']);
+  const REVIEW_CHECKS = Object.freeze([
+    { id: 'claims', label: 'Material claims have evidence or an explicit uncertainty label.' },
+    { id: 'sources', label: 'Source origins, locators, independence and limitations were reviewed.' },
+    { id: 'reasoning', label: 'The thesis, analysis and pivotal assumptions were reviewed.' },
+    { id: 'alternatives', label: 'Credible alternatives and contrary evidence were considered.' },
+    { id: 'uncertainty', label: 'Uncertainty, missing information and confidence limits are stated.' },
+    { id: 'monitoring', label: 'The horizon and conditions for revisiting the thesis were reviewed.' }
+  ].map(Object.freeze));
+  const HISTORY_LIMIT = 5, HISTORY_BYTES = 2000000;
+  const bytes = value => new TextEncoder().encode(JSON.stringify(value)).byteLength;
+  const emptyReasoning = () => ({ ...Object.fromEntries(REASONING_FIELDS.map(field => [field, ''])), evidence: [] });
   function brief(value) {
     if (!value || !text(value.topic, 160) || !text(value.question, 480) || !text(value.objective, 480)) fail('Enter a topic, research question and objective.');
     return { topic: value.topic.trim(), question: value.question.trim(), objective: value.objective.trim() };
   }
-  function normalize(value) {
-    if (!value || value.version !== 1 || !id(value.id) || !iso(value.createdAt) || !iso(value.updatedAt) ||
-      value.updatedAt < value.createdAt || !Number.isSafeInteger(value.revision) || value.revision < 1 || !statuses.includes(value.status)) fail('Invalid research project record.');
-    if (!Array.isArray(value.sources) || value.sources.length > 100) fail('A project can contain up to 100 source records.');
+  function sourceNotebook(value) {
+    if (!Array.isArray(value) || value.length > 100) fail('A project can contain up to 100 source records.');
     const seen = new Set();
-    const sources = value.sources.map(source => {
+    return value.map(source => {
       if (!source || !id(source.id) || seen.has(source.id) || !text(source.title, 240) || !text(source.url, 2000) ||
         !text(source.notes, 2000, false) || typeof source.checked !== 'boolean') fail('Invalid or duplicate source record.');
       if (source.checked && !source.notes.trim()) fail('Record what the source supports before marking it checked.');
@@ -28,6 +38,58 @@
       seen.add(source.id);
       return { id: source.id, title: source.title.trim(), url: url.href, notes: source.notes, checked: source.checked };
     });
+  }
+  function reasoningRecord(value, sources) {
+    if (value === undefined) return emptyReasoning();
+    if (!value || typeof value !== 'object' || Array.isArray(value)) fail('Invalid reasoning record.');
+    const result = {};
+    for (const field of REASONING_FIELDS) {
+      const content = value[field] === undefined ? '' : value[field];
+      if (!text(content, field === 'analysis' ? 12000 : 4000, false)) fail('Invalid or oversized reasoning field: ' + field + '.');
+      result[field] = content;
+    }
+    const evidence = value.evidence === undefined ? [] : value.evidence;
+    if (!Array.isArray(evidence) || evidence.length > 100) fail('Reasoning can contain up to 100 evidence links.');
+    const sourceIds = new Set(sources.map(source => source.id)), seen = new Set();
+    result.evidence = evidence.map(link => {
+      if (!link || !sourceIds.has(link.sourceId) || !['supports', 'qualifies', 'challenges'].includes(link.relation) ||
+        !text(link.locator, 240) || !text(link.note, 2000)) fail('Each evidence link needs a project source, relationship, locator and note.');
+      const locator = link.locator.trim(), key = JSON.stringify([link.sourceId, link.relation, locator]);
+      if (seen.has(key)) fail('Duplicate reasoning evidence link.');
+      seen.add(key);
+      return { sourceId: link.sourceId, relation: link.relation, locator, note: link.note.trim() };
+    });
+    return result;
+  }
+  function checklist(value) {
+    const keys = REVIEW_CHECKS.map(check => check.id);
+    if (!Array.isArray(value) || value.length !== keys.length || new Set(value).size !== keys.length ||
+      !keys.every(key => value.includes(key))) fail('Complete all six review checks before approval.');
+    return keys;
+  }
+  function reviewRecord(value, revision) {
+    if (value === undefined || value === null) return null;
+    if (!value || !iso(value.at) || !Number.isSafeInteger(value.revision) || value.revision < 1 ||
+      value.revision > revision || !text(value.reviewer, 160)) fail('Invalid manual review record.');
+    return { at: value.at, revision: value.revision, reviewer: value.reviewer.trim(), checks: checklist(value.checks) };
+  }
+  function requireReasoning(reasoning) {
+    if (!['thesis', 'analysis', 'uncertainty', 'reviewConditions'].every(field => reasoning[field].trim()) || !reasoning.evidence.length) {
+      fail('Approval needs a thesis, analysis, uncertainty, review conditions and at least one evidence link.');
+    }
+  }
+  function reasoningSnapshot(value) {
+    if (!value || !iso(value.at) || !Number.isSafeInteger(value.revision) || value.revision < 1 ||
+      !['planning', 'research'].includes(value.draftKind) || !text(value.draftBody, 100000, false)) fail('Invalid retained reasoning version.');
+    const sources = sourceNotebook(value.sources);
+    return { at: value.at, revision: value.revision, brief: brief(value.brief), sources,
+      draftKind: value.draftKind, draftBody: value.draftBody,
+      reasoning: reasoningRecord(value.reasoning, sources), review: reviewRecord(value.review, value.revision) };
+  }
+  function normalize(value) {
+    if (!value || value.version !== 1 || !id(value.id) || !iso(value.createdAt) || !iso(value.updatedAt) ||
+      value.updatedAt < value.createdAt || !Number.isSafeInteger(value.revision) || value.revision < 1 || !statuses.includes(value.status)) fail('Invalid research project record.');
+    const sources = sourceNotebook(value.sources), reasoning = reasoningRecord(value.reasoning, sources);
     if (!['planning', 'research'].includes(value.draftKind) || !text(value.draftBody, 100000, false)) fail('The draft must be plain text, up to 100,000 characters.');
     if (!value.run || !Array.isArray(value.run.times) || value.run.times.length > 29 || !value.run.times.every(iso) ||
       value.run.times.some((time, index, times) => index > 0 && time < times[index - 1])) fail('Invalid workflow progress.');
@@ -47,10 +109,19 @@
     });
     if (value.status !== 'DRAFT' && (value.draftKind !== 'research' || !value.draftBody.trim())) fail('Planning records cannot pass research review.');
     if (value.status === 'APPROVED' && (!sources.some(source => source.checked) || !history.some(entry => entry.action === 'Approved' && entry.note.trim()))) fail('Approval needs a checked source and a review note.');
+    const review = reviewRecord(value.review, value.revision);
+    if (review && value.status !== 'APPROVED') fail('A manual approval record belongs to approved research.');
+    if (review) requireReasoning(reasoning);
+    const retained = value.reasoningHistory === undefined ? [] : value.reasoningHistory;
+    if (!Array.isArray(retained) || retained.length > HISTORY_LIMIT) fail('Keep at most five retained reasoning versions.');
+    const reasoningHistory = retained.map(reasoningSnapshot);
+    if (reasoningHistory.some((snapshot, index) => snapshot.revision >= value.revision ||
+      (index > 0 && snapshot.revision <= reasoningHistory[index - 1].revision)) ||
+      (reasoningHistory.length && bytes(reasoningHistory) > HISTORY_BYTES)) fail('Invalid retained reasoning history or history exceeds 2 MB.');
     return { version: 1, id: value.id, createdAt: value.createdAt, updatedAt: value.updatedAt,
       revision: value.revision, brief: brief(value.brief), status: value.status, sources,
       draftKind: value.draftKind, draftBody: value.draftBody, run: { times: [...value.run.times] },
-      outputs, reportId: value.reportId, history };
+      outputs, reportId: value.reportId, history, reasoning, review, reasoningHistory };
   }
   function parseBackup(input) {
     if (typeof input !== 'string' || new TextEncoder().encode(input).byteLength > 5000000) fail('The backup exceeds 5 MB. Export individual projects instead.');
@@ -91,7 +162,9 @@
         return records.change(project.id, current => { if (current) fail('Project ID already exists.'); return project; });
       },
       async save(value, expected) {
-        const next = normalize({ ...value, status: 'DRAFT' });
+        // Review and retained versions are derived from the stored record, never caller edits.
+        const next = normalize({ ...value, status: 'DRAFT', review: null, reasoningHistory: [],
+          history: [{ at: value && value.createdAt, action: 'Saving', note: '' }] });
         return records.change(next.id, value => {
           const current = requireRevision(value, expected);
           if (current.draftKind === 'planning' && next.draftKind === 'research' && next.draftBody === current.draftBody) fail('Replace the planning text with your research draft before marking it ready for review.');
@@ -99,14 +172,23 @@
             next.run = { times: [] }; next.outputs = [];
             if (next.draftKind === 'planning' && next.draftBody === current.draftBody) next.draftBody = '';
           }
-          const content = project => JSON.stringify([project.brief, project.sources, project.draftKind, project.draftBody, project.run, project.outputs]);
-          const changed = content(next) !== content(current);
-          return normalize({ ...next, createdAt: current.createdAt, revision: current.revision + 1, updatedAt: clock(),
+          const researchContent = project => JSON.stringify([project.brief, project.sources, project.draftKind, project.draftBody, project.reasoning]);
+          const researchChanged = researchContent(next) !== researchContent(current);
+          const changed = researchChanged || JSON.stringify([next.run, next.outputs]) !== JSON.stringify([current.run, current.outputs]);
+          const at = clock();
+          let reasoningHistory = current.reasoningHistory;
+          if (researchChanged && ((current.draftKind === 'research' && current.draftBody.trim()) ||
+            REASONING_FIELDS.some(field => current.reasoning[field].trim()) || current.reasoning.evidence.length)) {
+            reasoningHistory = [...reasoningHistory, reasoningSnapshot({ ...current, at })].slice(-HISTORY_LIMIT);
+            while (bytes(reasoningHistory) > HISTORY_BYTES) reasoningHistory.shift();
+          }
+          return normalize({ ...next, createdAt: current.createdAt, revision: current.revision + 1, updatedAt: at,
             status: changed ? 'DRAFT' : current.status,
+            review: changed ? null : current.review, reasoningHistory,
             history: history(current, changed && current.status !== 'DRAFT' ? 'Changed; review reset' : 'Saved') });
         });
       },
-      async review(key, expected, action, note) {
+      async review(key, expected, action, note, attestation) {
         if (!text(note, 2000)) fail('Write a review note first.');
         return records.change(key, value => {
           const current = requireRevision(value, expected);
@@ -115,7 +197,15 @@
           else if (action === 'approve' && current.status === 'IN_REVIEW') status = 'APPROVED';
           else if (action === 'revise' && current.status !== 'DRAFT') status = 'DRAFT';
           else fail('That review action is not available in the current state.');
+          let review = null;
+          if (action === 'approve') {
+            if (!current.sources.some(source => source.checked)) fail('Approval needs a checked source and a review note.');
+            requireReasoning(current.reasoning);
+            if (!attestation || !text(attestation.reviewer, 160)) fail('Name the reviewer before approval.');
+            review = { at: clock(), revision: current.revision, reviewer: attestation.reviewer.trim(), checks: checklist(attestation.checks) };
+          }
           return normalize({ ...current, status, revision: current.revision + 1, updatedAt: clock(),
+            review,
             history: history(current, { submit: 'Submitted for review', approve: 'Approved', revise: 'Changes requested' }[action], note.trim()) });
         });
       },
@@ -127,5 +217,5 @@
       async importBackup(input) { const projects = parseBackup(input); await records.insertMany(projects); return projects.length; }
     });
   }
-  LH.Research = Object.freeze({ normalize, parseBackup, createRepository, clone });
+  LH.Research = Object.freeze({ normalize, parseBackup, createRepository, clone, REASONING_FIELDS, REVIEW_CHECKS, emptyReasoning });
 })(globalThis);
