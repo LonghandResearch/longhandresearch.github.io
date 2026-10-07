@@ -55,14 +55,28 @@ warm stone and wood, varied workstations and a furnished executive office.
 The outlook remains at least 170 CSS pixels high on small screens. The floor's
 decorative ceiling strip is cropped together with its entire character wrapper;
 the 960 × 620 coordinates, six-room geometry, corridor and door gaps are retained.
+Room identity comes from work cues inside the existing furniture footprints:
+
+| Room | Work cues |
+| --- | --- |
+| Library | Indexed reference cards, a digital source terminal and research shelves |
+| Research Office | Source notes, working papers and an evidence board |
+| Data Lab | Trend/comparison charts, a matrix dashboard and a scatter display |
+| Editor Office | Two-column publication layouts, a review screen and marked proofs |
+| Director Office | Research briefings, strategy notes and a decision folio |
+| Main Hall | Shared briefing cards, reference material and collaboration notes |
+
 Appearance lives separately from state in `Visual.DESIGNS`; each design specifies
 hair, clothing, skin tone and a work accessory. The Director has an average male
 silhouette, natural medium brown skin, glasses, black center-parted hair, a charcoal
 smart-casual jacket and a research folio. These follow the founder's supplied
 appearance description; no photo is embedded. To refine that identity, edit
 `DESIGNS.director` and its drawing details in `createSprite`. All staff use the same
-48 × 80 sprite canvas, map size, shading and walking animation. The ten other
-professional designs are preserved.
+48 × 80 sprite canvas, map size, shading and walking animation. All eleven
+appearance configurations and the Director's complete sprite are preserved in
+the identity polish. Research staff carry source books, citation notes and a
+source-reading laptop; analysts use dashboards, charts and styluses; editors
+carry article proofs and review marks; the Associate has a laptop and shared notes.
 
 The model holds `id`, `name`, `role`, `location`, `status`, `currentTask`, `progress`
 and `lastActivity`, plus a description, `destination` and readable activity text.
@@ -70,9 +84,9 @@ Locations are room IDs; their display names live in `State.ROOMS`. Statuses are
 `IDLE`, `WORKING`, `THINKING`, `DIRECTING`, `READING`, `MEETING`, `REVIEWING`, `COMPLETED` and
 `ERROR`. Walking is visual behavior rather than an additional task status.
 `DIRECTING` uses the existing stationary meeting behavior. The Director stays
-first in the staff list, starts in Director Office, visits Main Hall and returns
-home in the unchanged 31-event sequence. Other department visits and an idle
-return can use the existing status/location event contract.
+first in the staff list and starts in Director Office. The mock workflow takes
+him through Main Hall, Research Office and Data Lab before returning for review.
+Department visits and an idle return use the existing status/location contract.
 
 ## Event contract
 
@@ -119,11 +133,15 @@ Restart restores the agents and sequence, preserving selection and pause choice.
 Hidden pages suspend timers and animation. Reduced motion starts in manual mode
 and always uses immediate arrival rather than animated travel.
 
-The eleven-person visual redesign keeps `mock-events.js` and its 31-event sequence
-unchanged. Three added professionals use the existing initial-data schema and
-station-offset metadata. The reducer, waypoint algorithm and controller are
-unchanged. Those three staff begin at their own tasks and accept the same future
-events through the dispatcher; no new simulation events are introduced.
+The identity polish refines the existing mock script into 43 events, adjusting
+task text, destinations and ordering with brief handoffs and home-department work for all eleven
+professionals. Researchers move between source reading and drafting; analysts
+bring checks to Research and return to Data; editors review with researchers
+and return to Editorial; the Director discusses strategy and reviews at home;
+the Associate organizes references before the Main Hall handoff. The source,
+reducer, waypoint algorithm, stations, controller and timer behavior are unchanged.
+Visit ordering preserves separate selectable staff positions at the minimum map
+width. No backend is connected and no report is published.
 
 Movement uses clear room exits and one corridor, with a few waypoints. It supports
 replacement destinations during a walk and emits arrivals only after reaching
@@ -146,7 +164,8 @@ World loads no parent site JavaScript, stylesheet, catalogue, analytics or CDN.
 Its typography follows the parent's serif/sans editorial language using system
 fallbacks, with charcoal, muted navy, steel and a restrained amber accent. Parent HTML navigation is
 unchanged because it is repeated across pages; World is independently accessible.
-The only existing-file change is the required `TASKS.md` ownership/review row.
+The initial World addition changes only the `TASKS.md` ownership/review row outside
+`world/`. This identity polish changes World files only.
 
 Run from the repository root:
 
@@ -170,21 +189,22 @@ PR review and GitHub Pages process; this addition does not alter that workflow.
 
 Checked on 5 October 2026:
 
-- All 21 state, event, movement and controller tests pass, including all 396
+- All 22 state, event, movement and controller tests pass, including all 396
   agent/room-pair doorway routes, interrupted travel, simultaneous arrivals,
   one animation loop, pause/restart, hidden-page suspension and reduced motion.
   Both complete mock cycles keep every colleague's sprite center outside other
   staff hitboxes at the floor plan's minimum 700 pixel width.
 - The shared site checker passes script parsing, all existing JSON, catalogue,
   sitemap and exact-case links, including the new nested World page.
-- Browser preview confirms six rooms, eleven selectable characters, matching
-  dossiers, Enter/Space selection, the complete mock cycle including ERROR and
+- Browser preview confirms six rooms, all 22 map/staff-list selections, matching
+  dossiers, Enter/Space selection, the complete 43-event mock cycle including ERROR and
   COMPLETED, animated travel and arrival, manual Next event and pause/restart.
 - Direct HTTP `world/` and `world/index.html` load; refresh works. Artwork loads
   locally, and World links resolve to the existing research pages. No World
   console errors were observed.
-- At 390 and 320 pixel viewport widths, only the floor plan scrolls horizontally;
-  the page, staff list, controls and dossier fit the screen.
+- At 1280, 1024, 768, 390 and 320 pixel viewport widths, the page, staff list,
+  controls and dossier fit the screen. Narrow layouts scroll only the floor plan;
+  all eleven map selections work at 320 pixels. Map sprites remain 36 × 60 pixels.
 - Existing homepage/globe/latest report, Library search, Coverage, Wire headlines,
   About, INET's 24-page PDF reader, The Power Behind AI, both IHSG layouts and the
   Indonesia resource research page load without observed console errors. The
@@ -196,23 +216,17 @@ Checked on 5 October 2026:
 Diff review confirms only `world/` additions and the task-board row. No existing
 public page, shared asset, research fact, catalogue, sitemap or workflow changed.
 
-The panorama and eleven-staff visual pass modifies `index.html`, `world.css`, `sprites.js`,
-`assets/institution.svg`, initial records in `state.js`, station offsets in
-`movement.js`, both test files, this README and the root `TASKS.md` row. It adds
-`assets/city-outlook.svg`. `world.js` and `mock-events.js` have no changes in this pass.
+The current character and room identity polish changes exactly `index.html`,
+`sprites.js`, `mock-events.js`, `assets/institution.svg`, `tests/state.test.mjs`
+and this README. It adds no files or dependencies. All eleven appearance
+configurations and the Director sprite output are unchanged. New work cues stay
+within existing furniture and screen footprints; room geometry and routes are
+unchanged. Initial staff records, state, movement, controller, CSS, city artwork,
+controller tests, parent pages and `TASKS.md` remain unchanged in this pass.
 
-The focused founder / Director pass changes `sprites.js`, Director role text and
-the allowed-status list in `state.js`, one behavior alias in `world.js`, matching
-fallback text and cache versions in `index.html`, a shared-controller regression
-in `tests/controller.test.mjs`, this README and the root `TASKS.md` row. The ten
-other sprite outputs, initial staff records, floor/city artwork, CSS, movement
-module and 31 mock events remain unchanged. It adds no files or dependencies.
-
-Director verification covers all seven requested statuses through the shared
-controller, visits to Research Office, Data Lab, Editor Office and Main Hall,
-and an idle return to Director Office without changing any colleague. Browser
-QA confirms all 22 map/staff-list selections, animated walking and arrival,
-the complete mock cycle and office return, and the unchanged 36 × 60 map sprite
-at 1280, 1024, 768, 390 and 320 pixel browser widths. No page overflow or World
-console errors were observed. The shared site checker and JavaScript syntax
-checks pass. Existing public pages and shared assets remain untouched.
+The workflow test verifies participation by all eleven professionals and the
+knowledge, research, analysis, editorial, strategy and collaboration handoffs.
+Browser QA confirms animated Director travel from Main Hall to Research Office,
+arrival in the shared meeting posture, Data Lab review and return to Director
+Office. No page overflow or World console errors were observed. JavaScript
+syntax checks and the shared site checker pass.

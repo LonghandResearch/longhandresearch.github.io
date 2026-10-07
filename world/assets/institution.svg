@@ -167,6 +167,24 @@
       <rect x="26" y="34" width="3" height="3" fill="#263743"/>
     </g>
     <clipPath id="directorGlazing"><rect x="846" y="377" width="38" height="121"/></clipPath>
+
+    <!-- Small shared work cues stay inside existing screens and paper stacks. -->
+    <g id="referenceCard">
+      <rect width="15" height="13" fill="#d0d6c9"/>
+      <rect x="2" y="2" width="3" height="8" fill="#8fa29e"/>
+      <path d="M7 3H13M7 6H12M7 9H13" stroke="#6c858e" stroke-width="1"/>
+    </g>
+    <g id="publicationPage">
+      <rect width="12" height="16" fill="#e2dfd0"/>
+      <path d="M2 2H10M2 4H8" stroke="#6e8790" stroke-width="1"/>
+      <rect x="2" y="6" width="8" height="4" fill="#9eb0b0"/>
+      <path d="M2 12H5M7 12H10M2 14H5M7 14H10" stroke="#899b9a" stroke-width="1"/>
+    </g>
+    <g id="reviewSheet">
+      <rect width="16" height="10" fill="#e3ddd0"/>
+      <path d="M2 2H11M2 5H10M2 8H12" stroke="#879a9a" stroke-width="1"/>
+      <path d="M12 2L13 3L15 1M11 5H14M13 7V9" fill="none" stroke="#ad8e6c" stroke-width="1"/>
+    </g>
   </defs>
 
   <!-- The floor continues the tall city outlook above: no floating game-map frame. -->
@@ -230,6 +248,18 @@
   <use href="#keyboard" x="181" y="147"/>
   <use href="#documents" x="219" y="144"/>
   <use href="#deskLight" x="280" y="131"/>
+  <!-- Knowledge: indexed sources and a dedicated reference terminal. -->
+  <g id="library-work-cues">
+    <rect x="165" y="116" width="60" height="18" fill="#486272"/>
+    <path d="M167 119H221M187 120V132" stroke="#7f9b9f" stroke-width="1"/>
+    <rect x="168" y="121" width="16" height="10" fill="#bbc7bf"/>
+    <path d="M170 123H182M170 126H180M170 129H181" stroke="#6d858e" stroke-width="1"/>
+    <use href="#referenceCard" x="190" y="120"/>
+    <use href="#referenceCard" x="208" y="120"/>
+    <rect x="133" y="143" width="16" height="15" fill="#b9cbc6"/>
+    <path d="M135 146H146M135 150H143M135 154H145" stroke="#6b8792" stroke-width="1"/>
+    <path d="M96 158H101M104 159H108M112 158H117M96 181H100M104 182H109M112 180H117" stroke="#bcae8d" stroke-width="1"/>
+  </g>
   <rect x="139" y="174" width="163" height="53" fill="#8e9588" opacity=".16"/>
   <path d="M143 178H298V223H143Z" fill="none" stroke="#b4b8a0" stroke-width="1" opacity=".25"/>
   <rect x="91" y="243" width="52" height="6" fill="#718486"/>
@@ -258,6 +288,20 @@
   <use href="#documents" x="441" y="143"/>
   <use href="#documents" x="558" y="145"/>
   <use href="#deskLight" x="579" y="131"/>
+  <!-- Research: source notes, a working paper and a restrained evidence board. -->
+  <g id="research-work-cues">
+    <rect x="500" y="113" width="84" height="23" fill="#526e7d"/>
+    <use href="#publicationPage" x="504" y="116"/>
+    <use href="#publicationPage" x="520" y="116"/>
+    <path d="M538 117H579M538 121H555M538 124H551M538 128H553" stroke="#b7c9c2" stroke-width="1"/>
+    <rect x="559" y="121" width="20" height="11" fill="#839b9e"/>
+    <path d="M562 124H567V129H574V124H577M567 126H574" fill="none" stroke="#d5dbc9" stroke-width="1"/>
+    <rect x="397" y="115" width="38" height="21" fill="#b6c5c0"/>
+    <path d="M400 118H430M400 122H415M400 125H412M400 129H415M420 122H430M420 125H429M420 129H431" stroke="#65818e" stroke-width="1"/>
+    <rect x="360" y="152" width="13" height="22" fill="#c9ccbc"/>
+    <path d="M362 155H371M362 159H366V166H371M368 159H371M362 170H369" fill="none" stroke="#788f94" stroke-width="1"/>
+    <use href="#reviewSheet" x="443" y="144"/>
+  </g>
   <rect x="390" y="175" width="189" height="56" fill="#8b9ba1" opacity=".13"/>
   <path d="M393 178H576V228H393Z" fill="none" stroke="#b3bebe" stroke-width="1" opacity=".2"/>
   <use href="#plant" x="566" y="224"/>
@@ -282,6 +326,20 @@
   <use href="#documents" x="748" y="144"/>
   <rect x="770" y="147" width="8" height="6" fill="#4b7382"/>
   <path d="M772 149H776M772 151H775" stroke="#b5ceca" stroke-width="1"/>
+  <!-- Analysis: coordinated trend, comparison, matrix and scatter displays. -->
+  <g id="data-work-cues">
+    <rect x="684" y="113" width="84" height="23" fill="#3d6176"/>
+    <path d="M686 116H766M713 118V134M740 118V134" stroke="#7f9caa" stroke-width="1"/>
+    <path d="M687 132H710M688 130L692 126L697 128L702 122L708 125" fill="none" stroke="#b9d0c5" stroke-width="1"/>
+    <path d="M717 130V126H721V122H725V127H729V119H733V125H737" fill="none" stroke="#c5c3a2" stroke-width="2"/>
+    <path d="M744 120H748V123H744ZM750 120H754V123H750ZM756 120H760V123H756ZM744 125H748V128H744ZM750 125H754V128H750ZM756 125H760V128H756ZM744 130H748V133H744ZM750 130H754V133H750ZM756 130H760V133H756Z" fill="#8dacae"/>
+    <path d="M750 125H754V128H750ZM756 120H760V123H756ZM744 130H748V133H744Z" fill="#c0c5a9"/>
+    <rect x="787" y="116" width="38" height="21" fill="#3f6071"/>
+    <path d="M791 120V133H820M791 125H820M801 120V133M811 120V133" fill="none" stroke="#6f909c" stroke-width="1"/>
+    <path d="M794 129H796V131H794ZM799 126H801V128H799ZM804 128H806V130H804ZM809 123H811V125H809ZM814 124H816V126H814ZM819 119H821V121H819Z" fill="#c5d3c3"/>
+    <rect x="852" y="153" width="14" height="19" fill="#557987"/>
+    <path d="M854 156H864M854 160H859M861 160H864M854 164H859M861 164H864M854 168H864" stroke="#b7cbc3" stroke-width="1"/>
+  </g>
   <rect x="677" y="172" width="161" height="61" fill="#8caab2" opacity=".13"/>
   <path d="M681 176H834V229H681Z" fill="none" stroke="#bfd0cd" stroke-width="1" opacity=".25"/>
   <rect x="639" y="133" width="29" height="4" fill="#b2bfbc"/>
@@ -380,6 +438,18 @@
   <use href="#keyboard" x="239" y="480"/>
   <use href="#documents" x="200" y="473"/>
   <use href="#deskLight" x="281" y="460"/>
+  <!-- Publication: page composition, a review screen and a marked desk proof. -->
+  <g id="editor-work-cues">
+    <rect x="156" y="452" width="38" height="21" fill="#607c8b"/>
+    <use href="#publicationPage" x="159" y="455"/>
+    <use href="#publicationPage" x="175" y="455"/>
+    <path d="M190 455V470" stroke="#9aaba7" stroke-width="1"/>
+    <rect x="233" y="452" width="38" height="21" fill="#b8c6bf"/>
+    <path d="M236 455H255M236 458H251M236 462H250M236 466H252M236 470H251" stroke="#708791" stroke-width="1"/>
+    <rect x="258" y="454" width="10" height="16" fill="#879f9f"/>
+    <path d="M255 459L258 456H265M252 466H257L260 464H266M261 468H266" fill="none" stroke="#ddc8a4" stroke-width="1"/>
+    <use href="#reviewSheet" x="202" y="474"/>
+  </g>
   <path d="M117 382H306" stroke="#d0b087" stroke-width="1" opacity=".8"/>
 
   <!-- Founder's suite: panoramic corner glazing, confident walnut desk and executive seating. -->
@@ -419,6 +489,17 @@
   <rect x="825" y="480" width="3" height="2" fill="#847355"/>
   <path d="M637 382H835" stroke="#e0bc8a" stroke-width="2" opacity=".8"/>
   <path d="M642 386H831" stroke="#e0bc8a" stroke-width="5" opacity=".09"/>
+  <!-- Strategy: a research briefing and a quiet, annotated decision folio. -->
+  <g id="director-work-cues">
+    <rect x="696" y="452" width="84" height="23" fill="#566f7a"/>
+    <use href="#publicationPage" x="700" y="455"/>
+    <path d="M718 456H754M718 460H748M718 465H731M735 465H749M718 470H731M735 470H749" stroke="#c7cebc" stroke-width="1"/>
+    <rect x="758" y="456" width="17" height="14" fill="#879c98"/>
+    <path d="M761 459H772M761 463H770M761 467H771" stroke="#d9d7bb" stroke-width="1"/>
+    <use href="#reviewSheet" x="758" y="476"/>
+    <rect x="641" y="384" width="95" height="8" fill="#a8beb9"/>
+    <path d="M645 386H673M645 389H668M680 386H693M698 386H711M716 386H730M680 390H690M698 390H709M716 390H728" stroke="#5e7f8a" stroke-width="1"/>
+  </g>
 
   <!-- Quiet meeting lounge, with an open center for eleven colleagues and future handoffs. -->
   <rect x="351" y="384" width="37" height="26" fill="#3a596c"/>
@@ -448,6 +529,17 @@
   <rect x="399" y="386" width="149" height="89" fill="#c1c8b9" opacity=".08"/>
   <path d="M402 390H545M402 471H545" stroke="#d0c9b2" stroke-width="1" opacity=".35"/>
   <path d="M348 483V388M599 483V388" stroke="#d2b183" stroke-width="1" opacity=".7"/>
+  <!-- Collaboration: shared briefing cards and notes within the existing lounge. -->
+  <g id="hall-work-cues">
+    <rect x="351" y="285" width="84" height="12" fill="#78959f"/>
+    <path d="M354 287H376V295H354ZM382 287H404V295H382ZM410 287H432V295H410Z" fill="#c5cec1"/>
+    <path d="M357 290H372M357 293H369M385 290H400M385 293H397M413 290H428M413 293H425" stroke="#748d92" stroke-width="1"/>
+    <path d="M376 291H382M404 291H410" stroke="#c8c5ac" stroke-width="1"/>
+    <rect x="354" y="387" width="31" height="18" fill="#7898a5"/>
+    <use href="#referenceCard" x="356" y="390"/>
+    <path d="M374 391H382M374 395H380M374 399H382M373 403H382" stroke="#d1d7c4" stroke-width="1"/>
+    <use href="#reviewSheet" x="368" y="472"/>
+  </g>
 
   <!-- Modern reception threshold and connecting lift lobby, rather than exterior stairs. -->
   <path d="M76 500H398V518H76ZM550 500H884V518H550Z" fill="#46565d"/>

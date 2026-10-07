@@ -166,17 +166,40 @@
     const hand = (x,y,w=4,h=5) => { rect(x,y,w,h,skinShade); rect(x,y,w-1,h-1,p.skin); rect(x,y+1,1,h-2,skinLight); };
     const paper = (x,y,w,h,proof=false) => {
       rect(x+1,y+1,w,h,'#6d7a7d'); rect(x,y,w,h,'#e2dece'); rect(x+1,y+1,w-2,1,'#f1ecdd');
-      rect(x+2,y+4,w-4,1,'#879494'); rect(x+2,y+7,w-5,1,'#a1aaa4'); rect(x+2,y+10,w-4,1,'#a1aaa4');
-      if (proof) { rect(x+3,y+7,4,1,'#9b7960'); rect(x+w-3,y+9,1,3,'#9b7960'); }
+      rect(x+2,y+3,w-4,1,'#7b898a'); rect(x+2,y+5,w-4,1,'#b4b9ae');
+      if (proof) {
+        // Two article columns and restrained review marks distinguish publication proofs from source notes.
+        const column = Math.max(2,Math.floor((w-5)/2));
+        rect(x+2,y+7,column,1,'#9ba59e'); rect(x+2,y+9,column-1,1,'#9ba59e'); rect(x+2,y+11,column,1,'#9ba59e');
+        rect(x+3+column,y+7,column-1,1,'#9ba59e'); rect(x+3+column,y+9,column,1,'#9ba59e'); rect(x+3+column,y+11,column-1,1,'#9ba59e');
+        rect(x+2,y+9,column,1,'#9b7960'); rect(x+w-3,y+8,1,5,'#9b7960'); rect(x+w-4,y+11,2,1,'#9b7960');
+      } else {
+        rect(x+2,y+7,w-5,1,'#a1aaa4'); rect(x+2,y+10,w-4,1,'#a1aaa4');
+        rect(x+2,y+h-3,2,1,'#758d96'); rect(x+5,y+h-3,Math.max(1,w-7),1,'#b4b9ae');
+      }
+    };
+    const sourceBook = (x,y,w,h) => {
+      rect(x-1,y+1,w+2,h,'#53646b'); rect(x,y,w,h,'#d7d7c9');
+      const spine = Math.floor(w/2);
+      rect(x+1,y+1,spine-1,h-2,'#e8e3d3'); rect(x+spine+1,y+1,w-spine-2,h-2,'#deddd0');
+      rect(x+spine,y+1,1,h-1,'#adb4aa'); rect(x+spine,y+h,1,2,'#a58e70');
+      rect(x+2,y+4,spine-3,1,'#8d9b97'); rect(x+2,y+7,spine-2,1,'#a2aca3'); rect(x+2,y+10,spine-3,1,'#a2aca3');
+      rect(x+spine+2,y+4,w-spine-4,1,'#8d9b97'); rect(x+spine+2,y+7,w-spine-3,1,'#a2aca3'); rect(x+spine+2,y+10,w-spine-4,1,'#a2aca3');
     };
     const tablet = (x,y,w,h) => {
       rect(x,y,w,h,edge); rect(x+1,y+1,w-2,h-2,'#738a97'); rect(x+2,y+2,w-4,h-4,'#344f5e');
       rect(x+3,y+4,w-6,1,'#c5d0cc'); rect(x+3,y+h-5,2,2,'#829dab'); rect(x+7,y+h-8,2,5,'#9cb1b8'); rect(x+11,y+h-10,2,7,'#b6c7c8');
-      rect(x+w-2,y+2,1,h-4,'#566e7a');
+      rect(x+3,y+6,3,2,'#6f8d98'); rect(x+7,y+6,3,2,'#7a929c'); rect(x+11,y+6,2,2,'#93acb2');
+      rect(x+3,y+h-3,w-6,1,'#687f89'); rect(x+w-2,y+2,1,h-4,'#566e7a');
     };
-    const laptop = (x,y,w,h) => {
+    const laptop = (x,y,w,h,source=false) => {
       rect(x,y,w,h,edge); rect(x+1,y+1,w-2,h-2,'#9caaae'); rect(x+2,y+2,w-4,h-4,'#7c8d96');
-      rect(x+Math.floor(w/2)-1,y+Math.floor(h/2),3,1,'#c7d0ce'); rect(x-1,y+h,w+2,2,'#b3bfbe'); rect(x,y+h+1,w,1,'#596b76');
+      if (source) {
+        rect(x+2,y+2,w-4,h-4,'#3e5561'); rect(x+3,y+3,w-6,1,'#aebfbe');
+        rect(x+4,y+5,5,h-7,'#cbd0c2'); rect(x+10,y+5,w-14,1,'#9eb0af'); rect(x+10,y+7,w-15,1,'#8ca0a2');
+        rect(x+5,y+6,3,1,'#879d9c'); rect(x+5,y+8,2,1,'#879d9c');
+      } else rect(x+Math.floor(w/2)-1,y+Math.floor(h/2),3,1,'#c7d0ce');
+      rect(x-1,y+h,w+2,2,'#b3bfbe'); rect(x,y+h+1,w,1,'#596b76');
     };
 
     if (p.pose === 'director') {
@@ -187,45 +210,53 @@
       rect(right-3,43,3,2,p.skin); rect(right,47,1,8,'#8d9a9b');
     } else if (p.pose === 'reading') {
       sleeve(left-2,28,5,9); shape([[left-1,35],[left+3,35],[left+3,37],[23,37],[23,41],[left+1,41],[left+1,39],[left-1,39]],p.coat);
-      sleeve(right-1,28,5,8); rect(29,34,9,4,p.coat); paper(23,28,13,16); hand(21,38,4,4); hand(34,35,4,4);
+      sleeve(right-1,28,5,8); rect(29,34,9,4,p.coat); sourceBook(23,28,13,16); hand(21,38,4,4); hand(34,35,4,4);
       rect(22,37,1,3,p.accent); rect(24,44,1,3,p.shade);
     } else if (p.pose === 'laptop') {
       sleeve(left-2,28,6,9,true); sleeve(right-1,28,6,9,true);
-      rect(left+1,40,6,3,p.skin); rect(29,40,7,3,skinShade); laptop(18,38,20,12); hand(16,46,5,4); hand(35,45,4,4);
+      rect(left+1,40,6,3,p.skin); rect(29,40,7,3,skinShade); laptop(18,38,20,12,true); hand(16,46,5,4); hand(35,45,4,4);
       rect(left-2,35,6,1,p.shirt); rect(right-1,35,6,1,p.shirt);
     } else if (p.pose === 'notes') {
       sleeve(left-2,28,5,16); hand(left-1,44,4,5); sleeve(right-1,28,5,8);
       shape([[32,34],[37,34],[37,39],[35,39],[35,42],[30,42],[30,38],[32,38]],p.coat);
       paper(25,32,13,17); hand(33,39,4,5); rect(24,35,1,9,'#6a7f87'); hand(22,39,4,3);
-      rect(24,35,1,2,p.accent); rect(left+2,45,1,6,tint(p.coat,12));
+      rect(24,35,1,2,p.accent); rect(35,30,2,3,'#758d96'); rect(left+2,45,1,6,tint(p.coat,12));
     } else if (p.pose === 'tablet') {
       sleeve(left-2,28,5,10); sleeve(right-1,28,5,15); rect(left+1,36,12,5,p.coat);
-      tablet(22,33,16,17); hand(20,40,5,4); hand(34,45,5,4); rect(left+2,39,9,1,tint(p.coat,15));
+      tablet(22,33,16,17); rect(38,34,1,10,'#b8c7c8'); rect(38,34,1,2,'#748e9c');
+      hand(20,40,5,4); hand(34,45,5,4); rect(left+2,39,9,1,tint(p.coat,15));
     } else if (p.pose === 'crossed') {
       sleeve(left-2,28,6,11); sleeve(right-1,28,6,10);
       shape([[left-1,36],[left+3,36],[left+3,38],[30,38],[30,43],[left+1,43],[left+1,41],[left-1,41]],p.shade);
       shape([[right-3,35],[right+3,35],[right+3,40],[right,40],[right,44],[22,44],[22,40],[right-3,40]],p.coat);
       rect(21,40,11,1,tint(p.coat,14)); hand(19,40,5,4); hand(29,36,5,4);
-      paper(left-3,42,10,15,false); rect(left-2,40,8,2,'#86969d'); hand(left+2,42,3,4);
+      paper(left-3,42,10,15,false); rect(left-1,48,6,7,'#e2dece');
+      rect(left-1,54,6,1,'#8c9a97'); rect(left,52,1,2,'#8198a1'); rect(left+2,50,1,4,'#92a8ad'); rect(left+4,48,1,6,'#a3b7b7');
+      rect(left-2,40,8,2,'#86969d'); hand(left+2,42,3,4);
     } else if (p.pose === 'analysis') {
       sleeve(left-2,28,5,12); sleeve(right-1,28,5,8); rect(left+1,39,15,4,p.coat);
-      tablet(22,29,17,19); hand(21,41,5,4); hand(35,33,4,5); rect(left+2,39,8,1,tint(p.coat,15));
+      tablet(22,29,17,19); rect(34,26,1,8,'#c4d0cd'); rect(34,26,1,2,'#7895a1');
+      hand(21,41,5,4); hand(35,33,4,5); rect(left+2,39,8,1,tint(p.coat,15));
       rect(33,32,5,1,p.skin); rect(34,31,4,1,skinShade);
     } else if (p.pose === 'proofs') {
       sleeve(left-2,28,5,17); hand(left-1,45); sleeve(right-1,28,5,11); rect(31,37,8,5,p.coat);
-      paper(29,38,13,19,true); paper(28,36,13,19,true); hand(34,42,5,5); rect(30,47,6,1,'#a58d6f');
+      paper(29,38,13,19,true); paper(28,36,13,19,true); rect(31,35,5,2,'#8c9897');
+      hand(34,42,5,5); rect(30,47,6,1,'#a58d6f');
       rect(left-1,42,4,1,'#c2c7bb');
     } else if (p.pose === 'folio') {
       sleeve(left-2,28,5,14); hand(left-1,42); sleeve(right-1,28,5,14); hand(right-1,42,4,5);
       rect(left-4,43,9,16,'#8e897b'); rect(left-3,44,7,14,'#b6b19d'); rect(left-3,46,6,1,'#737c7b');
-      rect(left-2,49,4,1,'#e3ddc9'); rect(left+3,44,1,14,'#d2c8af'); hand(left+1,45,4,5);
+      rect(left-3,45,6,12,'#e1ddcd'); rect(left-2,47,4,1,'#84938f'); rect(left-2,50,3,1,'#a1aaa0');
+      rect(left-2,53,3,1,'#9b7960'); rect(left-2,55,4,1,'#a1aaa0');
+      rect(left+3,44,1,14,'#d2c8af'); hand(left+1,45,4,5);
       rect(right,42,1,8,'#9eafb3'); rect(right,42,1,2,'#d0d6ca');
     } else if (p.pose === 'edit') {
       sleeve(left-2,28,5,12); rect(left+1,38,8,5,p.coat); sleeve(right-1,28,5,8);
-      rect(31,34,7,5,p.coat); hand(30,32,4,5); rect(29,29,1,11,'#b4c2c3'); rect(29,29,1,3,p.accent);
+      rect(31,34,7,5,p.coat); hand(30,32,4,5); rect(29,29,1,11,'#b4c2c3'); rect(29,29,1,3,'#9b7960');
       paper(16,36,13,19,true); paper(17,35,13,18,true); hand(17,41,4,5); rect(21,47,6,1,'#ad8a6f');
     } else if (p.pose === 'associate') {
       sleeve(left-2,28,5,14); sleeve(right-1,28,5,12); rect(left+1,40,9,4,p.coat);
+      paper(26,34,10,13,false); rect(27,33,4,2,'#879a9d');
       laptop(15,42,24,12); hand(14,46,4,5); hand(35,45,5,4); rect(right-2,39,4,6,p.coat);
       rect(left-1,38,4,1,p.shirt); rect(right,38,4,1,p.shirt);
     }

@@ -193,6 +193,39 @@ test('two complete mock cycles dispatch and arrive successfully without invalid 
   assert.equal(source.getCursor(), 0); assert.equal(store.getSnapshot().events.length, 12);
 });
 
+test('mock workflow includes every professional and coherent department handoffs', () => {
+  const store = create(); const movement = Movement.createMovement(); movement.reset(store.getSnapshot().agents);
+  const itineraries = new Map(store.getSnapshot().agents.map(agent => [agent.id, [agent.location]]));
+  const started = new Set();
+  for (const event of Mock.SCRIPT) {
+    assert.equal(store.dispatch(event), true);
+    if (event.type === 'agent.started_task') started.add(event.agentId);
+    movement.sync(store.getSnapshot().agents);
+    movement.advance(0, true).forEach(arrival => assert.equal(store.dispatch(arrival), true));
+    for (const agent of store.getSnapshot().agents) {
+      const rooms = itineraries.get(agent.id);
+      if (rooms.at(-1) !== agent.location) rooms.push(agent.location);
+    }
+  }
+  assert.deepEqual([...started].sort(), plain(State.INITIAL_AGENTS.map(agent => agent.id)).sort());
+  const handoffs = {
+    researcher: ['research', 'library', 'research'],
+    analyst: ['data', 'research', 'data'],
+    editor: ['editor', 'research', 'editor'],
+    director: ['director', 'hall', 'research', 'data', 'director'],
+    associate: ['research', 'library', 'hall']
+  };
+  for (const [id, expected] of Object.entries(handoffs)) {
+    let next = 0;
+    for (const room of itineraries.get(id)) if (room === expected[next]) next++;
+    assert.equal(next, expected.length, id + ' participates in the department workflow');
+  }
+  for (const [id, home] of [['researcher-female', 'library'], ['analyst-female', 'data'], ['editor-female', 'editor']]) {
+    assert.deepEqual(itineraries.get(id), [home]);
+    assert.equal(member(store, id).status, 'COMPLETED');
+  }
+});
+
 test('arrival notification sync does not requeue other agents already arrived in the same frame', () => {
   const store = create(); const movement = Movement.createMovement(); movement.reset(store.getSnapshot().agents);
   store.subscribe(snapshot => movement.sync(snapshot.agents));
