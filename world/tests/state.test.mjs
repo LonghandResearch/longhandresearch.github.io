@@ -24,6 +24,8 @@ const TASK_ID = 'ai-infrastructure-trends';
 const TASK_TITLE = 'Analyze AI infrastructure market trends';
 const PIPELINE = ['associate', 'researcher', 'analyst', 'editor', 'director'];
 const freshTask = () => ({ id: TASK_ID, title: TASK_TITLE, assignedAgentId: null, status: 'IDLE',
+  question: 'What evidence is needed to assess AI infrastructure market trends?',
+  objective: 'Prepare a source-led research note with transparent validation and a clear argument.',
   stage: 0, completedStages: 0, location: null, currentActivity: 'Ready for source collection',
   startedAt: null, completedAt: null });
 const tagged = (type, agentId, fields = {}) => ({ type, agentId, taskId: TASK_ID, ...fields });
@@ -60,6 +62,7 @@ test('initial state has exactly five named professionals, required fields and se
     assert.ok(Object.hasOwn(State.ROOMS, agent.location));
   }
   assert.deepEqual(plain(store.getSnapshot().task), freshTask());
+  assert.deepEqual(plain(store.getSnapshot().outputs), []);
   const movement = Movement.createMovement(); movement.reset(agents);
   assertSelectableStations(store, movement);
 });
@@ -459,6 +462,67 @@ test('arrival notification sync does not requeue other agents already arrived in
   const arrivals = movement.advance(0, true); assert.equal(arrivals.length, 2); arrivals.forEach(store.dispatch);
   assert.equal(member(store, 'researcher').destination, null); assert.equal(member(store, 'analyst').destination, null);
   assert.equal(movement.isMoving(), false);
+});
+
+test('brief validation is atomic and a valid brief is copied into all five agents', () => {
+  const ticking = tickingStore(); const { store } = ticking;
+  let notifications = 0; store.subscribe(() => notifications++);
+  const brief = { topic: '  Indonesia data-center research  ', question: '  Which evidence should we collect?  ', objective: '  Prepare an evidence plan.  ' };
+  for (const invalid of [null, {}, { ...brief, topic: ' ' }, { ...brief, topic: 'x'.repeat(161) },
+    { ...brief, question: 'x'.repeat(481) }, { ...brief, objective: '' },
+    { ...brief, objective: 'x'.repeat(481) }, { ...brief, topic: new String('Topic') }, { ...brief, question: 42 }]) {
+    const before = plain(store.getSnapshot()), clock = ticking.calls();
+    assert.equal(store.reset(invalid), false);
+    assert.deepEqual(plain(store.getSnapshot()), before);
+    assert.equal(ticking.calls(), clock);
+    assert.equal(notifications, 0);
+  }
+  assert.equal(store.reset(brief), true);
+  brief.topic = 'Changed externally';
+  const snapshot = store.getSnapshot();
+  assert.equal(snapshot.task.title, 'Indonesia data-center research');
+  assert.equal(snapshot.task.question, 'Which evidence should we collect?');
+  assert.equal(snapshot.task.objective, 'Prepare an evidence plan.');
+  assert.ok(snapshot.agents.every(agent => agent.currentTask === snapshot.task.title && agent.status === 'IDLE'));
+  assert.equal(notifications, 1);
+  assert.deepEqual(plain(snapshot.outputs), []);
+});
+
+test('custom brief produces five independent mock outputs and restart preserves its scope', () => {
+  const store = create();
+  const brief = { topic: 'Power supply for research facilities', question: 'What should be verified?', objective: 'Prepare a source and validation plan.' };
+  assert.equal(store.reset(brief), true);
+  const source = Mock.createSource(store.dispatch, () => store.getSnapshot().task);
+  let completions = 0;
+  for (const event of Mock.SCRIPT) {
+    assert.equal(source.next(), true);
+    const snapshot = store.getSnapshot();
+    if (event.type === 'agent.completed_task') completions++;
+    assert.equal(snapshot.outputs.length, completions, 'only linked stage completions produce outputs');
+    assert.equal(snapshot.task.title, brief.topic);
+    if (event.type === 'agent.started_task') assert.equal(member(store, event.agentId).currentTask, brief.topic);
+  }
+  const completed = store.getSnapshot();
+  assert.equal(completed.task.status, 'COMPLETED');
+  assert.deepEqual(plain(completed.outputs.map(output => output.agentId)), PIPELINE);
+  assert.equal(completed.outputs.at(-1).completedAt, completed.task.completedAt);
+  assert.ok(completed.outputs.every(output => output.title.includes('mock') && output.body && output.completedAt));
+  completed.outputs[0].body = 'corrupted'; completed.outputs.pop();
+  assert.equal(store.getSnapshot().outputs.length, 5);
+  assert.notEqual(store.getSnapshot().outputs[0].body, 'corrupted');
+  store.subscribe(snapshot => { if (snapshot.outputs.length) snapshot.outputs[0].body = 'subscriber corruption'; });
+  const before = plain(store.getSnapshot());
+  assert.equal(store.dispatch(finish('director')), false);
+  assert.deepEqual(plain(store.getSnapshot()), before);
+  assert.equal(source.next(), true);
+  assert.deepEqual(plain(store.getSnapshot().outputs), [], 'a new cycle clears old outputs');
+  store.reset(); source.reset();
+  assert.equal(store.getSnapshot().task.question, brief.question);
+  assert.equal(store.getSnapshot().task.title, brief.topic);
+  assert.deepEqual(plain(store.getSnapshot().outputs), []);
+  assert.equal(source.next(), true);
+  for (let step = 1; step < 4; step++) assert.equal(source.next(), true);
+  assert.notEqual(store.getSnapshot().outputs[0].body, 'subscriber corruption');
 });
 test('all room-pair routes use the architectural doorways and avoid partition walls', () => {
   const doors = [[212, 228], [466, 482], [750, 766]];

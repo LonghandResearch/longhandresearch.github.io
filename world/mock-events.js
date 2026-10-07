@@ -38,10 +38,15 @@
     ...task.stages.map(stage => ({ type: 'agent.changed_status', agentId: stage.agentId,
       status: 'IDLE', activity: stage.label + ' complete; ready for the next research task' }))
   ].map(Object.freeze));
-  function createSource(dispatch) {
+  function createSource(dispatch, getTask = () => task) {
     let cursor = 0;
     return Object.freeze({
-      next() { const event = { ...SCRIPT[cursor] }; cursor = (cursor + 1) % SCRIPT.length; return dispatch(event); },
+      next() {
+        const event = { ...SCRIPT[cursor] };
+        if (event.type === 'agent.started_task') event.task = getTask().title;
+        cursor = (cursor + 1) % SCRIPT.length;
+        return dispatch(event);
+      },
       reset() { cursor = 0; },
       getCursor() { return cursor; }
     });

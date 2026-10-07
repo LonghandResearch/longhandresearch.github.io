@@ -1,8 +1,9 @@
 # Longhand World V0.1
 
 A self-contained, simulated high-rise research headquarters. This page creates no research,
-calls no AI service and publishes nothing. All tasks and agent activity are mock
-data. Existing research stays in the parent site's library.
+calls no AI service and publishes nothing. Briefs can be entered locally;
+agent activity and stage outputs are simulated. Existing research stays in the
+parent site's library.
 
 ## Open it
 
@@ -31,11 +32,11 @@ and local SVG, so it also supports `file://`.
 | `world.css` | World-only editorial styling, small-screen layout and pixel characters |
 | `assets/institution.svg` | Original 960 × 620 pixel-art floor plan and furnishings |
 | `assets/city-outlook.svg` | Original 960 × 240 panoramic high-rise glazing and city view |
-| `state.js` | DOM-free agent/task model, ordered handoffs, validated reducer and bounded journal |
+| `state.js` | DOM-free brief, agent/task and output models, ordered handoffs and bounded journal |
 | `movement.js` | DOM-free waypoint behavior, independent of event production |
-| `mock-events.js` | Deterministic five-stage research pipeline and repeating event source |
+| `mock-events.js` | Deterministic five-stage pipeline using the current brief's task title |
 | `sprites.js` | Five professional pixel sprites; visual configuration keyed by agent ID |
-| `world.js` | Rendering, selection, simulation clock and adapter surface |
+| `world.js` | Brief submission, rendering, draft preview, selection and simulation clock |
 | `tests/state.test.mjs` | Independent state, event and movement invariant tests |
 | `tests/controller.test.mjs` | Timer, animation, pause, restart and reduced-motion regression tests |
 
@@ -101,14 +102,48 @@ first in the staff list and starts in Director Office. The mock workflow takes
 him through Main Hall, Research Office and Data Lab before returning for review.
 Department visits use the existing status/location contract.
 
-`State.TASK_DEFINITION` defines one mock task, **Analyze AI infrastructure market
-trends**, and its five ordered owners. The store's task snapshot contains `id`,
-`title`, `assignedAgentId`, `status`, confirmed `location`, `currentActivity`,
+`State.TASK_DEFINITION` defines the five ordered owners and mock output templates.
+`State.DEFAULT_BRIEF` supplies the example, **Analyze AI infrastructure market
+trends**. The store's task snapshot contains `id`, `title`, `question`, `objective`,
+`assignedAgentId`, `status`, confirmed `location`, `currentActivity`,
 `stage`, `completedStages`, `startedAt` and `completedAt`. Its overall status is
 IDLE before the first stage, WORKING during the pipeline and COMPLETED only after
 the Director's final review. Agent statuses describe work within each stage.
 The first start records the task timestamp; handoffs preserve it, and final
 completion records a completion timestamp. Snapshots copy the task record.
+
+## Briefs and deliverables
+
+The Research Brief form accepts a topic (up to 160 characters), research question
+and objective (up to 480 characters each). All three must be nonempty primitive
+strings. `State.normalizeBrief` trims them; `store.reset(brief)` rejects invalid
+input before any clock, state, output, journal or notification changes. A valid
+brief is copied into the task and all five agent task titles. Plain `reset()`
+keeps the current brief and clears its workflow results.
+
+Start research replaces the example with a fresh local run and starts the
+Associate immediately. Inputs are locked while a submitted task is WORKING,
+then reopen after final review. The mock source reads the current task title
+at each stage start, preserving the existing event types and owner guards.
+
+Each linked stage completion appends one copied output record with `agentId`,
+`title`, `body` and `completedAt`. The Research record shows five stage slots,
+with Pending, In progress or Complete labels. Mock records cover source slots,
+analysis notes, a validation checklist, a draft outline and a review decision.
+They contain no fetched documents, invented citations, findings or figures.
+Arrivals and untagged local completions do not create outputs; duplicate linked
+completions are rejected by the existing ownership guard. Snapshots copy each
+output so consumers cannot mutate the stored records.
+
+View research draft appears only when the overall task is COMPLETED. A native
+keyboard-accessible disclosure shows the submitted question/objective and all
+five mock records, clearly marked as a simulated planning draft with factual
+approval pending. User text is rendered with `textContent`, never HTML. A user
+run stops after all five agents return to IDLE, settling any remaining travel,
+so its result stays readable. Restart replays the same brief; a new submitted
+brief clears old outputs and closes the old draft. The initial example still
+repeats. Briefs and outputs last only for the page session; no history,
+persistence, acceptance/revision flow or publication is added in this pass.
 
 ## Event contract
 
@@ -149,7 +184,7 @@ An arrival for an obsolete destination is rejected. Journal history is bounded t
 12 events, with the latest four shown; snapshots are independent copies.
 
 Events with `taskId` participate in the team pipeline. Starts must use the
-known task title and the next stage's owner; other linked events must come from
+current brief's task title and the next stage's owner; other linked events must come from
 the active, incomplete stage's owner. Premature handoffs, unknown task IDs,
 duplicate starts and duplicate completions are rejected before timestamps,
 state, journal or subscribers change. Existing untagged events remain supported;
@@ -158,10 +193,11 @@ team stage. Behavior-generated arrivals remain untagged and update the task's
 confirmed location only for its current owner. Late arrivals from previous
 owners cannot overwrite the next stage's activity or location.
 
-The default mock source runs its first event after four seconds, then one every
+The default example runs its first event after four seconds, then one every
 11 seconds. Pause stops both events and travel; Next event advances once, with
 an immediate arrival in manual mode.
-Restart restores the agents and sequence, preserving selection and pause choice.
+Restart restores the agents and sequence for the current brief, preserving
+selection and pause choice.
 Hidden pages suspend timers and animation. Reduced motion starts in manual mode
 and always uses immediate arrival rather than animated travel.
 
@@ -177,11 +213,12 @@ The 29-event mock script performs one shared research task:
 
 Each stage reaches COMPLETED before handing off. Event 24 completes the overall
 task; the last five events return every agent to IDLE while preserving that
-result. The next cycle starts a fresh task record with new timestamps, while
-Restart also clears the journal and restores all initial agent states. Stage
+result. The repeating example's next cycle starts a fresh task record with new
+timestamps and clears old outputs. Submitted briefs run once. Restart also
+clears the journal/outputs and restores all initial agent states. Stage
 progress belongs to the selected agent, and a small team-task line distinguishes
-active work, pending handoff and overall completion. The source cursor, movement
-algorithm, core staff stations and controller timing remain unchanged. No backend
+active work, pending handoff and overall completion. The movement algorithm,
+core staff stations and 11-second event interval remain unchanged. No backend
 is connected and no report is published.
 
 Movement uses clear room exits and one corridor, with a few waypoints. It supports
@@ -197,7 +234,7 @@ To connect a future service, replace the mock producer in `world.js` with an
 event adapter calling the same dispatcher and remove the mock timer. Authentication,
 transport, ordering/replay and authorization belong in that future adapter, not
 in the renderer. `LonghandWorld.getSnapshot()` provides read-only-by-copy inspection.
-V0.1 does not implement a request submission flow, storage or real agent execution.
+V0.1 implements local brief submission only, with no storage or real agent execution.
 
 ## Isolation and validation
 
@@ -206,7 +243,8 @@ Its typography follows the parent's serif/sans editorial language using system
 fallbacks, with charcoal, muted navy, steel and a restrained amber accent. Parent HTML navigation is
 unchanged because it is repeated across pages; World is independently accessible.
 The initial World addition changes only the `TASKS.md` ownership/review row outside
-`world/`. The core workflow implementation changes World files only.
+`world/`. The brief/deliverable pass also updates that same ownership row to
+reflect the five-person team and current scope. Parent product files stay untouched.
 
 Run from the repository root:
 
@@ -230,7 +268,9 @@ PR review and GitHub Pages process; this addition does not alter that workflow.
 
 Checked on 7 October 2026:
 
-- All 29 state, event, movement and controller tests pass, including ordered
+- All 34 state, event, movement and controller tests pass, including brief
+  validation without side effects, custom titles, copied outputs, draft gating,
+  safe text rendering, replacement/restart and single-run stopping; ordered
   handoffs, owner validation, timestamps, final completion, cleanup, repeat/reset,
   snapshot isolation, arrival/activity separation and rejected events with no
   mutation. Existing checks cover all 180
@@ -243,14 +283,20 @@ Checked on 7 October 2026:
 - Browser preview confirms six rooms, all ten map/staff-list selections, matching
   dossiers, Enter/Space selection, the complete 29-event pipeline, each stage's
   states/progress, overall COMPLETED, all-five IDLE cleanup, next-cycle restart,
-  animated travel and arrival, manual Next event and pause/restart.
+  animated travel and arrival, manual Next event and pause/restart. The brief
+  form blocks empty required fields; a custom brief produces all five outputs,
+  opens the matching draft and stops after cleanup.
 - Direct HTTP `world/` and `world/index.html` load; refresh works. Artwork loads
-  locally, and World links resolve to the existing research pages. No World
-  console errors were observed.
+  locally, and World links resolve to the existing research pages. No exceptions
+  from World scripts were identified. The browser log recorded one
+  media playback AbortError during viewport/reload testing; World has no media
+  elements or playback calls, and the brief/pipeline/draft continued working.
 - At 1280, 1024, 768, 390 and 320 pixel viewport widths, the page, staff list,
-  controls, dossier and long pending-handoff summary fit the screen. Narrow
+  controls, brief form, dossier, outputs and open draft fit the screen. Narrow
   layouts scroll only the floor plan;
   all five map selections work at 320 pixels. Map sprites remain 36 × 60 pixels.
+  Maximum-length custom briefs (160/480/480 characters), including unbroken text,
+  fit both the task dossier and open draft at 320 pixels.
 - The preview browser allows HTTP/HTTPS only, so direct `file://` behavior was
   inspected in code but could not be browser-tested. No live deployment or
   cross-browser suite was performed.
@@ -258,17 +304,18 @@ Checked on 7 October 2026:
 The complete V0.1 PR touches only `world/` and the task-board row. No existing
 public page, shared asset, research fact, catalogue, sitemap or deployment workflow changed.
 
-The core workflow pass changes exactly `state.js`, `mock-events.js`, `world.js`,
+The brief/deliverable pass changes `state.js`, `mock-events.js`, `world.js`,
 `world.css`, `index.html`, `tests/state.test.mjs`, `tests/controller.test.mjs`
-and this README. It adds no files or dependencies. The CSS change styles only
-the small team-task summary; controller changes render it and current activity.
-Sprites, movement, room/city artwork, parent pages and `TASKS.md` remain unchanged.
+and this README, plus the WEB-015 row in `TASKS.md`: exactly nine files. It adds
+no files or dependencies. CSS extends the same editorial treatment for the brief,
+outputs and draft, and wraps long task titles. Sprites, movement, room/city artwork
+and parent pages remain unchanged.
 
 Regressions verify exactly five active identities, the three male / two female
 appearance mix, rejection of removed IDs without state/feed mutation, all five
 working dossiers and ordered task handoffs through repeated cycles and reset.
 Browser QA confirms five characters/cards throughout the cycle, a journal
 containing only core staff, animated travel and office return. No page overflow
-or World console errors were observed. The parent homepage and Library render
+or World script exceptions were observed. The parent homepage and Library render
 correctly with their research links. JavaScript syntax checks and the shared
 site checker pass.

@@ -10,14 +10,23 @@
   const TASK_DEFINITION = Object.freeze({
     id: 'ai-infrastructure-trends', title: 'Analyze AI infrastructure market trends',
     stages: Object.freeze([
-      { agentId: 'associate', label: 'Source collection' },
-      { agentId: 'researcher', label: 'Source analysis' },
-      { agentId: 'analyst', label: 'Quantitative validation' },
-      { agentId: 'editor', label: 'Editorial preparation' },
-      { agentId: 'director', label: 'Final review' }
+      { agentId: 'associate', label: 'Source collection', outputTitle: 'Source pack · mock',
+        outputBody: 'Candidate source slots: company filings, official statistics, and technical publications. Each needs an author or issuer, publication date, relevant passage and original link. No documents have been collected in this simulation.' },
+      { agentId: 'researcher', label: 'Source analysis', outputTitle: 'Analysis notes · mock',
+        outputBody: 'Outline the question, identify the evidence needed, compare possible explanations and separate observations from assumptions. Findings remain open until primary sources have been read and assessed.' },
+      { agentId: 'analyst', label: 'Quantitative validation', outputTitle: 'Validation checklist · mock',
+        outputBody: 'Check units, currencies, reporting periods, source attribution and reproducibility of calculations. No dataset or calculations are supplied here; quantitative claims remain unverified.' },
+      { agentId: 'editor', label: 'Editorial preparation', outputTitle: 'Draft outline · mock',
+        outputBody: 'Proposed structure: research question and scope, source notes, evidence-led findings, quantitative checks and limitations. Findings and figures need verified evidence before a publication draft can be written.' },
+      { agentId: 'director', label: 'Final review', outputTitle: 'Review decision · mock',
+        outputBody: 'Simulation complete: all five workflow stages have delivered their mock planning records. Factual approval is pending. This demonstrates the team handoff and does not approve research for publication.' }
     ].map(Object.freeze))
   });
-  const freshTask = () => ({ id: TASK_DEFINITION.id, title: TASK_DEFINITION.title,
+  const DEFAULT_BRIEF = Object.freeze({ topic: TASK_DEFINITION.title,
+    question: 'What evidence is needed to assess AI infrastructure market trends?',
+    objective: 'Prepare a source-led research note with transparent validation and a clear argument.' });
+  const freshTask = (brief) => ({ id: TASK_DEFINITION.id, title: brief.topic,
+    question: brief.question, objective: brief.objective,
     assignedAgentId: null, status: 'IDLE', stage: 0, completedStages: 0,
     location: null, currentActivity: 'Ready for source collection', startedAt: null, completedAt: null });
   const INITIAL_AGENTS = Object.freeze([
@@ -34,22 +43,33 @@
   ].map(Object.freeze));
   const TYPES = ['agent.started_task', 'agent.changed_status', 'agent.moved', 'agent.arrived', 'agent.progress', 'agent.completed_task', 'agent.error'];
   const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
-  const text = (value) => typeof value === 'string' && value.trim().length > 0 && value.length <= 240;
+  const text = (value, maximum = 240) => typeof value === 'string' && value.trim().length > 0 && value.length <= maximum;
+  function normalizeBrief(value) {
+    if (!value || !text(value.topic, 160) || !text(value.question, 480) || !text(value.objective, 480)) return null;
+    return { topic: value.topic.trim(), question: value.question.trim(), objective: value.objective.trim() };
+  }
 
   function createStore(options = {}) {
     const clock = options.clock || (() => new Date().toISOString());
-    let agents, events, sequence, task;
+    let agents, events, sequence, task, outputs;
+    let brief = { ...DEFAULT_BRIEF };
     const listeners = new Set();
-    const getSnapshot = () => ({ agents: agents.map((agent) => ({ ...agent })), events: events.map((event) => ({ ...event })), sequence, task: { ...task } });
+    const getSnapshot = () => ({ agents: agents.map((agent) => ({ ...agent })), events: events.map((event) => ({ ...event })),
+      sequence, task: { ...task }, outputs: outputs.map(output => ({ ...output })) });
     const notify = () => listeners.forEach((listener) => listener(getSnapshot()));
-    function reset() {
+    function reset(nextBrief = brief) {
+      const normalized = normalizeBrief(nextBrief);
+      if (!normalized) return false;
       const time = clock();
-      agents = INITIAL_AGENTS.map((agent) => ({ ...agent, taskId: null, destination: null,
+      brief = normalized;
+      task = freshTask(brief);
+      outputs = [];
+      agents = INITIAL_AGENTS.map((agent) => ({ ...agent, currentTask: task.title, taskId: null, destination: null,
         currentActivity: 'Awaiting the team research task', lastActivity: time, lastActivityText: 'Awaiting the team research task' }));
-      task = freshTask();
       events = [];
       sequence = 0;
       notify();
+      return true;
     }
     function dispatch(event) {
       if (!event || typeof event !== 'object' || !TYPES.includes(event.type)) return false;
@@ -125,11 +145,17 @@
       if (event.type !== 'agent.arrived') agent.currentActivity = agent.lastActivityText;
       if (linked) {
         if (event.type === 'agent.started_task') {
-          if (stageIndex === 0) task = { ...freshTask(), startedAt: agent.lastActivity };
+          if (stageIndex === 0) {
+            task = { ...freshTask(brief), startedAt: agent.lastActivity };
+            outputs = [];
+          }
           task = { ...task, assignedAgentId: agent.id, status: 'WORKING', stage: stageIndex + 1 };
         }
         task = { ...task, location: agent.location, currentActivity: agent.currentActivity };
         if (event.type === 'agent.completed_task') {
+          const stage = TASK_DEFINITION.stages[stageIndex];
+          outputs.push({ agentId: agent.id, title: stage.outputTitle, body: stage.outputBody,
+            completedAt: agent.lastActivity });
           const finished = task.stage === TASK_DEFINITION.stages.length;
           task = { ...task, completedStages: task.stage, status: finished ? 'COMPLETED' : 'WORKING',
             completedAt: finished ? agent.lastActivity : null };
@@ -153,5 +179,5 @@
       return () => listeners.delete(listener);
     } });
   }
-  World.State = Object.freeze({ STATUSES, ROOMS, TASK_DEFINITION, INITIAL_AGENTS, createStore });
+  World.State = Object.freeze({ STATUSES, ROOMS, TASK_DEFINITION, DEFAULT_BRIEF, normalizeBrief, INITIAL_AGENTS, createStore });
 })(globalThis);

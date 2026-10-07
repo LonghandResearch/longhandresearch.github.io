@@ -7,12 +7,12 @@
   <meta name="description" content="Longhand Research above the city. Explore six modern departments and five core research professionals in Longhand World V0.1.">
   <meta name="theme-color" content="#11171f">
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="world.css?v=2026-10-07b">
-  <script src="state.js?v=2026-10-07b" defer></script>
+  <link rel="stylesheet" href="world.css?v=2026-10-07c">
+  <script src="state.js?v=2026-10-07c" defer></script>
   <script src="movement.js?v=2026-10-07a" defer></script>
-  <script src="mock-events.js?v=2026-10-07b" defer></script>
+  <script src="mock-events.js?v=2026-10-07c" defer></script>
   <script src="sprites.js?v=2026-10-07a" defer></script>
-  <script src="world.js?v=2026-10-07b" defer></script>
+  <script src="world.js?v=2026-10-07c" defer></script>
 </head>
 <body class="world-page">
   <a class="world-skip" href="#main">Skip to the institution</a>
@@ -36,6 +36,16 @@
       </div>
       <div class="world-disclosure"><span class="world-indicator" aria-hidden="true"></span><strong>Simulated activity</strong><p>Five core research professionals. Prototype tasks.<br>No live AI work or report publishing.</p></div>
     </header>
+
+    <section class="world-brief" aria-labelledby="brief-title">
+      <header><p class="world-eyebrow">Research brief / Simulation</p><h2 id="brief-title">Give the team a question.</h2><p>Run a local workflow and read its mock planning records. No research is fetched or published. Reloading clears the brief and draft.</p></header>
+      <form id="research-brief">
+        <label class="world-brief-topic" for="brief-topic">Topic<input id="brief-topic" type="text" required maxlength="160" value="Analyze AI infrastructure market trends"></label>
+        <label for="brief-question">Research question<textarea id="brief-question" required maxlength="480" rows="3">What evidence is needed to assess AI infrastructure market trends?</textarea></label>
+        <label for="brief-objective">Objective<textarea id="brief-objective" required maxlength="480" rows="3">Prepare a source-led research note with transparent validation and a clear argument.</textarea></label>
+        <div class="world-brief-actions"><button class="world-action" type="submit" id="brief-submit" disabled>Start research</button><p id="brief-feedback" role="status">Showing the example workflow. Submit a brief to run it once.</p></div>
+      </form>
+    </section>
 
     <section class="world-layout" aria-label="The research institution">
       <div class="world-building">
@@ -79,6 +89,13 @@
         <div class="world-last-activity"><p class="world-eyebrow">Current activity</p><p id="agent-activity">Awaiting the team research task</p><time id="agent-time"></time></div>
         <p class="world-dossier-note">The work shown here is a prototype sequence. Published research stays in the <a href="../library.html">Longhand library</a>.</p>
       </aside>
+    </section>
+
+    <section class="world-results" aria-labelledby="results-title">
+      <header><p class="world-eyebrow">Research record / Simulation</p><h2 id="results-title">From brief to draft.</h2><p>Each stage leaves a mock planning record. The draft opens after final review.</p></header>
+      <div><ol id="stage-outputs"></ol>
+        <details class="world-draft" id="research-draft" hidden><summary>View research draft <span>Simulated / not published</span></summary><article id="draft-document" aria-label="Simulated research draft"></article></details>
+      </div>
     </section>
 
     <section class="world-journal" aria-labelledby="journal-title">

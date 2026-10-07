@@ -9,18 +9,19 @@
   const $ = (id) => document.getElementById(id);
   const store = World.State.createStore();
   const movement = World.Movement.createMovement();
-  const source = World.Mock.createSource((event) => store.dispatch(event));
+  const source = World.Mock.createSource((event) => store.dispatch(event), () => store.getSnapshot().task);
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const elements = new Map();
   let selected = 'director';
   let userPaused = motion.matches;
+  let submitted = false, runFinished = false, draftKey = null;
   let snapshot = store.getSnapshot();
   let frame = 0, lastFrame = 0, timer = 0;
   let eventRemaining = 4000, eventStarted = 0;
   const interval = 11000;
   const timeFormat = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   const showTime = (value) => timeFormat.format(new Date(value));
-  const active = () => !userPaused && !document.hidden;
+  const active = () => !userPaused && !document.hidden && !runFinished;
   const behavior = (status) => ({ READING: 'read', WORKING: 'work', REVIEWING: 'review', THINKING: 'think', DIRECTING: 'meeting', MEETING: 'meeting', COMPLETED: 'complete', ERROR: 'error', IDLE: 'idle' })[status];
 
   function sprite(id) {
@@ -93,6 +94,46 @@
       return row;
     }));
   }
+  function renderOutputs(state) {
+    $('stage-outputs').replaceChildren(...World.State.TASK_DEFINITION.stages.map(stage => {
+      const output = state.outputs.find(record => record.agentId === stage.agentId);
+      const owner = state.agents.find(agent => agent.id === stage.agentId);
+      const working = state.task.status === 'WORKING' && state.task.assignedAgentId === owner.id;
+      const row = document.createElement('li');
+      row.dataset.agent = owner.id;
+      const label = document.createElement('p'); label.className = 'world-output-owner';
+      label.textContent = owner.name + ' · ' + (output ? 'Complete' : working ? 'In progress' : 'Pending');
+      const title = document.createElement('h3'); title.textContent = stage.outputTitle;
+      const body = document.createElement('p'); body.className = 'world-output-body';
+      body.textContent = output ? output.body : 'Available after ' + stage.label.toLowerCase() + '.';
+      row.append(label, title, body);
+      return row;
+    }));
+    const ready = state.task.status === 'COMPLETED';
+    $('research-draft').hidden = !ready;
+    if (!ready) { $('research-draft').open = false; draftKey = null; }
+    else if (draftKey !== state.task.completedAt) {
+      draftKey = state.task.completedAt;
+      const title = document.createElement('h3'); title.textContent = state.task.title;
+      const disclosure = document.createElement('p');
+      disclosure.textContent = 'Simulated planning draft. No sources were fetched, no findings or figures were verified, and nothing has been published.';
+      const reviewed = document.createElement('p');
+      reviewed.textContent = 'Workflow completed at ' + showTime(state.task.completedAt) + ' · Local time';
+      const blocks = [title, disclosure, reviewed];
+      function section(heading, text) {
+        const label = document.createElement('h4'); label.textContent = heading;
+        const body = document.createElement('p'); body.textContent = text;
+        blocks.push(label, body);
+      }
+      section('Research question', state.task.question);
+      section('Objective', state.task.objective);
+      state.outputs.forEach(output => section(state.agents.find(agent => agent.id === output.agentId).name + ' / ' + output.title, output.body));
+      $('draft-document').replaceChildren(...blocks);
+    }
+    const locked = submitted && state.task.status === 'WORKING';
+    ['brief-topic', 'brief-question', 'brief-objective', 'brief-submit'].forEach(id => { $(id).disabled = locked; });
+    if (submitted && ready) $('brief-feedback').textContent = 'Workflow complete. View the simulated draft below, or start a new brief.';
+  }
   function render(state) {
     snapshot = state;
     state.agents.forEach((agent) => {
@@ -118,6 +159,7 @@
     }
     $('task-state').textContent = 'Team task · ' + task.status + ' · ' + detail;
     $('task-state').dataset.status = task.status;
+    renderOutputs(state);
     renderLog(state.events);
     renderPositions();
   }
@@ -163,7 +205,7 @@
     timer = setTimeout(() => {
       timer = 0;
       if (!active()) return;
-      source.next();
+      advanceSource();
       eventRemaining = interval;
       schedule();
     }, eventRemaining);
@@ -172,7 +214,9 @@
     document.body.dataset.paused = String(!active());
     $('pause').textContent = userPaused ? 'Resume simulation' : 'Pause simulation';
     $('pause').setAttribute('aria-pressed', String(userPaused));
-    $('simulation-status').textContent = userPaused ? (motion.matches ? 'Manual mode · reduced motion' : 'Simulation paused') : 'Simulation running · events every 11 seconds';
+    $('simulation-status').textContent = runFinished ? 'Research workflow complete' : userPaused ? (motion.matches ? 'Manual mode · reduced motion' : 'Simulation paused') : 'Simulation running · events every 11 seconds';
+    $('pause').disabled = runFinished;
+    $('next').disabled = runFinished;
   }
   function syncActivity() {
     if (!active()) {
@@ -181,6 +225,30 @@
       frame = 0; lastFrame = 0;
     } else { startMovement(); schedule(); }
     updateControls();
+  }
+  function advanceSource() {
+    if (runFinished) return;
+    source.next();
+    if (submitted && source.getCursor() === 0 && snapshot.task.status === 'COMPLETED') {
+      runFinished = true;
+      userPaused = true;
+      settle();
+      syncActivity();
+    }
+  }
+  function resetSimulation(brief) {
+    stopTimer();
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0; lastFrame = 0; runFinished = false;
+    movement.reset(World.State.INITIAL_AGENTS);
+    source.reset(); store.reset(brief);
+    eventRemaining = 4000; syncActivity();
+  }
+  function nextEvent() {
+    stopTimer(); advanceSource();
+    if (userPaused) settle();
+    eventRemaining = interval; schedule(); updateControls();
+    announce(snapshot.events[0].name + '. ' + snapshot.events[0].activity + '.');
   }
 
   snapshot.agents.forEach(createMember);
@@ -195,21 +263,25 @@
     userPaused = !userPaused; syncActivity();
     announce(userPaused ? 'Simulation paused.' : 'Simulation resumed.');
   });
-  $('next').addEventListener('click', () => {
-    stopTimer(); source.next();
-    if (userPaused) settle();
-    eventRemaining = interval; schedule();
-    announce(snapshot.events[0].name + '. ' + snapshot.events[0].activity + '.');
-  });
+  $('next').addEventListener('click', nextEvent);
   $('reset').addEventListener('click', () => {
-    stopTimer();
-    if (frame) cancelAnimationFrame(frame);
-    frame = 0; lastFrame = 0;
-    movement.reset(World.State.INITIAL_AGENTS);
-    source.reset(); store.reset();
-    render(store.getSnapshot());
-    eventRemaining = 4000; schedule(); updateControls();
-    announce('Simulation restarted. All ' + snapshot.agents.length + ' staff are back at their initial tasks.');
+    resetSimulation();
+    if (submitted) $('brief-feedback').textContent = 'Current brief restarted. Use Next event to advance manually.';
+    announce('Simulation restarted. All ' + snapshot.agents.length + ' staff are back at the current brief.');
+  });
+  $('research-brief').addEventListener('submit', event => {
+    event.preventDefault();
+    if (submitted && snapshot.task.status === 'WORKING') return;
+    const brief = World.State.normalizeBrief({ topic: $('brief-topic').value,
+      question: $('brief-question').value, objective: $('brief-objective').value });
+    if (!brief) {
+      $('brief-feedback').textContent = 'Enter a topic (up to 160 characters), question and objective (up to 480 characters each).';
+      return;
+    }
+    submitted = true; userPaused = motion.matches; selected = 'associate';
+    resetSimulation(brief);
+    $('brief-feedback').textContent = 'Running your brief. Use Next event to advance manually. Inputs reopen after final review.';
+    nextEvent();
   });
   document.addEventListener('visibilitychange', syncActivity);
   window.addEventListener('pagehide', () => {

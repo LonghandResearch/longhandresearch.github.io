@@ -23,7 +23,7 @@ function controller(options = {}) {
       if (!this.handlers.has(type)) this.handlers.set(type, []);
       this.handlers.get(type).push(callback);
     }
-    emit(type) { for (const callback of this.handlers.get(type) || []) callback(); }
+    emit(type, event) { for (const callback of this.handlers.get(type) || []) callback(event); }
   }
   const elements = new Map();
   const html = fs.readFileSync(path.join(root, 'world/index.html'), 'utf8');
@@ -69,6 +69,107 @@ function moveTogether(app) {
   assert.equal(app.world.dispatch({ type: 'agent.moved', agentId: 'analyst', location: 'hall' }), true);
 }
 
+function submitBrief(app, brief) {
+  for (const key of ['topic', 'question', 'objective']) app.elements.get('brief-' + key).value = brief[key];
+  let prevented = false;
+  app.elements.get('research-brief').emit('submit', { preventDefault() { prevented = true; } });
+  assert.equal(prevented, true);
+}
+
+test('invalid brief leaves the example task, timers and movement untouched', () => {
+  const app = controller();
+  const before = JSON.stringify(app.world.getSnapshot());
+  const timers = [...app.timers.keys()], frames = [...app.frames.keys()];
+  submitBrief(app, { topic: ' ', question: 'A question', objective: 'An objective' });
+  assert.equal(JSON.stringify(app.world.getSnapshot()), before);
+  assert.deepEqual([...app.timers.keys()], timers);
+  assert.deepEqual([...app.frames.keys()], frames);
+  assert.match(app.elements.get('brief-feedback').textContent, /Enter a topic/);
+  assert.equal(app.elements.get('research-draft').hidden, true);
+});
+
+test('submitted brief reveals outputs by stage and a safe draft only after final review', () => {
+  const app = controller({ reduced: true });
+  const brief = { topic: 'Grid capacity <script>example</script>', question: 'Which evidence supports the case?', objective: 'Prepare a source plan & validation outline.' };
+  submitBrief(app, brief);
+  assert.equal(app.elements.get('agent-name').textContent, 'Research Associate');
+  assert.equal(app.elements.get('agent-task').textContent, brief.topic);
+  assert.equal(app.elements.get('brief-submit').disabled, true);
+  assert.equal(app.world.getSnapshot().task.stage, 1);
+  assert.equal(app.world.getSnapshot().outputs.length, 0);
+  assert.equal(app.elements.get('research-draft').hidden, true);
+  const active = JSON.stringify(app.world.getSnapshot());
+  submitBrief(app, { topic: 'Replacement', question: 'Another question', objective: 'Another objective' });
+  assert.equal(JSON.stringify(app.world.getSnapshot()), active, 'a locked active brief cannot be replaced');
+  for (let step = 2; step <= 24; step++) {
+    app.click('next');
+    const snapshot = app.world.getSnapshot();
+    assert.equal(app.elements.get('research-draft').hidden, step < 24);
+    assert.equal(snapshot.outputs.length, snapshot.task.completedStages);
+    const rows = app.elements.get('stage-outputs').children;
+    assert.equal(rows.length, 5);
+    for (const output of snapshot.outputs) {
+      const row = rows.find(row => row.dataset.agent === output.agentId);
+      assert.match(row.children[0].textContent, /Complete/);
+      assert.equal(row.children[2].textContent, output.body);
+    }
+  }
+  const draft = app.elements.get('draft-document').children;
+  assert.equal(draft[0].tag, 'h3');
+  assert.equal(draft[0].textContent, brief.topic, 'user HTML remains plain text');
+  assert.ok(draft.some(node => node.textContent === brief.question));
+  assert.ok(draft.some(node => node.textContent === brief.objective));
+  assert.match(draft[1].textContent, /No sources were fetched/);
+  assert.equal(draft.filter(node => node.tag === 'h4').length, 7);
+  assert.equal(app.elements.get('brief-submit').disabled, false);
+  for (let step = 25; step <= 29; step++) app.click('next');
+  assert.ok(app.world.getSnapshot().agents.every(agent => agent.status === 'IDLE' && agent.destination === null));
+  assert.equal(app.world.getSnapshot().task.status, 'COMPLETED');
+  assert.equal(app.timers.size, 0); assert.equal(app.frames.size, 0);
+  assert.equal(app.elements.get('next').disabled, true);
+  assert.equal(app.elements.get('pause').disabled, true);
+  const completed = JSON.stringify(app.world.getSnapshot());
+  app.click('next');
+  assert.equal(JSON.stringify(app.world.getSnapshot()), completed, 'a finished user run does not repeat');
+  app.elements.get('research-draft').open = true;
+  app.click('reset');
+  assert.equal(app.world.getSnapshot().task.title, brief.topic);
+  assert.equal(app.world.getSnapshot().task.question, brief.question);
+  assert.equal(app.world.getSnapshot().outputs.length, 0);
+  assert.equal(app.elements.get('research-draft').hidden, true);
+  assert.equal(app.elements.get('research-draft').open, false);
+  assert.equal(app.elements.get('next').disabled, false);
+  app.click('next');
+  assert.equal(app.world.getSnapshot().task.stage, 1);
+});
+
+test('automatic user run stops after cleanup and a new brief clears its old result', () => {
+  const app = controller();
+  app.click('next');
+  const oldFrames = [...app.frames.keys()], oldTimers = [...app.timers.keys()];
+  const brief = { topic: 'Research facilities', question: 'What must be checked?', objective: 'Prepare a planning record.' };
+  submitBrief(app, brief);
+  assert.ok(oldFrames.every(id => !app.frames.has(id)));
+  assert.ok(oldTimers.every(id => !app.timers.has(id)));
+  assert.equal(app.frames.size, 1); assert.equal(app.timers.size, 1);
+  for (let step = 2; step <= 29; step++) {
+    const [id, timer] = [...app.timers.entries()][0];
+    app.timers.delete(id); timer.callback();
+  }
+  assert.equal(app.world.getSnapshot().task.status, 'COMPLETED');
+  assert.equal(app.world.getSnapshot().outputs.length, 5);
+  assert.equal(app.timers.size, 0); assert.equal(app.frames.size, 0);
+  assert.ok(app.world.getSnapshot().agents.every(agent => agent.destination === null));
+  assert.equal(app.elements.get('simulation-status').textContent, 'Research workflow complete');
+  submitBrief(app, { ...brief, topic: 'Another research topic' });
+  const restarted = app.world.getSnapshot();
+  assert.equal(restarted.task.title, 'Another research topic');
+  assert.equal(restarted.task.stage, 1); assert.equal(restarted.task.completedAt, null);
+  assert.equal(restarted.outputs.length, 0);
+  assert.equal(app.elements.get('research-draft').hidden, true);
+  assert.equal(app.timers.size, 1);
+});
+
 test('exactly five staff have named map and roster entries and can be selected', () => {
   const app = controller();
   const staff = [
@@ -105,7 +206,7 @@ test('exactly five staff have named map and roster entries and can be selected',
     }
   }
   app.click('reset');
-  assert.equal(app.elements.get('world-announcement').textContent, 'Simulation restarted. All 5 staff are back at their initial tasks.');
+  assert.equal(app.elements.get('world-announcement').textContent, 'Simulation restarted. All 5 staff are back at the current brief.');
   assert.deepEqual(app.elements.get('characters').children.map(button => button.dataset.agent), ids);
   assert.deepEqual(app.elements.get('roster').children.map(button => button.dataset.agent), ids);
   assert.equal(app.elements.get('agent-name').textContent, 'Research Associate');
