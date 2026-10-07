@@ -284,7 +284,7 @@ JSON export/import live in `../research.html`. The Director's simulated completi
 does not approve or publish any research. Custom dispatcher events are not part
 of the persisted mock replay.
 
-The shared workspace pass changes exactly 25 files relative to `b01d584`:
+The initial shared workspace pass changed exactly 25 files relative to `b01d584`:
 
 | Files | Reason |
 | --- | --- |
@@ -298,7 +298,7 @@ The shared workspace pass changes exactly 25 files relative to `b01d584`:
 | `README.md`, `world/README.md`, `TASKS.md` | Architecture, limits, validation and review status |
 | `404.html`, `about.html`, `coverage.html`, `ihsg-weekly-2026-09-25.html`, `ihsg-weekly.html`, `index.html`, `library.html`, `power-behind-ai.html`, `report.html`, `wire.html` | Shared `site.js` cache version only |
 
-Validation: 52 Node tests pass. The site checker validates 33 scripts, 66 JSON
+Initial workspace validation: 52 Node tests passed. The site checker validated 33 scripts, 66 JSON
 files, 8 catalogue records, 13 sitemap pages and links in 14 HTML pages. Browser
 checks cover a 29-step run, progress after reload, source and draft persistence,
 planning-review rejection, manual approval then invalidation, two-tab conflicts,
@@ -307,6 +307,31 @@ layout fits desktop, 768, 390 and 320 px. No report facts, catalogue entries,
 PDFs, sitemap, rooms, sprites, roster or movement code change in this pass.
 The browser also reports an audio playback error from a Chrome extension;
 the new workspace and World contain no audio or video elements.
+
+### Operations dashboard and publication handoff
+
+The follow-up to `365d48b` changes exactly nine files:
+
+| Files | Reason |
+| --- | --- |
+| `assets/js/research-operations.js` | Derive queue stages, attention flags, summary counts and a reviewed plain-text handoff from saved projects and real Library records |
+| `research.html` | Operations overview, queue filters, next actions, publication checklist and approved-text download; fresh catalogue on initial load |
+| `assets/js/research-workspace.js` | Render operations from existing records, refresh the catalogue explicitly, and reject unreviewed, unsaved or stale approved-text downloads |
+| `assets/css/research-workspace.css` | Responsive summary, queue filter and publication checklist in the existing visual direction |
+| `tests/research-operations.test.mjs`, `tests/research-workspace.test.mjs` | Verify stage boundaries, real draft/catalogue/missing-report distinctions, source tasks, refresh failures and approved-text revision guards |
+| `README.md`, `world/README.md`, `TASKS.md` | Architecture, handoff instructions, scope and validation |
+
+No stored schema, approval rule, World runtime, public report, catalogue, PDF,
+publishing write path or dependency is changed. A catalogue entry indicates the
+current local publication record; it does not verify deployment. Browser tests
+use clearly labelled synthetic prose and never publish a report.
+
+Validation: all 59 Node tests pass. The structural checker passes 35 scripts,
+66 JSON files, 8 catalogue records, 13 sitemap pages and links in 14 HTML pages.
+Browser checks cover filtering, evidence →
+writing → review → report preparation, the actual approved-text download, linking
+an existing report, approval invalidation while keeping that report intact, and
+fresh catalogue reload. The overview and checklist fit desktop and narrow screens.
 
 ### V0.1 verification record
 

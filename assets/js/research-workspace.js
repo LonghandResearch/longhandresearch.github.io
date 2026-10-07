@@ -3,11 +3,12 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const LH = window.Longhand;
-  if (!LH || !LH.isLocal || !LH.Research) {
+  if (!LH || !LH.isLocal || !LH.Research || !LH.ResearchOperations) {
     $('workspace-message').textContent = 'Open this workspace from localhost on your own computer to manage local research. Published reports are in the library.';
     return;
   }
   const repository = LH.Research.createRepository(LH.researchRecords);
+  const operations = LH.ResearchOperations;
   const names = { DRAFT: 'Draft', IN_REVIEW: 'In review', APPROVED: 'Approved' };
   let projects = [], selected = null, reports = [], busy = false;
   const message = text => { $('workspace-message').textContent = text; };
@@ -35,14 +36,25 @@
   const permitSwitch = () => hasUnsaved() ? confirmAction('Discard the unsaved edits on this page?') : Promise.resolve(true);
   function node(tag, text) { const result = document.createElement(tag); result.textContent = text; return result; }
   function showList() {
-    $('project-list').replaceChildren(...projects.map(project => {
+    const overview = operations.summarize(projects, reports);
+    $('operations-summary').replaceChildren(...[
+      ['Saved projects', overview.total], ['In review', overview.review],
+      ['Awaiting report', overview.publication], ['Unchecked sources', overview.unchecked], ['In catalogue', overview.published]
+    ].map(([label, count]) => {
+      const item = node('div', ''); item.append(node('dt', label), node('dd', String(count))); return item;
+    }));
+    const filter = $('project-filter').value || 'all';
+    const queue = overview.queue.filter(state => filter === 'all' || (filter === 'attention' ? state.attention : state.stage === filter));
+    $('queue-count').textContent = queue.length + ' of ' + projects.length + ' projects · ordered by next action';
+    $('project-list').replaceChildren(...queue.map(state => {
+      const project = state.project;
       const row = document.createElement('li'), button = node('button', project.brief.topic);
       button.type = 'button'; button.setAttribute('aria-current', String(selected && selected.id === project.id));
-      button.append(node('small', names[project.status] + ' · ' + project.run.times.length + '/29 steps'));
+      button.append(node('small', state.label === names[project.status] ? state.label : state.label + ' · ' + names[project.status]), node('small', state.next));
       button.addEventListener('click', async () => { if (!busy && await permitSwitch()) open(project); });
       row.append(button); return row;
     }));
-    if (!projects.length) $('project-list').append(node('li', 'No saved projects yet.'));
+    if (!queue.length) $('project-list').append(node('li', projects.length ? 'No projects match this filter.' : 'No saved projects yet. Start with a question.'));
   }
   function open(project, preserveNotes = false) {
     selected = project ? LH.Research.clone(project) : null;
@@ -57,6 +69,8 @@
     $('project-meta').textContent = selected ? selected.id + ' / Revision ' + selected.revision : 'New project';
     $('project-status').textContent = selected ? names[selected.status] : 'Draft';
     if (selected) {
+      const state = operations.projectState(selected, reports);
+      $('project-next').textContent = state.label + ' · Next: ' + state.next;
       $('open-world').href = 'world/index.html?project=' + encodeURIComponent(selected.id);
       $('workflow-progress').textContent = selected.run.times.length + ' of 29 simulated steps saved · ' + selected.outputs.length + ' of 5 stage records';
       $('project-draft').value = selected.draftBody;
@@ -91,6 +105,16 @@
       $('report-link').replaceChildren();
       if (report) { const link = node('a', 'Open ' + (report.isLocal ? 'browser draft' : 'published report')); link.href = LH.reportHref(report); $('report-link').append(link); }
       else if (selected.reportId) $('report-link').textContent = 'The linked record is unavailable. The project and its evidence remain saved.';
+      $('publication-checklist').replaceChildren(...state.checks.map(check => {
+        const row = node('li', (check.done ? 'Done · ' : 'Pending · ') + check.label);
+        row.setAttribute('data-complete', String(check.done)); return row;
+      }));
+      const warnings = [];
+      if (state.unchecked) warnings.push(state.unchecked + ' source(s) remain unchecked. Review them before publication.');
+      if (state.published && !state.approved) warnings.push('The current project is not approved. The linked report is already in the catalogue; project edits do not revise that report.');
+      if (state.missing) warnings.push('The connected report is unavailable. Reconnect or clear it; project evidence is still saved.');
+      $('publication-warning').textContent = warnings.join(' ');
+      $('download-approved').disabled = !state.approved;
       $('project-history').replaceChildren(...selected.history.slice().reverse().map(entry => {
         const row = document.createElement('li'); row.append(node('strong', entry.action), node('p', new Date(entry.at).toLocaleString()), node('p', entry.note)); return row;
       }));
@@ -119,7 +143,24 @@
   }
   window.addEventListener('beforeunload', event => { if (hasUnsaved()) { event.preventDefault(); event.returnValue = ''; } });
   $('new-project').addEventListener('click', async () => { if (!busy && await permitSwitch()) open(null); });
-  $('reload-projects').addEventListener('click', async () => { if (!busy && await permitSwitch()) perform(() => refresh(selected, false), 'Saved work reloaded.'); });
+  $('project-filter').addEventListener('change', showList);
+  function reloadCatalogue() {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      const previous = window.LONGHAND_REPORTS;
+      script.src = 'reports/reports.js?v=' + Date.now();
+      script.onload = () => {
+        script.remove();
+        if (!Array.isArray(window.LONGHAND_REPORTS) || window.LONGHAND_REPORTS === previous) reject(new Error('The report catalogue did not load correctly. Your open work was kept.'));
+        else resolve();
+      };
+      script.onerror = () => { script.remove(); reject(new Error('The report catalogue could not be reloaded. Try again; your open work was kept.')); };
+      document.head.append(script);
+    });
+  }
+  $('reload-projects').addEventListener('click', async () => {
+    if (!busy && await permitSwitch()) perform(async () => { await reloadCatalogue(); await refresh(selected, false); }, 'Saved projects and the current report catalogue reloaded.');
+  });
   $('project-form').addEventListener('submit', event => {
     event.preventDefault();
     perform(async () => {
@@ -150,11 +191,20 @@
     if (hasSourceInput()) throw new Error('Add the pending source before exporting.');
     if ($('review-note').value) throw new Error('Save the pending review decision before exporting.');
     if (hasUnsaved()) { if (!selected) throw new Error('Save the new project before exporting.'); await save(); }
-    const blob = new Blob([await repository.exportBackup(single && selected ? selected.id : undefined)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob), link = document.createElement('a');
-    link.href = url; link.download = 'longhand-research-' + (single && selected ? selected.id : 'backup') + '-' + new Date().toISOString().slice(0, 10) + '.json';
-    document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    download(await repository.exportBackup(single && selected ? selected.id : undefined), 'application/json',
+      'longhand-research-' + (single && selected ? selected.id : 'backup') + '-' + new Date().toISOString().slice(0, 10) + '.json');
   }, 'Backup exported. It includes projects, sources, drafts and review history; PDF files are separate.'); }
+  function download(body, type, filename) {
+    const url = URL.createObjectURL(new Blob([body], { type })), link = document.createElement('a');
+    link.href = url; link.download = filename;
+    document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  $('download-approved').addEventListener('click', () => perform(async () => {
+    if (hasUnsaved()) throw new Error('Save your edits and complete their review before downloading approved text.');
+    const current = selected && await repository.get(selected.id);
+    if (!current || current.revision !== selected.revision) throw new Error('This project changed in another tab. Reload it before downloading approved text.');
+    download(operations.approvedText(current), 'text/plain;charset=utf-8', current.id + '-approved-r' + current.revision + '.txt');
+  }, 'Approved text downloaded. Prepare and check its PDF in Library before publication.'));
   $('export-projects').addEventListener('click', () => exportBackup());
   $('export-project').addEventListener('click', () => exportBackup(true));
   $('import-projects').addEventListener('change', async event => {

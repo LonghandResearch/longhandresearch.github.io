@@ -7,11 +7,12 @@
   <title>Research workspace · Longhand Research</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="world/world.css?v=2026-10-07j">
-  <link rel="stylesheet" href="assets/css/research-workspace.css?v=2026-10-07i">
-  <script src="reports/reports.js?v=2026-10-07i" defer></script>
+  <link rel="stylesheet" href="assets/css/research-workspace.css?v=2026-10-07k">
+  <script>document.write('<script src="reports/reports.js?v=' + Date.now() + '"><\/script>');</script>
   <script src="assets/js/site.js?v=2026-10-07i" defer></script>
   <script src="assets/js/research-projects.js?v=2026-10-07i" defer></script>
-  <script src="assets/js/research-workspace.js?v=2026-10-07i" defer></script>
+  <script src="assets/js/research-operations.js?v=2026-10-07m" defer></script>
+  <script src="assets/js/research-workspace.js?v=2026-10-07m" defer></script>
 </head>
 <body class="world-page research-page">
   <a class="world-skip" href="#main">Skip to research workspace</a>
@@ -20,13 +21,14 @@
     <nav aria-label="Longhand Research"><a href="world/index.html">World</a><a href="library.html">Library / Reports</a><a href="coverage.html">Coverage</a></nav>
   </header>
   <main class="world-main" id="main">
-    <header class="world-intro"><div><p class="world-eyebrow">Research operations / Local workspace</p><h1>The research <em>desk.</em></h1><p class="world-lede">Keep the question, evidence and draft together.</p></div></header>
+    <header class="world-intro"><div><p class="world-eyebrow">Research operations / Local workspace</p><h1>The research <em>desk.</em></h1><p class="world-lede">See what needs attention. Carry the evidence through to publication.</p></div></header>
     <p class="research-note">Private to this browser on localhost. Export a backup before clearing browser data. Files, PDF drafts and publishing-folder permissions are not included in backups. Work does not sync across devices.</p>
     <p id="workspace-message" role="status">Opening research storage…</p>
     <div id="workspace-content" hidden>
-      <div class="research-toolbar"><button type="button" class="world-action" id="new-project">New project</button><button type="button" class="world-action" id="export-projects">Export backup</button><button type="button" class="world-action" id="export-project" disabled>Export this project</button><label class="world-action research-import">Import backup<input id="import-projects" type="file" accept=".json,application/json"></label><button type="button" class="world-action" id="reload-projects">Reload saved work</button></div>
+      <section class="research-dashboard" aria-labelledby="dashboard-heading"><h2 id="dashboard-heading">Operations overview</h2><dl id="operations-summary"></dl><p class="research-note" id="catalogue-note">Counts use saved projects and the catalogue loaded in this browser. A catalogue entry does not confirm deployment to the live website.</p></section>
+      <div class="research-toolbar"><button type="button" class="world-action" id="new-project">New project</button><button type="button" class="world-action" id="export-projects">Export backup</button><button type="button" class="world-action" id="export-project" disabled>Export this project</button><label class="world-action research-import">Import backup<input id="import-projects" type="file" accept=".json,application/json"></label><button type="button" class="world-action" id="reload-projects">Reload projects &amp; reports</button></div>
       <div class="research-layout">
-        <aside class="research-list"><h2>Projects</h2><ol id="project-list"></ol></aside>
+        <aside class="research-list"><h2>Work queue</h2><p class="research-note" id="queue-count"></p><label class="research-filter">Show<select id="project-filter"><option value="all">All projects</option><option value="attention">Needs attention</option><option value="sources">Collect evidence</option><option value="writing">Write / revise</option><option value="review">In review</option><option value="publication">Prepare report</option><option value="published">In catalogue</option><option value="missing">Report unavailable</option></select></label><ol id="project-list"></ol></aside>
         <section class="research-detail" aria-labelledby="project-heading">
           <header class="research-detail-head"><div><p class="world-eyebrow" id="project-meta">New project</p><h2 id="project-heading">Start with a question.</h2></div><span id="project-status">Draft</span></header>
           <form id="project-form" class="research-form">
@@ -36,6 +38,7 @@
             <button class="world-action" type="submit">Save brief</button>
           </form>
           <div id="saved-project" hidden>
+            <p class="research-next" id="project-next"></p>
             <div class="research-toolbar"><a class="world-action" id="open-world" href="world/index.html">Continue in World</a><p id="workflow-progress"></p></div>
             <section class="research-section" aria-labelledby="source-heading"><h3 id="source-heading">Source notebook</h3><p class="research-note">Add original links and the passage or figures they support. “Checked” records your manual review; it does not fetch or verify a source.</p><ol id="source-list"></ol>
               <form id="source-form" class="research-form">
@@ -52,7 +55,7 @@
             <section class="research-section" aria-labelledby="review-heading"><h3 id="review-heading">Review and approval</h3><p class="research-note">Only you change the editorial status. Approval needs a research draft, a checked source and a review note. Editing evidence or prose resets approval to Draft.</p>
               <label class="research-form">Review note<textarea id="review-note" maxlength="2000" rows="3"></textarea></label><div class="research-toolbar"><button class="world-action" type="button" id="submit-review">Submit for review</button><button class="world-action" type="button" id="approve-review">Approve research</button><button class="world-action" type="button" id="revise-review">Request changes</button></div>
             </section>
-            <section class="research-section" aria-labelledby="report-heading"><h3 id="report-heading">Report connection</h3><p class="research-note">Link this project to an existing library record. This does not publish a report. Publish PDFs through the library's existing Add report / Publish tools.</p><form id="report-form" class="research-form"><label>Library record<select id="linked-report"><option value="">No report linked</option></select></label><button class="world-action" type="submit">Save report connection</button></form><p id="report-link"></p></section>
+            <section class="research-section" aria-labelledby="report-heading"><h3 id="report-heading">Publication handoff</h3><p class="research-note">Approve the research, prepare its final PDF, then use Library's Add report / Publish tools. Connect the resulting record here and reload projects &amp; reports after publication.</p><ol class="research-checklist" id="publication-checklist"></ol><p class="research-note" id="publication-warning"></p><div class="research-toolbar"><button class="world-action" type="button" id="download-approved" disabled>Download approved text</button><a class="world-action" href="library.html">Open Library · Add report</a></div><p class="research-note">The text download includes the saved draft, sources and approval note. PDF preparation and publication remain manual. World completion never grants editorial approval.</p><form id="report-form" class="research-form"><label>Library record<select id="linked-report"><option value="">No report linked</option></select></label><button class="world-action" type="submit">Save report connection</button></form><p id="report-link"></p></section>
             <section class="research-section" aria-labelledby="history-heading"><h3 id="history-heading">Project history</h3><ol id="project-history"></ol></section>
           </div>
         </section>

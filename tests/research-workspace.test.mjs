@@ -14,11 +14,18 @@ async function workspace(options = {}) {
     emit(type, event = {}) { for (const listener of this.handlers.get(type) || []) listener({ preventDefault() {}, ...event }); }
     showModal() { this.open = true; }
     close() { this.open = false; }
+    remove() {}
+    click() { if (this.download) downloads.push({ filename: this.download, blob: blobs.get(this.href) }); }
     reset() { for (const key of ['title', 'url', 'notes', 'checked']) { elements.get('source-' + key).value = ''; elements.get('source-' + key).checked = false; } }
   }
   const elements = new Map();
   for (const [, id] of fs.readFileSync(new URL('../research.html', import.meta.url), 'utf8').matchAll(/\bid="([^"]+)"/g)) elements.set(id, new Element());
-  const document = { getElementById: id => elements.get(id), createElement: tag => new Element(tag), body: new Element('body') };
+  const downloads = [], blobs = new Map();
+  const document = { getElementById: id => elements.get(id), createElement: tag => new Element(tag), body: new Element('body'),
+    head: { append(script) { queueMicrotask(() => {
+      if (options.catalogueFailure) script.onerror();
+      else { context.LONGHAND_REPORTS = []; script.onload(); }
+    }); } } };
   const rows = new Map(), copy = value => value && JSON.parse(JSON.stringify(value));
   const records = {
     all: async () => { if (options.blocked) throw new Error('Storage blocked'); return [...rows.values()].map(copy); },
@@ -27,17 +34,18 @@ async function workspace(options = {}) {
   };
   let ids = 0;
   const events = new Map();
-  const context = vm.createContext({ document, URL, Date, TextEncoder, console,
+  class TestURL extends URL { static createObjectURL(blob) { const key = 'blob:' + blobs.size; blobs.set(key, blob); return key; } static revokeObjectURL() {} }
+  const context = vm.createContext({ document, URL: TestURL, Date, TextEncoder, Blob, console, setTimeout: callback => callback(),
     location: { href: 'http://localhost/research.html' },
     history: { replaceState(unused, title, url) { context.location.href = String(url); } },
     crypto: { randomUUID: () => 'workspace-test-' + ++ids },
-    Longhand: { isLocal: !options.publicHost, researchRecords: records, allReports: async () => [], reportHref: report => 'report.html?id=' + report.id },
+    Longhand: { isLocal: !options.publicHost, researchRecords: records, allReports: async () => options.reports || [], reportHref: report => 'report.html?id=' + report.id },
     addEventListener: (type, listener) => events.set(type, listener)
   });
   context.window = context;
-  for (const file of ['research-projects.js', 'research-workspace.js']) vm.runInContext(fs.readFileSync(new URL('../assets/js/' + file, import.meta.url), 'utf8'), context);
+  for (const file of ['research-projects.js', 'research-operations.js', 'research-workspace.js']) vm.runInContext(fs.readFileSync(new URL('../assets/js/' + file, import.meta.url), 'utf8'), context);
   await flush();
-  const app = { elements, rows, records, context, events, click: id => elements.get(id).emit('click'), submit: id => elements.get(id).emit('submit') };
+  const app = { elements, rows, records, context, events, downloads, click: id => elements.get(id).emit('click'), submit: id => elements.get(id).emit('submit') };
   if (!options.publicHost && !options.blocked) {
     for (const [key, value] of Object.entries({ topic: 'Workspace test', question: 'What is the evidence?', objective: 'Check local draft handling.' })) elements.get('project-' + key).value = value;
     app.submit('project-form'); await flush();
@@ -97,4 +105,53 @@ test('public host and blocked storage show explicit states without inventing sav
   const blocked = await workspace({ blocked: true });
   assert.match(blocked.elements.get('workspace-message').textContent, /Storage blocked/);
   assert.equal(blocked.rows.size, 0);
+});
+
+test('dashboard filters projects and refreshes real Library state without writing publication into the project', async () => {
+  const options = { reports: [{ id: 'report-1', title: 'Synthetic browser draft', isLocal: true }] };
+  const app = await workspace(options);
+  app.elements.get('linked-report').value = 'report-1'; app.submit('report-form'); await flush();
+  const revision = [...app.rows.values()][0].revision;
+  app.elements.get('project-filter').value = 'published'; app.elements.get('project-filter').emit('change');
+  assert.match(app.elements.get('project-list').children[0].textContent, /No projects match/);
+  options.reports[0].isLocal = false;
+  app.click('reload-projects'); await flush();
+  assert.equal(app.elements.get('operations-summary').children[4].children[1].textContent, '1');
+  assert.equal(app.elements.get('project-list').children[0].children[0].textContent, 'Workspace test');
+  assert.match(app.elements.get('publication-warning').textContent, /current project is not approved/);
+  assert.equal([...app.rows.values()][0].revision, revision);
+  assert.equal([...app.rows.values()][0].status, 'DRAFT');
+});
+
+test('approved download blocks unsaved edits and concurrent revision changes, then exports only current reviewed text', async () => {
+  const app = await workspace();
+  app.elements.get('source-title').value = 'Test source'; app.elements.get('source-url').value = 'https://example.com/';
+  app.elements.get('source-notes').value = 'Synthetic evidence.'; app.elements.get('source-checked').checked = true;
+  app.elements.get('project-draft').value = 'Reviewed synthetic test prose.'; app.elements.get('draft-research').checked = true;
+  app.submit('source-form'); await flush();
+  app.elements.get('review-note').value = 'Submit test research.'; app.click('submit-review'); await flush();
+  app.elements.get('review-note').value = 'Checked test research.'; app.click('approve-review'); await flush();
+  assert.equal(app.elements.get('download-approved').disabled, false);
+  app.elements.get('project-draft').value += ' Unsaved change.';
+  app.click('download-approved'); await flush();
+  assert.equal(app.downloads.length, 0); assert.match(app.elements.get('workspace-message').textContent, /Save your edits/);
+  const record = [...app.rows.values()][0];
+  app.elements.get('project-draft').value = record.draftBody;
+  app.rows.set(record.id, { ...record, revision: record.revision + 1 });
+  app.click('download-approved'); await flush();
+  assert.equal(app.downloads.length, 0); assert.match(app.elements.get('workspace-message').textContent, /another tab/);
+  app.click('reload-projects'); await flush(); app.click('download-approved'); await flush();
+  assert.equal(app.downloads.length, 1);
+  assert.match(await app.downloads[0].blob.text(), /Reviewed synthetic test prose/);
+  assert.match(await app.downloads[0].blob.text(), /Checked test research/);
+  assert.match(app.downloads[0].filename, /-approved-r\d+\.txt$/);
+});
+
+test('failed catalogue refresh retains open work and shows a visible failure', async () => {
+  const options = { catalogueFailure: true }; const app = await workspace(options);
+  app.elements.get('project-objective').value = 'Retain this unsaved test edit.';
+  app.click('reload-projects'); await flush(); app.click('confirm-accept'); await flush();
+  assert.match(app.elements.get('workspace-message').textContent, /catalogue could not be reloaded/);
+  assert.equal(app.elements.get('project-objective').value, 'Retain this unsaved test edit.');
+  assert.equal(app.elements.get('workspace-content').inert, false);
 });

@@ -41,6 +41,7 @@ uncommitted branch.
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
 | `assets/js/research-projects.js` | Versioned research model, validation, atomic saves, revision conflicts, manual review and backups |
 | `assets/js/research-workspace.js` | Local project desk and links to existing library records |
+| `assets/js/research-operations.js` | Read-only operations summary, project next actions and approved text handoff |
 | `assets/js/home.js` | Front page: the stars and the latest report from the catalogue |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/coverage.js` | Coverage page: groups rated Initiation and Update reports by ticker |
@@ -184,6 +185,22 @@ verification. World completing its mock Director stage never approves research.
 An existing browser PDF draft or published catalogue report can be linked by
 its real ID; linking never copies a file, edits the catalogue or publishes.
 Publication still uses the library's existing **Add report / Publish** flow.
+
+The operations overview counts saved projects, review requests, approved projects
+awaiting a report, unchecked sources and projects linked to the local catalogue.
+The work queue can be filtered by stage or attention needed. These are derived
+views of existing records, not separately saved statuses. Simulated World progress
+does not advance manual editorial approval.
+
+The publication checklist connects the approved draft, checked evidence, review
+note and real Library record. **Download approved text** includes the reviewed
+prose, source notebook and approval note, for manual PDF preparation. It rejects
+unsaved edits and stale revisions. Add the final PDF through Library, connect its
+record in the workspace, then use Library's existing Publish tools. **Reload
+projects & reports** reads the current catalogue as well as saved browser work.
+A report in that local catalogue is not proof of live deployment. Editing a project
+resets its approval but never revises a linked published report. A missing record
+is shown explicitly; linking alone never publishes.
 
 Saves compare revisions in one IndexedDB transaction. An older tab gets a
 conflict message and keeps its open text rather than overwriting newer work.
