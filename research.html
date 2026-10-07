@@ -7,12 +7,13 @@
   <title>Research workspace · Longhand Research</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="world/world.css?v=2026-10-07j">
-  <link rel="stylesheet" href="assets/css/research-workspace.css?v=2026-10-07k">
+  <link rel="stylesheet" href="assets/css/research-workspace.css?v=2026-10-08a">
   <script>document.write('<script src="reports/reports.js?v=' + Date.now() + '"><\/script>');</script>
   <script src="assets/js/site.js?v=2026-10-07n" defer></script>
   <script src="assets/js/research-projects.js?v=2026-10-07n" defer></script>
   <script src="assets/js/research-operations.js?v=2026-10-07m" defer></script>
-  <script src="assets/js/research-workspace.js?v=2026-10-07n" defer></script>
+  <script src="assets/js/research-tasks.js?v=2026-10-08a" defer></script>
+  <script src="assets/js/research-workspace.js?v=2026-10-08a" defer></script>
 </head>
 <body class="world-page research-page">
   <a class="world-skip" href="#main">Skip to research workspace</a>
@@ -39,6 +40,7 @@
           </form>
           <div id="saved-project" hidden>
             <p class="research-next" id="project-next"></p>
+            <section class="research-assignment" aria-labelledby="assignment-heading"><h3 id="assignment-heading">Next research action</h3><p>Responsible role: <strong id="task-owner"></strong></p><p id="task-blocker"></p><a class="world-action" id="task-action" href="#source-heading">Open next action</a><p class="research-note">These are team responsibilities for work you carry out and save. No agent is executing research automatically.</p><details><summary>Five roles and required deliverables</summary><ol id="research-tasks"></ol></details></section>
             <div class="research-toolbar"><a class="world-action" id="open-world" href="world/index.html">Continue in World</a><p id="workflow-progress"></p></div>
             <section class="research-section" aria-labelledby="source-heading"><h3 id="source-heading">Source notebook</h3><p class="research-note">Add original links and the passage or figures they support. “Checked” records your manual review; it does not fetch or verify a source.</p><ol id="source-list"></ol>
               <form id="source-form" class="research-form">

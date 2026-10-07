@@ -42,6 +42,7 @@ uncommitted branch.
 | `assets/js/research-projects.js` | Versioned research model, validation, atomic saves, revision conflicts, manual review and backups |
 | `assets/js/research-workspace.js` | Local project desk and links to existing library records |
 | `assets/js/research-operations.js` | Read-only operations summary, project next actions and approved text handoff |
+| `assets/js/research-tasks.js` | Five role deliverables and manual next-action guidance derived from saved project records |
 | `assets/js/home.js` | Front page: the stars and the latest report from the catalogue |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/coverage.js` | Coverage page: groups rated Initiation and Update reports by ticker |
@@ -197,6 +198,15 @@ awaiting a report, unchecked sources and projects linked to the local catalogue.
 The work queue can be filtered by stage or attention needed. These are derived
 views of existing records, not separately saved statuses. Simulated World progress
 does not advance manual editorial approval.
+
+Each saved project shows its next responsible role, the outstanding work and a
+link to the relevant source, writing, review or report section. Expand the five
+roles to see their deliverables and actual saved evidence. These are manual
+responsibilities, not automatic agent assignments. Calculation validation is
+not tracked separately; it must be documented and reviewed in the draft when
+relevant. All guidance derives from existing project and Library records without
+new saved statuses. World now names its start and completion as simulation;
+finishing all 29 events never completes real research.
 
 The publication checklist connects the approved draft, checked evidence, review
 note and real Library record. **Download approved text** includes the reviewed

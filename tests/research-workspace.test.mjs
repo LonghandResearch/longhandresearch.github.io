@@ -43,7 +43,7 @@ async function workspace(options = {}) {
     addEventListener: (type, listener) => events.set(type, listener)
   });
   context.window = context;
-  for (const file of ['research-projects.js', 'research-operations.js', 'research-workspace.js']) vm.runInContext(fs.readFileSync(new URL('../assets/js/' + file, import.meta.url), 'utf8'), context);
+  for (const file of ['research-projects.js', 'research-operations.js', 'research-tasks.js', 'research-workspace.js']) vm.runInContext(fs.readFileSync(new URL('../assets/js/' + file, import.meta.url), 'utf8'), context);
   await flush();
   const app = { elements, rows, records, context, events, downloads, click: id => elements.get(id).emit('click'), submit: id => elements.get(id).emit('submit') };
   if (!options.publicHost && !options.blocked) {
@@ -72,6 +72,8 @@ test('project deletion requires confirmation and clears the selection without to
 
 test('workspace keeps source notes, working draft and report connection in one project', async () => {
   const app = await workspace();
+  assert.equal(app.elements.get('task-owner').textContent, 'Research Associate');
+  assert.equal(app.elements.get('research-tasks').children.length, 5);
   app.elements.get('source-title').value = 'Test source'; app.elements.get('source-url').value = 'https://example.com/';
   app.elements.get('source-notes').value = 'Synthetic evidence note.'; app.elements.get('source-checked').checked = true;
   app.elements.get('project-draft').value = 'A manually written test draft.'; app.elements.get('draft-research').checked = true;
@@ -81,6 +83,8 @@ test('workspace keeps source notes, working draft and report connection in one p
   assert.equal(record.draftBody, 'A manually written test draft.');
   assert.equal(app.elements.get('source-notes').value, '');
   assert.equal(record.reportId, null); assert.equal(record.status, 'DRAFT');
+  assert.equal(app.elements.get('task-owner').textContent, 'Editor');
+  assert.equal(app.elements.get('task-action').href, '#draft-heading');
 });
 
 test('confirmation keeps unsaved edits on cancel and reloads only after explicit discard', async () => {

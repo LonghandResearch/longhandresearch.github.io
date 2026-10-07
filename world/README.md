@@ -1,5 +1,46 @@
 # Longhand World V0.1
 
+## Manual tasks and simulation clarity — 8 October 2026
+
+The Workspace now derives a responsible role, outstanding work and section link
+from saved evidence, the draft, editorial status and the real Library connection.
+An expandable guide describes all five roles' deliverables and saved records.
+No new project fields or completion statuses are stored. Calculation validation
+is explicitly untracked and requires manual documentation/review where relevant.
+The World start, outputs and completion describe simulated planning; a completed
+sequence directs the owner back to Workspace for real research.
+
+This pass changes exactly twelve files:
+
+| File | Purpose |
+| --- | --- |
+| `assets/js/research-tasks.js` (new) | Derive role responsibilities, saved signals and next-action guidance. |
+| `assets/js/research-workspace.js` | Render the guide and responsible role in project details and the queue. |
+| `research.html` | Task section and new module/cache links. |
+| `assets/css/research-workspace.css` | Reuse existing colors and typography for the responsive task guide. |
+| `world/index.html` | Label the start and results as simulation and planning. |
+| `world/world.js` | Clarify simulated completion and manual handoff, without altering the run. |
+| `tests/research-tasks.test.mjs` (new) | Verify role transitions and that simulation cannot complete research. |
+| `tests/research-workspace.test.mjs` | Verify guide rendering and source-to-writing handoff. |
+| `world/tests/controller.test.mjs` | Verify the updated planning/completion labels. |
+| `README.md` | Document the guidance and its limits. |
+| `TASKS.md` | Track the role-deliverable follow-up in WEB-015. |
+| `world/README.md` | Record this manifest and validation. |
+
+Validation: 63 Node tests pass; changed JavaScript parses. Browser checks exercise
+source collection, checking, writing, submission, approval and the report handoff
+on a synthetic project at the separate localhost origin. A full 29-event World
+run retains the real draft and returns to manual submission after existing
+approval invalidation. Desktop, 390 px and 320 px task views have no horizontal
+overflow or console errors. The owner's 127.0.0.1 projects are read-only in this
+pass. The existing report catalogue, PDFs, site publishing, roster, sprites,
+movement and rooms are unchanged.
+
+PR #72 changes some of the same Workspace, HTML, CSS, test and documentation
+files. This pass does not modify its branch or its reasoning model. After #71
+merges, integrate its latest commit into #72 with a normal merge, retaining the
+task guide alongside the constitutional reasoning/review controls.
+
 A self-contained, simulated high-rise research headquarters. This page creates no research,
 calls no AI service and publishes nothing. Briefs can be entered locally;
 agent activity and stage outputs are simulated. Existing research stays in the

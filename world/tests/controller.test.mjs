@@ -176,7 +176,7 @@ test('submitted brief reveals outputs by stage and a safe draft only after final
     assert.equal(rows.length, 5);
     for (const output of snapshot.outputs) {
       const row = rows.find(row => row.dataset.agent === output.agentId);
-      assert.match(row.children[0].textContent, /Complete/);
+      assert.match(row.children[0].textContent, /Planning record generated/);
       assert.equal(row.children[2].textContent, output.body);
     }
   }
@@ -226,7 +226,7 @@ test('automatic user run stops after cleanup and a new brief clears its old resu
   assert.equal(app.world.getSnapshot().outputs.length, 5);
   assert.equal(app.timers.size, 0); assert.equal(app.frames.size, 0);
   assert.ok(app.world.getSnapshot().agents.every(agent => agent.destination === null));
-  assert.equal(app.elements.get('simulation-status').textContent, 'Research workflow complete');
+  assert.equal(app.elements.get('simulation-status').textContent, 'Simulation complete · research requires manual work');
   submitBrief(app, { ...brief, topic: 'Another research topic' });
   const restarted = app.world.getSnapshot();
   assert.equal(restarted.task.title, 'Another research topic');
