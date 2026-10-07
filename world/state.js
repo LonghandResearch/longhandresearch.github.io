@@ -10,26 +10,14 @@
   const INITIAL_AGENTS = Object.freeze([
     { id: 'director', name: 'Research Director', role: 'Founder & Research Lead', location: 'director', status: 'THINKING', currentTask: 'Setting the research agenda', progress: 18,
       description: 'Leads Longhand Research, sets the research agenda and reviews the team\'s evidence and final argument.' },
-    { id: 'researcher', name: 'Researcher I', role: 'Primary research', location: 'library', status: 'READING', currentTask: 'Reading AI infrastructure sources', progress: 34,
-      description: 'Reads original sources and builds a reasoned research draft.' },
-    { id: 'researcher-ii', name: 'Researcher II', role: 'Research and synthesis', location: 'research', status: 'THINKING', currentTask: 'Structuring the research questions', progress: 27,
-      description: 'Connects source material, frames the questions and develops the research argument.' },
-    { id: 'researcher-female', name: 'Female Researcher', role: 'Source research', location: 'library', status: 'READING', currentTask: 'Reviewing the primary source materials', progress: 36,
-      description: 'Reads the source record and develops the evidence behind the research questions.' },
-    { id: 'analyst', name: 'Data Analyst I', role: 'Data and verification', location: 'data', status: 'WORKING', currentTask: 'Checking the model assumptions', progress: 42,
-      description: 'Tests assumptions, reconciles observations and checks the calculations.' },
-    { id: 'analyst-ii', name: 'Data Analyst II', role: 'Data and modelling', location: 'data', status: 'WORKING', currentTask: 'Reconciling the scenario inputs', progress: 46,
-      description: 'Organizes the model inputs and checks the consistency of the simulated scenarios.' },
-    { id: 'analyst-female', name: 'Female Data Analyst', role: 'Scenario analysis', location: 'data', status: 'WORKING', currentTask: 'Checking the scenario relationships', progress: 39,
-      description: 'Examines the inputs, model relationships and supporting analytical observations.' },
-    { id: 'editor', name: 'Editor I', role: 'Editorial review', location: 'editor', status: 'REVIEWING', currentTask: 'Reviewing clarity and source notes', progress: 61,
-      description: 'Reviews the evidence, the prose and the final shape of a report.' },
-    { id: 'editor-ii', name: 'Editor II', role: 'Editorial production', location: 'editor', status: 'READING', currentTask: 'Reading the draft and source notes', progress: 53,
-      description: 'Checks the structure, supporting notes and presentation of the research draft.' },
-    { id: 'editor-female', name: 'Female Editor', role: 'Editorial structure', location: 'editor', status: 'REVIEWING', currentTask: 'Refining the simulated research narrative', progress: 58,
-      description: 'Shapes the narrative and checks that the evidence and editorial structure agree.' },
+    { id: 'researcher', name: 'Researcher', role: 'Research and source analysis', location: 'library', status: 'READING', currentTask: 'Reading AI infrastructure sources', progress: 34,
+      description: 'Investigates the research questions, analyzes original sources and builds a reasoned draft.' },
+    { id: 'analyst', name: 'Data Analyst', role: 'Quantitative analysis and validation', location: 'data', status: 'WORKING', currentTask: 'Checking the model assumptions', progress: 42,
+      description: 'Processes the data, tests assumptions, reconciles observations and validates the calculations.' },
+    { id: 'editor', name: 'Editor', role: 'Writing and publication preparation', location: 'editor', status: 'REVIEWING', currentTask: 'Reviewing clarity and source notes', progress: 61,
+      description: 'Develops the prose, reviews the evidence and prepares the research draft for publication.' },
     { id: 'associate', name: 'Research Associate', role: 'Research coordination', location: 'hall', status: 'WORKING', currentTask: 'Organizing the team source materials', progress: 32,
-      description: 'Maintains the source pack and helps the researchers, analysts and editors collaborate.' }
+      description: 'Collects sources, maintains the source pack and coordinates the team\'s research handoffs.' }
   ].map(Object.freeze));
   const TYPES = ['agent.started_task', 'agent.changed_status', 'agent.moved', 'agent.arrived', 'agent.progress', 'agent.completed_task', 'agent.error'];
   const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);

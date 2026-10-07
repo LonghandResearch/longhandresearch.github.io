@@ -34,18 +34,27 @@ and local SVG, so it also supports `file://`.
 | `state.js` | DOM-free agent model, validated event reducer and bounded journal |
 | `movement.js` | DOM-free waypoint behavior, independent of event production |
 | `mock-events.js` | Deterministic, repeating prototype event source |
-| `sprites.js` | Eleven original professional pixel sprites; visual configuration keyed by agent ID |
+| `sprites.js` | Five professional pixel sprites; visual configuration keyed by agent ID |
 | `world.js` | Rendering, selection, simulation clock and adapter surface |
 | `tests/state.test.mjs` | Independent state, event and movement invariant tests |
 | `tests/controller.test.mjs` | Timer, animation, pause, restart and reduced-motion regression tests |
 
 The six rooms are Main Hall, Library, Research Office, Data Lab, Editor Office and
-Director Office. Eleven staff have distinct professional sprites, roles and initial
-tasks: the Research Director / Founder & Research Lead; Researcher I, Researcher II and Female
-Researcher; Data Analyst I, Data Analyst II and Female Data Analyst; Editor I,
-Editor II and Female Editor; and a female Research Associate.
-Every character and staff
-list entry is a native button. Selecting either updates the same staff dossier:
+Director Office. The active roster is defined centrally in `State.INITIAL_AGENTS`.
+Exactly five staff have distinct professional sprites, roles and initial tasks:
+
+| Agent | Identity | Initial room | Work |
+| --- | --- | --- | --- |
+| Research Director | Male | Director Office | Leadership, strategy, review and directing |
+| Researcher | Male | Library | Reading, source analysis and investigation |
+| Data Analyst | Female | Data Lab | Quantitative analysis, data processing and validation |
+| Editor | Male | Editor Office | Writing, review and publication preparation |
+| Research Associate | Female | Main Hall | Source collection, research support and coordination |
+
+The renderer, selection, movement membership and reset all derive from this
+roster. Removed IDs are rejected by the existing event reducer without changing
+state or the activity journal. Every character and staff list entry is a native
+button. Selecting either updates the same staff dossier:
 name, role, status, last confirmed location, destination when moving, current
 task, progress and timestamped last activity.
 
@@ -72,11 +81,12 @@ silhouette, natural medium brown skin, glasses, black center-parted hair, a char
 smart-casual jacket and a research folio. These follow the founder's supplied
 appearance description; no photo is embedded. To refine that identity, edit
 `DESIGNS.director` and its drawing details in `createSprite`. All staff use the same
-48 × 80 sprite canvas, map size, shading and walking animation. All eleven
-appearance configurations and the Director's complete sprite are preserved in
-the identity polish. Research staff carry source books, citation notes and a
-source-reading laptop; analysts use dashboards, charts and styluses; editors
-carry article proofs and review marks; the Associate has a laptop and shared notes.
+48 × 80 sprite canvas, map size, shading and walking animation. The Data Analyst
+reuses the existing female analyst appearance under the stable `analyst` ID,
+giving the five-person team three men and two women. The other four retained
+sprite outputs, including the Director, are unchanged. The Researcher carries
+a source book; the Analyst uses a dashboard and stylus; the Editor carries
+article proofs and review marks; the Associate has a laptop and shared notes.
 
 The model holds `id`, `name`, `role`, `location`, `status`, `currentTask`, `progress`
 and `lastActivity`, plus a description, `destination` and readable activity text.
@@ -133,13 +143,14 @@ Restart restores the agents and sequence, preserving selection and pause choice.
 Hidden pages suspend timers and animation. Reduced motion starts in manual mode
 and always uses immediate arrival rather than animated travel.
 
-The identity polish refines the existing mock script into 43 events, adjusting
-task text, destinations and ordering with brief handoffs and home-department work for all eleven
-professionals. Researchers move between source reading and drafting; analysts
-bring checks to Research and return to Data; editors review with researchers
-and return to Editorial; the Director discusses strategy and reviews at home;
+The mock script retains 28 events for the five core professionals, removing
+only the duplicate agents' events. The Researcher moves between source reading
+and drafting; the Analyst brings checks to Research and returns to Data; the
+Editor reviews with the Researcher and returns to Editorial; the Director
+discusses strategy and reviews at home;
 the Associate organizes references before the Main Hall handoff. The source,
-reducer, waypoint algorithm, stations, controller and timer behavior are unchanged.
+reducer, waypoint algorithm, core staff stations, controller and timer behavior are unchanged.
+Unused duplicate sprite definitions and station offsets have been removed.
 Visit ordering preserves separate selectable staff positions at the minimum map
 width. No backend is connected and no report is published.
 
@@ -165,7 +176,7 @@ Its typography follows the parent's serif/sans editorial language using system
 fallbacks, with charcoal, muted navy, steel and a restrained amber accent. Parent HTML navigation is
 unchanged because it is repeated across pages; World is independently accessible.
 The initial World addition changes only the `TASKS.md` ownership/review row outside
-`world/`. This identity polish changes World files only.
+`world/`. The five-agent reduction changes World files only.
 
 Run from the repository root:
 
@@ -187,28 +198,24 @@ PR review and GitHub Pages process; this addition does not alter that workflow.
 
 ### V0.1 verification record
 
-Checked on 5 October 2026:
+Checked on 7 October 2026:
 
-- All 22 state, event, movement and controller tests pass, including all 396
+- All 23 state, event, movement and controller tests pass, including all 180
   agent/room-pair doorway routes, interrupted travel, simultaneous arrivals,
   one animation loop, pause/restart, hidden-page suspension and reduced motion.
   Both complete mock cycles keep every colleague's sprite center outside other
   staff hitboxes at the floor plan's minimum 700 pixel width.
 - The shared site checker passes script parsing, all existing JSON, catalogue,
   sitemap and exact-case links, including the new nested World page.
-- Browser preview confirms six rooms, all 22 map/staff-list selections, matching
-  dossiers, Enter/Space selection, the complete 43-event mock cycle including ERROR and
+- Browser preview confirms six rooms, all ten map/staff-list selections, matching
+  dossiers, Enter/Space selection, the complete 28-event mock cycle including ERROR and
   COMPLETED, animated travel and arrival, manual Next event and pause/restart.
 - Direct HTTP `world/` and `world/index.html` load; refresh works. Artwork loads
   locally, and World links resolve to the existing research pages. No World
   console errors were observed.
 - At 1280, 1024, 768, 390 and 320 pixel viewport widths, the page, staff list,
   controls and dossier fit the screen. Narrow layouts scroll only the floor plan;
-  all eleven map selections work at 320 pixels. Map sprites remain 36 × 60 pixels.
-- Existing homepage/globe/latest report, Library search, Coverage, Wire headlines,
-  About, INET's 24-page PDF reader, The Power Behind AI, both IHSG layouts and the
-  Indonesia resource research page load without observed console errors. The
-  existing interactive model's 18 scenario/zero/invalid-input checks also pass.
+  all five map selections work at 320 pixels. Map sprites remain 36 × 60 pixels.
 - The preview browser allows HTTP/HTTPS only, so direct `file://` behavior was
   inspected in code but could not be browser-tested. No live deployment or
   cross-browser suite was performed.
@@ -216,17 +223,17 @@ Checked on 5 October 2026:
 Diff review confirms only `world/` additions and the task-board row. No existing
 public page, shared asset, research fact, catalogue, sitemap or workflow changed.
 
-The current character and room identity polish changes exactly `index.html`,
-`sprites.js`, `mock-events.js`, `assets/institution.svg`, `tests/state.test.mjs`
-and this README. It adds no files or dependencies. All eleven appearance
-configurations and the Director sprite output are unchanged. New work cues stay
-within existing furniture and screen footprints; room geometry and routes are
-unchanged. Initial staff records, state, movement, controller, CSS, city artwork,
-controller tests, parent pages and `TASKS.md` remain unchanged in this pass.
+The roster reduction changes exactly `state.js`, `mock-events.js`, `sprites.js`,
+`movement.js`, `index.html`, `tests/state.test.mjs`, `tests/controller.test.mjs`
+and this README. It adds no files or dependencies. Room and city artwork, CSS,
+the controller, parent pages and `TASKS.md` remain unchanged. Movement changes
+only remove unused duplicate offsets; the five core stations and routing code
+are preserved.
 
-The workflow test verifies participation by all eleven professionals and the
-knowledge, research, analysis, editorial, strategy and collaboration handoffs.
-Browser QA confirms animated Director travel from Main Hall to Research Office,
-arrival in the shared meeting posture, Data Lab review and return to Director
-Office. No page overflow or World console errors were observed. JavaScript
-syntax checks and the shared site checker pass.
+Regressions verify exactly five active identities, the three male / two female
+appearance mix, rejection of removed IDs without state/feed mutation, all five
+working dossiers and core workflow handoffs through repeated cycles and reset.
+Browser QA confirms five characters/cards throughout the cycle, a journal
+containing only core staff, animated travel and office return. No page overflow
+or World console errors were observed. JavaScript syntax checks and the shared
+site checker pass.

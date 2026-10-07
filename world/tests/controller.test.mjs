@@ -69,27 +69,44 @@ function moveTogether(app) {
   assert.equal(app.world.dispatch({ type: 'agent.moved', agentId: 'analyst', location: 'hall' }), true);
 }
 
-test('all eleven visual staff can be selected from the map and roster', () => {
+test('exactly five staff have named map and roster entries and can be selected', () => {
   const app = controller();
-  const agents = app.world.getSnapshot().agents;
+  const staff = [
+    { id: 'director', name: 'Research Director' },
+    { id: 'researcher', name: 'Researcher' },
+    { id: 'analyst', name: 'Data Analyst' },
+    { id: 'editor', name: 'Editor' },
+    { id: 'associate', name: 'Research Associate' }
+  ];
+  const ids = staff.map(agent => agent.id);
   const map = app.elements.get('characters').children;
   const roster = app.elements.get('roster').children;
-  assert.equal(map.length, 11);
-  assert.equal(roster.length, 11);
-  assert.equal(new Set(map.map(button => button.attributes['aria-label'])).size, 11);
-  for (const [index, agent] of agents.entries()) {
+  assert.deepEqual(map.map(button => button.dataset.agent), ids);
+  assert.deepEqual(roster.map(button => button.dataset.agent), ids);
+  assert.equal(new Set(map.map(button => button.attributes['aria-label'])).size, 5);
+  assert.deepEqual(Object.keys(app.world.Visual.DESIGNS).sort(), [...ids].sort());
+  const designs = Object.values(app.world.Visual.DESIGNS);
+  assert.equal(designs.filter(design => design.build === 'female').length, 2);
+  assert.equal(designs.filter(design => design.build !== 'female').length, 3);
+  for (const [index, agent] of staff.entries()) {
     assert.ok(Object.hasOwn(app.world.Visual.DESIGNS, agent.id));
+    assert.equal(roster[index].children.find(child => child.className === 'world-member-name').textContent, agent.name);
     for (const button of [map[index], roster[index]]) {
       assert.ok(button.querySelector('svg').children.length > 30, 'detailed native sprite exists');
+      assert.ok(button.attributes['aria-label'].startsWith(agent.name + ', '));
       button.emit('click');
       assert.equal(app.elements.get('agent-name').textContent, agent.name);
-      assert.equal(app.elements.get('agent-number').textContent, String(index + 1).padStart(2, '0') + ' / 11');
+      assert.equal(app.elements.get('agent-number').textContent, String(index + 1).padStart(2, '0') + ' / 05');
       assert.equal(app.elements.get('agent-portrait').dataset.agent, agent.id);
       assert.equal(button.attributes['aria-pressed'], 'true');
     }
   }
   app.click('reset');
-  assert.equal(app.elements.get('world-announcement').textContent, 'Simulation restarted. All 11 staff are back at their initial tasks.');
+  assert.equal(app.elements.get('world-announcement').textContent, 'Simulation restarted. All 5 staff are back at their initial tasks.');
+  assert.deepEqual(app.elements.get('characters').children.map(button => button.dataset.agent), ids);
+  assert.deepEqual(app.elements.get('roster').children.map(button => button.dataset.agent), ids);
+  assert.equal(app.elements.get('agent-name').textContent, 'Research Associate');
+  assert.equal(app.elements.get('agent-number').textContent, '05 / 05');
 });
 
 test('director states and department visits reuse the shared controller without changing colleagues', () => {

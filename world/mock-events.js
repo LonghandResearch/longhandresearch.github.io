@@ -27,25 +27,10 @@
     { type: 'agent.started_task', agentId: 'analyst', task: 'Checking the model assumptions', location: 'data', progress: 6 },
     { type: 'agent.started_task', agentId: 'editor', task: 'Reviewing clarity and source notes', status: 'REVIEWING', location: 'editor', progress: 9 },
     { type: 'agent.started_task', agentId: 'director', task: 'Setting the next research agenda', status: 'THINKING', location: 'director', progress: 12 },
-    { type: 'agent.started_task', agentId: 'researcher-ii', task: 'Comparing the supporting source notes', status: 'READING', location: 'library', progress: 15 },
-    { type: 'agent.started_task', agentId: 'analyst-ii', task: 'Discussing the scenario checks', location: 'research', progress: 23 },
     { type: 'agent.started_task', agentId: 'associate', task: 'Preparing the next team handoff', location: 'research', progress: 19 },
     { type: 'agent.changed_status', agentId: 'associate', status: 'READING', location: 'library', activity: 'Collecting supporting references for the team handoff' },
-    { type: 'agent.started_task', agentId: 'editor-ii', task: 'Checking the simulated source pack', status: 'REVIEWING', location: 'research', progress: 31 },
-    { type: 'agent.completed_task', agentId: 'researcher-ii', location: 'research' },
-    { type: 'agent.completed_task', agentId: 'analyst-ii', location: 'data' },
     { type: 'agent.started_task', agentId: 'researcher', task: 'Reading AI infrastructure sources', status: 'READING', location: 'research', progress: 4, activity: 'Reading the digital source notes in Research Office' },
-    { type: 'agent.completed_task', agentId: 'editor-ii', location: 'editor' },
-    { type: 'agent.completed_task', agentId: 'associate', location: 'hall' },
-    { type: 'agent.started_task', agentId: 'researcher-female', task: 'Checking the digital reference notes', status: 'READING', progress: 12 },
-    { type: 'agent.progress', agentId: 'researcher-female', progress: 58, activity: 'Connecting the reference notes to the simulated draft' },
-    { type: 'agent.completed_task', agentId: 'researcher-female', activity: 'Reference notes prepared for the simulated research draft' },
-    { type: 'agent.started_task', agentId: 'analyst-female', task: 'Testing the simulated scenario relationships', status: 'WORKING', progress: 16 },
-    { type: 'agent.progress', agentId: 'analyst-female', progress: 63, activity: 'Cross-checking the model inputs and scenario relationships' },
-    { type: 'agent.completed_task', agentId: 'analyst-female', activity: 'Scenario checks ready for the research handoff' },
-    { type: 'agent.started_task', agentId: 'editor-female', task: 'Refining the simulated publication layout', status: 'REVIEWING', progress: 21 },
-    { type: 'agent.progress', agentId: 'editor-female', progress: 72, activity: 'Checking the narrative structure and source captions' },
-    { type: 'agent.completed_task', agentId: 'editor-female', activity: 'Editorial layout ready; no report is published' }
+    { type: 'agent.completed_task', agentId: 'associate', location: 'hall' }
   ].map(Object.freeze));
   function createSource(dispatch) {
     let cursor = 0;

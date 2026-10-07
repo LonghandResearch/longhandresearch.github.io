@@ -14,6 +14,12 @@ const { State, Movement, Mock } = context.LonghandWorld;
 const plain = (value) => JSON.parse(JSON.stringify(value));
 const member = (store, id = 'researcher') => store.getSnapshot().agents.find(agent => agent.id === id);
 const create = () => State.createStore({ clock: () => '2026-10-05T00:00:00.000Z' });
+const ACTIVE_STAFF = [
+  ['director', 'Research Director'], ['researcher', 'Researcher'], ['analyst', 'Data Analyst'],
+  ['editor', 'Editor'], ['associate', 'Research Associate']
+];
+const ACTIVE_IDS = ACTIVE_STAFF.map(([id]) => id);
+const REMOVED_IDS = ['researcher-ii', 'researcher-female', 'analyst-ii', 'analyst-female', 'editor-ii', 'editor-female'];
 function assertSelectableStations(store, movement) {
   const positions = movement.getPositions();
   for (const [index, position] of positions.entries()) {
@@ -26,12 +32,11 @@ function assertSelectableStations(store, movement) {
   }
 }
 
-test('initial state has eleven distinct staff, required fields and selectable stations', () => {
+test('initial state has exactly five named professionals, required fields and selectable stations', () => {
   const store = create();
   const agents = store.getSnapshot().agents;
-  assert.equal(agents.length, 11);
-  assert.equal(new Set(agents.map(agent => agent.id)).size, 11);
-  assert.deepEqual(plain(agents.map(agent => agent.id)), ['director', 'researcher', 'researcher-ii', 'researcher-female', 'analyst', 'analyst-ii', 'analyst-female', 'editor', 'editor-ii', 'editor-female', 'associate']);
+  assert.deepEqual(plain(agents.map(({ id, name }) => [id, name])), ACTIVE_STAFF);
+  assert.equal(new Set(agents.map(agent => agent.id)).size, ACTIVE_IDS.length);
   for (const agent of agents) {
     for (const key of ['id', 'name', 'role', 'location', 'status', 'currentTask', 'progress', 'lastActivity']) assert.ok(Object.hasOwn(agent, key), key);
     assert.ok(State.STATUSES.includes(agent.status));
@@ -39,6 +44,34 @@ test('initial state has eleven distinct staff, required fields and selectable st
   }
   const movement = Movement.createMovement(); movement.reset(agents);
   assertSelectableStations(store, movement);
+});
+
+test('removed staff cannot dispatch events or contaminate the activity feed', () => {
+  const store = create();
+  assert.equal(store.dispatch({ type: 'agent.progress', agentId: 'researcher', progress: 35 }), true);
+  const before = plain(store.getSnapshot());
+  let notifications = 0;
+  store.subscribe(() => notifications++);
+  const events = [
+    { type: 'agent.started_task', task: 'Unexpected duplicate task', progress: 10 },
+    { type: 'agent.changed_status', status: 'WORKING' },
+    { type: 'agent.moved', location: 'research' },
+    { type: 'agent.arrived', location: 'research' },
+    { type: 'agent.progress', progress: 50 },
+    { type: 'agent.completed_task' },
+    { type: 'agent.error', activity: 'Unexpected duplicate activity' }
+  ];
+  for (const agentId of REMOVED_IDS) {
+    for (const event of events) {
+      assert.equal(store.dispatch({ ...event, agentId }), false, agentId + ': ' + event.type);
+      assert.deepEqual(plain(store.getSnapshot()), before);
+    }
+  }
+  assert.equal(notifications, 0);
+  assert.equal(store.dispatch({ type: 'agent.progress', agentId: 'analyst', progress: 50 }), true);
+  assert.equal(notifications, 1);
+  const names = new Map(ACTIVE_STAFF);
+  for (const event of store.getSnapshot().events) assert.equal(event.name, names.get(event.agentId));
 });
 
 test('invalid events never mutate state, sequence, logs or notifications', () => {
@@ -198,6 +231,7 @@ test('mock workflow includes every professional and coherent department handoffs
   const itineraries = new Map(store.getSnapshot().agents.map(agent => [agent.id, [agent.location]]));
   const started = new Set();
   for (const event of Mock.SCRIPT) {
+    assert.ok(ACTIVE_IDS.includes(event.agentId), 'mock events reference only active professionals');
     assert.equal(store.dispatch(event), true);
     if (event.type === 'agent.started_task') started.add(event.agentId);
     movement.sync(store.getSnapshot().agents);
@@ -207,7 +241,7 @@ test('mock workflow includes every professional and coherent department handoffs
       if (rooms.at(-1) !== agent.location) rooms.push(agent.location);
     }
   }
-  assert.deepEqual([...started].sort(), plain(State.INITIAL_AGENTS.map(agent => agent.id)).sort());
+  assert.deepEqual([...started].sort(), [...ACTIVE_IDS].sort());
   const handoffs = {
     researcher: ['research', 'library', 'research'],
     analyst: ['data', 'research', 'data'],
@@ -219,10 +253,6 @@ test('mock workflow includes every professional and coherent department handoffs
     let next = 0;
     for (const room of itineraries.get(id)) if (room === expected[next]) next++;
     assert.equal(next, expected.length, id + ' participates in the department workflow');
-  }
-  for (const [id, home] of [['researcher-female', 'library'], ['analyst-female', 'data'], ['editor-female', 'editor']]) {
-    assert.deepEqual(itineraries.get(id), [home]);
-    assert.equal(member(store, id).status, 'COMPLETED');
   }
 });
 

@@ -7,12 +7,12 @@
     editor: { x: 220, y: 448 }, director: { x: 758, y: 448 }, hall: { x: 474, y: 418 }
   });
   const OFFSETS = {
-    hall: { director: -48, researcher: -16, analyst: 16, editor: 48, 'researcher-ii': -70, 'analyst-ii': 70, 'editor-ii': -36, associate: 32, 'researcher-female': -54, 'analyst-female': 54, 'editor-female': 0 },
-    library: { editor: 38, analyst: -38, director: 18, 'researcher-ii': -70, 'analyst-ii': -18, 'editor-ii': 70, associate: 54, 'researcher-female': -35, 'analyst-female': 18, 'editor-female': -54 },
-    research: { analyst: 38, editor: -38, director: 70, 'researcher-ii': -70, 'analyst-ii': -18, 'editor-ii': 54, associate: 70, 'researcher-female': -35, 'analyst-female': 18, 'editor-female': -54 },
-    data: { researcher: -38, editor: 38, director: 70, 'researcher-ii': -70, 'analyst-ii': -38, 'editor-ii': 54, associate: -18, 'researcher-female': -54, 'analyst-female': 38, 'editor-female': 18 },
-    editor: { researcher: -38, analyst: 38, director: -18, 'researcher-ii': -70, 'analyst-ii': 54, 'editor-ii': 38, associate: 70, 'researcher-female': 18, 'analyst-female': -54, 'editor-female': -38 },
-    director: { researcher: -38, analyst: 38, editor: 70, 'researcher-ii': -70, 'analyst-ii': -18, 'editor-ii': 54, associate: 18, 'researcher-female': -54, 'analyst-female': -35, 'editor-female': 0 }
+    hall: { director: -48, researcher: -16, analyst: 16, editor: 48, associate: 32 },
+    library: { editor: 38, analyst: -38, director: 18, associate: 54 },
+    research: { analyst: 38, editor: -38, director: 70, associate: 70 },
+    data: { researcher: -38, editor: 38, director: 70, associate: -18 },
+    editor: { researcher: -38, analyst: 38, director: -18, associate: 70 },
+    director: { researcher: -38, analyst: 38, editor: 70, associate: 18 }
   };
   const station = (room, id) => ({ ...STATIONS[room], x: STATIONS[room].x + (OFFSETS[room][id] || 0) });
   const equal = (a, b) => Math.abs(a.x - b.x) < 0.01 && Math.abs(a.y - b.y) < 0.01;
