@@ -103,6 +103,8 @@ body.world-page { margin: 0; background: var(--world-bg); color: var(--world-ink
 .world-status[data-status="COMPLETED"] { color: #b8c5b0; }
 .world-task { margin-top: 25px; }
 .world-task h3 { margin-top: 9px; font: 17px/1.5 var(--world-sans); }
+.world-task .world-task-state { margin-top: 9px; font: 10px/1.7 var(--world-sans); color: var(--world-muted); }
+.world-task-state[data-status="COMPLETED"] { color: #b8c5b0; }
 .world-progress-caption { margin-top: 17px; display: flex; justify-content: space-between; font-size: 10px; color: var(--world-muted); }
 .world-progress-caption span { color: var(--world-ink); font-variant-numeric: tabular-nums; }
 .world-task progress { display: block; width: 100%; height: 2px; margin-top: 9px; accent-color: var(--world-brass); border: 0; background: #475361; }

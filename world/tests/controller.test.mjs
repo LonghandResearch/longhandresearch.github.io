@@ -98,6 +98,9 @@ test('exactly five staff have named map and roster entries and can be selected',
       assert.equal(app.elements.get('agent-name').textContent, agent.name);
       assert.equal(app.elements.get('agent-number').textContent, String(index + 1).padStart(2, '0') + ' / 05');
       assert.equal(app.elements.get('agent-portrait').dataset.agent, agent.id);
+      assert.equal(app.elements.get('agent-status').textContent, 'IDLE');
+      assert.equal(app.elements.get('agent-progress').value, 0);
+      assert.equal(app.elements.get('agent-task').textContent, 'Analyze AI infrastructure market trends');
       assert.equal(button.attributes['aria-pressed'], 'true');
     }
   }
@@ -107,6 +110,8 @@ test('exactly five staff have named map and roster entries and can be selected',
   assert.deepEqual(app.elements.get('roster').children.map(button => button.dataset.agent), ids);
   assert.equal(app.elements.get('agent-name').textContent, 'Research Associate');
   assert.equal(app.elements.get('agent-number').textContent, '05 / 05');
+  assert.equal(app.elements.get('agent-status').textContent, 'IDLE');
+  assert.equal(app.elements.get('agent-progress').value, 0);
 });
 
 test('director states and department visits reuse the shared controller without changing colleagues', () => {
@@ -119,6 +124,8 @@ test('director states and department visits reuse the shared controller without 
     assert.equal(app.elements.get('agent-status').textContent, status);
     assert.equal(director.dataset.status, status);
     assert.ok(director.dataset.behavior, 'supported status has an existing visual behavior');
+    assert.equal(app.world.getSnapshot().task.status, 'IDLE');
+    assert.equal(app.elements.get('task-state').dataset.status, 'IDLE', 'local Director status does not advance the shared task');
   }
   for (const location of ['research', 'data', 'editor', 'hall', 'director']) {
     assert.equal(app.world.dispatch({ type: 'agent.changed_status', agentId: 'director', status: location === 'director' ? 'IDLE' : 'MEETING', location }), true);
@@ -128,6 +135,97 @@ test('director states and department visits reuse the shared controller without 
   }
   assert.deepEqual(colleagues(), before);
   assert.equal(app.frames.size, 0);
+});
+
+test('next event carries the shared task through five owners and keeps completion through cleanup', () => {
+  const app = controller({ reduced: true });
+  const pipeline = ['associate', 'researcher', 'analyst', 'editor', 'director'];
+  const phases = ['Source collection', 'Source analysis', 'Quantitative validation', 'Editorial preparation', 'Final review'];
+  const staffIds = ['director', 'researcher', 'analyst', 'editor', 'associate'];
+  const title = 'Analyze AI infrastructure market trends';
+  const visited = [];
+  let completed = null;
+  const plain = value => JSON.parse(JSON.stringify(value));
+  function assertDisplay(snapshot) {
+    const task = snapshot.task;
+    const owner = snapshot.agents.find(agent => agent.id === task.assignedAgentId);
+    const taskElement = app.elements.get('task-state');
+    const taskState = taskElement.textContent;
+    assert.ok(taskState.includes(task.status), 'the overall task status is visible');
+    assert.equal(taskElement.dataset.status, task.status);
+    if (task.status === 'COMPLETED') {
+      assert.match(taskState, /5\s+of\s+5\s+stages complete/i);
+    } else if (!task.stage) {
+      assert.ok(taskState.toLowerCase().includes('ready for source collection'));
+    } else {
+      assert.ok(taskState.includes(phases[task.stage - 1]), 'the current stage label is visible');
+      if (task.stage === task.completedStages) {
+        assert.match(taskState, /complete.*awaiting/i);
+        assert.ok(taskState.toLowerCase().includes(phases[task.stage].toLowerCase()), 'the next handoff stage is visible');
+      } else {
+        assert.match(taskState, new RegExp(task.stage + '\\s*(?:/|of)\\s*5'));
+        assert.ok(taskState.includes(owner.name), 'the current shared-task owner is visible');
+      }
+    }
+    if (owner) {
+      app.elements.get('roster').children.find(button => button.dataset.agent === owner.id).emit('click');
+      assert.equal(app.elements.get('agent-name').textContent, owner.name);
+      assert.equal(app.elements.get('agent-status').textContent, owner.status);
+      assert.equal(app.elements.get('agent-activity').textContent, owner.currentActivity);
+      assert.equal(app.elements.get('agent-location').textContent, app.world.State.ROOMS[owner.location]);
+      assert.equal(app.elements.get('agent-progress').value, owner.progress);
+      assert.equal(app.elements.get('agent-percent').textContent, owner.progress + '%');
+      const latest = snapshot.events[0];
+      if (latest?.type === 'agent.arrived' && latest.agentId === owner.id) {
+        assert.notEqual(app.elements.get('agent-activity').textContent, latest.activity, 'arrival history cannot replace the work activity');
+      }
+    }
+    assert.equal(app.elements.get('agent-task').textContent, title);
+    const rows = app.elements.get('event-log').children;
+    for (const [index, event] of snapshot.events.slice(0, 4).entries()) {
+      assert.equal(rows[index].querySelector('strong').textContent, event.name);
+      assert.equal(rows[index].querySelector('span').textContent, event.activity);
+    }
+    assert.deepEqual(app.elements.get('characters').children.map(button => button.dataset.agent), staffIds);
+    assert.deepEqual(app.elements.get('roster').children.map(button => button.dataset.agent), staffIds);
+    assert.equal(app.frames.size, 0);
+    assert.equal(app.timers.size, 0);
+  }
+  assertDisplay(app.world.getSnapshot());
+  for (let step = 0; step < app.world.Mock.SCRIPT.length; step++) {
+    app.click('next');
+    const snapshot = app.world.getSnapshot();
+    const task = snapshot.task;
+    assert.equal(task.assignedAgentId, pipeline[task.stage - 1]);
+    if (visited.at(-1) !== task.assignedAgentId) visited.push(task.assignedAgentId);
+    if (task.completedStages < 5) {
+      assert.equal(task.status, 'WORKING', 'an intermediate stage cannot complete the shared task');
+      assert.equal(task.completedAt, null);
+    } else if (!completed) {
+      assert.equal(task.status, 'COMPLETED');
+      assert.equal(task.stage, 5);
+      assert.equal(task.assignedAgentId, 'director');
+      assert.equal(snapshot.agents.find(agent => agent.id === 'director').status, 'COMPLETED');
+      assert.ok(task.completedAt);
+      completed = plain(task);
+    } else {
+      assert.deepEqual(plain(task), completed, 'idle cleanup preserves the completed shared task');
+    }
+    assertDisplay(snapshot);
+  }
+  assert.deepEqual(visited, pipeline);
+  assert.ok(completed, 'the default source completes the final Director stage');
+  assert.ok(app.world.getSnapshot().agents.every(agent => agent.status === 'IDLE'));
+  app.click('next');
+  const restarted = app.world.getSnapshot();
+  assert.equal(restarted.task.status, 'WORKING');
+  assert.equal(restarted.task.assignedAgentId, 'associate');
+  assert.equal(restarted.task.stage, 1);
+  assert.equal(restarted.task.completedStages, 0);
+  assert.equal(restarted.task.completedAt, null);
+  assert.ok(restarted.task.startedAt);
+  assert.notEqual(restarted.task.currentActivity, completed.currentActivity);
+  assertDisplay(restarted);
 });
 
 test('concurrent travel and first arrival retain at most one animation frame', () => {
@@ -193,9 +291,10 @@ test('reduced motion starts manually and next event settles without animation', 
   assert.equal(app.frames.size, 0); assert.equal(app.timers.size, 0);
   assert.equal(app.elements.get('pause').attributes['aria-pressed'], 'true');
   app.click('next');
-  const researcher = app.world.getSnapshot().agents.find(agent => agent.id === 'researcher');
-  assert.equal(researcher.location, 'research'); assert.equal(researcher.destination, null);
-  assert.equal(researcher.status, 'WORKING');
+  const associate = app.world.getSnapshot().agents.find(agent => agent.id === 'associate');
+  assert.equal(associate.location, 'library'); assert.equal(associate.destination, null);
+  assert.equal(associate.status, 'WORKING');
+  assert.equal(associate.progress, 5);
   assert.equal(app.frames.size, 0); assert.equal(app.timers.size, 0);
   app.click('pause');
   assert.equal(app.timers.size, 1);

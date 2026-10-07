@@ -2,35 +2,41 @@
 (function (root) {
   'use strict';
   const World = root.LonghandWorld = root.LonghandWorld || {};
+  const task = World.State.TASK_DEFINITION;
+  const step = (type, agentId, fields) => ({ type: 'agent.' + type, agentId, taskId: task.id, ...fields });
+  const start = (agentId, fields) => step('started_task', agentId, { task: task.title, ...fields });
   const SCRIPT = Object.freeze([
-    { type: 'agent.started_task', agentId: 'researcher', task: 'Drafting the AI infrastructure note', location: 'research', progress: 8 },
-    { type: 'agent.changed_status', agentId: 'director', status: 'MEETING', location: 'hall', activity: 'Considering the research question in Main Hall' },
-    { type: 'agent.progress', agentId: 'researcher', progress: 38, activity: 'Organizing the source evidence' },
-    { type: 'agent.completed_task', agentId: 'analyst', activity: 'Finished the first assumptions check' },
-    { type: 'agent.moved', agentId: 'analyst', location: 'research' },
-    { type: 'agent.changed_status', agentId: 'director', status: 'DIRECTING', location: 'research', activity: 'Discussing the research argument with the team' },
-    { type: 'agent.changed_status', agentId: 'researcher', status: 'THINKING', activity: 'Considering the argument with the analyst' },
-    { type: 'agent.started_task', agentId: 'analyst', task: 'Reconciling the research draft', progress: 12 },
-    { type: 'agent.error', agentId: 'analyst', activity: 'A mock source is unavailable; verification is on hold' },
-    { type: 'agent.changed_status', agentId: 'analyst', status: 'WORKING', activity: 'Mock source restored; verification resumed' },
-    { type: 'agent.progress', agentId: 'researcher', progress: 76 },
-    { type: 'agent.completed_task', agentId: 'researcher', location: 'library', activity: 'Draft ready for editorial review' },
-    { type: 'agent.started_task', agentId: 'editor', task: 'Editing the simulated research draft', location: 'research', status: 'REVIEWING', progress: 22 },
-    { type: 'agent.changed_status', agentId: 'researcher', status: 'READING', activity: 'Reading supporting source notes' },
-    { type: 'agent.progress', agentId: 'editor', progress: 68 },
-    { type: 'agent.completed_task', agentId: 'editor', location: 'editor', activity: 'Editorial pass complete; no report is published' },
-    { type: 'agent.completed_task', agentId: 'analyst', location: 'data' },
-    { type: 'agent.changed_status', agentId: 'director', status: 'REVIEWING', location: 'data', activity: 'Reviewing the simulated scenario checks in Data Lab' },
-    { type: 'agent.changed_status', agentId: 'director', status: 'REVIEWING', location: 'director', activity: 'Reviewing the simulated team handoff' },
-    { type: 'agent.completed_task', agentId: 'director', activity: 'Research cycle reviewed' },
-    { type: 'agent.changed_status', agentId: 'researcher', status: 'IDLE' },
-    { type: 'agent.started_task', agentId: 'analyst', task: 'Checking the model assumptions', location: 'data', progress: 6 },
-    { type: 'agent.started_task', agentId: 'editor', task: 'Reviewing clarity and source notes', status: 'REVIEWING', location: 'editor', progress: 9 },
-    { type: 'agent.started_task', agentId: 'director', task: 'Setting the next research agenda', status: 'THINKING', location: 'director', progress: 12 },
-    { type: 'agent.started_task', agentId: 'associate', task: 'Preparing the next team handoff', location: 'research', progress: 19 },
-    { type: 'agent.changed_status', agentId: 'associate', status: 'READING', location: 'library', activity: 'Collecting supporting references for the team handoff' },
-    { type: 'agent.started_task', agentId: 'researcher', task: 'Reading AI infrastructure sources', status: 'READING', location: 'research', progress: 4, activity: 'Reading the digital source notes in Research Office' },
-    { type: 'agent.completed_task', agentId: 'associate', location: 'hall' }
+    start('associate', { location: 'library', progress: 5, activity: 'Collecting relevant primary sources' }),
+    step('changed_status', 'associate', { status: 'READING', activity: 'Checking source dates and relevance' }),
+    step('progress', 'associate', { progress: 70, activity: 'Organizing the source pack for the Researcher' }),
+    step('completed_task', 'associate', { location: 'hall', activity: 'Source collection complete; ready for research analysis' }),
+
+    start('researcher', { status: 'READING', location: 'library', progress: 10, activity: 'Reading the collected primary sources' }),
+    step('changed_status', 'researcher', { status: 'THINKING', location: 'research', activity: 'Connecting the evidence to the research question' }),
+    step('changed_status', 'researcher', { status: 'WORKING', activity: 'Analyzing the source evidence and market themes' }),
+    step('progress', 'researcher', { progress: 75, activity: 'Structuring the findings for quantitative validation' }),
+    step('completed_task', 'researcher', { activity: 'Source analysis complete; ready for the Data Analyst' }),
+
+    start('analyst', { location: 'data', progress: 10, activity: 'Processing the simulated research data' }),
+    step('progress', 'analyst', { progress: 65, activity: 'Cross-checking the inputs and calculations' }),
+    step('changed_status', 'analyst', { status: 'REVIEWING', activity: 'Validating the quantitative findings' }),
+    step('completed_task', 'analyst', { activity: 'Quantitative validation complete; ready for editorial preparation' }),
+
+    start('editor', { status: 'READING', location: 'editor', progress: 10, activity: 'Reading the research findings and validation notes' }),
+    step('changed_status', 'editor', { status: 'WORKING', activity: 'Writing and editing the research narrative' }),
+    step('progress', 'editor', { progress: 70, activity: 'Preparing the draft and source captions' }),
+    step('changed_status', 'editor', { status: 'REVIEWING', activity: 'Reviewing clarity, evidence and publication readiness' }),
+    step('completed_task', 'editor', { activity: 'Editorial preparation complete; ready for final review' }),
+
+    start('director', { status: 'THINKING', location: 'director', progress: 10, activity: 'Considering the combined research and validation' }),
+    step('changed_status', 'director', { status: 'DIRECTING', location: 'research', activity: 'Discussing the research argument with the team' }),
+    step('changed_status', 'director', { status: 'MEETING', location: 'hall', activity: 'Coordinating the final team handoff' }),
+    step('changed_status', 'director', { status: 'REVIEWING', location: 'data', progress: 60, activity: 'Reviewing the validated quantitative evidence' }),
+    step('changed_status', 'director', { status: 'REVIEWING', location: 'director', progress: 85, activity: 'Reviewing the final research argument' }),
+    step('completed_task', 'director', { activity: 'Final review complete; simulated research task completed' }),
+
+    ...task.stages.map(stage => ({ type: 'agent.changed_status', agentId: stage.agentId,
+      status: 'IDLE', activity: stage.label + ' complete; ready for the next research task' }))
   ].map(Object.freeze));
   function createSource(dispatch) {
     let cursor = 0;

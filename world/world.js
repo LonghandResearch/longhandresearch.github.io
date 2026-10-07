@@ -67,7 +67,7 @@
     $('agent-progress').value = agent.progress;
     $('agent-progress').textContent = agent.progress + '%';
     $('agent-percent').textContent = agent.progress + '%';
-    $('agent-activity').textContent = agent.lastActivityText;
+    $('agent-activity').textContent = agent.currentActivity;
     $('agent-time').dateTime = agent.lastActivity;
     $('agent-time').textContent = showTime(agent.lastActivity) + ' · Local time';
     if ($('agent-portrait').dataset.agent !== agent.id) {
@@ -106,6 +106,18 @@
       element.character.title = agent.name + ' · ' + agent.status.toLowerCase();
     });
     renderPanel(state.agents.find((agent) => agent.id === selected));
+    const task = state.task;
+    const stages = World.State.TASK_DEFINITION.stages;
+    let detail = 'Ready for source collection';
+    if (task.status === 'COMPLETED') detail = stages.length + ' of ' + stages.length + ' stages complete';
+    else if (task.stage) {
+      const stage = stages[task.stage - 1];
+      const owner = state.agents.find(agent => agent.id === task.assignedAgentId);
+      detail = task.stage === task.completedStages ? stage.label + ' complete; awaiting ' + stages[task.stage].label.toLowerCase() :
+        stage.label + ' (' + task.stage + '/' + stages.length + ') · ' + owner.name;
+    }
+    $('task-state').textContent = 'Team task · ' + task.status + ' · ' + detail;
+    $('task-state').dataset.status = task.status;
     renderLog(state.events);
     renderPositions();
   }

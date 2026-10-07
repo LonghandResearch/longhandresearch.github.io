@@ -20,6 +20,20 @@ const ACTIVE_STAFF = [
 ];
 const ACTIVE_IDS = ACTIVE_STAFF.map(([id]) => id);
 const REMOVED_IDS = ['researcher-ii', 'researcher-female', 'analyst-ii', 'analyst-female', 'editor-ii', 'editor-female'];
+const TASK_ID = 'ai-infrastructure-trends';
+const TASK_TITLE = 'Analyze AI infrastructure market trends';
+const PIPELINE = ['associate', 'researcher', 'analyst', 'editor', 'director'];
+const freshTask = () => ({ id: TASK_ID, title: TASK_TITLE, assignedAgentId: null, status: 'IDLE',
+  stage: 0, completedStages: 0, location: null, currentActivity: 'Ready for source collection',
+  startedAt: null, completedAt: null });
+const tagged = (type, agentId, fields = {}) => ({ type, agentId, taskId: TASK_ID, ...fields });
+const begin = (agentId, fields = {}) => tagged('agent.started_task', agentId, { task: TASK_TITLE, progress: 0, ...fields });
+const finish = (agentId, fields = {}) => tagged('agent.completed_task', agentId, fields);
+function tickingStore() {
+  let calls = 0;
+  const store = State.createStore({ clock: () => new Date(Date.UTC(2026, 9, 7, 0, 0, ++calls)).toISOString() });
+  return { store, calls: () => calls };
+}
 function assertSelectableStations(store, movement) {
   const positions = movement.getPositions();
   for (const [index, position] of positions.entries()) {
@@ -38,12 +52,29 @@ test('initial state has exactly five named professionals, required fields and se
   assert.deepEqual(plain(agents.map(({ id, name }) => [id, name])), ACTIVE_STAFF);
   assert.equal(new Set(agents.map(agent => agent.id)).size, ACTIVE_IDS.length);
   for (const agent of agents) {
-    for (const key of ['id', 'name', 'role', 'location', 'status', 'currentTask', 'progress', 'lastActivity']) assert.ok(Object.hasOwn(agent, key), key);
-    assert.ok(State.STATUSES.includes(agent.status));
+    for (const key of ['id', 'name', 'role', 'location', 'status', 'currentTask', 'progress', 'currentActivity', 'lastActivity', 'taskId']) assert.ok(Object.hasOwn(agent, key), key);
+    assert.equal(agent.status, 'IDLE');
+    assert.equal(agent.progress, 0);
+    assert.equal(agent.currentTask, TASK_TITLE);
+    assert.equal(agent.taskId, null);
     assert.ok(Object.hasOwn(State.ROOMS, agent.location));
   }
+  assert.deepEqual(plain(store.getSnapshot().task), freshTask());
   const movement = Movement.createMovement(); movement.reset(agents);
   assertSelectableStations(store, movement);
+});
+
+test('the shared task definition fixes the five-stage order and cannot be edited', () => {
+  assert.equal(State.TASK_DEFINITION.id, TASK_ID);
+  assert.equal(State.TASK_DEFINITION.title, TASK_TITLE);
+  assert.deepEqual(plain(State.TASK_DEFINITION.stages.map(stage => stage.agentId)), PIPELINE);
+  assert.ok(Object.isFrozen(State.TASK_DEFINITION));
+  assert.ok(Object.isFrozen(State.TASK_DEFINITION.stages));
+  for (const stage of State.TASK_DEFINITION.stages) {
+    assert.ok(Object.isFrozen(stage));
+    assert.equal(typeof stage.label, 'string');
+    assert.ok(stage.label.trim());
+  }
 });
 
 test('removed staff cannot dispatch events or contaminate the activity feed', () => {
@@ -101,6 +132,113 @@ test('invalid events never mutate state, sequence, logs or notifications', () =>
   assert.equal(notifications, 0);
 });
 
+test('invalid task tags, premature stages and duplicate completions never mutate or notify', () => {
+  const ticking = tickingStore(); const { store } = ticking;
+  let notifications = 0; store.subscribe(() => notifications++);
+  function reject(events) {
+    for (const event of events) {
+      const before = plain(store.getSnapshot()), calls = ticking.calls(), count = notifications;
+      assert.equal(store.dispatch(event), false, event.type + ': ' + event.agentId);
+      assert.deepEqual(plain(store.getSnapshot()), before);
+      assert.equal(ticking.calls(), calls, 'invalid events do not consume a timestamp');
+      assert.equal(notifications, count);
+    }
+  }
+  reject([
+    ...[undefined, null, false, 1, {}, [], new String(TASK_ID), '', 'unknown-task'].map(taskId => begin('associate', { taskId })),
+    begin('associate', { task: 'A different task title' }),
+    begin('associate', { task: new String(TASK_TITLE) }),
+    ...PIPELINE.slice(1).map(agentId => begin(agentId)),
+    tagged('agent.progress', 'associate', { progress: 10 }),
+    tagged('agent.changed_status', 'associate', { status: 'WORKING' }),
+    finish('associate')
+  ]);
+  assert.equal(store.dispatch(begin('associate')), true);
+  reject([
+    begin('associate'), begin('researcher'),
+    { type: 'agent.started_task', agentId: 'associate', task: 'Independent source request' },
+    ...PIPELINE.slice(1).flatMap(agentId => [
+      tagged('agent.progress', agentId, { progress: 50 }),
+      tagged('agent.changed_status', agentId, { status: 'THINKING' }), finish(agentId)
+    ]),
+    tagged('agent.progress', 'associate', { taskId: new String(TASK_ID), progress: 50 }),
+    tagged('agent.progress', 'associate', { taskId: 'unknown-task', progress: 50 })
+  ]);
+  assert.equal(store.dispatch(tagged('agent.changed_status', 'associate', { status: 'ERROR' })), true);
+  assert.equal(store.getSnapshot().task.status, 'WORKING', 'local errors do not complete or replace the team task');
+  reject([{ type: 'agent.started_task', agentId: 'associate', task: 'Replacement after local error' }]);
+  assert.equal(store.dispatch(finish('associate')), true);
+  reject([finish('associate'), begin('associate'), begin('analyst'),
+    tagged('agent.progress', 'associate', { progress: 75 }),
+    tagged('agent.changed_status', 'associate', { status: 'WORKING' })]);
+  assert.equal(store.dispatch(begin('researcher')), true);
+  assert.equal(store.getSnapshot().task.stage, 2);
+  assert.equal(store.getSnapshot().task.completedStages, 1);
+});
+
+test('untagged adapter events remain local and clear a new local task association', () => {
+  const store = create();
+  assert.equal(store.dispatch({ type: 'agent.started_task', agentId: 'associate', task: 'Independent task before pipeline work' }), true);
+  assert.deepEqual(plain(store.getSnapshot().task), freshTask());
+  assert.equal(store.dispatch(begin('associate', { location: 'library', activity: 'Collecting source records' })), true);
+  const task = plain(store.getSnapshot().task);
+  const events = [
+    { type: 'agent.started_task', agentId: 'researcher', task: 'Independent adapter draft' },
+    { type: 'agent.progress', agentId: 'associate', progress: 50 },
+    { type: 'agent.changed_status', agentId: 'associate', status: 'THINKING' },
+    { type: 'agent.completed_task', agentId: 'associate' },
+    { type: 'agent.error', agentId: 'analyst' }
+  ];
+  for (const event of events) {
+    assert.equal(store.dispatch(event), true);
+    assert.deepEqual(plain(store.getSnapshot().task), task);
+  }
+  assert.equal(member(store, 'researcher').taskId, null);
+  // An adapter completion is local; the tagged completion is still required for the handoff.
+  assert.equal(store.getSnapshot().task.completedStages, 0);
+  assert.equal(store.dispatch(finish('associate')), true);
+  const handoff = plain(store.getSnapshot().task);
+  assert.equal(store.dispatch({ type: 'agent.started_task', agentId: 'associate', task: 'Independent source request' }), true);
+  assert.equal(member(store, 'associate').taskId, null);
+  assert.equal(store.dispatch({ type: 'agent.arrived', agentId: 'associate', location: 'library' }), true);
+  assert.deepEqual(plain(store.getSnapshot().task), handoff, 'a cleared task link cannot redirect the shared task');
+});
+
+test('arrivals confirm owner location without replacing activity or a newer handoff', () => {
+  const { store } = tickingStore();
+  assert.equal(store.dispatch(begin('associate', { location: 'library', activity: 'Collecting source records' })), true);
+  assert.equal(store.getSnapshot().task.location, 'hall');
+  assert.equal(store.dispatch({ type: 'agent.arrived', agentId: 'associate', location: 'library' }), true);
+  assert.equal(store.getSnapshot().task.location, 'library');
+  assert.equal(store.getSnapshot().task.currentActivity, 'Collecting source records');
+  assert.equal(member(store, 'associate').currentActivity, 'Collecting source records');
+  assert.equal(member(store, 'associate').lastActivityText, 'Arrived at Library');
+  assert.equal(store.getSnapshot().events[0].activity, 'Arrived at Library');
+  assert.equal(store.dispatch(finish('associate', { location: 'research', activity: 'Source pack ready' })), true);
+  assert.equal(store.dispatch({ type: 'agent.arrived', agentId: 'associate', location: 'research' }), true);
+  assert.equal(store.getSnapshot().task.location, 'research');
+  assert.equal(store.getSnapshot().task.currentActivity, 'Source pack ready');
+  assert.equal(store.dispatch({ type: 'agent.moved', agentId: 'associate', location: 'hall' }), true);
+  assert.equal(store.dispatch(begin('researcher', { location: 'research', activity: 'Analyzing the source evidence' })), true);
+  const nextStage = plain(store.getSnapshot().task);
+  assert.equal(store.dispatch({ type: 'agent.arrived', agentId: 'associate', location: 'hall' }), true);
+  assert.deepEqual(plain(store.getSnapshot().task), nextStage, 'late prior-owner arrival cannot overwrite the current stage');
+  assert.equal(store.dispatch({ type: 'agent.arrived', agentId: 'researcher', location: 'research' }), true);
+  assert.equal(store.getSnapshot().task.location, 'research');
+  assert.equal(store.getSnapshot().task.currentActivity, 'Analyzing the source evidence');
+  assert.equal(store.dispatch(finish('researcher')), true);
+  for (const agentId of ['analyst', 'editor']) {
+    assert.equal(store.dispatch(begin(agentId)), true);
+    assert.equal(store.dispatch(finish(agentId)), true);
+  }
+  assert.equal(store.dispatch(begin('director', { location: 'data', activity: 'Reviewing the final evidence' })), true);
+  assert.equal(store.dispatch(finish('director', { activity: 'Final review complete' })), true);
+  const completed = plain(store.getSnapshot().task);
+  assert.equal(store.dispatch({ type: 'agent.arrived', agentId: 'director', location: 'data' }), true);
+  assert.deepEqual(plain(store.getSnapshot().task), { ...completed, location: 'data' });
+  assert.equal(member(store, 'director').currentActivity, 'Final review complete');
+});
+
 test('all required event types have defined behavior', () => {
   const store = create();
   assert.equal(store.dispatch({ type: 'agent.started_task', agentId: 'researcher', task: '  New draft  ', location: 'research', progress: 0 }), true);
@@ -109,8 +247,11 @@ test('all required event types have defined behavior', () => {
   assert.equal(member(store).progress, 0);
   assert.equal(member(store).location, 'library');
   assert.equal(member(store).destination, 'research');
-  assert.equal(store.dispatch({ type: 'agent.changed_status', agentId: 'researcher', status: 'THINKING' }), true);
+  assert.equal(store.dispatch({ type: 'agent.changed_status', agentId: 'researcher', status: 'THINKING', progress: 20 }), true);
   assert.equal(member(store).status, 'THINKING');
+  assert.equal(member(store).progress, 20, 'adapter status events honor explicitly supplied progress');
+  assert.equal(store.dispatch({ type: 'agent.changed_status', agentId: 'researcher', status: 'REVIEWING' }), true);
+  assert.equal(member(store).progress, 20, 'status events without progress preserve the current value');
   assert.equal(store.dispatch({ type: 'agent.moved', agentId: 'researcher', location: 'data' }), true);
   assert.equal(member(store).location, 'library');
   assert.equal(member(store).destination, 'data');
@@ -137,14 +278,20 @@ test('every allowed status is accepted; stale arrival is rejected without mutati
 test('snapshots and subscriber snapshots cannot mutate store state', () => {
   const store = create();
   store.dispatch({ type: 'agent.progress', agentId: 'researcher', progress: 30 });
+  assert.equal(store.dispatch(begin('associate')), true);
   const before = plain(store.getSnapshot());
   const snap = store.getSnapshot();
   snap.agents[0].name = 'corrupted'; snap.agents.push({}); snap.events[0].activity = 'corrupted'; snap.events.length = 0; snap.sequence = -1;
+  snap.task.title = 'corrupted'; snap.task.assignedAgentId = 'director'; snap.task.completedStages = 5; snap.task.status = 'COMPLETED';
   assert.deepEqual(plain(store.getSnapshot()), before);
-  store.subscribe(next => { next.agents[0].progress = -10; next.events[0].name = 'corrupted'; });
+  store.subscribe(next => {
+    next.agents[0].progress = -10; next.events[0].name = 'corrupted';
+    next.task.status = 'COMPLETED'; next.task.currentActivity = 'corrupted';
+  });
   store.dispatch({ type: 'agent.progress', agentId: 'researcher', progress: 31 });
-  assert.equal(member(store, 'director').progress, 18);
+  assert.equal(member(store, 'director').progress, 0);
   assert.notEqual(store.getSnapshot().events[0].name, 'corrupted');
+  assert.deepEqual(plain(store.getSnapshot().task), before.task);
 });
 
 test('event log is bounded, ordered and resettable; unsubscribe works', () => {
@@ -157,7 +304,7 @@ test('event log is bounded, ordered and resettable; unsubscribe works', () => {
   assert.deepEqual(plain(snap.events.map(event => event.id)), Array.from({ length: 12 }, (_, i) => 50 - i));
   unsubscribe(); store.reset();
   assert.equal(count, 50); assert.equal(store.getSnapshot().sequence, 0); assert.equal(store.getSnapshot().events.length, 0);
-  assert.equal(member(store).progress, 34);
+  assert.equal(member(store).progress, 0);
 });
 
 test('movement advances by elapsed time and emits one arrival with confirmed location semantics', () => {
@@ -226,34 +373,82 @@ test('two complete mock cycles dispatch and arrive successfully without invalid 
   assert.equal(source.getCursor(), 0); assert.equal(store.getSnapshot().events.length, 12);
 });
 
-test('mock workflow includes every professional and coherent department handoffs', () => {
-  const store = create(); const movement = Movement.createMovement(); movement.reset(store.getSnapshot().agents);
-  const itineraries = new Map(store.getSnapshot().agents.map(agent => [agent.id, [agent.location]]));
-  const started = new Set();
+test('the default workflow completes one shared task only after five ordered stages', () => {
+  const { store } = tickingStore(); const movement = Movement.createMovement(); movement.reset(store.getSnapshot().agents);
+  const started = []; const cleaned = new Set(); let completions = 0, startedAt = null, completedTask = null;
   for (const event of Mock.SCRIPT) {
     assert.ok(ACTIVE_IDS.includes(event.agentId), 'mock events reference only active professionals');
+    const before = plain(store.getSnapshot().task);
     assert.equal(store.dispatch(event), true);
-    if (event.type === 'agent.started_task') started.add(event.agentId);
+    let snapshot = store.getSnapshot();
+    if (Object.hasOwn(event, 'taskId')) {
+      assert.equal(event.taskId, TASK_ID);
+      assert.equal(snapshot.task.assignedAgentId, event.agentId);
+      assert.equal(member(store, event.agentId).taskId, TASK_ID);
+      assert.equal(member(store, event.agentId).currentTask, TASK_TITLE);
+      assert.equal(snapshot.task.currentActivity, member(store, event.agentId).currentActivity);
+      if (Object.hasOwn(event, 'progress')) assert.equal(member(store, event.agentId).progress, event.progress);
+      if (event.type === 'agent.started_task') {
+        started.push(event.agentId);
+        assert.equal(snapshot.task.stage, started.length);
+        assert.equal(snapshot.task.completedStages, started.length - 1);
+        if (startedAt === null) startedAt = snapshot.task.startedAt;
+        assert.equal(snapshot.task.startedAt, startedAt, 'handoffs retain the original task start');
+      }
+      if (event.type === 'agent.completed_task') completions++;
+      assert.equal(snapshot.task.completedStages, completions);
+      assert.equal(snapshot.task.status, completions === 5 ? 'COMPLETED' : 'WORKING');
+      if (completions < 5) assert.equal(snapshot.task.completedAt, null);
+      else {
+        assert.equal(event.agentId, 'director');
+        assert.equal(snapshot.task.completedAt, member(store, 'director').lastActivity);
+        assert.ok(Date.parse(snapshot.task.completedAt) > Date.parse(startedAt));
+        completedTask = plain(snapshot.task);
+      }
+    } else {
+      assert.equal(event.type, 'agent.changed_status');
+      assert.equal(event.status, 'IDLE');
+      cleaned.add(event.agentId);
+      assert.deepEqual(plain(snapshot.task), before, 'idle cleanup preserves the completed team task');
+    }
+    const activity = snapshot.task.currentActivity;
     movement.sync(store.getSnapshot().agents);
     movement.advance(0, true).forEach(arrival => assert.equal(store.dispatch(arrival), true));
-    for (const agent of store.getSnapshot().agents) {
-      const rooms = itineraries.get(agent.id);
-      if (rooms.at(-1) !== agent.location) rooms.push(agent.location);
-    }
+    snapshot = store.getSnapshot();
+    assert.equal(snapshot.task.currentActivity, activity, 'arrival history does not replace meaningful task activity');
+    assert.equal(snapshot.task.location, member(store, snapshot.task.assignedAgentId).location);
+    for (const entry of snapshot.events) assert.ok(ACTIVE_IDS.includes(entry.agentId));
   }
-  assert.deepEqual([...started].sort(), [...ACTIVE_IDS].sort());
-  const handoffs = {
-    researcher: ['research', 'library', 'research'],
-    analyst: ['data', 'research', 'data'],
-    editor: ['editor', 'research', 'editor'],
-    director: ['director', 'hall', 'research', 'data', 'director'],
-    associate: ['research', 'library', 'hall']
-  };
-  for (const [id, expected] of Object.entries(handoffs)) {
-    let next = 0;
-    for (const room of itineraries.get(id)) if (room === expected[next]) next++;
-    assert.equal(next, expected.length, id + ' participates in the department workflow');
-  }
+  assert.deepEqual(started, PIPELINE);
+  assert.deepEqual([...cleaned].sort(), [...ACTIVE_IDS].sort());
+  assert.deepEqual(plain(store.getSnapshot().task), completedTask);
+  assert.ok(store.getSnapshot().agents.every(agent => agent.status === 'IDLE'));
+});
+
+test('completed cycles restart the task record and reset restores a fresh idle pipeline', () => {
+  const { store } = tickingStore(); const movement = Movement.createMovement(); movement.reset(store.getSnapshot().agents);
+  const source = Mock.createSource(event => {
+    assert.equal(store.dispatch(event), true); movement.sync(store.getSnapshot().agents);
+    movement.advance(0, true).forEach(arrival => assert.equal(store.dispatch(arrival), true)); return true;
+  });
+  for (let index = 0; index < Mock.SCRIPT.length; index++) assert.equal(source.next(), true);
+  const completed = plain(store.getSnapshot().task);
+  assert.equal(completed.status, 'COMPLETED');
+  assert.equal(completed.completedStages, 5);
+  assert.equal(source.getCursor(), 0);
+  assert.equal(source.next(), true);
+  let task = store.getSnapshot().task;
+  assert.equal(task.status, 'WORKING'); assert.equal(task.assignedAgentId, 'associate');
+  assert.equal(task.stage, 1); assert.equal(task.completedStages, 0); assert.equal(task.completedAt, null);
+  assert.ok(Date.parse(task.startedAt) > Date.parse(completed.completedAt));
+  assert.equal(member(store, 'associate').currentTask, TASK_TITLE);
+  store.reset(); source.reset(); movement.reset(store.getSnapshot().agents);
+  assert.deepEqual(plain(store.getSnapshot().task), freshTask());
+  assert.equal(store.getSnapshot().events.length, 0); assert.equal(store.getSnapshot().sequence, 0);
+  assert.ok(store.getSnapshot().agents.every(agent => agent.status === 'IDLE' && agent.progress === 0 && agent.taskId === null));
+  assert.equal(source.next(), true);
+  task = store.getSnapshot().task;
+  assert.equal(task.stage, 1); assert.equal(task.assignedAgentId, 'associate'); assert.equal(task.status, 'WORKING');
 });
 
 test('arrival notification sync does not requeue other agents already arrived in the same frame', () => {
