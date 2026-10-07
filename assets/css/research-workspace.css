@@ -8,6 +8,16 @@
 .research-filter { display: grid; gap: 8px; color: var(--world-muted); font-size: 12px; margin-block: 18px; }
 .research-filter select { width: 100%; min-width: 0; padding: 10px; background: var(--world-bg); color: var(--world-ink); border: 1px solid var(--world-rule); }
 .research-next { padding: 16px; border-left: 2px solid var(--world-brass); color: var(--world-muted); line-height: 1.6; font-size: 13px; }
+.research-assignment { padding: 20px; margin-block: 20px; border: 1px solid var(--world-rule); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.research-assignment h3 { font: 24px var(--world-serif); }
+.research-assignment p { margin-block: 12px; }
+.research-assignment a { display: inline-block; max-width: 100%; white-space: normal; text-decoration: none; }
+.research-assignment details { margin-top: 18px; }
+.research-assignment summary { cursor: pointer; color: var(--world-brass); }
+#research-tasks { list-style: none; padding: 0; }
+#research-tasks li { padding-block: 18px; border-top: 1px solid var(--world-rule); }
+#research-tasks h4 { color: var(--world-brass); }
+#research-tasks p { color: var(--world-muted); }
 .research-checklist { list-style: none; padding: 0; display: grid; gap: 12px; margin-block: 20px; font-size: 13px; color: var(--world-muted); }
 .research-checklist [data-complete="true"] { color: var(--world-brass); }
 #workspace-message { margin-block: 18px; color: var(--world-brass); overflow-wrap: anywhere; }

@@ -3,7 +3,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const LH = window.Longhand;
-  if (!LH || !LH.isLocal || !LH.Research || !LH.ResearchOperations) {
+  if (!LH || !LH.isLocal || !LH.Research || !LH.ResearchOperations || !LH.ResearchTasks) {
     $('workspace-message').textContent = 'Open this workspace from localhost on your own computer to manage local research. Published reports are in the library.';
     return;
   }
@@ -77,7 +77,7 @@
       const project = state.project;
       const row = document.createElement('li'), button = node('button', project.brief.topic);
       button.type = 'button'; button.setAttribute('aria-current', String(selected && selected.id === project.id));
-      button.append(node('small', state.label === names[project.status] ? state.label : state.label + ' · ' + names[project.status]), node('small', state.next));
+      button.append(node('small', state.label === names[project.status] ? state.label : state.label + ' · ' + names[project.status]), node('small', LH.ResearchTasks.guide(project, reports).owner + ' · ' + state.next));
       button.addEventListener('click', async () => { if (!busy && await permitSwitch()) open(project); });
       row.append(button); return row;
     }));
@@ -104,9 +104,20 @@
     $('project-status').textContent = selected ? names[selected.status] : 'Draft';
     if (selected) {
       const state = operations.projectState(selected, reports);
+      const guide = LH.ResearchTasks.guide(selected, reports);
       $('project-next').textContent = state.label + ' · Next: ' + state.next;
+      $('task-owner').textContent = guide.owner;
+      $('task-blocker').textContent = guide.blocker;
+      $('task-action').textContent = guide.next;
+      $('task-action').href = '#' + guide.section;
+      $('research-tasks').replaceChildren(...guide.tasks.map(task => {
+        const row = node('li', '');
+        row.append(node('h4', task.name), node('p', 'Deliverable: ' + task.output), node('p', task.criteria), node('p', 'Saved record: ' + task.record));
+        const link = node('a', 'Open ' + task.name + ' work'); link.href = '#' + task.section; row.append(link);
+        return row;
+      }));
       $('open-world').href = 'world/index.html?project=' + encodeURIComponent(selected.id);
-      $('workflow-progress').textContent = selected.run.times.length + ' of 29 simulated steps saved · ' + selected.outputs.length + ' of 5 stage records';
+      $('workflow-progress').textContent = guide.simulation;
       $('project-draft').value = selected.draftBody;
       $('draft-research').checked = selected.draftKind === 'research';
       $('draft-note').textContent = selected.draftKind === 'planning' ? 'Planning text from the simulation. Replace it with researched prose before submitting for review.' : 'Your research draft. Source and claim checks are manual.';

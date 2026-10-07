@@ -1,5 +1,40 @@
 # Research reasoning and review
 
+## Integration with the five-role workflow — 8 October 2026
+
+PR #71's latest task guidance is normally merged into the constitutional
+Workspace. A researched draft without core reasoning or linked thesis evidence
+routes to the Researcher and the Reasoning record, even if submitted early for
+review. Complete evidence and reasoning enable the Editor's submission and the
+Director's named six-check approval. Task guidance distinguishes legacy approvals
+from reviews carrying the new attribution. Calculation validation remains a
+manual responsibility, not an automatically completed task.
+
+Validation: 85 Node tests and the site checker pass (37 scripts, 66 JSON files,
+8 catalogue records, 13 sitemap pages and links in 14 pages). A synthetic browser
+flow exercised incomplete-review rejection, linked thesis evidence, appended
+reasoning, named approval, approved-text/JSON exports and material-edit
+invalidation. Earlier reasoning retained its prior approval and source context.
+After all 29 World events, exported reasoning, earlier versions and researched
+prose matched the pre-run records exactly. No console errors or desktop overflow
+were found. A viewport override did not apply in this browser session, so the
+combined phone view was not reverified in this pass; the existing responsive CSS
+and earlier #71/#72 phone checks are retained.
+
+Relative to PR #72's prior head `a88ada4`, this integration changes 14 task files:
+`README.md`, `TASKS.md`, `docs/research-constitution.md`,
+`assets/css/research-workspace.css`, `assets/js/research-operations.js`,
+`assets/js/research-tasks.js`, `assets/js/research-workspace.js`, `research.html`,
+`tests/research-tasks.test.mjs`, `tests/research-workspace.test.mjs`,
+`world/README.md`, `world/index.html`, `world/tests/controller.test.mjs` and
+`world/world.js`. The task module and its test come from #71; the guide additionally
+uses constitutional readiness and labels legacy review. HTML resolves script
+order/cache versions; Workspace/CSS preserve both controls; tests cover the
+combined handoffs. Documentation records the integration. `news/news.json` is
+also inherited from the merged main history, without manual edits. Published
+research, PDFs, roster, room artwork and movement are unchanged. Both PRs still
+require review before any merge to main or public deployment.
+
 The Research Workspace applies the first operating practices proposed for Longhand's constitution. It uses the existing local projects, source notebook, editorial states, backups and Library handoff. World continues to represent a simulated workflow.
 
 ## Connected research

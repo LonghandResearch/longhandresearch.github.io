@@ -35,7 +35,7 @@
       next = 'Reconnect the project to a Library record, or clear the old connection.';
     } else if (project.status === 'IN_REVIEW') {
       stage = 'review'; label = 'In review'; priority = 1;
-      next = 'Check the claims and evidence, then record approval or request changes.';
+      next = reasoning ? 'Check the claims and evidence, then record approval or request changes.' : 'Complete the reasoning record and linked evidence, then resubmit for review.';
     } else if (approved) {
       stage = 'publication'; label = 'Prepare report'; priority = 2;
       next = report ? 'Check the linked PDF draft in Library, then use its Publish tools.' : 'Download the approved text, prepare a PDF and add it to Library.';

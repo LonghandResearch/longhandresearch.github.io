@@ -70,7 +70,7 @@
       if (project.draftKind === 'planning') next.draftBody = planningText(state);
       project = await repository.save(next, project.revision);
       saveFailed = false;
-      $('project-save-status').textContent = 'Saved in this browser · ' + times.length + '/29 workflow events';
+      $('project-save-status').textContent = 'Saved in this browser · ' + times.length + '/29 simulated events';
       $('project-retry').hidden = true;
     }).catch(error => {
       saveFailed = true;
@@ -131,7 +131,7 @@
       const row = document.createElement('li');
       row.dataset.agent = owner.id;
       const label = document.createElement('p'); label.className = 'world-output-owner';
-      label.textContent = owner.name + ' · ' + (output ? 'Complete' : working ? 'In progress' : 'Pending');
+      label.textContent = owner.name + ' · ' + (output ? 'Planning record generated' : working ? 'Simulating' : 'Pending simulation');
       const title = document.createElement('h3'); title.textContent = stage.outputTitle;
       const body = document.createElement('p'); body.className = 'world-output-body';
       body.textContent = output ? output.body : 'Available after ' + stage.label.toLowerCase() + '.';
@@ -147,7 +147,7 @@
       const disclosure = document.createElement('p');
       disclosure.textContent = 'Simulated planning draft. No sources were fetched, no findings or figures were verified, and nothing has been published.';
       const reviewed = document.createElement('p');
-      reviewed.textContent = 'Workflow completed at ' + showTime(state.task.completedAt) + ' · Local time';
+      reviewed.textContent = 'Simulation completed at ' + showTime(state.task.completedAt) + ' · Local time';
       const blocks = [title, disclosure, reviewed];
       function section(heading, text) {
         const label = document.createElement('h4'); label.textContent = heading;
@@ -161,7 +161,7 @@
     }
     const locked = opening || (submitted && state.task.status === 'WORKING');
     ['brief-topic', 'brief-question', 'brief-objective', 'brief-submit'].forEach(id => { $(id).disabled = locked; });
-    if (submitted && ready) $('brief-feedback').textContent = 'Workflow complete. View the simulated draft below, or start a new brief.';
+    if (submitted && ready) $('brief-feedback').textContent = 'Simulation complete. Research is not finished. Open Workspace for the next action: collect evidence, write the research and record a manual review.';
   }
   function render(state) {
     snapshot = state;
@@ -243,7 +243,7 @@
     document.body.dataset.paused = String(!active());
     $('pause').textContent = userPaused ? 'Resume simulation' : 'Pause simulation';
     $('pause').setAttribute('aria-pressed', String(userPaused));
-    $('simulation-status').textContent = runFinished ? 'Research workflow complete' : userPaused ? (motion.matches ? 'Manual mode · reduced motion' : 'Simulation paused') : 'Simulation running · events every 11 seconds';
+    $('simulation-status').textContent = runFinished ? 'Simulation complete · research requires manual work' : userPaused ? (motion.matches ? 'Manual mode · reduced motion' : 'Simulation paused') : 'Simulation running · events every 11 seconds';
     $('pause').disabled = runFinished;
     $('next').disabled = runFinished;
   }
@@ -333,7 +333,7 @@
     runTimes = [];
     submitted = true; userPaused = motion.matches; selected = 'associate';
     resetSimulation(brief);
-    $('brief-feedback').textContent = 'Running your brief. Use Next event to advance manually. Inputs reopen after final review.';
+    $('brief-feedback').textContent = 'Simulating your brief. Open Workspace to do the research. Use Next event to advance the simulation manually.';
     nextEvent();
   });
   document.addEventListener('visibilitychange', syncActivity);
@@ -367,7 +367,7 @@
         runFinished = runTimes.length === World.Mock.SCRIPT.length;
         ['topic', 'question', 'objective'].forEach(key => { $('brief-' + key).value = record.brief[key]; });
         $('project-workspace').href = '../research.html?project=' + encodeURIComponent(record.id);
-        $('project-save-status').textContent = 'Saved project restored · paused · ' + runTimes.length + '/29 workflow events';
+        $('project-save-status').textContent = 'Saved project restored · paused · ' + runTimes.length + '/29 simulated events';
         $('brief-feedback').textContent = 'Project restored. Resume or use Next event to continue.';
       }).catch(error => { $('project-save-status').textContent = error.message; }).finally(() => {
         opening = false; restoring = false; replayTime = null;

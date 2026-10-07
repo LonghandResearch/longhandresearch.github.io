@@ -43,7 +43,7 @@ async function workspace(options = {}) {
     addEventListener: (type, listener) => events.set(type, listener)
   });
   context.window = context;
-  for (const file of ['research-projects.js', 'research-operations.js', 'research-workspace.js']) vm.runInContext(fs.readFileSync(new URL('../assets/js/' + file, import.meta.url), 'utf8'), context);
+  for (const file of ['research-projects.js', 'research-operations.js', 'research-tasks.js', 'research-workspace.js']) vm.runInContext(fs.readFileSync(new URL('../assets/js/' + file, import.meta.url), 'utf8'), context);
   await flush();
   const app = { elements, rows, records, context, events, downloads, click: id => elements.get(id).emit('click'), submit: id => elements.get(id).emit('submit') };
   if (!options.publicHost && !options.blocked) {
@@ -101,6 +101,8 @@ test('project deletion requires confirmation and clears the selection without to
 
 test('workspace keeps source notes, working draft and report connection in one project', async () => {
   const app = await workspace();
+  assert.equal(app.elements.get('task-owner').textContent, 'Research Associate');
+  assert.equal(app.elements.get('research-tasks').children.length, 5);
   app.elements.get('source-title').value = 'Test source'; app.elements.get('source-url').value = 'https://example.com/';
   app.elements.get('source-notes').value = 'Synthetic evidence note.'; app.elements.get('source-checked').checked = true;
   app.elements.get('project-draft').value = 'A manually written test draft.'; app.elements.get('draft-research').checked = true;
@@ -110,6 +112,44 @@ test('workspace keeps source notes, working draft and report connection in one p
   assert.equal(record.draftBody, 'A manually written test draft.');
   assert.equal(app.elements.get('source-notes').value, '');
   assert.equal(record.reportId, null); assert.equal(record.status, 'DRAFT');
+  assert.equal(app.elements.get('task-owner').textContent, 'Researcher');
+  assert.equal(app.elements.get('task-action').href, '#reasoning-heading');
+});
+
+test('five-role guidance follows constitutional evidence, attributed review and invalidation together', async () => {
+  const app = await workspace();
+  app.elements.get('source-title').value = 'Synthetic integration source';
+  app.elements.get('source-url').value = 'https://example.com/';
+  app.elements.get('source-notes').value = 'Synthetic evidence only.';
+  app.elements.get('source-checked').checked = true;
+  app.elements.get('project-draft').value = 'Synthetic researched prose for integration.';
+  app.elements.get('draft-research').checked = true;
+  app.submit('source-form'); await flush();
+  assert.equal(app.elements.get('task-owner').textContent, 'Researcher');
+  await reasoning(app);
+  assert.equal(app.elements.get('task-owner').textContent, 'Editor');
+  assert.equal(app.elements.get('research-tasks').children.length, 5);
+  app.elements.get('review-note').value = 'Synthetic manual submission.';
+  app.click('submit-review'); await flush();
+  assert.equal(app.elements.get('task-owner').textContent, 'Research Director');
+  app.elements.get('review-note').value = 'Synthetic review, checks still missing.';
+  app.click('approve-review'); await flush();
+  assert.equal([...app.rows.values()][0].status, 'IN_REVIEW');
+  checkReview(app);
+  app.elements.get('review-note').value = 'Synthetic six-check review complete.';
+  app.click('approve-review'); await flush();
+  assert.equal(app.elements.get('task-owner').textContent, 'Editor');
+  assert.equal(app.elements.get('task-action').href, '#report-heading');
+  const approved = [...app.rows.values()][0];
+  assert.equal(approved.status, 'APPROVED'); assert.equal(approved.review.reviewer, 'Synthetic reviewer');
+  app.elements.get('reasoning-analysis').value = '';
+  app.submit('reasoning-form'); await flush();
+  const revised = [...app.rows.values()][0];
+  assert.equal(revised.status, 'DRAFT'); assert.equal(revised.review, null);
+  assert.equal(app.elements.get('task-owner').textContent, 'Researcher');
+  assert.equal(app.elements.get('task-action').href, '#reasoning-heading');
+  assert.equal(revised.reasoningHistory.at(-1).review.reviewer, 'Synthetic reviewer');
+  assert.equal(revised.reasoningHistory.at(-1).reasoning.analysis, approved.reasoning.analysis);
 });
 
 test('confirmation keeps unsaved edits on cancel and reloads only after explicit discard', async () => {

@@ -14,7 +14,7 @@
   <script src="movement.js?v=2026-10-07a" defer></script>
   <script src="mock-events.js?v=2026-10-07c" defer></script>
   <script src="sprites.js?v=2026-10-07a" defer></script>
-  <script src="world.js?v=2026-10-07i" defer></script>
+  <script src="world.js?v=2026-10-08a" defer></script>
 </head>
 <body class="world-page">
   <a class="world-skip" href="#main">Skip to the institution</a>
@@ -45,9 +45,9 @@
         <label class="world-brief-topic" for="brief-topic">Topic<input id="brief-topic" type="text" required maxlength="160" value="Analyze AI infrastructure market trends"></label>
         <label for="brief-question">Research question<textarea id="brief-question" required maxlength="480" rows="3">What evidence is needed to assess AI infrastructure market trends?</textarea></label>
         <label for="brief-objective">Objective<textarea id="brief-objective" required maxlength="480" rows="3">Prepare a source-led research note with transparent validation and a clear argument.</textarea></label>
-        <div class="world-brief-actions"><button class="world-action" type="submit" id="brief-submit" disabled>Start research</button><p id="brief-feedback" role="status">Showing the example workflow. Submit a brief to run it once.</p></div>
+        <div class="world-brief-actions"><button class="world-action" type="submit" id="brief-submit" disabled>Start planning simulation</button><p id="brief-feedback" role="status">Showing the example simulation. Real evidence collection, writing and review take place in the Research Workspace.</p></div>
       </form>
-      <div class="world-brief-actions" id="project-tools" hidden><a id="project-workspace" href="../research.html">Open research workspace</a><p id="project-save-status" role="status">New briefs are saved in this browser.</p><button class="world-action" type="button" id="project-retry" hidden>Retry save</button></div>
+      <div class="world-brief-actions" id="project-tools" hidden><a id="project-workspace" href="../research.html">Open workspace · evidence, draft &amp; next action</a><p id="project-save-status" role="status">New briefs are saved in this browser.</p><button class="world-action" type="button" id="project-retry" hidden>Retry save</button></div>
     </section>
 
     <section class="world-layout" aria-label="The research institution">
@@ -95,9 +95,9 @@
     </section>
 
     <section class="world-results" aria-labelledby="results-title">
-      <header><p class="world-eyebrow">Research record / Simulation</p><h2 id="results-title">From brief to draft.</h2><p>Each stage leaves a mock planning record. The draft opens after final review.</p></header>
+      <header><p class="world-eyebrow">Planning record / Simulation</p><h2 id="results-title">From brief to plan.</h2><p>Each simulated stage leaves a planning record. When the sequence ends, open Workspace to collect real evidence, write the research and record a manual review.</p></header>
       <div><ol id="stage-outputs"></ol>
-        <details class="world-draft" id="research-draft" hidden><summary>View research draft <span>Simulated / not published</span></summary><article id="draft-document" aria-label="Simulated research draft"></article></details>
+        <details class="world-draft" id="research-draft" hidden><summary>View planning draft <span>Simulated / not published</span></summary><article id="draft-document" aria-label="Simulated planning draft"></article></details>
       </div>
     </section>
 
