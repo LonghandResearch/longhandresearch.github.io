@@ -280,3 +280,57 @@ test('malformed historical references and review records reject the entire impor
   await assert.rejects(target.repo.importBackup(JSON.stringify(invalidReview)), /six review checks/);
   assert.equal((await target.repo.all()).length, 0);
 });
+
+test('retained reasoning records the prior saved timestamp, not the time of the later edit', async () => {
+  const records = storage(); let at = '2026-10-07T10:00:00.000Z';
+  const repo = model.createRepository(records, { clock: () => at, makeId: () => 'dated-position' });
+  let project = await repo.create(scope);
+  at = '2026-10-07T11:00:00.000Z';
+  project = await repo.save({ ...project, sources: [checkedSource], reasoning: reasoning() }, project.revision);
+  const prior = copy(project);
+  at = '2026-10-08T14:00:00.000Z';
+  project = await repo.save({ ...project, reasoning: reasoning({ thesis: 'Position after a later observation.' }) }, project.revision);
+  assert.equal(project.updatedAt, at);
+  assert.equal(project.reasoningHistory.at(-1).at, prior.updatedAt);
+  assert.notEqual(project.reasoningHistory.at(-1).at, project.updatedAt);
+});
+
+test('historical approval requires its own researched prose, substantive reasoning and checked evidence', async () => {
+  const { repo } = setup(); let project = await repo.create(scope);
+  project = await repo.save({ ...project, draftKind: 'research', draftBody: 'Reviewed synthetic position.', sources: [checkedSource], reasoning: reasoning() }, project.revision);
+  project = await repo.review(project.id, project.revision, 'submit', 'Review original position.');
+  project = await repo.review(project.id, project.revision, 'approve', 'Approved original position.', attestation());
+  project = await repo.save({ ...project, reasoning: reasoning({ thesis: 'Revised synthetic position.' }) }, project.revision);
+  const backup = JSON.parse(await repo.exportBackup());
+  const mutations = [
+    snapshot => { snapshot.draftKind = 'planning'; },
+    snapshot => { snapshot.draftBody = ''; },
+    snapshot => { snapshot.reasoning.analysis = ''; },
+    snapshot => { snapshot.reasoning.evidence = []; },
+    snapshot => { snapshot.sources[0].checked = false; },
+    snapshot => { snapshot.review.at = '2026-10-08T14:00:00.000Z'; }
+  ];
+  for (const mutate of mutations) {
+    const invalid = copy(backup); mutate(invalid.projects[0].reasoningHistory.at(-1));
+    const target = setup();
+    await assert.rejects(target.repo.importBackup(JSON.stringify(invalid)), /retained approval|Approval needs/);
+    assert.equal((await target.repo.all()).length, 0);
+  }
+  const target = setup(); await target.repo.importBackup(JSON.stringify(backup));
+  assert.deepEqual(await target.repo.get(project.id), await repo.get(project.id));
+});
+
+test('retained version dates and approval dates stay inside the saved project lifetime', async () => {
+  const { repo } = setup(); let project = await repo.create(scope);
+  project = await repo.save({ ...project, sources: [checkedSource], draftKind: 'research', draftBody: 'Synthetic prose.', reasoning: reasoning() }, project.revision);
+  project = await repo.review(project.id, project.revision, 'submit', 'Submit synthetic position.');
+  project = await repo.review(project.id, project.revision, 'approve', 'Approve synthetic position.', attestation());
+  for (const at of ['2026-10-06T10:00:00.000Z', '2026-10-08T10:00:00.000Z']) {
+    assert.throws(() => model.normalize({ ...project, review: { ...project.review, at } }), /project lifetime/);
+  }
+  project = await repo.save({ ...project, reasoning: reasoning({ thesis: 'A later position.' }) }, project.revision);
+  const snapshot = project.reasoningHistory[0];
+  for (const at of ['2026-10-06T10:00:00.000Z', '2026-10-08T10:00:00.000Z']) {
+    assert.throws(() => model.normalize({ ...project, reasoningHistory: [{ ...snapshot, at, review: null }] }), /retained reasoning history/);
+  }
+});

@@ -11,12 +11,12 @@
   const agents = ['associate', 'researcher', 'analyst', 'editor', 'director'];
   const REASONING_FIELDS = Object.freeze(['thesis', 'analysis', 'assumptions', 'alternatives', 'uncertainty', 'reviewConditions', 'horizon']);
   const REVIEW_CHECKS = Object.freeze([
-    { id: 'claims', label: 'Material claims have evidence or an explicit uncertainty label.' },
-    { id: 'sources', label: 'Source origins, locators, independence and limitations were reviewed.' },
-    { id: 'reasoning', label: 'The thesis, analysis and pivotal assumptions were reviewed.' },
-    { id: 'alternatives', label: 'Credible alternatives and contrary evidence were considered.' },
-    { id: 'uncertainty', label: 'Uncertainty, missing information and confidence limits are stated.' },
-    { id: 'monitoring', label: 'The horizon and conditions for revisiting the thesis were reviewed.' }
+    { id: 'claims', label: 'Material claims have appropriate support or explicit uncertainty labels.' },
+    { id: 'sources', label: 'Source passages, definitions, dates and independence have been examined.' },
+    { id: 'reasoning', label: 'The reasoning and any calculations follow from the stated evidence and assumptions.' },
+    { id: 'alternatives', label: 'Relevant assumptions, alternatives and qualifying evidence have been considered.' },
+    { id: 'uncertainty', label: 'Confidence, limitations and the applicable scope or horizon are explained.' },
+    { id: 'monitoring', label: 'Review conditions are observable, and the draft reflects the current reasoning.' }
   ].map(Object.freeze));
   const HISTORY_LIMIT = 5, HISTORY_BYTES = 2000000;
   const bytes = value => new TextEncoder().encode(JSON.stringify(value)).byteLength;
@@ -81,10 +81,15 @@
   function reasoningSnapshot(value) {
     if (!value || !iso(value.at) || !Number.isSafeInteger(value.revision) || value.revision < 1 ||
       !['planning', 'research'].includes(value.draftKind) || !text(value.draftBody, 100000, false)) fail('Invalid retained reasoning version.');
-    const sources = sourceNotebook(value.sources);
+    const sources = sourceNotebook(value.sources), reasoning = reasoningRecord(value.reasoning, sources), review = reviewRecord(value.review, value.revision);
+    if (review) {
+      if (value.draftKind !== 'research' || !value.draftBody.trim() || !sources.some(source => source.checked)) fail('A retained approval needs research text and a checked source.');
+      requireReasoning(reasoning);
+      if (review.at > value.at) fail('The retained approval timestamp is later than its saved version.');
+    }
     return { at: value.at, revision: value.revision, brief: brief(value.brief), sources,
       draftKind: value.draftKind, draftBody: value.draftBody,
-      reasoning: reasoningRecord(value.reasoning, sources), review: reviewRecord(value.review, value.revision) };
+      reasoning, review };
   }
   function normalize(value) {
     if (!value || value.version !== 1 || !id(value.id) || !iso(value.createdAt) || !iso(value.updatedAt) ||
@@ -112,10 +117,12 @@
     const review = reviewRecord(value.review, value.revision);
     if (review && value.status !== 'APPROVED') fail('A manual approval record belongs to approved research.');
     if (review) requireReasoning(reasoning);
+    if (review && (review.at < value.createdAt || review.at > value.updatedAt)) fail('The approval timestamp is outside the project lifetime.');
     const retained = value.reasoningHistory === undefined ? [] : value.reasoningHistory;
     if (!Array.isArray(retained) || retained.length > HISTORY_LIMIT) fail('Keep at most five retained reasoning versions.');
     const reasoningHistory = retained.map(reasoningSnapshot);
-    if (reasoningHistory.some((snapshot, index) => snapshot.revision >= value.revision ||
+    if (reasoningHistory.some((snapshot, index) => snapshot.revision >= value.revision || snapshot.at < value.createdAt || snapshot.at > value.updatedAt ||
+      (snapshot.review && snapshot.review.at < value.createdAt) ||
       (index > 0 && snapshot.revision <= reasoningHistory[index - 1].revision)) ||
       (reasoningHistory.length && bytes(reasoningHistory) > HISTORY_BYTES)) fail('Invalid retained reasoning history or history exceeds 2 MB.');
     return { version: 1, id: value.id, createdAt: value.createdAt, updatedAt: value.updatedAt,
@@ -179,7 +186,7 @@
           let reasoningHistory = current.reasoningHistory;
           if (researchChanged && ((current.draftKind === 'research' && current.draftBody.trim()) ||
             REASONING_FIELDS.some(field => current.reasoning[field].trim()) || current.reasoning.evidence.length)) {
-            reasoningHistory = [...reasoningHistory, reasoningSnapshot({ ...current, at })].slice(-HISTORY_LIMIT);
+            reasoningHistory = [...reasoningHistory, reasoningSnapshot({ ...current, at: current.updatedAt })].slice(-HISTORY_LIMIT);
             while (bytes(reasoningHistory) > HISTORY_BYTES) reasoningHistory.shift();
           }
           return normalize({ ...next, createdAt: current.createdAt, revision: current.revision + 1, updatedAt: at,
