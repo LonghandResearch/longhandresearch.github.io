@@ -284,7 +284,7 @@ JSON export/import live in `../research.html`. The Director's simulated completi
 does not approve or publish any research. Custom dispatcher events are not part
 of the persisted mock replay.
 
-The shared workspace pass changes exactly 24 files relative to `b01d584`:
+The shared workspace pass changes exactly 25 files relative to `b01d584`:
 
 | Files | Reason |
 | --- | --- |
@@ -292,6 +292,7 @@ The shared workspace pass changes exactly 24 files relative to `b01d584`:
 | `assets/js/research-projects.js` | Portable version-1 schema, atomic revision checks, source validation, editorial state transitions and bounded backups |
 | `research.html`, `assets/js/research-workspace.js`, `assets/css/research-workspace.css` | Project desk, source notebook, text drafts, manual review, catalogue links, history, confirmations and backup controls |
 | `world/index.html`, `world/world.js` | Save new briefs and workflow progress, replay saved timestamps while paused and retry failed saves |
+| `world/world.css` | Match the parent's native page-transition opt-in for World and the workspace, with reduced-motion support |
 | `world/tests/controller.test.mjs`, `tests/research-projects.test.mjs`, `tests/research-workspace.test.mjs` | Regression checks for persistence, recovery, stale tabs, review boundaries, import rollback and retained unsaved text |
 | `.github/workflows/checks.yml` | Run all World and workspace tests in CI alongside the structural checker |
 | `README.md`, `world/README.md`, `TASKS.md` | Architecture, limits, validation and review status |

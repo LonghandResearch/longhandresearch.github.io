@@ -1,4 +1,8 @@
-/* All rules are local to world/index.html. No shared site stylesheet is changed. */
+/* Shared by World and the local research desk. No public site stylesheet changes. */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
 :root {
   color-scheme: dark;
   --world-bg: #11171f;
