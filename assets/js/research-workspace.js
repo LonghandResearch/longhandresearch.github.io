@@ -9,6 +9,8 @@
   }
   const repository = LH.Research.createRepository(LH.researchRecords);
   const operations = LH.ResearchOperations;
+  const fields = LH.Research.REASONING_FIELDS;
+  const reviewChecks = LH.Research.REVIEW_CHECKS;
   const names = { DRAFT: 'Draft', IN_REVIEW: 'In review', APPROVED: 'Approved' };
   let projects = [], selected = null, reports = [], busy = false;
   const message = text => { $('workspace-message').textContent = text; };
@@ -28,10 +30,35 @@
   $('confirm-accept').addEventListener('click', () => answerConfirmation(true));
   $('workspace-confirm').addEventListener('cancel', event => { event.preventDefault(); answerConfirmation(false); });
   const hasSourceInput = () => ['title', 'url', 'notes'].some(key => $('source-' + key).value) || $('source-checked').checked;
-  function hasUnsaved() {
+  const hasEvidenceInput = () => ['source', 'locator', 'note'].some(key => $('evidence-' + key).value) || $('evidence-relation').value !== 'supports';
+  function readReasoning() {
+    return { ...Object.fromEntries(fields.map(key => [key, $('reasoning-' + key).value])),
+      evidence: selected ? LH.Research.clone(selected.reasoning.evidence) : [] };
+  }
+  function resetReviewInputs(review = null) {
+    $('reviewer-name').value = review ? review.reviewer : '';
+    reviewChecks.forEach(check => { $('review-check-' + check.id).checked = Boolean(review && review.checks.includes(check.id)); });
+  }
+  function invalidateReviewInputs(previousReview, pendingReviewer) {
+    resetReviewInputs();
+    if (!previousReview || pendingReviewer !== previousReview.reviewer) $('reviewer-name').value = pendingReviewer;
+  }
+  function reviewInput() {
+    return { reviewer: $('reviewer-name').value,
+      checks: reviewChecks.filter(check => $('review-check-' + check.id).checked).map(check => check.id) };
+  }
+  function hasReviewInput() {
+    const saved = selected && selected.review;
+    return JSON.stringify(reviewInput()) !== JSON.stringify({ reviewer: saved ? saved.reviewer : '', checks: saved ? saved.checks : [] });
+  }
+  function hasContentEdits() {
     if (!selected) return ['topic', 'question', 'objective'].some(key => $('project-' + key).value);
-    const saved = { brief: selected.brief, draftBody: selected.draftBody, draftKind: selected.draftKind, reportId: selected.reportId };
-    return JSON.stringify(edits()) !== JSON.stringify(saved) || hasSourceInput() || $('review-note').value.length > 0;
+    const saved = { brief: selected.brief, draftBody: selected.draftBody, draftKind: selected.draftKind,
+      reportId: selected.reportId, reasoning: selected.reasoning };
+    return JSON.stringify(edits()) !== JSON.stringify(saved);
+  }
+  function hasUnsaved() {
+    return hasContentEdits() || hasSourceInput() || hasEvidenceInput() || hasReviewInput() || $('review-note').value.length > 0;
   }
   const permitSwitch = () => hasUnsaved() ? confirmAction('Discard the unsaved edits on this page?') : Promise.resolve(true);
   function node(tag, text) { const result = document.createElement(tag); result.textContent = text; return result; }
@@ -58,7 +85,12 @@
   }
   function open(project, preserveNotes = false) {
     selected = project ? LH.Research.clone(project) : null;
-    if (!preserveNotes) { $('source-form').reset(); $('review-note').value = ''; }
+    if (!preserveNotes) {
+      $('source-form').reset(); $('review-note').value = ''; resetReviewInputs(selected && selected.review);
+      ['source', 'locator', 'note'].forEach(key => { $('evidence-' + key).value = ''; });
+      $('evidence-relation').value = 'supports';
+    }
+    fields.forEach(key => { $('reasoning-' + key).value = selected ? selected.reasoning[key] : ''; });
     const url = new URL(location.href);
     if (selected) url.searchParams.set('project', selected.id); else url.searchParams.delete('project');
     history.replaceState(null, '', url);
@@ -84,7 +116,7 @@
       $('source-list').replaceChildren(...selected.sources.map(source => {
         const row = document.createElement('li'), link = node('a', source.title);
         link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
-        row.append(link, node('p', source.notes || 'No evidence note recorded.'), node('p', source.checked ? 'Checked manually' : 'Unchecked'));
+        row.append(link, node('p', 'Source ID: ' + source.id), node('p', source.notes || 'No evidence note recorded.'), node('p', source.checked ? 'Checked manually' : 'Unchecked'));
         const toggle = node('button', source.checked ? 'Mark unchecked' : 'Mark checked'); toggle.type = 'button'; toggle.className = 'world-action';
         toggle.addEventListener('click', () => perform(async () => {
           const sources = selected.sources.map(item => item.id === source.id ? { ...item, checked: !item.checked } : item);
@@ -92,11 +124,52 @@
         }));
         const remove = node('button', 'Remove'); remove.type = 'button'; remove.className = 'world-action';
         remove.addEventListener('click', async () => {
+          if (selected.reasoning.evidence.some(item => item.sourceId === source.id)) {
+            message('Remove this source\'s thesis evidence links first. Earlier reasoning keeps its own captured sources.'); return;
+          }
           if (!await confirmAction('Remove this source from the project?', 'Remove source')) return;
           perform(() => save({ sources: selected.sources.filter(item => item.id !== source.id) }));
         });
         row.append(toggle, remove); return row;
       }));
+      const pendingSource = $('evidence-source').value;
+      const sourceChoices = [node('option', 'Choose a source')]; sourceChoices[0].value = '';
+      selected.sources.forEach(source => {
+        const option = node('option', source.title + (source.checked ? ' · checked manually' : ' · unchecked'));
+        option.value = source.id; sourceChoices.push(option);
+      });
+      if (pendingSource && !selected.sources.some(source => source.id === pendingSource)) {
+        const option = node('option', 'Source removed: choose another'); option.value = pendingSource; sourceChoices.push(option);
+      }
+      $('evidence-source').replaceChildren(...sourceChoices); $('evidence-source').value = pendingSource;
+      $('thesis-evidence').replaceChildren(...selected.reasoning.evidence.map((item, index) => {
+        const source = selected.sources.find(source => source.id === item.sourceId);
+        const row = document.createElement('li'), link = node('a', source.title);
+        link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+        row.append(node('strong', item.relation.charAt(0).toUpperCase() + item.relation.slice(1) + ' · '), link,
+          node('p', item.locator + ' · ' + (source.checked ? 'Source checked manually' : 'Source unchecked')), node('p', item.note));
+        const remove = node('button', 'Unlink evidence'); remove.type = 'button'; remove.className = 'world-action';
+        remove.addEventListener('click', () => perform(() => save({ reasoning: { ...readReasoning(),
+          evidence: selected.reasoning.evidence.filter((unused, position) => position !== index) } })));
+        row.append(remove); return row;
+      }));
+      if (!selected.reasoning.evidence.length) $('thesis-evidence').append(node('li', 'No thesis evidence linked yet. Add a notebook source and describe its relevance.'));
+      $('review-record').textContent = selected.review ?
+        'Reviewed by ' + selected.review.reviewer + ' (manually supplied) · content revision ' + selected.review.revision + ' · ' + new Date(selected.review.at).toLocaleString() :
+        selected.status === 'APPROVED' ? 'Legacy approval retained. The new checklist and reviewer attribution were not recorded.' : 'No current constitutional review recorded.';
+      $('reasoning-history').replaceChildren(...selected.reasoningHistory.slice().reverse().map(version => {
+        const detail = document.createElement('details');
+        detail.append(node('summary', 'Revision ' + version.revision + ' · saved ' + new Date(version.at).toLocaleString() + ' · ' + version.brief.topic),
+          node('pre', ['Research question', version.brief.question, '', 'Objective', version.brief.objective, '',
+            operations.reasoningText(version.reasoning, version.sources), '', 'Source notebook',
+            ...version.sources.map(source => [source.title, source.id, source.url, source.notes,
+              source.checked ? 'Checked manually' : 'Unchecked'].join('\n')),
+            '', 'Working draft (' + version.draftKind + ')', version.draftBody,
+            '', version.review ? 'Review by ' + version.review.reviewer + ' · content revision ' + version.review.revision : 'No constitutional checklist recorded for this version.'
+          ].join('\n')));
+        return detail;
+      }));
+      if (!selected.reasoningHistory.length) $('reasoning-history').append(node('p', 'No earlier material reasoning retained yet.'));
       const choices = [node('option', 'No report linked')]; choices[0].value = '';
       reports.forEach(report => { const option = node('option', report.title + (report.isLocal ? ' (browser draft)' : ' (published)')); option.value = report.id; choices.push(option); });
       if (selected.reportId && !reports.some(report => report.id === selected.reportId)) {
@@ -115,6 +188,7 @@
       if (state.unchecked) warnings.push(state.unchecked + ' source(s) remain unchecked. Review them before publication.');
       if (state.published && !state.approved) warnings.push('The current project is not approved. The linked report is already in the catalogue; project edits do not revise that report.');
       if (state.missing) warnings.push('The connected report is unavailable. Reconnect or clear it; project evidence is still saved.');
+      if (state.approved && !selected.review) warnings.push('Legacy approval has no recorded constitutional checklist. You can request changes and review it under the new practice.');
       $('publication-warning').textContent = warnings.join(' ');
       $('download-approved').disabled = !state.approved;
       $('project-history').replaceChildren(...selected.history.slice().reverse().map(entry => {
@@ -125,7 +199,8 @@
   }
   function edits() {
     return { brief: { topic: $('project-topic').value, question: $('project-question').value, objective: $('project-objective').value },
-      draftBody: $('project-draft').value, draftKind: $('draft-research').checked ? 'research' : 'planning', reportId: $('linked-report').value || null };
+      draftBody: $('project-draft').value, draftKind: $('draft-research').checked ? 'research' : 'planning',
+      reportId: $('linked-report').value || null, reasoning: readReasoning() };
   }
   async function refresh(project = selected, preserveNotes = true) {
     projects = await repository.all(); reports = await LH.allReports();
@@ -133,8 +208,12 @@
   }
   async function save(extra = {}) {
     if (!selected) throw new Error('Save the brief to create a project first.');
-    const updated = await repository.save({ ...selected, ...edits(), ...extra }, selected.revision);
+    const next = { ...selected, ...edits(), ...extra };
+    const content = value => JSON.stringify([value.brief, value.sources, value.draftBody, value.draftKind, value.reasoning]);
+    const previous = selected, pendingReviewer = $('reviewer-name').value;
+    const updated = await repository.save(next, selected.revision);
     await refresh(updated);
+    if (content(updated) !== content(previous)) invalidateReviewInputs(previous.review, pendingReviewer);
   }
   async function perform(operation, success = 'Saved in this browser.') {
     if (busy) return;
@@ -177,6 +256,25 @@
     });
   });
   $('draft-form').addEventListener('submit', event => { event.preventDefault(); perform(() => save()); });
+  $('reasoning-form').addEventListener('submit', event => { event.preventDefault(); perform(() => save()); });
+  $('evidence-form').addEventListener('submit', event => {
+    event.preventDefault();
+    perform(async () => {
+      if (!selected) throw new Error('Save a project first.');
+      const item = { sourceId: $('evidence-source').value, relation: $('evidence-relation').value,
+        locator: $('evidence-locator').value, note: $('evidence-note').value };
+      await save({ reasoning: { ...readReasoning(), evidence: [...selected.reasoning.evidence, item] } });
+      ['source', 'locator', 'note'].forEach(key => { $('evidence-' + key).value = ''; });
+      $('evidence-relation').value = 'supports';
+    }, 'Thesis evidence linked in this browser. Its relevance remains your analytical judgment.');
+  });
+  $('append-reasoning').addEventListener('click', () => {
+    if (busy || !selected) return;
+    const extra = '\n\nReasoning record\n\n' + operations.reasoningText(readReasoning(), selected.sources);
+    if ($('project-draft').value.length + extra.length > 100000) { message('The appended reasoning would exceed the draft limit. Keep it in the reasoning record.'); return; }
+    $('project-draft').value += extra;
+    message('Reasoning appended to your open draft. Review the prose and save it; editorial status has not changed.');
+  });
   $('report-form').addEventListener('submit', event => { event.preventDefault(); perform(() => save()); });
   $('source-form').addEventListener('submit', event => {
     event.preventDefault();
@@ -190,15 +288,20 @@
   [['submit-review', 'submit'], ['approve-review', 'approve'], ['revise-review', 'revise']].forEach(([button, action]) => {
     $(button).addEventListener('click', () => perform(async () => {
       const note = $('review-note').value;
-      if (hasUnsaved()) await save();
-      const project = await repository.review(selected.id, selected.revision, action, note);
+      if (hasSourceInput() || hasEvidenceInput()) throw new Error('Add or clear the pending source or evidence link before reviewing.');
+      if (hasContentEdits()) throw new Error('Save your brief, draft and reasoning before reviewing this version.');
+      const project = await repository.review(selected.id, selected.revision, action, note, reviewInput());
+      const previousReview = selected.review, pendingReviewer = $('reviewer-name').value;
       await refresh(project); $('review-note').value = '';
+      if (action === 'approve') resetReviewInputs(project.review);
+      else if (action === 'revise') invalidateReviewInputs(previousReview, pendingReviewer);
     }, 'Review decision saved. Nothing has been published.'));
   });
   function exportBackup(single = false) { return perform(async () => {
     if (hasSourceInput()) throw new Error('Add the pending source before exporting.');
-    if ($('review-note').value) throw new Error('Save the pending review decision before exporting.');
-    if (hasUnsaved()) { if (!selected) throw new Error('Save the new project before exporting.'); await save(); }
+    if (hasEvidenceInput()) throw new Error('Link or clear the pending thesis evidence before exporting.');
+    if ($('review-note').value || hasReviewInput()) throw new Error('Save the pending review decision before exporting.');
+    if (hasContentEdits()) { if (!selected) throw new Error('Save the new project before exporting.'); await save(); }
     download(await repository.exportBackup(single && selected ? selected.id : undefined), 'application/json',
       'longhand-research-' + (single && selected ? selected.id : 'backup') + '-' + new Date().toISOString().slice(0, 10) + '.json');
   }, 'Backup exported. It includes projects, sources, drafts and review history; PDF files are separate.'); }

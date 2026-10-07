@@ -7,12 +7,12 @@
   <title>Research workspace · Longhand Research</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="world/world.css?v=2026-10-07j">
-  <link rel="stylesheet" href="assets/css/research-workspace.css?v=2026-10-07k">
+  <link rel="stylesheet" href="assets/css/research-workspace.css?v=2026-10-08a">
   <script>document.write('<script src="reports/reports.js?v=' + Date.now() + '"><\/script>');</script>
   <script src="assets/js/site.js?v=2026-10-07n" defer></script>
-  <script src="assets/js/research-projects.js?v=2026-10-07n" defer></script>
-  <script src="assets/js/research-operations.js?v=2026-10-07m" defer></script>
-  <script src="assets/js/research-workspace.js?v=2026-10-07n" defer></script>
+  <script src="assets/js/research-projects.js?v=2026-10-08a" defer></script>
+  <script src="assets/js/research-operations.js?v=2026-10-08a" defer></script>
+  <script src="assets/js/research-workspace.js?v=2026-10-08a" defer></script>
 </head>
 <body class="world-page research-page">
   <a class="world-skip" href="#main">Skip to research workspace</a>
@@ -49,13 +49,43 @@
                 <button class="world-action" type="submit">Add source</button>
               </form>
             </section>
-            <section class="research-section" aria-labelledby="draft-heading"><h3 id="draft-heading">Working draft</h3><p class="research-note" id="draft-note">World produces planning text. Replace it with researched prose before submitting for review.</p>
+            <section class="research-section" aria-labelledby="reasoning-heading"><h3 id="reasoning-heading">Reasoning record</h3><p class="research-note">Explain what you believe, why, and what could change it. Keep observations and estimates distinct from interpretation. Save incomplete work whenever needed. <a href="docs/research-constitution.md">Research principles</a></p>
+              <form id="reasoning-form" class="research-form">
+                <label>Current thesis<textarea id="reasoning-thesis" maxlength="4000" rows="3" placeholder="Your current answer to the research question, with its scope."></textarea></label>
+                <label>Evidence, interpretation and reasoning<textarea id="reasoning-analysis" maxlength="12000" rows="5" placeholder="Identify the observations or calculations, then explain how they support your interpretation."></textarea></label>
+                <label>Key assumptions<textarea id="reasoning-assumptions" maxlength="4000" rows="3" placeholder="Which premises does the argument depend on?"></textarea></label>
+                <label>Alternatives and qualifying explanations<textarea id="reasoning-alternatives" maxlength="4000" rows="3" placeholder="What else could explain the evidence? Note if no material alternative was identified and why."></textarea></label>
+                <label>Confidence and uncertainty<textarea id="reasoning-uncertainty" maxlength="4000" rows="3" placeholder="Why is confidence warranted? Where might the position be wrong? Avoid unsupported precision."></textarea></label>
+                <label>Time and scope<textarea id="reasoning-horizon" maxlength="4000" rows="2" placeholder="As-of date, applicable period, or prediction horizon and resolution rule if relevant."></textarea></label>
+                <label>Conditions for review or revision<textarea id="reasoning-reviewConditions" maxlength="4000" rows="3" placeholder="Which observable evidence or changed condition would prompt a review?"></textarea></label>
+                <button class="world-action" type="submit">Save reasoning</button>
+              </form>
+              <h4 class="research-subheading">Evidence for this thesis</h4><p class="research-note">Link a source already in the notebook to the thesis. Describe the passage and its relevance, including evidence that qualifies or challenges the position.</p><ol id="thesis-evidence"></ol>
+              <form id="evidence-form" class="research-form">
+                <label>Notebook source<select id="evidence-source" required><option value="">Choose a source</option></select></label>
+                <label>Relationship to the thesis<select id="evidence-relation"><option value="supports">Supports</option><option value="qualifies">Qualifies</option><option value="challenges">Challenges</option></select></label>
+                <label>Passage or data locator<input id="evidence-locator" maxlength="240" required placeholder="Page, section, table, date or dataset row"></label>
+                <label>What this evidence establishes<textarea id="evidence-note" maxlength="2000" rows="3" required></textarea></label>
+                <button class="world-action" type="submit">Link evidence</button>
+              </form>
+            </section>
+            <section class="research-section" aria-labelledby="draft-heading"><h3 id="draft-heading">Working draft</h3><p class="research-note" id="draft-note">World produces planning text. Replace it with researched prose before submitting for review.</p><button class="world-action" type="button" id="append-reasoning">Append reasoning to draft</button><p class="research-note">This preserves your existing prose and adds the open reasoning record. It does not mark planning text as researched or grant approval.</p>
               <form id="draft-form" class="research-form"><label>Draft text<textarea id="project-draft" maxlength="100000" rows="12"></textarea></label><label class="research-checkbox"><input id="draft-research" type="checkbox">This is a research draft I wrote from evidence, ready for manual review.</label><button class="world-action" type="submit">Save draft</button></form>
             </section>
-            <section class="research-section" aria-labelledby="review-heading"><h3 id="review-heading">Review and approval</h3><p class="research-note">Only you change the editorial status. Approval needs a research draft, a checked source and a review note. Editing evidence or prose resets approval to Draft.</p>
+            <section class="research-section" aria-labelledby="review-heading"><h3 id="review-heading">Review and approval</h3><p class="research-note">Approval needs a researched draft, a checked source, a reasoning record with linked evidence, and your manual review. Editing evidence, prose or reasoning clears the current review. These checks record your judgment; the software does not verify the claims.</p><p class="research-note" id="review-record"></p>
+              <fieldset class="research-review"><legend>Manual review checklist</legend>
+                <label class="research-checkbox"><input type="checkbox" id="review-check-claims">Material claims have appropriate support or explicit uncertainty labels.</label>
+                <label class="research-checkbox"><input type="checkbox" id="review-check-sources">Source passages, definitions, dates and independence have been examined.</label>
+                <label class="research-checkbox"><input type="checkbox" id="review-check-reasoning">The reasoning and any calculations follow from the stated evidence and assumptions.</label>
+                <label class="research-checkbox"><input type="checkbox" id="review-check-alternatives">Relevant assumptions, alternatives and qualifying evidence have been considered.</label>
+                <label class="research-checkbox"><input type="checkbox" id="review-check-uncertainty">Confidence, limitations and the applicable scope or horizon are explained.</label>
+                <label class="research-checkbox"><input type="checkbox" id="review-check-monitoring">Review conditions are observable, and the draft reflects the current reasoning.</label>
+              </fieldset>
+              <label class="research-form">Reviewer name<input id="reviewer-name" maxlength="160" autocomplete="name"></label><p class="research-note">A manually supplied attribution, not an authenticated account.</p>
               <label class="research-form">Review note<textarea id="review-note" maxlength="2000" rows="3"></textarea></label><div class="research-toolbar"><button class="world-action" type="button" id="submit-review">Submit for review</button><button class="world-action" type="button" id="approve-review">Approve research</button><button class="world-action" type="button" id="revise-review">Request changes</button></div>
             </section>
-            <section class="research-section" aria-labelledby="report-heading"><h3 id="report-heading">Publication handoff</h3><p class="research-note">Approve the research, prepare its final PDF, then use Library's Add report / Publish tools. Connect the resulting record here and reload projects &amp; reports after publication.</p><ol class="research-checklist" id="publication-checklist"></ol><p class="research-note" id="publication-warning"></p><div class="research-toolbar"><button class="world-action" type="button" id="download-approved" disabled>Download approved text</button><a class="world-action" href="library.html">Open Library · Add report</a></div><p class="research-note">The text download includes the saved draft, sources and approval note. PDF preparation and publication remain manual. World completion never grants editorial approval.</p><form id="report-form" class="research-form"><label>Library record<select id="linked-report"><option value="">No report linked</option></select></label><button class="world-action" type="submit">Save report connection</button></form><p id="report-link"></p></section>
+            <section class="research-section" aria-labelledby="report-heading"><h3 id="report-heading">Publication handoff</h3><p class="research-note">Approve the research, prepare its final PDF, then use Library's Add report / Publish tools. Connect the resulting record here and reload projects &amp; reports after publication.</p><ol class="research-checklist" id="publication-checklist"></ol><p class="research-note" id="publication-warning"></p><div class="research-toolbar"><button class="world-action" type="button" id="download-approved" disabled>Download approved text</button><a class="world-action" href="library.html">Open Library · Add report</a></div><p class="research-note">The text download includes the saved draft, reasoning, sources and manual review. PDF preparation and publication remain manual. World completion never grants editorial approval.</p><form id="report-form" class="research-form"><label>Library record<select id="linked-report"><option value="">No report linked</option></select></label><button class="world-action" type="submit">Save report connection</button></form><p id="report-link"></p></section>
+            <section class="research-section" aria-labelledby="reasoning-history-heading"><h3 id="reasoning-history-heading">Earlier reasoning</h3><p class="research-note">Before material research edits, the previous reasoning, sources and draft are retained here. This keeps up to five recent versions within 2 MB. Export a backup to retain an older baseline. Simulated progress alone does not add a reasoning version.</p><div id="reasoning-history"></div></section>
             <section class="research-section" aria-labelledby="history-heading"><h3 id="history-heading">Project history</h3><ol id="project-history"></ol></section>
           </div>
         </section>
