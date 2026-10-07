@@ -142,8 +142,9 @@ approval pending. User text is rendered with `textContent`, never HTML. A user
 run stops after all five agents return to IDLE, settling any remaining travel,
 so its result stays readable. Restart replays the same brief; a new submitted
 brief clears old outputs and closes the old draft. The initial example still
-repeats. Briefs and outputs last only for the page session; no history,
-persistence, acceptance/revision flow or publication is added in this pass.
+repeats without being saved. Submitted briefs now connect to the shared local
+research workspace described in the repository README; publication stays in
+the existing library workflow.
 
 ## Event contract
 
@@ -234,22 +235,23 @@ To connect a future service, replace the mock producer in `world.js` with an
 event adapter calling the same dispatcher and remove the mock timer. Authentication,
 transport, ordering/replay and authorization belong in that future adapter, not
 in the renderer. `LonghandWorld.getSnapshot()` provides read-only-by-copy inspection.
-V0.1 implements local brief submission only, with no storage or real agent execution.
+V0.1 saves submitted briefs and mock progress locally, with no real agent execution.
 
 ## Isolation and validation
 
-World loads no parent site JavaScript, stylesheet, catalogue, analytics or CDN.
+World loads the shared `site.js` storage adapter and `research-projects.js`
+model, with no parent stylesheet, catalogue, analytics or CDN.
 Its typography follows the parent's serif/sans editorial language using system
-fallbacks, with charcoal, muted navy, steel and a restrained amber accent. Parent HTML navigation is
-unchanged because it is repeated across pages; World is independently accessible.
-The initial World addition changes only the `TASKS.md` ownership/review row outside
-`world/`. The brief/deliverable pass also updates that same ownership row to
-reflect the five-person team and current scope. Parent product files stay untouched.
+fallbacks, with charcoal, muted navy, steel and a restrained amber accent. The
+parent site's header stays unchanged; a Workspace link appears in the footer in
+local author mode. World remains independently
+accessible. Existing parent HTML receives only the shared script's cache-version
+update; catalogue content and report facts are unchanged.
 
 Run from the repository root:
 
 ```powershell
-node --test world/tests/*.test.mjs
+node --test world/tests/*.test.mjs tests/*.test.mjs
 node scripts/check-site.mjs
 ```
 
@@ -260,9 +262,50 @@ files are introduced. Browser QA additionally covers direct URLs/refresh, map an
 staff selection, controls, movement, journal/status updates, keyboard use,
 small-screen overflow and links back to existing pages.
 
-Remaining limits: simulated tasks only, session state resets on reload, simple
-waypoints, no real AI backend and no persistence. Deployment follows the existing
+Remaining limits: simulated tasks only, browser-local storage, simple
+waypoints, no real AI backend or cross-device sync. Deployment follows the existing
 PR review and GitHub Pages process; this addition does not alter that workflow.
+
+### Shared research workspace
+
+Each submitted brief creates a real project ID in the existing browser database.
+World queues saves after each mock event and retains its step timestamps and
+outputs. Opening `?project=<id>` validates the record and replays its existing
+script steps with their original times. It settles travel and stays paused;
+Next event or Resume continues the same run. The 29-event boundary remains
+stopped on reload. Restart clears this run's outputs and preserves its brief.
+It never replaces a manually written research draft with mock planning text.
+
+An IndexedDB error pauses the run, shows the failed save and offers retry.
+Pending or failed saves warn before leaving; a new brief waits for queued saves
+and cannot discard a failed run. Revision conflicts reject stale writes.
+Source collection, editable research drafts, manual review, report-ID links and
+JSON export/import live in `../research.html`. The Director's simulated completion
+does not approve or publish any research. Custom dispatcher events are not part
+of the persisted mock replay.
+
+The shared workspace pass changes exactly 24 files relative to `b01d584`:
+
+| Files | Reason |
+| --- | --- |
+| `assets/js/site.js` | Reuse existing IndexedDB transactions for projects, expose the local-host flag, add the local Workspace footer link and handle rejected incoming view-transition promises |
+| `assets/js/research-projects.js` | Portable version-1 schema, atomic revision checks, source validation, editorial state transitions and bounded backups |
+| `research.html`, `assets/js/research-workspace.js`, `assets/css/research-workspace.css` | Project desk, source notebook, text drafts, manual review, catalogue links, history, confirmations and backup controls |
+| `world/index.html`, `world/world.js` | Save new briefs and workflow progress, replay saved timestamps while paused and retry failed saves |
+| `world/tests/controller.test.mjs`, `tests/research-projects.test.mjs`, `tests/research-workspace.test.mjs` | Regression checks for persistence, recovery, stale tabs, review boundaries, import rollback and retained unsaved text |
+| `.github/workflows/checks.yml` | Run all World and workspace tests in CI alongside the structural checker |
+| `README.md`, `world/README.md`, `TASKS.md` | Architecture, limits, validation and review status |
+| `404.html`, `about.html`, `coverage.html`, `ihsg-weekly-2026-09-25.html`, `ihsg-weekly.html`, `index.html`, `library.html`, `power-behind-ai.html`, `report.html`, `wire.html` | Shared `site.js` cache version only |
+
+Validation: 52 Node tests pass. The site checker validates 33 scripts, 66 JSON
+files, 8 catalogue records, 13 sitemap pages and links in 14 HTML pages. Browser
+checks cover a 29-step run, progress after reload, source and draft persistence,
+planning-review rejection, manual approval then invalidation, two-tab conflicts,
+atomic conflicting imports, valid imports and backup downloads. Responsive
+layout fits desktop, 768, 390 and 320 px. No report facts, catalogue entries,
+PDFs, sitemap, rooms, sprites, roster or movement code change in this pass.
+The browser also reports an audio playback error from a Chrome extension;
+the new workspace and World contain no audio or video elements.
 
 ### V0.1 verification record
 

@@ -279,6 +279,51 @@
     set: (key, value) => tx('readwrite', (s) => s.put({ key, value }), SETTINGS),
   };
 
+  /* Research projects share the existing database; report PDFs and the saved
+     publishing folder remain in their existing stores. Mutations are atomic. */
+  const researchPrefix = 'research-project:';
+  const researchRecords = {
+    all: () => tx('readonly', s => s.getAll(), SETTINGS).then(rows =>
+      rows.filter(row => row.key.startsWith(researchPrefix)).map(row => row.value)),
+    get: id => tx('readonly', s => s.get(researchPrefix + id), SETTINGS).then(row => row && row.value),
+    async change(id, transform) {
+      const db = await openDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction(SETTINGS, 'readwrite');
+        const table = transaction.objectStore(SETTINGS);
+        let result, failure;
+        const request = table.get(researchPrefix + id);
+        request.onsuccess = () => {
+          try {
+            result = transform(request.result && request.result.value);
+            table.put({ key: researchPrefix + id, value: result });
+          } catch (error) { failure = error; transaction.abort(); }
+        };
+        transaction.oncomplete = () => resolve(result);
+        transaction.onerror = transaction.onabort = () => reject(failure || transaction.error || new Error('The browser cancelled the save'));
+      });
+    },
+    async insertMany(records) {
+      const db = await openDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction(SETTINGS, 'readwrite');
+        const table = transaction.objectStore(SETTINGS);
+        let failure;
+        records.forEach(record => {
+          const request = table.get(researchPrefix + record.id);
+          request.onsuccess = () => {
+            if (request.result) {
+              failure = new Error('A project with this ID already exists. Import was cancelled; existing work was kept.');
+              transaction.abort();
+            } else table.put({ key: researchPrefix + record.id, value: record });
+          };
+        });
+        transaction.oncomplete = () => resolve(records);
+        transaction.onerror = transaction.onabort = () => reject(failure || transaction.error || new Error('The browser cancelled the import'));
+      });
+    }
+  };
+
   const byDateDesc = (a, b) =>
     (b.date || '').localeCompare(a.date || '') ||
     (a.isLocal === b.isLocal ? 0 : a.isLocal ? -1 : 1) ||
@@ -412,6 +457,12 @@
     storage.del('longhand-author'); // an older switch that let the live site show them
     LH.isAuthor = onThisComputer;
     document.documentElement.classList.toggle('is-author', LH.isAuthor);
+    const workspaceHost = $('.site-footer .colophon');
+    if (LH.isAuthor && workspaceHost && !workspaceHost.querySelector('[data-research-workspace]')) {
+      const link = document.createElement('a');
+      link.href = 'research.html'; link.textContent = 'Workspace';
+      link.setAttribute('data-research-workspace', ''); workspaceHost.append(document.createTextNode(' · '), link);
+    }
     $$('[data-add-report]').forEach((b) => {
       b.hidden = !LH.isAuthor;
       b.setAttribute('aria-label', 'Add report');
@@ -1273,6 +1324,7 @@
   window.addEventListener('pagereveal', (e) => {
     nameTitle(null);
     if (!e.viewTransition) return;
+    quiet(e.viewTransition);
     // The page transition is the entrance; the list's own settling-in steps aside
     $$('.is-arriving').forEach((el) => el.classList.remove('is-arriving'));
     const act = window.navigation && window.navigation.activation;
@@ -1319,6 +1371,8 @@
     catalogProblem,
     catalogIssues,
     drafts,
+    researchRecords,
+    isLocal: onThisComputer,
     allReports,
     findReport,
     reportHref,

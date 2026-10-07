@@ -26,3 +26,5 @@ jobs:
           node-version: 22
       - name: Check the site
         run: node scripts/check-site.mjs
+      - name: Check research state and workflow
+        run: node --test world/tests/*.test.mjs tests/*.test.mjs

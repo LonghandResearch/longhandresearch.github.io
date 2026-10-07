@@ -39,7 +39,10 @@ function controller(options = {}) {
   const frames = new Map(), timers = new Map();
   let handle = 0, now = 0;
   const context = vm.createContext({
-    document, console, Intl, Date,
+    document, console, Intl, Date, URL,
+    location: { href: options.url || 'http://localhost/world/index.html' },
+    history: { replaceState(unused, title, url) { context.location.href = String(url); } },
+    crypto: { randomUUID: () => 'controller-test-project' },
     matchMedia: () => motion,
     performance: { now: () => now },
     requestAnimationFrame(callback) { const id = ++handle; frames.set(id, callback); return id; },
@@ -49,11 +52,15 @@ function controller(options = {}) {
     addEventListener() {}
   });
   context.window = context;
+  if (options.records) {
+    context.Longhand = { isLocal: true, researchRecords: options.records };
+    vm.runInContext(fs.readFileSync(path.join(root, 'assets/js/research-projects.js'), 'utf8'), context);
+  }
   for (const file of ['state.js', 'movement.js', 'mock-events.js', 'sprites.js', 'world.js']) {
     vm.runInContext(fs.readFileSync(path.join(root, 'world', file), 'utf8'), context, { filename: file });
   }
   return {
-    world: context.LonghandWorld, frames, timers, elements, document,
+    world: context.LonghandWorld, frames, timers, elements, document, context,
     click: id => elements.get(id).emit('click'),
     tick(milliseconds = 60) {
       now += milliseconds;
@@ -63,6 +70,65 @@ function controller(options = {}) {
     }
   };
 }
+
+function projectStorage() {
+  const rows = new Map();
+  const copy = value => value && JSON.parse(JSON.stringify(value));
+  return { rows, all: async () => [...rows.values()].map(copy), get: async id => copy(rows.get(id)),
+    change: async (id, transform) => { const next = transform(copy(rows.get(id))); rows.set(id, copy(next)); return copy(next); } };
+}
+const flush = () => new Promise(resolve => setImmediate(resolve));
+
+test('saved World progress restores the same brief, outputs and completion times while paused', async () => {
+  const records = projectStorage(), app = controller({ records, reduced: true });
+  const brief = { topic: 'Persisted question', question: 'What evidence is required?', objective: 'Prepare a source plan.' };
+  submitBrief(app, brief); await flush();
+  for (let step = 2; step <= 13; step++) app.click('next');
+  await flush();
+  const saved = [...records.rows.values()][0];
+  assert.equal(saved.run.times.length, 13); assert.equal(saved.outputs.length, 3);
+  const repository = app.context.Longhand.Research.createRepository(records);
+  const revised = await repository.save({ ...saved, brief: { ...saved.brief, topic: 'Different question' } }, saved.revision);
+  assert.equal(revised.run.times.length, 0); assert.equal(revised.outputs.length, 0); assert.equal(revised.draftBody, '');
+  records.rows.set(saved.id, saved);
+  const restored = controller({ records, url: app.context.location.href }); await flush();
+  assert.equal(restored.world.getSnapshot().task.title, brief.topic);
+  assert.equal(JSON.stringify(restored.world.getSnapshot().outputs), JSON.stringify(saved.outputs));
+  assert.equal(restored.timers.size, 0); assert.equal(restored.frames.size, 0);
+  assert.match(restored.elements.get('project-save-status').textContent, /restored.*13\/29/);
+  for (let step = 14; step <= 29; step++) restored.click('next');
+  await flush();
+  const completed = [...records.rows.values()][0];
+  assert.equal(completed.run.times.length, 29); assert.equal(completed.outputs.length, 5);
+  assert.equal(completed.status, 'DRAFT', 'simulated Director review never approves research');
+  const final = controller({ records, url: app.context.location.href }); await flush();
+  assert.equal(final.world.getSnapshot().task.completedAt, completed.outputs.at(-1).completedAt);
+  assert.equal(final.elements.get('next').disabled, true);
+  assert.ok(final.world.getSnapshot().agents.every(agent => agent.status === 'IDLE'));
+  final.click('reset'); await flush();
+  assert.equal([...records.rows.values()][0].run.times.length, 0);
+  assert.equal([...records.rows.values()][0].outputs.length, 0);
+});
+
+test('failed progress save pauses the run and retry keeps unsaved work intact', async () => {
+  const records = projectStorage(), app = controller({ records, reduced: true });
+  submitBrief(app, { topic: 'Storage recovery', question: 'Can it retry?', objective: 'Keep unsaved progress.' }); await flush();
+  const change = records.change; records.change = async () => { throw new Error('Quota exceeded'); };
+  app.click('next'); await flush();
+  assert.match(app.elements.get('project-save-status').textContent, /Not saved.*Quota exceeded/);
+  assert.equal(app.timers.size, 0); assert.equal(app.elements.get('project-retry').hidden, false);
+  records.change = change; app.click('project-retry'); await flush();
+  assert.equal([...records.rows.values()][0].run.times.length, 2);
+  assert.equal(app.elements.get('project-retry').hidden, true);
+});
+
+test('missing saved project reports the failure without creating a phantom record', async () => {
+  const records = projectStorage();
+  const app = controller({ records, url: 'http://localhost/world/index.html?project=missing-project' }); await flush();
+  assert.match(app.elements.get('project-save-status').textContent, /not found/);
+  assert.equal(records.rows.size, 0); assert.equal(app.world.getSnapshot().agents.length, 5);
+  assert.equal(app.timers.size, 0);
+});
 
 function moveTogether(app) {
   assert.equal(app.world.dispatch({ type: 'agent.moved', agentId: 'researcher', location: 'hall' }), true);

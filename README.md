@@ -21,6 +21,8 @@ uncommitted branch.
 | `about.html` | How the reports are built, the rating key and the report types |
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
+| `research.html` | Local owner workspace: saved research projects, source notes, working drafts, review and JSON backups |
+| `world/index.html` | Five-agent research headquarters and simulated workflow, connected to saved local projects |
 | `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
 | `indonesia-ai-datacenter-research/interactive/index.html` | AI Runs on Power and Water: Indonesia resource scenarios, project atlas and research model |
 | `ihsg-weekly-2026-09-25.html` | IHSG Weekly Market Update for 21–25 September 2026 |
@@ -37,6 +39,8 @@ uncommitted branch.
 | `assets/css/site.css` | Shared styling: light and dark themes, page transitions |
 | `assets/css/home-editorial.css` | Front-page layout and latest-report treatment |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
+| `assets/js/research-projects.js` | Versioned research model, validation, atomic saves, revision conflicts, manual review and backups |
+| `assets/js/research-workspace.js` | Local project desk and links to existing library records |
 | `assets/js/home.js` | Front page: the stars and the latest report from the catalogue |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/coverage.js` | Coverage page: groups rated Initiation and Update reports by ticker |
@@ -152,6 +156,50 @@ After an update to `auto-publish.ps1` is merged, run `install-auto-publish.bat` 
 **Add report**, **Publish** and **Delete** are tools for you, not for readers. They appear only when the site is opened from your computer (double-clicking `index.html`, or `localhost`). The live site never shows them, to anyone, and never shows drafts, not even in the browser that saved them.
 
 Readers never see your drafts, and they cannot change the site: publishing and deleting only write to the folder on your computer, and the site changes when you push it.
+
+## Local research workspace
+
+Open `research.html` from localhost, or use **Workspace** in the local site's
+footer. The shared `longhand-research` IndexedDB database keeps each project
+under `research-project:<id>` in its existing `settings` store (database version
+2). Report PDFs stay in `reports`; the publishing-folder permission remains in
+its own settings entry. No new database, dependency, server or login is required.
+The workspace is hidden on the public host, as are the existing author tools.
+
+Each version-1 project has a stable ID, revision, brief, source notebook, plain
+text draft, workflow step times and five stage records, optional report ID and
+up to 100 history entries (retaining the current approval note). Sources are manual HTTP(S) links and
+evidence notes. Marking a source checked requires a note; the site does not
+fetch or verify it. Submitted World briefs are saved automatically. **Continue
+in World** restores progress by replaying the existing mock script with the
+saved step times, paused, so draft completion times remain unchanged. The
+automatic example is not saved. Custom adapter events remain session-only.
+
+Research follows **Draft → In review → Approved**, with explicit review notes.
+Planning text must be replaced with researched prose before being marked ready
+for review. Approval requires a checked source. Editing the brief, evidence,
+draft or workflow resets review to Draft. Changing the brief also clears previous
+mock progress and its unchanged planning text. These are owner decisions, not AI
+verification. World completing its mock Director stage never approves research.
+An existing browser PDF draft or published catalogue report can be linked by
+its real ID; linking never copies a file, edits the catalogue or publishes.
+Publication still uses the library's existing **Add report / Publish** flow.
+
+Saves compare revisions in one IndexedDB transaction. An older tab gets a
+conflict message and keeps its open text rather than overwriting newer work.
+Storage failures are visible; World pauses and offers **Retry save**. Saving or
+failed runs warn before leaving. Backups are versioned JSON containing projects,
+sources, text drafts, progress and history. They exclude PDF blobs, site-folder
+permissions and browser preferences. Import validates the entire file before
+one transaction inserts its projects. Any existing or duplicate ID rejects the
+whole import; use an empty browser store to restore an entire backup.
+Backups are limited to 5 MB; **Export this project** keeps larger workspaces
+recoverable one project at a time. Browser data is local to the origin and
+profile, is not encrypted by the application,
+and does not sync across devices. Export before clearing browser data.
+
+Run `node --test world/tests/*.test.mjs tests/*.test.mjs` alongside
+`node scripts/check-site.mjs`. CI now runs both checks.
 
 ## The Wire
 

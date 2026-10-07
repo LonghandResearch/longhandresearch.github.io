@@ -7,7 +7,11 @@
     return;
   }
   const $ = (id) => document.getElementById(id);
-  const store = World.State.createStore();
+  let replayTime = null, project = null, runTimes = [], restoring = false, opening = false;
+  let saveQueue = Promise.resolve(), saveFailed = false, pendingSaves = 0;
+  const LH = window.Longhand;
+  const repository = LH && LH.isLocal && LH.Research ? LH.Research.createRepository(LH.researchRecords) : null;
+  const store = World.State.createStore({ clock: () => replayTime || new Date().toISOString() });
   const movement = World.Movement.createMovement();
   const source = World.Mock.createSource((event) => store.dispatch(event), () => store.getSnapshot().task);
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -21,7 +25,7 @@
   const interval = 11000;
   const timeFormat = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   const showTime = (value) => timeFormat.format(new Date(value));
-  const active = () => !userPaused && !document.hidden && !runFinished;
+  const active = () => !opening && !userPaused && !document.hidden && !runFinished;
   const behavior = (status) => ({ READING: 'read', WORKING: 'work', REVIEWING: 'review', THINKING: 'think', DIRECTING: 'meeting', MEETING: 'meeting', COMPLETED: 'complete', ERROR: 'error', IDLE: 'idle' })[status];
 
   function sprite(id) {
@@ -50,6 +54,31 @@
     elements.set(agent.id, { character, member, status });
   }
   function announce(message) { $('world-announcement').textContent = message; }
+  function planningText(state) {
+    return [state.task.title, 'Simulated planning record. No verified findings or publication approval.',
+      'Research question: ' + state.task.question, 'Objective: ' + state.task.objective,
+      ...state.outputs.map(output => output.title + '\n' + output.body)].join('\n\n');
+  }
+  function persistRun() {
+    if (!repository || !project || restoring) return;
+    const id = project.id, times = [...runTimes], state = store.getSnapshot();
+    pendingSaves += 1;
+    $('project-save-status').textContent = 'Saving project…';
+    saveQueue = saveQueue.then(async () => {
+      if (!project || project.id !== id) return;
+      const next = { ...project, run: { times }, outputs: state.outputs };
+      if (project.draftKind === 'planning') next.draftBody = planningText(state);
+      project = await repository.save(next, project.revision);
+      saveFailed = false;
+      $('project-save-status').textContent = 'Saved in this browser · ' + times.length + '/29 workflow events';
+      $('project-retry').hidden = true;
+    }).catch(error => {
+      saveFailed = true;
+      userPaused = true; syncActivity();
+      $('project-save-status').textContent = 'Not saved. ' + error.message;
+      $('project-retry').hidden = false;
+    }).finally(() => { pendingSaves -= 1; });
+  }
   function select(id) {
     selected = id;
     render(snapshot);
@@ -130,7 +159,7 @@
       state.outputs.forEach(output => section(state.agents.find(agent => agent.id === output.agentId).name + ' / ' + output.title, output.body));
       $('draft-document').replaceChildren(...blocks);
     }
-    const locked = submitted && state.task.status === 'WORKING';
+    const locked = opening || (submitted && state.task.status === 'WORKING');
     ['brief-topic', 'brief-question', 'brief-objective', 'brief-submit'].forEach(id => { $(id).disabled = locked; });
     if (submitted && ready) $('brief-feedback').textContent = 'Workflow complete. View the simulated draft below, or start a new brief.';
   }
@@ -228,13 +257,16 @@
   }
   function advanceSource() {
     if (runFinished) return;
+    if (project) { replayTime = new Date().toISOString(); runTimes.push(replayTime); }
     source.next();
+    replayTime = null;
     if (submitted && source.getCursor() === 0 && snapshot.task.status === 'COMPLETED') {
       runFinished = true;
       userPaused = true;
       settle();
       syncActivity();
     }
+    persistRun();
   }
   function resetSimulation(brief) {
     stopTimer();
@@ -245,6 +277,7 @@
     eventRemaining = 4000; syncActivity();
   }
   function nextEvent() {
+    if (opening) return;
     stopTimer(); advanceSource();
     if (userPaused) settle();
     eventRemaining = interval; schedule(); updateControls();
@@ -260,24 +293,44 @@
     startMovement();
   });
   $('pause').addEventListener('click', () => {
+    if (opening) return;
     userPaused = !userPaused; syncActivity();
     announce(userPaused ? 'Simulation paused.' : 'Simulation resumed.');
   });
   $('next').addEventListener('click', nextEvent);
   $('reset').addEventListener('click', () => {
+    if (opening) return;
+    runTimes = [];
     resetSimulation();
+    persistRun();
     if (submitted) $('brief-feedback').textContent = 'Current brief restarted. Use Next event to advance manually.';
     announce('Simulation restarted. All ' + snapshot.agents.length + ' staff are back at the current brief.');
   });
-  $('research-brief').addEventListener('submit', event => {
+  $('research-brief').addEventListener('submit', async event => {
     event.preventDefault();
-    if (submitted && snapshot.task.status === 'WORKING') return;
+    if (opening || (submitted && snapshot.task.status === 'WORKING')) return;
     const brief = World.State.normalizeBrief({ topic: $('brief-topic').value,
       question: $('brief-question').value, objective: $('brief-objective').value });
     if (!brief) {
       $('brief-feedback').textContent = 'Enter a topic (up to 160 characters), question and objective (up to 480 characters each).';
       return;
     }
+    if (repository) {
+      opening = true; syncActivity(); render(snapshot);
+      try {
+        await saveQueue;
+        if (saveFailed) throw new Error('Retry saving the previous run before starting another brief.');
+        project = await repository.create(brief);
+        const url = new URL(location.href); url.searchParams.set('project', project.id);
+        history.replaceState(null, '', url);
+        $('project-workspace').href = '../research.html?project=' + encodeURIComponent(project.id);
+      } catch (error) {
+        opening = false; render(snapshot); syncActivity();
+        $('brief-feedback').textContent = 'Could not save this brief. ' + error.message; return;
+      }
+      opening = false;
+    }
+    runTimes = [];
     submitted = true; userPaused = motion.matches; selected = 'associate';
     resetSimulation(brief);
     $('brief-feedback').textContent = 'Running your brief. Use Next event to advance manually. Inputs reopen after final review.';
@@ -287,6 +340,9 @@
   window.addEventListener('pagehide', () => {
     stopTimer(); if (frame) cancelAnimationFrame(frame); frame = 0; lastFrame = 0;
   });
+  window.addEventListener('beforeunload', event => {
+    if (pendingSaves || saveFailed) { event.preventDefault(); event.returnValue = ''; }
+  });
   window.addEventListener('pageshow', syncActivity);
   motion.addEventListener('change', () => {
     if (motion.matches) { userPaused = true; settle(); }
@@ -295,7 +351,33 @@
   ['pause', 'next', 'reset'].forEach((id) => { $(id).disabled = false; });
   syncActivity();
 
-  // Adapter surface for future event sources. No network, requests, storage or publishing.
+  if (repository) {
+    $('project-tools').hidden = false;
+    $('project-retry').addEventListener('click', persistRun);
+    const id = new URL(location.href).searchParams.get('project');
+    if (id) {
+      opening = true; userPaused = true; syncActivity(); render(snapshot);
+      ['pause', 'next', 'reset'].forEach(key => { $(key).disabled = true; });
+      repository.get(id).then(record => {
+        if (!record) throw new Error('This project was not found in this browser.');
+        project = record; runTimes = [...record.run.times]; submitted = true; restoring = true;
+        resetSimulation(record.brief);
+        for (const time of runTimes) { replayTime = time; source.next(); settle(); }
+        replayTime = null; restoring = false;
+        runFinished = runTimes.length === World.Mock.SCRIPT.length;
+        ['topic', 'question', 'objective'].forEach(key => { $('brief-' + key).value = record.brief[key]; });
+        $('project-workspace').href = '../research.html?project=' + encodeURIComponent(record.id);
+        $('project-save-status').textContent = 'Saved project restored · paused · ' + runTimes.length + '/29 workflow events';
+        $('brief-feedback').textContent = 'Project restored. Resume or use Next event to continue.';
+      }).catch(error => { $('project-save-status').textContent = error.message; }).finally(() => {
+        opening = false; restoring = false; replayTime = null;
+        ['pause', 'next', 'reset'].forEach(key => { $(key).disabled = false; });
+        render(snapshot); syncActivity();
+      });
+    }
+  }
+
+  // Adapter surface for future event sources. External events are not persisted as mock steps.
   World.dispatch = (event) => store.dispatch(event);
   World.getSnapshot = store.getSnapshot;
 })();
