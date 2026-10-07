@@ -167,6 +167,12 @@ under `research-project:<id>` in its existing `settings` store (database version
 its own settings entry. No new database, dependency, server or login is required.
 The workspace is hidden on the public host, as are the existing author tools.
 
+**Delete project** removes the selected project's sources, draft, workflow and
+review history after confirmation. It keeps linked Library reports and other
+projects. There is no undo; export a backup first if recovery is needed. A stale
+revision cannot delete newer work, and a tab holding a deleted project cannot
+save or review it back into existence.
+
 Each version-1 project has a stable ID, revision, brief, source notebook, plain
 text draft, workflow step times and five stage records, optional report ID and
 up to 100 history entries (retaining the current approval note). Sources are manual HTTP(S) links and

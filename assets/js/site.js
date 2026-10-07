@@ -296,7 +296,8 @@
         request.onsuccess = () => {
           try {
             result = transform(request.result && request.result.value);
-            table.put({ key: researchPrefix + id, value: result });
+            if (result === null) table.delete(researchPrefix + id);
+            else table.put({ key: researchPrefix + id, value: result });
           } catch (error) { failure = error; transaction.abort(); }
         };
         transaction.oncomplete = () => resolve(result);

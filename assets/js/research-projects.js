@@ -79,6 +79,10 @@
     return Object.freeze({
       async all() { return (await records.all()).map(normalize).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)); },
       async get(key) { if (!id(key)) fail('Invalid project ID.'); const value = await records.get(key); return value ? normalize(value) : null; },
+      async remove(key, expected) {
+        if (!id(key)) fail('Invalid project ID.');
+        return records.change(key, current => { requireRevision(current, expected); return null; });
+      },
       async create(value) {
         const time = clock();
         const project = normalize({ version: 1, id: makeId(), createdAt: time, updatedAt: time, revision: 1,

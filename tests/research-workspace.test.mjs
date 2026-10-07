@@ -30,7 +30,7 @@ async function workspace(options = {}) {
   const records = {
     all: async () => { if (options.blocked) throw new Error('Storage blocked'); return [...rows.values()].map(copy); },
     get: async id => copy(rows.get(id)),
-    change: async (id, transform) => { const result = transform(copy(rows.get(id))); rows.set(id, copy(result)); return copy(result); }
+    change: async (id, transform) => { const result = transform(copy(rows.get(id))); if (result === null) rows.delete(id); else rows.set(id, copy(result)); return copy(result); }
   };
   let ids = 0;
   const events = new Map();
@@ -52,6 +52,23 @@ async function workspace(options = {}) {
   }
   return app;
 }
+
+test('project deletion requires confirmation and clears the selection without touching Library', async () => {
+  const reports = [{ id: 'kept-report', title: 'Published report' }];
+  const app = await workspace({ reports });
+  app.click('delete-project'); await flush();
+  assert.equal(app.elements.get('workspace-confirm').open, true);
+  app.click('confirm-cancel'); await flush();
+  assert.equal(app.rows.size, 1);
+  app.click('delete-project'); await flush();
+  app.click('confirm-accept'); await flush();
+  assert.equal(app.rows.size, 0);
+  assert.equal(app.elements.get('delete-project').disabled, true);
+  assert.equal(app.elements.get('saved-project').hidden, true);
+  assert.equal(app.elements.get('project-draft').value, '');
+  assert.equal(new URL(app.context.location.href).searchParams.has('project'), false);
+  assert.equal(reports.length, 1);
+});
 
 test('workspace keeps source notes, working draft and report connection in one project', async () => {
   const app = await workspace();

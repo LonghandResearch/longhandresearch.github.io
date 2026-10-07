@@ -14,7 +14,7 @@ function storage() {
   return { rows,
     all: async () => [...rows.values()].map(copy),
     get: async id => rows.has(id) ? copy(rows.get(id)) : undefined,
-    change: (id, transform) => atomic(() => { const next = transform(rows.has(id) ? copy(rows.get(id)) : undefined); rows.set(id, copy(next)); return copy(next); }),
+    change: (id, transform) => atomic(() => { const next = transform(rows.has(id) ? copy(rows.get(id)) : undefined); if (next === null) rows.delete(id); else rows.set(id, copy(next)); return copy(next); }),
     insertMany: records => atomic(() => {
       if (records.some(record => rows.has(record.id))) throw new Error('Project already exists');
       records.forEach(record => rows.set(record.id, copy(record)));
@@ -26,6 +26,19 @@ function setup() {
   const repo = model.createRepository(records, { clock: () => '2026-10-07T10:00:00.000Z', makeId: () => 'project-' + ++ids });
   return { repo, records };
 }
+
+test('deletion keeps other projects and rejects stale deletion and resurrection', async () => {
+  const { repo } = setup();
+  const old = await repo.create(scope), other = await repo.create(scope);
+  const current = await repo.save({ ...old, draftBody: 'New work in another tab' }, old.revision);
+  await assert.rejects(repo.remove(old.id, old.revision), /another tab/);
+  assert.equal((await repo.get(old.id)).draftBody, current.draftBody);
+  await repo.remove(current.id, current.revision);
+  assert.equal(await repo.get(current.id), null);
+  assert.deepEqual((await repo.all()).map(item => item.id), [other.id]);
+  await assert.rejects(repo.save(current, current.revision), /no longer exists/);
+  await assert.rejects(repo.review(current.id, current.revision, 'submit', 'Stale review'), /no longer exists/);
+});
 
 test('project IDs, brief records and returned copies stay independent', async () => {
   const { repo } = setup(); const first = await repo.create(scope), second = await repo.create(scope);

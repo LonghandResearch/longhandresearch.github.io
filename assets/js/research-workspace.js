@@ -15,7 +15,7 @@
   let confirmation = null;
   function confirmAction(text, action = 'Discard changes') {
     if (confirmation) return Promise.resolve(false);
-    $('confirm-heading').textContent = action === 'Remove source' ? 'Remove source?' : 'Unsaved changes';
+    $('confirm-heading').textContent = action === 'Delete project' ? 'Delete project?' : action === 'Remove source' ? 'Remove source?' : 'Unsaved changes';
     $('confirm-message').textContent = text; $('confirm-accept').textContent = action;
     $('workspace-confirm').showModal();
     return new Promise(resolve => { confirmation = resolve; });
@@ -65,6 +65,8 @@
     ['topic', 'question', 'objective'].forEach(key => { $('project-' + key).value = selected ? selected.brief[key] : ''; });
     $('saved-project').hidden = !selected;
     $('export-project').disabled = !selected;
+    $('delete-project').disabled = !selected;
+    if (!selected) { $('project-draft').value = ''; $('draft-research').checked = false; $('source-list').replaceChildren(); }
     $('project-heading').textContent = selected ? selected.brief.topic : 'Start with a question.';
     $('project-meta').textContent = selected ? selected.id + ' / Revision ' + selected.revision : 'New project';
     $('project-status').textContent = selected ? names[selected.status] : 'Draft';
@@ -143,6 +145,12 @@
   }
   window.addEventListener('beforeunload', event => { if (hasUnsaved()) { event.preventDefault(); event.returnValue = ''; } });
   $('new-project').addEventListener('click', async () => { if (!busy && await permitSwitch()) open(null); });
+  $('delete-project').addEventListener('click', async () => {
+    if (busy || !selected) return;
+    const target = { id: selected.id, revision: selected.revision, topic: selected.brief.topic };
+    if (!await confirmAction('Permanently delete “' + target.topic + '”, including its sources, draft, workflow and review history? This cannot be undone without an exported backup. Linked Library reports are kept.', 'Delete project')) return;
+    await perform(async () => { await repository.remove(target.id, target.revision); await refresh(null, false); }, 'Project deleted. Sources, draft and workflow removed; Library reports were kept.');
+  });
   $('project-filter').addEventListener('change', showList);
   function reloadCatalogue() {
     return new Promise((resolve, reject) => {
