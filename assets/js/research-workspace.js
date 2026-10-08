@@ -61,7 +61,7 @@
     if (!preserveNotes) { $('source-form').reset(); $('review-note').value = ''; }
     const url = new URL(location.href);
     if (selected) url.searchParams.set('project', selected.id); else url.searchParams.delete('project');
-    history.replaceState(null, '', url);
+    try { history.replaceState(null, '', url); } catch { /* Direct-file browsers may reject URL updates; keep the workspace usable. */ }
     ['topic', 'question', 'objective'].forEach(key => { $('project-' + key).value = selected ? selected.brief[key] : ''; });
     $('saved-project').hidden = !selected;
     $('export-project').disabled = !selected;

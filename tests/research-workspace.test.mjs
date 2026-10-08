@@ -36,8 +36,8 @@ async function workspace(options = {}) {
   const events = new Map();
   class TestURL extends URL { static createObjectURL(blob) { const key = 'blob:' + blobs.size; blobs.set(key, blob); return key; } static revokeObjectURL() {} }
   const context = vm.createContext({ document, URL: TestURL, Date, TextEncoder, Blob, console, setTimeout: callback => callback(),
-    location: { href: 'http://localhost/research.html' },
-    history: { replaceState(unused, title, url) { context.location.href = String(url); } },
+    location: { href: options.url || 'http://localhost/research.html' },
+    history: { replaceState(unused, title, url) { if (options.historyThrows) throw new Error('SecurityError: file URL'); context.location.href = String(url); } },
     crypto: { randomUUID: () => 'workspace-test-' + ++ids },
     Longhand: { isLocal: !options.publicHost, researchRecords: records, allReports: async () => options.reports || [], reportHref: report => 'report.html?id=' + report.id },
     addEventListener: (type, listener) => events.set(type, listener)
@@ -52,6 +52,15 @@ async function workspace(options = {}) {
   }
   return app;
 }
+
+test('a rejected file URL history update keeps the workspace visible and saves edits to the selected project', async () => {
+  const app = await workspace({ historyThrows: true, url: 'file:///synthetic/research.html' });
+  assert.equal(app.elements.get('workspace-content').hidden, false); assert.equal(app.rows.size, 1);
+  app.elements.get('project-draft').value = 'Synthetic draft saved despite a rejected URL update.';
+  app.submit('draft-form'); await flush();
+  assert.equal(app.rows.size, 1); assert.equal([...app.rows.values()][0].draftBody, app.elements.get('project-draft').value);
+  assert.match(app.elements.get('workspace-message').textContent, /Saved in this browser/);
+});
 
 test('project deletion requires confirmation and clears the selection without touching Library', async () => {
   const reports = [{ id: 'kept-report', title: 'Published report' }];

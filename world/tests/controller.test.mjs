@@ -41,7 +41,7 @@ function controller(options = {}) {
   const context = vm.createContext({
     document, console, Intl, Date, URL,
     location: { href: options.url || 'http://localhost/world/index.html' },
-    history: { replaceState(unused, title, url) { context.location.href = String(url); } },
+    history: { replaceState(unused, title, url) { if (options.historyThrows) throw new Error('SecurityError: file URL'); context.location.href = String(url); } },
     crypto: { randomUUID: () => 'controller-test-project' },
     matchMedia: () => motion,
     performance: { now: () => now },
@@ -78,6 +78,20 @@ function projectStorage() {
     change: async (id, transform) => { const next = transform(copy(rows.get(id))); rows.set(id, copy(next)); return copy(next); } };
 }
 const flush = () => new Promise(resolve => setImmediate(resolve));
+
+test('a rejected file URL history update still starts and saves exactly one submitted research project', async () => {
+  const records = projectStorage(), app = controller({ records, reduced: true, historyThrows: true,
+    url: 'file:///synthetic/world/index.html' });
+  const brief = { topic: 'File URL test', question: 'Can this brief start?', objective: 'Keep the saved project usable.' };
+  submitBrief(app, brief); await flush();
+  assert.equal(records.rows.size, 1);
+  const saved = [...records.rows.values()][0];
+  assert.equal(saved.run.times.length, 1); assert.equal(app.world.getSnapshot().task.title, brief.topic);
+  assert.match(app.elements.get('brief-feedback').textContent, /Simulating your brief/);
+  assert.equal(app.elements.get('project-workspace').href, '../research.html?project=' + saved.id);
+  app.click('next'); await flush();
+  assert.equal(records.rows.size, 1); assert.equal([...records.rows.values()][0].run.times.length, 2);
+});
 
 test('saved World progress restores the same brief, outputs and completion times while paused', async () => {
   const records = projectStorage(), app = controller({ records, reduced: true });
