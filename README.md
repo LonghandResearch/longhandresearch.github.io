@@ -24,6 +24,7 @@ uncommitted branch.
 | `research.html` | Local owner workspace: saved research projects, source notes, working drafts, review and JSON backups |
 | `world/index.html` | Five-agent research headquarters and simulated workflow, connected to saved local projects |
 | `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
+| `coal-in-transition.html` | Coal Still Burns. Trade Is Changing.: an interactive coal sector study, market atlas and illustrative producer economics |
 | `indonesia-ai-datacenter-research/interactive/index.html` | AI Runs on Power and Water: Indonesia resource scenarios, project atlas and research model |
 | `ihsg-weekly-2026-09-25.html` | IHSG Weekly Market Update for 21–25 September 2026 |
 | `ihsg-weekly.html?week=YYYY-MM-DD` | Shared page for future data-driven IHSG weekly editions; the date is the last trading day |
@@ -129,6 +130,19 @@ Flowless covers the regular market and estimates foreign value from share volume
 The export flags unusual stock flows, sectors dominated by one stock, and price moves that disagree with foreign flow. Treat these as questions to investigate. Explain a move only when a dated primary source supports the cause. Otherwise describe the move and say its cause is unknown. Freeze any values used in the report under `weekly/`, cross-check market caps with dated IDX Daily Statistics, recompute rolling fields from Flowless's daily series, and record the source pages and arithmetic in `audits/`. The [2 October audit](audits/RPT-011-2026-10-02.md) shows the method.
 
 The shared renderer and `ihsg-weekly.html` need no edits for a new edition. A missing or invalid week shows a clear unavailable state rather than reusing an older report. The template works when served over HTTP or on GitHub Pages; browsers generally block its JSON request when the file is opened directly from disk.
+
+## Coal sector research
+
+`coal-in-transition.html` reuses the shared masthead, theme and static page
+patterns. `assets/js/coal/data.js` freezes the source register and economic
+observations; `model.js` contains the independent illustrative scenario
+arithmetic, `geography.js` the locally stored Natural Earth outlines, and
+`report.js` the charts and controls. `assets/css/coal.css` is page-scoped.
+The market atlas does not represent measured bilateral volumes or actual ship
+routes. Period-selectable Australian benchmark prices remain separate from
+Indonesian selling prices. Forecasts retain their stated vintage; the simulator
+uses labelled analyst assumptions. Check `audits/RPT-014-2026-10-08.md` before
+changing any data or publishing this report.
 
 ## Delete a report
 

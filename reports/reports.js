@@ -37,6 +37,25 @@
 */
 window.LONGHAND_REPORTS = [
   {
+    "id": "coal-in-transition-2026-10-08",
+    "ticker": "",
+    "company": "Global coal markets and Indonesia",
+    "sector": "Energy and coal",
+    "category": "Sector",
+    "title": "Coal Still Burns. Trade Is Changing.",
+    "date": "2026-10-08",
+    "blurb": "Coal consumption and the export market can move in different directions. Explore Indonesia's position through demand, prices, an Asian market atlas and producer scenarios.",
+    "summary": "A coal sector study separating global consumption, seaborne thermal trade and producer cash economics. Dated IEA forecasts and World Bank price averages frame Indonesia's export position. An interactive market atlas, period-selectable price chart and transparent scenario lab show how price, volume and cost can change the result. The report keeps preliminary observations, forecasts, policy announcements and analyst assumptions distinct.",
+    "tags": ["Coal", "Indonesia", "Energy", "Thermal coal", "Exports", "China", "India", "Commodities", "Energy transition"],
+    "rating": null,
+    "currency": "USD",
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "page": "coal-in-transition.html",
+    "extra": [["Assessment date", "8 October 2026"], ["Observed price coverage", "Through September 2026"], ["Volume forecast vintage", "IEA September 2026"], ["Scenario lab", "Illustrative producer assumptions"]]
+  },
+  {
     "id": "us-treasury-update-2026-10-08",
     "ticker": "",
     "company": "US Treasury market and the US economy",
