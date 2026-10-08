@@ -53,29 +53,50 @@
   matchMedia('(max-width: 760px)').addEventListener('change',renderPrice);
 
   const project=(lon,lat)=>[(lon+180)*960/360,(85-lat)*520/170];
-  let selectedMarket='china';
+  let selectedMarket='india', mapView='world';
+  function setMapView(view) {
+    mapView=view;
+    $('coal-map').dataset.view=view;
+    $('coal-map').setAttribute('viewBox',view==='world'?'0 0 960 520':'540 70 420 350');
+    document.querySelectorAll('[data-map-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mapView===view)));
+  }
   function renderMap() {
     const geo=window.COAL_GEOGRAPHY||[],market=D.markets.find(m=>m.id===selectedMarket);
-    const origin=project(116,-2);
-    let g=`<title id="map-title">Coal market context from Indonesia to Asian buyers</title><desc id="map-description">Approximate market markers and explanatory links, not actual shipping routes or bilateral volumes.</desc><g aria-hidden="true">`;
+    const origin=project(116,-2),world=mapView==='world';
+    let g=`<title id="map-title">Indonesian coal export destinations and regional context</title><desc id="map-description">BPS revised 2025 destination volumes are shown in the panel. Viet Nam is regional context only. Connecting lines are conceptual, not vessel routes or a volume scale.</desc><g aria-hidden="true">`;
     for(const f of geo){g+=`<path class="map-country ${f.name==='Indonesia'?'origin':f.name===market.name.replace('Viet Nam','Vietnam')?'selected':''}" d="${f.path}"/>`;}
-    for(const m of D.markets){const p=project(m.lon,m.lat),midX=(p[0]+origin[0])/2,midY=Math.min(origin[1],p[1])-22;
-      const path=`M${origin[0]} ${origin[1]}Q${midX} ${midY} ${p[0]} ${p[1]}`;
-      g+=`<path class="map-route ${m.id===selectedMarket?'active':''}" d="${path}"/>${m.id===selectedMarket?`<path class="map-pulse" d="${path}"/>`:''}`;
-      g+=`<circle class="map-point" cx="${p[0]}" cy="${p[1]}" r="3"/><text x="${p[0]+m.label[0]}" y="${p[1]+m.label[1]}">${m.name}</text>`;
+    const destination=project(market.lon,market.lat),midX=(destination[0]+origin[0])/2,midY=Math.min(origin[1],destination[1])-35;
+    const path=`M${origin[0]} ${origin[1]}Q${midX} ${midY} ${destination[0]} ${destination[1]}`;
+    g+=`<path class="map-route active" d="${path}"/><path class="map-pulse" d="${path}"/>`;
+    for(const m of D.markets){const p=project(m.lon,m.lat),active=m.id===selectedMarket;
+      g+=`<circle class="map-point ${active?'active':''}" cx="${p[0]}" cy="${p[1]}" r="${world?(active?7:4):(active?4:2)}"/>`;
+      if(active)g+=`<text x="${p[0]+(world?0:m.label[0])}" y="${p[1]+(world?-20:m.label[1])}" text-anchor="${world?'middle':'start'}">${esc(m.name)}</text>`;
     }
-    g+=`<circle class="map-point" cx="${origin[0]}" cy="${origin[1]}" r="3.8"/><text x="${origin[0]-18}" y="${origin[1]+20}">Indonesia</text></g>`;
+    g+=`<circle class="map-point" cx="${origin[0]}" cy="${origin[1]}" r="${world?6:3.8}"/><text x="${origin[0]-18}" y="${origin[1]+(world?26:20)}">Indonesia</text></g>`;
     $('coal-map').innerHTML=g;
-    $('market-buttons').innerHTML=D.markets.map(m=>`<button type="button" data-market="${m.id}" aria-pressed="${m.id===selectedMarket}">${m.name}</button>`).join('');
-    $('market-buttons').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{selectedMarket=btn.dataset.market;renderMap();$('market-buttons').querySelector(`[data-market="${selectedMarket}"]`).focus();}));
+    $('market-buttons').innerHTML=D.markets.map(m=>`<button type="button" data-market="${m.id}" aria-pressed="${m.id===selectedMarket}">${esc(m.name)}</button>`).join('');
+    $('market-buttons').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+      selectedMarket=btn.dataset.market;
+      if(selectedMarket==='spain')setMapView('world');
+      renderMap();$('market-buttons').querySelector(`[data-market="${selectedMarket}"]`).focus();
+    }));
     $('market-name').textContent=market.name;$('market-heading').textContent=market.heading;
     $('market-body').textContent=market.body;$('market-watch').textContent=market.watch;
+    const measured=market.exportKt!==null,share=measured?market.exportKt/D.destinationSeries.total*100:null;
+    $('market-volume').textContent=measured?num(market.exportKt/1000,2)+' Mt':'Context only';
+    $('market-share').textContent=measured?num(share,share<1?2:1)+'%':'Not reported here';
+    const source=D.sources.find(record=>record.id===(measured?'bps-destinations':'trade'));
+    $('market-record').href=source.url;
+    $('market-record').textContent=measured?'BPS / Revised 2025 record ↗':'IEA / Regional context ↗';
   }
-  renderMap();
   document.querySelectorAll('[data-map-view]').forEach(btn=>btn.addEventListener('click',()=>{
-    $('coal-map').setAttribute('viewBox',btn.dataset.mapView==='world'?'0 0 960 520':'540 70 420 350');
-    document.querySelectorAll('[data-map-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+    // Spain is outside the Asia crop. Keep a visible selection when switching regions.
+    if(btn.dataset.mapView==='asia'&&selectedMarket==='spain')selectedMarket='india';
+    setMapView(btn.dataset.mapView);renderMap();
   }));
+  setMapView('world');renderMap();
+  $('destination-total').textContent=num(D.destinationSeries.total/1000,2)+' million tonnes';
+  $('destination-other').textContent=num(D.destinationSeries.other/1000,2)+' million tonnes';
   const percent=D.transition.cleanAndStoragePercent,c=2*Math.PI*82;
   $('transition-chart').innerHTML=`<circle cx="150" cy="122" r="82" fill="none" stroke="var(--rule-2)" stroke-width="19"/><circle cx="150" cy="122" r="82" fill="none" stroke="var(--teal)" stroke-width="19" stroke-dasharray="${c*percent/100} ${c}" transform="rotate(-90 150 122)"/><text x="150" y="125" text-anchor="middle" style="font-size:46px;font-family:var(--font-serif)">${percent}%</text><text x="150" y="148" text-anchor="middle" style="font-size:10px">New / renewable + storage</text><circle cx="44" cy="239" r="4" fill="var(--teal)"/><text x="57" y="243" style="font-size:10px">${percent}% / Planned clean energy + storage</text><circle cx="44" cy="261" r="4" fill="var(--rule-2)"/><text x="57" y="265" style="font-size:10px">${100-percent}% / Other planned capacity</text>`;
 

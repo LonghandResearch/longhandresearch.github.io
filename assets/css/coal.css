@@ -883,7 +883,7 @@
   .page-coal * {
     scroll-behavior:auto!important;
   }
-  .chain-flow,.map-pulse {
+  :root[data-coal-motion=off] .chain-flow,:root[data-coal-motion=off] .map-pulse {
     animation:none!important;
   }
   .bridge-fill {
@@ -1233,4 +1233,123 @@
 }
 @media(prefers-reduced-motion:reduce) {
   .chain-scene { transition:none; }
+}
+
+/* Activity within the illustrated scene. All moving parts share the pause control. */
+.excavator-arm {
+  transform-box:fill-box;
+  transform-origin:0 43%;
+  animation:excavator-dig 7s ease-in-out infinite;
+}
+.conveyor-belt { animation:conveyor-run 1.8s linear infinite; }
+.coal-vessel {
+  transform-box:fill-box;
+  transform-origin:50% 70%;
+  animation:ship-swell 5.5s ease-in-out infinite;
+}
+.terminal-grab { animation:loading-cycle 6s ease-in-out infinite; }
+.plant-plume { animation:plume-rise 5s ease-out infinite; }
+.sea-ripple { animation:water-shimmer 4s ease-in-out infinite; }
+.chain-motion { animation-play-state:paused; }
+.coal-object.is-visible .chain-motion { animation-play-state:running; }
+:root[data-coal-motion=off] .chain-motion { animation-play-state:paused!important; }
+@keyframes excavator-dig {
+  0%,100% { transform:rotate(-8deg); }
+  45%,60% { transform:rotate(15deg); }
+}
+@keyframes conveyor-run { to { stroke-dashoffset:-36; } }
+@keyframes ship-swell {
+  0%,100% { transform:translateY(-1px) rotate(-.6deg); }
+  50% { transform:translateY(2.5px) rotate(.6deg); }
+}
+@keyframes loading-cycle {
+  0%,100% { transform:translateY(-5px); }
+  45%,60% { transform:translateY(7px); }
+}
+@keyframes plume-rise {
+  0% { transform:translate(0,0); opacity:.15; }
+  50% { opacity:.55; }
+  100% { transform:translate(8px,-10px); opacity:.05; }
+}
+@keyframes water-shimmer {
+  0%,100% { opacity:.3; transform:translateX(-2px); }
+  50% { opacity:.9; transform:translateX(3px); }
+}
+.object-top .quiet-button {
+  background:#dfe5d5;
+  padding:7px 10px;
+  border-radius:2px;
+}
+.object-top .quiet-button[aria-pressed=true] { background:#e7dbc5; }
+.market-metrics {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  padding-block:21px;
+  margin:22px 0 0;
+  border-block:1px solid #47606a;
+}
+.market-metrics dt {
+  font:10px var(--font-sans);
+  color:#b6c6c7;
+  line-height:1.5;
+}
+.market-metrics dd {
+  margin:9px 0 0;
+  font:26px var(--font-serif);
+  color:#dfbc7d;
+  line-height:1.15;
+}
+.market-record {
+  display:inline-block;
+  margin-top:15px;
+  color:#c7d0cf;
+  font:10px var(--font-sans);
+}
+.page-coal .atlas-scope {
+  padding-top:30px;
+  font:12px/1.8 var(--font-sans);
+  color:#b6c6c7;
+}
+#coal-map[data-view=world] text { font-size:24px; }
+/* One reading measure for narrative, with separate space for exhibits. */
+.page-coal .prose {
+  width:100%;
+  max-width:770px;
+  min-width:0;
+}
+.page-coal .prose p {
+  max-width:770px;
+  font-size:20px;
+  line-height:1.85;
+  margin:0 0 28px;
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
+  overflow-wrap:break-word;
+}
+.page-coal .commentary { margin:52px auto 0; }
+.page-coal .prose p:last-child { margin-bottom:0; }
+.research-letter { grid-template-columns:1fr minmax(0,3fr); }
+@media(max-width:760px) {
+  .research-letter { grid-template-columns:1fr; }
+  #coal-map[data-view=world] text { font-size:32px; }
+  #coal-map[data-view=asia] text { font-size:16px; }
+  .market-metrics dd { font-size:28px; }
+  .page-coal .commentary { margin-top:32px; }
+  .page-coal .prose p {
+    font-size:20px;
+    line-height:1.8;
+    text-align:justify;
+    hyphens:auto;
+    margin-bottom:25px;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  :root[data-coal-motion=off] .chain-motion { animation:none!important; }
+}
+
+.map-console #coal-map[data-view=world] {
+  height:auto;
+  aspect-ratio:960 / 520;
 }

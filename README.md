@@ -138,8 +138,9 @@ patterns. `assets/js/coal/data.js` freezes the source register and economic
 observations; `model.js` contains the independent illustrative scenario
 arithmetic, `geography.js` the locally stored Natural Earth outlines, and
 `report.js` the charts and controls. `assets/css/coal.css` is page-scoped.
-The market atlas does not represent measured bilateral volumes or actual ship
-routes. Period-selectable Australian benchmark prices remain separate from
+Atlas arcs are conceptual links, not actual ship routes or a volume scale.
+Destination panels show the separate, revised BPS 2025 coal customs series.
+Period-selectable Australian benchmark prices remain separate from
 Indonesian selling prices. Forecasts retain their stated vintage; the simulator
 uses labelled analyst assumptions. Check `audits/RPT-014-2026-10-08.md` before
 changing any data or publishing this report.

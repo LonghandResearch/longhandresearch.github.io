@@ -18,13 +18,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
   <script>(function(){let t;try{t=localStorage.getItem('longhand-theme');}catch(e){}document.documentElement.dataset.theme=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';})();</script>
   <link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
-  <link rel="stylesheet" href="assets/css/coal.css?v=2026-10-08e">
+  <link rel="stylesheet" href="assets/css/coal.css?v=2026-10-08i">
   <script src="reports/reports.js?v=2026-10-08-coal" defer></script>
-  <script src="assets/js/site.js?v=2026-10-08e" defer></script>
-  <script src="assets/js/coal/data.js?v=2026-10-08e" defer></script>
-  <script src="assets/js/coal/model.js?v=2026-10-08e" defer></script>
-  <script src="assets/js/coal/geography.js?v=2026-10-08e" defer></script>
-  <script src="assets/js/coal/report.js?v=2026-10-08e" defer></script>
+  <script src="assets/js/site.js?v=2026-10-08i" defer></script>
+  <script src="assets/js/coal/data.js?v=2026-10-08i" defer></script>
+  <script src="assets/js/coal/model.js?v=2026-10-08i" defer></script>
+  <script src="assets/js/coal/geography.js?v=2026-10-08i" defer></script>
+  <script src="assets/js/coal/report.js?v=2026-10-08i" defer></script>
 </head>
 <body class="page-coal">
 <a class="skip" href="#main">Skip to research</a>
@@ -50,7 +50,7 @@
           <path d="M0 106 84 71 166 96 240 66 333 102 412 91 491 121 600 107V360H0Z" fill="url(#chain-land)"/>
           <path d="M0 163 76 133 152 149 240 116 320 152 406 134 495 164 600 141V360H0Z" fill="#bcc5ac"/>
           <path d="M360 232Q412 205 465 220T600 202V360H240Q288 322 302 285T360 232Z" fill="url(#chain-sea)"/>
-          <g stroke="#e6f0e5" stroke-opacity=".28" fill="none"><path d="M360 310q45-14 89-3m25-38q40-10 84-3M319 339q32-10 76-6m60 10q45-11 94-3M500 302q27-8 67-6"/></g>
+          <g class="chain-motion sea-ripple" stroke="#e6f0e5" stroke-opacity=".28" fill="none"><path d="M360 310q45-14 89-3m25-38q40-10 84-3M319 339q32-10 76-6m60 10q45-11 94-3M500 302q27-8 67-6"/></g>
           <g class="chain-scene" data-scene="mine">
             <path d="M24 166 127 128 241 166 272 218 175 278 63 247 21 210Z" fill="#baa483"/>
             <path d="M24 166 127 128 241 166 272 218 175 278 63 247 21 210Z" fill="url(#chain-strata)"/>
@@ -61,26 +61,27 @@
             <g transform="translate(145 107)">
               <path d="M-17 35h54l-5 9h-42Z" fill="#253c40"/><rect x="-11" y="22" width="31" height="13" rx="2" fill="#c0903b"/>
               <path d="M6 22V5h17l7 17Z" fill="#d5aa55"/><path d="M12 9h9l5 10H12Z" fill="#42636a"/>
-              <path d="M28 24 45 3 68 15 74 43" fill="none" stroke="#d5aa55" stroke-width="7" stroke-linejoin="round"/>
-              <path d="M67 39 84 44 80 54 69 52Z" fill="#253c40"/>
+              <g class="chain-motion excavator-arm"><path d="M28 24 45 3 68 15 74 43" fill="none" stroke="#d5aa55" stroke-width="7" stroke-linejoin="round"/>
+              <path d="M67 39 84 44 80 54 69 52Z" fill="#253c40"/></g>
             </g>
             <path d="m46 137 12-23 12 23Z M77 124l10-19 10 19Z" fill="#718873"/>
           </g>
           <g class="chain-scene" data-scene="port">
             <path d="M229 208 315 235 432 223 464 241 327 258 227 225Z" fill="#e6d9bd"/>
             <path d="M209 204 318 234 406 229" fill="none" stroke="#304a4d" stroke-width="7"/>
-            <path d="M209 202 318 232 406 227" fill="none" stroke="#c7ab77" stroke-width="2"/>
+            <path class="chain-motion conveyor-belt" stroke-dasharray="4 5" d="M209 202 318 232 406 227" fill="none" stroke="#c7ab77" stroke-width="2"/>
             <g stroke="#48605a" stroke-width="2"><path d="M241 214v16m30-8v17m32-8v15m36-13v12m31-14v10"/></g>
             <path d="m281 227 21-21 30 33Z" fill="#233e41"/><path d="m326 237 28-26 30 22Z" fill="#3f5655"/>
             <path d="m302 206 10 25-31-4Z" fill="#52635d"/><path d="m354 211 9 23-37 3Z" fill="#223a3e"/>
             <path d="M395 260v-62h15v62m-26-46 28-17 61 48m-62-48 8-13 62 44" fill="none" stroke="#b58e4a" stroke-width="5"/>
             <path d="M410 215v24m18-11v24m18-10v24m18-11v23" stroke="#b58e4a" stroke-width="2"/>
-            <g transform="translate(398 264)">
+            <g class="chain-motion terminal-grab"><path d="M454 250v14" stroke="#344f51" stroke-width="1.5"/><path d="m449 264 5-3 5 3-2 6h-6Z" fill="#3b5050"/></g>
+            <g transform="translate(398 264)"><g class="chain-motion coal-vessel">
               <path d="m-10 5 135-8-17 28-90 5Z" fill="#213a45"/><path d="m5 12 102-6-7 10-77 5Z" fill="#a47748"/>
               <path d="m14 0 13-10 22 3 13-7 18 11 16-6 17 7Z" fill="#273e40"/>
               <path d="M-1-11h20V5H-1Z" fill="#e4e0cf"/><path d="M3-21h13v10H3Z" fill="#e4e0cf"/>
               <path d="M8-28v7m-4 8h8m-8 4h8" stroke="#3e5f64" stroke-width="2"/>
-            </g>
+            </g></g>
           </g>
           <g class="chain-scene" data-scene="buyer">
             <path d="m441 159 66-23 77 30-65 24Z" fill="#a1ac9c"/>
@@ -88,7 +89,7 @@
             <path d="m466 140 49 19 41-14-49-19Z" fill="#637d77"/>
             <path d="M515 159v28l41-16v-26Z" fill="#8b9f92"/>
             <path d="M478 148v-56l10-4 8 3v64m24 0v-47l10-4 8 3v41" fill="#8c9c90"/>
-            <path d="m478 94 18 3m24 13 18 2" stroke="#e7ddc2" stroke-width="4"/>
+            <g class="chain-motion plant-plume" fill="none" stroke="#99a99e" stroke-width="3" stroke-linecap="round" opacity=".5"><path d="M488 83q-10-8 0-17t-2-18m43 48q9-8-1-17t2-16"/></g><path d="m478 94 18 3m24 13 18 2" stroke="#e7ddc2" stroke-width="4"/>
             <path d="m476 153 9 3m-9 6 9 3m38-1 11-4m-11 12 11-4" stroke="#e6e5d5" stroke-width="3"/>
           </g>
           <path class="chain-flow" d="M137 202Q243 285 369 277T533 201" fill="none" stroke="#e2b45f" stroke-width="3" stroke-dasharray="3 10"/>
@@ -116,8 +117,9 @@
     <div class="commentary prose"><p>The contrast is a useful starting point rather than evidence of a contradiction. Import demand is what remains when local supply and inventories are set against consumption. Under that framework, an exporter should watch the import gap as carefully as the demand total. The IEA's production assessment highlights abundant stocks and domestic supply in major consuming countries. These can limit the need for an additional foreign cargo even while coal remains an important part of the energy system. A thesis built only on rising electricity use misses that second half of the balance.</p><p>It is also important to keep thermal and metallurgical coal apart. The former is principally an energy fuel. The latter serves steelmaking requirements with different quality constraints. The older IEA trade outlook identifies stronger import prospects for metallurgical coal than for thermal coal. That does not automatically benefit a thermal producer. Product specifications, processing capability and customer access must fit the opportunity. We would therefore test any claim about "Asian coal growth" against the exact market it describes before using it in an Indonesian producer's revenue forecast.</p></div>
   </section>
 
-  <section class="atlas-section" id="atlas"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / The market atlas</p><h2>Follow the buyer.<br><em>Then follow the import gap.</em></h2></div><p>Select a market to see the question it raises for Indonesia. The connecting lines explain market relationships. Their width does not represent cargo volumes.</p></div>
-    <div class="atlas-grid"><div class="map-console"><div class="exhibit-top"><span class="eyebrow">Indonesia / Asian market context</span><div class="segmented" aria-label="Map view"><button type="button" data-map-view="asia" aria-pressed="true">Asia</button><button type="button" data-map-view="world" aria-pressed="false">World</button></div></div><svg id="coal-map" viewBox="540 70 420 350" role="img" aria-labelledby="map-title map-description"><title id="map-title">Coal market context from Indonesia to Asian buyers</title><desc id="map-description">Country outlines with approximate market markers and explanatory links from Indonesia. Select a market using the buttons beneath the map.</desc></svg><div class="map-bottom"><span><i class="map-key"></i> Selected market</span><span>Conceptual links / No bilateral volume data</span></div><div id="market-buttons" class="market-buttons" aria-label="Choose a market"></div></div><aside class="market-panel"><p class="eyebrow" id="market-name">China</p><h3 id="market-heading">Follow the import gap.</h3><p id="market-body"></p><div class="market-watch"><span class="eyebrow">What to watch</span><p id="market-watch"></p></div><p class="micro">Approximate market locations. Natural Earth outlines. No mine, port or plant coordinates are implied.</p></aside></div>
+  <section class="atlas-section" id="atlas"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / The market atlas</p><h2>Follow the buyer.<br><em>Then follow the import gap.</em></h2></div><p>Indonesia sells beyond ASEAN. Select a destination to read its revised 2025 BPS volume, or explore Viet Nam as regional context. Links have equal width and do not represent shipment size.</p></div>
+    <div class="atlas-grid"><div class="map-console"><div class="exhibit-top"><span class="eyebrow">Indonesia / Export destinations</span><div class="segmented" aria-label="Map view"><button type="button" data-map-view="asia" aria-pressed="false">Asia</button><button type="button" data-map-view="world" aria-pressed="true">World</button></div></div><svg id="coal-map" data-view="world" viewBox="0 0 960 520" role="img" aria-labelledby="map-title map-description"><title id="map-title">Indonesian coal export destinations and regional context</title><desc id="map-description">Country outlines with approximate market markers and explanatory links from Indonesia. Select a market using the buttons beneath the map.</desc></svg><div class="map-bottom"><span><i class="map-key"></i> Selected market</span><span>Conceptual links / Not vessel routes</span></div><div id="market-buttons" class="market-buttons" aria-label="Choose a market"></div></div><aside class="market-panel"><p class="eyebrow" id="market-name">China</p><h3 id="market-heading">Follow the import gap.</h3><p id="market-body"></p><dl class="market-metrics"><div><dt>2025 exports / BPS</dt><dd id="market-volume"></dd></div><div><dt>Share of BPS total</dt><dd id="market-share"></dd></div></dl><a id="market-record" class="market-record" target="_blank" rel="noopener noreferrer">Original destination record ↗</a><div class="market-watch"><span class="eyebrow">What to watch</span><p id="market-watch"></p></div><p class="micro">BPS reports countries and territories, with other destinations grouped together. Viet Nam is shown as IEA regional context without a separate BPS volume here. Markers are approximate.</p></aside></div>
+    <p class="atlas-scope">The BPS coal destination series totals <span id="destination-total"></span> in 2025, with <span id="destination-other"></span> assigned to other destinations. It is a different statistical series from the IEA thermal-coal estimates above. The two totals are not combined. Spain is a small recorded European outlet, not evidence that Europe rivals the major Asian buyers.</p>
   </div></section>
 
   <section class="wrap coal-section" id="prices"><div class="section-heading"><div><p class="eyebrow">04 / Price formation</p><h2>The benchmark has recovered.<br><em>The realised price is another question.</em></h2></div><p>A dated benchmark is a market reference. It is not the revenue received by every Indonesian mine.</p></div>
@@ -140,7 +142,7 @@
 
   <section class="wrap coal-section" id="monitoring"><div class="section-heading"><div><p class="eyebrow">07 / Conditions for revision</p><h2>The thesis needs<br><em>observable checkpoints.</em></h2></div><p>Revisit the framework when the import gap, supply response or producer economics changes. Avoid relying on one headline.</p></div><div class="watchlist"><article><span>01</span><h3>Import requirement</h3><p>Compare consumption with domestic supply, inventories and recorded imports in the same period. Reassess if Asian buyers need consistently more foreign coal despite local supply expansion.</p></article><article><span>02</span><h3>Supply response</h3><p>Reconcile announced limits with company approvals, actual output and shipments. Reassess if lost Indonesian availability is restored or competitors replace it faster than assumed.</p></article><article><span>03</span><h3>Cash conversion</h3><p>Compare realised selling prices and costs with the benchmark. Reassess if production costs, inland logistics or capital needs absorb the apparent improvement in price.</p></article></div><div class="closing prose"><p>Confidence is higher in the distinction between consumption and import demand than in any single price path. The former is a balance that can be tested. The latter depends on changing fuel economics, weather, supply and policy. This report consequently argues for a conditional view of Indonesia's coal opportunity. Continued coal use is compatible with a more competitive export market, and a tighter market is compatible with weak cash conversion at an individual mine. Evidence of sustained import growth and stronger company-level cash generation would improve that view. Evidence of effective import substitution, replacement supply or rising costs would weaken it.</p></div></section>
 
-  <section class="sources-section" id="sources"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">08 / Sources &amp; method</p><h2>Keep the evidence<br><em>close to the argument.</em></h2></div><p>Essential records, grouped by institution. Open a group for the original links and the passages used. There are no citation numbers at the ends of paragraphs.</p></div><div id="coal-sources"></div><div class="method-note prose"><p>Assessment date: 8 October 2026. Observed price coverage runs through September 2026. Near-term volumes use the IEA's September forecast vintage. Older medium-term work remains labelled as an earlier framework. IEA chapters share one publisher and forecasting process, so they are not independent corroboration. The World Bank provides a separate institutional reference, although underlying price-agency inputs may overlap.</p><p>The market atlas is explanatory, with approximate locations and equal-width links. It does not supply bilateral shipment shares. Charts reproduce the stated definitions and distinguish preliminary observations from forecasts. The lab is an independent arithmetic scenario with no probability model or valuation output. Company cash economics, currently effective production approvals and final realised 2026 volumes require further evidence before company-specific conclusions can be drawn.</p></div><p class="micro">Made with Natural Earth. Maps are explanatory. Boundaries do not express a position on territorial claims.</p></div></section>
+  <section class="sources-section" id="sources"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">08 / Sources &amp; method</p><h2>Keep the evidence<br><em>close to the argument.</em></h2></div><p>Essential records, grouped by institution. Open a group for the original links and the passages used. There are no citation numbers at the ends of paragraphs.</p></div><div id="coal-sources"></div><div class="method-note prose"><p>Assessment date: 8 October 2026. Observed price coverage runs through September 2026. Near-term volumes use the IEA's September forecast vintage. Older medium-term work remains labelled as an earlier framework. IEA chapters share one publisher and forecasting process, so they are not independent corroboration. The World Bank provides a separate institutional reference, although underlying price-agency inputs may overlap.</p><p>The market atlas is explanatory, with approximate locations and equal-width links. The destination panel gives shares of the separate BPS 2025 total, while the connecting arcs do not encode volume. Charts reproduce the stated definitions and distinguish preliminary observations from forecasts. The lab is an independent arithmetic scenario with no probability model or valuation output. Company cash economics, currently effective production approvals and final realised 2026 volumes require further evidence before company-specific conclusions can be drawn.</p></div><p class="micro">Made with Natural Earth. Maps are explanatory. Boundaries do not express a position on territorial claims.</p></div></section>
 </main><footer class="wrap footer"><a href="library.html">Longhand Research / Library</a><span>Coal in transition / Sector research</span></footer>
 <noscript><p class="wrap">The research narrative is available above. Enable JavaScript to explore the map, source registry, charts and scenario controls.</p></noscript>
 </body></html>
