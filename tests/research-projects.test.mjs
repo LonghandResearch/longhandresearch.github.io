@@ -74,6 +74,40 @@ test('unchanged import keeps current approval even if backup metadata requests a
   assert.deepEqual(copy(await repo.get(current.id)), copy(current));
 });
 
+test('report-link-only imports preserve modern and legacy approval and do not retain a research version', async () => {
+  for (const legacy of [false, true]) {
+    const { repo, records } = setup(); let current = await repo.create(scope);
+    current = await repo.save({ ...current, draftKind: 'research', draftBody: 'Approved argument.', sources: [checkedSource], reasoning: reasoning() }, current.revision);
+    current = await repo.review(current.id, current.revision, 'submit', 'Submit argument.');
+    current = await repo.review(current.id, current.revision, 'approve', 'Keep the local approval rationale.', attestation());
+    if (legacy) {
+      const old = copy(current); delete old.review; delete old.reasoning;
+      current = model.normalize(old); records.rows.set(current.id, copy(current));
+    }
+    for (const reportId of ['library-report', null, 'replacement-report']) {
+      const input = envelope([{ ...current, reportId, revision: 500, status: 'DRAFT', review: null, reasoningHistory: [],
+        history: [{ at: current.createdAt, action: 'Created', note: 'Incoming metadata must not replace local review.' }] }]);
+      await repo.importBackup(input, await repo.prepareImport(input));
+      const updated = await repo.get(current.id);
+      assert.equal(updated.reportId, reportId); assert.equal(updated.revision, current.revision + 1);
+      assert.equal(updated.status, 'APPROVED'); assert.deepEqual(copy(updated.review), copy(current.review));
+      assert.deepEqual(copy(updated.reasoningHistory), copy(current.reasoningHistory));
+      assert.deepEqual(copy(updated.history.slice(0, -1)), copy(current.history));
+      assert.match(updated.history.at(-1).action, /report connection/);
+      assert.equal(model.parseBackup(await repo.exportBackup(updated.id))[0].status, 'APPROVED');
+      await repo.importBackup(input, await repo.prepareImport(input));
+      assert.deepEqual(copy(await repo.get(current.id)), copy(updated), 'repeating the same link adds no revision');
+      current = updated;
+    }
+    const input = envelope([{ ...current, reportId: null, draftBody: 'Materially revised argument.' }]);
+    await repo.importBackup(input, await repo.prepareImport(input));
+    const changed = await repo.get(current.id);
+    assert.equal(changed.status, 'DRAFT'); assert.equal(changed.review, null);
+    assert.equal(changed.reasoningHistory.at(-1).status, 'APPROVED');
+    assert.equal(changed.reasoningHistory.at(-1).approvalNote, 'Keep the local approval rationale.');
+  }
+});
+
 test('batch import rejects stale or deleted matches without adding any new projects', async () => {
   for (const change of ['save', 'delete']) {
     const { repo } = setup(); const current = await repo.create(scope);

@@ -345,11 +345,11 @@
       const updates = preview.filter(project => project.revision !== null);
       if (updates.length && !await confirmAction('Update ' + updates.length + ' existing project(s): ' +
         updates.slice(0, 3).map(project => '“' + project.topic + '”').join(', ') + (updates.length > 3 ? ', and ' + (updates.length - 3) + ' more' : '') +
-        '? The file replaces the brief, draft, sources and reasoning together. Changed projects return to Draft; their previous version is retained. ' +
+        '? The file replaces the brief, draft, sources and reasoning together. Research or workflow changes return to Draft and retain the previous version. A report connection alone keeps the current review. ' +
         (preview.length - updates.length) + ' new project(s) will also be added.', 'Update projects')) return;
       await repository.importBackup(input, preview);
       await refresh({ id: preview.length === 1 ? preview[0].id : selected ? selected.id : preview[0].id }, false);
-      result = 'Imported ' + preview.length + ' project(s). Existing projects updated in place; changed projects need review and have previous versions retained.';
+      result = 'Imported ' + preview.length + ' project(s). Research or workflow changes need review and retain previous versions. Report connections alone keep the current review.';
     }, () => result).finally(() => { event.target.value = ''; });
   });
   perform(async () => {

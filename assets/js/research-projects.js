@@ -258,8 +258,12 @@
           const next = { ...incoming, run: clone(incoming.run), outputs: clone(incoming.outputs) };
           if (JSON.stringify(next.brief) !== JSON.stringify(current.brief)) { next.run = { times: [] }; next.outputs = []; }
           const content = project => JSON.stringify([project.brief, project.sources, project.draftKind, project.draftBody,
-            project.reasoning, project.run, project.outputs, project.reportId]);
-          if (content(next) === content(current)) return current;
+            project.reasoning, project.run, project.outputs]);
+          if (content(next) === content(current)) {
+            if (next.reportId === current.reportId) return current;
+            return normalize({ ...current, reportId: next.reportId, updatedAt: clock(), revision: current.revision + 1,
+              history: history(current, 'Imported report connection', 'Research and its current review were unchanged.') });
+          }
           if (current.draftKind === 'planning' && next.draftKind === 'research' && next.draftBody === current.draftBody) fail('Replace the planning text with your research draft before marking it ready for review.');
           return normalize({ ...next, createdAt: current.createdAt, updatedAt: clock(), revision: current.revision + 1,
             status: 'DRAFT', review: null, reasoningHistory: retain(current),
