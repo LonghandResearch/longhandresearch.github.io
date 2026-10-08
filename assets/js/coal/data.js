@@ -134,7 +134,7 @@ window.COAL_RESEARCH = {
       "title": "Coal 2025: General annex definitions",
       "date": "17 December 2025",
       "url": "https://iea.blob.core.windows.net/assets/113a8274-500c-4684-951f-947d25bef3c9/Coal2025.pdf",
-      "locator": "PDF and printed page 124: coal rank, classification and thermal coal",
+      "locator": "Document and printed page 124: coal rank, classification and thermal coal",
       "note": "Distinguishes hard coal from lignite and defines thermal coal as hard coal used outside metallurgy. No verified crosswalk to these BPS table classifications has been established."
     },
     {
@@ -143,7 +143,7 @@ window.COAL_RESEARCH = {
       "title": "Investor Update: 2Q 2026",
       "date": "Company investor index dated 31 August 2026",
       "url": "https://www.bayan.com.sg/cfind/source/files/investor/investor-update/investor-update-2q-2026.pdf",
-      "locator": "PDF p.3 / slide 2: half-year operations and earnings. PDF p.14 / slide 13: cash cost definition. PDF p.21 / slide 20: quarterly capex.",
+      "locator": "Document p.3 / slide 2: half-year operations and earnings. Document p.14 / slide 13: cash cost definition. Document p.21 / slide 20: quarterly capex.",
       "note": "Company-reported presentation. Average cash cost includes royalty, barging and SGA. Half-year capex is derived by adding the two reported quarterly actuals. EBITDA minus capex is not treated as free cash flow."
     },
     {
@@ -152,7 +152,7 @@ window.COAL_RESEARCH = {
       "title": "Interim consolidated financial statements: 30 June 2026",
       "date": "Six months ended 30 June 2026, with 2025 comparatives",
       "url": "https://www.ptba.co.id/api/storage/1788182275569-46100b32-bee3-4892-9123-9e390c421df9.pdf",
-      "locator": "PDF pp.10-11 / statements pp.4-5: earnings. PDF p.13 / statement p.7: cash flows. PDF pp.119-121 / notes pp.113-115: revenue and costs.",
+      "locator": "Document pp.10-11 / statements pp.4-5: earnings. Document p.13 / statement p.7: cash flows. Document pp.119-121 / notes pp.113-115: revenue and costs.",
       "note": "Reviewed interim statements, unaudited, in millions of rupiah. Asset purchases include bearer plants. Operating cash less these purchases is a derived subtotal, not comprehensive free cash flow or dividend capacity. Owner-attributable profit is distinguished from total profit."
     },
     {
