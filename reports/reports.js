@@ -41,7 +41,7 @@ window.LONGHAND_REPORTS = [
     "ticker": "",
     "company": "US Treasury market and the US economy",
     "sector": "US rates and economic activity",
-    "category": "Update",
+    "category": "Macro",
     "title": "Higher Yields, Uneven Effects",
     "date": "2026-10-08",
     "blurb": "Treasury yields and mortgage rates have risen, while spending, business equipment and housing show a mixed economic picture.",
@@ -62,8 +62,8 @@ window.LONGHAND_REPORTS = [
     "targetPrice": null,
     "upside": null,
     "pdfUrl": "reports/US_Treasury_Repricing_Update_2026-10-08.pdf",
-    "pages": 6,
-    "fileSize": 86394,
+    "pages": 9,
+    "fileSize": 91174,
     "extra": [
       [
         "Market data cutoff",
