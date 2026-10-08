@@ -50,6 +50,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | OWN-002 | Create the GoatCounter account so the counter already in the pages starts counting | Owner | | Blocked | |
 | RPT-012 | Build and publish reproducible Indonesia AI/data-center resource research and an interactive visual report | Codex | `codex/indonesia-ai-research` | Done (owner authorized publication without Claude review because subscription access was unavailable) | [PR #70](https://github.com/LonghandResearch/longhandresearch.github.io/pull/70) |
 | RPT-013 | Add the US Treasury Macro report with seven audited charts, natural English and a source record | Codex | `codex/us-treasury-update` | Done (owner authorized publication after Codex review without Claude because subscription access was unavailable) | [PR #74](https://github.com/LonghandResearch/longhandresearch.github.io/pull/74) |
+| WEB-015 | Add Longhand World V0.1 with five core professionals, local research operations and guarded direct-file URL updates | Codex | `codex/longhand-world` | Review (owner authorized Codex completion while Claude unavailable) | [PR #71](https://github.com/LonghandResearch/longhandresearch.github.io/pull/71) |
 
 ## Status values
 

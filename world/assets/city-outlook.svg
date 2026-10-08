@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" shape-rendering="crispEdges" role="img" aria-labelledby="title description">
+  <title id="title">The city below Longhand Research</title>
+  <desc id="description">A wide view from a high-rise research headquarters at dusk. Nearby glass towers rise above layers of distant buildings and blue atmospheric haze. Tall steel window bays, quiet reflections and warm ceiling light frame the city.</desc>
+  <defs>
+    <pattern id="smallWindows" width="7" height="8" patternUnits="userSpaceOnUse">
+      <rect x="2" y="2" width="2" height="2" fill="#b9c6c8"/>
+      <rect x="5" y="6" width="1" height="1" fill="#d0bb9b"/>
+    </pattern>
+    <pattern id="amberWindows" width="10" height="9" patternUnits="userSpaceOnUse">
+      <rect x="2" y="2" width="3" height="3" fill="#c4bca2"/>
+      <rect x="7" y="6" width="2" height="2" fill="#819ba7"/>
+    </pattern>
+    <pattern id="glassGrid" width="8" height="11" patternUnits="userSpaceOnUse">
+      <rect width="8" height="11" fill="#445e73"/>
+      <rect x="1" y="1" width="6" height="8" fill="#708796"/>
+      <rect x="1" y="1" width="6" height="2" fill="#a3afb0"/>
+      <path d="M0 10H8" stroke="#253e53" stroke-width="1"/>
+    </pattern>
+    <pattern id="farGrid" width="5" height="5" patternUnits="userSpaceOnUse">
+      <rect x="2" y="2" width="1" height="1" fill="#aabac1"/>
+    </pattern>
+    <clipPath id="view"><rect x="76" y="14" width="808" height="202"/></clipPath>
+  </defs>
+  <rect width="960" height="240" fill="#263440"/>
+  <rect x="60" width="840" height="240" fill="#2b3a45"/>
+  <g clip-path="url(#view)">
+    <!-- Crisp, quiet atmosphere: the horizon is seen from well above street level. -->
+    <rect x="76" y="14" width="808" height="202" fill="#354b63"/>
+    <rect x="76" y="48" width="808" height="18" fill="#3b526a"/>
+    <rect x="76" y="66" width="808" height="24" fill="#435d74"/>
+    <rect x="76" y="90" width="808" height="29" fill="#4e6980"/>
+    <rect x="76" y="119" width="808" height="35" fill="#5b7488"/>
+    <rect x="76" y="154" width="808" height="62" fill="#4a6579"/>
+    <path d="M87 49H233M183 52H280M623 36H759M704 39H851M106 82H163M544 93H639" stroke="#8396a6" stroke-width="2" opacity=".16"/>
+
+    <!-- Far city: small silhouettes partly dissolved in evening haze. -->
+    <path d="M76 167V143H89V132H101V147H115V128H128V141H142V123H154V141H166V135H178V146H191V131H205V139H218V120H230V138H244V127H257V144H272V133H286V146H300V122H313V137H326V128H340V145H354V136H368V119H381V140H396V131H409V146H423V122H436V137H449V127H461V144H475V132H490V118H503V137H517V129H532V143H546V134H560V122H574V140H589V128H602V145H617V134H631V120H645V140H659V127H672V147H686V133H700V122H713V141H727V130H741V146H755V134H769V124H783V143H797V128H811V138H826V121H840V140H854V130H868V146H884V216H76Z" fill="#526d83"/>
+    <path d="M83 148H100V163H83ZM116 143H136V165H116ZM149 144H176V166H149ZM199 141H215V164H199ZM223 137H240V165H223ZM277 144H298V170H277ZM310 139H331V169H310ZM355 146H374V171H355ZM383 140H407V166H383ZM432 138H454V170H432ZM486 136H506V169H486ZM529 147H549V171H529ZM571 141H598V171H571ZM628 139H648V170H628ZM670 149H695V176H670ZM710 141H735V171H710ZM760 145H786V170H760ZM810 140H838V174H810ZM851 144H876V174H851Z" fill="url(#farGrid)" opacity=".55"/>
+    <rect x="76" y="160" width="808" height="11" fill="#728696" opacity=".17"/>
+
+    <!-- Middle distance, with concrete cores, roof equipment and restrained office lights. -->
+    <path d="M76 216V183H91V153H112V216H121V176H141V144H160V216H173V166H196V154H209V216H221V143H243V133H260V216H273V170H292V157H310V216H323V178H347V151H363V216H376V162H399V216H411V174H432V147H448V216H461V165H484V151H497V216H508V181H531V155H548V216H561V145H581V135H596V216H609V175H633V161H648V216H660V163H683V149H696V216H708V180H730V154H745V216H758V145H780V133H794V216H807V170H829V157H846V216H859V155H882V216Z" fill="#344f67"/>
+    <path d="M95 158H108V213H95ZM124 181H137V213H124ZM145 148H156V213H145ZM178 170H191V213H178ZM226 148H239V213H226ZM247 137H256V213H247ZM277 174H288V213H277ZM295 161H306V213H295ZM328 183H343V213H328ZM351 155H359V213H351ZM381 167H395V213H381ZM415 178H428V213H415ZM436 151H444V213H436ZM465 170H480V213H465ZM488 155H493V213H488ZM514 184H527V213H514ZM535 160H544V213H535ZM565 149H577V213H565ZM585 139H592V213H585ZM613 179H629V213H613ZM637 165H644V213H637ZM665 167H679V213H665ZM686 153H692V213H686ZM713 184H726V213H713ZM735 158H741V213H735ZM762 149H776V213H762ZM784 137H790V213H784ZM812 174H825V213H812ZM834 161H842V213H834ZM863 159H878V213H863Z" fill="url(#smallWindows)" opacity=".65"/>
+    <path d="M92 157H110M146 146H157M227 145H241M352 152H361M437 148H446M565 147H579M736 156H743M764 147H779" stroke="#a4afa9" stroke-width="1" opacity=".6"/>
+    <path d="M107 202H125L136 198H171M299 206H330L339 201H376M517 198H543L553 193H583M778 202H807L817 196H849" fill="none" stroke="#b3ada0" stroke-width="2" opacity=".38"/>
+
+    <!-- Nearby towers are close enough to reveal façade depth and floors below the viewer. -->
+    <path d="M128 216V81L146 69H182L194 79V216Z" fill="#2c4358"/>
+    <path d="M146 69H182V216H146Z" fill="#536a7d"/>
+    <path d="M129 82L145 72V216H129Z" fill="#314d63"/>
+    <rect x="149" y="77" width="30" height="135" fill="url(#amberWindows)" opacity=".8"/>
+    <path d="M149 74H179M149 103H179M149 133H179M149 162H179M149 192H179" stroke="#abb3b0" stroke-width="2" opacity=".7"/>
+    <path d="M133 85V210M139 81V210M182 80V213" stroke="#738b99" stroke-width="1" opacity=".6"/>
+    <rect x="152" y="65" width="25" height="4" fill="#84959d"/>
+    <rect x="159" y="61" width="10" height="4" fill="#435f74"/>
+
+    <path d="M260 216V106L276 93H322V216Z" fill="#344e62"/>
+    <rect x="276" y="93" width="46" height="123" fill="#60778a"/>
+    <path d="M277 97H320V214H277Z" fill="url(#glassGrid)" opacity=".6"/>
+    <path d="M281 93V214M293 93V214M307 93V214M320 93V214" stroke="#889caa" stroke-width="1"/>
+    <path d="M278 109H320M278 132H320M278 155H320M278 178H320M278 201H320" stroke="#bac1bd" stroke-width="1" opacity=".7"/>
+    <path d="M261 107L276 96V215H261Z" fill="#30495e"/>
+    <path d="M278 95H318" stroke="#c0c6bf" stroke-width="2"/>
+
+    <path d="M406 216V52L426 39H480L491 50V216Z" fill="#253e54"/>
+    <rect x="426" y="39" width="54" height="177" fill="#5c7488"/>
+    <rect x="430" y="45" width="46" height="169" fill="url(#glassGrid)" opacity=".8"/>
+    <path d="M434 43V214M445 43V214M459 43V214M473 43V214" stroke="#9caeb5" stroke-width="1" opacity=".7"/>
+    <path d="M428 72H478M428 106H478M428 140H478M428 174H478M428 208H478" stroke="#bcc6c3" stroke-width="2" opacity=".65"/>
+    <path d="M408 53L424 43V216H408Z" fill="#2e4b63"/>
+    <path d="M413 56V212M419 52V212" stroke="#597c94" stroke-width="1"/>
+    <path d="M431 42H440L472 108V139L431 56Z" fill="#c5d0d0" opacity=".14"/>
+    <rect x="434" y="35" width="37" height="4" fill="#91a2ac"/>
+    <rect x="447" y="29" width="11" height="6" fill="#5b758b"/>
+    <rect x="452" y="22" width="2" height="7" fill="#acb7b7"/>
+
+    <path d="M655 216V99L674 83H727L741 98V216Z" fill="#2a4359"/>
+    <rect x="674" y="83" width="53" height="133" fill="#6f7f88"/>
+    <rect x="677" y="89" width="47" height="124" fill="url(#amberWindows)" opacity=".72"/>
+    <path d="M676 103H726M676 126H726M676 149H726M676 172H726M676 195H726" stroke="#c0bba9" stroke-width="2" opacity=".72"/>
+    <path d="M683 89V211M698 89V211M712 89V211" stroke="#526777" stroke-width="1"/>
+    <path d="M657 100L672 86V215H657Z" fill="#314c61"/>
+    <path d="M661 103V212M668 97V212M730 101V212" stroke="#668295" stroke-width="1"/>
+    <rect x="681" y="79" width="39" height="4" fill="#849aa4"/>
+    <rect x="692" y="73" width="17" height="6" fill="#607b8f"/>
+
+    <path d="M816 216V133L833 119H884V216Z" fill="#2b4256"/>
+    <rect x="833" y="119" width="51" height="97" fill="#587184"/>
+    <rect x="836" y="124" width="48" height="89" fill="url(#smallWindows)" opacity=".78"/>
+    <path d="M838 126V211M852 126V211M867 126V211M882 126V211" stroke="#98abb2" stroke-width="1" opacity=".6"/>
+    <path d="M835 143H884M835 167H884M835 191H884" stroke="#bac2bd" stroke-width="1" opacity=".55"/>
+
+    <!-- Tall glazing catches warm room light without obscuring the city. -->
+    <path d="M82 17H105L193 216H170ZM346 17H363L452 216H433ZM629 17H645L735 216H717ZM861 17H883V99Z" fill="#d1d7cd" opacity=".07"/>
+    <path d="M88 18H179M356 18H440M634 18H717" stroke="#e3c799" stroke-width="2" opacity=".25"/>
+  </g>
+
+  <!-- Actual architectural framing aligns with the six-room floor below. -->
+  <rect x="60" width="840" height="14" fill="#3b444a"/>
+  <rect x="60" y="1" width="840" height="3" fill="#747e7f"/>
+  <rect x="76" y="11" width="808" height="3" fill="#172d3e"/>
+  <path d="M90 12H309M355 12H595M637 12H870" stroke="#d6b48a" stroke-width="2"/>
+  <rect x="60" y="14" width="16" height="202" fill="#3e4b53"/>
+  <rect x="60" y="14" width="3" height="202" fill="#87918c"/>
+  <rect x="73" y="14" width="3" height="202" fill="#1b3141"/>
+  <rect x="324" y="14" width="16" height="202" fill="#3b4e5c"/>
+  <rect x="326" y="14" width="3" height="202" fill="#8d9e9d"/>
+  <rect x="336" y="14" width="4" height="202" fill="#203a4d"/>
+  <rect x="608" y="14" width="16" height="202" fill="#3b4e5c"/>
+  <rect x="610" y="14" width="3" height="202" fill="#8d9e9d"/>
+  <rect x="620" y="14" width="4" height="202" fill="#203a4d"/>
+  <rect x="884" y="14" width="16" height="202" fill="#384a57"/>
+  <rect x="884" y="14" width="3" height="202" fill="#78919f"/>
+  <rect x="897" y="14" width="3" height="202" fill="#1f3649"/>
+  <path d="M200 14V216M474 14V216M752 14V216" stroke="#284155" stroke-width="4"/>
+  <path d="M202 15V213M476 15V213M754 15V213" stroke="#8da3ac" stroke-width="1"/>
+  <path d="M77 137H323M341 137H607M625 137H883" stroke="#2a4354" stroke-width="3"/>
+  <path d="M77 139H323M341 139H607M625 139H883" stroke="#94a8ac" stroke-width="1"/>
+  <rect x="60" y="216" width="840" height="24" fill="#34424a"/>
+  <rect x="76" y="216" width="808" height="4" fill="#9ba49a"/>
+  <rect x="76" y="220" width="808" height="3" fill="#223744"/>
+  <rect x="76" y="223" width="808" height="9" fill="#565a53"/>
+  <path d="M88 225H872" stroke="#c8ac83" stroke-width="1" opacity=".65"/>
+  <rect x="60" y="234" width="840" height="6" fill="#263440"/>
+</svg>
