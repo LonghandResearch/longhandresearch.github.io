@@ -43,7 +43,7 @@ window.LONGHAND_REPORTS = [
     "sector": "Energy and coal",
     "category": "Sector",
     "title": "Coal Still Burns. Trade Is Changing.",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "blurb": "Coal consumption and the export market can move in different directions. Explore Indonesia's position through demand, prices, a global destination atlas and company evidence.",
     "summary": "A coal sector study separating global consumption, seaborne thermal trade and producer cash economics. Dated IEA forecasts and World Bank price averages frame Indonesia's export position. A BPS coal-and-lignite coverage check, global destination atlas and Bayan/Bukit Asam case studies connect the trade outlook with realised operating and cash evidence. Period-selectable prices, an illustrative scenario lab and conditional 2026-2030 cases keep observations, forecasts and assumptions distinct.",
     "tags": ["Coal", "Indonesia", "Energy", "Thermal coal", "Exports", "China", "India", "Commodities", "Energy transition"],
