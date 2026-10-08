@@ -28,7 +28,7 @@
 .research-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); border: 1px solid var(--world-rule); }
 .research-list { padding: 24px; border-right: 1px solid var(--world-rule); }
 .research-list h2 { font: 24px var(--world-serif); }
-.research-list ol, #source-list, #project-history { list-style: none; padding: 0; margin: 18px 0; }
+.research-list ol, #source-list, #project-history, #thesis-evidence { list-style: none; padding: 0; margin: 18px 0; }
 .research-list li { border-top: 1px solid var(--world-rule); }
 .research-list button { width: 100%; padding: 16px 0; background: none; border: 0; color: var(--world-ink); text-align: left; overflow-wrap: anywhere; }
 .research-list button[aria-current="true"] { color: var(--world-brass); }
@@ -42,12 +42,19 @@
 .research-form input, .research-form textarea, .research-form select { width: 100%; min-width: 0; padding: 12px; border: 1px solid var(--world-rule); border-radius: 0; background: var(--world-bg); color: var(--world-ink); font: 14px/1.5 var(--world-sans); }
 .research-form textarea { resize: vertical; }
 .research-form button { justify-self: start; }
-.research-form .research-checkbox { display: flex; align-items: start; gap: 10px; }
+.research-form .research-checkbox, .research-review .research-checkbox { display: flex; align-items: start; gap: 10px; }
 .research-checkbox input { width: 16px; height: 16px; flex: none; }
 .research-section { padding-top: 26px; margin-top: 26px; border-top: 1px solid var(--world-rule); }
 .research-section h3 { font: 24px var(--world-serif); margin-bottom: 12px; }
-#source-list li, #project-history li { padding-block: 16px; border-bottom: 1px solid var(--world-rule); overflow-wrap: anywhere; }
-#source-list p, #project-history p { white-space: pre-wrap; color: var(--world-muted); font-size: 12px; margin-block: 8px; }
+#source-list li, #project-history li, #thesis-evidence li { padding-block: 16px; border-bottom: 1px solid var(--world-rule); overflow-wrap: anywhere; }
+#source-list p, #project-history p, #thesis-evidence p { white-space: pre-wrap; color: var(--world-muted); font-size: 12px; margin-block: 8px; }
+.research-subheading { margin-top: 28px; font: 18px var(--world-serif); }
+.research-review { border: 1px solid var(--world-rule); padding: 18px; margin-block: 20px; display: grid; gap: 16px; }
+.research-review legend { padding-inline: 8px; font-size: 13px; }
+.research-review label { color: var(--world-muted); font-size: 13px; line-height: 1.5; }
+#reasoning-history details { border-bottom: 1px solid var(--world-rule); padding-block: 16px; }
+#reasoning-history summary { cursor: pointer; font-size: 13px; color: var(--world-brass); overflow-wrap: anywhere; }
+#reasoning-history pre { font: 12px/1.7 var(--world-sans); white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 16px; color: var(--world-muted); }
 #source-list button { margin-right: 10px; }
 #report-link { overflow-wrap: anywhere; }
 .research-page .world-footer { margin-top: 50px; }

@@ -35,3 +35,27 @@ test('completed simulations cannot create evidence, analysis validation or appro
   assert.match(result.simulation, /29\/29 simulated/);
   assert.equal(JSON.stringify(record), before);
 });
+
+test('missing constitutional reasoning routes researched drafts to the Researcher before review', () => {
+  const draft = project({ sources: [source], draftKind: 'research', draftBody: 'Synthetic researched prose.' });
+  const incomplete = guide(draft, []);
+  assert.equal(incomplete.owner, 'Researcher'); assert.equal(incomplete.section, 'reasoning-heading');
+  assert.match(incomplete.blocker, /reasoning or linked thesis evidence is missing/);
+  assert.match(incomplete.next, /link its evidence/);
+  const submitted = guide({ ...draft, status: 'IN_REVIEW' }, []);
+  assert.equal(submitted.owner, 'Researcher'); assert.equal(submitted.section, 'reasoning-heading');
+  assert.match(submitted.next, /resubmit for review/);
+  const reasoning = { thesis: 'Test thesis', analysis: 'Test interpretation', uncertainty: 'Test limits', reviewConditions: 'Test trigger', evidence: [{}] };
+  assert.equal(guide({ ...draft, reasoning: { ...reasoning, evidence: [] } }, []).owner, 'Researcher');
+  const ready = guide({ ...draft, reasoning }, []);
+  assert.equal(ready.owner, 'Editor'); assert.equal(ready.section, 'draft-heading');
+  assert.match(ready.next, /Submit the saved research/);
+  assert.equal(guide({ ...draft, reasoning, status: 'IN_REVIEW' }, []).owner, 'Research Director');
+});
+
+test('the role guide distinguishes legacy approval from an attributed constitutional review', () => {
+  const legacy = guide(project({ status: 'APPROVED' }), []);
+  assert.match(legacy.tasks.find(task => task.id === 'director').record, /Legacy approval/);
+  const current = guide(project({ status: 'APPROVED', review: { reviewer: 'Synthetic reviewer' } }), []);
+  assert.match(current.tasks.find(task => task.id === 'director').record, /Named reviewer and six manual checks/);
+});

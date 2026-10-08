@@ -54,6 +54,22 @@ test('approved handoff exports real saved prose, evidence and the review note; p
   assert.match(text, /Human-written test prose/); assert.match(text, /https:\/\/example.com/);
   assert.match(text, /Test evidence and wording reviewed/); assert.match(text, /Unchecked — review before publication/);
   assert.match(text, /does not publish a report/);
+  assert.match(text, /Legacy approval: the constitutional checklist and reviewer attribution were not recorded/);
   assert.throws(() => operations.approvedText(project()), /Complete manual approval/);
   assert.throws(() => operations.approvedText({ ...record, draftKind: 'planning' }), /Planning/);
+});
+
+test('current approved handoff connects reasoning, thesis evidence and attributed manual review', () => {
+  const research = context.Longhand.Research;
+  const reasoning = { ...research.emptyReasoning(), thesis: 'Synthetic bounded thesis.', analysis: 'Synthetic interpretation from a test observation.',
+    uncertainty: 'Tentative test assessment.', reviewConditions: 'Revisit if the test condition changes.',
+    evidence: [{ sourceId: source.id, relation: 'qualifies', locator: 'Synthetic table 1', note: 'A qualifying test condition.' }] };
+  const record = approved({ revision: 2, reasoning, review: { at: '2026-10-07T10:00:00.000Z', revision: 1,
+    reviewer: 'Synthetic reviewer', checks: research.REVIEW_CHECKS.map(check => check.id) } });
+  assert.equal(operations.projectState(record, []).reasoning, true);
+  const text = operations.approvedText(record);
+  assert.match(text, /Synthetic bounded thesis/); assert.match(text, /Synthetic table 1/);
+  assert.match(text, /Source ID: source-1/); assert.match(text, /Reviewer: Synthetic reviewer \(manually supplied\)/);
+  assert.equal((text.match(/Checked manually:/g) || []).length, 6);
+  assert.match(text, /Reviewed content revision: 1/);
 });

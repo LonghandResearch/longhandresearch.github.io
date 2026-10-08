@@ -183,10 +183,29 @@ in World** restores progress by replaying the existing mock script with the
 saved step times, paused, so draft completion times remain unchanged. The
 automatic example is not saved. Custom adapter events remain session-only.
 
+The workspace also saves a reasoning record: thesis, analysis, assumptions,
+alternatives, uncertainty, time/scope and review conditions. Thesis evidence uses
+stable notebook source IDs with a passage locator and its analytical relationship.
+Incomplete work can be saved. New approval requires the core reasoning, linked
+evidence, a reviewer name, six manual checks and a review note. Existing approvals
+without that checklist remain readable and are explicitly labelled as legacy.
+These are human attestations, not automatic source or claim verification.
+
+Material research edits retain the previous reasoning, source notebook, draft,
+approval state and approval note together, including legacy approvals without a
+constitutional checklist. Earlier snapshots that never stored this metadata are
+labelled as unknown; missing approval notes are not invented. Versions are kept
+in a bounded trail of five recent versions within 2 MB. Unchanged saves and mock
+progress alone do not add versions. Review is cleared when relevant content
+changes. Existing backups include the added records. See
+[`docs/research-constitution.md`](docs/research-constitution.md) for the operating
+principles, limits and manual publication boundary.
+
 Research follows **Draft → In review → Approved**, with explicit review notes.
 Planning text must be replaced with researched prose before being marked ready
-for review. Approval requires a checked source. Editing the brief, evidence,
-draft or workflow resets review to Draft. Changing the brief also clears previous
+for review. Approval requires a checked source and the constitutional review
+described above. Editing the brief, evidence, reasoning, draft or workflow resets
+review to Draft. Changing the brief also clears previous
 mock progress and its unchanged planning text. These are owner decisions, not AI
 verification. World completing its mock Director stage never approves research.
 An existing browser PDF draft or published catalogue report can be linked by
@@ -207,10 +226,17 @@ not tracked separately; it must be documented and reviewed in the draft when
 relevant. All guidance derives from existing project and Library records without
 new saved statuses. World now names its start and completion as simulation;
 finishing all 29 events never completes real research.
+The guide also uses the constitutional reasoning requirements: a researched
+draft with missing core reasoning or thesis evidence routes to the Researcher
+and the Reasoning record, including when submitted prematurely for review.
+Once that work is saved, the Editor can submit the reconciled draft and the
+Director can record the named six-check review. Legacy approvals stay labelled.
+World and Workspace use the same constitutional project model, retaining the
+reasoning, evidence links and bounded versions through simulated progress.
 
 The publication checklist connects the approved draft, checked evidence, review
 note and real Library record. **Download approved text** includes the reviewed
-prose, source notebook and approval note, for manual PDF preparation. It rejects
+prose, reasoning, source notebook and attributed approval, for manual PDF preparation. It rejects
 unsaved edits and stale revisions. Add the final PDF through Library, connect its
 record in the workspace, then use Library's existing Publish tools. **Reload
 projects & reports** reads the current catalogue as well as saved browser work.
