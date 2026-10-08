@@ -53,6 +53,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | WEB-015 | Add Longhand World V0.1 with five core professionals, local research operations and guarded direct-file URL updates | Codex | `codex/longhand-world` | Done (owner authorized Codex completion while Claude unavailable) | [PR #71](https://github.com/LonghandResearch/longhandresearch.github.io/pull/71) |
 | WEB-016 | Integrate constitutional reasoning, thesis evidence, manual review and self-contained retained approval notes | Codex | `codex/research-constitution` | Done (owner authorized Codex completion while Claude unavailable) | [PR #72](https://github.com/LonghandResearch/longhandresearch.github.io/pull/72) |
 | WEB-017 | Import draft, sources and reasoning together into the same project, with retained versions and atomic conflict checks | Codex | `codex/research-import-update` | Done (owner authorized Codex completion while Claude unavailable) | [PR #73](https://github.com/LonghandResearch/longhandresearch.github.io/pull/73) |
+| RPT-014 | Deepen interactive coal research with BPS/lignite coverage, Bayan/PTBA evidence, conditional 2026-2030 cases and audited conclusions | Codex | `codex/coal-transition` | Done (owner authorized Codex final review and publication while Claude subscription unavailable) | [PR #77](https://github.com/LonghandResearch/longhandresearch.github.io/pull/77) |
 
 ## Status values
 
