@@ -31,6 +31,58 @@
   bars('exports-chart',D.indonesiaExports,600,'Indonesia thermal coal exports: 557 million tonnes in 2024, 517 in 2025, both preliminary, and 495 forecast in 2026. Axis starts at zero.');
   table('exports-values',D.indonesiaExports,'Million tonnes');
 
+  // Keep customs coverage and issuer accounting separate from the illustrative lab.
+  function renderCoverage() {
+    const x=118,scale=445/600;
+    let g='';
+    for(const v of [0,150,300,450,600]){
+      const xx=x+v*scale;
+      g+=`<path class="chart-axis" d="M${xx} 42V272"/><text x="${xx}" y="296" text-anchor="middle">${v}</text>`;
+    }
+    D.coverageBridge.forEach((r,i)=>{
+      const yy=52+i*118,total=(r.coalKt+r.ligniteKt)/1000;
+      g+=`<text class="value-label" x="18" y="${yy+21}">${r.year}</text><text x="18" y="${yy+44}">BPS</text>`;
+      g+=`<rect x="${x}" y="${yy}" width="${r.coalKt/1000*scale}" height="32" fill="var(--teal)"/><rect x="${x+r.coalKt/1000*scale}" y="${yy}" width="${r.ligniteKt/1000*scale}" height="32" fill="var(--chart-fill)"/><text class="value-label" x="${x+total*scale+9}" y="${yy+22}">${num(total,1)}</text>`;
+      g+=`<text x="18" y="${yy+70}">IEA thermal</text><rect x="${x}" y="${yy+49}" width="${r.ieaThermalMt*scale}" height="25" fill="none" stroke="var(--ink)" stroke-width="1.5"/><text x="${x+r.ieaThermalMt*scale+9}" y="${yy+67}">${num(r.ieaThermalMt,0)}</text>`;
+    });
+    g+=`<rect x="118" y="322" width="10" height="10" fill="var(--teal)"/><text x="135" y="332">BPS coal</text><rect x="250" y="322" width="10" height="10" fill="var(--chart-fill)"/><text x="267" y="332">BPS lignite</text><rect x="398" y="322" width="10" height="10" fill="none" stroke="var(--ink)"/><text x="415" y="332">IEA thermal estimate</text>`;
+    $('coverage-chart').innerHTML=svg(`Export coverage check, million tonnes. ${D.coverageBridge.map(r=>`${r.year}: BPS coal plus lignite ${num((r.coalKt+r.ligniteKt)/1000,4)}, IEA preliminary thermal estimate ${r.ieaThermalMt}`).join('. ')}. Definitions are not harmonised. Axis begins at zero.`,g,650,352);
+    $('coverage-values').innerHTML=`<table><caption>Million tonnes / BPS records and preliminary IEA estimates, definitions not harmonised</caption><thead><tr><th scope="col">Year</th><th scope="col">BPS coal</th><th scope="col">BPS lignite</th><th scope="col">Derived BPS sum</th><th scope="col">IEA thermal</th><th scope="col">Sum minus IEA</th></tr></thead><tbody>${D.coverageBridge.map(r=>{const total=(r.coalKt+r.ligniteKt)/1000;return `<tr><th scope="row">${r.year}</th><td>${num(r.coalKt/1000,4)}</td><td>${num(r.ligniteKt/1000,4)}</td><td>${num(total,4)}</td><td>${num(r.ieaThermalMt,0)}</td><td>${num(total-r.ieaThermalMt,4)}</td></tr>`;}).join('')}</tbody></table>`;
+  }
+  function pairedCompanyBars(host,rows,keys,labels,max,unit,divisor=1) {
+    const l=60,t=40,bottom=250,iw=520,barWidth=58,height=210;
+    let g='';
+    const ticks=unit==='Rupiah trillion'?5:4;
+    for(let i=0;i<=ticks;i++){
+      const v=max*i/ticks,yy=bottom-v/max*height;
+      g+=`<path class="chart-axis" d="M${l} ${yy}H590"/><text x="${l-12}" y="${yy+4}" text-anchor="end">${num(v,0)}</text>`;
+    }
+    rows.forEach((r,i)=>{
+      const centre=l+iw*(i+.5)/rows.length;
+      keys.forEach((key,k)=>{
+        const value=r[key]/divisor,x=centre+(k-.5)*72-barWidth/2,ht=value/max*height;
+        g+=`<rect x="${x}" y="${t+height-ht}" width="${barWidth}" height="${ht}" fill="${k?'var(--chart-fill)':'var(--teal)'}"/><text class="value-label" x="${x+barWidth/2}" y="${t+height-ht-11}" text-anchor="middle">${num(value,unit==='Rupiah trillion'?3:1)}</text>`;
+      });
+      g+=`<text x="${centre}" y="278" text-anchor="middle">${esc(r.period)}</text>`;
+    });
+    g+=`<rect x="62" y="305" width="10" height="10" fill="var(--teal)"/><text x="80" y="315">${esc(labels[0])}</text><rect x="335" y="305" width="10" height="10" fill="var(--chart-fill)"/><text x="353" y="315">${esc(labels[1])}</text>`;
+    $(host).innerHTML=svg(`${unit}. ${rows.map(r=>`${r.period}: ${labels.map((label,i)=>label+' '+num(r[keys[i]]/divisor,3)).join(', ')}`).join('. ')}. Zero-based axis.`,g,620,340);
+  }
+  function companyTable(host,caption,rows,metrics) {
+    $(host).innerHTML=`<table><caption>${esc(caption)}</caption><thead><tr><th scope="col">Metric</th>${rows.map(r=>`<th scope="col">${esc(r.period)}</th>`).join('')}</tr></thead><tbody>${metrics.map(([label,key,divisor,d])=>`<tr><th scope="row">${esc(label)}</th>${rows.map(r=>`<td>${num(r[key]/divisor,d)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+  }
+  renderCoverage();
+  const bayan=D.companies.bayan,ptba=D.companies.ptba;
+  pairedCompanyBars('bayan-chart',bayan.periods,['aspUsdT','cashCostUsdT'],['Selling price','Inclusive cash cost'],60,'US dollars per tonne');
+  $('bayan-readout').textContent=`Derived unit spread: ${bayan.periods.map(r=>`${r.period} ${money(r.aspUsdT-r.cashCostUsdT,1)}/t`).join(' → ')}. H1 2026 capex: ${money(bayan.capexQuarterlyUsdM.reduce((sum,r)=>sum+r.actual,0),1)}m, derived from the two quarterly actuals.`;
+  companyTable('bayan-values','Company presentation / units stated per row',bayan.periods,[['Sales / Mt','salesMt',1,1],['Production / Mt','productionMt',1,1],['Selling price / USD per tonne','aspUsdT',1,1],['Inclusive cash cost / USD per tonne','cashCostUsdT',1,1],['Revenue / USD million','revenueUsdM',1,1],['EBITDA / USD million','ebitdaUsdM',1,1]]);
+  pairedCompanyBars('ptba-chart',ptba.periods,['operatingCashRpM','assetPurchasesRpM'],['Net operating cash','Cash asset purchases'],5,'Rupiah trillion',1e6);
+  $('ptba-readout').textContent=`Operating cash less selected asset purchases, derived: ${ptba.periods.map(r=>`${r.period} Rp${num((r.operatingCashRpM-r.assetPurchasesRpM)/1e6,3)}tn`).join(' → ')}. This subtotal excludes other investing and financing flows.`;
+  const ptbaRows=ptba.periods.map((r,i)=>({...r,...Object.fromEntries(Object.entries(ptba.costComponentsRpM).map(([key,values])=>[key,values[i]]))}));
+  companyTable('ptba-values','Consolidated financial statement / rupiah million, unrounded source figures',ptbaRows,[['Revenue','revenueRpM',1,0],['Cost of revenue','costRevenueRpM',1,0],['Mining services / within cost of revenue','miningServices',1,0],['Coal transportation / within cost of revenue','coalTransportation',1,0],['Fuel and lubricants / within cost of revenue','fuelLubricants',1,0],['Gross profit','grossProfitRpM',1,0],['Operating profit','operatingProfitRpM',1,0],['Profit attributable to owners','ownerProfitRpM',1,0],['Net operating cash','operatingCashRpM',1,0],['Cash purchases of fixed assets / bearer plants','assetPurchasesRpM',1,0],['Lease-liability payments','leasePaymentsRpM',1,0],['Reclamation / mine-closure deposits','reclamationDepositsRpM',1,0]]);
+  const operation=ptba.operations;
+  $('ptba-values').insertAdjacentHTML('beforeend',`<p>${esc(operation.period)} company operational disclosure: production ${num(operation.productionMt,2)} Mt, sales ${num(operation.salesMt,2)} Mt, domestic sales ${num(operation.domesticSalesMt,2)} Mt (${num(operation.domesticSalesMt/operation.salesMt*100,1)}% of sales), export sales ${num(operation.exportSalesMt,2)} Mt.</p>`);
+
   let priceView='quarterly',priceIndex=4;
   function renderPrice() {
     const rows=D.australianPrice[priceView],w=matchMedia('(max-width: 760px)').matches?600:900,h=310,l=65,r=25,t=35,b=45,ih=h-t-b;
@@ -193,6 +245,6 @@
   showChainStage('mine');
   setMotion();
   if('IntersectionObserver'in window){const ambient=new IntersectionObserver(entries=>{entries.forEach(e=>e.target.classList.toggle('is-visible',e.isIntersecting));scheduleMotion();},{threshold:.12});document.querySelectorAll('.coal-object,.map-console').forEach(el=>ambient.observe(el));
-    const sectionObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)document.querySelectorAll('.coal-section-nav a').forEach(a=>a.setAttribute('aria-current',String(a.hash==='#'+e.target.id)));},{rootMargin:'-15% 0px -65% 0px'});document.querySelectorAll('section[id]').forEach(el=>sectionObserver.observe(el));
+    const sectionObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)document.querySelectorAll('.coal-section-nav a').forEach(a=>a.setAttribute('aria-current',String(a.hash==='#'+e.target.id)));},{rootMargin:'-15% 0px -65% 0px'});document.querySelectorAll('section[id],.company-evidence[id]').forEach(el=>sectionObserver.observe(el));
   } else {document.querySelectorAll('.coal-object,.map-console').forEach(el=>el.classList.add('is-visible'));scheduleMotion();}
 })();

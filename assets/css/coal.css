@@ -1408,3 +1408,29 @@
 @media(prefers-reduced-motion:reduce) {
   :root[data-coal-motion=off] .map-halo { animation:none!important; opacity:.5; }
 }
+
+/* Evidence additions preserve the report's reading measure and native exhibits. */
+.coverage-section { padding-block:72px; }
+.coverage-section>.exhibit,.company-case>.exhibit { max-width:900px; margin-inline:auto; }
+.coverage-section .exhibit-top,.company-case .exhibit-top { flex-wrap:wrap; gap:14px; }
+.company-evidence { margin-top:80px; padding-top:64px; border-top:1px solid var(--rule); scroll-margin-top:120px; }
+.company-case { margin-top:56px; }
+.company-case+.company-case { margin-top:72px; padding-top:56px; border-top:1px solid var(--rule); }
+.case-title { max-width:770px; margin:0 auto 28px; }
+.case-title h3,.horizon-case h3 { font-size:clamp(28px,3vw,38px); line-height:1.15; }
+.company-readout { margin:18px 0; font:14px/1.7 var(--font-sans); color:var(--teal); }
+.company-case .commentary { margin-top:32px; }
+.horizon-framework { margin-top:72px; padding-top:48px; border-top:1px solid var(--rule); }
+.horizon-case { max-width:770px; margin:42px auto 0; padding-top:30px; border-top:1px solid var(--rule); }
+.horizon-case h3 { margin:10px 0 24px; }
+.horizon-intro { margin-inline:auto; }
+.page-coal .closing>.eyebrow { font:11px/1.6 var(--font-sans); letter-spacing:.13em; text-align:left; }
+@media(max-width:760px) {
+  .coverage-section { padding-block:48px; }
+  .company-evidence { margin-top:48px; padding-top:40px; }
+  .company-case+.company-case { margin-top:48px; padding-top:36px; }
+  .horizon-framework { margin-top:48px; padding-top:32px; }
+  .coverage-section .chart svg text,.company-case .chart svg text { font-size:19px; }
+  .coverage-section .chart .value-label,.company-case .chart .value-label { font-size:21px; }
+  .company-readout { font-size:13px; }
+}

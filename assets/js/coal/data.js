@@ -1,6 +1,6 @@
 /* Frozen observations. Forecasts and customs records retain their own definitions. */
 window.COAL_RESEARCH = {
-  "assessed": "2026-10-08",
+  "assessed": "2026-10-09",
   "sources": [
     {
       "id": "demand",
@@ -117,7 +117,52 @@ window.COAL_RESEARCH = {
       "date": "Updated 30 July 2026. 2021-2025 revised.",
       "url": "https://www.bps.go.id/id/statistics-table/1/MTAzNCMx/ekspor-batu-bara-menurut-negara-tujuan-utama--2012-2022.html",
       "locator": "2025 column, net weight in thousand tonnes. Named destinations, Others and Total rows.",
-      "note": "Shares use the published BPS total only. Its product coverage and methodology have not been reconciled with the IEA thermal-coal total. Other destinations are aggregated. No unlisted bilateral volume is inferred."
+      "note": "Atlas shares use this coal-only table, excluding the separately published lignite series. The coverage check adds the two customs totals, without claiming equivalence to IEA thermal coal. Other destinations are aggregated."
+    },
+    {
+      "id": "bps-lignite",
+      "publisher": "BPS - Statistics Indonesia",
+      "title": "Lignite exports by major countries of destination, 2012-2025",
+      "date": "Updated 24 July 2026",
+      "url": "https://www.bps.go.id/id/statistics-table/1/MjAzNSMx/ekspor-lignit-menurut-negara-tujuan-utama--2012-2024.html",
+      "locator": "Net weight, thousand tonnes: Total rows for 2024 and 2025, and China 2025. Not the FOB value block.",
+      "note": "A separate customs series. Adding coal and lignite is a coverage diagnostic, not a verified conversion to the IEA product definition. Dashes in destination rows are not treated as zero."
+    },
+    {
+      "id": "definitions",
+      "publisher": "International Energy Agency",
+      "title": "Coal 2025: General annex definitions",
+      "date": "17 December 2025",
+      "url": "https://iea.blob.core.windows.net/assets/113a8274-500c-4684-951f-947d25bef3c9/Coal2025.pdf",
+      "locator": "PDF and printed page 124: coal rank, classification and thermal coal",
+      "note": "Distinguishes hard coal from lignite and defines thermal coal as hard coal used outside metallurgy. No verified crosswalk to these BPS table classifications has been established."
+    },
+    {
+      "id": "bayan",
+      "publisher": "Bayan Resources",
+      "title": "Investor Update: 2Q 2026",
+      "date": "Company investor index dated 31 August 2026",
+      "url": "https://www.bayan.com.sg/cfind/source/files/investor/investor-update/investor-update-2q-2026.pdf",
+      "locator": "PDF p.3 / slide 2: half-year operations and earnings. PDF p.14 / slide 13: cash cost definition. PDF p.21 / slide 20: quarterly capex.",
+      "note": "Company-reported presentation. Average cash cost includes royalty, barging and SGA. Half-year capex is derived by adding the two reported quarterly actuals. EBITDA minus capex is not treated as free cash flow."
+    },
+    {
+      "id": "ptba-financial",
+      "publisher": "Bukit Asam",
+      "title": "Interim consolidated financial statements: 30 June 2026",
+      "date": "Six months ended 30 June 2026, with 2025 comparatives",
+      "url": "https://www.ptba.co.id/api/storage/1788182275569-46100b32-bee3-4892-9123-9e390c421df9.pdf",
+      "locator": "PDF pp.10-11 / statements pp.4-5: earnings. PDF p.13 / statement p.7: cash flows. PDF pp.119-121 / notes pp.113-115: revenue and costs.",
+      "note": "Reviewed interim statements, unaudited, in millions of rupiah. Asset purchases include bearer plants. Operating cash less these purchases is a derived subtotal, not comprehensive free cash flow or dividend capacity. Owner-attributable profit is distinguished from total profit."
+    },
+    {
+      "id": "ptba-operations",
+      "publisher": "Bukit Asam",
+      "title": "H1 2026 coal sales reached 21.10 million tonnes",
+      "date": "28 July 2026",
+      "url": "https://www.ptba.co.id/id/media/press-release/detail/penjualan-batu-bara-ptba-capai-21-10-juta-ton-di-semester-i-2026-2607282453",
+      "locator": "Production, sales and domestic/export mix for January-June 2026",
+      "note": "Company-hosted reproduction of management statements published by CNBC on 24 July. Used as company operational evidence, not independent corroboration. Domestic share uses sales, while the stated DMO ratio uses production."
     }
   ],
   "consumption": [
@@ -418,6 +463,34 @@ window.COAL_RESEARCH = {
       "exportKt": null
     }
   ],
+  "coverageBridge": [
+    {"year": 2024, "coalKt": 405761.2, "ligniteKt": 151994.5, "ieaThermalMt": 557},
+    {"year": 2025, "coalKt": 390927.2, "ligniteKt": 133082.6, "ieaThermalMt": 517}
+  ],
+  "companies": {
+    "bayan": {
+      "source": "bayan",
+      "periods": [
+        {"period": "H1 2025", "salesMt": 32.2, "productionMt": 27.7, "aspUsdT": 50.3, "cashCostUsdT": 34.2, "revenueUsdM": 1621.9, "ebitdaUsdM": 533.3},
+        {"period": "H1 2026", "salesMt": 32.2, "productionMt": 32.9, "aspUsdT": 54.0, "cashCostUsdT": 35.0, "revenueUsdM": 1740.1, "ebitdaUsdM": 627.6}
+      ],
+      "capexQuarterlyUsdM": [{"period": "Q1 2026", "actual": 41.1}, {"period": "Q2 2026", "actual": 36.0}]
+    },
+    "ptba": {
+      "source": "ptba-financial",
+      "unit": "Million rupiah",
+      "periods": [
+        {"period": "H1 2025", "revenueRpM": 20452391, "costRevenueRpM": 18205496, "grossProfitRpM": 2246895, "operatingProfitRpM": 914636, "ownerProfitRpM": 833044, "operatingCashRpM": 2223879, "assetPurchasesRpM": 1530639, "leasePaymentsRpM": 251060, "reclamationDepositsRpM": 47430},
+        {"period": "H1 2026", "revenueRpM": 22027901, "costRevenueRpM": 17780740, "grossProfitRpM": 4247161, "operatingProfitRpM": 2823846, "ownerProfitRpM": 2649899, "operatingCashRpM": 4625730, "assetPurchasesRpM": 1147044, "leasePaymentsRpM": 249259, "reclamationDepositsRpM": 147803}
+      ],
+      "operations": {"source": "ptba-operations", "period": "H1 2026", "productionMt": 19.45, "salesMt": 21.10, "domesticSalesMt": 10.77, "exportSalesMt": 10.33},
+      "costComponentsRpM": {
+        "miningServices": [6191085, 5737978],
+        "coalTransportation": [4669983, 3998563],
+        "fuelLubricants": [1902629, 2280188]
+      }
+    }
+  },
   "destinationSeries": {
     "year": 2025,
     "updated": "2026-07-30",

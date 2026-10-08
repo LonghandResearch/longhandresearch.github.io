@@ -143,6 +143,12 @@ shows moving cargo markers on conceptual links. Motion starts automatically
 and follows the system reduced-motion preference.
 Atlas arcs are conceptual links, not actual ship routes or a volume scale.
 Destination panels show the separate, revised BPS 2025 coal customs series.
+A coverage exhibit adds the separately published lignite series without treating
+the derived customs sum as equivalent to IEA thermal coal. Bayan and Bukit Asam
+case studies preserve issuer accounting, half-year periods and currencies.
+Derived unit spreads and cash subtotals remain separate from the simulator.
+The 2026-2030 framework has conditional base, upside and downside cases,
+without invented price paths or assigned probabilities.
 Period-selectable Australian benchmark prices remain separate from
 Indonesian selling prices. Forecasts retain their stated vintage; the simulator
 uses labelled analyst assumptions. Check `audits/RPT-014-2026-10-08.md` before
