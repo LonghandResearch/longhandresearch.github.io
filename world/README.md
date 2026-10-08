@@ -14,6 +14,10 @@ Desktop and 390px previews verify four tabs, one visible panel, keyboard
 navigation and no document overflow. The map keeps its original full-width
 floor and mobile horizontal navigation. No backend or AI service is added.
 
+Publication: the owner authorized merging PR #78 without waiting for Claude on
+9 October 2026. These checks are Codex author QA. The owner plans to request
+retrospective review of this and earlier work when Claude access returns.
+
 ## Manual tasks and simulation clarity — 8 October 2026
 
 The Workspace now derives a responsible role, outstanding work and section link
