@@ -1145,13 +1145,6 @@
   font-size:9px;
   letter-spacing:.1em;
 }
-.object-top .quiet-button {
-  color:#45625c;
-  border:0;
-  padding:8px 0 8px 10px;
-  flex-shrink:0;
-  white-space:nowrap;
-}
 .page-coal .chain-title {
   font-size:clamp(32px,3.2vw,43px);
   line-height:1.08;
@@ -1235,7 +1228,7 @@
   .chain-scene { transition:none; }
 }
 
-/* Activity within the illustrated scene. All moving parts share the pause control. */
+/* Activity within the illustrated scene. Motion follows visibility and system preference. */
 .excavator-arm {
   transform-box:fill-box;
   transform-origin:0 43%;
@@ -1276,12 +1269,6 @@
   0%,100% { opacity:.3; transform:translateX(-2px); }
   50% { opacity:.9; transform:translateX(3px); }
 }
-.object-top .quiet-button {
-  background:#dfe5d5;
-  padding:7px 10px;
-  border-radius:2px;
-}
-.object-top .quiet-button[aria-pressed=true] { background:#e7dbc5; }
 .market-metrics {
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -1414,21 +1401,9 @@
   from { transform:scale(.6); opacity:.9; }
   to { transform:scale(2); opacity:0; }
 }
-.map-motion-toggle {
-  margin-left:auto;
-  padding:8px 10px;
-  color:#d1dfdb;
-  border:1px solid #47606a;
-  background:transparent;
-  font:10px var(--font-sans);
-  cursor:pointer;
-}
-.map-motion-toggle:hover { background:#304c54; }
-.map-motion-toggle:focus-visible { outline:2px solid #dfbc7d; outline-offset:3px; }
 .map-console .exhibit-top { flex-wrap:wrap; gap:12px; }
 @media(max-width:760px) {
   .map-console .exhibit-top .eyebrow { flex-basis:100%; }
-  .map-motion-toggle { margin-left:0; margin-right:auto; }
 }
 @media(prefers-reduced-motion:reduce) {
   :root[data-coal-motion=off] .map-halo { animation:none!important; opacity:.5; }

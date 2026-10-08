@@ -159,10 +159,8 @@
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   let motion=!reduced.matches;
   function setMotion(){document.documentElement.dataset.coalMotion=motion?'on':'off';
-    document.querySelectorAll('[data-coal-toggle]').forEach(button=>{button.textContent=motion?'Pause motion':'Enable motion';button.setAttribute('aria-pressed',String(!motion));});
     scheduleMotion();
   }
-  document.querySelectorAll('[data-coal-toggle]').forEach(button=>button.addEventListener('click',()=>{motion=!motion;setMotion();}));
   reduced.addEventListener('change',()=>{motion=!reduced.matches;setMotion();});
   function positionFleet(seconds) {
     for(const item of mapFleet){

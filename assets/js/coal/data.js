@@ -117,7 +117,7 @@ window.COAL_RESEARCH = {
       "date": "Updated 30 July 2026. 2021-2025 revised.",
       "url": "https://www.bps.go.id/id/statistics-table/1/MTAzNCMx/ekspor-batu-bara-menurut-negara-tujuan-utama--2012-2022.html",
       "locator": "2025 column, net weight in thousand tonnes. Named destinations, Others and Total rows.",
-      "note": "A BPS coal customs series, not the IEA seaborne thermal-coal series. Other destinations are aggregated. No unlisted bilateral volume is inferred."
+      "note": "Shares use the published BPS total only. Its product coverage and methodology have not been reconciled with the IEA thermal-coal total. Other destinations are aggregated. No unlisted bilateral volume is inferred."
     }
   ],
   "consumption": [
