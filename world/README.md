@@ -1,5 +1,23 @@
 # Longhand World V0.1
 
+## Compact entrance — 9 October 2026
+
+World opens directly on Headquarters. Brief, Planning and Activity are separate
+tabs, so the form and journal no longer sit above or below the floor by default.
+Use left/right arrows, Home and End to navigate the tabs with a keyboard. Without
+JavaScript, all sections remain available in their original document order.
+The compact styles use `world-home`, leaving the shared research desk unchanged.
+Agent records, saved projects and simulation behavior are unchanged.
+
+Validation: 38 existing World state/controller tests and the site check pass.
+Desktop and 390px previews verify four tabs, one visible panel, keyboard
+navigation and no document overflow. The map keeps its original full-width
+floor and mobile horizontal navigation. No backend or AI service is added.
+
+Publication: the owner authorized merging PR #78 without waiting for Claude on
+9 October 2026. These checks are Codex author QA. The owner plans to request
+retrospective review of this and earlier work when Claude access returns.
+
 ## Manual tasks and simulation clarity — 8 October 2026
 
 The Workspace now derives a responsible role, outstanding work and section link

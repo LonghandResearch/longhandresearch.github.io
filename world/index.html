@@ -7,16 +7,16 @@
   <meta name="description" content="Longhand Research above the city. Explore six modern departments and five core research professionals in Longhand World V0.1.">
   <meta name="theme-color" content="#11171f">
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="world.css?v=2026-10-07j">
+  <link rel="stylesheet" href="world.css?v=2026-10-09a">
   <script src="../assets/js/site.js?v=2026-10-08c" defer></script>
   <script src="../assets/js/research-projects.js?v=2026-10-08f" defer></script>
   <script src="state.js?v=2026-10-07c" defer></script>
   <script src="movement.js?v=2026-10-07a" defer></script>
   <script src="mock-events.js?v=2026-10-07c" defer></script>
   <script src="sprites.js?v=2026-10-07a" defer></script>
-  <script src="world.js?v=2026-10-08d" defer></script>
+  <script src="world.js?v=2026-10-09a" defer></script>
 </head>
-<body class="world-page">
+<body class="world-page world-home">
   <a class="world-skip" href="#main">Skip to the institution</a>
   <header class="world-masthead">
     <a class="world-brand" href="../index.html" aria-label="Longhand Research, front page">Longhand<span>Research</span></a>
@@ -32,14 +32,21 @@
   <main id="main" class="world-main">
     <header class="world-intro">
       <div>
-        <p class="world-eyebrow">Longhand Research / Research headquarters</p>
+        <p class="world-eyebrow">Your research headquarters</p>
         <h1>Longhand <em>World</em><span class="world-version">V0.1</span></h1>
-        <p class="world-lede">Above the city. Close to the evidence.</p>
+        <p class="world-lede">Five people. One place to follow the work.</p>
       </div>
-      <div class="world-disclosure"><span class="world-indicator" aria-hidden="true"></span><strong>Simulated activity</strong><p>Five core research professionals. Prototype tasks.<br>No live AI work or report publishing.</p></div>
+      <div class="world-disclosure"><span class="world-indicator" aria-hidden="true"></span><strong>Planning simulation</strong><p>No automated research or publishing.</p></div>
     </header>
 
-    <section class="world-brief" aria-labelledby="brief-title">
+    <div class="world-views" id="world-views" role="tablist" aria-label="World views" hidden>
+      <button id="world-tab-floor" type="button" role="tab" aria-controls="world-floor" aria-selected="true">Headquarters</button>
+      <button id="world-tab-brief" type="button" role="tab" aria-controls="world-brief" aria-selected="false" tabindex="-1">Brief</button>
+      <button id="world-tab-plan" type="button" role="tab" aria-controls="world-plan" aria-selected="false" tabindex="-1">Planning</button>
+      <button id="world-tab-activity" type="button" role="tab" aria-controls="world-activity" aria-selected="false" tabindex="-1">Activity</button>
+    </div>
+
+    <section class="world-brief" id="world-brief" aria-labelledby="brief-title">
       <header><p class="world-eyebrow">Research brief / Simulation</p><h2 id="brief-title">Give the team a question.</h2><p>Run a workflow and read its mock planning records. On localhost, submitted briefs and progress are saved in this browser. No research is fetched or published.</p></header>
       <form id="research-brief">
         <label class="world-brief-topic" for="brief-topic">Topic<input id="brief-topic" type="text" required maxlength="160" value="Analyze AI infrastructure market trends"></label>
@@ -50,7 +57,7 @@
       <div class="world-brief-actions" id="project-tools" hidden><a id="project-workspace" href="../research.html">Open workspace · evidence, draft &amp; next action</a><p id="project-save-status" role="status">New briefs are saved in this browser.</p><button class="world-action" type="button" id="project-retry" hidden>Retry save</button></div>
     </section>
 
-    <section class="world-layout" aria-label="The research institution">
+    <section class="world-layout" id="world-floor" aria-label="The research institution">
       <div class="world-building">
         <div class="world-map-heading"><div><p class="world-eyebrow">The research floor</p><p>Select a member to see their work.</p></div><span class="world-map-index">High-rise HQ / Six departments</span></div>
         <figure class="world-map-figure">
@@ -94,14 +101,14 @@
       </aside>
     </section>
 
-    <section class="world-results" aria-labelledby="results-title">
+    <section class="world-results" id="world-plan" aria-labelledby="results-title">
       <header><p class="world-eyebrow">Planning record / Simulation</p><h2 id="results-title">From brief to plan.</h2><p>Each simulated stage leaves a planning record. When the sequence ends, open Workspace to collect real evidence, write the research and record a manual review.</p></header>
       <div><ol id="stage-outputs"></ol>
         <details class="world-draft" id="research-draft" hidden><summary>View planning draft <span>Simulated / not published</span></summary><article id="draft-document" aria-label="Simulated planning draft"></article></details>
       </div>
     </section>
 
-    <section class="world-journal" aria-labelledby="journal-title">
+    <section class="world-journal" id="world-activity" aria-labelledby="journal-title">
       <header><p class="world-eyebrow">Operations journal</p><h2 id="journal-title">Notes from the floor</h2><p>Recent simulated events</p></header>
       <ol id="event-log"><li class="world-journal-empty">The team is at work. The next event will appear here.</li></ol>
     </section>

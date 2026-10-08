@@ -7,6 +7,37 @@
     return;
   }
   const $ = (id) => document.getElementById(id);
+  const views = ['floor', 'brief', 'plan', 'activity'];
+  function showView(view) {
+    views.forEach(key => {
+      const tab = $('world-tab-' + key), panel = $('world-' + key);
+      const chosen = key === view;
+      tab.setAttribute('aria-selected', String(chosen));
+      tab.tabIndex = chosen ? 0 : -1;
+      panel.hidden = !chosen;
+    });
+  }
+  views.forEach((key, index) => {
+    const tab = $('world-tab-' + key), panel = $('world-' + key);
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tab.id);
+    panel.tabIndex = 0;
+    tab.addEventListener('click', () => showView(key));
+    tab.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % views.length;
+      else if (event.key === 'ArrowLeft') next = (index + views.length - 1) % views.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = views.length - 1;
+      else return;
+      event.preventDefault();
+      showView(views[next]);
+      $('world-tab-' + views[next]).focus();
+    });
+  });
+  showView('floor');
+  $('world-views').hidden = false;
   let replayTime = null, project = null, runTimes = [], restoring = false, opening = false;
   let saveQueue = Promise.resolve(), saveFailed = false, pendingSaves = 0;
   const LH = window.Longhand;
