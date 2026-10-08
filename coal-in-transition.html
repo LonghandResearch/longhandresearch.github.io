@@ -18,13 +18,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
   <script>(function(){let t;try{t=localStorage.getItem('longhand-theme');}catch(e){}document.documentElement.dataset.theme=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';})();</script>
   <link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
-  <link rel="stylesheet" href="assets/css/coal.css?v=2026-10-08i">
+  <link rel="stylesheet" href="assets/css/coal.css?v=2026-10-08j">
   <script src="reports/reports.js?v=2026-10-08-coal" defer></script>
-  <script src="assets/js/site.js?v=2026-10-08i" defer></script>
-  <script src="assets/js/coal/data.js?v=2026-10-08i" defer></script>
-  <script src="assets/js/coal/model.js?v=2026-10-08i" defer></script>
-  <script src="assets/js/coal/geography.js?v=2026-10-08i" defer></script>
-  <script src="assets/js/coal/report.js?v=2026-10-08i" defer></script>
+  <script src="assets/js/site.js?v=2026-10-08j" defer></script>
+  <script src="assets/js/coal/data.js?v=2026-10-08j" defer></script>
+  <script src="assets/js/coal/model.js?v=2026-10-08j" defer></script>
+  <script src="assets/js/coal/geography.js?v=2026-10-08j" defer></script>
+  <script src="assets/js/coal/report.js?v=2026-10-08j" defer></script>
 </head>
 <body class="page-coal">
 <a class="skip" href="#main">Skip to research</a>
@@ -36,8 +36,9 @@
   <header class="coal-hero wrap" id="opening">
     <div class="hero-copy"><p class="eyebrow">Sector research / Energy &amp; Indonesia</p><h1>Coal still burns.<br><em>Trade is changing.</em></h1><p class="hero-deck">Coal's staying power does not guarantee an expanding market for its exporters. Indonesia's next cycle rests on the gap between what Asia consumes and what it needs to import.</p><p class="report-meta"><time datetime="2026-10-08">8 October 2026</time> <span>/</span> Longhand Research <span>/</span> Coal in transition</p><a class="text-link" href="#research-letter">Read the investment framework <span aria-hidden="true">↓</span></a></div>
     <figure class="coal-object" id="coal-chain" data-stage="port" aria-label="Explore the coal value chain">
-      <div class="object-top"><span class="eyebrow">From mine to market</span><button id="motion-toggle" class="quiet-button" type="button" aria-pressed="false">Pause motion</button></div>
+      <div class="object-top"><span class="eyebrow">From mine to market</span><button id="motion-toggle" data-coal-toggle class="quiet-button" type="button" aria-pressed="false">Pause motion</button></div>
       <h2 class="chain-title">A tonne is only<br><em>the beginning.</em></h2>
+      <div class="chain-timeline" aria-hidden="true"><span id="chain-progress"></span></div>
       <svg class="coal-art" viewBox="0 0 600 360" role="img" aria-labelledby="coal-art-title coal-art-description">
         <title id="coal-art-title">Coal production, a loading terminal and an industrial buyer</title>
         <desc id="coal-art-description">A conceptual landscape of an open-pit mine, inland conveyor, coal stockpiles, bulk carrier and industrial plant. It depicts no actual site, route or shipment volume.</desc>
@@ -47,6 +48,7 @@
           <pattern id="chain-strata" width="8" height="12" patternUnits="userSpaceOnUse"><path d="M0 8h8" stroke="#968569" stroke-opacity=".3"/></pattern>
         </defs>
         <g aria-hidden="true">
+          <g class="chain-motion sky-drift" fill="#fffaf0" opacity=".45"><path d="M62 55h67q-5-14-19-11-5-16-21-10-12-7-17 8-9-1-10 13Z"/><path d="M320 43h53q-3-10-13-9-3-12-16-10-10-3-13 9-8-1-11 10Z"/></g>
           <path d="M0 106 84 71 166 96 240 66 333 102 412 91 491 121 600 107V360H0Z" fill="url(#chain-land)"/>
           <path d="M0 163 76 133 152 149 240 116 320 152 406 134 495 164 600 141V360H0Z" fill="#bcc5ac"/>
           <path d="M360 232Q412 205 465 220T600 202V360H240Q288 322 302 285T360 232Z" fill="url(#chain-sea)"/>
@@ -65,23 +67,27 @@
               <path d="M67 39 84 44 80 54 69 52Z" fill="#253c40"/></g>
             </g>
             <path d="m46 137 12-23 12 23Z M77 124l10-19 10 19Z" fill="#718873"/>
+            <g class="chain-motion mine-dust" fill="#d1b88c"><circle cx="210" cy="161" r="9"/><circle cx="225" cy="167" r="6"/><circle cx="200" cy="168" r="5"/></g>
           </g>
           <g class="chain-scene" data-scene="port">
             <path d="M229 208 315 235 432 223 464 241 327 258 227 225Z" fill="#e6d9bd"/>
             <path d="M209 204 318 234 406 229" fill="none" stroke="#304a4d" stroke-width="7"/>
             <path class="chain-motion conveyor-belt" stroke-dasharray="4 5" d="M209 202 318 232 406 227" fill="none" stroke="#c7ab77" stroke-width="2"/>
+            <g fill="#1c3539"><circle class="chain-motion conveyor-cargo" r="3.5"/><circle class="chain-motion conveyor-cargo" style="animation-delay:-1s" r="3.5"/><circle class="chain-motion conveyor-cargo" style="animation-delay:-2s" r="3.5"/><circle class="chain-motion conveyor-cargo" style="animation-delay:-3s" r="3.5"/></g>
             <g stroke="#48605a" stroke-width="2"><path d="M241 214v16m30-8v17m32-8v15m36-13v12m31-14v10"/></g>
             <path d="m281 227 21-21 30 33Z" fill="#233e41"/><path d="m326 237 28-26 30 22Z" fill="#3f5655"/>
             <path d="m302 206 10 25-31-4Z" fill="#52635d"/><path d="m354 211 9 23-37 3Z" fill="#223a3e"/>
             <path d="M395 260v-62h15v62m-26-46 28-17 61 48m-62-48 8-13 62 44" fill="none" stroke="#b58e4a" stroke-width="5"/>
             <path d="M410 215v24m18-11v24m18-10v24m18-11v23" stroke="#b58e4a" stroke-width="2"/>
             <g class="chain-motion terminal-grab"><path d="M454 250v14" stroke="#344f51" stroke-width="1.5"/><path d="m449 264 5-3 5 3-2 6h-6Z" fill="#3b5050"/></g>
-            <g transform="translate(398 264)"><g class="chain-motion coal-vessel">
+            <g class="chain-motion loading-cargo" fill="#233e41"><circle cx="452" cy="261" r="2"/><circle cx="458" cy="258" r="2.5"/><circle cx="454" cy="255" r="2"/></g>
+            <g transform="translate(398 264)"><g class="chain-motion vessel-voyage"><g class="chain-motion coal-vessel">
+              <path class="ship-wake" d="M-9 26q-31 2-46 8m46-5q-26 2-39 8" fill="none" stroke="#c1d9c4" stroke-width="2" opacity=".65"/>
               <path d="m-10 5 135-8-17 28-90 5Z" fill="#213a45"/><path d="m5 12 102-6-7 10-77 5Z" fill="#a47748"/>
               <path d="m14 0 13-10 22 3 13-7 18 11 16-6 17 7Z" fill="#273e40"/>
               <path d="M-1-11h20V5H-1Z" fill="#e4e0cf"/><path d="M3-21h13v10H3Z" fill="#e4e0cf"/>
               <path d="M8-28v7m-4 8h8m-8 4h8" stroke="#3e5f64" stroke-width="2"/>
-            </g></g>
+            </g></g></g>
           </g>
           <g class="chain-scene" data-scene="buyer">
             <path d="m441 159 66-23 77 30-65 24Z" fill="#a1ac9c"/>
@@ -91,6 +97,7 @@
             <path d="M478 148v-56l10-4 8 3v64m24 0v-47l10-4 8 3v41" fill="#8c9c90"/>
             <g class="chain-motion plant-plume" fill="none" stroke="#99a99e" stroke-width="3" stroke-linecap="round" opacity=".5"><path d="M488 83q-10-8 0-17t-2-18m43 48q9-8-1-17t2-16"/></g><path d="m478 94 18 3m24 13 18 2" stroke="#e7ddc2" stroke-width="4"/>
             <path d="m476 153 9 3m-9 6 9 3m38-1 11-4m-11 12 11-4" stroke="#e6e5d5" stroke-width="3"/>
+            <g class="chain-motion plant-light" fill="#f7d28a"><path d="m476 153 9 3v5l-9-3Zm47 11 11-4v5l-11 4Z"/></g>
           </g>
           <path class="chain-flow" d="M137 202Q243 285 369 277T533 201" fill="none" stroke="#e2b45f" stroke-width="3" stroke-dasharray="3 10"/>
           <g fill="#faf5e9" stroke="#40615e" stroke-width="1.5"><circle cx="105" cy="264" r="17"/><circle cx="355" cy="283" r="17"/><circle cx="546" cy="182" r="17"/></g>
@@ -98,7 +105,7 @@
         </g>
       </svg>
       <div class="chain-controls" role="group" aria-label="Explore a stage of the coal value chain"><button type="button" data-chain-stage="mine" aria-pressed="false"><span>01</span> Mine</button><button type="button" data-chain-stage="port" aria-pressed="true"><span>02</span> Port</button><button type="button" data-chain-stage="buyer" aria-pressed="false"><span>03</span> Buyer</button></div>
-      <figcaption class="chain-caption"><h3 id="chain-heading">At the port</h3><p id="chain-caption" aria-live="polite">Inland transport and loading add cost before the coal reaches its buyer.</p><small>Conceptual illustration. Select a stage to explore.</small></figcaption>
+      <figcaption class="chain-caption"><h3 id="chain-heading">At the port</h3><p id="chain-caption">Inland transport and loading add cost before the coal reaches its buyer.</p><small>Illustrative cycle. Select a stage or pause to explore.</small></figcaption>
     </figure>
   </header>
   <div class="wrap"><dl class="headline-ledger" aria-label="Three figures framing the research"><div><dt>Global coal consumption / 2026</dt><dd><strong>8.94</strong> billion tonnes</dd><dd class="micro">IEA forecast / September vintage</dd></div><div><dt>Indonesia thermal exports / 2026</dt><dd><strong>495</strong> million tonnes</dd><dd class="micro">IEA forecast / September vintage</dd></div><div><dt>Australian coal / September 2026</dt><dd><strong>$147.1</strong> per tonne</dd><dd class="micro">World Bank monthly futures-price average</dd></div></dl></div>
@@ -118,7 +125,7 @@
   </section>
 
   <section class="atlas-section" id="atlas"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / The market atlas</p><h2>Follow the buyer.<br><em>Then follow the import gap.</em></h2></div><p>Indonesia sells beyond ASEAN. Select a destination to read its revised 2025 BPS volume, or explore Viet Nam as regional context. Links have equal width and do not represent shipment size.</p></div>
-    <div class="atlas-grid"><div class="map-console"><div class="exhibit-top"><span class="eyebrow">Indonesia / Export destinations</span><div class="segmented" aria-label="Map view"><button type="button" data-map-view="asia" aria-pressed="false">Asia</button><button type="button" data-map-view="world" aria-pressed="true">World</button></div></div><svg id="coal-map" data-view="world" viewBox="0 0 960 520" role="img" aria-labelledby="map-title map-description"><title id="map-title">Indonesian coal export destinations and regional context</title><desc id="map-description">Country outlines with approximate market markers and explanatory links from Indonesia. Select a market using the buttons beneath the map.</desc></svg><div class="map-bottom"><span><i class="map-key"></i> Selected market</span><span>Conceptual links / Not vessel routes</span></div><div id="market-buttons" class="market-buttons" aria-label="Choose a market"></div></div><aside class="market-panel"><p class="eyebrow" id="market-name">China</p><h3 id="market-heading">Follow the import gap.</h3><p id="market-body"></p><dl class="market-metrics"><div><dt>2025 exports / BPS</dt><dd id="market-volume"></dd></div><div><dt>Share of BPS total</dt><dd id="market-share"></dd></div></dl><a id="market-record" class="market-record" target="_blank" rel="noopener noreferrer">Original destination record ↗</a><div class="market-watch"><span class="eyebrow">What to watch</span><p id="market-watch"></p></div><p class="micro">BPS reports countries and territories, with other destinations grouped together. Viet Nam is shown as IEA regional context without a separate BPS volume here. Markers are approximate.</p></aside></div>
+    <div class="atlas-grid"><div class="map-console"><div class="exhibit-top"><span class="eyebrow">Indonesia / Export destinations</span><button type="button" class="map-motion-toggle" data-coal-toggle aria-pressed="false">Pause motion</button><div class="segmented" aria-label="Map view"><button type="button" data-map-view="asia" aria-pressed="false">Asia</button><button type="button" data-map-view="world" aria-pressed="true">World</button></div></div><svg id="coal-map" data-view="world" viewBox="0 0 960 520" role="img" aria-labelledby="map-title map-description"><title id="map-title">Indonesian coal export destinations and regional context</title><desc id="map-description">Country outlines with approximate market markers and explanatory links from Indonesia. Select a market using the buttons beneath the map.</desc></svg><div class="map-bottom"><span><i class="map-key"></i> Selected market</span><span>Conceptual links / Not vessel routes</span></div><div id="market-buttons" class="market-buttons" aria-label="Choose a market"></div></div><aside class="market-panel"><p class="eyebrow" id="market-name">China</p><h3 id="market-heading">Follow the import gap.</h3><p id="market-body"></p><dl class="market-metrics"><div><dt>2025 exports / BPS</dt><dd id="market-volume"></dd></div><div><dt>Share of BPS total</dt><dd id="market-share"></dd></div></dl><a id="market-record" class="market-record" target="_blank" rel="noopener noreferrer">Original destination record ↗</a><div class="market-watch"><span class="eyebrow">What to watch</span><p id="market-watch"></p></div><p class="micro">BPS reports countries and territories, with other destinations grouped together. Viet Nam is shown as IEA regional context without a separate BPS volume here. Markers are approximate.</p></aside></div>
     <p class="atlas-scope">The BPS coal destination series totals <span id="destination-total"></span> in 2025, with <span id="destination-other"></span> assigned to other destinations. It is a different statistical series from the IEA thermal-coal estimates above. The two totals are not combined. Spain is a small recorded European outlet, not evidence that Europe rivals the major Asian buyers.</p>
   </div></section>
 

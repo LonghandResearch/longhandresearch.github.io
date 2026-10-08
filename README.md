@@ -138,6 +138,8 @@ patterns. `assets/js/coal/data.js` freezes the source register and economic
 observations; `model.js` contains the independent illustrative scenario
 arithmetic, `geography.js` the locally stored Natural Earth outlines, and
 `report.js` the charts and controls. `assets/css/coal.css` is page-scoped.
+The opening value chain runs an illustrative mine-to-buyer cycle. The atlas
+shows moving cargo markers on conceptual links, with a shared pause control.
 Atlas arcs are conceptual links, not actual ship routes or a volume scale.
 Destination panels show the separate, revised BPS 2025 coal customs series.
 Period-selectable Australian benchmark prices remain separate from

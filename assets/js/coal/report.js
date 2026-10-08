@@ -53,7 +53,7 @@
   matchMedia('(max-width: 760px)').addEventListener('change',renderPrice);
 
   const project=(lon,lat)=>[(lon+180)*960/360,(85-lat)*520/170];
-  let selectedMarket='india', mapView='world';
+  let selectedMarket='india', mapView='world', mapFleet=[];
   function setMapView(view) {
     mapView=view;
     $('coal-map').dataset.view=view;
@@ -67,13 +67,22 @@
     for(const f of geo){g+=`<path class="map-country ${f.name==='Indonesia'?'origin':f.name===market.name.replace('Viet Nam','Vietnam')?'selected':''}" d="${f.path}"/>`;}
     const destination=project(market.lon,market.lat),midX=(destination[0]+origin[0])/2,midY=Math.min(origin[1],destination[1])-35;
     const path=`M${origin[0]} ${origin[1]}Q${midX} ${midY} ${destination[0]} ${destination[1]}`;
-    g+=`<path class="map-route active" d="${path}"/><path class="map-pulse" d="${path}"/>`;
+    for(const m of D.markets.filter(m=>m.id!==selectedMarket&&(world||m.id!=='spain'))){
+      const p=project(m.lon,m.lat);
+      g+=`<path class="map-network" d="M${origin[0]} ${origin[1]}Q${(p[0]+origin[0])/2} ${Math.min(origin[1],p[1])-35} ${p[0]} ${p[1]}"/>`;
+    }
+    g+=`<path id="selected-trade-path" class="map-route active" d="${path}"/><path class="map-pulse" d="${path}"/>`;
+    g+=`<circle class="map-halo" cx="${origin[0]}" cy="${origin[1]}" r="${world?12:7}"/><circle class="map-halo destination-halo" cx="${destination[0]}" cy="${destination[1]}" r="${world?12:7}"/>`;
+    g+=`<g class="map-fleet">${[0,1,2].map(i=>`<g class="map-carrier" data-carrier="${i}"><circle r="${world?12:7}" fill="#dfbc7d" opacity=".12"/><g transform="scale(${world?1:.6})"><path d="M-11-4H4L12 0 4 4H-11Z" fill="#f4d693" stroke="#142d36" stroke-width="1.5"/><path d="M-7-2h2v4h-2Zm4 0h2v4h-2Zm4 0h2v4H1Z" fill="#6f644a"/></g></g>`).join('')}</g>`;
     for(const m of D.markets){const p=project(m.lon,m.lat),active=m.id===selectedMarket;
       g+=`<circle class="map-point ${active?'active':''}" cx="${p[0]}" cy="${p[1]}" r="${world?(active?7:4):(active?4:2)}"/>`;
       if(active)g+=`<text x="${p[0]+(world?0:m.label[0])}" y="${p[1]+(world?-20:m.label[1])}" text-anchor="${world?'middle':'start'}">${esc(m.name)}</text>`;
     }
     g+=`<circle class="map-point" cx="${origin[0]}" cy="${origin[1]}" r="${world?6:3.8}"/><text x="${origin[0]-18}" y="${origin[1]+(world?26:20)}">Indonesia</text></g>`;
     $('coal-map').innerHTML=g;
+    const route=$('selected-trade-path'),length=route.getTotalLength();
+    mapFleet=Array.from($('coal-map').querySelectorAll('.map-carrier'),(node,i)=>({node,route,length,phase:i/3}));
+    positionFleet(0);
     $('market-buttons').innerHTML=D.markets.map(m=>`<button type="button" data-market="${m.id}" aria-pressed="${m.id===selectedMarket}">${esc(m.name)}</button>`).join('');
     $('market-buttons').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
       selectedMarket=btn.dataset.market;
@@ -133,19 +142,59 @@
     port: ['At the port', 'Inland transport and loading add cost before the coal reaches its buyer.'],
     buyer: ['At the buyer', 'The contract and coal specification determine the price the producer receives.']
   };
-  document.querySelectorAll('[data-chain-stage]').forEach(button => button.addEventListener('click', () => {
-    const stage = button.dataset.chainStage;
+  let cycleTime=0, cycleStage='', mapTime=0;
+  const stages=Object.keys(chainStages);
+  function showChainStage(stage) {
+    cycleStage=stage;
     $('coal-chain').dataset.stage = stage;
     $('chain-heading').textContent = chainStages[stage][0];
     $('chain-caption').textContent = chainStages[stage][1];
-    document.querySelectorAll('[data-chain-stage]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    document.querySelectorAll('[data-chain-stage]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.chainStage === stage)));
+  }
+  document.querySelectorAll('[data-chain-stage]').forEach(button => button.addEventListener('click', () => {
+    cycleTime=stages.indexOf(button.dataset.chainStage)*6;
+    showChainStage(button.dataset.chainStage);
+    $('chain-progress').style.transform=`scaleX(${cycleTime/18})`;
   }));
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   let motion=!reduced.matches;
-  function setMotion(){document.documentElement.dataset.coalMotion=motion?'on':'off';$('motion-toggle').textContent=motion?'Pause motion':'Enable motion';$('motion-toggle').setAttribute('aria-pressed',String(!motion));}
-  $('motion-toggle').addEventListener('click',()=>{motion=!motion;setMotion();});
-  reduced.addEventListener('change',()=>{motion=!reduced.matches;setMotion();});setMotion();
-  if('IntersectionObserver'in window){const ambient=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('is-visible',e.isIntersecting)),{threshold:.12});document.querySelectorAll('.coal-object,.map-console').forEach(el=>ambient.observe(el));
-    const sectionObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)document.querySelectorAll('.coal-section-nav a').forEach(a=>a.setAttribute('aria-current',String(a.hash==='#'+e.target.id)));},{rootMargin:'-15% 0px -65% 0px'});document.querySelectorAll('section[id]').forEach(el=>sectionObserver.observe(el));
+  function setMotion(){document.documentElement.dataset.coalMotion=motion?'on':'off';
+    document.querySelectorAll('[data-coal-toggle]').forEach(button=>{button.textContent=motion?'Pause motion':'Enable motion';button.setAttribute('aria-pressed',String(!motion));});
+    scheduleMotion();
   }
+  document.querySelectorAll('[data-coal-toggle]').forEach(button=>button.addEventListener('click',()=>{motion=!motion;setMotion();}));
+  reduced.addEventListener('change',()=>{motion=!reduced.matches;setMotion();});
+  function positionFleet(seconds) {
+    for(const item of mapFleet){
+      const progress=(seconds/12+item.phase)%1,distance=progress*item.length;
+      const point=item.route.getPointAtLength(distance),next=item.route.getPointAtLength(Math.min(distance+1,item.length));
+      const angle=Math.atan2(next.y-point.y,next.x-point.x)*180/Math.PI;
+      item.node.setAttribute('transform',`translate(${point.x} ${point.y}) rotate(${angle})`);
+      item.node.style.opacity=String(Math.min(1,progress*12,(1-progress)*12));
+    }
+  }
+  let frame=null,lastFrame=null;
+  function scheduleMotion() {
+    const visible=document.querySelector('.coal-object.is-visible,.map-console.is-visible');
+    if(motion&&!document.hidden&&visible){if(frame===null)frame=requestAnimationFrame(animateScene);}
+    else {if(frame!==null)cancelAnimationFrame(frame);frame=null;lastFrame=null;}
+  }
+  function animateScene(now) {
+    frame=null;
+    const delta=lastFrame===null?0:Math.min((now-lastFrame)/1000,.05);lastFrame=now;
+    if($('coal-chain').classList.contains('is-visible')){
+      cycleTime=(cycleTime+delta)%18;
+      const stage=stages[Math.floor(cycleTime/6)];
+      if(stage!==cycleStage)showChainStage(stage);
+      $('chain-progress').style.transform=`scaleX(${cycleTime/18})`;
+    }
+    if($('coal-map').closest('.map-console').classList.contains('is-visible')){mapTime+=delta;positionFleet(mapTime);}
+    scheduleMotion();
+  }
+  document.addEventListener('visibilitychange',scheduleMotion);
+  showChainStage('mine');
+  setMotion();
+  if('IntersectionObserver'in window){const ambient=new IntersectionObserver(entries=>{entries.forEach(e=>e.target.classList.toggle('is-visible',e.isIntersecting));scheduleMotion();},{threshold:.12});document.querySelectorAll('.coal-object,.map-console').forEach(el=>ambient.observe(el));
+    const sectionObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)document.querySelectorAll('.coal-section-nav a').forEach(a=>a.setAttribute('aria-current',String(a.hash==='#'+e.target.id)));},{rootMargin:'-15% 0px -65% 0px'});document.querySelectorAll('section[id]').forEach(el=>sectionObserver.observe(el));
+  } else {document.querySelectorAll('.coal-object,.map-console').forEach(el=>el.classList.add('is-visible'));scheduleMotion();}
 })();
