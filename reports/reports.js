@@ -37,6 +37,45 @@
 */
 window.LONGHAND_REPORTS = [
   {
+    "id": "us-treasury-update-2026-10-08",
+    "ticker": "",
+    "company": "US Treasury market and the US economy",
+    "sector": "US rates and economic activity",
+    "category": "Update",
+    "title": "Higher Yields, Uneven Effects",
+    "date": "2026-10-08",
+    "blurb": "Treasury yields and mortgage rates have risen, while spending, business equipment and housing show a mixed economic picture.",
+    "summary": "US Treasury yields rose sharply over the three months to 6 October, while mortgage rates also increased. The wider economic picture remains mixed: August consumer spending and equipment measures grew, but housing was less consistent. Seven charts trace the repricing, its financial backdrop and the limits of the available evidence. Higher financing costs are visible; a broad downturn caused by Treasury repricing has yet to be established.",
+    "tags": [
+      "US Treasury",
+      "Bonds",
+      "Yields",
+      "United States",
+      "Federal Reserve",
+      "Mortgage Rates",
+      "Financial Conditions",
+      "Economy"
+    ],
+    "rating": null,
+    "currency": "USD",
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "pdfUrl": "reports/US_Treasury_Repricing_Update_2026-10-08.pdf",
+    "pages": 6,
+    "fileSize": 86394,
+    "extra": [
+      [
+        "Market data cutoff",
+        "6 October 2026"
+      ],
+      [
+        "Assessment date",
+        "8 October 2026"
+      ]
+    ]
+  },
+  {
     "id": "indonesia-ai-power-water-2026-10-05",
     "ticker": "",
     "company": "Indonesia data centers, electricity and water",
