@@ -17,7 +17,8 @@
   let confirmation = null;
   function confirmAction(text, action = 'Discard changes') {
     if (confirmation) return Promise.resolve(false);
-    $('confirm-heading').textContent = action === 'Delete project' ? 'Delete project?' : action === 'Remove source' ? 'Remove source?' : 'Unsaved changes';
+    $('confirm-heading').textContent = action === 'Delete project' ? 'Delete project?' : action === 'Remove source' ? 'Remove source?' : action === 'Update projects' ? 'Import project updates?' : 'Unsaved changes';
+    $('confirm-cancel').textContent = action === 'Update projects' ? 'Cancel import' : 'Keep editing';
     $('confirm-message').textContent = text; $('confirm-accept').textContent = action;
     $('workspace-confirm').showModal();
     return new Promise(resolve => { confirmation = resolve; });
@@ -231,7 +232,7 @@
   async function perform(operation, success = 'Saved in this browser.') {
     if (busy) return;
     busy = true; $('workspace-content').inert = true; $('workspace-content').setAttribute('aria-busy', 'true');
-    try { await operation(); message(success); }
+    try { await operation(); message(typeof success === 'function' ? success() : success); }
     catch (error) { message('Not saved. ' + error.message); }
     finally { busy = false; $('workspace-content').inert = false; $('workspace-content').setAttribute('aria-busy', 'false'); }
   }
@@ -334,11 +335,22 @@
   $('import-projects').addEventListener('change', async event => {
     const file = event.target.files[0];
     if (!file) return;
+    if (busy) { event.target.value = ''; return; }
     if (!await permitSwitch()) { event.target.value = ''; return; }
-    perform(async () => {
+    let result = 'Import cancelled. Your saved projects and open text were kept.';
+    await perform(async () => {
       if (file.size > 5000000) throw new Error('Choose a backup smaller than 5 MB.');
-      await repository.importBackup(await file.text()); await refresh(selected, false);
-    }, 'Backup imported. Existing projects were preserved.').finally(() => { event.target.value = ''; });
+      const input = await file.text(), preview = await repository.prepareImport(input);
+      if (!preview.length) throw new Error('This backup contains no projects.');
+      const updates = preview.filter(project => project.revision !== null);
+      if (updates.length && !await confirmAction('Update ' + updates.length + ' existing project(s): ' +
+        updates.slice(0, 3).map(project => '“' + project.topic + '”').join(', ') + (updates.length > 3 ? ', and ' + (updates.length - 3) + ' more' : '') +
+        '? The file replaces the brief, draft, sources and reasoning together. Research or workflow changes return to Draft and retain the previous version. A report connection alone keeps the current review. ' +
+        (preview.length - updates.length) + ' new project(s) will also be added.', 'Update projects')) return;
+      await repository.importBackup(input, preview);
+      await refresh({ id: preview.length === 1 ? preview[0].id : selected ? selected.id : preview[0].id }, false);
+      result = 'Imported ' + preview.length + ' project(s). Research or workflow changes need review and retain previous versions. Report connections alone keep the current review.';
+    }, () => result).finally(() => { event.target.value = ''; });
   });
   perform(async () => {
     projects = await repository.all(); reports = await LH.allReports();

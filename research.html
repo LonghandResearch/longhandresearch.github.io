@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="world/world.css?v=2026-10-07j">
   <link rel="stylesheet" href="assets/css/research-workspace.css?v=2026-10-08b">
   <script>document.write('<script src="reports/reports.js?v=' + Date.now() + '"><\/script>');</script>
-  <script src="assets/js/site.js?v=2026-10-07n" defer></script>
-  <script src="assets/js/research-projects.js?v=2026-10-08e" defer></script>
+  <script src="assets/js/site.js?v=2026-10-08c" defer></script>
+  <script src="assets/js/research-projects.js?v=2026-10-08f" defer></script>
   <script src="assets/js/research-operations.js?v=2026-10-08b" defer></script>
   <script src="assets/js/research-tasks.js?v=2026-10-08b" defer></script>
-  <script src="assets/js/research-workspace.js?v=2026-10-08e" defer></script>
+  <script src="assets/js/research-workspace.js?v=2026-10-08f" defer></script>
 </head>
 <body class="world-page research-page">
   <a class="world-skip" href="#main">Skip to research workspace</a>
@@ -28,6 +28,7 @@
     <div id="workspace-content" hidden>
       <section class="research-dashboard" aria-labelledby="dashboard-heading"><h2 id="dashboard-heading">Operations overview</h2><dl id="operations-summary"></dl><p class="research-note" id="catalogue-note">Counts use saved projects and the catalogue loaded in this browser. A catalogue entry does not confirm deployment to the live website.</p></section>
       <div class="research-toolbar"><button type="button" class="world-action" id="new-project">New project</button><button type="button" class="world-action" id="export-projects">Export backup</button><button type="button" class="world-action" id="export-project" disabled>Export this project</button><button type="button" class="world-action" id="delete-project" disabled>Delete project</button><label class="world-action research-import">Import backup<input id="import-projects" type="file" accept=".json,application/json"></label><button type="button" class="world-action" id="reload-projects">Reload projects &amp; reports</button></div>
+      <p class="research-note">Import a project file to load its draft, sources and reasoning together. If the project is already saved here, you can confirm an update and keep its previous version.</p>
       <div class="research-layout">
         <aside class="research-list"><h2>Work queue</h2><p class="research-note" id="queue-count"></p><label class="research-filter">Show<select id="project-filter"><option value="all">All projects</option><option value="attention">Needs attention</option><option value="sources">Collect evidence</option><option value="writing">Write / revise</option><option value="review">In review</option><option value="publication">Prepare report</option><option value="published">In catalogue</option><option value="missing">Report unavailable</option></select></label><ol id="project-list"></ol></aside>
         <section class="research-detail" aria-labelledby="project-heading">

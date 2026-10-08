@@ -249,9 +249,17 @@ conflict message and keeps its open text rather than overwriting newer work.
 Storage failures are visible; World pauses and offers **Retry save**. Saving or
 failed runs warn before leaving. Backups are versioned JSON containing projects,
 sources, text drafts, progress and history. They exclude PDF blobs, site-folder
-permissions and browser preferences. Import validates the entire file before
-one transaction inserts its projects. Any existing or duplicate ID rejects the
-whole import; use an empty browser store to restore an entire backup.
+permissions and browser preferences. **Import backup** validates the entire file
+and previews matching project IDs before asking to update them. One transaction
+adds new projects and updates confirmed matches: brief, draft, sources, evidence
+and reasoning together. Research or workflow changes return to Draft, clear the current review
+and retain the previous saved version (including planning drafts). Local IDs,
+creation dates and history are kept; unchanged content keeps its current review.
+A change to the Library connection alone updates that link without clearing
+approval or retaining another research version.
+Importing an older file deliberately replaces the current content after confirmation.
+Duplicate IDs, invalid records or a project changed/deleted in another tab cancel
+the entire import. Direct restore-only calls without a preview still reject existing IDs.
 Backups are limited to 5 MB; **Export this project** keeps larger workspaces
 recoverable one project at a time. Browser data is local to the origin and
 profile, is not encrypted by the application,
