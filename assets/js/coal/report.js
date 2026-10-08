@@ -39,7 +39,7 @@
     for(const v of [0,50,100,150,200]){const yy=y(v);g+=`<path class="chart-axis" d="M${l} ${yy}H${w-r}"/><text x="${l-10}" y="${yy+4}" text-anchor="end">${v}</text>`;}
     g+=`<path class="chart-line" d="${rows.map((d,i)=>(i?'L':'M')+x(i)+' '+y(d.value)).join(' ')}"/>`;
     rows.forEach((d,i)=>{g+=`<circle class="point" cx="${x(i)}" cy="${y(d.value)}" r="${i===priceIndex?7:4}"/><text class="value-label" x="${x(i)}" y="${y(d.value)-17}" text-anchor="middle">${num(d.value)}</text><text x="${x(i)}" y="${h-14}" text-anchor="middle">${d.period}</text>`;});
-    $('price-chart').innerHTML=svg(`Australian coal ${priceView} averages, USD per tonne. ${rows.map(d=>d.period+': '+d.value).join('; ')}.`,g,w,h);
+    $('price-chart').innerHTML=svg(`Australian coal ${priceView} averages, USD per tonne. ${rows.map(d=>d.period+': '+d.value).join(', ')}.`,g,w,h);
     $('price-periods').innerHTML=rows.map((d,i)=>`<button type="button" data-period="${i}" aria-pressed="${i===priceIndex}">${d.period}</button>`).join('');
     $('price-periods').querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{priceIndex=Number(btn.dataset.period);renderPrice();$('price-periods').querySelector(`[data-period="${priceIndex}"]`).focus();}));
     const d=rows[priceIndex],prev=rows[priceIndex-1];
@@ -95,7 +95,7 @@
     const changes=[-30,-15,0,15,30];
     let heat=`<div role="row" style="display:contents"><span role="columnheader" class="sensitivity-label">Volume / Price</span>${changes.map(p=>`<span role="columnheader" class="sensitivity-label">${signed(p,0)}%</span>`).join('')}</div>`;
     for(const v of changes){heat+=`<div role="row" style="display:contents"><span class="sensitivity-label" role="rowheader">${signed(v,0)}%</span>`;
-      for(const p of changes){const rr=M.calculate({...input,price:input.price*(1+p/100),volume:input.volume*(1+v/100)});heat+=`<span role="cell" class="sensitivity-cell ${rr.contribution<0?'negative':''} ${v===0&&p===0?'current':''}" aria-label="Volume ${signed(v,0)} percent; price ${signed(p,0)} percent; contribution ${money(rr.contribution)} billion dollars">${num(rr.contribution,2)}</span>`;}
+      for(const p of changes){const rr=M.calculate({...input,price:input.price*(1+p/100),volume:input.volume*(1+v/100)});heat+=`<span role="cell" class="sensitivity-cell ${rr.contribution<0?'negative':''} ${v===0&&p===0?'current':''}" aria-label="Volume ${signed(v,0)} percent, price ${signed(p,0)} percent, contribution ${money(rr.contribution)} billion dollars">${num(rr.contribution,2)}</span>`;}
       heat+='</div>';
     }
     $('sensitivity-grid').setAttribute('role','table');$('sensitivity-grid').setAttribute('aria-label','Illustrative annual cash contribution sensitivity in US dollars billion');$('sensitivity-grid').innerHTML=heat;
@@ -107,6 +107,18 @@
 
   const groups=Map.groupBy?Map.groupBy(D.sources,s=>s.publisher):D.sources.reduce((m,s)=>{if(!m.has(s.publisher))m.set(s.publisher,[]);m.get(s.publisher).push(s);return m;},new Map());
   $('coal-sources').innerHTML=Array.from(groups,([publisher,sources])=>`<details class="source-group"><summary>${esc(publisher)}</summary><ol>${sources.map(s=>`<li id="source-${esc(s.id)}"><div><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)} ↗</a><p>${esc(s.date)}</p></div><div><p>${esc(s.locator)}</p><p>${esc(s.note)}</p></div></li>`).join('')}</ol></details>`).join('');
+  const chainStages = {
+    mine: ['At the mine', 'Coal quality and production cost shape the cargo before it moves.'],
+    port: ['At the port', 'Inland transport and loading add cost before the coal reaches its buyer.'],
+    buyer: ['At the buyer', 'The contract and coal specification determine the price the producer receives.']
+  };
+  document.querySelectorAll('[data-chain-stage]').forEach(button => button.addEventListener('click', () => {
+    const stage = button.dataset.chainStage;
+    $('coal-chain').dataset.stage = stage;
+    $('chain-heading').textContent = chainStages[stage][0];
+    $('chain-caption').textContent = chainStages[stage][1];
+    document.querySelectorAll('[data-chain-stage]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+  }));
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   let motion=!reduced.matches;
   function setMotion(){document.documentElement.dataset.coalMotion=motion?'on':'off';$('motion-toggle').textContent=motion?'Pause motion':'Enable motion';$('motion-toggle').setAttribute('aria-pressed',String(!motion));}

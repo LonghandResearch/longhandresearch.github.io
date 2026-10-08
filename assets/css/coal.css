@@ -24,6 +24,7 @@
 .page-coal h1 em,.page-coal h2 em {
   color:var(--teal);
   font-weight:400;
+  font-style:normal;
 }
 .page-coal h3 {
   font-size:27px;
@@ -121,12 +122,11 @@
   width:100%;
   height:auto;
 }
-.coal-fragment {
-  transform-origin:250px 230px;
-  animation:coal-float 14s ease-in-out infinite;
+ .chain-flow {
+  animation:route-flow 12s linear infinite;
   animation-play-state:paused;
 }
-.coal-object.is-visible .coal-fragment {
+.coal-object.is-visible .chain-flow {
   animation-play-state:running;
 }
 .object-caption {
@@ -871,27 +871,19 @@
     font-size:24px;
   }
 }
-@keyframes coal-float {
-  0%,100% {
-    transform:translateY(0) rotate(-2deg);
-  }
-  50% {
-    transform:translateY(-9px) rotate(2deg);
-  }
-}
 @keyframes route-flow {
   to {
     stroke-dashoffset:-90;
   }
 }
-:root[data-coal-motion=off] .coal-fragment,:root[data-coal-motion=off] .map-pulse {
+:root[data-coal-motion=off] .chain-flow,:root[data-coal-motion=off] .map-pulse {
   animation-play-state:paused!important;
 }
 @media(prefers-reduced-motion:reduce) {
   .page-coal * {
     scroll-behavior:auto!important;
   }
-  .coal-fragment,.map-pulse {
+  .chain-flow,.map-pulse {
     animation:none!important;
   }
   .bridge-fill {
@@ -1135,4 +1127,110 @@
   .chart .chart-status {
     font-size: 18px;
   }
+}
+
+/* The opening exhibit is an explorable value chain, rather than a decorative object. */
+.coal-object {
+  margin:0;
+  background:#ede9dc;
+  color:#244647;
+  border:0;
+  border-top:2px solid #a47d43;
+}
+.object-top {
+  padding:20px 24px 8px;
+}
+.object-top .eyebrow {
+  color:#76613f;
+  font-size:9px;
+  letter-spacing:.1em;
+}
+.object-top .quiet-button {
+  color:#45625c;
+  border:0;
+  padding:8px 0 8px 10px;
+  flex-shrink:0;
+  white-space:nowrap;
+}
+.page-coal .chain-title {
+  font-size:clamp(32px,3.2vw,43px);
+  line-height:1.08;
+  margin:10px 24px 0;
+  color:#244647;
+  letter-spacing:-.04em;
+}
+.page-coal .chain-title em {
+  color:#6c7861;
+}
+.coal-art {
+  display:block;
+  margin-top:-8px;
+}
+.chain-scene {
+  opacity:.75;
+  transition:opacity 250ms;
+}
+[data-stage=mine] [data-scene=mine],
+[data-stage=port] [data-scene=port],
+[data-stage=buyer] [data-scene=buyer] {
+  opacity:1;
+}
+.chain-controls {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin:0 24px;
+  border-bottom:1px solid #c3c6b5;
+}
+.chain-controls button {
+  border:0;
+  border-bottom:2px solid transparent;
+  border-radius:0;
+  padding:14px 3px;
+  background:transparent;
+  color:#53675e;
+  font-size:12px;
+  cursor:pointer;
+}
+.chain-controls span {
+  margin-right:8px;
+  color:#8b7757;
+  font-size:10px;
+}
+.chain-controls button[aria-pressed=true] {
+  border-color:#244647;
+  color:#244647;
+  font-weight:600;
+}
+.chain-controls button:hover {
+  background:#e2e2d3;
+}
+.chain-controls button:focus-visible {
+  outline:2px solid #244647;
+  outline-offset:-3px;
+}
+.page-coal .chain-caption {
+  padding:22px 24px 24px;
+  font-family:var(--font-sans);
+}
+.page-coal .chain-caption h3 {
+  font-family:var(--font-serif);
+  font-size:25px;
+  margin:0 0 8px;
+  color:#244647;
+}
+.page-coal .chain-caption p {
+  font-size:12px;
+  line-height:1.65;
+  min-height:3.3em;
+  margin:0;
+  color:#45625c;
+}
+.chain-caption small {
+  display:block;
+  margin-top:18px;
+  color:#6d796e;
+  font-size:9px;
+}
+@media(prefers-reduced-motion:reduce) {
+  .chain-scene { transition:none; }
 }
