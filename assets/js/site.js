@@ -304,23 +304,33 @@
         transaction.onerror = transaction.onabort = () => reject(failure || transaction.error || new Error('The browser cancelled the save'));
       });
     },
-    async insertMany(records) {
+    async changeMany(ids, transform) {
       const db = await openDb();
       return new Promise((resolve, reject) => {
         const transaction = db.transaction(SETTINGS, 'readwrite');
         const table = transaction.objectStore(SETTINGS);
-        let failure;
-        records.forEach(record => {
-          const request = table.get(researchPrefix + record.id);
+        const values = new Array(ids.length);
+        let remaining = ids.length, result = [], failure;
+        ids.forEach((id, index) => {
+          const request = table.get(researchPrefix + id);
           request.onsuccess = () => {
-            if (request.result) {
-              failure = new Error('A project with this ID already exists. Import was cancelled; existing work was kept.');
-              transaction.abort();
-            } else table.put({ key: researchPrefix + record.id, value: record });
+            if (failure) return;
+            values[index] = request.result && request.result.value;
+            if (--remaining) return;
+            try {
+              result = transform(values);
+              result.forEach((value, index) => table.put({ key: researchPrefix + ids[index], value }));
+            } catch (error) { failure = error; transaction.abort(); }
           };
         });
-        transaction.oncomplete = () => resolve(records);
+        transaction.oncomplete = () => resolve(result);
         transaction.onerror = transaction.onabort = () => reject(failure || transaction.error || new Error('The browser cancelled the import'));
+      });
+    },
+    insertMany(records) {
+      return this.changeMany(records.map(record => record.id), values => {
+        if (values.some(Boolean)) throw new Error('A project with this ID already exists. Import was cancelled; existing work was kept.');
+        return records;
       });
     }
   };

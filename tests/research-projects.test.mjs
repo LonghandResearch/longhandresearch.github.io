@@ -21,6 +21,11 @@ function storage() {
     all: async () => [...rows.values()].map(copy),
     get: async id => rows.has(id) ? copy(rows.get(id)) : undefined,
     change: (id, transform) => atomic(() => { const next = transform(rows.has(id) ? copy(rows.get(id)) : undefined); if (next === null) rows.delete(id); else rows.set(id, copy(next)); return copy(next); }),
+    changeMany: (ids, transform) => atomic(() => {
+      const next = transform(ids.map(id => rows.has(id) ? copy(rows.get(id)) : undefined));
+      next.forEach((record, index) => rows.set(ids[index], copy(record)));
+      return copy(next);
+    }),
     insertMany: records => atomic(() => {
       if (records.some(record => rows.has(record.id))) throw new Error('Project already exists');
       records.forEach(record => rows.set(record.id, copy(record)));
@@ -32,6 +37,93 @@ function setup() {
   const repo = model.createRepository(records, { clock: () => '2026-10-07T10:00:00.000Z', makeId: () => 'project-' + ++ids });
   return { repo, records };
 }
+
+const envelope = projects => JSON.stringify({ format: 'longhand-research-projects', version: 1, projects });
+
+test('confirmed import updates one identity and retains local draft, source context and approval', async () => {
+  const { repo } = setup(); let current = await repo.create(scope);
+  current = await repo.save({ ...current, draftKind: 'research', draftBody: 'Original argument.', sources: [checkedSource], reasoning: reasoning() }, current.revision);
+  current = await repo.review(current.id, current.revision, 'submit', 'Submit original.');
+  current = await repo.review(current.id, current.revision, 'approve', 'Review original.', attestation());
+  const input = envelope([{ ...current, revision: 500, draftBody: 'Imported argument.',
+    sources: [{ ...checkedSource, id: 'source-new' }],
+    reasoning: reasoning({ evidence: [{ sourceId: 'source-new', relation: 'qualifies', locator: 'New table', note: 'New qualification.' }] }) }]);
+  await repo.importBackup(input, await repo.prepareImport(input));
+  const updated = await repo.get(current.id), previous = updated.reasoningHistory.at(-1);
+  assert.equal((await repo.all()).length, 1);
+  assert.equal(updated.revision, current.revision + 1); assert.equal(updated.createdAt, current.createdAt);
+  assert.equal(updated.draftBody, 'Imported argument.'); assert.equal(updated.sources[0].id, 'source-new');
+  assert.equal(updated.reasoning.evidence[0].sourceId, updated.sources[0].id);
+  assert.equal(updated.status, 'DRAFT'); assert.equal(updated.review, null);
+  assert.equal(previous.draftBody, current.draftBody); assert.deepEqual(copy(previous.sources), copy(current.sources));
+  assert.deepEqual(copy(previous.review), copy(current.review)); assert.deepEqual(copy(updated.history.slice(0, -1)), copy(current.history));
+  assert.match(updated.history.at(-1).action, /Imported update/);
+  const before = copy(updated);
+  await repo.importBackup(input, await repo.prepareImport(input));
+  assert.deepEqual(copy(await repo.get(current.id)), before, 'identical content does not add revisions or versions');
+});
+
+test('unchanged import keeps current approval even if backup metadata requests another status', async () => {
+  const { repo } = setup(); let current = await repo.create(scope);
+  current = await repo.save({ ...current, draftKind: 'research', draftBody: 'Original argument.', sources: [checkedSource], reasoning: reasoning() }, current.revision);
+  current = await repo.review(current.id, current.revision, 'submit', 'Submit original.');
+  current = await repo.review(current.id, current.revision, 'approve', 'Review original.', attestation());
+  const input = envelope([{ ...current, status: 'DRAFT', review: null, reasoningHistory: [] }]);
+  await repo.importBackup(input, await repo.prepareImport(input));
+  assert.deepEqual(copy(await repo.get(current.id)), copy(current));
+});
+
+test('batch import rejects stale or deleted matches without adding any new projects', async () => {
+  for (const change of ['save', 'delete']) {
+    const { repo } = setup(); const current = await repo.create(scope);
+    const input = envelope([{ ...current, id: 'new-record' }, { ...current, draftBody: 'Incoming text.' }]);
+    const preview = await repo.prepareImport(input);
+    if (change === 'save') await repo.save({ ...current, draftBody: 'Another tab.' }, current.revision);
+    else await repo.remove(current.id, current.revision);
+    const before = copy(await repo.all());
+    await assert.rejects(repo.importBackup(input, preview), /another tab|no longer exists/);
+    assert.deepEqual(copy(await repo.all()), before);
+  }
+});
+
+test('a new ID appearing after preview rejects the entire mixed import', async () => {
+  const { repo } = setup(); const current = await repo.create(scope);
+  const input = envelope([{ ...current, draftBody: 'New version.' }, { ...current, id: 'new-record' }]);
+  const preview = await repo.prepareImport(input);
+  await repo.importBackup(envelope([{ ...current, id: 'new-record' }]));
+  const before = copy(await repo.all());
+  await assert.rejects(repo.importBackup(input, preview), /appeared in another tab/);
+  assert.deepEqual(copy(await repo.all()), before);
+});
+
+test('mixed import adds new IDs, retains planning drafts and caps local versions', async () => {
+  const { repo } = setup(); let current = await repo.create(scope);
+  current = await repo.save({ ...current, draftBody: 'Original planning text.' }, current.revision);
+  const input = envelope([{ ...current, draftBody: 'Updated planning text.' }, { ...current, id: 'new-record' }]);
+  await repo.importBackup(input, await repo.prepareImport(input));
+  assert.equal((await repo.all()).length, 2);
+  assert.equal((await repo.get(current.id)).reasoningHistory.at(-1).draftBody, current.draftBody);
+  for (let index = 0; index < 7; index++) {
+    current = await repo.get(current.id);
+    const next = envelope([{ ...current, brief: { ...scope, topic: 'Revised question ' + index }, draftBody: 'Draft ' + index }]);
+    await repo.importBackup(next, await repo.prepareImport(next));
+  }
+  current = await repo.get(current.id);
+  assert.equal(current.reasoningHistory.length, 5);
+  assert.deepEqual(copy(current.run.times), []); assert.deepEqual(copy(current.outputs), []);
+  assert.equal(model.parseBackup(await repo.exportBackup(current.id)).length, 1);
+});
+
+test('import cannot relabel unchanged planning and rejects invalid previews and malformed evidence atomically', async () => {
+  const { repo } = setup(); let current = await repo.create(scope);
+  current = await repo.save({ ...current, draftBody: 'Planning prose.' }, current.revision);
+  const input = envelope([{ ...current, draftKind: 'research' }]);
+  await assert.rejects(repo.importBackup(input, await repo.prepareImport(input)), /Replace the planning/);
+  await assert.rejects(repo.importBackup(input, [{ id: 'wrong', revision: current.revision }]), /Preview/);
+  const invalid = envelope([{ ...current, id: 'new-record' }, { ...current, reasoning: reasoning() }]);
+  await assert.rejects(repo.prepareImport(invalid), /evidence link/);
+  assert.deepEqual(copy(await repo.get(current.id)), copy(current)); assert.equal((await repo.all()).length, 1);
+});
 
 test('deletion keeps other projects and rejects stale deletion and resurrection', async () => {
   const { repo } = setup();

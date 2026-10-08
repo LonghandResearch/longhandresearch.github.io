@@ -30,7 +30,12 @@ async function workspace(options = {}) {
   const records = {
     all: async () => { if (options.blocked) throw new Error('Storage blocked'); return [...rows.values()].map(copy); },
     get: async id => copy(rows.get(id)),
-    change: async (id, transform) => { const result = transform(copy(rows.get(id))); if (result === null) rows.delete(id); else rows.set(id, copy(result)); return copy(result); }
+    change: async (id, transform) => { const result = transform(copy(rows.get(id))); if (result === null) rows.delete(id); else rows.set(id, copy(result)); return copy(result); },
+    changeMany: async (ids, transform) => {
+      const next = transform(ids.map(id => copy(rows.get(id))));
+      next.forEach((record, index) => rows.set(ids[index], copy(record)));
+      return copy(next);
+    }
   };
   let ids = 0;
   const events = new Map();
@@ -71,6 +76,72 @@ function checkReview(app) {
   app.elements.get('reviewer-name').value = 'Synthetic reviewer';
   for (const check of app.context.Longhand.Research.REVIEW_CHECKS) app.elements.get('review-check-' + check.id).checked = true;
 }
+
+function importFile(app, projects) {
+  const input = JSON.stringify({ format: 'longhand-research-projects', version: 1, projects });
+  const target = app.elements.get('import-projects');
+  target.files = [{ size: input.length, text: async () => input }]; target.value = 'backup.json';
+  target.emit('change', { target });
+}
+
+test('import cancellation keeps open text; accepting updates every field under the same project ID', async () => {
+  const app = await workspace(), current = [...app.rows.values()][0];
+  const incoming = { ...current, draftBody: 'Imported draft.', sources: [{ id: 'test-source', title: 'Test note',
+    url: 'https://example.com/', notes: 'Synthetic fixture.', checked: false }],
+    reasoning: { ...current.reasoning, thesis: 'Imported thesis.', evidence: [{ sourceId: 'test-source', relation: 'qualifies', locator: 'Section 1', note: 'Synthetic qualification.' }] } };
+  importFile(app, [incoming]); await flush();
+  assert.equal(app.elements.get('workspace-confirm').open, true);
+  assert.match(app.elements.get('confirm-message').textContent, /Workspace test/);
+  assert.equal(app.elements.get('confirm-cancel').textContent, 'Cancel import');
+  app.click('confirm-cancel'); await flush();
+  assert.deepEqual([...app.rows.values()][0], current); assert.match(app.elements.get('workspace-message').textContent, /cancelled/);
+  assert.equal(app.elements.get('workspace-content').inert, false);
+  importFile(app, [incoming]); await flush(); app.click('confirm-accept'); await flush();
+  assert.equal(app.rows.size, 1); assert.equal(app.elements.get('project-draft').value, incoming.draftBody);
+  assert.equal(app.elements.get('reasoning-thesis').value, incoming.reasoning.thesis);
+  assert.equal([...app.rows.values()][0].sources.length, 1); assert.equal([...app.rows.values()][0].reasoning.evidence.length, 1);
+  assert.equal([...app.rows.values()][0].reasoningHistory.at(-1).revision, current.revision);
+  assert.equal(new URL(app.context.location.href).searchParams.get('project'), current.id);
+  assert.equal(app.elements.get('import-projects').value, '');
+});
+
+test('stale confirmed import and cancelled unsaved prompt keep the text and do not partially import', async () => {
+  const app = await workspace(), current = [...app.rows.values()][0];
+  const incoming = { ...current, draftBody: 'Imported version.' };
+  app.elements.get('project-draft').value = 'Unsaved version.';
+  importFile(app, [incoming]); await flush(); app.click('confirm-cancel'); await flush();
+  assert.equal(app.elements.get('project-draft').value, 'Unsaved version.');
+  app.submit('draft-form'); await flush();
+  importFile(app, [incoming, { ...current, id: 'new-project' }]); await flush();
+  const saved = [...app.rows.values()][0]; app.rows.set(saved.id, { ...saved, revision: saved.revision + 1 });
+  app.click('confirm-accept'); await flush();
+  assert.equal(app.rows.size, 1); assert.match(app.elements.get('workspace-message').textContent, /another tab/);
+  assert.equal(app.elements.get('project-draft').value, 'Unsaved version.');
+  assert.equal(app.elements.get('workspace-content').inert, false);
+});
+
+test('new single-project import opens the imported project without duplicating existing work', async () => {
+  const app = await workspace(), current = [...app.rows.values()][0];
+  const incoming = { ...current, id: 'new-project', draftBody: 'New imported draft.' };
+  importFile(app, [incoming]); await flush();
+  assert.equal(app.rows.size, 2); assert.equal(app.elements.get('project-draft').value, incoming.draftBody);
+  assert.equal(new URL(app.context.location.href).searchParams.get('project'), incoming.id);
+  assert.deepEqual(app.rows.get(current.id), current);
+});
+
+test('empty, oversized and malformed files show errors without changing saved or open work', async () => {
+  const app = await workspace(), current = [...app.rows.values()][0];
+  importFile(app, []); await flush();
+  assert.match(app.elements.get('workspace-message').textContent, /no projects/);
+  const target = app.elements.get('import-projects');
+  for (const file of [{ size: 5000001, text: async () => 'unused' }, { size: 20, text: async () => 'invalid JSON' }]) {
+    target.files = [file]; target.emit('change', { target }); await flush();
+    assert.match(app.elements.get('workspace-message').textContent, /Not saved/);
+    assert.deepEqual([...app.rows.values()][0], current);
+    assert.equal(app.elements.get('project-topic').value, current.brief.topic);
+    assert.equal(app.elements.get('workspace-content').inert, false);
+  }
+});
 
 test('the visible checklist matches the attestations exported with approved research', async () => {
   const app = await workspace();

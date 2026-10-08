@@ -51,6 +51,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | RPT-012 | Build and publish reproducible Indonesia AI/data-center resource research and an interactive visual report | Codex | `codex/indonesia-ai-research` | Done (owner authorized publication without Claude review because subscription access was unavailable) | [PR #70](https://github.com/LonghandResearch/longhandresearch.github.io/pull/70) |
 | WEB-015 | Add Longhand World V0.1 with five core professionals, a shared local research workspace, operations dashboard, confirmed project deletion, role deliverables and guided report handoff | Codex | `codex/longhand-world` | Review | [PR #71](https://github.com/LonghandResearch/longhandresearch.github.io/pull/71) |
 | WEB-016 | Integrate five-role task guidance with the Longhand Constitution, saved reasoning, thesis evidence, manual review and retained versions | Codex | `codex/research-constitution` | Review | [PR #72](https://github.com/LonghandResearch/longhandresearch.github.io/pull/72), integration prepared on `codex/world-research-integration`; includes latest [PR #71](https://github.com/LonghandResearch/longhandresearch.github.io/pull/71) |
+| WEB-017 | Import draft, sources and reasoning together into the same project, with retained versions and atomic conflict checks | Codex | `codex/research-import-update` | In progress | |
 
 ## Status values
 

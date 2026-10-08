@@ -154,6 +154,11 @@
       if (current.revision !== expected) fail('This project changed in another tab. Reload it before saving; your open text has been kept.');
       return normalize(current);
     }
+    function retain(current) {
+      const versions = [...current.reasoningHistory, reasoningSnapshot({ ...current, at: current.updatedAt })].slice(-HISTORY_LIMIT);
+      while (bytes(versions) > HISTORY_BYTES) versions.shift();
+      return versions;
+    }
     return Object.freeze({
       async all() { return (await records.all()).map(normalize).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)); },
       async get(key) { if (!id(key)) fail('Invalid project ID.'); const value = await records.get(key); return value ? normalize(value) : null; },
@@ -186,8 +191,7 @@
           let reasoningHistory = current.reasoningHistory;
           if (researchChanged && ((current.draftKind === 'research' && current.draftBody.trim()) ||
             REASONING_FIELDS.some(field => current.reasoning[field].trim()) || current.reasoning.evidence.length)) {
-            reasoningHistory = [...reasoningHistory, reasoningSnapshot({ ...current, at: current.updatedAt })].slice(-HISTORY_LIMIT);
-            while (bytes(reasoningHistory) > HISTORY_BYTES) reasoningHistory.shift();
+            reasoningHistory = retain(current);
           }
           return normalize({ ...next, createdAt: current.createdAt, revision: current.revision + 1, updatedAt: at,
             status: changed ? 'DRAFT' : current.status,
@@ -221,7 +225,37 @@
         const backup = JSON.stringify({ format: 'longhand-research-projects', version: 1, exportedAt: clock(), projects }, null, 2);
         parseBackup(backup); return backup;
       },
-      async importBackup(input) { const projects = parseBackup(input); await records.insertMany(projects); return projects.length; }
+      async prepareImport(input) {
+        const projects = parseBackup(input), saved = new Map((await this.all()).map(project => [project.id, project]));
+        return projects.map(project => ({ id: project.id, topic: project.brief.topic,
+          revision: saved.has(project.id) ? saved.get(project.id).revision : null }));
+      },
+      async importBackup(input, expected) {
+        const projects = parseBackup(input);
+        // Restore-only callers retain the existing conflict protection. The UI
+        // explicitly confirms updates against the revisions shown in its preview.
+        if (expected === undefined) { await records.insertMany(projects); return projects.length; }
+        if (!Array.isArray(expected) || expected.length !== projects.length || expected.some((entry, index) =>
+          !entry || entry.id !== projects[index].id || (entry.revision !== null && (!Number.isSafeInteger(entry.revision) || entry.revision < 1)))) fail('Preview this backup again before importing.');
+        await records.changeMany(projects.map(project => project.id), values => projects.map((incoming, index) => {
+          const value = values[index], revision = expected[index].revision;
+          if (revision === null) {
+            if (value) fail('A project appeared in another tab. Preview this backup again; nothing was imported.');
+            return incoming;
+          }
+          const current = requireRevision(value, revision);
+          const next = { ...incoming, run: clone(incoming.run), outputs: clone(incoming.outputs) };
+          if (JSON.stringify(next.brief) !== JSON.stringify(current.brief)) { next.run = { times: [] }; next.outputs = []; }
+          const content = project => JSON.stringify([project.brief, project.sources, project.draftKind, project.draftBody,
+            project.reasoning, project.run, project.outputs, project.reportId]);
+          if (content(next) === content(current)) return current;
+          if (current.draftKind === 'planning' && next.draftKind === 'research' && next.draftBody === current.draftBody) fail('Replace the planning text with your research draft before marking it ready for review.');
+          return normalize({ ...next, createdAt: current.createdAt, updatedAt: clock(), revision: current.revision + 1,
+            status: 'DRAFT', review: null, reasoningHistory: retain(current),
+            history: history(current, 'Imported update; review reset', 'Draft, sources and reasoning imported together. Previous version retained.') });
+        }));
+        return projects.length;
+      }
     });
   }
   LH.Research = Object.freeze({ normalize, parseBackup, createRepository, clone, REASONING_FIELDS, REVIEW_CHECKS, emptyReasoning });
