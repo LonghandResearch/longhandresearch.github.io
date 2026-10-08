@@ -322,7 +322,7 @@
         if (saveFailed) throw new Error('Retry saving the previous run before starting another brief.');
         project = await repository.create(brief);
         const url = new URL(location.href); url.searchParams.set('project', project.id);
-        history.replaceState(null, '', url);
+        try { history.replaceState(null, '', url); } catch { /* Direct-file browsers may reject URL updates; the saved project still starts. */ }
         $('project-workspace').href = '../research.html?project=' + encodeURIComponent(project.id);
       } catch (error) {
         opening = false; render(snapshot); syncActivity();

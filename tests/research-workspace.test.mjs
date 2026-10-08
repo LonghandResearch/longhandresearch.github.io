@@ -41,8 +41,8 @@ async function workspace(options = {}) {
   const events = new Map();
   class TestURL extends URL { static createObjectURL(blob) { const key = 'blob:' + blobs.size; blobs.set(key, blob); return key; } static revokeObjectURL() {} }
   const context = vm.createContext({ document, URL: TestURL, Date, TextEncoder, Blob, console, setTimeout: callback => callback(),
-    location: { href: 'http://localhost/research.html' },
-    history: { replaceState(unused, title, url) { context.location.href = String(url); } },
+    location: { href: options.url || 'http://localhost/research.html' },
+    history: { replaceState(unused, title, url) { if (options.historyThrows) throw new Error('SecurityError: file URL'); context.location.href = String(url); } },
     crypto: { randomUUID: () => 'workspace-test-' + ++ids },
     Longhand: { isLocal: !options.publicHost, researchRecords: records, allReports: async () => options.reports || [], reportHref: report => 'report.html?id=' + report.id },
     addEventListener: (type, listener) => events.set(type, listener)
@@ -151,6 +151,15 @@ test('the visible checklist matches the attestations exported with approved rese
     assert.ok(label, 'visible checkbox exists for ' + check.id);
     assert.equal(label[1], check.label, 'exported attestation matches the visible check');
   }
+});
+
+test('a rejected file URL history update keeps the workspace visible and saves edits to the selected project', async () => {
+  const app = await workspace({ historyThrows: true, url: 'file:///synthetic/research.html' });
+  assert.equal(app.elements.get('workspace-content').hidden, false); assert.equal(app.rows.size, 1);
+  app.elements.get('project-draft').value = 'Synthetic draft saved despite a rejected URL update.';
+  app.submit('draft-form'); await flush();
+  assert.equal(app.rows.size, 1); assert.equal([...app.rows.values()][0].draftBody, app.elements.get('project-draft').value);
+  assert.match(app.elements.get('workspace-message').textContent, /Saved in this browser/);
 });
 
 test('project deletion requires confirmation and clears the selection without touching Library', async () => {
@@ -354,6 +363,8 @@ test('new review needs manual checks; an approved reasoning edit clears attestat
   const historyText = app.elements.get('reasoning-history').children[0].children[1].textContent;
   assert.match(historyText, /Captured original test note/);
   assert.match(historyText, /Tentative because this is synthetic evidence/);
+  assert.match(historyText, /Review state: Approved/);
+  assert.match(historyText, /Approval note: All six checks assessed/);
 });
 
 test('a referenced notebook source stays until its thesis links are explicitly removed', async () => {
@@ -427,6 +438,17 @@ test('legacy approval remains visible without fabricated new checks', async () =
   assert.match(app.elements.get('review-record').textContent, /Legacy approval retained/);
   assert.equal(app.elements.get('review-check-claims').checked, false);
   assert.equal(app.elements.get('download-approved').disabled, false);
+  app.elements.get('project-draft').value = 'Changed legacy synthetic prose.';
+  app.submit('draft-form'); await flush();
+  const snapshot = [...app.rows.values()][0].reasoningHistory.at(-1);
+  assert.equal(snapshot.status, 'APPROVED'); assert.equal(snapshot.approvalNote, 'Earlier manual review.');
+  assert.equal(snapshot.review, null);
+  const priorText = app.elements.get('reasoning-history').children[0].children[1].textContent;
+  assert.match(priorText, /Review state: Approved/); assert.match(priorText, /Approval note: Earlier manual review/);
+  delete snapshot.status; delete snapshot.approvalNote;
+  app.click('reload-projects'); await flush();
+  const unknownText = app.elements.get('reasoning-history').children[0].children[1].textContent;
+  assert.match(unknownText, /Review state: Not recorded/); assert.match(unknownText, /Approval note was not retained/);
 });
 
 test('failed catalogue refresh retains open work and shows a visible failure', async () => {

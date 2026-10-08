@@ -191,7 +191,10 @@ evidence, a reviewer name, six manual checks and a review note. Existing approva
 without that checklist remain readable and are explicitly labelled as legacy.
 These are human attestations, not automatic source or claim verification.
 
-Material research edits retain the previous reasoning, source notebook and draft
+Material research edits retain the previous reasoning, source notebook, draft,
+approval state and approval note together, including legacy approvals without a
+constitutional checklist. Earlier snapshots that never stored this metadata are
+labelled as unknown; missing approval notes are not invented. Versions are kept
 in a bounded trail of five recent versions within 2 MB. Unchanged saves and mock
 progress alone do not add versions. Review is cleared when relevant content
 changes. Existing backups include the added records. See
