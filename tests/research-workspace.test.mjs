@@ -292,6 +292,8 @@ test('new review needs manual checks; an approved reasoning edit clears attestat
   const historyText = app.elements.get('reasoning-history').children[0].children[1].textContent;
   assert.match(historyText, /Captured original test note/);
   assert.match(historyText, /Tentative because this is synthetic evidence/);
+  assert.match(historyText, /Review state: Approved/);
+  assert.match(historyText, /Approval note: All six checks assessed/);
 });
 
 test('a referenced notebook source stays until its thesis links are explicitly removed', async () => {
@@ -365,6 +367,17 @@ test('legacy approval remains visible without fabricated new checks', async () =
   assert.match(app.elements.get('review-record').textContent, /Legacy approval retained/);
   assert.equal(app.elements.get('review-check-claims').checked, false);
   assert.equal(app.elements.get('download-approved').disabled, false);
+  app.elements.get('project-draft').value = 'Changed legacy synthetic prose.';
+  app.submit('draft-form'); await flush();
+  const snapshot = [...app.rows.values()][0].reasoningHistory.at(-1);
+  assert.equal(snapshot.status, 'APPROVED'); assert.equal(snapshot.approvalNote, 'Earlier manual review.');
+  assert.equal(snapshot.review, null);
+  const priorText = app.elements.get('reasoning-history').children[0].children[1].textContent;
+  assert.match(priorText, /Review state: Approved/); assert.match(priorText, /Approval note: Earlier manual review/);
+  delete snapshot.status; delete snapshot.approvalNote;
+  app.click('reload-projects'); await flush();
+  const unknownText = app.elements.get('reasoning-history').children[0].children[1].textContent;
+  assert.match(unknownText, /Review state: Not recorded/); assert.match(unknownText, /Approval note was not retained/);
 });
 
 test('failed catalogue refresh retains open work and shows a visible failure', async () => {

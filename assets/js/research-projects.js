@@ -82,14 +82,25 @@
     if (!value || !iso(value.at) || !Number.isSafeInteger(value.revision) || value.revision < 1 ||
       !['planning', 'research'].includes(value.draftKind) || !text(value.draftBody, 100000, false)) fail('Invalid retained reasoning version.');
     const sources = sourceNotebook(value.sources), reasoning = reasoningRecord(value.reasoning, sources), review = reviewRecord(value.review, value.revision);
-    if (review) {
+    const status = value.status === undefined ? null : value.status;
+    const approvalNote = value.approvalNote === undefined ? '' : value.approvalNote;
+    if ((status !== null && !statuses.includes(status)) || !text(approvalNote, 2000, false) ||
+      (status === 'APPROVED' && !approvalNote.trim()) || (status !== 'APPROVED' && approvalNote.trim()) ||
+      (review && status !== null && status !== 'APPROVED')) fail('Invalid retained approval state or note.');
+    if (review || status === 'APPROVED') {
       if (value.draftKind !== 'research' || !value.draftBody.trim() || !sources.some(source => source.checked)) fail('A retained approval needs research text and a checked source.');
-      requireReasoning(reasoning);
-      if (review.at > value.at) fail('The retained approval timestamp is later than its saved version.');
+      if (review) {
+        requireReasoning(reasoning);
+        if (review.at > value.at) fail('The retained approval timestamp is later than its saved version.');
+      }
     }
     return { at: value.at, revision: value.revision, brief: brief(value.brief), sources,
       draftKind: value.draftKind, draftBody: value.draftBody,
-      reasoning, review };
+      reasoning, review, status, approvalNote };
+  }
+  function captureSnapshot(current) {
+    const approval = current.status === 'APPROVED' && current.history.slice().reverse().find(entry => entry.action === 'Approved');
+    return reasoningSnapshot({ ...current, at: current.updatedAt, approvalNote: approval ? approval.note : '' });
   }
   function normalize(value) {
     if (!value || value.version !== 1 || !id(value.id) || !iso(value.createdAt) || !iso(value.updatedAt) ||
@@ -186,7 +197,7 @@
           let reasoningHistory = current.reasoningHistory;
           if (researchChanged && ((current.draftKind === 'research' && current.draftBody.trim()) ||
             REASONING_FIELDS.some(field => current.reasoning[field].trim()) || current.reasoning.evidence.length)) {
-            reasoningHistory = [...reasoningHistory, reasoningSnapshot({ ...current, at: current.updatedAt })].slice(-HISTORY_LIMIT);
+            reasoningHistory = [...reasoningHistory, captureSnapshot(current)].slice(-HISTORY_LIMIT);
             while (bytes(reasoningHistory) > HISTORY_BYTES) reasoningHistory.shift();
           }
           return normalize({ ...next, createdAt: current.createdAt, revision: current.revision + 1, updatedAt: at,

@@ -176,6 +176,8 @@
             ...version.sources.map(source => [source.title, source.id, source.url, source.notes,
               source.checked ? 'Checked manually' : 'Unchecked'].join('\n')),
             '', 'Working draft (' + version.draftKind + ')', version.draftBody,
+            '', 'Review state: ' + (version.status ? names[version.status] : 'Not recorded for this earlier version.'),
+            version.approvalNote ? 'Approval note: ' + version.approvalNote : version.status === null ? 'Approval note was not retained for this earlier version.' : '',
             '', version.review ? 'Review by ' + version.review.reviewer + ' · content revision ' + version.review.revision : 'No constitutional checklist recorded for this version.'
           ].join('\n')));
         return detail;

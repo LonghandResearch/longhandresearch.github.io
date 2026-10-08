@@ -33,6 +33,48 @@ function setup() {
   return { repo, records };
 }
 
+test('modern and legacy approval notes remain self-contained after flat history eviction and backup restore', async () => {
+  for (const legacy of [false, true]) {
+    const { repo, records } = setup(); let current = await repo.create(scope);
+    current = await repo.save({ ...current, draftKind: 'research', draftBody: 'Original approved prose.', sources: [checkedSource], reasoning: reasoning() }, current.revision);
+    current = await repo.review(current.id, current.revision, 'submit', 'Submit for review.');
+    current = await repo.review(current.id, current.revision, 'approve', 'Original rationale survives later edits.', attestation());
+    if (legacy) {
+      const old = copy(current); delete old.review; delete old.reasoning;
+      current = model.normalize(old); records.rows.set(current.id, copy(current));
+    }
+    const approvedRevision = current.revision;
+    current = await repo.save({ ...current, draftBody: 'Revised unapproved prose.' }, current.revision);
+    for (let index = 0; index < 105; index++) current = await repo.save(current, current.revision);
+    assert.equal(current.history.some(entry => entry.action === 'Approved'), false);
+    const snapshot = current.reasoningHistory.at(-1);
+    assert.equal(snapshot.revision, approvedRevision); assert.equal(snapshot.status, 'APPROVED');
+    assert.equal(snapshot.approvalNote, 'Original rationale survives later edits.');
+    assert.equal(Boolean(snapshot.review), !legacy); assert.equal(current.status, 'DRAFT'); assert.equal(current.review, null);
+    const target = setup(); await target.repo.importBackup(await repo.exportBackup());
+    assert.deepEqual(copy((await target.repo.get(current.id)).reasoningHistory), copy(current.reasoningHistory));
+  }
+});
+
+test('old retained versions round-trip with unknown approval state instead of invented approval notes', async () => {
+  const { repo } = setup(); let current = await repo.create(scope);
+  current = await repo.save({ ...current, draftKind: 'research', draftBody: 'Original prose.', sources: [checkedSource], reasoning: reasoning() }, current.revision);
+  current = await repo.review(current.id, current.revision, 'submit', 'Submit.');
+  current = await repo.review(current.id, current.revision, 'approve', 'Review.', attestation());
+  current = await repo.save({ ...current, draftBody: 'Changed prose.' }, current.revision);
+  const backup = JSON.parse(await repo.exportBackup());
+  for (const snapshot of backup.projects[0].reasoningHistory) { delete snapshot.status; delete snapshot.approvalNote; }
+  const target = setup(); await target.repo.importBackup(JSON.stringify(backup));
+  const snapshot = (await target.repo.get(current.id)).reasoningHistory.at(-1);
+  assert.equal(snapshot.status, null); assert.equal(snapshot.approvalNote, ''); assert.equal(snapshot.review.reviewer, 'Test reviewer');
+  assert.equal(model.parseBackup(await target.repo.exportBackup()).length, 1);
+  for (const invalid of [{ ...snapshot, status: 'APPROVED' }, { ...snapshot, status: 'DRAFT', approvalNote: 'False approval.' },
+    { ...snapshot, approvalNote: 'x'.repeat(2001) }, { ...snapshot, status: 'UNKNOWN' }]) {
+    const broken = copy(backup); broken.projects[0].reasoningHistory = [invalid];
+    await assert.rejects(setup().repo.importBackup(JSON.stringify(broken)), /retained approval state or note/);
+  }
+});
+
 test('deletion keeps other projects and rejects stale deletion and resurrection', async () => {
   const { repo } = setup();
   const old = await repo.create(scope), other = await repo.create(scope);

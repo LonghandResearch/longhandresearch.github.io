@@ -50,7 +50,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | OWN-002 | Create the GoatCounter account so the counter already in the pages starts counting | Owner | | Blocked | |
 | RPT-012 | Build and publish reproducible Indonesia AI/data-center resource research and an interactive visual report | Codex | `codex/indonesia-ai-research` | Done (owner authorized publication without Claude review because subscription access was unavailable) | [PR #70](https://github.com/LonghandResearch/longhandresearch.github.io/pull/70) |
 | WEB-015 | Add Longhand World V0.1 with five core professionals, local research operations and guarded direct-file URL updates | Codex | `codex/longhand-world` | Review | [PR #71](https://github.com/LonghandResearch/longhandresearch.github.io/pull/71) |
-| WEB-016 | Integrate constitutional reasoning, thesis evidence, manual review and self-contained retained approval notes | Codex | `codex/research-constitution` | In progress (review trail fix) | [PR #72](https://github.com/LonghandResearch/longhandresearch.github.io/pull/72); includes PR #71 |
+| WEB-016 | Integrate constitutional reasoning, thesis evidence, manual review and self-contained retained approval notes | Codex | `codex/research-constitution` | Review | [PR #72](https://github.com/LonghandResearch/longhandresearch.github.io/pull/72); includes PR #71 |
 
 ## Status values
 
