@@ -138,6 +138,8 @@ test('unsupported browsers and cancelled pickers retain manual export and saved 
     pickDirectory: async () => { const error = new Error('Cancelled'); error.name = 'AbortError'; throw error; }
   });
   await controller.connect(); assert.equal(controller.status.state, 'off'); assert.equal(app.rows.size, 1);
+  assert.match(controller.status.text, /No new backup folder was selected/);
+  assert.match(controller.status.text, /Export backup/);
 });
 
 test('a broken backup notifier cannot report a committed research save as failed', async () => {
@@ -175,4 +177,32 @@ test('the browser wiring connects a folder, saves on repository changes and leav
   delete app.LH.ResearchBackups; app.LH.isLocal = false;
   app.LH.researchRecords.backupSettings.get = () => { throw new Error('Public page read private settings'); };
   vm.runInContext(source, app.context); assert.equal(app.LH.ResearchBackups, undefined);
+});
+
+
+test('a pending picker has visible guidance, prevents duplicate pickers and survives focus checks', async () => {
+  const app = fixture(); let complete, calls = 0;
+  const controller = app.LH.ResearchBackup.createController({ repository: app.repository,
+    settings: { get: async () => null, set: async () => {} },
+    pickDirectory: () => { calls++; return new Promise(resolve => { complete = resolve; }); }
+  });
+  const selection = controller.connect();
+  assert.equal(controller.status.state, 'choosing');
+  assert.match(controller.status.text, /If no window appears, use Export backup/);
+  await controller.init(); await controller.connect();
+  assert.equal(controller.status.state, 'choosing'); assert.equal(calls, 1);
+  complete(app.folder); await selection;
+});
+
+test('cancelling a replacement folder preserves the configured backup and its files', async () => {
+  const app = fixture(); await app.repository.create(brief); await app.controller.connect();
+  const config = app.config;
+  const controller = app.LH.ResearchBackup.createController({ repository: app.repository,
+    settings: { get: async () => config, set: async () => { throw new Error('Must retain settings'); } },
+    pickDirectory: async () => { const error = new Error('Cancelled'); error.name = 'AbortError'; throw error; }
+  });
+  await controller.init(); await controller.connect();
+  assert.equal(controller.status.configured, true);
+  assert.match(controller.status.text, /existing folder backup remains configured/);
+  assert.equal(app.config, config); assert.equal(app.snapshots().length, 1);
 });

@@ -61,6 +61,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | WEB-019 | Recover missing-project Workspace links and add local folder snapshots with visible backup status in Workspace and World | Codex | `codex/workspace-recovery-backup` | Done (Codex author QA and publication under the owner takeover authorization) | [PR #83](https://github.com/LonghandResearch/longhandresearch.github.io/pull/83) |
 | OPS-007 | Restore the existing local publisher, its stable installed copy and Windows login shortcut; verify the live process and clean publication state | Codex | `codex/local-operations` | Done (local restoration verified; Codex author QA under owner authorization) | [PR #85](https://github.com/LonghandResearch/longhandresearch.github.io/pull/85) |
 | OPS-008 | Back up and quarantine 19 orphan Git worktree registrations while preserving all active worktrees | Codex | `codex/local-operations` | Done (local cleanup verified; Codex author QA under owner authorization) | [PR #85](https://github.com/LonghandResearch/longhandresearch.github.io/pull/85) |
+| WEB-020 | Explain pending and cancelled folder selection and preserve manual backup recovery | Codex | `codex/backup-picker-feedback` | Done (Codex author QA under owner takeover authorization) | [PR #86](https://github.com/LonghandResearch/longhandresearch.github.io/pull/86) |
 
 
 ## Status values

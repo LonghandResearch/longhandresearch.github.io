@@ -302,6 +302,12 @@ with **Back up now**. **Turn off folder backup** keeps existing files.
 The status distinguishes pending, completed, missing permission and failed writes.
 A backup failure does not undo a research save. No private research is uploaded.
 
+If clicking **Choose backup folder** produces no folder window, use **Export backup**
+to save your projects first. Open the same localhost address in Chrome or Edge,
+then **Import backup** before choosing a folder there: different browsers keep
+separate project stores. A cancelled selection shows guidance and keeps any
+previously configured folder.
+
 Each completed snapshot is a new dated folder under `longhand-research-backups/`,
 with `projects-1.json` (and further numbered files for workspaces above 5 MB) and
 `snapshot.json`, written last as its completion marker. To restore, import every
