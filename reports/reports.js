@@ -37,6 +37,46 @@
 */
 window.LONGHAND_REPORTS = [
   {
+    "id": "the-power-behind-ai-update-2026-10-09",
+    "ticker": "",
+    "company": "Power, grid, land and data centers",
+    "sector": "AI infrastructure and energy, Indonesia",
+    "category": "Sector",
+    "title": "The Power Behind AI: October Checkpoint",
+    "date": "2026-10-09",
+    "blurb": "Ten listed-company price paths through 8 October, with a primary-source check of capacity definitions and the next project delivery milestones.",
+    "summary": "A dated supplement to the 24 September assessment. Cached IDX closes compare ten listed exposures, while primary market and company releases distinguish operating capacity, construction, campus totals and first-phase targets. Project sources were reviewed on 9 October. The original financial history and valuation models remain in the archive with their own dates.",
+    "tags": [
+      "AI",
+      "Data Centers",
+      "Energy",
+      "Power",
+      "Indonesia",
+      "Project delivery",
+      "Equity prices"
+    ],
+    "rating": null,
+    "currency": "IDR",
+    "price": null,
+    "targetPrice": null,
+    "upside": null,
+    "page": "power-behind-ai-update-2026-10-09.html",
+    "extra": [
+      [
+        "Equity prices",
+        "Through 8 October 2026"
+      ],
+      [
+        "Source review",
+        "9 October 2026"
+      ],
+      [
+        "Original assessment",
+        "24 September 2026"
+      ]
+    ]
+  },
+  {
     "id": "coal-in-transition-2026-10-08",
     "ticker": "",
     "company": "Global coal markets and Indonesia",

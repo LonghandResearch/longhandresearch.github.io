@@ -57,6 +57,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | WEB-018 | Make World open on the headquarters with compact navigation instead of a long scrolling brief and journal | Codex | `codex/world-compact` | Done (owner authorized publication without Claude; retrospective review deferred until subscription returns) | [PR #78](https://github.com/LonghandResearch/longhandresearch.github.io/pull/78) |
 | OPS-005 | Repair malformed Wire headline entities from RSS, including retained headlines, without altering source URLs; retain the owner's temporary Codex takeover authorization | Codex | `codex/wire-headlines` | Done (owner authorized Codex final QA, merge and publication while Claude subscription is inactive) | [PR #79](https://github.com/LonghandResearch/longhandresearch.github.io/pull/79) |
 | OPS-006 | Verify the active GoatCounter site and add the existing tracker to the two newer public interactive reports | Codex | `codex/goatcounter-coverage` | Done (Codex final QA and publication under the owner takeover authorization) | [PR #80](https://github.com/LonghandResearch/longhandresearch.github.io/pull/80) |
+| RPT-015 | Publish a dated Power Behind AI update with cached IDX closes, primary project checkpoints and clear capacity definitions; retain the September archive | Codex | `codex/power-behind-ai-update` | Review (Codex author QA complete; owner-authorized merge/publication) | |
 
 ## Status values
 
