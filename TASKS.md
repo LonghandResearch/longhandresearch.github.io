@@ -58,6 +58,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | OPS-005 | Repair malformed Wire headline entities from RSS, including retained headlines, without altering source URLs; retain the owner's temporary Codex takeover authorization | Codex | `codex/wire-headlines` | Done (owner authorized Codex final QA, merge and publication while Claude subscription is inactive) | [PR #79](https://github.com/LonghandResearch/longhandresearch.github.io/pull/79) |
 | OPS-006 | Verify the active GoatCounter site and add the existing tracker to the two newer public interactive reports | Codex | `codex/goatcounter-coverage` | Done (Codex final QA and publication under the owner takeover authorization) | [PR #80](https://github.com/LonghandResearch/longhandresearch.github.io/pull/80) |
 | RPT-015 | Publish a dated Power Behind AI update with cached IDX closes, primary project checkpoints and clear capacity definitions; retain the September archive | Codex | `codex/power-behind-ai-update` | Done (Codex author QA and publication under the owner takeover authorization) | [PR #81](https://github.com/LonghandResearch/longhandresearch.github.io/pull/81) |
+| WEB-019 | Recover missing-project Workspace links and add local folder snapshots with visible backup status in Workspace and World | Codex | `codex/workspace-recovery-backup` | In progress (owner authorized Codex completion while Claude unavailable) | |
 
 ## Status values
 

@@ -352,11 +352,12 @@
       result = 'Imported ' + preview.length + ' project(s). Research or workflow changes need review and retain previous versions. Report connections alone keep the current review.';
     }, () => result).finally(() => { event.target.value = ''; });
   });
+  let startupMessage = 'Research storage ready. Work is saved in this browser.';
   perform(async () => {
     projects = await repository.all(); reports = await LH.allReports();
     const id = new URL(location.href).searchParams.get('project');
     const project = id ? projects.find(item => item.id === id) : projects[0];
-    if (id && !project) throw new Error('This project was not found in this browser.');
+    if (id && !project) startupMessage = 'The linked project was not found in this browser. Choose a saved project, create one, or import a backup. Check that you are using the same browser and localhost address as before.';
     open(project || null); $('workspace-content').hidden = false;
-  }, 'Research storage ready. Work is saved in this browser.');
+  }, () => startupMessage);
 })();

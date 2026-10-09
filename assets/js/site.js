@@ -283,6 +283,10 @@
      publishing folder remain in their existing stores. Mutations are atomic. */
   const researchPrefix = 'research-project:';
   const researchRecords = {
+    backupSettings: {
+      get: () => tx('readonly', s => s.get('research-backup'), SETTINGS).then(row => row && row.value),
+      set: value => settings.set('research-backup', value),
+    },
     all: () => tx('readonly', s => s.getAll(), SETTINGS).then(rows =>
       rows.filter(row => row.key.startsWith(researchPrefix)).map(row => row.value)),
     get: id => tx('readonly', s => s.get(researchPrefix + id), SETTINGS).then(row => row && row.value),
