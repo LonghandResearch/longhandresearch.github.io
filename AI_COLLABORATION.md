@@ -6,6 +6,20 @@ a pull request.
 
 ## Equal partners
 
+### Temporary owner authorization while Claude is unavailable
+
+On 9 October 2026, the owner instructed Codex to take over while the owner's
+Claude subscription is inactive and not ask repeatedly for confirmation.
+Until the owner says Claude is available again, Codex may complete implementation,
+final QA, PR merge and publication for work within the owner's requested scope
+without waiting for Claude review or asking again solely because Claude is unavailable.
+This exception overrides the second-agent review and alternating-owner requirements
+below during this period. Record the validation and this authorization in the PR
+and task board; identify it as Codex author QA, not independent Claude review.
+Source checks, automated checks, isolated worktrees, preservation of user changes
+and the other repository safety rules still apply. Return to the normal shared
+review workflow when the owner confirms Claude access has resumed.
+
 Codex and Claude have the same role. Neither leads, and either may take any
 task.
 
@@ -67,7 +81,8 @@ the intended result is unclear.
 
 - Never commit passwords, tokens, API keys, private research, or `.env` files.
 - Do not add unrelated untracked files to a commit.
-- Do not force-push `main`, bypass review, or rewrite published history.
+- Do not force-push `main`, bypass required checks or review outside the owner's
+  temporary authorization above, or rewrite published history.
 - Do not edit generated `news/news.json` unless the task explicitly concerns
   generated news data; normally change `news/feeds.json` or
   `scripts/fetch-news.mjs` instead.

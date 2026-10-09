@@ -6,6 +6,7 @@
    A source that fails is skipped; its earlier headlines stay until they age out. */
 
 import { readFile, writeFile } from 'node:fs/promises';
+import { decode, cleanHeadline } from './wire-text.mjs';
 
 const FEEDS = new URL('../news/feeds.json', import.meta.url);
 const OUT = new URL('../news/news.json', import.meta.url);
@@ -44,26 +45,12 @@ const NEVER = new RegExp([
 ].map((w) => `\\b${w}\\b`).join('|'), 'i');
 const onTopic = (title, strict) => !NEVER.test(title) && (!strict || MARKET.test(title));
 
-const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', hellip: '…', mdash: '—', ndash: '–', lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”' };
-const decode = (s) => String(s || '')
-  .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
-  .replace(/<[^>]*>/g, '')
-  .replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => {
-    if (e[0] === '#') {
-      const n = e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
-      try { return String.fromCodePoint(n); } catch { return m; }
-    }
-    return ENTITIES[e.toLowerCase()] ?? m;
-  })
-  .replace(/\s+/g, ' ')
-  .trim();
-
 const tag = (xml, name) => {
   const m = new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)</${name}>`, 'i').exec(xml);
   return m ? m[1] : '';
 };
 
-function parse(xml) {
+function parse(xml, source) {
   const blocks = xml.match(/<item[\s>][\s\S]*?<\/item>/gi) || xml.match(/<entry[\s>][\s\S]*?<\/entry>/gi) || [];
   return blocks.map((b) => {
     let link = decode(tag(b, 'link'));
@@ -73,7 +60,7 @@ function parse(xml) {
     }
     if (!/^https?:\/\//i.test(link)) link = decode(tag(b, 'guid'));
     const when = decode(tag(b, 'pubDate') || tag(b, 'published') || tag(b, 'updated') || tag(b, 'dc:date'));
-    return { title: decode(tag(b, 'title')), url: link, time: Date.parse(when) };
+    return { title: cleanHeadline(tag(b, 'title'), source), url: link, time: Date.parse(when) };
   });
 }
 
@@ -84,7 +71,7 @@ async function gather(feed) {
     redirect: 'follow',
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const items = parse(await res.text());
+  const items = parse(await res.text(), feed.name);
   if (!items.length) throw new Error('no stories in the feed');
   return items;
 }
@@ -94,6 +81,7 @@ const oldest = now - KEEP_DAYS * 86400000;
 const { feeds } = JSON.parse(await readFile(FEEDS, 'utf8'));
 let previous = [];
 try { previous = JSON.parse(await readFile(OUT, 'utf8')).items || []; } catch { /* first run */ }
+const retained = previous.map((x) => ({ ...x, title: cleanHeadline(x.title, x.source) }));
 
 const fresh = [];
 const results = await Promise.allSettled(feeds.map(gather));
@@ -125,7 +113,7 @@ const seen = new Set();
 const key = (x) => x.title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 // Headlines kept earlier are checked again, so a tightened filter applies at once
 const strictSources = new Set(feeds.filter((f) => f.strict).map((f) => f.name));
-const items = [...fresh, ...previous.filter((x) => onTopic(x.title, strictSources.has(x.source)))]
+const items = [...fresh, ...retained.filter((x) => onTopic(x.title, strictSources.has(x.source)))]
   .filter((x) => Date.parse(x.time) >= oldest)
   .sort((a, b) => Date.parse(b.time) - Date.parse(a.time))
   .filter((x) => {
