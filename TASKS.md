@@ -56,6 +56,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | RPT-014 | Deepen interactive coal research with BPS/lignite coverage, Bayan/PTBA evidence, conditional 2026-2030 cases and audited conclusions | Codex | `codex/coal-transition` | Done (owner authorized Codex final review and publication while Claude subscription unavailable) | [PR #77](https://github.com/LonghandResearch/longhandresearch.github.io/pull/77) |
 | WEB-018 | Make World open on the headquarters with compact navigation instead of a long scrolling brief and journal | Codex | `codex/world-compact` | Done (owner authorized publication without Claude; retrospective review deferred until subscription returns) | [PR #78](https://github.com/LonghandResearch/longhandresearch.github.io/pull/78) |
 
+| OPS-005 | Repair malformed Wire headline entities from RSS, including retained headlines, without altering source URLs | Codex | `codex/wire-headlines` | In progress | |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
