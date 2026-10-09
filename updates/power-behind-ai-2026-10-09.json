@@ -1,0 +1,1019 @@
+{
+  "publicationDate": "2026-10-09",
+  "reviewDate": "2026-10-09",
+  "baselineDate": "2026-09-24",
+  "priceDate": "2026-10-08",
+  "currency": "IDR",
+  "priceBasis": "Unadjusted daily closes from the retained local IDX import. Price changes exclude dividends and trading costs.",
+  "stocks": [
+    {
+      "ticker": "DCII",
+      "name": "DCI Indonesia",
+      "exposure": "Data-center operator",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 201000.0,
+          "adjFactor": 1.0,
+          "volume": 200,
+          "frequency": 2
+        },
+        {
+          "date": "2026-09-25",
+          "close": 198000.0,
+          "adjFactor": 1.0,
+          "volume": 600,
+          "frequency": 5
+        },
+        {
+          "date": "2026-09-28",
+          "close": 198000.0,
+          "adjFactor": 1.0,
+          "volume": 0,
+          "frequency": 0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 198000.0,
+          "adjFactor": 1.0,
+          "volume": 1300,
+          "frequency": 10
+        },
+        {
+          "date": "2026-09-30",
+          "close": 198000.0,
+          "adjFactor": 1.0,
+          "volume": 200,
+          "frequency": 2
+        },
+        {
+          "date": "2026-10-01",
+          "close": 193800.0,
+          "adjFactor": 1.0,
+          "volume": 800,
+          "frequency": 5
+        },
+        {
+          "date": "2026-10-02",
+          "close": 200900.0,
+          "adjFactor": 1.0,
+          "volume": 400,
+          "frequency": 4
+        },
+        {
+          "date": "2026-10-05",
+          "close": 194600.0,
+          "adjFactor": 1.0,
+          "volume": 700,
+          "frequency": 7
+        },
+        {
+          "date": "2026-10-06",
+          "close": 199550.0,
+          "adjFactor": 1.0,
+          "volume": 500,
+          "frequency": 5
+        },
+        {
+          "date": "2026-10-07",
+          "close": 199525.0,
+          "adjFactor": 1.0,
+          "volume": 200,
+          "frequency": 2
+        },
+        {
+          "date": "2026-10-08",
+          "close": 199475.0,
+          "adjFactor": 1.0,
+          "volume": 200,
+          "frequency": 2
+        }
+      ]
+    },
+    {
+      "ticker": "TLKM",
+      "name": "Telkom Indonesia",
+      "exposure": "Data centers and connectivity",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 2410.0,
+          "adjFactor": 1.0,
+          "volume": 114511100,
+          "frequency": 21469
+        },
+        {
+          "date": "2026-09-25",
+          "close": 2410.0,
+          "adjFactor": 1.0,
+          "volume": 170051400,
+          "frequency": 18134
+        },
+        {
+          "date": "2026-09-28",
+          "close": 2370.0,
+          "adjFactor": 1.0,
+          "volume": 131894200,
+          "frequency": 21365
+        },
+        {
+          "date": "2026-09-29",
+          "close": 2370.0,
+          "adjFactor": 1.0,
+          "volume": 228706200,
+          "frequency": 26967
+        },
+        {
+          "date": "2026-09-30",
+          "close": 2290.0,
+          "adjFactor": 1.0,
+          "volume": 346746900,
+          "frequency": 36506
+        },
+        {
+          "date": "2026-10-01",
+          "close": 2250.0,
+          "adjFactor": 1.0,
+          "volume": 224735400,
+          "frequency": 28838
+        },
+        {
+          "date": "2026-10-02",
+          "close": 2250.0,
+          "adjFactor": 1.0,
+          "volume": 145636900,
+          "frequency": 16687
+        },
+        {
+          "date": "2026-10-05",
+          "close": 2290.0,
+          "adjFactor": 1.0,
+          "volume": 108272300,
+          "frequency": 15377
+        },
+        {
+          "date": "2026-10-06",
+          "close": 2280.0,
+          "adjFactor": 1.0,
+          "volume": 162461500,
+          "frequency": 32860
+        },
+        {
+          "date": "2026-10-07",
+          "close": 2310.0,
+          "adjFactor": 1.0,
+          "volume": 173346600,
+          "frequency": 13557
+        },
+        {
+          "date": "2026-10-08",
+          "close": 2260.0,
+          "adjFactor": 1.0,
+          "volume": 126548900,
+          "frequency": 20738
+        }
+      ]
+    },
+    {
+      "ticker": "ISAT",
+      "name": "Indosat Ooredoo Hutchison",
+      "exposure": "Connectivity and data-center joint venture",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 2400.0,
+          "adjFactor": 1.0,
+          "volume": 38014900,
+          "frequency": 6394
+        },
+        {
+          "date": "2026-09-25",
+          "close": 2350.0,
+          "adjFactor": 1.0,
+          "volume": 39859000,
+          "frequency": 7051
+        },
+        {
+          "date": "2026-09-28",
+          "close": 2240.0,
+          "adjFactor": 1.0,
+          "volume": 38243200,
+          "frequency": 8620
+        },
+        {
+          "date": "2026-09-29",
+          "close": 2300.0,
+          "adjFactor": 1.0,
+          "volume": 38979800,
+          "frequency": 7606
+        },
+        {
+          "date": "2026-09-30",
+          "close": 2260.0,
+          "adjFactor": 1.0,
+          "volume": 29066200,
+          "frequency": 5784
+        },
+        {
+          "date": "2026-10-01",
+          "close": 2260.0,
+          "adjFactor": 1.0,
+          "volume": 41268500,
+          "frequency": 6770
+        },
+        {
+          "date": "2026-10-02",
+          "close": 2250.0,
+          "adjFactor": 1.0,
+          "volume": 33635000,
+          "frequency": 5195
+        },
+        {
+          "date": "2026-10-05",
+          "close": 2220.0,
+          "adjFactor": 1.0,
+          "volume": 20079300,
+          "frequency": 4318
+        },
+        {
+          "date": "2026-10-06",
+          "close": 2220.0,
+          "adjFactor": 1.0,
+          "volume": 18240300,
+          "frequency": 6310
+        },
+        {
+          "date": "2026-10-07",
+          "close": 2220.0,
+          "adjFactor": 1.0,
+          "volume": 23538200,
+          "frequency": 6278
+        },
+        {
+          "date": "2026-10-08",
+          "close": 2140.0,
+          "adjFactor": 1.0,
+          "volume": 39198800,
+          "frequency": 7032
+        }
+      ]
+    },
+    {
+      "ticker": "EXCL",
+      "name": "XLSMART Telecom",
+      "exposure": "Connectivity",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 2400.0,
+          "adjFactor": 1.0,
+          "volume": 4743700,
+          "frequency": 2066
+        },
+        {
+          "date": "2026-09-25",
+          "close": 2330.0,
+          "adjFactor": 1.0,
+          "volume": 5560500,
+          "frequency": 2755
+        },
+        {
+          "date": "2026-09-28",
+          "close": 2310.0,
+          "adjFactor": 1.0,
+          "volume": 8445800,
+          "frequency": 2673
+        },
+        {
+          "date": "2026-09-29",
+          "close": 2370.0,
+          "adjFactor": 1.0,
+          "volume": 6662900,
+          "frequency": 2608
+        },
+        {
+          "date": "2026-09-30",
+          "close": 2410.0,
+          "adjFactor": 1.0,
+          "volume": 13174500,
+          "frequency": 3413
+        },
+        {
+          "date": "2026-10-01",
+          "close": 2400.0,
+          "adjFactor": 1.0,
+          "volume": 13264800,
+          "frequency": 5470
+        },
+        {
+          "date": "2026-10-02",
+          "close": 2380.0,
+          "adjFactor": 1.0,
+          "volume": 4458600,
+          "frequency": 2361
+        },
+        {
+          "date": "2026-10-05",
+          "close": 2320.0,
+          "adjFactor": 1.0,
+          "volume": 4636900,
+          "frequency": 2375
+        },
+        {
+          "date": "2026-10-06",
+          "close": 2390.0,
+          "adjFactor": 1.0,
+          "volume": 3064400,
+          "frequency": 1283
+        },
+        {
+          "date": "2026-10-07",
+          "close": 2340.0,
+          "adjFactor": 1.0,
+          "volume": 7874900,
+          "frequency": 2178
+        },
+        {
+          "date": "2026-10-08",
+          "close": 2340.0,
+          "adjFactor": 1.0,
+          "volume": 6146000,
+          "frequency": 1630
+        }
+      ]
+    },
+    {
+      "ticker": "MTEL",
+      "name": "Dayamitra Telekomunikasi",
+      "exposure": "Towers and fiber",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 482.0,
+          "adjFactor": 1.0,
+          "volume": 4073600,
+          "frequency": 1793
+        },
+        {
+          "date": "2026-09-25",
+          "close": 466.0,
+          "adjFactor": 1.0,
+          "volume": 14358400,
+          "frequency": 2358
+        },
+        {
+          "date": "2026-09-28",
+          "close": 454.0,
+          "adjFactor": 1.0,
+          "volume": 12638200,
+          "frequency": 1640
+        },
+        {
+          "date": "2026-09-29",
+          "close": 460.0,
+          "adjFactor": 1.0,
+          "volume": 8655000,
+          "frequency": 1721
+        },
+        {
+          "date": "2026-09-30",
+          "close": 450.0,
+          "adjFactor": 1.0,
+          "volume": 9022000,
+          "frequency": 1349
+        },
+        {
+          "date": "2026-10-01",
+          "close": 446.0,
+          "adjFactor": 1.0,
+          "volume": 12408600,
+          "frequency": 1891
+        },
+        {
+          "date": "2026-10-02",
+          "close": 446.0,
+          "adjFactor": 1.0,
+          "volume": 1453800,
+          "frequency": 479
+        },
+        {
+          "date": "2026-10-05",
+          "close": 442.0,
+          "adjFactor": 1.0,
+          "volume": 3939300,
+          "frequency": 1046
+        },
+        {
+          "date": "2026-10-06",
+          "close": 458.0,
+          "adjFactor": 1.0,
+          "volume": 4119300,
+          "frequency": 776
+        },
+        {
+          "date": "2026-10-07",
+          "close": 460.0,
+          "adjFactor": 1.0,
+          "volume": 3514900,
+          "frequency": 1217
+        },
+        {
+          "date": "2026-10-08",
+          "close": 448.0,
+          "adjFactor": 1.0,
+          "volume": 2461000,
+          "frequency": 663
+        }
+      ]
+    },
+    {
+      "ticker": "DMAS",
+      "name": "Puradelta Lestari",
+      "exposure": "Industrial land",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 192.0,
+          "adjFactor": 1.0,
+          "volume": 155042000,
+          "frequency": 5271
+        },
+        {
+          "date": "2026-09-25",
+          "close": 185.0,
+          "adjFactor": 1.0,
+          "volume": 114813200,
+          "frequency": 6408
+        },
+        {
+          "date": "2026-09-28",
+          "close": 181.0,
+          "adjFactor": 1.0,
+          "volume": 69840200,
+          "frequency": 5460
+        },
+        {
+          "date": "2026-09-29",
+          "close": 183.0,
+          "adjFactor": 1.0,
+          "volume": 147089400,
+          "frequency": 6947
+        },
+        {
+          "date": "2026-09-30",
+          "close": 186.0,
+          "adjFactor": 1.0,
+          "volume": 131575100,
+          "frequency": 5924
+        },
+        {
+          "date": "2026-10-01",
+          "close": 181.0,
+          "adjFactor": 1.0,
+          "volume": 94890000,
+          "frequency": 5323
+        },
+        {
+          "date": "2026-10-02",
+          "close": 180.0,
+          "adjFactor": 1.0,
+          "volume": 63904100,
+          "frequency": 4839
+        },
+        {
+          "date": "2026-10-05",
+          "close": 191.0,
+          "adjFactor": 1.0,
+          "volume": 155894500,
+          "frequency": 7539
+        },
+        {
+          "date": "2026-10-06",
+          "close": 190.0,
+          "adjFactor": 1.0,
+          "volume": 91456400,
+          "frequency": 5547
+        },
+        {
+          "date": "2026-10-07",
+          "close": 188.0,
+          "adjFactor": 1.0,
+          "volume": 61707600,
+          "frequency": 4001
+        },
+        {
+          "date": "2026-10-08",
+          "close": 188.0,
+          "adjFactor": 1.0,
+          "volume": 105378800,
+          "frequency": 5632
+        }
+      ]
+    },
+    {
+      "ticker": "KIJA",
+      "name": "Kawasan Industri Jababeka",
+      "exposure": "Industrial land and utilities",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 176.0,
+          "adjFactor": 1.0,
+          "volume": 445566000,
+          "frequency": 18224
+        },
+        {
+          "date": "2026-09-25",
+          "close": 170.0,
+          "adjFactor": 1.0,
+          "volume": 188813400,
+          "frequency": 8373
+        },
+        {
+          "date": "2026-09-28",
+          "close": 171.0,
+          "adjFactor": 1.0,
+          "volume": 138382300,
+          "frequency": 5809
+        },
+        {
+          "date": "2026-09-29",
+          "close": 165.0,
+          "adjFactor": 1.0,
+          "volume": 244009300,
+          "frequency": 7380
+        },
+        {
+          "date": "2026-09-30",
+          "close": 159.0,
+          "adjFactor": 1.0,
+          "volume": 161869100,
+          "frequency": 5718
+        },
+        {
+          "date": "2026-10-01",
+          "close": 158.0,
+          "adjFactor": 1.0,
+          "volume": 162876600,
+          "frequency": 6950
+        },
+        {
+          "date": "2026-10-02",
+          "close": 151.0,
+          "adjFactor": 1.0,
+          "volume": 135336400,
+          "frequency": 5528
+        },
+        {
+          "date": "2026-10-05",
+          "close": 162.0,
+          "adjFactor": 1.0,
+          "volume": 608574600,
+          "frequency": 20551
+        },
+        {
+          "date": "2026-10-06",
+          "close": 160.0,
+          "adjFactor": 1.0,
+          "volume": 255729400,
+          "frequency": 10673
+        },
+        {
+          "date": "2026-10-07",
+          "close": 160.0,
+          "adjFactor": 1.0,
+          "volume": 134655700,
+          "frequency": 6300
+        },
+        {
+          "date": "2026-10-08",
+          "close": 155.0,
+          "adjFactor": 1.0,
+          "volume": 104035100,
+          "frequency": 4595
+        }
+      ]
+    },
+    {
+      "ticker": "PGEO",
+      "name": "Pertamina Geothermal Energy",
+      "exposure": "Geothermal generation",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 1070.0,
+          "adjFactor": 1.0,
+          "volume": 12460600,
+          "frequency": 2523
+        },
+        {
+          "date": "2026-09-25",
+          "close": 1020.0,
+          "adjFactor": 1.0,
+          "volume": 14406300,
+          "frequency": 3470
+        },
+        {
+          "date": "2026-09-28",
+          "close": 1010.0,
+          "adjFactor": 1.0,
+          "volume": 10287500,
+          "frequency": 2916
+        },
+        {
+          "date": "2026-09-29",
+          "close": 985.0,
+          "adjFactor": 1.0,
+          "volume": 18867900,
+          "frequency": 4496
+        },
+        {
+          "date": "2026-09-30",
+          "close": 975.0,
+          "adjFactor": 1.0,
+          "volume": 9168300,
+          "frequency": 2415
+        },
+        {
+          "date": "2026-10-01",
+          "close": 955.0,
+          "adjFactor": 1.0,
+          "volume": 12562900,
+          "frequency": 4230
+        },
+        {
+          "date": "2026-10-02",
+          "close": 940.0,
+          "adjFactor": 1.0,
+          "volume": 9539600,
+          "frequency": 2588
+        },
+        {
+          "date": "2026-10-05",
+          "close": 975.0,
+          "adjFactor": 1.0,
+          "volume": 7178100,
+          "frequency": 1848
+        },
+        {
+          "date": "2026-10-06",
+          "close": 1000.0,
+          "adjFactor": 1.0,
+          "volume": 10446600,
+          "frequency": 2266
+        },
+        {
+          "date": "2026-10-07",
+          "close": 1010.0,
+          "adjFactor": 1.0,
+          "volume": 8345400,
+          "frequency": 1645
+        },
+        {
+          "date": "2026-10-08",
+          "close": 995.0,
+          "adjFactor": 1.0,
+          "volume": 8445600,
+          "frequency": 2180
+        }
+      ]
+    },
+    {
+      "ticker": "PTBA",
+      "name": "Bukit Asam",
+      "exposure": "Coal and power",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 3050.0,
+          "adjFactor": 1.0,
+          "volume": 11206200,
+          "frequency": 4519
+        },
+        {
+          "date": "2026-09-25",
+          "close": 3090.0,
+          "adjFactor": 1.0,
+          "volume": 31882000,
+          "frequency": 7921
+        },
+        {
+          "date": "2026-09-28",
+          "close": 3180.0,
+          "adjFactor": 1.0,
+          "volume": 60648500,
+          "frequency": 17910
+        },
+        {
+          "date": "2026-09-29",
+          "close": 3110.0,
+          "adjFactor": 1.0,
+          "volume": 55456800,
+          "frequency": 11843
+        },
+        {
+          "date": "2026-09-30",
+          "close": 3120.0,
+          "adjFactor": 1.0,
+          "volume": 28016200,
+          "frequency": 5949
+        },
+        {
+          "date": "2026-10-01",
+          "close": 3050.0,
+          "adjFactor": 1.0,
+          "volume": 21365600,
+          "frequency": 5381
+        },
+        {
+          "date": "2026-10-02",
+          "close": 3180.0,
+          "adjFactor": 1.0,
+          "volume": 35493300,
+          "frequency": 11077
+        },
+        {
+          "date": "2026-10-05",
+          "close": 3270.0,
+          "adjFactor": 1.0,
+          "volume": 54194500,
+          "frequency": 14810
+        },
+        {
+          "date": "2026-10-06",
+          "close": 3400.0,
+          "adjFactor": 1.0,
+          "volume": 79878000,
+          "frequency": 19150
+        },
+        {
+          "date": "2026-10-07",
+          "close": 3380.0,
+          "adjFactor": 1.0,
+          "volume": 34327600,
+          "frequency": 13942
+        },
+        {
+          "date": "2026-10-08",
+          "close": 3320.0,
+          "adjFactor": 1.0,
+          "volume": 23543500,
+          "frequency": 7636
+        }
+      ]
+    },
+    {
+      "ticker": "DSSA",
+      "name": "Dian Swastatika Sentosa",
+      "exposure": "Diversified energy and digital exposure",
+      "observations": [
+        {
+          "date": "2026-09-24",
+          "close": 1090.0,
+          "adjFactor": 1.0,
+          "volume": 375789100,
+          "frequency": 26238
+        },
+        {
+          "date": "2026-09-25",
+          "close": 1055.0,
+          "adjFactor": 1.0,
+          "volume": 305376700,
+          "frequency": 28047
+        },
+        {
+          "date": "2026-09-28",
+          "close": 1055.0,
+          "adjFactor": 1.0,
+          "volume": 206441100,
+          "frequency": 17148
+        },
+        {
+          "date": "2026-09-29",
+          "close": 1090.0,
+          "adjFactor": 1.0,
+          "volume": 196754500,
+          "frequency": 17747
+        },
+        {
+          "date": "2026-09-30",
+          "close": 1070.0,
+          "adjFactor": 1.0,
+          "volume": 157646100,
+          "frequency": 16283
+        },
+        {
+          "date": "2026-10-01",
+          "close": 1120.0,
+          "adjFactor": 1.0,
+          "volume": 355266400,
+          "frequency": 24010
+        },
+        {
+          "date": "2026-10-02",
+          "close": 1140.0,
+          "adjFactor": 1.0,
+          "volume": 264408400,
+          "frequency": 23746
+        },
+        {
+          "date": "2026-10-05",
+          "close": 1145.0,
+          "adjFactor": 1.0,
+          "volume": 162707500,
+          "frequency": 16217
+        },
+        {
+          "date": "2026-10-06",
+          "close": 1165.0,
+          "adjFactor": 1.0,
+          "volume": 234321200,
+          "frequency": 16798
+        },
+        {
+          "date": "2026-10-07",
+          "close": 1130.0,
+          "adjFactor": 1.0,
+          "volume": 239202300,
+          "frequency": 21575
+        },
+        {
+          "date": "2026-10-08",
+          "close": 1100.0,
+          "adjFactor": 1.0,
+          "volume": 244469100,
+          "frequency": 19747
+        }
+      ]
+    }
+  ],
+  "fx": {
+    "date": "2026-10-08",
+    "idrPerUsd": 17890,
+    "source": "bi"
+  },
+  "markets": [
+    {
+      "period": "H2 2025",
+      "sourceLabel": "Greater Jakarta",
+      "operationalMW": 322,
+      "constructionMW": 186,
+      "plannedMW": 901,
+      "pipelineMW": 1087,
+      "source": "cw25"
+    },
+    {
+      "period": "H1 2026",
+      "sourceLabel": "Jakarta",
+      "operationalMW": null,
+      "constructionMW": 395,
+      "plannedMW": null,
+      "pipelineMW": 1699,
+      "source": "cw26"
+    }
+  ],
+  "projects": [
+    {
+      "name": "PDG JC3",
+      "location": "GIIC, Bekasi",
+      "capacityMW": 120,
+      "capacityBasis": "Full campus",
+      "stage": "Construction announced",
+      "target": "First phase: Q4 2026",
+      "source": "jc3",
+      "checkpoint": "Look for a dated ready-for-service confirmation and the MW delivered in that phase."
+    },
+    {
+      "name": "Digital Edge CGK",
+      "location": "GIIC, Bekasi",
+      "capacityMW": 500,
+      "capacityBasis": "IT capacity at full development",
+      "stage": "Phased development",
+      "target": "First building: Q4 2026. Next buildings: Q1 and Q2 2027.",
+      "source": "cgk",
+      "checkpoint": "Check each building separately. The campus total does not establish the first delivery size."
+    },
+    {
+      "name": "PDG JC4",
+      "location": "GIIC, Bekasi",
+      "capacityMW": 240,
+      "capacityBasis": "Planned campus capacity",
+      "stage": "Construction announced",
+      "target": "Service date not disclosed in the reviewed release",
+      "source": "jc4",
+      "checkpoint": "Verify the first building, power delivery and service date before counting operating capacity."
+    },
+    {
+      "name": "NeutraDC Batam",
+      "location": "Batam",
+      "capacityMW": 6,
+      "capacityBasis": "Initial phase target",
+      "stage": "Operations target",
+      "target": "H2 2026",
+      "source": "telkom-h1",
+      "checkpoint": "The H1 performance release targets an opening; it does not confirm commissioned MW at this review date."
+    },
+    {
+      "name": "NeutraDC sovereign AI plan",
+      "location": "Batam, Jabodetabek, Java and Manado",
+      "capacityMW": 1000,
+      "capacityBasis": "Up to this capacity across the phased plan",
+      "stage": "Development plan",
+      "target": "Phase-one investment validation; no single service date",
+      "source": "telkom-plan",
+      "checkpoint": "Do not add this umbrella plan to individual NeutraDC sites. Financing, phasing and delivered capacity need separate evidence."
+    }
+  ],
+  "sources": [
+    {
+      "id": "idx-cache",
+      "publisher": "IDX via the local Flowless import",
+      "title": "Daily Stock Trading Summary, 24 September to 8 October 2026",
+      "date": "2026-10-08",
+      "url": "https://www.idx.co.id/en/market-data/trading-summary/stock-summary",
+      "locator": "GetStockSummary Close field; fact_daily.close in the retained local import.",
+      "note": "Frozen on 9 October. The import log records 963 rows on 8 October. A fresh remote re-fetch was unavailable during this review. These are cached exchange-feed observations, not live quotes."
+    },
+    {
+      "id": "bi",
+      "publisher": "Bank Indonesia",
+      "title": "JISDOR reference exchange rate",
+      "date": "2026-10-08",
+      "url": "https://www.bi.go.id/id/statistik/informasi-kurs/jisdor/default.aspx",
+      "locator": "8 October 2026 row: Rp17,890 per US dollar.",
+      "note": "The FX observation is aligned with the last available equity close in this edition."
+    },
+    {
+      "id": "cw25",
+      "publisher": "Cushman & Wakefield",
+      "title": "APAC Data Centre Development Pipeline Hits Record 19.4GW in 2025",
+      "date": "2026-03-27",
+      "url": "https://cw-prod-amrgws-a-cd.cushwake.com/en/singapore/news/2026/03/apac-data-centre-development-pipeline-hits-record-in-2025",
+      "locator": "Primary markets table, Greater Jakarta row; H2 2025 observations.",
+      "note": "322 MW operational, 186 MW under construction and 901 MW planned. This is a market-capacity baseline, not measured electricity use."
+    },
+    {
+      "id": "cw26",
+      "publisher": "Cushman & Wakefield",
+      "title": "APAC Data Centre Development Pipeline Reaches Record 26.5GW in H1 2026",
+      "date": "2026-08-05",
+      "url": "https://www.cushmanwakefield.com/en/singapore/news/2026/08/apac-dc-h1-2026",
+      "locator": "Jakarta row: 1,699 MW pipeline and 395 MW under construction.",
+      "note": "The planned remainder is calculated as pipeline minus construction. The release does not give a new Jakarta operational total."
+    },
+    {
+      "id": "jc3",
+      "publisher": "Princeton Digital Group",
+      "title": "Groundbreaking for the JC3 Greater Jakarta campus",
+      "date": "2025-11-19",
+      "url": "https://princetondg.com/press-releases/princeton-digital-group-breaks-ground-on-milestone-usd-1-billion-120-mw-greater-jakarta-campus/",
+      "locator": "Opening project description and first-phase delivery paragraph.",
+      "note": "120 MW campus; first phase targeted for Q4 2026. The release does not identify the first-phase MW."
+    },
+    {
+      "id": "cgk",
+      "publisher": "Digital Edge",
+      "title": "CGK hyperscale campus investment announcement",
+      "date": "2026-01-28",
+      "url": "https://www.digitaledgedc.com/resources/newsroom/digital-edge-4-5b-cgk-500mw-ai-ready-hyperscale-campus-indonesia/",
+      "locator": "Campus capacity and phase-one delivery paragraphs.",
+      "note": "500 MW IT at full development; first building Q4 2026, second Q1 2027, third Q2 2027. Those dates are targets."
+    },
+    {
+      "id": "jc4",
+      "publisher": "Princeton Digital Group",
+      "title": "Acquisition of powered land for JC4",
+      "date": "2026-04-30",
+      "url": "https://princetondg.com/press-releases/pdg-acquires-240-mw-of-powered-land-in-jakarta-advancing-its-rapid-expansion-across-asia/",
+      "locator": "Opening two project paragraphs.",
+      "note": "240 MW planned capacity in four 60 MW buildings. Construction had commenced; the release does not supply a service date."
+    },
+    {
+      "id": "telkom-h1",
+      "publisher": "Telkom Indonesia",
+      "title": "Public Expose Live 2026: digital infrastructure performance",
+      "date": "2026-09-07",
+      "url": "https://www.telkom.co.id/sites/berita/id_ID/news/strategi-telkom-jaga-momentum-pertumbuhan-tingkatkan-nilai-tambah-dari-bisnis-infrastruktur-digital-3926",
+      "locator": "NeutraDC paragraph in the H1 2026 performance discussion.",
+      "note": "49.9 MW effective capacity; Batam initial 6 MW targeted for H2 2026."
+    },
+    {
+      "id": "telkom-plan",
+      "publisher": "Telkom Indonesia",
+      "title": "Danantara workshop and the NeutraDC sovereign AI plan",
+      "date": "2026-09-22",
+      "url": "https://www.telkom.co.id/sites/berita/id_ID/news/bersama-danantara-telkomgroup-siapkan-infrastruktur-data-center-menuju-sovereign-ai-indonesia-3948",
+      "locator": "NeutraDC development and investment-validation paragraphs.",
+      "note": "Up to 1 GW across several locations is a phased development plan. Phase-one investment and bankability validation remain part of the process."
+    },
+    {
+      "id": "pln-docs",
+      "publisher": "PLN",
+      "title": "Tariff adjustment documents",
+      "date": "2026-10-09",
+      "url": "https://www.pln.co.id/tariff-adjustment-document-en",
+      "locator": "Document list checked on 9 October; latest listed quarter was Q3 2026.",
+      "note": "No Q4 tariff is verified in this update. The archived calculator retains its dated Q3 assumptions."
+    }
+  ]
+}

@@ -23,6 +23,7 @@ uncommitted branch.
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
 | `research.html` | Local owner workspace: saved research projects, source notes, working drafts, review and JSON backups |
 | `world/index.html` | Five-agent research headquarters and simulated workflow, connected to saved local projects |
+| `power-behind-ai-update-2026-10-09.html` | Dated October supplement: cached IDX price paths, capacity definitions and primary project checkpoints |
 | `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
 | `coal-in-transition.html` | Coal Still Burns. Trade Is Changing.: an interactive coal sector study, market atlas and illustrative producer economics |
 | `indonesia-ai-datacenter-research/interactive/index.html` | AI Runs on Power and Water: Indonesia resource scenarios, project atlas and research model |
@@ -111,6 +112,8 @@ Paths are matched letter for letter, because GitHub Pages treats `Report.pdf` an
 A report can also be its own page instead of a PDF. Give its catalogue entry a `page` (for example `"page": "power-behind-ai.html"`) and leave out `pdfUrl`; the library, the front page and old `report.html?id=` links all open that page. `tags` is an optional list of words the library search also looks at.
 
 **The Power Behind AI** (`power-behind-ai.html`) is built this way. Every number it shows lives in `assets/js/pbai/data.js`, each with a status (actual, announced, under construction, estimate or scenario) and the sources it rests on; the page numbers the sources and lists them in section 13. To correct or update a figure, change it there, not in the page. The prose in the page repeats a few of those figures, so search the page for the old value too.
+
+The October PBAI supplement keeps the original assessment at its existing URL. Its frozen observations and primary source record are in `updates/power-behind-ai-2026-10-09.json`; `assets/js/pbai/update.js` renders prices, capacity stages and project checkpoints. Price changes exclude dividends and costs. Review dates never replace the individual source periods.
 
 ## Publish an IHSG weekly edition
 
