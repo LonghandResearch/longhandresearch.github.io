@@ -59,6 +59,9 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | OPS-006 | Verify the active GoatCounter site and add the existing tracker to the two newer public interactive reports | Codex | `codex/goatcounter-coverage` | Done (Codex final QA and publication under the owner takeover authorization) | [PR #80](https://github.com/LonghandResearch/longhandresearch.github.io/pull/80) |
 | RPT-015 | Publish a dated Power Behind AI update with cached IDX closes, primary project checkpoints and clear capacity definitions; retain the September archive | Codex | `codex/power-behind-ai-update` | Done (Codex author QA and publication under the owner takeover authorization) | [PR #81](https://github.com/LonghandResearch/longhandresearch.github.io/pull/81) |
 | WEB-019 | Recover missing-project Workspace links and add local folder snapshots with visible backup status in Workspace and World | Codex | `codex/workspace-recovery-backup` | Done (Codex author QA and publication under the owner takeover authorization) | [PR #83](https://github.com/LonghandResearch/longhandresearch.github.io/pull/83) |
+| OPS-007 | Restore the existing local publisher, its stable installed copy and Windows login shortcut; verify the live process and clean publication state | Codex | `codex/local-operations` | Done (local restoration verified; Codex author QA under owner authorization) | [PR #85](https://github.com/LonghandResearch/longhandresearch.github.io/pull/85) |
+| OPS-008 | Back up and quarantine 19 orphan Git worktree registrations while preserving all active worktrees | Codex | `codex/local-operations` | Done (local cleanup verified; Codex author QA under owner authorization) | [PR #85](https://github.com/LonghandResearch/longhandresearch.github.io/pull/85) |
+
 
 ## Status values
 
