@@ -42,6 +42,7 @@ uncommitted branch.
 | `assets/css/home-editorial.css` | Front-page layout and latest-report treatment |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
 | `assets/js/research-projects.js` | Versioned research model, validation, atomic saves, revision conflicts, manual review and backups |
+| `assets/js/research-backups.js` | Local folder snapshots, permission recovery and backup status in Workspace and World |
 | `assets/js/research-workspace.js` | Local project desk and links to existing library records |
 | `assets/js/research-operations.js` | Read-only operations summary, project next actions and approved text handoff |
 | `assets/js/research-tasks.js` | Five role deliverables and manual next-action guidance derived from saved project records |
@@ -291,6 +292,27 @@ Backups are limited to 5 MB; **Export this project** keeps larger workspaces
 recoverable one project at a time. Browser data is local to the origin and
 profile, is not encrypted by the application,
 and does not sync across devices. Export before clearing browser data.
+
+**Local folder backup** in Workspace lets Chrome or Edge keep independent JSON
+snapshots in a private folder you choose. Choose a folder outside the website and
+Git repository. After a saved change in Workspace or World, the open page checks
+for a backup after one second. Reopening either page also checks for changes.
+The folder handle stays in this browser; permissions may need to be granted again
+with **Back up now**. **Turn off folder backup** keeps existing files.
+The status distinguishes pending, completed, missing permission and failed writes.
+A backup failure does not undo a research save. No private research is uploaded.
+
+Each completed snapshot is a new dated folder under `longhand-research-backups/`,
+with `projects-1.json` (and further numbered files for workspaces above 5 MB) and
+`snapshot.json`, written last as its completion marker. To restore, import every
+`projects-*.json` file listed in that marker using Workspace's existing import
+preview. A folder without the marker is incomplete. A single project over the
+5 MB import limit shows an error rather than claiming a usable backup. Backups
+include saved project records only; unsaved edits, PDF files, browser settings and
+folder permissions are excluded. Files are kept until the owner removes them.
+Other browsers retain **Export backup** and **Export this project**.
+A missing project URL now opens the recovery tools and removes the stale project
+parameter while explaining how to select, create or import a project.
 
 Run `node --test world/tests/*.test.mjs tests/*.test.mjs` alongside
 `node scripts/check-site.mjs`. CI now runs both checks.

@@ -26,7 +26,7 @@ async function workspace(options = {}) {
       if (options.catalogueFailure) script.onerror();
       else { context.LONGHAND_REPORTS = []; script.onload(); }
     }); } } };
-  const rows = new Map(), copy = value => value && JSON.parse(JSON.stringify(value));
+  const rows = new Map((options.projects || []).map(project => [project.id, project])), copy = value => value && JSON.parse(JSON.stringify(value));
   const records = {
     all: async () => { if (options.blocked) throw new Error('Storage blocked'); return [...rows.values()].map(copy); },
     get: async id => copy(rows.get(id)),
@@ -51,7 +51,7 @@ async function workspace(options = {}) {
   for (const file of ['research-projects.js', 'research-operations.js', 'research-tasks.js', 'research-workspace.js']) vm.runInContext(fs.readFileSync(new URL('../assets/js/' + file, import.meta.url), 'utf8'), context);
   await flush();
   const app = { elements, rows, records, context, events, downloads, click: id => elements.get(id).emit('click'), submit: id => elements.get(id).emit('submit') };
-  if (!options.publicHost && !options.blocked) {
+  if (!options.publicHost && !options.blocked && !options.noCreate) {
     for (const [key, value] of Object.entries({ topic: 'Workspace test', question: 'What is the evidence?', objective: 'Check local draft handling.' })) elements.get('project-' + key).value = value;
     app.submit('project-form'); await flush();
   }
@@ -458,4 +458,33 @@ test('failed catalogue refresh retains open work and shows a visible failure', a
   assert.match(app.elements.get('workspace-message').textContent, /catalogue could not be reloaded/);
   assert.equal(app.elements.get('project-objective').value, 'Retain this unsaved test edit.');
   assert.equal(app.elements.get('workspace-content').inert, false);
+});
+
+
+test('a missing project URL opens recovery controls and allows new projects and imports', async () => {
+  const app = await workspace({ url: 'http://localhost/research.html?project=missing#backup-heading', noCreate: true });
+  assert.equal(app.elements.get('workspace-content').hidden, false);
+  assert.equal(app.elements.get('workspace-content').inert, false);
+  assert.match(app.elements.get('workspace-message').textContent, /Choose a saved project, create one, or import a backup/);
+  assert.equal(new URL(app.context.location.href).searchParams.has('project'), false);
+  assert.equal(new URL(app.context.location.href).hash, '#backup-heading');
+  app.click('new-project'); await flush();
+  for (const [key, value] of Object.entries({ topic: 'Recovered project', question: 'What survives?', objective: 'Verify recovery.' })) app.elements.get('project-' + key).value = value;
+  app.submit('project-form'); await flush();
+  assert.equal(app.rows.size, 1);
+  const saved = [...app.rows.values()][0];
+  importFile(app, [{ ...saved, id: 'import-after-missing', brief: { ...saved.brief, topic: 'Imported recovery' } }]); await flush();
+  assert.equal(app.rows.size, 2);
+  assert.equal(app.elements.get('project-heading').textContent, 'Imported recovery');
+});
+
+test('a missing project link preserves existing projects and a valid deep link still opens its target', async () => {
+  const original = await workspace(); const saved = [...original.rows.values()][0];
+  const missing = await workspace({ projects: [saved], url: 'http://localhost/research.html?project=deleted', noCreate: true });
+  assert.deepEqual(missing.rows.get(saved.id), saved);
+  assert.equal(missing.elements.get('project-list').children.length, 1);
+  assert.equal(missing.elements.get('saved-project').hidden, true);
+  const linked = await workspace({ projects: [saved], url: 'http://localhost/research.html?project=' + saved.id, noCreate: true });
+  assert.equal(linked.elements.get('project-heading').textContent, saved.brief.topic);
+  assert.match(linked.elements.get('workspace-message').textContent, /storage ready/);
 });

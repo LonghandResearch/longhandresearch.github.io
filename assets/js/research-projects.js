@@ -170,7 +170,7 @@
       while (bytes(versions) > HISTORY_BYTES) versions.shift();
       return versions;
     }
-    return Object.freeze({
+    const repository = {
       async all() { return (await records.all()).map(normalize).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)); },
       async get(key) { if (!id(key)) fail('Invalid project ID.'); const value = await records.get(key); return value ? normalize(value) : null; },
       async remove(key, expected) {
@@ -271,7 +271,18 @@
         }));
         return projects.length;
       }
-    });
+    };
+    // Notify only after a successful transaction. Backup failures never undo a save.
+    for (const method of ['create', 'save', 'remove', 'review', 'importBackup']) {
+      const operation = repository[method];
+      repository[method] = async function (...args) {
+        const result = await operation.apply(this, args);
+        try { if (LH.ResearchBackups) LH.ResearchBackups.changed(); }
+        catch { /* The research transaction has committed; a backup check cannot fail its save. */ }
+        return result;
+      };
+    }
+    return Object.freeze(repository);
   }
   LH.Research = Object.freeze({ normalize, parseBackup, createRepository, clone, REASONING_FIELDS, REVIEW_CHECKS, emptyReasoning });
 })(globalThis);
