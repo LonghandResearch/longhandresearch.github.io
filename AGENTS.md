@@ -22,6 +22,9 @@ Before changing files, read:
   Do not invent or silently change research claims.
 - Follow the shared workflow in `AI_COLLABORATION.md` when handing work to
   Claude or requesting review.
+- While the owner's Claude subscription is inactive, follow the temporary
+  takeover authorization in `AI_COLLABORATION.md`: complete authorized work,
+  final QA, merge and publication without repeatedly asking for Claude review.
 
 ## Validation
 

@@ -55,8 +55,7 @@ write the report, and the weekly IHSG Update alternates owner each week.
 | WEB-017 | Import draft, sources and reasoning together into the same project, with retained versions and atomic conflict checks | Codex | `codex/research-import-update` | Done (owner authorized Codex completion while Claude unavailable) | [PR #73](https://github.com/LonghandResearch/longhandresearch.github.io/pull/73) |
 | RPT-014 | Deepen interactive coal research with BPS/lignite coverage, Bayan/PTBA evidence, conditional 2026-2030 cases and audited conclusions | Codex | `codex/coal-transition` | Done (owner authorized Codex final review and publication while Claude subscription unavailable) | [PR #77](https://github.com/LonghandResearch/longhandresearch.github.io/pull/77) |
 | WEB-018 | Make World open on the headquarters with compact navigation instead of a long scrolling brief and journal | Codex | `codex/world-compact` | Done (owner authorized publication without Claude; retrospective review deferred until subscription returns) | [PR #78](https://github.com/LonghandResearch/longhandresearch.github.io/pull/78) |
-
-| OPS-005 | Repair malformed Wire headline entities from RSS, including retained headlines, without altering source URLs | Codex | `codex/wire-headlines` | Review | [PR #79](https://github.com/LonghandResearch/longhandresearch.github.io/pull/79) |
+| OPS-005 | Repair malformed Wire headline entities from RSS, including retained headlines, without altering source URLs; retain the owner's temporary Codex takeover authorization | Codex | `codex/wire-headlines` | Review (owner authorized Codex final QA, merge and publication while Claude subscription is inactive) | [PR #79](https://github.com/LonghandResearch/longhandresearch.github.io/pull/79) |
 
 ## Status values
 
