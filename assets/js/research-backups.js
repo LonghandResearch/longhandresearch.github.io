@@ -24,9 +24,9 @@
     const lock = options.lock || (operation => operation());
     const later = options.setTimeout || root.setTimeout.bind(root);
     const cancel = options.clearTimeout || root.clearTimeout.bind(root);
-    let timer, queue = Promise.resolve(), pendingJobs = 0, initialized = false, configured = false;
+    let timer, queue = Promise.resolve(), pendingJobs = 0, initialized = false, configured = false, picking = false;
     let status = { state: 'off', text: 'Folder backup is off. Choose a private backup folder or export a JSON backup.' };
-    function report(state, text) { status = { state, text }; onStatus(status); return status; }
+    function report(state, text) { status = { state, text, configured }; onStatus(status); return status; }
     function failure(error) { return report('error', 'Folder backup failed: ' + error.message + ' Your projects remain saved in this browser. Retry or export a JSON backup.'); }
     function enqueue(operation) {
       pendingJobs++;
@@ -70,7 +70,7 @@
     return Object.freeze({
       get status() { return status; },
       get pending() { return Boolean(timer || pendingJobs); },
-      async init() { return enqueue(() => write()); },
+      async init() { return picking ? status : enqueue(() => write()); },
       changed() {
         if (initialized && !configured) return;
         if (timer) cancel(timer);
@@ -80,10 +80,19 @@
       backupNow() { if (timer) { cancel(timer); timer = null; } return enqueue(() => write(true, true)); },
       async connect() {
         if (!pickDirectory) return report('unsupported', 'This browser cannot write folder backups. Use Export backup, or open the workspace in Chrome or Edge.');
+        if (picking) return status;
+        const previous = status;
+        picking = true;
+        report('choosing', 'Opening the folder chooser. If no window appears, use Export backup to save a JSON copy. See the guidance below for automatic backups.');
         // The picker is called directly from the button gesture, before asynchronous work.
         let handle;
         try { handle = await pickDirectory(); }
-        catch (error) { if (error.name === 'AbortError') return status; return failure(error); }
+        catch (error) {
+          if (error.name === 'AbortError') return report(previous.state,
+            'No new backup folder was selected. ' + (configured ? 'Your existing folder backup remains configured. ' : 'Automatic folder backup is still off. ') +
+            'If no folder window appeared, use Export backup and follow the guidance below.');
+          return failure(error);
+        } finally { picking = false; }
         return enqueue(async () => { await settings.set({ handle }); return write(); });
       },
       disconnect() {
@@ -102,7 +111,11 @@
       const message = byId('backup-status');
       if (message) message.textContent = status.text;
       const stop = byId('stop-backup');
-      if (stop) stop.disabled = ['off', 'unsupported'].includes(status.state);
+      if (stop) stop.disabled = !status.configured;
+      const choose = byId('choose-backup-folder');
+      if (choose) choose.disabled = status.state === 'choosing' || !root.showDirectoryPicker;
+      const now = byId('backup-now');
+      if (now) now.disabled = !status.configured || status.state === 'choosing';
     }
   });
   LH.ResearchBackups = controller;
