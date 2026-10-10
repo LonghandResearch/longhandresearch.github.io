@@ -518,3 +518,33 @@ This is Codex author QA, committed locally on `codex/longhand-v2` in the externa
 worktree. The owner checkout remains clean on main at
 `54df02460f2068185bf381b754d76d1de219b7dd`. Physical-device and Safari/Firefox
 verification remain open. No push, PR, merge or publication was performed.
+
+### Warm-paper Coverage globe preview — 11 October 2026
+
+The owner requested a livelier warm-paper globe. Coverage now uses the existing
+NASA terrain, water mask and settlement imagery for warm land relief, shaded
+sage seas and fine coastal ink. A translucent cloud layer drifts on the existing
+globe timeline. Quiet bronze connection accents and a short, two-cycle selected
+location ring give the paper atlas more presence without new geography or data.
+Reduced motion disables the ring animation and stops settled WebGL rendering.
+
+Playwright checked World, Indonesia, United States, China, India and Viet Nam
+at 320, 390, 768 and 1440px in warm paper, including a DPR 2 mobile context.
+No page or shader errors, root overflow, off-viewport labels or overlapping
+visible marker targets were observed. The existing arc pairs and selected
+country counts stayed correct. Keyboard selection, Back, theme persistence,
+normal animation, reduced motion and offscreen rendering suspension passed.
+Desktop World, mobile World and United States screenshots were inspected.
+
+The Homepage paper regression screenshot was byte-identical. Dark Coverage
+had only negligible shader compilation rounding differences (at most 2/255
+in a few pixels), with no intentional design change. Evidence is outside Git
+under `C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/paper-globe-*` and the
+before/after globe screenshots in the same folder. Syntax and diff checks
+passed. Site validation passed for 59 scripts, 67 JSON files, 11 catalogue
+entries, 16 sitemap pages and links in 19 pages.
+
+This is Codex author QA in the external worktree on `codex/longhand-v2`.
+Research content, catalogue, graph records, financial figures, dates, sources,
+PDFs, news and publishing workflows were not edited. Physical-device and
+Safari/Firefox verification remain open. No push, PR, merge or publication.

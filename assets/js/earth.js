@@ -94,6 +94,7 @@
       nightMix: { value: 0 },
       glow: { value: 0 },
       ambience: { value: hero ? 1 : 0 },
+      atlas: { value: hero ? 0 : 1 },
       paper: { value: document.documentElement.dataset.theme === 'light' ? 1 : 0 },
     };
 
@@ -103,7 +104,7 @@
       fragmentShader: `
         uniform sampler2D dayMap, nightMap, waterMap, cloudMap;
         uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix, nightMix, paper, ambience;
+        uniform float cloudShift, cloudMix, nightMix, paper, ambience, atlas;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
@@ -141,6 +142,22 @@
             col += vec3(0.014, 0.016, 0.012) * cloud;
             // Urban texture becomes quiet ink on paper, rather than added markers.
             col -= vec3(0.05, 0.044, 0.035) * smoothstep(0.08, 0.35, cityLight) * ambience * nightMix * (1.0 - water);
+            if (atlas > 0.5) {
+              // A sunlit, printed-atlas treatment for Coverage only. The real
+              // day image supplies terrain variation; this is not a heatmap.
+              float front = max(dot(N, V), 0.0);
+              float light = smoothstep(-0.65, 0.85, dot(N, normalize(vec3(-0.55, 0.65, 1.0))));
+              vec3 parchment = mix(vec3(0.31, 0.35, 0.255), vec3(0.78, 0.66, 0.46), clamp(0.22 + 2.40 * terrain, 0.0, 1.0));
+              vec3 sage = mix(vec3(0.045, 0.10, 0.08), vec3(0.19, 0.30, 0.24), 0.25 + 0.45 * front + 0.30 * light);
+              col = mix(parchment * (0.72 + 0.28 * light), sage * (0.70 + 0.30 * light), water);
+              // Fine coastal ink follows the existing land/water mask.
+              col *= 1.0 - 0.12 * smoothstep(0.02, 0.30, fwidth(water));
+              // Original NASA settlement texture becomes a quiet bronze ink.
+              float settlement = smoothstep(0.04, 0.40, cityLight) * nightMix * (1.0 - water);
+              col = mix(col, col * vec3(0.70, 0.67, 0.48), settlement * 0.38);
+              col += vec3(0.018, 0.014, 0.006) * cloud;
+              col += vec3(0.018, 0.025, 0.017) * fres * light;
+            }
           }
           gl_FragColor = vec4(col, 1.0);
           #include <tonemapping_fragment>
@@ -156,7 +173,7 @@
       fragmentShader: `
         uniform sampler2D cloudMap;
         uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix, paper;
+        uniform float cloudShift, cloudMix, paper, atlas;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
@@ -168,9 +185,10 @@
           // warmer and dimmer where the sun is low, as at dusk
           float low = 1.0 - smoothstep(0.0, 0.35, NdL);
           vec3 col = vec3(0.65, 0.72, 0.76) * (0.009 + 0.05 * max(NdL, 0.0));
+          if (paper > 0.5 && atlas > 0.5) col = vec3(0.82, 0.76, 0.62);
           // thin out at the very rim so the edge of the layer does not show
           a *= smoothstep(0.0, 0.28, dot(N, V));
-          gl_FragColor = vec4(col, a * 0.32 * (1.0 - paper));
+          gl_FragColor = vec4(col, a * mix(0.32, 0.085 * atlas, paper));
           #include <tonemapping_fragment>
           #include <colorspace_fragment>
         }`,
@@ -189,7 +207,7 @@
         }`,
       fragmentShader: `
         uniform vec3 sunDir;
-        uniform float glow, paper, ambience;
+        uniform float glow, paper, ambience, atlas;
         varying vec3 vNormalV;
         varying vec3 vNormalW;
         void main() {
@@ -199,8 +217,8 @@
           float i = pow(smoothstep(0.0, 0.56, t), 1.35);
           float lit = 0.16 + 0.84 * smoothstep(-0.45, 0.6, dot(normalize(vNormalW), normalize(sunDir)));
           // coloured light with its own alpha, so the stars behind still show through
-          vec3 rim = mix(vec3(0.20, 0.29, 0.34), vec3(0.30, 0.41, 0.32), paper);
-          float strength = mix(0.13 + 0.10 * ambience, 0.035 * ambience, paper);
+          vec3 rim = mix(vec3(0.20, 0.29, 0.34), mix(vec3(0.30, 0.41, 0.32), vec3(0.50, 0.43, 0.26), atlas), paper);
+          float strength = mix(0.13 + 0.10 * ambience, 0.035 * ambience + 0.065 * atlas, paper);
           gl_FragColor = vec4(rim, clamp(i * lit * strength * glow, 0.0, 1.0));
           #include <colorspace_fragment>
         }`,
@@ -249,12 +267,13 @@
     let connectionTime = 0;
     function themeConnections() {
       const paper = uniforms.paper.value > 0.5;
-      arcMaterial.color.set(paper ? '#405948' : '#c6b38e');
-      arcMaterial.opacity = paper ? 0.24 : 0.26;
+      const paperAtlas = paper && !hero;
+      arcMaterial.color.set(paperAtlas ? '#846f42' : paper ? '#405948' : '#c6b38e');
+      arcMaterial.opacity = paperAtlas ? 0.34 : paper ? 0.24 : 0.26;
       pointMaterial.color.copy(arcMaterial.color);
-      pointMaterial.opacity = paper ? 0.46 : 0.68;
-      travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.62 : 0.88;
-      trailMaterial.color.copy(arcMaterial.color); trailMaterial.opacity = paper ? 0.40 : 0.58;
+      pointMaterial.opacity = paperAtlas ? 0.64 : paper ? 0.46 : 0.68;
+      travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paperAtlas ? 0.82 : paper ? 0.62 : 0.88;
+      trailMaterial.color.copy(arcMaterial.color); trailMaterial.opacity = paperAtlas ? 0.48 : paper ? 0.40 : 0.58;
     }
     const geographicPoint = (c) => {
       const lat = c.lat * Math.PI / 180, lon = c.lon * Math.PI / 180;
