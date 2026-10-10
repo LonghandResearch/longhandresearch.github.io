@@ -398,18 +398,44 @@
       markerLayer.style.width = bounds.width + 'px';
       markerLayer.style.height = bounds.height + 'px';
       const q = spin.getWorldQuaternion(new THREE.Quaternion());
-      markers.forEach((m) => {
-        const point = spin.localToWorld(m.point.clone().multiplyScalar(1.03));
-        const normal = m.point.clone().applyQuaternion(q).normalize();
-        m.button.hidden = normal.dot(camera.position.clone().sub(point).normalize()) < .1;
-        const projected = point.project(camera);
-        const x = (projected.x + 1) * bounds.width / 2;
-        m.button.dataset.align = x + m.button.offsetWidth > bounds.width - 8 ? 'left' : 'right';
-        m.button.style.left = x + 'px';
-        m.button.style.top = ((1 - projected.y) * bounds.height / 2) + 'px';
+      const occupied = [];
+      const overlaps = (box) => occupied.some((other) => box.left < other.right + 4 && box.right > other.left - 4 && box.top < other.bottom + 4 && box.bottom > other.top - 4);
+      /* Keep the selected location readable first. Additional endpoints can
+         use the other side of their point or collapse when space is scarce. */
+      [...markers].sort((a, b) => Number(b.id === focusId) - Number(a.id === focusId)).forEach((m) => {
         m.button.classList.toggle('is-selected', m.id === focusId);
         m.button.classList.toggle('is-muted', !!focusId && m.id !== focusId);
         m.button.setAttribute('aria-pressed', String(m.id === focusId));
+        const point = spin.localToWorld(m.point.clone().multiplyScalar(1.03));
+        const normal = m.point.clone().applyQuaternion(q).normalize();
+        m.button.hidden = normal.dot(camera.position.clone().sub(point).normalize()) < .1;
+        if (m.button.hidden) return;
+        const projected = point.project(camera);
+        const x = (projected.x + 1) * bounds.width / 2, y = (1 - projected.y) * bounds.height / 2;
+        m.button.classList.remove('is-crowded');
+        const boxFor = (align) => {
+          const w = m.button.offsetWidth, h = m.button.offsetHeight;
+          const left = align === 'left' ? x - w + 6 : x - 6;
+          return { left, right: left + w, top: y - h / 2, bottom: y + h / 2 };
+        };
+        const fits = (box) => box.left >= 0 && box.right <= bounds.width && !overlaps(box);
+        let align = x + m.button.offsetWidth > bounds.width - 8 ? 'left' : 'right';
+        let box = boxFor(align);
+        if (!fits(box)) {
+          const opposite = align === 'left' ? 'right' : 'left';
+          if (fits(boxFor(opposite))) { align = opposite; box = boxFor(align); }
+          else if (m.id !== focusId && !m.button.matches(':hover, :focus-visible')) {
+            m.button.classList.add('is-crowded');
+            box = boxFor(align);
+            if (!fits(box) && fits(boxFor(opposite))) { align = opposite; box = boxFor(align); }
+            // The country selector and connection shortcuts remain available.
+            if (!fits(box)) { m.button.hidden = true; return; }
+          }
+        }
+        occupied.push(box);
+        m.button.dataset.align = align;
+        m.button.style.left = x + 'px';
+        m.button.style.top = y + 'px';
       });
     }
 

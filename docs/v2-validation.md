@@ -411,6 +411,58 @@ worktree. The owner checkout remains clean on main at
 `54df02460f2068185bf381b754d76d1de219b7dd`. Physical-device and Safari/Firefox
 verification remain open. No push, PR, merge or publication was performed.
 
+### Coverage atmosphere preview — 11 October 2026
+
+At the owner's request, the empty space around the Coverage globe now carries
+a seeded star field with a few faint light accents. Warm paper uses the same
+positions as subdued green ink stippling. A very low-opacity background wash
+softens the globe's surroundings. The canvas is decorative, ignores pointers
+and redraws only when its dimensions, pixel ratio or theme change; there is
+no new animation loop, timer, image asset or dependency.
+
+World view labels China and India alongside the primary research geographies.
+These additional endpoints and the transparent connection shortcuts below the
+globe derive from its accepted connection pairs, rather than every country in
+the graph. Each shortcut identifies its supporting publication in its title
+and accessible label, selects the linked country and transfers keyboard focus
+to that country's tab. Selection narrows both the endpoints and shortcuts.
+Countries without a qualifying arc have no connection shortcuts.
+
+The marker layout prioritizes the selected country and tries the other side
+of a point when labels collide. If neither side fits, an additional label
+collapses to its point; overlapping secondary targets can be omitted while
+the country selector and connection shortcuts remain available. Hover or
+keyboard focus reveals compact labels. Mobile label padding is reduced while
+retaining 44px minimum targets. Hidden marker selection attributes also reset
+when the country changes. Homepage globe behavior and rendering are unchanged;
+its HTML only refreshes the shared script cache key.
+
+Playwright checked 60 combinations: World, Indonesia, United States, China,
+India and Viet Nam at 320, 390, 768, 1024 and 1440px in both themes. No page
+errors, horizontal overflow, overlapping visible targets, off-viewport labels
+or incorrect arc/shortcut selection were observed. Keyboard shortcut and
+marker selection retain appropriate focus; Back, World reset, publication
+titles, theme persistence, theme recoloring and canvas resizing passed. Labels
+also stayed separate over 24 manually rotated positions at 320 and 1024px.
+Representative desktop/mobile screenshots were visually inspected under
+`C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/atmosphere-*` outside Git.
+
+Instrumentation confirmed no canvas redraws while idle and no ongoing WebGL
+draws after imagery settled with reduced motion. Ordinary globe rotation still
+draws, and drawing stops offscreen on Coverage and Home. The Homepage remains
+an ambient image without a tabindex. With WebGL unavailable, Coverage hides
+the globe and preserves country context and report links without overflow at
+390 and 1440px.
+
+Both changed scripts pass `node --check`. All four research-graph tests pass;
+site validation passed for 59 scripts, 67 JSON files, 11 catalogue entries,
+16 sitemap pages and links in 19 pages. The globe's accepted pairs remain
+CN–ID, ID–IN and ID–US. No research content, financial figures, dates, sources,
+PDFs, catalogue or graph records, news, RSS, sitemap or publishing workflows
+were edited. This is Codex author QA in the external `codex/longhand-v2`
+worktree. Physical-device and Safari/Firefox verification remain open.
+No push, PR, merge or publication was performed.
+
 ### Coverage reading and selection preview — 11 October 2026
 
 The owner approved the proposed Coverage refinement and requested a preview.

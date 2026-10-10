@@ -56,13 +56,13 @@
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <link rel="stylesheet" href="assets/css/v2.css?v=2026-10-11editorial-final">
-<link rel="stylesheet" href="assets/css/coverage-v2.css?v=2026-10-11atlas-reading">
+<link rel="stylesheet" href="assets/css/coverage-v2.css?v=2026-10-11atlas-atmosphere">
 <script src="assets/js/research-graph.js?v=2026-10-10a" defer></script>
 <script src="assets/js/v2.js?v=2026-10-10polish" defer></script>
 <link rel="stylesheet" href="assets/css/covers.css?v=2026-10-11edition">
 <script src="assets/js/research-art.js?v=2026-10-11edition" defer></script>
-<script src="assets/js/coverage-map.js?v=2026-10-11atlas-reading" defer></script>
-<script src="assets/js/earth.js?v=2026-10-11atlas-reading" defer></script>
+<script src="assets/js/coverage-map.js?v=2026-10-11atlas-atmosphere" defer></script>
+<script src="assets/js/earth.js?v=2026-10-11atlas-atmosphere" defer></script>
 </head>
 <body class="page-coverage v2-page v2-dark">
 <a class="skip" href="#main">Skip to content</a>
@@ -97,11 +97,12 @@
     <nav class="coverage-country-list" data-country-list aria-label="Choose research geography"></nav>
     </div>
     <div class="coverage-globe">
-      <figure class="plate" data-globe><div class="plate-stage" data-globe-stage role="button" tabindex="0" aria-label="Control the Earth's rotation" aria-describedby="globe-help"></div><p class="sr-only" id="globe-help">Use arrow keys to turn the Earth. Space pauses or resumes rotation. Choose a named research location or use the country list. Markers are representative geographic points, not office locations. Arcs show selected substantive research relationships, not transport routes or measured flows.</p></figure>
+      <figure class="plate" data-globe><canvas class="coverage-sky" data-coverage-sky aria-hidden="true"></canvas><div class="plate-stage" data-globe-stage role="button" tabindex="0" aria-label="Control the Earth's rotation" aria-describedby="globe-help"></div><p class="sr-only" id="globe-help">Use arrow keys to turn the Earth. Space pauses or resumes rotation. Choose a named research location or use the country list. Markers are representative geographic points, not office locations. Arcs show selected substantive research relationships, not transport routes or measured flows.</p></figure>
       <div class="globe-controls" role="group" aria-label="Globe controls">
         <button type="button" data-globe-reset><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg><span>World view</span></button>
         <a href="#coverage-selection" data-selection-link>View research <span aria-hidden="true">↓</span></a>
       </div>
+      <nav class="coverage-connections" data-coverage-connections aria-label="Follow a documented research connection" hidden></nav>
     </div>
     <section class="coverage-panel" id="coverage-selection" data-coverage-panel aria-label="Selected research geography"></section>
   </div>
