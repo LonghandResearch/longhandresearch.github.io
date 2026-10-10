@@ -21,3 +21,11 @@ its catalogue identity and caption. Unmapped publications retain a text fallback
 
 The five PDF captures were rendered from the unchanged local report files. All
 financial observations, dates and claims remain governed by the publications.
+
+## Portrait editorial cover series
+
+Homepage and Library now use the owner's requested vintage editorial portrait
+series. See [covers/README.md](covers/README.md) for all eleven full cover exports,
+the ten illustrations without lettering, provenance and prompt set. The original
+Memory War anime artwork is preserved. All existing captures listed above remain
+unchanged; the report reading rail still uses the original publication capture.

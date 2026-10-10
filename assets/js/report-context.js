@@ -78,7 +78,7 @@
     const nav = document.createElement('nav');
     nav.append(link('01 / Overview', `#${head.id}`), link('02 / Full publication', `#${documentView.id}`), link('← Return to Library', at('library.html')));
     inner.append(rubric, meta, title, nav);
-    const art = window.LonghandArt?.forReport(r);
+    const art = window.LonghandArt?.originalForReport(r) || window.LonghandArt?.forReport(r);
     if (art) {
       const figure = document.createElement('figure');
       const image = document.createElement('img'); image.src = art.src; image.alt = art.caption; image.width = 180; image.height = 255; image.loading = 'lazy';

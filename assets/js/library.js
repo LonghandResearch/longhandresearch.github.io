@@ -127,6 +127,7 @@
     const company = r.company && r.company !== r.title ? r.company : '';
     const no = LH.catalogueNo(r);
     const art = window.LonghandArt?.forReport(r);
+    const cover = window.LonghandArt?.coverHTML(r);
     const context = graph?.contextFor(r);
     const relationships = context ? [...context.countries.filter((x) => x.role === 'primary').slice(0, 2).map((x) => `<a href="${graph.urlFor('country', x.id)}">${esc(x.name)}</a>`), ...context.sectors.filter((x) => x.role === 'primary').slice(0, 2).map((x) => `<a href="${graph.urlFor('sector', x.id, { country: state.country })}">${esc(x.name)}</a>`)] : [];
     return `
@@ -136,7 +137,7 @@
           <span class="report-ticker${r.ticker ? '' : ' is-category'}">${highlight(LH.subjectOf(r), tokens)}${r.ticker && r.exchange ? `<span class="report-exch">${highlight(r.exchange, tokens)}</span>` : ''}</span>
           <time class="report-date" datetime="${esc(r.date)}">${esc(dateShort(r.date))}</time>
         </div>
-        ${art ? `<figure class="report-thumbnail is-${art.kind}"><img src="${esc(art.src)}" alt="${esc(art.caption)}" loading="lazy" decoding="async" width="240" height="150"></figure>` : '<div class="report-thumbnail report-thumbnail-text" aria-hidden="true">Longhand<br><em>Research</em></div>'}
+        ${cover || (art ? `<figure class="report-thumbnail is-${art.kind}"><img src="${esc(art.src)}" alt="${esc(art.caption)}" loading="lazy" decoding="async" width="240" height="150"></figure>` : '<div class="report-thumbnail report-thumbnail-text" aria-hidden="true">Longhand<br><em>Research</em></div>')}
         <div class="report-main">
           <p class="kicker">${LH.kickerHtml(r, [company ? highlight(company, tokens) : ''], { category: !!r.ticker })}</p>
           <h3 class="report-title" data-vt-title="${esc(r.id)}"><a href="${LH.reportHref(r)}">${highlight(r.title, tokens)}</a></h3>

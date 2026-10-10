@@ -1,0 +1,50 @@
+/* Portrait publication artwork. Ink palettes belong to each illustration,
+   so the cover retains the same print colors in both reader themes. */
+.research-cover { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 2 / 3; margin: 0; overflow: hidden; background: #16363e; border: 1px solid #ead7ae55; isolation: isolate; }
+.research-cover > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+.research-cover.cover-tone-navy::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #061d2b22 0%, #061d2b22 15%, #061d2b99 30%, #061d2b99 42%, transparent 58%); pointer-events: none; }
+.research-cover .cover-type { position: absolute; inset: 0; z-index: 1; color: var(--cover-ink, #ead7ae); padding: 6.2% 6.8%; display: flex; flex-direction: column; }
+.cover-edition { display: flex; justify-content: space-between; gap: 7%; font: 500 3.2cqw/1.25 var(--font-sans, sans-serif); text-transform: uppercase; }
+.cover-edition > span:first-child { white-space: nowrap; flex: 0 0 23%; font-size: 4.6cqw; }
+.cover-edition b { display: block; margin-top: .45em; font-size: 3cqw; font-weight: 600; }
+.cover-edition time { display: block; margin-top: .45em; font-size: 2.6cqw; text-transform: none; }
+.cover-subject { text-align: right; max-width: 66%; line-height: 1.35; }
+.cover-headline { display: block; margin-top: 6%; font: 600 var(--cover-title-size, 11cqw)/.96 var(--font-serif, Georgia, serif); letter-spacing: -.04em; text-wrap: balance; font-kerning: normal; }
+.cover-signature { margin-top: auto; align-self: start; padding: .35em .55em; background: #e8dac0; color: #172d31; font: 500 3.4cqw/1.2 var(--font-serif, Georgia, serif); letter-spacing: .035em; text-transform: uppercase; }
+.cover-signature small { font: 500 1.8cqw var(--font-sans, sans-serif); letter-spacing: .14em; margin-left: .6em; }
+.cover-original { background: #f1ead8; }
+.cover-original img { object-fit: contain; }
+
+/* Keep the existing search, calls and research relationships around the covers. */
+.page-library .report-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 30px; border-top: 0; }
+.page-library .report { display: flex; flex-direction: column; gap: 16px; padding: 0 0 22px; min-width: 0; border-top: 0; border-bottom: 1px solid var(--rule); }
+.page-library .report-id { display: flex; flex-direction: row; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+.page-library .report-id .report-no { font-size: 14px; }
+.page-library .report-date { margin-left: auto; font-size: 9px; }
+.page-library .report-exch { display: inline; margin: 0 0 0 5px; }
+.page-library .report-main { width: 100%; }
+.page-library .report-title { font-size: 25px; }
+.page-library .report-blurb { -webkit-line-clamp: 3; }
+.page-library .report-call { width: 100%; margin-top: auto; display: flex; flex-direction: row; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
+.page-library .report-call .call { display: flex; gap: 12px; flex-wrap: wrap; }
+.page-library .report-call .call div { display: flex; gap: 5px; }
+.page-library .report-call .call dd { font-size: 11px; }
+.page-library .author-tools { width: 100%; }
+.page-library .report-thumbnail { height: auto; aspect-ratio: 2 / 3; }
+
+.page-home .home-publications { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; }
+.page-home .publication-tile, .page-home .publication-tile:first-child { display: flex; flex-direction: column; grid-row: auto; padding-top: 0; gap: 15px; border-top: 0; }
+.page-home .publication-tile .publication-copy { padding-top: 3px; }
+.page-home .publication-tile h3, .page-home .publication-tile:first-child h3 { font-size: 25px; }
+.page-home .publication-tile p, .page-home .publication-tile:first-child p { font-size: 11px; -webkit-line-clamp: 3; }
+.page-home .publication-arrow { margin-top: 12px; }
+
+@media (max-width: 1050px) {
+  .page-library .report-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 26px; }
+  .page-home .home-publications { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 26px; }
+}
+@media (max-width: 580px) {
+  .page-library .report-list, .page-home .home-publications { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .page-library .report { gap: 14px; }
+  .page-home .publication-tile h3 { font-size: 28px; }
+}

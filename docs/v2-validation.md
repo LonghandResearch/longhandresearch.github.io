@@ -109,6 +109,31 @@ were also zero. Site validation passed for 59 scripts, 67 JSON files, 11 catalog
 entries, 16 sitemap pages and internal links in 19 pages. Changed JavaScript
 syntax and diff checks pass. This pass remains local only.
 
+### Portrait editorial cover follow-up
+
+The owner selected vintage editorial reference #3, specified portrait artwork,
+retained The Memory War's existing anime cover and requested fewer human figures.
+Ten conceptual ink illustrations now accompany the existing anime artwork.
+Seven new illustrations have no people; figures remain in INET, the power/water
+study and September IHSG. All eleven display in complete 2:3 frames. Homepage
+and Library retain their original report links, search, geography and company
+relationships. Cover colors remain consistent across the two reader themes.
+
+Headlines and metadata are actual HTML drawn from the catalogue, with Newsreader
+and Libre Franklin. A restrained navy print wash supports cream headlines across
+clouds. Eleven 1024 × 1536 JPG cover exports and ten WebP illustrations without
+lettering are stored under `assets/img/research/covers/`; its README records the
+prompt set and provenance. The Memory War source PNG and all PDFs are unchanged.
+The reading rail continues to use captures of the original publications.
+
+Edge Playwright checked Homepage and Library in both themes at 320, 390, 768,
+1024 and 1440 pixels (20 combinations): every image decoded, every frame retained
+its portrait ratio, and generated cover titles/dates matched the catalogue.
+No page errors or root overflow occurred. Search, empty state, category filters,
+mobile navigation/Escape, geography selection and INET report navigation passed.
+Changed-script syntax, site validation and diff checks pass. No research, model,
+source or deployment data was modified. This remains a local preview only.
+
 ## Preservation and limitations
 
 ### Globe atmosphere follow-up
