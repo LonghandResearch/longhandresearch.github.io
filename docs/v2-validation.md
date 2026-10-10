@@ -316,3 +316,49 @@ Screenshots stay outside Git under `v2-qa`. Owner checkout remains clean on main
 at `54df02460f2068185bf381b754d76d1de219b7dd`; this work remains local to the
 external worktree's `codex/longhand-v2` branch. Physical-device and Safari/Firefox
 checks remain open. No push, PR, merge or publication was performed.
+
+### Homepage ambience and public typography — 11 October 2026
+
+Owner brief: give the homepage globe more life, then inspect public wording,
+decorative semicolons, slashes and italic type. Homepage-only shader adjustments
+warm the existing NASA city lights and strengthen the rim slightly. Warm paper
+uses the same urban texture as faint ink. The seeded star field is denser but
+remains a single canvas drawing, without a twinkling loop. No new map markers,
+relationships, textures, dependencies or animation controllers were added.
+The three substantive arc pairs remain CN–ID, ID–IN and ID–US.
+
+Public headings, subheadings, company labels and reading-rail captions now use
+upright type. About has a direct title and introduction. Breadcrumbs use chevrons,
+nonhierarchical metadata uses quiet dots, and numbered report sections no longer
+need slashes. Coal and the resource study have presentation-label punctuation
+edits only. Source periods, units and source links retain their meaning.
+Catalogue blurbs and reader summaries turn semicolons into sentence breaks at
+display time, preserving the original records. HTML entities remain intact.
+Financial ratios such as EV/EBITDA, energy units and the search shortcut keep
+their meaningful slashes. Original PDFs and research claims are unchanged.
+
+Playwright checked 14 routes at 390 and 1440 pixels in both themes, with no page
+errors, root overflow or italic headings/subheadings. The initial sweep found
+remaining Library and specialized-report labels; those were corrected and
+rechecked. About and Library also fit at 320 pixels in both themes. All eleven
+covers loaded as portrait images in their existing 2:3 frames. Compact/Covers,
+ADRO search, clear search, the slash shortcut, Menu/Escape and theme persistence
+passed. Summary formatting preserved every numeric token in the catalogue.
+Numeric tokens in both edited research-page bodies also match the baseline.
+Desktop screenshots of both homepage themes and About, Library desktop and
+mobile Compact screenshots were visually inspected. Evidence remains outside
+Git in `C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/`.
+
+WebGL instrumentation confirms continuous drawing during normal homepage motion,
+zero additional draws after textures settle with reduced motion, and zero draws
+offscreen. The homepage stage remains an image without a tabindex or pointer
+interaction. There were no shader errors in either theme. Syntax checks passed
+for all ten changed scripts, the four existing graph tests passed, and site
+validation passed for 59 scripts, 67 JSON files and all catalogue/sitemap links.
+Diff checks passed. Catalogue files, PDFs, research data, source registers,
+models, news data, feed, sitemap and publication workflows have no diff.
+
+This is Codex author QA for the existing local V2 branch. The owner checkout
+remains clean on main at `54df02460f2068185bf381b754d76d1de219b7dd`.
+Physical-device and Safari/Firefox verification remain open. No push, PR,
+merge or publication was performed.

@@ -55,7 +55,7 @@
       const variants = [320, 640].map((width) => `${esc(new URL(`covers/${entry[0]}-art-${width}.webp`, base).href)} ${width}w`).join(', ');
       return `<figure class="research-cover${entry[1] === '#ead7ae' ? ' cover-tone-navy' : entry[1].startsWith('#14') ? ' cover-tone-paper' : ''}" data-report-cover="${esc(report.id)}" style="--cover-ink:${entry[1]};--cover-title-size:${entry[2]}cqw">
         <img src="${esc(art.src)}" srcset="${variants}, ${esc(art.src)} 1024w" sizes="${sizes}" alt="${esc(art.caption)}" width="1024" height="1536" loading="lazy" decoding="async">
-        <figcaption class="cover-type" aria-hidden="true"><div class="cover-edition"><span>${esc(LH.catalogueNo(report))}<b>${esc(report.ticker || report.category)}</b><time datetime="${esc(report.date)}">${esc(dateShort(report.date))}</time></span><span class="cover-subject">${esc(report.category)} / ${esc(report.company)}</span></div><strong class="cover-headline">${title}</strong><span class="cover-signature">Longhand <small>Research</small></span></figcaption>
+        <figcaption class="cover-type" aria-hidden="true"><div class="cover-edition"><span>${esc(LH.catalogueNo(report))}<b>${esc(report.ticker || report.category)}</b><time datetime="${esc(report.date)}">${esc(dateShort(report.date))}</time></span><span class="cover-subject">${esc(report.category)} · ${esc(report.company)}</span></div><strong class="cover-headline">${title}</strong><span class="cover-signature">Longhand <small>Research</small></span></figcaption>
       </figure>`;
     }
   };

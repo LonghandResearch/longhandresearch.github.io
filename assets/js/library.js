@@ -144,8 +144,8 @@
         <div class="report-main">
           <p class="kicker">${LH.kickerHtml(r, [company ? highlight(company, tokens) : ''], { category: !!r.ticker })}</p>
           <h3 class="report-title" data-vt-title="${esc(r.id)}"><a href="${LH.reportHref(r)}">${highlight(r.title, tokens)}</a></h3>
-          ${blurb ? `<p class="report-blurb">${esc(blurb)}</p>` : ''}
-          ${relationships.length ? `<p class="report-context" aria-label="Research relationships">${relationships.join('<span aria-hidden="true">/</span>')}</p>` : ''}
+          ${blurb ? `<p class="report-blurb">${esc(LH.util.editorialText(blurb))}</p>` : ''}
+          ${relationships.length ? `<p class="report-context" aria-label="Research relationships">${relationships.join('<span aria-hidden="true">·</span>')}</p>` : ''}
         </div>
         <div class="report-call">
           ${call.length ? `<dl class="call">${call.map((x) => `<div><dt>${esc(x.short || x.label)}</dt><dd${x.cls ? ` class="${x.cls}"` : ''}>${esc(x.value)}</dd></div>`).join('')}</dl>` : '<span></span>'}

@@ -29,12 +29,12 @@
     let seed = 20260926;
     const rand = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
     const paper = document.documentElement.dataset.theme === 'light';
-    const n = Math.round((w * h) / 7500);
+    const n = Math.round((w * h) / 6000);
     for (let i = 0; i < n; i++) {
       const x = rand() * w;
       const y = rand() * h;
-      const bright = rand() < 0.06;
-      const r = bright ? 0.75 + rand() * 0.25 : 0.25 + rand() * 0.45;
+      const bright = rand() < 0.09;
+      const r = bright ? 0.80 + rand() * 0.35 : 0.30 + rand() * 0.40;
       const a = bright ? 0.55 + rand() * 0.25 : 0.20 + rand() * 0.38;
       ctx.fillStyle = paper ? `rgba(78, 101, 82, ${a})` : `rgba(234, 232, 221, ${a})`;
       ctx.beginPath();

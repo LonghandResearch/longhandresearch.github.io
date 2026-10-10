@@ -21,7 +21,7 @@
         ${cover || (art ? `<figure class="publication-art is-${art.kind}"><img src="${esc(art.src)}" alt="${esc(art.caption)}" loading="lazy" decoding="async" width="680" height="370"><figcaption>${esc(art.caption)}</figcaption></figure>` : '')}
         <div class="publication-copy"><div class="publication-meta"><span>${esc(r.category)}</span><time datetime="${esc(r.date)}">${esc(dateShort(r.date))}</time></div>
         <h3 data-vt-title="${esc(r.id)}"><a href="${esc(LH.reportHref(r))}">${esc(r.title)}</a></h3>
-        <p>${esc(r.blurb || r.company)}</p><span class="publication-arrow" aria-hidden="true">Read the research ↗</span></div></li>`;
+        <p>${esc(LH.util.editorialText(r.blurb || r.company))}</p><span class="publication-arrow" aria-hidden="true">Read the research ↗</span></div></li>`;
     }).join('');
   }
   render(); document.addEventListener('longhand:changed', render);

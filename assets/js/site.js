@@ -10,6 +10,11 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  // Display prose only: simplify sentence punctuation without editing report records.
+  const editorialText = (value) => String(value ?? '').replace(/;\s+(\S)/g, (match, next, offset, text) => {
+    if (/&(?:#\d+|#x[\da-f]+|[a-z]+)$/i.test(text.slice(0, offset))) return match;
+    return '. ' + next.toUpperCase();
+  });
   const num = (v) => {
     if (v === null || v === undefined || typeof v === 'boolean') return null;
     const s = String(v).replace(/[,\s]/g, '').replace(/\u2212/g, '-');
@@ -1375,7 +1380,7 @@
   /* Public API */
 
   Object.assign(LH, {
-    util: { $, $$, esc, num, icon, parseISO, dateLong, dateShort, fmtNum, fmtPct, fmtBytes, slug, storage, copyText },
+    util: { $, $$, esc, editorialText, num, icon, parseISO, dateLong, dateShort, fmtNum, fmtPct, fmtBytes, slug, storage, copyText },
     CATEGORIES,
     COMPANY_CATEGORIES,
     normalize,

@@ -147,7 +147,7 @@
 
 /* Reference alignment: low light, quiet type and an uncluttered photographic scene. */
 .page-home.v2-page .hero.night { --bg: #05090b; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; background: linear-gradient(180deg, #0b1013, #05090b 75%); }
-.page-home.v2-page .night-stars { display: block; z-index: 0; opacity: .62; mask-image: linear-gradient(90deg, #000, #0006 55%, transparent 90%); }
+.page-home.v2-page .night-stars { display: block; z-index: 0; opacity: .72; mask-image: linear-gradient(90deg, #000b, #000 65%, #0004); }
 .page-home.v2-page .hero.night .hero-title { font-size: clamp(49px, 4.8vw, 70px); max-width: 22ch; font-weight: 350; letter-spacing: -.027em; font-kerning: normal; text-shadow: none; }
 .page-home.v2-page .hero.night .hero-lede { font-size: 13px; line-height: 1.85; color: var(--ink-2); }
 .page-home.v2-page .hero.night .eyebrow { color: var(--ink-3); }

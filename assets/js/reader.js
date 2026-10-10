@@ -76,7 +76,7 @@
             <p class="kicker">${LH.kickerHtml(r, [esc(LH.tickerLabel(r)), `<time datetime="${esc(r.date)}">${esc(dateLong(r.date))}</time>`, esc(LH.catalogueNo(r))])}</p>
             <h1 class="reader-title">${esc(r.title)}</h1>
             ${company ? `<p class="reader-company">${esc(company)}</p>` : ''}
-            ${r.summary ? `<p class="reader-summary">${esc(r.summary)}</p>` : ''}
+            ${r.summary ? `<p class="reader-summary">${esc(LH.util.editorialText(r.summary))}</p>` : ''}
             <div class="reader-actions">
               ${url ? `<a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>
               <a class="text-link" data-open-file href="${esc(url)}" target="_blank" rel="noopener">Open file in a new tab ${icon('external')}</a>` : ''}

@@ -18,7 +18,7 @@
   if (type !== 'country' && G.country(context.country)) bread.push(link('country', G.country(context.country)));
   if (type === 'company' && G.sector(context.sector)) bread.push(link('sector', G.sector(context.sector)));
   bread.push(`<span aria-current="page">${esc(entity?.name || plural)}</span>`);
-  const heading = (name, description) => `<header class="entity-mast wrap"><nav class="v2-breadcrumb" aria-label="Breadcrumb">${bread.join('<span aria-hidden="true">/</span>')}</nav><p class="eyebrow">The Longhand research map / ${esc(type)}</p><h1 class="page-title" data-entity-title>${esc(name)}</h1><p class="page-lede">${esc(description)}</p>`;
+  const heading = (name, description) => `<header class="entity-mast wrap"><nav class="v2-breadcrumb" aria-label="Breadcrumb">${bread.join('<span aria-hidden="true">›</span>')}</nav><p class="eyebrow">${esc(type[0].toUpperCase() + type.slice(1))} research</p><h1 class="page-title" data-entity-title>${esc(name)}</h1><p class="page-lede">${esc(description)}</p>`;
   if (id && !entity) {
     root.innerHTML = `${heading('This research context is unavailable.', 'The address does not match a documented country, sector or company.')}<a class="text-link" href="${type}.html">Browse ${esc(plural.toLowerCase())} →</a></header>`;
     return;
@@ -44,8 +44,8 @@
     <section aria-labelledby="entity-research-title"><div class="section-head"><h2 class="section-label" id="entity-research-title">Published research</h2><span class="section-meta">Newest first</span></div>
     <ol class="entity-report-list">${reports.map((r) => {
       const relationship = G.relationships.find((x) => x.reportId === r.id && x.type === type && x.entityId === id);
-      return `<li class="entity-report"><span>${esc(LH.catalogueNo(r))}</span><div><p class="entity-report-meta">${esc(r.category)} · <time datetime="${esc(r.date)}">${esc(dateLong(r.date))}</time> · ${relationship?.role === 'primary' ? 'Primary subject' : 'Research connection'}</p><h3 data-vt-title="${esc(r.id)}"><a href="${esc(LH.reportHref(r))}">${esc(r.title)}</a></h3><p>${esc(r.blurb || r.summary)}</p>${r.rating ? `<p>Published rating: ${esc(r.rating)} · ${esc(dateLong(r.date))}</p>` : ''}</div>${arrow}</li>`;
+      return `<li class="entity-report"><span>${esc(LH.catalogueNo(r))}</span><div><p class="entity-report-meta">${esc(r.category)} · <time datetime="${esc(r.date)}">${esc(dateLong(r.date))}</time> · ${relationship?.role === 'primary' ? 'Primary subject' : 'Research connection'}</p><h3 data-vt-title="${esc(r.id)}"><a href="${esc(LH.reportHref(r))}">${esc(r.title)}</a></h3><p>${esc(LH.util.editorialText(r.blurb || r.summary))}</p>${r.rating ? `<p>Published rating: ${esc(r.rating)} · ${esc(dateLong(r.date))}</p>` : ''}</div>${arrow}</li>`;
     }).join('')}</ol>${!reports.length ? '<p>No published reports match this combination. Broaden the geography or sector using the links above.</p>' : ''}
     <p class="discovery-method">Relationships describe the scope of published research. Company discussions in sector studies do not imply a rating. Publication dates and the individual reports’ observation periods remain distinct.</p>
-    <details class="entity-evidence"><summary>Relationship evidence</summary><ul>${[...new Map(G.relationships.filter((r) => r.type === type && r.entityId === id && reports.some((p) => p.id === r.reportId)).flatMap((r) => r.evidence).map((e) => [e.url, e])).values()].map((e) => `<li><a href="${esc(e.url)}">${esc(e.label)}</a></li>`).join('')}</ul></details></section></div>`;
+    <details class="entity-evidence"><summary>Relationship evidence</summary><ul>${[...new Map(G.relationships.filter((r) => r.type === type && r.entityId === id && reports.some((p) => p.id === r.reportId)).flatMap((r) => r.evidence).map((e) => [e.url, e])).values()].map((e) => `<li><a href="${esc(e.url)}">${esc(e.label.replace(/ \/ /g, ' · '))}</a></li>`).join('')}</ul></details></section></div>`;
 })();

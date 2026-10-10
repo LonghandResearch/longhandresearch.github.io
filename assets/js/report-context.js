@@ -45,7 +45,7 @@
         if (!entities || entities.length !== 1) return;
         const entity = entities[0];
         const sep = document.createElement('span');
-        sep.textContent = '/';
+        sep.textContent = '›';
         sep.setAttribute('aria-hidden', 'true');
         nav.append(sep, link(entity.name, at(graph.urlFor(type, entity.id))));
       });
@@ -72,11 +72,11 @@
     const aside = document.createElement('aside'); aside.className = 'reading-rail';
     aside.setAttribute('aria-label', 'Publication navigation');
     const inner = document.createElement('div'); inner.className = 'reading-rail-inner';
-    const rubric = document.createElement('p'); rubric.className = 'reading-rubric'; rubric.textContent = 'Longhand / The reading room';
+    const rubric = document.createElement('p'); rubric.className = 'reading-rubric'; rubric.textContent = 'The reading room';
     const meta = document.createElement('p'); meta.className = 'reading-meta'; meta.textContent = `${r.category} · ${r.date}`;
     const title = document.createElement('h2'); title.textContent = r.title;
     const nav = document.createElement('nav');
-    nav.append(link('01 / Overview', `#${head.id}`), link('02 / Full publication', `#${documentView.id}`), link('← Return to Library', at('library.html')));
+    nav.append(link('01 Overview', `#${head.id}`), link('02 Full publication', `#${documentView.id}`), link('← Return to Library', at('library.html')));
     inner.append(rubric, meta, title, nav);
     const art = window.LonghandArt?.originalForReport(r) || window.LonghandArt?.forReport(r);
     if (art) {

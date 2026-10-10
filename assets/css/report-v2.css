@@ -99,7 +99,7 @@ html[data-theme="dark"]:has(body[data-report-publication]:not(.v2-page)) { --pap
 .reading-rail nav a:hover { color: #d5b581; }
 .reading-rail figure { margin: 32px 0 0; }
 .reading-rail img { width: 130px; height: auto; display: block; opacity: .95; }
-.reading-rail figcaption { color: #a7b8b9; font: italic 15px/1.5 var(--font-serif); margin-top: 15px; }
+.reading-rail figcaption { color: #a7b8b9; font: 400 12px/1.6 var(--font-sans); margin-top: 15px; }
 .page-report .has-reading-rail > .wrap { max-width: 1120px; }
 .page-report .reader-head { grid-template-columns: minmax(0, 1fr) 230px; gap: 40px; padding-block: 28px 42px; }
 .page-report .reader-title { font-size: clamp(38px, 3.6vw, 53px); max-width: 22ch; font-weight: 400; }
@@ -158,6 +158,8 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
 [data-report-publication] :is(.segmented button, .period-buttons button)[aria-pressed="true"] { background: transparent; color: var(--gold-ink, var(--teal)); border-bottom-color: currentColor; }
 [data-report-publication] .atlas-section .segmented button { color: #c7d0cf; border-bottom-color: transparent; }
 [data-report-publication] .atlas-section .segmented button[aria-pressed="true"] { color: #dbbc82; border-bottom-color: currentColor; background: transparent; }
+[data-report-publication] :is(h1, h2, h3, h4) em,
+[data-report-publication] :is(.pbai-sub, .market-deck, .brand i) { font-style: normal; }
 @media (max-width: 760px) {
   .reading-rail { border-right: 0; border-bottom: 1px solid var(--rule); }
   .reading-rail-inner { padding-block: 14px; }

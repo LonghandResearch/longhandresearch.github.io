@@ -93,6 +93,7 @@
       cloudMix: { value: 0 },
       nightMix: { value: 0 },
       glow: { value: 0 },
+      ambience: { value: hero ? 1 : 0 },
       paper: { value: document.documentElement.dataset.theme === 'light' ? 1 : 0 },
     };
 
@@ -102,7 +103,7 @@
       fragmentShader: `
         uniform sampler2D dayMap, nightMap, waterMap, cloudMap;
         uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix, nightMix, paper;
+        uniform float cloudShift, cloudMix, nightMix, paper, ambience;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
@@ -124,10 +125,12 @@
           // city lights on the night side, warmed towards the page's gold
           vec3 lights = texture2D(nightMap, vUv).rgb;
           float night = 1.0 - smoothstep(-0.26, 0.04, NdL);
-          col += lights * vec3(1.0, 0.94, 0.82) * 1.40 * nightMix;
+          float cityLight = dot(lights, vec3(0.2126, 0.7152, 0.0722));
+          vec3 cityTint = mix(lights, cityLight * vec3(1.10, 0.98, 0.75), 0.35 * ambience);
+          col += cityTint * vec3(1.0, 0.94, 0.82) * (1.40 + 0.35 * ambience) * nightMix;
           // blue haze towards the rim on the lit side
           float fres = pow(1.0 - max(dot(N, V), 0.0), 3.0);
-          col += vec3(0.24, 0.38, 0.49) * fres * 0.080;
+          col += vec3(0.24, 0.38, 0.49) * fres * (0.080 + 0.035 * ambience);
           if (paper > 0.5) {
             // Warm relief and sage seas, retaining the NASA surface texture.
             float terrain = dot(albedo, vec3(0.2126, 0.7152, 0.0722));
@@ -136,6 +139,8 @@
             col = mix(land, sea, water);
             col *= 0.64 + 0.30 * max(dot(N, V), 0.0) + 0.06 * max(NdL, 0.0);
             col += vec3(0.014, 0.016, 0.012) * cloud;
+            // Urban texture becomes quiet ink on paper, rather than added markers.
+            col -= vec3(0.05, 0.044, 0.035) * smoothstep(0.08, 0.35, cityLight) * ambience * nightMix * (1.0 - water);
           }
           gl_FragColor = vec4(col, 1.0);
           #include <tonemapping_fragment>
@@ -184,7 +189,7 @@
         }`,
       fragmentShader: `
         uniform vec3 sunDir;
-        uniform float glow, paper;
+        uniform float glow, paper, ambience;
         varying vec3 vNormalV;
         varying vec3 vNormalW;
         void main() {
@@ -194,7 +199,9 @@
           float i = pow(smoothstep(0.0, 0.56, t), 1.35);
           float lit = 0.16 + 0.84 * smoothstep(-0.45, 0.6, dot(normalize(vNormalW), normalize(sunDir)));
           // coloured light with its own alpha, so the stars behind still show through
-          gl_FragColor = vec4(vec3(0.20, 0.29, 0.34), clamp(i * lit * 0.13 * glow * (1.0 - paper), 0.0, 1.0));
+          vec3 rim = mix(vec3(0.20, 0.29, 0.34), vec3(0.30, 0.41, 0.32), paper);
+          float strength = mix(0.13 + 0.10 * ambience, 0.035 * ambience, paper);
+          gl_FragColor = vec4(rim, clamp(i * lit * strength * glow, 0.0, 1.0));
           #include <colorspace_fragment>
         }`,
       side: THREE.BackSide,
