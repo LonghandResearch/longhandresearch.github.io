@@ -158,7 +158,7 @@
 .page-home.v2-page .hero.night .hero-title { font-size: clamp(49px, 4.8vw, 70px); max-width: 22ch; font-weight: 350; letter-spacing: -.027em; font-kerning: normal; text-shadow: none; }
 .page-home.v2-page .hero.night .hero-lede { font-size: 13px; line-height: 1.85; color: var(--ink-2); }
 .page-home.v2-page .hero.night .eyebrow { color: var(--ink-3); }
-.page-home.v2-page .hero.night .hero-actions .btn { background: transparent; border-color: var(--rule-2); }
+.page-home.v2-page .hero.night .hero-actions .btn { background: transparent; border: 0; border-bottom: 1px solid var(--rule-2); border-radius: 0; padding-inline: 0; gap: 18px; font-size: 12px; font-weight: 400; }
 .page-home.v2-page .plate::after { background: linear-gradient(0deg, #05090b 4%, transparent 30%); }
 .home-globe-caption { color: var(--ink-3); border-color: var(--rule-2); }
 .home-globe-caption small { color: var(--gold-ink); }

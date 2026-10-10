@@ -136,6 +136,45 @@ source or deployment data was modified. This remains a local preview only.
 
 ## Preservation and limitations
 
+### Transparent editorial controls — 11 October 2026
+
+Following the owner's broader visual feedback, the owner specified plainer,
+transparent tabs and labels with a modern, retro/classic character. This pass
+removes opaque marker badges, rectangular rotation/reset controls, filled
+Coverage steps, boxed Library view switches and relationship chips. Transparent
+surfaces use fine rules, readable text and a restrained active accent. Newsreader
+and Libre Franklin remain the publication families; existing portrait artwork,
+research wording and data are unchanged.
+
+Coverage's opening and country navigation now share a left column beside the
+globe, with the research summary below. The former overlapping layout and
+accumulated media overrides were consolidated. Mobile places the globe between
+the introduction and country navigation. Globe labels use serif type, a small
+geographic dot and a subtle underline, with theme-specific text shadows for
+legibility. Rotation and reset retain 44-pixel targets and now use small stroke
+icons. Dynamic rotation labels update their span without removing the icon.
+
+The shared masthead, Homepage research action, Library controls, PDF actions and
+interactive scenario/period controls follow the same transparent treatment.
+Chart panels retain their original plotting palettes; active controls remain
+distinguishable through underline and text color. Author forms and destructive
+tools retain their existing control behavior.
+
+Edge Playwright passed 90 combinations across 15 routes, both themes and 320,
+768 and 1440 pixels, with no root overflow or page errors. Additional screenshots
+at 390 pixels were inspected along with desktop Home, Coverage and Library.
+Computed backgrounds were transparent for normal and selected globe labels,
+Coverage steps, globe controls, active Library Compact and interactive chart
+controls. Marker selection, rotation/pause label and icon, reset, keyboard focus,
+44-pixel targets, Library search/Compact and mobile Menu/Escape passed. Script
+syntax, site validation and diff checks passed.
+
+Research, PDFs, original art, chart models/controllers, feeds, sitemap and
+publication workflows have no diff. The owner's main checkout remains clean at
+`54df02460f2068185bf381b754d76d1de219b7dd`. Screenshots are outside Git in `v2-qa`.
+Safari/Firefox and physical devices remain unverified. This pass is local only,
+with no push, PR, merge or publication.
+
 ### Visual audit refinements — 11 October 2026
 
 The owner authorized all visual audit corrections and subsequently requested a

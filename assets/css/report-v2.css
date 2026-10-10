@@ -104,7 +104,7 @@ html[data-theme="dark"]:has(body[data-report-publication]:not(.v2-page)) { --pap
 .page-report .reader-head { grid-template-columns: minmax(0, 1fr) 230px; gap: 40px; padding-block: 28px 42px; }
 .page-report .reader-title { font-size: clamp(38px, 3.6vw, 53px); max-width: 22ch; font-weight: 400; }
 .page-report .reader-summary { font-size: 17px; line-height: 1.75; }
-.page-report .reader-side { background: #b29e7310; border: 1px solid var(--rule-2); padding: 20px; }
+.page-report .reader-side { background: transparent; border: 0; border-block: 1px solid var(--rule-2); padding: 20px 0; }
 .page-report .reader-side .ledger-title { color: var(--gold-ink); }
 .page-report .reader-actions { gap: 12px 20px; }
 .page-report .reader-actions .btn { font-size: 11px; }
@@ -136,7 +136,7 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
 @media (max-width: 1180px) { [data-report-publication] .pbai-toc { padding: 0; } [data-report-publication] .pbai-toc-toggle { background: #0b2027; color: #eeeee4; } }
 
 /* One reading system across PDF and interactive publications. */
-.reading-rail { background: var(--bg-sunk); color: var(--ink); border-right: 1px solid var(--rule); }
+.reading-rail { background: transparent; color: var(--ink); border-right: 1px solid var(--rule); }
 .reading-rubric { font-size: 11px; color: var(--gold-ink); letter-spacing: .12em; }
 .reading-meta { font-size: 12px; color: var(--ink-2); }
 .reading-rail nav a { font-size: 12px; border-color: var(--rule); }
@@ -153,7 +153,11 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
 [data-report-publication] .pbai-title { font-size: clamp(48px, 7vw, 96px); line-height: 1; font-weight: 400; }
 [data-report-publication] .pbai-sub { font-size: clamp(22px, 2vw, 28px); line-height: 1.35; max-width: 38ch; }
 [data-report-publication] :is(.micro, .tag, .flag, .badge, .report-related-meta, .report-context) { font-size: 11px; line-height: 1.7; }
-[data-report-publication] :is(.segmented button, .period-buttons button) { font-size: 12px; min-height: 44px; }
+[data-report-publication] :is(.segmented, .period-buttons) { gap: 8px 20px; }
+[data-report-publication] :is(.segmented button, .period-buttons button) { font-size: 12px; font-weight: 400; min-height: 44px; background: transparent; color: var(--ink-2, var(--muted)); border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; padding-inline: 0; margin-left: 0; }
+[data-report-publication] :is(.segmented button, .period-buttons button)[aria-pressed="true"] { background: transparent; color: var(--gold-ink, var(--teal)); border-bottom-color: currentColor; }
+[data-report-publication] .atlas-section .segmented button { color: #c7d0cf; border-bottom-color: #526872; }
+[data-report-publication] .atlas-section .segmented button[aria-pressed="true"] { color: #dbbc82; border-bottom-color: currentColor; background: transparent; }
 @media (max-width: 760px) {
   .reading-rail { border-right: 0; border-bottom: 1px solid var(--rule); }
   .reading-rail-inner { padding-block: 14px; }

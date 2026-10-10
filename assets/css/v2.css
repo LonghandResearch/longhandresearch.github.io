@@ -9,7 +9,7 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
 .v2-page .brand-name { text-transform: uppercase; font-size: 29px; font-weight: 400; letter-spacing: -.035em; }
 .v2-page .brand-sub { letter-spacing: .25em; font-size: 9px; }
 .v2-page .site-nav { gap: 24px; }
-.v2-page .site-nav a { font-size: 12px; min-height: 44px; display: inline-flex; align-items: center; }
+.v2-page .site-nav a { font-size: 12px; font-weight: 400; min-height: 44px; display: inline-flex; align-items: center; }
 .v2-page .site-nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 9px; }
 .v2-page .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: .18em; }
 .v2-page .page-title { font-size: clamp(42px, 5.3vw, 76px); letter-spacing: -.04em; line-height: 1.02; font-weight: 400; }
@@ -50,7 +50,7 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
   .v2-page .site-nav { gap: 12px; width: 100%; flex-wrap: wrap; padding: 8px 0 14px; }
   .v2-page .site-nav a { display: inline-flex !important; }
   .v2-page .masthead:has(.site-nav):not(.has-v2-menu) .masthead-inner { height: auto; min-height: 68px; padding-block: 12px; }
-  .v2-page .has-v2-menu .v2-menu-button { display: inline-flex; align-items: center; gap: 10px; padding: 0 10px; border: 1px solid var(--rule-2); background: none; font: 500 11px var(--font-sans); min-height: 44px; }
+  .v2-page .has-v2-menu .v2-menu-button { display: inline-flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; background: transparent; font: 400 11px var(--font-sans); min-height: 44px; }
   .v2-page .has-v2-menu .site-nav { display: none; }
   .v2-page .has-v2-menu.menu-open .site-nav { display: flex; position: absolute; top: 68px; left: 0; right: 0; background: var(--bg); padding: 12px var(--gutter) 20px; border-bottom: 1px solid var(--rule-2); gap: 8px 24px; }
   .v2-page .has-v2-menu.menu-open .site-nav > a { flex: 0 0 calc(50% - 24px); font-size: 16px; }
@@ -99,7 +99,7 @@ html:has(.v2-page)::view-transition-group(globe) { animation-duration: 850ms; }
   .v2-page :is(.publication-tile, .report-list > .report, .entity-report, .entity-index > a, .coverage-report):hover { border-color: var(--gold-ink); background: var(--tint); }
   .v2-page :is(.publication-tile, .report-list > .report):hover img { transform: scale(1.025); }
   .v2-page :is(.home-coverage-links > a, .coverage-sectors a, .report-related-list > a):hover { color: var(--gold-ink); background: var(--tint); }
-  .v2-page .btn:hover { background: var(--tint-2); border-color: var(--gold-ink); }
+  .v2-page .btn:hover { background: transparent; color: var(--gold-ink); border-color: var(--gold-ink); }
   .v2-page .btn:hover .icon-arrow { transform: translateX(4px); }
   .v2-page .site-nav a:hover { text-decoration-color: var(--gold-ink); }
 }
@@ -110,7 +110,7 @@ html[data-theme="light"] .v2-page { --v2-paper: #e8e3d7; --bg: #e8e3d7; --bg-sun
 html[data-theme="dark"] .v2-page { --bg: #05090b; --bg-sunk: #080f12; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; --rule: #dce6e522; --rule-2: #dce6e53b; --gold: #b49c70; --gold-ink: #ccb78f; color-scheme: dark; }
 .v2-page .site-nav { margin-left: auto; }
 .v2-page .masthead.is-over-night { --bg: inherit; --ink: inherit; --ink-2: inherit; --rule: inherit; --gold: inherit; background: var(--bg); }
-.v2-page .masthead .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: auto; min-width: 44px; min-height: 44px; height: 44px; gap: 9px; border: 1px solid var(--rule-2); padding: 0 12px; font: 400 10px var(--font-sans); margin-left: 20px; }
+.v2-page .masthead .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: auto; min-width: 44px; min-height: 44px; height: 44px; gap: 9px; border: 0; background: transparent; padding: 0 6px; font: 400 10px var(--font-sans); margin-left: 20px; }
 .v2-page .masthead .theme-label { white-space: nowrap; }
 html[data-theme="light"] .v2-page .site-footer { --ink: #23332d; --ink-2: #4f6057; --ink-3: #59665c; --rule: #23332d2b; color: var(--ink); background: linear-gradient(90deg, #ded8cbf7, #e8e3d7ed), url('../img/earth/earth-night-2048.jpg') center / cover; }
 html[data-theme="light"] .v2-page .footer-statement::before { color: #3d5b49; }
@@ -134,6 +134,12 @@ html[data-theme="light"] .v2-page .footer-links a:hover { color: #3d5b49; }
 .v2-page .v2-breadcrumb a { min-height: 44px; }
 .wire-pagination { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 28px; border-top: 1px solid var(--rule); }
 .wire-pagination p { font: 400 12px/1.6 var(--font-sans); color: var(--ink-2); }
+
+/* Public actions share the atlas's transparent, finely ruled treatment. */
+.v2-page :is(.reader-actions, .coverage-panel, .wire-pagination, .viewer-reading-help) .btn { background: transparent; border: 0; border-bottom: 1px solid var(--rule-2); border-radius: 0; padding-inline: 0; font-weight: 400; }
+.v2-page .masthead [data-add-report] { background: transparent; border: 0; border-bottom: 1px solid var(--rule); padding-inline: 0; font-weight: 400; }
+.v2-page .masthead :is(.theme-toggle, .v2-menu-button):hover { background: transparent; color: var(--gold-ink); }
+.v2-page :is(.coverage-path a, .coverage-country-list button, .globe-marker, .globe-controls button, .library-view button):focus-visible { outline: 1px solid var(--gold-ink); outline-offset: 4px; }
 
 /* The colophon: a clear identity, two navigation columns and quiet geography. */
 .v2-page .site-footer { background: linear-gradient(90deg, #05090bfa 0%, #05090be8 40%, #05090b99 100%), url('../img/earth/earth-night-2048.jpg') 65% 50% / cover; }

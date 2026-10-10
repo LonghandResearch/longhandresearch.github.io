@@ -45,7 +45,7 @@
   list.addEventListener('click', (e) => { const b = e.target.closest('[data-country]'); if (b) choose(b.dataset.country); });
   document.addEventListener('longhand:globe-select', (e) => choose(e.detail.id));
   document.addEventListener('longhand:globe-ready', updateGlobe);
-  document.addEventListener('longhand:globe-playing', (e) => { const b = document.querySelector('[data-globe-pause]'); if (b) { b.textContent = e.detail.playing ? 'Pause rotation' : 'Resume rotation'; b.setAttribute('aria-pressed', String(!e.detail.playing)); } });
+  document.addEventListener('longhand:globe-playing', (e) => { const b = document.querySelector('[data-globe-pause]'); if (b) { b.querySelector('[data-rotation-label]').textContent = e.detail.playing ? 'Pause rotation' : 'Resume rotation'; b.setAttribute('aria-pressed', String(!e.detail.playing)); } });
   document.querySelector('[data-globe-pause]')?.addEventListener('click', () => window.LonghandEarth?.toggle());
   document.querySelector('[data-globe-reset]')?.addEventListener('click', () => choose(''));
   window.addEventListener('popstate', () => choose(new URLSearchParams(location.search).get('country') || '', false));
