@@ -368,16 +368,27 @@
       return new THREE.Vector3(Math.cos(p) * Math.cos(l), Math.sin(p), -Math.cos(p) * Math.sin(l));
     };
     function setMarkers(items) {
-      markerLayer.replaceChildren();
+      const previous = new Map(markers.map((m) => [m.id, m.button]));
       markers = items.filter((m) => Number.isFinite(m.lat) && Number.isFinite(m.lon)).map((m) => {
-        const button = document.createElement('button');
+        const button = previous.get(m.id) || document.createElement('button');
         button.type = 'button'; button.className = 'globe-marker';
-        button.textContent = m.name; button.title = m.name + ' research';
-        button.setAttribute('aria-label', 'Explore ' + m.name + ' research');
-        button.addEventListener('click', () => document.dispatchEvent(new CustomEvent('longhand:globe-select', { detail: { id: m.id } })));
-        markerLayer.append(button);
+        button.dataset.countryId = m.id;
+        const count = graph?.reportsFor({ country: m.id }).length || 0;
+        button.replaceChildren();
+        const name = document.createElement('span'); name.className = 'globe-marker-name'; name.textContent = m.name;
+        const total = document.createElement('span'); total.className = 'globe-marker-count'; total.textContent = `${count} ${count === 1 ? 'report' : 'reports'}`;
+        button.append(name, total); button.title = m.name + ' research';
+        button.setAttribute('aria-label', `Explore ${m.name} research, ${count} connected ${count === 1 ? 'report' : 'reports'}`);
+        if (!previous.has(m.id)) {
+          button.addEventListener('click', () => document.dispatchEvent(new CustomEvent('longhand:globe-select', { detail: { id: m.id } })));
+          // Reveal a secondary label on demand without keeping an idle RAF alive.
+          ['pointerenter', 'pointerleave', 'focus', 'blur'].forEach((event) => button.addEventListener(event, requestFrame));
+          markerLayer.append(button);
+        }
         return { ...m, button, point: surfacePoint(m.lat, m.lon) };
       });
+      const retained = new Set(markers.map((m) => m.id));
+      previous.forEach((button, id) => { if (!retained.has(id)) button.remove(); });
       requestFrame();
     }
     function projectMarkers() {
@@ -392,7 +403,9 @@
         const normal = m.point.clone().applyQuaternion(q).normalize();
         m.button.hidden = normal.dot(camera.position.clone().sub(point).normalize()) < .1;
         const projected = point.project(camera);
-        m.button.style.left = ((projected.x + 1) * bounds.width / 2) + 'px';
+        const x = (projected.x + 1) * bounds.width / 2;
+        m.button.dataset.align = x + m.button.offsetWidth > bounds.width - 8 ? 'left' : 'right';
+        m.button.style.left = x + 'px';
         m.button.style.top = ((1 - projected.y) * bounds.height / 2) + 'px';
         m.button.classList.toggle('is-selected', m.id === focusId);
         m.button.classList.toggle('is-muted', !!focusId && m.id !== focusId);

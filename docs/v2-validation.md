@@ -410,3 +410,59 @@ This is Codex author QA for the local `codex/longhand-v2` branch in the external
 worktree. The owner checkout remains clean on main at
 `54df02460f2068185bf381b754d76d1de219b7dd`. Physical-device and Safari/Firefox
 verification remain open. No push, PR, merge or publication was performed.
+
+### Coverage reading and selection preview — 11 October 2026
+
+The owner approved the proposed Coverage refinement and requested a preview.
+The country selector now sits above the atlas. Selected geography, derived
+counts and recent portrait editions appear beside the globe on desktop,
+followed by the relevant sector links. Numbered navigation is simplified to
+ordinary context-aware links. Mobile has a smaller atlas and a View research
+anchor to reach the selected context without searching down the page.
+
+The country counts, report order, companies and sector relationships still
+derive from LonghandGraph and the published catalogue. Primary and related
+geographies remain explicit, including zero primary-subject reports. Country
+counts link to the existing filtered Library, sector and company indexes.
+Existing cover assets are reused. No reports, relationships, dates or financial
+observations were added or edited.
+
+Globe labels use upright serif names, a small publication count and a point,
+with no background panel. Secondary labels yield to the selected geography and
+reveal on hover or keyboard focus. Labels reverse direction near the stage
+edge. Marker buttons are retained across selection instead of replaced, so
+keyboard activation preserves focus. These updates use the existing globe RAF.
+Rendering, textures, selection orientation and the three substantive connection
+pairs (CN–ID, ID–IN, ID–US) are unchanged. Countries without a qualifying arc,
+such as Viet Nam, continue to show zero active arcs.
+
+Playwright checked 40 combinations: World, Indonesia, United States and China
+at 320, 390, 768, 1024 and 1440px in both themes. No page errors, root overflow
+or incorrect derived counts/report order were observed. Selected labels stayed
+within the viewport, and headings remained upright. Desktop/mobile selection,
+keyboard marker focus, disclosure selection, Back, World view reset, country-
+scoped sector/company destinations, report links and theme persistence passed.
+The mobile results anchor showed the heading below the sticky masthead. An
+invalid country recovered through the selector. Secondary label focus and the
+final two-column tablet sector layout were also checked in both themes.
+
+WebGL instrumentation verified continued drawing during ordinary motion and
+zero additional draws after textures settled with reduced motion, on Coverage
+and Home. Both stop drawing offscreen. The Homepage remains an ambient image
+without a tabindex. With WebGL unavailable, the atlas hides and the country
+context and report links remain usable at 390 and 1440px without overflow.
+Representative World, Indonesia, China, tablet and mobile screenshots were
+visually inspected. Evidence remains outside Git under
+`C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/atlas-reading-*`.
+
+Both changed scripts pass syntax checks, all four existing research-graph tests
+pass, and site validation passed for 59 scripts, 67 JSON files, 11 catalogue
+entries, 16 sitemap pages and links in 19 pages. Diff checks passed. Research
+bodies, catalogue, source records, PDFs, graph data, models, news, RSS, sitemap
+and publication workflows have no changes in this pass. Index HTML only
+refreshes the shared globe script version.
+
+This is Codex author QA, committed locally on `codex/longhand-v2` in the external
+worktree. The owner checkout remains clean on main at
+`54df02460f2068185bf381b754d76d1de219b7dd`. Physical-device and Safari/Firefox
+verification remain open. No push, PR, merge or publication was performed.
