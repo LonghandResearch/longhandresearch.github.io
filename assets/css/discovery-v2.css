@@ -134,3 +134,23 @@
   .page-library .search input { font-size: 12px; }
   .page-library .report-no { display: inline; }
 }
+
+.page-library :is(.page-folio, .report-date, .report-exch, .open-cue, .discovery-facets label span, .library-geography > summary) { font-size: 11px; }
+.page-library .page-lede, .page-library .report-blurb { font-size: 13px; }
+.page-library .filters .filter { font-size: 12px; }
+.page-library .report-context a { font-size: 11px; min-height: 32px; display: inline-flex; align-items: center; padding: 4px 8px; }
+.entity-rail h2, .entity-report .entity-report-meta, .entity-index small { font-size: 11px; }
+.entity-rail a { font-size: 12px; min-height: 44px; align-items: center; }
+.entity-report p, .entity-index p { font-size: 13px; }
+.entity-meta, .entity-evidence { font-size: 12px; }
+.library-view { display: flex; justify-content: flex-end; gap: 0; padding-block: 4px 22px; }
+.library-view button { background: none; border: 1px solid var(--rule-2); color: var(--ink-2); min-height: 44px; padding: 8px 16px; font: 400 12px var(--font-sans); }
+.library-view button + button { border-left: 0; }
+.library-view button[aria-pressed="true"] { color: var(--ink); background: var(--tint-2); box-shadow: inset 0 -2px var(--gold-ink); }
+@media (max-width: 640px) {
+  .page-library .discovery-facets label { flex-basis: 100%; }
+  .page-library .page-lede { font-size: 13px; }
+  .page-library .page-folio { font-size: 11px; }
+  .page-library .filter-n { font-size: 10px; }
+  .library-view { justify-content: flex-start; padding-bottom: 20px; }
+}

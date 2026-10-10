@@ -122,3 +122,42 @@ html[data-theme="light"] .v2-page .footer-links a:hover { color: #3d5b49; }
   .v2-page .v2-menu-button { order: 3; }
   .v2-page .site-nav { order: 4; margin: 0; }
 }
+
+/* Readable publication furniture, with the serif reserved for the story. */
+.v2-page :is(.eyebrow, .kicker, .page-folio, .section-meta, .brand-sub) { font-size: 11px; }
+.v2-page .masthead .theme-toggle { font-size: 12px; }
+.v2-page .v2-menu-button { font-size: 12px; }
+.v2-page .filter-n { font-size: 10px; }
+.v2-page .search input { font-size: 14px; }
+.v2-page .tool { min-height: 44px; }
+.v2-page .v2-breadcrumb { font-size: 12px; }
+.v2-page .v2-breadcrumb a { min-height: 44px; }
+.wire-pagination { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 28px; border-top: 1px solid var(--rule); }
+.wire-pagination p { font: 400 12px/1.6 var(--font-sans); color: var(--ink-2); }
+
+/* The colophon: a clear identity, two navigation columns and quiet geography. */
+.v2-page .site-footer { background: linear-gradient(90deg, #05090bfa 0%, #05090be8 40%, #05090b99 100%), url('../img/earth/earth-night-2048.jpg') 65% 50% / cover; }
+.v2-page .footer-signature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .65fr); align-items: start; gap: 64px; min-height: 280px; padding-block: 52px 42px; }
+.v2-page .footer-brand { display: flex; align-items: baseline; gap: 14px; font: 400 35px/1 var(--font-serif); text-transform: uppercase; letter-spacing: -.035em; text-decoration: none; width: fit-content; }
+.v2-page .footer-brand span { font: 500 11px/1.5 var(--font-sans); letter-spacing: .22em; }
+.v2-page .footer-statement { font-size: clamp(26px, 2.3vw, 33px); max-width: 24ch; margin-top: 25px; line-height: 1.2; }
+.v2-page .footer-statement::before { display: none; }
+.v2-page .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; font-size: 13px; }
+.footer-link-group { display: flex; flex-direction: column; align-items: start; }
+.footer-link-group > p { font: 500 11px/1.5 var(--font-sans); color: var(--ink-3); text-transform: uppercase; letter-spacing: .14em; margin-bottom: 12px; }
+.v2-page .footer-links a { gap: 8px; min-height: 44px; }
+.v2-page .footer-links a::after { content: '↗'; color: var(--gold-ink); font-size: 11px; }
+.v2-page .footer-inner { align-items: start; gap: 24px; padding-block: 22px; }
+.v2-page .disclaimer { font-size: 12px; line-height: 1.8; }
+html[data-theme="light"] .v2-page .site-footer { background: linear-gradient(90deg, #ded8cbfa 0%, #e8e3d7f2 50%, #e8e3d7d9), url('../img/earth/earth-night-2048.jpg') 65% 50% / cover; }
+@media (max-width: 760px) {
+  .v2-page .footer-signature { grid-template-columns: 1fr; gap: 32px; padding-block: 36px 28px; }
+  .v2-page .footer-brand { font-size: 30px; }
+  .v2-page .footer-statement { margin-top: 18px; font-size: 28px; }
+  .v2-page .footer-links { width: 100%; }
+  .v2-page .footer-inner { display: flex; flex-direction: column; gap: 18px; }
+  .v2-page .disclaimer { flex: 0 1 auto; }
+  .v2-page .colophon { white-space: normal; }
+  .v2-page .search input { font-size: 16px; }
+  .wire-pagination { align-items: start; flex-direction: column; }
+}

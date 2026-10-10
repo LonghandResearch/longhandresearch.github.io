@@ -11,7 +11,7 @@
   const entity = id && G[type](id);
   const context = { country: params.get('country') || '', sector: params.get('sector') || '' };
   const plural = { country: 'Countries & markets', sector: 'Sectors', company: 'Companies' }[type];
-  const filters = entity ? { ...context, [type]: id } : {};
+  const filters = entity ? { ...context, [type]: id } : context;
   const arrow = '<span aria-hidden="true">↗</span>';
   const link = (t, e, c = filters) => `<a href="${esc(G.urlFor(t, e.id, c))}">${esc(e.name)}</a>`;
   const bread = [`<a href="coverage.html">World</a>`];
@@ -24,8 +24,8 @@
     return;
   }
   if (!entity) {
-    const list = G.entitiesFor(type);
-    root.innerHTML = `${heading(plural, 'Explore the documented subjects and relationships in the published research.')}</header><section class="wrap entity-index" aria-label="${esc(plural)}">${list.map((e) => `<a href="${esc(G.urlFor(type, e.id))}"><small>${G.reportsFor({ [type]: e.id }).length} connected reports ${arrow}</small><h2>${esc(e.name)}</h2><p>${esc(e.description)}</p></a>`).join('')}</section>`;
+    const list = G.entitiesFor(type, filters);
+    root.innerHTML = `${heading(plural, 'Explore the documented subjects and relationships in the published research.')}</header><section class="wrap entity-index" aria-label="${esc(plural)}">${list.map((e) => `<a href="${esc(G.urlFor(type, e.id, filters))}"><small>${G.reportsFor({ ...filters, [type]: e.id }).length} connected reports ${arrow}</small><h2>${esc(e.name)}</h2><p>${esc(e.description)}</p></a>`).join('')}${!list.length ? '<p>No documented subjects match this context. Return to the <a href="coverage.html">world overview</a> to broaden the search.</p>' : ''}</section>`;
     return;
   }
   const reports = G.reportsFor(filters);

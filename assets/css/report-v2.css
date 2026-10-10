@@ -134,3 +134,34 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
 .page-report .reader-side .ledger-ticker { font-size: 36px; }
 [data-report-publication] :is(.pbai-toc, .market-rail) { --ink: #eeeee4; --ink-2: #b9c6c5; --ink-3: #9eafb0; --gold-ink: #d5b581; --rule: #dce6e526; }
 @media (max-width: 1180px) { [data-report-publication] .pbai-toc { padding: 0; } [data-report-publication] .pbai-toc-toggle { background: #0b2027; color: #eeeee4; } }
+
+/* One reading system across PDF and interactive publications. */
+.reading-rail { background: var(--bg-sunk); color: var(--ink); border-right: 1px solid var(--rule); }
+.reading-rubric { font-size: 11px; color: var(--gold-ink); letter-spacing: .12em; }
+.reading-meta { font-size: 12px; color: var(--ink-2); }
+.reading-rail nav a { font-size: 12px; border-color: var(--rule); }
+.reading-rail nav a:hover { color: var(--gold-ink); }
+.reading-rail figcaption { color: var(--ink-2); }
+.page-report .reader-actions :is(.btn, .text-link), .page-report .reader-side .ledger-row { font-size: 12px; }
+.page-report .viewer { background: var(--bg-sunk); }
+.viewer-reading-help { display: none; }
+[data-report-publication] :is(.pbai-toc, .market-rail) { --ink: inherit; --ink-2: inherit; --ink-3: inherit; --gold-ink: inherit; --rule: inherit; background: var(--bg-sunk); color: var(--ink); }
+[data-report-publication] :is(.pbai-toc, .market-rail) a { color: var(--ink-2); font-size: 12px; min-height: 44px; }
+[data-report-publication] :is(.pbai-toc, .market-rail) a[aria-current] { color: var(--gold-ink); }
+[data-report-publication] .pbai-toc-toggle { background: var(--bg-sunk); color: var(--ink); min-height: 44px; font-size: 12px; }
+[data-report-publication] .pbai-hero { padding-block: clamp(32px, 4vw, 56px) 40px; }
+[data-report-publication] .pbai-title { font-size: clamp(48px, 7vw, 96px); line-height: 1; font-weight: 400; }
+[data-report-publication] .pbai-sub { font-size: clamp(22px, 2vw, 28px); line-height: 1.35; max-width: 38ch; }
+[data-report-publication] :is(.micro, .tag, .flag, .badge, .report-related-meta, .report-context) { font-size: 11px; line-height: 1.7; }
+[data-report-publication] :is(.segmented button, .period-buttons button) { font-size: 12px; min-height: 44px; }
+@media (max-width: 760px) {
+  .reading-rail { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .reading-rail-inner { padding-block: 14px; }
+  .reading-rail nav { gap: 4px 16px; margin-top: 6px; }
+  .reading-rail nav a { font-size: 12px; }
+  .viewer-reading-help { display: flex; gap: 14px; align-items: center; justify-content: space-between; padding-block: 16px; color: var(--ink-2); font: 400 12px/1.7 var(--font-sans); }
+  .viewer-reading-help span { max-width: 30ch; }
+  .viewer-reading-help button { flex-shrink: 0; font-size: 12px; }
+  [data-report-publication] .pbai-title { font-size: clamp(46px, 10vw, 68px); }
+}
+@media print { .viewer-reading-help { display: none; } }

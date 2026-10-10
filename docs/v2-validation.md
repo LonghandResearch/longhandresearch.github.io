@@ -136,6 +136,60 @@ source or deployment data was modified. This remains a local preview only.
 
 ## Preservation and limitations
 
+### Visual audit refinements — 11 October 2026
+
+The owner authorized all visual audit corrections and subsequently requested a
+cleaner footer and World → Country → Sector → Company → Report pathway. The
+visible NASA explanatory caption and opening hero dash were removed as requested.
+Accessible globe guidance and the existing research disclaimer remain available.
+
+The globe now emphasizes seven documented regional relationships with lower,
+less opaque arcs. Warm paper land/water contrast is stronger. All documented
+global connections remain discoverable through the country list. The footer has
+a publication identity, two clear navigation groups and a quieter map treatment;
+its mobile layout avoids the inherited disclaimer flex basis that created an
+unnecessary blank area. Coverage's five numbered navigation steps preserve the
+selected country through sector/company indexes and the report Library. Narrow
+screens use three columns rather than splitting words inside the steps.
+
+Publication metadata, controls and breadcrumbs are more readable. Library now
+offers Covers and Compact modes, both retaining portrait artwork and all original
+report links. Mode, search and geography survive reloads and history navigation.
+Responsive artwork variants reduce image transfer at smaller display sizes, and
+a restrained paper wash supports dark cover headlines. Eleven 1024 × 1536 JPG
+presentation exports were regenerated; source artwork and catalogue titles/dates
+remain unchanged. The existing Memory War anime cover remains complete.
+
+Wire renders 24 headlines initially and reveals the next batch on request while
+search and topic counts cover the complete dataset. The PDF reader offers a
+mobile Larger view / Fit to width control; enlargement scrolls within the viewer
+without widening the page. Bespoke report surfaces inherit the reader theme, and
+the Power Behind AI title scale is less oversized. Chart models and controllers
+were not changed.
+
+Edge Playwright inspected 90 page/theme/viewport combinations across 15 routes
+at 320, 768 and 1440 pixels. A 320-pixel Homepage ledger overflow was corrected;
+32 affected-page combinations at 320, 390, 768 and 1440 then passed with no root
+overflow. Twelve additional Coverage/entity combinations passed after the
+context-preserving navigation change. No page errors were observed. Rendered
+screenshots were inspected for both themes, portrait covers, Coverage and footer.
+
+Interaction checks passed for mobile Menu/Escape, persisted theme switching,
+country selection and contextual paths, Library search and Compact reload,
+Wire 24 → 48 → all 240 unique source links, topic/reset/empty states, the Coal
+annual chart toggle, and PDF enlargement to 175% and back to fit. A fresh 390-pixel
+browser context selected the 320-pixel cover asset in Compact mode. All eleven
+cover images decoded, and exported cover frames are 1024 × 1536. Four existing
+research graph tests, syntax checks on all eight changed scripts, site validation
+(59 scripts, 67 JSON files, 11 catalogue entries, 16 sitemap pages and links in
+19 pages) and diff checks passed.
+
+This pass is local to `codex/longhand-v2` in the external worktree. The owner
+checkout remains clean on `main` at `54df02460f2068185bf381b754d76d1de219b7dd`.
+Research/PDF/data files, RSS, sitemap and deployment/auto-publish workflows have
+no diff. Browser evidence remains outside Git in `v2-qa`. Physical devices and
+Safari/Firefox remain unverified. No push, PR, merge or publication was performed.
+
 ### Globe atmosphere follow-up
 
 At the owner's request, the dark reading surface is now closer to black, with

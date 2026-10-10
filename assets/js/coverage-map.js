@@ -18,6 +18,13 @@
   }
   function render() {
     const c = G.country(selected), filters = c ? { country: c.id } : {};
+    document.querySelectorAll('[data-path]').forEach((link) => {
+      const type = link.dataset.path;
+      if (type === 'country') link.href = c ? G.urlFor('country', c.id) : 'country.html';
+      if (type === 'sector' || type === 'company') link.href = `${type}.html${c ? '?country=' + encodeURIComponent(c.id) : ''}`;
+      if (type === 'report') link.href = `library.html${c ? '?country=' + encodeURIComponent(c.id) : ''}`;
+      if ((c && type === 'country') || (!c && type === 'world')) link.setAttribute('aria-current', 'step'); else link.removeAttribute('aria-current');
+    });
     list.querySelectorAll('[data-country]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.country === selected)));
     if (selected && !c) { panel.innerHTML = '<h2>Geography unavailable</h2><p>This address does not match a documented research relationship. Choose a country or return to the world overview.</p>'; return; }
     const reports = G.reportsFor(filters), companies = G.entitiesFor('company', filters), sectors = G.entitiesFor('sector', filters);

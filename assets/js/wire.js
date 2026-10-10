@@ -88,8 +88,12 @@
     clear: $('[data-search-clear]'),
     count: $('[data-count]'),
     empty: $('[data-empty]'),
+    pagination: $('[data-wire-pagination]'),
+    visible: $('[data-wire-visible]'),
+    more: $('[data-wire-more]'),
   };
-  const state = { all: [], topic: 'All', q: '', loaded: false, failed: false };
+  const PAGE_SIZE = 24;
+  const state = { all: [], topic: 'All', q: '', loaded: false, failed: false, limit: PAGE_SIZE };
 
   (function readUrl() {
     const p = new URLSearchParams(location.search);
@@ -148,7 +152,14 @@
     const ts = tokens();
     const searched = state.all.filter((x) => matches(x, ts));
     renderFilters(searched);
-    const shown = searched.filter((x) => state.topic === 'All' || x.topic === state.topic);
+    const matching = searched.filter((x) => state.topic === 'All' || x.topic === state.topic);
+    const shown = matching.slice(0, state.limit);
+    if (els.pagination) els.pagination.hidden = !matching.length;
+    if (els.visible) els.visible.textContent = `${shown.length} of ${matching.length} headlines`;
+    if (els.more) {
+      els.more.hidden = shown.length >= matching.length;
+      els.more.textContent = `Show next ${Math.min(PAGE_SIZE, matching.length - shown.length)} headlines`;
+    }
 
     // One block per day, newest first
     const days = [];
@@ -174,7 +185,7 @@
     }
 
     const total = state.all.length;
-    els.count.textContent = !total || shown.length === total ? '' : `${shown.length} of ${total} headlines`;
+    els.count.textContent = !total || matching.length === total ? '' : `${matching.length} of ${total} headlines`;
     els.clear.hidden = !state.q;
     els.searchBox.hidden = !total;
     els.searchBox.classList.toggle('has-value', !!state.q);
@@ -200,7 +211,7 @@
   /* Events */
 
   els.search.value = state.q;
-  els.search.addEventListener('input', () => { state.q = els.search.value.slice(0, 80); render(); writeUrl(); });
+  els.search.addEventListener('input', () => { state.q = els.search.value.slice(0, 80); state.limit = PAGE_SIZE; render(); writeUrl(); });
   els.search.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && els.search.value) { e.preventDefault(); resetSearch(); }
   });
@@ -208,6 +219,7 @@
   function resetSearch() {
     els.search.value = '';
     state.q = '';
+    state.limit = PAGE_SIZE;
     render();
     writeUrl();
   }
@@ -215,6 +227,7 @@
     const b = e.target.closest('[data-topic]');
     if (!b) return;
     state.topic = b.dataset.topic;
+    state.limit = PAGE_SIZE;
     render();
     writeUrl();
   });
@@ -223,6 +236,14 @@
     state.topic = 'All';
     resetSearch();
     els.search.focus();
+  });
+  els.more?.addEventListener('click', () => {
+    const previous = page.querySelectorAll('.wire-item').length;
+    state.limit += PAGE_SIZE;
+    render();
+    // Move keyboard focus to the first newly revealed story, including the
+    // final batch where the More button disappears.
+    page.querySelectorAll('.wire-title a')[previous]?.focus({ preventScroll: true });
   });
   document.addEventListener('keydown', (e) => {
     if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;

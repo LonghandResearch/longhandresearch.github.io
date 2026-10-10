@@ -38,21 +38,23 @@
       const entry = !report.isLocal && covers[report.id];
       return entry ? { src: new URL(`covers/${entry[0]}-art.webp?v=2026-10-10final`, base).href, caption: `Editorial illustration · ${entry[4]}`, kind: 'illustration' } : originalForReport(report);
     },
-    coverHTML(report) {
+    coverHTML(report, { compact = false } = {}) {
       const LH = window.Longhand;
       const entry = !report.isLocal && covers[report.id];
       if (!LH || (!entry && report.id !== 'sector-2026-09-24')) return '';
       const { esc, dateShort } = LH.util;
+      const sizes = compact ? '(max-width: 580px) 84px, 112px' : document.body.classList.contains('page-home') ? '(max-width: 580px) calc(100vw - 40px), (max-width: 1050px) calc((100vw - 80px) / 2), (max-width: 1400px) calc((100vw - 180px) / 4), 298px' : '(max-width: 580px) calc(100vw - 40px), (max-width: 1050px) calc((100vw - 80px) / 2), (max-width: 1400px) calc((100vw - 120px) / 3), 407px';
       if (!entry) {
         const art = originalForReport(report);
-        return `<figure class="research-cover cover-original" data-report-cover="${esc(report.id)}"><img src="${esc(art.src)}" alt="${esc(report.title)} — original anime cover with three memory companies" width="637" height="900" loading="lazy" decoding="async"></figure>`;
+        return `<figure class="research-cover cover-original" data-report-cover="${esc(report.id)}"><img src="${esc(art.src)}" srcset="${esc(new URL('covers/memory-original-320.webp', base).href)} 320w, ${esc(art.src)} 637w" sizes="${sizes}" alt="${esc(report.title)} — original anime cover with three memory companies" width="637" height="900" loading="lazy" decoding="async"></figure>`;
       }
       // Line breaks are presentation hints only. Refuse stale typesetting if a
       // future catalogue revision changes the title.
       const title = entry[3].replaceAll('|', ' ') === report.title ? entry[3].split('|').map(esc).join('<br>') : esc(report.title);
       const art = this.forReport(report);
-      return `<figure class="research-cover${entry[1] === '#ead7ae' ? ' cover-tone-navy' : ''}" data-report-cover="${esc(report.id)}" style="--cover-ink:${entry[1]};--cover-title-size:${entry[2]}cqw">
-        <img src="${esc(art.src)}" alt="${esc(art.caption)}" width="1024" height="1536" loading="lazy" decoding="async">
+      const variants = [320, 640].map((width) => `${esc(new URL(`covers/${entry[0]}-art-${width}.webp`, base).href)} ${width}w`).join(', ');
+      return `<figure class="research-cover${entry[1] === '#ead7ae' ? ' cover-tone-navy' : entry[1].startsWith('#14') ? ' cover-tone-paper' : ''}" data-report-cover="${esc(report.id)}" style="--cover-ink:${entry[1]};--cover-title-size:${entry[2]}cqw">
+        <img src="${esc(art.src)}" srcset="${variants}, ${esc(art.src)} 1024w" sizes="${sizes}" alt="${esc(art.caption)}" width="1024" height="1536" loading="lazy" decoding="async">
         <figcaption class="cover-type" aria-hidden="true"><div class="cover-edition"><span>${esc(LH.catalogueNo(report))}<b>${esc(report.ticker || report.category)}</b><time datetime="${esc(report.date)}">${esc(dateShort(report.date))}</time></span><span class="cover-subject">${esc(report.category)} / ${esc(report.company)}</span></div><strong class="cover-headline">${title}</strong><span class="cover-signature">Longhand <small>Research</small></span></figcaption>
       </figure>`;
     }

@@ -51,11 +51,11 @@
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
 <script src="assets/js/site.js?v=2026-10-10v2" defer blocking="render"></script>
-<script src="assets/js/wire.js?v=2026-09-24j" defer></script>
+<script src="assets/js/wire.js?v=2026-10-10polish" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-10motion">
-<script src="assets/js/v2.js?v=2026-10-10motion" defer></script>
+<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-10polish">
+<script src="assets/js/v2.js?v=2026-10-10polish" defer></script>
 </head>
 <body class="v2-page page-wire">
 <a class="skip" href="#main">Skip to content</a>
@@ -121,6 +121,10 @@
       </label>
     </div>
     <div class="wire" data-wire></div>
+    <div class="wire-pagination" data-wire-pagination hidden>
+      <p data-wire-visible role="status"></p>
+      <button type="button" class="btn" data-wire-more>More headlines</button>
+    </div>
     <noscript><p class="empty-text">The wire needs JavaScript. Please turn it on to read the headlines.</p></noscript>
     <div class="empty" data-empty hidden></div>
     <p class="index-note">Headlines and links belong to their publishers. Longhand shows the headline only; every story is read at its source.</p>

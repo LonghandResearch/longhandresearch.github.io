@@ -131,7 +131,7 @@
           col += vec3(0.24, 0.38, 0.49) * fres * 0.080;
           if (paper > 0.5) {
             // An atlas treatment of the same NASA land/water geography.
-            col = mix(vec3(0.30, 0.37, 0.30), vec3(0.66, 0.63, 0.54), water);
+            col = mix(vec3(0.19, 0.29, 0.22), vec3(0.60, 0.58, 0.50), water);
             col *= 0.76 + 0.24 * max(dot(N, V), 0.0);
             col += vec3(0.025) * cloud;
           }
@@ -234,7 +234,7 @@
     function themeConnections() {
       const paper = uniforms.paper.value > 0.5;
       arcMaterial.color.set(paper ? '#536a57' : '#c6b38e');
-      arcMaterial.opacity = paper ? 0.24 : 0.34;
+      arcMaterial.opacity = paper ? 0.22 : 0.28;
       pointMaterial.color.copy(arcMaterial.color);
       pointMaterial.opacity = paper ? 0.46 : 0.68;
       travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.62 : 0.88;
@@ -261,8 +261,14 @@
       }));
     });
     const endpoints = new Map();
-    [...pairs.values()].sort((a, b) => b.angle - a.angle).slice(0, 7).forEach(({ start, end, angle, key }) => {
-      const points = [], height = 0.12 + 0.22 * angle / Math.PI;
+    // Regional links show the readable curvature without edge-on paths crossing
+    // the entire opening scene. The country list retains every global relation.
+    const orderedPairs = [...pairs.values()].sort((a, b) => a.angle - b.angle);
+    const visiblePairs = orderedPairs.slice(0, 7);
+    visiblePairs.forEach(({ start, end, angle, key }) => {
+      // Keep long connections close to the surface, so edge-on paths read as
+      // geography rather than tall antennae. Endpoints remain above the clouds.
+      const points = [], height = 0.022 + 0.055 * (1 - angle / Math.PI);
       for (let i = 0; i <= 64; i++) {
         const t = i / 64;
         const point = start.clone().multiplyScalar(Math.sin((1 - t) * angle)).addScaledVector(end, Math.sin(t * angle)).divideScalar(Math.sin(angle));

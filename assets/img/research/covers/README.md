@@ -21,6 +21,15 @@ numbers come from the catalogue. The layout ignores preset title line breaks
 when they no longer match the current title. Exported JPGs are dated presentation
 snapshots and should be regenerated after a relevant catalogue change.
 
+The 11 October visual refinement adds a subtle paper wash behind dark headlines.
+The JPG exports were regenerated from the full-resolution artwork and current
+website typesetting. The original illustrations and Memory War source PNG are
+unchanged. Ten illustrations now also have 320 × 480 and 640 × 960 WebP versions;
+Memory War has a 320 × 452 preview that retains its original aspect ratio. Live
+`srcset` and `sizes` select an appropriate image for Covers or Compact mode.
+The ten 320-pixel illustrations total 420,728 bytes, compared with 5,463,914 bytes
+for their originals. High-density screens may still select larger versions.
+
 Illustrations do not document a named operating facility, quantitative network,
 measured flow or price chart. No invented financial numbers, graphs or ratings
 were added. The report reader retains its original publication capture. Existing

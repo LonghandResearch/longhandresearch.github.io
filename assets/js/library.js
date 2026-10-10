@@ -22,15 +22,17 @@
     facets: $('[data-discovery-facets]'),
     reset: $('[data-reset-filters]'),
     context: $('[data-library-context]'),
+    views: $('.library-view'),
   };
 
-  const state = { all: [], cat: 'All', q: '', country: '', sector: '', company: '' };
+  const state = { all: [], cat: 'All', q: '', country: '', sector: '', company: '', view: 'covers' };
 
   /* Filters and search live in the address, so a reload or a shared link
      keeps them. */
   function readUrl() {
     const p = new URLSearchParams(location.search);
     state.q = (p.get('q') || '').slice(0, 80);
+    state.view = p.get('view') === 'compact' ? 'compact' : 'covers';
     const c = (p.get('cat') || '').toLowerCase();
     state.cat = LH.CATEGORIES.find((x) => x.toLowerCase() === c) || 'All';
     ['country', 'sector', 'company'].forEach((key) => { state[key] = (p.get(key) || '').slice(0, 100); });
@@ -49,6 +51,7 @@
     const update = () => {
       const p = new URLSearchParams(location.search);
       if (state.q) p.set('q', state.q); else p.delete('q');
+      if (state.view === 'compact') p.set('view', 'compact'); else p.delete('view');
       if (state.cat !== 'All') p.set('cat', state.cat); else p.delete('cat');
       ['country', 'sector', 'company'].forEach((key) => { if (state[key]) p.set(key, state[key]); else p.delete(key); });
       const qs = p.toString();
@@ -127,7 +130,7 @@
     const company = r.company && r.company !== r.title ? r.company : '';
     const no = LH.catalogueNo(r);
     const art = window.LonghandArt?.forReport(r);
-    const cover = window.LonghandArt?.coverHTML(r);
+    const cover = window.LonghandArt?.coverHTML(r, { compact: state.view === 'compact' });
     const context = graph?.contextFor(r);
     const relationships = context ? [...context.countries.filter((x) => x.role === 'primary').slice(0, 2).map((x) => `<a href="${graph.urlFor('country', x.id)}">${esc(x.name)}</a>`), ...context.sectors.filter((x) => x.role === 'primary').slice(0, 2).map((x) => `<a href="${graph.urlFor('sector', x.id, { country: state.country })}">${esc(x.name)}</a>`)] : [];
     return `
@@ -158,6 +161,8 @@
   }
 
   function renderIndex({ arriving = false } = {}) {
+    document.body.dataset.libraryView = state.view;
+    els.views?.querySelectorAll('[data-library-view]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.libraryView === state.view)));
     const tokens = tokenize(state.q);
     const searchedByText = state.all.filter((r) => matches(r, tokens));
     renderFacets(searchedByText);
@@ -247,6 +252,14 @@
   }
 
   /* Events */
+
+  els.views?.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-library-view]');
+    if (!button || button.dataset.libraryView === state.view) return;
+    state.view = button.dataset.libraryView;
+    renderIndex();
+    writeUrl({ push: true });
+  });
 
   els.search.value = state.q;
   els.search.addEventListener('input', () => {

@@ -123,3 +123,27 @@ html[data-theme="light"] .globe-marker { background: #e8e3d7ed; color: #23332d; 
 html[data-theme="light"] .globe-marker::before { background: #3d5b49; box-shadow: none; }
 html[data-theme="light"] .globe-marker.is-selected { background: #d1d8c9; border-color: #3d5b49; }
 html[data-theme="light"] .coverage-globe .globe-controls button { background: #e8e3d7d9; }
+
+.page-coverage .coverage-opening { pointer-events: auto; }
+.coverage-opening > p:last-of-type { font-size: 14px; }
+.coverage-path { position: relative; z-index: 3; width: fit-content; margin-top: 26px; text-transform: none; letter-spacing: 0; }
+.coverage-path ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.coverage-path a { display: flex; flex-direction: column; gap: 7px; min-width: 76px; padding: 11px 10px; border-top: 1px solid var(--rule-2); color: var(--ink-2); font: 500 12px/1.4 var(--font-sans); text-decoration: none; }
+.coverage-path small { font-size: 10px; color: var(--ink-3); }
+.coverage-path a[aria-current="step"] { color: var(--ink); border-top-color: var(--gold-ink); background: var(--tint-2); }
+.coverage-path a:hover { color: var(--gold-ink); border-top-color: var(--gold-ink); background: var(--tint); }
+.coverage-country-list button, .coverage-country-list summary, .coverage-sectors a { font-size: 12px; min-height: 44px; }
+.coverage-country-list small, .coverage-report > span, .coverage-panel h3 { font-size: 11px; }
+.coverage-globe .globe-controls { bottom: 20px; }
+.coverage-globe .globe-controls button { font-size: 12px; min-height: 44px; padding: 10px 14px; }
+.coverage-panel h3 { line-height: 1.6; letter-spacing: .1em; }
+.coverage-panel { margin-top: 12px; }
+.globe-marker { font-size: 12px; min-height: 44px; }
+@media (max-width: 760px) {
+  .coverage-path { width: 100%; }
+  .coverage-path ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; width: 100%; }
+  .coverage-path a { min-width: 0; padding: 10px 4px; font-size: 11px; }
+  .coverage-globe .globe-controls { position: static; }
+  .coverage-sectors a { align-items: center; }
+}
+@media (max-width: 380px) { .coverage-path ol { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } }

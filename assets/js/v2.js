@@ -63,10 +63,17 @@
   const footer = document.querySelector('.site-footer > .wrap');
   if (footer && !footer.querySelector('.footer-signature')) {
     const signature = document.createElement('div'); signature.className = 'footer-signature';
+    const identity = document.createElement('div'); identity.className = 'footer-identity';
+    const brand = document.createElement('a'); brand.className = 'footer-brand'; brand.href = path('index.html'); brand.innerHTML = 'Longhand <span>Research</span>'; brand.setAttribute('aria-label', 'Longhand Research, front page');
     const statement = document.createElement('p'); statement.className = 'footer-statement'; statement.textContent = 'Independent research. Published in full.';
     const links = document.createElement('nav'); links.className = 'footer-links'; links.setAttribute('aria-label', 'Publication');
-    [['Library', 'library.html'], ['Coverage', 'coverage.html'], ['Wire', 'wire.html'], ['About', 'about.html'], ['RSS', 'feed.xml']].forEach(([label, href]) => { const a = document.createElement('a'); a.textContent = label; a.href = path(href); links.append(a); });
-    signature.append(statement, links); footer.prepend(signature);
+    [['Explore', [['Library', 'library.html'], ['Coverage', 'coverage.html'], ['Wire', 'wire.html']]], ['Publication', [['About Longhand', 'about.html'], ['Follow by RSS', 'feed.xml']]]].forEach(([label, items]) => {
+      const group = document.createElement('div'); group.className = 'footer-link-group';
+      const heading = document.createElement('p'); heading.textContent = label; group.append(heading);
+      items.forEach(([text, href]) => { const a = document.createElement('a'); a.textContent = text; a.href = path(href); group.append(a); });
+      links.append(group);
+    });
+    identity.append(brand, statement); signature.append(identity, links); footer.prepend(signature);
   }
   /* Name only one selected identity. The browser restores document/scroll state on Back. */
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');

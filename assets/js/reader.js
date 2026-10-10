@@ -115,6 +115,7 @@
             </div>
           </div>
         </div>
+        <div class="viewer-reading-help wrap"><span>Need a closer look? Enlarge the page, then swipe across to read.</span><button type="button" class="btn btn-quiet" data-reading-size>Larger view</button></div>
         <details class="report-pdf-contents wrap" data-pdf-contents hidden><summary>Contents</summary><nav aria-label="PDF contents"></nav></details>
         <div class="viewer-scroll">
           <div class="viewer-pages" data-pages></div>
@@ -185,6 +186,7 @@
       $('[data-zoom-in]', el).addEventListener('click', () => this.step(1));
       $('[data-zoom-out]', el).addEventListener('click', () => this.step(-1));
       $('[data-zoom-reset]', el).addEventListener('click', () => this.setZoom(1));
+      $('[data-reading-size]', el)?.addEventListener('click', () => this.setZoom(this.zoom > 1 ? 1 : 1.75));
       this.fsButtons = $$('[data-fullscreen]', root);
       this.fsButtons.forEach((b) => b.addEventListener('click', () => this.toggleFullscreen()));
       document.addEventListener('fullscreenchange', this.onFsChange);
@@ -515,6 +517,8 @@
       $('[data-zoom-in]', this.el).disabled = !ready || this.zoom >= ZOOMS[ZOOMS.length - 1];
       $('[data-zoom-out]', this.el).disabled = !ready || this.zoom <= ZOOMS[0];
       reset.disabled = !ready;
+      const readingSize = $('[data-reading-size]', this.el);
+      if (readingSize) { readingSize.disabled = !ready; readingSize.textContent = this.zoom > 1 ? 'Fit to width' : 'Larger view'; }
     }
 
     onScroll() {
