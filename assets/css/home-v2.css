@@ -1,11 +1,11 @@
-/* One editorial scene: the Earth extends beyond its frame. */
+/* One editorial scene: a large Earth with an intact vertical silhouette. */
 .page-home.v2-page { display: block; }
-.page-home.v2-page main { display: block; margin-top: 0; }
+.page-home.v2-page main { display: block; margin-top: calc(-1 * (var(--masthead-h) + 1px)); }
 .page-home.v2-page .hero.night { --bg: #071317; display: block; padding: 0; background: radial-gradient(ellipse at 70% 25%, #14252b 0, #071317 62%); overflow: hidden; }
 .page-home.v2-page .hero.night::after { display: none; }
 .page-home.v2-page .night-stars { opacity: .12; }
-.page-home.v2-page .night-grid { position: relative; display: block; height: 620px; padding-block: 0; }
-.page-home.v2-page .hero-copy { position: relative; z-index: 3; padding-top: 132px; max-width: 780px; pointer-events: none; }
+.page-home.v2-page .night-grid { position: relative; display: block; height: 1000px; padding-block: 0; }
+.page-home.v2-page .hero-copy { position: relative; z-index: 3; padding-top: 220px; max-width: 780px; pointer-events: none; }
 .page-home.v2-page .hero-copy a { pointer-events: auto; }
 .page-home.v2-page .hero.night .eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; color: #d8d8ce; font-size: 9px; letter-spacing: .18em; }
 .editorial-dash { width: 38px; height: 1px; background: var(--gold); }
@@ -14,15 +14,15 @@
 .page-home.v2-page .hero.night .hero-lede { max-width: 40ch; font: 400 12px/1.9 var(--font-sans); margin-top: 28px; color: #c7cdcc; }
 .page-home.v2-page .hero.night .hero-actions { margin-top: 25px; gap: 24px; }
 .page-home.v2-page .hero.night .hero-actions .btn { min-height: 44px; font-size: 11px; border-color: #889b9b; background: #0a1c22cc; }
-.page-home.v2-page .plate { position: absolute; z-index: 1; width: min(90vw, 1150px); height: 980px; left: 33%; top: -65px; }
-.page-home.v2-page .plate-stage { width: 100%; height: 100%; max-width: none; min-height: 0; aspect-ratio: auto; pointer-events: none; cursor: default; mask-image: linear-gradient(90deg, transparent, #000 28%); }
-.page-home.v2-page .plate::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #07131770, transparent 28%), linear-gradient(0deg, #071317 2%, transparent 32%); pointer-events: none; z-index: 2; }
+.page-home.v2-page .plate { position: absolute; z-index: 1; width: min(90vw, 1150px); height: 980px; left: 39%; top: 20px; }
+.page-home.v2-page .plate-stage { width: 100%; height: 100%; max-width: none; min-height: 0; aspect-ratio: auto; pointer-events: none; cursor: default; mask-image: none; }
+.page-home.v2-page .plate::after { display: none; }
 .hero-marginalia { position: absolute; z-index: 3; right: 45px; top: 48px; color: #cbb98f; font: italic 19px/1.2 var(--font-serif); transform: rotate(-7deg); }
 .hero-marginalia span { font-size: 32px; display: block; text-align: right; }
 .hero-coordinate { position: absolute; bottom: 22px; left: var(--gutter); color: #aeb9b9; text-decoration: none; font: 400 9px/1.8 var(--font-sans); letter-spacing: .06em; z-index: 3; }
 .hero-coordinate span { color: #dcc49a; }
 .home-latest { display: none !important; }
-.research-ledger { border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1.3fr repeat(3, 1fr) 1.3fr; padding: 22px 0; margin-top: 0; align-items: center; }
+.research-ledger { display: grid; grid-template-columns: 1.3fr repeat(3, 1fr) 1.3fr; padding: 22px 0; margin-top: 0; align-items: center; }
 .research-ledger > span { padding: 0 24px; display: flex; gap: 10px; align-items: baseline; }
 .research-ledger > span:first-child { border: 0; padding-left: 0; display: block; }
 .research-ledger strong { font: 300 37px/1 var(--font-serif); font-variant-numeric: tabular-nums; color: var(--ink); }
@@ -74,22 +74,27 @@
 .hero.no-globe .hero-copy { padding-bottom: 100px; }
 .page-home.v2-page .hero .eyebrow, .page-home.v2-page .hero .hero-lede, .page-home.v2-page .hero .hero-actions { animation: none !important; }
 @media (max-width: 1100px) {
-  .page-home.v2-page .night-grid { height: 590px; }
-  .page-home.v2-page .plate { left: 24%; top: -20px; height: 900px; width: 1000px; }
+  .page-home.v2-page .night-grid { height: 920px; }
+  .page-home.v2-page .plate { left: 40%; top: 20px; height: 900px; width: 1000px; }
   .hero-marginalia { right: 30px; font-size: 16px; }
   .home-publications { column-gap: 28px; }
   .publication-tile { grid-template-columns: 100px minmax(0, 1fr); gap: 12px 18px; }
   .publication-tile h3 { font-size: 25px; }
   .research-ledger > span { padding-inline: 15px; }
 }
+/* At tablet widths, give the large globe its own space below the introduction.
+   Normal flow keeps a wrapped title or larger text clear of the Earth's edge. */
+@media (max-width: 1000px) {
+  .page-home.v2-page .night-grid { height: auto; }
+  .page-home.v2-page .hero-copy { padding-top: 140px; }
+  .page-home.v2-page .plate { position: relative; left: auto; top: auto; margin: 24px 0 16px calc(50% - 500px); }
+}
 @media (max-width: 760px) {
-  .page-home.v2-page .night-grid { height: 640px; }
-  .page-home.v2-page .hero-copy { padding-top: 53px; max-width: 530px; }
+  .page-home.v2-page .hero-copy { padding-top: 110px; max-width: 530px; }
   .page-home.v2-page .hero.night .hero-title { font-size: clamp(43px, 7.7vw, 59px); line-height: 1.04; max-width: 17ch; }
   .page-home.v2-page .hero.night .hero-lede { font-size: 12px; max-width: 37ch; margin-top: 22px; }
   .page-home.v2-page .hero.night .eyebrow { font-size: 8px; margin-bottom: 23px; gap: 10px; }
-  .page-home.v2-page .plate { width: 650px; height: 650px; left: 13%; top: 195px; }
-  .page-home.v2-page .plate::after { background: linear-gradient(180deg, #07131780, transparent 50%), linear-gradient(0deg, #071317, transparent 35%); }
+  .page-home.v2-page .plate { width: 600px; height: 600px; margin: 24px 0 16px 4vw; }
   .hero-marginalia { top: 435px; left: var(--gutter); right: auto; font-size: 18px; }
   .hero-coordinate { display: none; }
   .research-ledger { grid-template-columns: repeat(3, 1fr); gap: 18px 0; padding-block: 20px; }
@@ -115,22 +120,16 @@
 }
 @media (max-width: 380px) {
   .page-home.v2-page .hero.night .hero-title { font-size: 40px; }
-  .page-home.v2-page .night-grid { height: 665px; }
-  .page-home.v2-page .plate { top: 230px; left: 4%; }
   .hero-marginalia { top: 455px; }
   .home-section-heading a { font-size: 9px; gap: 6px; }
   .home-coverage-links { grid-template-columns: 1fr; }
   .home-coverage-links a { display: grid; grid-template-columns: 25px 1fr 1fr; border-left: 0; padding: 16px 0; align-items: center; }
 }
 @media (max-width: 760px) {
-  .page-home.v2-page .night-grid { height: 530px; }
-  .page-home.v2-page .hero-copy { padding-top: 34px; }
   .page-home.v2-page .hero.night .hero-title { font-size: clamp(40px, 7.7vw, 59px); }
   .page-home.v2-page .hero.night .hero-lede { margin-top: 20px; }
-  .page-home.v2-page .hero.night .hero-actions { margin-top: 21px; }
+  .page-home.v2-page .hero.night .hero-actions { margin-top: 21px; gap: 8px 24px; }
   .page-home.v2-page .hero.night .hero-actions .btn { width: auto; }
-  .page-home.v2-page .plate { width: 600px; height: 600px; top: 130px; left: 9%; }
-  .page-home.v2-page .plate::after { background: linear-gradient(180deg, #071317db, transparent 65%), linear-gradient(0deg, #071317, transparent 35%); }
   .hero-marginalia { display: none; }
   .research-ledger { gap: 12px 0; padding-block: 16px; }
   .research-ledger .ledger-label { font-size: 16px; gap: 10px; }
@@ -143,8 +142,6 @@
   .ledger-date strong { font-size: 15px; }
 }
 
-@media (max-width: 380px) { .page-home.v2-page .night-grid { height: 550px; } }
-
 /* Reference alignment: low light, quiet type and an uncluttered photographic scene. */
 .page-home.v2-page .hero.night { --bg: #05090b; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; background: linear-gradient(180deg, #0b1013, #05090b 75%); }
 .page-home.v2-page .night-stars { display: block; z-index: 0; opacity: .72; mask-image: linear-gradient(90deg, #000b, #000 65%, #0004); }
@@ -152,17 +149,13 @@
 .page-home.v2-page .hero.night .hero-lede { font-size: 13px; line-height: 1.85; color: var(--ink-2); }
 .page-home.v2-page .hero.night .eyebrow { color: var(--ink-3); }
 .page-home.v2-page .hero.night .hero-actions .btn { background: transparent; border: 0; border-bottom: 1px solid transparent; border-radius: 0; padding-inline: 0; gap: 18px; font-size: 12px; font-weight: 400; }
-.page-home.v2-page .plate::after { background: linear-gradient(0deg, #05090b 4%, transparent 30%); }
-html[data-theme="light"] .page-home.v2-page .hero.night { --bg: #e8e3d7; --ink: #23332d; --ink-2: #4f6057; --ink-3: #59665c; --rule-2: #23332d4a; --gold: #718064; --gold-ink: #3d5b49; background: #e8e3d7; }
+html[data-theme="light"] .page-home.v2-page .hero.night { --bg: #e8e3d7; --ink: #23332d; --ink-2: #4f6057; --ink-3: #59665c; --rule-2: #23332d4a; --gold: #718064; --gold-ink: #3d5b49; background: radial-gradient(ellipse at 75% 45%, #b3a77f22, transparent 62%), #e8e3d7; }
 html[data-theme="light"] .page-home.v2-page .night-stars { opacity: .48; }
-html[data-theme="light"] .page-home.v2-page .plate::after { background: linear-gradient(0deg, #e8e3d7 4%, transparent 30%); }
 html[data-theme="light"] .publication-art { background: #d5d5c7; }
 html[data-theme="light"] .publication-art.is-document { background: #d4cfbf; }
 @media (max-width: 760px) {
   .page-home.v2-page .hero.night .hero-title { font-size: clamp(40px, 7.7vw, 59px); max-width: 17ch; }
   .page-home.v2-page .hero.night .hero-lede { font-size: 12px; }
-  .page-home.v2-page .plate::after { display: none; }
-  .page-home.v2-page .plate-stage { mask-image: linear-gradient(180deg, transparent 22%, #000 48%, #000 78%, transparent); }
 }
 
 .page-home.v2-page .hero.night .eyebrow { font-size: 11px; letter-spacing: .14em; }
@@ -179,8 +172,13 @@ html[data-theme="light"] .publication-art.is-document { background: #d4cfbf; }
   .research-ledger small { font-size: 10px; }
   .research-ledger .ledger-label em { font-size: 11px; }
   .page-home.v2-page .hero.night .hero-lede { font-size: 13px; }
-  .page-home.v2-page .plate-stage { mask-image: linear-gradient(180deg, transparent 20%, #000 43%, #000 85%, transparent); }
   .research-ledger .ledger-date { flex-wrap: wrap; gap: 8px 12px; }
   .page-home .home-coverage-links { grid-template-columns: 1fr; }
   .page-home .home-coverage-links a { display: grid; grid-template-columns: 24px minmax(0, 1fr) minmax(0, 1.2fr); gap: 12px; border-left: 0; padding: 16px 0; align-items: center; }
 }
+
+/* The sky continues behind the masthead at the opening. Scrolled navigation
+   gets an opaque reading surface so page content cannot compete with its type. */
+.page-home.v2-page .masthead:not(.is-scrolled):not(.menu-open) { background: transparent; border-bottom-color: transparent; }
+.page-home.v2-page .masthead.is-scrolled,
+.page-home.v2-page .masthead.menu-open { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }

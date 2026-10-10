@@ -548,3 +548,61 @@ This is Codex author QA in the external worktree on `codex/longhand-v2`.
 Research content, catalogue, graph records, financial figures, dates, sources,
 PDFs, news and publishing workflows were not edited. Physical-device and
 Safari/Firefox verification remain open. No push, PR, merge or publication.
+
+### Homepage open globe composition — 11 October 2026
+
+The owner requested a livelier Homepage and a solution for the globe's straight
+upper and lower cuts without shrinking it. The opening masthead is transparent
+and overlays the hero. The hero is tall enough to hold both vertical curves,
+with no globe opacity mask or bottom overlay hiding its silhouette. The globe
+retains its existing rendered diameters: 901.6px on wide desktop, 828px at
+medium widths and 552px on mobile. Deliberate horizontal cropping remains at
+the page edge. The tradeoff is a taller opening scene and research farther down
+the page. The owner can assess this composition in the local preview.
+
+The large Earth is positioned beside the copy on desktop and in normal flow
+below the introduction at tablet/mobile widths. Wrapped copy therefore cannot
+collide with the globe. The ledger's extra horizontal rule is removed. The
+masthead regains an opaque reading background after scrolling or opening the
+mobile menu. Existing copy, Newsreader typography, portrait editions, publication
+counts and report destinations are retained.
+
+The warm-paper relief treatment is now shared by Coverage and Home: real NASA
+terrain and settlement detail, sage seas, translucent warm clouds and bronze
+connection accents. Homepage dark surface and cloud detail are slightly clearer.
+Stars remain seeded and drawn on resize/theme changes. There is no new animation
+loop, interaction, fabricated geography or additional arc. The Homepage globe
+remains an ambient image without drag, pointer tilt or a tabindex. The three
+substantive pairs remain CN–ID, ID–IN and ID–US.
+
+Playwright checked 20 viewport/theme combinations: 320, 390, 768, 900, 1000,
+1024, 1100, 1280, 1440 and 1920px in both themes, including DPR 2 at 390px.
+No page/shader errors or root overflow were observed. Both vertical curves
+fit within the hero, with the existing radius and no opacity mask. Stacked
+layouts leave at least 48px between the copy and the globe surface. Representative
+desktop, tablet and mobile screenshots were visually inspected. Four original
+latest-edition artworks loaded successfully after scrolling.
+
+At 390 and 1440px, normal WebGL drawing, reduction to a still globe, motion
+resumption and offscreen drawing suspension passed. Theme switching, persisted
+dark/light preferences across reloads, the Library destination and Back passed.
+Mobile menu opening, Escape/focus behavior and opaque menu/scrolled navigation
+passed. With WebGL disabled, the unavailable globe hides, the hero contracts,
+and both discovery links remain usable without overflow.
+
+Coverage regression screenshots show only negligible shader compilation
+rounding: at most 1/255 in warm paper and 2/255 in dark on a few pixels. Coverage
+styling and interactions were not intentionally changed by this Homepage pass.
+Evidence is outside Git under
+`C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/home-final-*` and
+`coverage-home-regression-*`. The changed JavaScript passes `node --check`.
+All four existing research-graph tests pass. Site validation passed for
+59 scripts, 67 JSON files, 11 catalogue entries, 16 sitemap pages and links in
+19 pages. Diff whitespace checks passed.
+
+This is Codex author QA in the external `codex/longhand-v2` worktree. Report
+bodies, financial figures, dates, sources, catalogue, PDFs, graph records, news,
+RSS, sitemap and deployment/publishing workflows were not edited. The owner
+checkout remains clean on main at `54df02460f2068185bf381b754d76d1de219b7dd`.
+Physical-device and Safari/Firefox verification remain open. No push, PR, merge
+or publication was performed.
