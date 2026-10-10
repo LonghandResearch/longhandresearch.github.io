@@ -14,10 +14,10 @@
      they keep their places from one visit to the next. */
   const sky = $('[data-stars]', hero);
   let skyW = 0, skyH = 0;
-  function drawStars() {
+  function drawStars(force = false) {
     const w = hero.clientWidth;
     const h = hero.clientHeight;
-    if (!sky || !w || !h || (w === skyW && Math.abs(h - skyH) < 40)) return;
+    if (!sky || !w || !h || (!force && w === skyW && Math.abs(h - skyH) < 40)) return;
     skyW = w;
     skyH = h;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -28,15 +28,15 @@
     ctx.clearRect(0, 0, w, h);
     let seed = 20260926;
     const rand = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
-    const n = Math.round((w * h) / 3800);
+    const paper = document.documentElement.dataset.theme === 'light';
+    const n = Math.round((w * h) / 7500);
     for (let i = 0; i < n; i++) {
       const x = rand() * w;
       const y = rand() * h;
       const bright = rand() < 0.06;
-      const r = bright ? 0.85 + rand() * 0.75 : 0.3 + rand() * 0.55;
-      const a = bright ? 0.65 + rand() * 0.35 : 0.14 + rand() * 0.5;
-      const hue = rand();
-      ctx.fillStyle = hue < 0.12 ? `rgba(255, 214, 160, ${a})` : hue > 0.9 ? `rgba(190, 212, 255, ${a})` : `rgba(242, 240, 234, ${a})`;
+      const r = bright ? 0.75 + rand() * 0.25 : 0.25 + rand() * 0.45;
+      const a = bright ? 0.55 + rand() * 0.25 : 0.20 + rand() * 0.38;
+      ctx.fillStyle = paper ? `rgba(78, 101, 82, ${a})` : `rgba(234, 232, 221, ${a})`;
       ctx.beginPath();
       ctx.arc(x, y, r, 0, Math.PI * 2);
       ctx.fill();
@@ -83,5 +83,6 @@
   window.addEventListener('pageshow', onScroll);
   new ResizeObserver(() => requestAnimationFrame(drawStars)).observe(hero);
   document.addEventListener('longhand:changed', renderLatest);
+  document.addEventListener('longhand:theme', () => drawStars(true));
   if (reduce.addEventListener) reduce.addEventListener('change', onScroll);
 })();

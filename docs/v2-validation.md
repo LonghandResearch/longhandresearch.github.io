@@ -87,6 +87,27 @@ only; no push, pull request, merge or publication was authorized or performed.
 
 ## Preservation and limitations
 
+### Globe atmosphere follow-up
+
+At the owner's request, the dark reading surface is now closer to black, with
+slightly stronger city lights and a restrained atmospheric rim. The existing
+seeded star field is sparse, static and theme-aware. Newsreader and Libre Franklin
+remain the publication fonts; the headline weight was refined without introducing
+another font dependency.
+
+Seven subdued arcs are derived from countries discussed together in existing
+published research. They are conceptual research relationships, not transport
+routes, measured flows, recommendations or invented coverage. Private local
+records are excluded. Arc geometry rotates with the Earth, uses depth testing
+and shares its existing pause, reduced-motion and offscreen lifecycle.
+
+Playwright checked Home and Coverage in both themes at 320, 390, 768 and 1440
+pixels: seven arcs render in each case, with no root overflow or page errors.
+Country selection, keyboard control, reset and Back pass. Reduced motion starts
+paused; instrumented WebGL recorded zero draws while the globe was offscreen.
+Changed-script syntax, four existing graph tests, site validation and diff checks
+pass. Research and deployment files remain unchanged; this follow-up is local only.
+
 The catalogue, PDFs, dated research JSON, source registers, financial models,
 specialized chart controllers, RSS, sitemap, hourly Wire data, GitHub workflows
 and auto-publisher have no implementation diff. Existing specialized report

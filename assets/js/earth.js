@@ -125,10 +125,10 @@
           // city lights on the night side, warmed towards the page's gold
           vec3 lights = texture2D(nightMap, vUv).rgb;
           float night = 1.0 - smoothstep(-0.26, 0.04, NdL);
-          col += lights * vec3(1.0, 0.91, 0.77) * 1.25 * nightMix;
+          col += lights * vec3(1.0, 0.94, 0.82) * 1.40 * nightMix;
           // blue haze towards the rim on the lit side
           float fres = pow(1.0 - max(dot(N, V), 0.0), 3.0);
-          col += vec3(0.24, 0.38, 0.49) * fres * 0.045;
+          col += vec3(0.24, 0.38, 0.49) * fres * 0.080;
           if (paper > 0.5) {
             // An atlas treatment of the same NASA land/water geography.
             col = mix(vec3(0.30, 0.37, 0.30), vec3(0.66, 0.63, 0.54), water);
@@ -192,7 +192,7 @@
           float i = pow(smoothstep(0.0, 0.56, t), 1.35);
           float lit = 0.16 + 0.84 * smoothstep(-0.45, 0.6, dot(normalize(vNormalW), normalize(sunDir)));
           // coloured light with its own alpha, so the stars behind still show through
-          gl_FragColor = vec4(vec3(0.20, 0.29, 0.34), clamp(i * lit * 0.07 * glow * (1.0 - paper), 0.0, 1.0));
+          gl_FragColor = vec4(vec3(0.20, 0.29, 0.34), clamp(i * lit * 0.13 * glow * (1.0 - paper), 0.0, 1.0));
           #include <colorspace_fragment>
         }`,
       side: THREE.BackSide,
@@ -219,6 +219,56 @@
     const cloudShell = new THREE.Mesh(new THREE.SphereGeometry(1.012, seg, seg / 2), clouds);
     cloudShell.renderOrder = 2;
     spin.add(cloudShell);
+    /* Quiet research connections, not transport routes or traffic volumes.
+       Their endpoints come only from countries linked by published research.
+       Depth testing lets the opaque Earth hide the far side of each arc. */
+    const connections = new THREE.Group();
+    spin.add(connections);
+    const arcMaterial = new THREE.LineBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
+    const pointMaterial = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
+    const pointGeometry = new THREE.SphereGeometry(0.0035, 8, 6);
+    function themeConnections() {
+      const paper = uniforms.paper.value > 0.5;
+      arcMaterial.color.set(paper ? '#536a57' : '#c6b38e');
+      arcMaterial.opacity = paper ? 0.24 : 0.34;
+      pointMaterial.color.copy(arcMaterial.color);
+      pointMaterial.opacity = paper ? 0.46 : 0.68;
+    }
+    const geographicPoint = (c) => {
+      const lat = c.lat * Math.PI / 180, lon = c.lon * Math.PI / 180;
+      return new THREE.Vector3(Math.cos(lat) * Math.cos(lon), Math.sin(lat), -Math.cos(lat) * Math.sin(lon));
+    };
+    const graph = window.LonghandGraph;
+    const published = (window.Longhand?.publishedSorted() || []).filter((report) => !report.isLocal);
+    const pairs = new Map();
+    if (graph) published.forEach((report) => {
+      const countries = graph.contextFor(report).countries;
+      const primary = countries.filter((c) => c.role === 'primary');
+      primary.forEach((from) => countries.forEach((to) => {
+        if (from.id === to.id || ![from.lat, from.lon, to.lat, to.lon].every(Number.isFinite)) return;
+        const key = [from.id, to.id].sort().join(':');
+        if (pairs.has(key)) return;
+        const start = geographicPoint(from), end = geographicPoint(to);
+        const angle = Math.acos(THREE.MathUtils.clamp(start.dot(end), -1, 1));
+        if (angle < 0.001 || angle > Math.PI - 0.001) return;
+        pairs.set(key, { start, end, angle, key });
+      }));
+    });
+    const endpoints = new Map();
+    [...pairs.values()].sort((a, b) => b.angle - a.angle).slice(0, 7).forEach(({ start, end, angle, key }) => {
+      const points = [], height = 0.12 + 0.22 * angle / Math.PI;
+      for (let i = 0; i <= 64; i++) {
+        const t = i / 64;
+        const point = start.clone().multiplyScalar(Math.sin((1 - t) * angle)).addScaledVector(end, Math.sin(t * angle)).divideScalar(Math.sin(angle));
+        points.push(point.normalize().multiplyScalar(1.015 + height * Math.sin(Math.PI * t)));
+      }
+      const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), arcMaterial);
+      line.renderOrder = 1; connections.add(line);
+      key.split(':').forEach((id) => { if (!endpoints.has(id)) endpoints.set(id, geographicPoint(graph.country(id))); });
+    });
+    endpoints.forEach((point) => { const dot = new THREE.Mesh(pointGeometry, pointMaterial); dot.position.copy(point).multiplyScalar(1.015); dot.renderOrder = 1; connections.add(dot); });
+    themeConnections();
+    plate.dataset.researchArcs = String(connections.children.filter((child) => child.isLine).length);
     const haloShell = new THREE.Mesh(new THREE.SphereGeometry(1.2, 96, 48), halo);
     haloShell.renderOrder = 3;
     world.add(haloShell);
@@ -241,6 +291,7 @@
     let cloudTarget = 0, nightTarget = 0;
     document.addEventListener('longhand:theme', (e) => {
       uniforms.paper.value = e.detail.theme === 'light' ? 1 : 0;
+      themeConnections();
       requestFrame();
     });
     let radiusPx = 100;

@@ -37,7 +37,7 @@
       theme.setAttribute('aria-label', dark ? 'Switch to warm paper theme' : 'Switch to dark theme');
       theme.title = dark ? 'Switch to warm paper theme' : 'Switch to dark theme';
       const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.content = dark ? '#0b1216' : '#e8e3d7';
+      if (meta) meta.content = dark ? '#05090b' : '#e8e3d7';
     };
     document.addEventListener('longhand:theme', describeTheme); describeTheme();
   }

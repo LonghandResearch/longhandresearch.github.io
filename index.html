@@ -47,19 +47,20 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
-<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-10visual3">
-<link rel="stylesheet" href="assets/css/home-v2.css?v=2026-10-10visual3">
+<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-10atmosphere">
+<link rel="stylesheet" href="assets/css/home-v2.css?v=2026-10-10atmosphere">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
 <script src="assets/js/site.js?v=2026-10-10v2" defer></script>
-<script src="assets/js/v2.js?v=2026-10-10visual3" defer></script>
+<script src="assets/js/v2.js?v=2026-10-10atmosphere" defer></script>
 <script src="assets/js/research-art.js?v=2026-10-10b" defer></script>
-<script src="assets/js/home-v2.js?v=2026-10-10visual3" defer></script>
-<script src="assets/js/home.js?v=2026-09-29a" defer></script>
-<script src="assets/js/earth.js?v=2026-10-10visual3" defer></script>
+<script src="assets/js/home-v2.js?v=2026-10-10atmosphere" defer></script>
+<script src="assets/js/home.js?v=2026-10-10atmosphere" defer></script>
+<script src="assets/js/research-graph.js?v=2026-10-10a" defer></script>
+<script src="assets/js/earth.js?v=2026-10-10atmosphere" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -105,8 +106,8 @@
         <div class="plate-stage" data-globe-stage role="button" tabindex="0"
              aria-label="Control the Earth's rotation" aria-describedby="globe-help">
         </div>
-        <p class="sr-only" id="globe-help">A photographic globe of the Earth, made from NASA imagery. Use the arrow keys to turn it, Home to reset it, and Enter or Space to pause or resume its rotation.</p>
-      <figcaption class="home-globe-caption"><span><small>01 / The research atlas</small>World → country → sector → company → report</span><a href="coverage.html">Explore coverage <span aria-hidden="true">↗</span></a></figcaption>
+        <p class="sr-only" id="globe-help">A photographic globe of the Earth, made from NASA imagery. Arcs connect countries discussed together in published research; they are not transport routes or measured flows. Use the arrow keys to turn it, Home to reset it, and Enter or Space to pause or resume its rotation.</p>
+      <figcaption class="home-globe-caption"><span><small>01 / The research atlas</small>Research connections · not transport routes</span><a href="coverage.html">Explore coverage <span aria-hidden="true">↗</span></a></figcaption>
       </figure>
       <aside class="home-latest" data-latest aria-label="Latest report" hidden></aside>
     </div>

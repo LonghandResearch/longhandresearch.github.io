@@ -89,7 +89,7 @@ html:has(.v2-page)::view-transition-group(globe) { animation-duration: 850ms; }
 
 /* Two publication themes. Warm paper carries a quiet green ink accent. */
 html[data-theme="light"] .v2-page { --v2-paper: #e8e3d7; --bg: #e8e3d7; --bg-sunk: #dcd6c9; --ink: #23332d; --ink-2: #4f6057; --ink-3: #59665c; --rule: #23332d2b; --rule-2: #23332d4a; --gold: #718064; --gold-ink: #3d5b49; --tint: #3d5b490a; --tint-2: #3d5b491b; color-scheme: light; }
-html[data-theme="dark"] .v2-page { --bg: #0b1216; --bg-sunk: #080f12; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; --rule: #dce6e522; --rule-2: #dce6e53b; --gold: #b49c70; --gold-ink: #ccb78f; color-scheme: dark; }
+html[data-theme="dark"] .v2-page { --bg: #05090b; --bg-sunk: #080f12; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; --rule: #dce6e522; --rule-2: #dce6e53b; --gold: #b49c70; --gold-ink: #ccb78f; color-scheme: dark; }
 .v2-page .site-nav { margin-left: auto; }
 .v2-page .masthead.is-over-night { --bg: inherit; --ink: inherit; --ink-2: inherit; --rule: inherit; --gold: inherit; background: var(--bg); }
 .v2-page .masthead .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: auto; min-width: 44px; min-height: 44px; height: 44px; gap: 9px; border: 1px solid var(--rule-2); padding: 0 12px; font: 400 10px var(--font-sans); margin-left: 20px; }

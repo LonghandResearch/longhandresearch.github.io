@@ -15,7 +15,7 @@
 .page-home.v2-page .hero.night .hero-actions { margin-top: 25px; gap: 24px; }
 .page-home.v2-page .hero.night .hero-actions .btn { min-height: 44px; font-size: 11px; border-color: #889b9b; background: #0a1c22cc; }
 .page-home.v2-page .plate { position: absolute; z-index: 1; width: min(90vw, 1150px); height: 980px; left: 33%; top: -65px; }
-.page-home.v2-page .plate-stage { width: 100%; height: 100%; max-width: none; min-height: 0; aspect-ratio: auto; }
+.page-home.v2-page .plate-stage { width: 100%; height: 100%; max-width: none; min-height: 0; aspect-ratio: auto; mask-image: linear-gradient(90deg, transparent, #000 28%); }
 .page-home.v2-page .plate::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #07131770, transparent 28%), linear-gradient(0deg, #071317 2%, transparent 32%); pointer-events: none; z-index: 2; }
 .home-globe-caption { position: absolute; z-index: 3; top: 580px; left: 100px; width: 460px; border-top: 1px solid #dce6e544; padding-top: 12px; display: flex; gap: 20px; justify-content: space-between; font: 400 9px/1.8 var(--font-sans); color: #bac8c9; }
 .home-globe-caption small { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .15em; color: #ddc296; }
@@ -153,18 +153,19 @@
 @media (max-width: 380px) { .page-home.v2-page .night-grid { height: 550px; } .home-globe-caption { top: 330px; } }
 
 /* Reference alignment: low light, quiet type and an uncluttered photographic scene. */
-.page-home.v2-page .hero.night { --bg: #0b1216; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; background: linear-gradient(180deg, #192125, #0b1216 75%); }
-.page-home.v2-page .night-stars { display: none; }
-.page-home.v2-page .hero.night .hero-title { font-size: clamp(49px, 4.8vw, 70px); max-width: 22ch; letter-spacing: -.027em; text-shadow: none; }
+.page-home.v2-page .hero.night { --bg: #05090b; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; background: linear-gradient(180deg, #0b1013, #05090b 75%); }
+.page-home.v2-page .night-stars { display: block; z-index: 0; opacity: .62; mask-image: linear-gradient(90deg, #000, #0006 55%, transparent 90%); }
+.page-home.v2-page .hero.night .hero-title { font-size: clamp(49px, 4.8vw, 70px); max-width: 22ch; font-weight: 350; letter-spacing: -.027em; font-kerning: normal; text-shadow: none; }
 .page-home.v2-page .hero.night .hero-lede { font-size: 13px; line-height: 1.85; color: var(--ink-2); }
 .page-home.v2-page .hero.night .eyebrow { color: var(--ink-3); }
 .page-home.v2-page .hero.night .hero-actions .btn { background: transparent; border-color: var(--rule-2); }
-.page-home.v2-page .plate::after { background: linear-gradient(90deg, #0b12162b, transparent 28%), linear-gradient(0deg, #0b1216 4%, transparent 30%); }
+.page-home.v2-page .plate::after { background: linear-gradient(0deg, #05090b 4%, transparent 30%); }
 .home-globe-caption { color: var(--ink-3); border-color: var(--rule-2); }
 .home-globe-caption small { color: var(--gold-ink); }
 .home-globe-caption a { color: var(--ink); }
 html[data-theme="light"] .page-home.v2-page .hero.night { --bg: #e8e3d7; --ink: #23332d; --ink-2: #4f6057; --ink-3: #59665c; --rule-2: #23332d4a; --gold: #718064; --gold-ink: #3d5b49; background: #e8e3d7; }
-html[data-theme="light"] .page-home.v2-page .plate::after { background: linear-gradient(90deg, #e8e3d750, transparent 28%), linear-gradient(0deg, #e8e3d7 4%, transparent 30%); }
+html[data-theme="light"] .page-home.v2-page .night-stars { opacity: .48; }
+html[data-theme="light"] .page-home.v2-page .plate::after { background: linear-gradient(0deg, #e8e3d7 4%, transparent 30%); }
 html[data-theme="light"] .publication-art { background: #d5d5c7; }
 html[data-theme="light"] .publication-art.is-document { background: #d4cfbf; }
 @media (max-width: 760px) {
@@ -172,6 +173,6 @@ html[data-theme="light"] .publication-art.is-document { background: #d4cfbf; }
   .page-home.v2-page .hero.night .hero-lede { font-size: 12px; }
   .page-home.v2-page .plate::after { display: none; }
   .page-home.v2-page .plate-stage { mask-image: linear-gradient(180deg, transparent 22%, #000 48%, #000 78%, transparent); }
-  .home-globe-caption { background: #0b1216c9; }
+  .home-globe-caption { background: #05090bc9; }
   html[data-theme="light"] .home-globe-caption { background: #e8e3d7df; }
 }
