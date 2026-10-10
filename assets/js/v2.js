@@ -70,6 +70,57 @@
   }
   /* Name only one selected identity. The browser restores document/scroll state on Back. */
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  // Reveal publication furniture once, without hiding content before JavaScript
+  // or animating research figures. Newly filtered catalogue rows also opt in.
+  const motionSelector = '.hero-copy, .publication-tile, .home-coverage-intro, .home-coverage-links > a, .report-list > .report, .entity-index > a, .entity-report, .coverage-summary, .coverage-sector-index, .coverage-latest-index, .report-related-list > a, .footer-signature';
+  const seenMotion = new WeakSet(), activeMotion = new Set();
+  if ('IntersectionObserver' in window && Element.prototype.animate) {
+    const reveal = new IntersectionObserver((entries) => {
+      let stagger = 0;
+      entries.forEach(({ target, isIntersecting }) => {
+        if (!isIntersecting) return;
+        reveal.unobserve(target);
+        if (reduced.matches || document.hidden) return;
+        const animation = target.animate([
+          { opacity: .65, transform: 'translateY(16px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 560, delay: Math.min(stagger++, 3) * 55, easing: 'cubic-bezier(.2,.7,.2,1)' });
+        activeMotion.add(animation);
+        animation.finished.then(() => activeMotion.delete(animation), () => activeMotion.delete(animation));
+      });
+    }, { threshold: .12 });
+    const registerMotion = (root) => {
+      const candidates = [...root.querySelectorAll(motionSelector)];
+      if (root.matches?.(motionSelector)) candidates.unshift(root);
+      candidates.forEach((el) => { if (!seenMotion.has(el)) { seenMotion.add(el); reveal.observe(el); } });
+    };
+    registerMotion(document);
+    const main = document.querySelector('main');
+    if (main) new MutationObserver((records) => records.forEach((record) => {
+      if (record.target.closest?.('[data-viewer], .chart, .viewer-pages')) return;
+      record.addedNodes.forEach((node) => { if (node.nodeType === 1) registerMotion(node); });
+      record.removedNodes.forEach((node) => {
+        if (node.nodeType !== 1) return;
+        if (node.matches(motionSelector)) reveal.unobserve(node);
+        node.querySelectorAll(motionSelector).forEach((el) => reveal.unobserve(el));
+      });
+    })).observe(main, { childList: true, subtree: true });
+    const stopMotion = () => { activeMotion.forEach((animation) => animation.cancel()); activeMotion.clear(); };
+    reduced.addEventListener('change', () => { if (reduced.matches) stopMotion(); });
+    window.addEventListener('pagehide', stopMotion);
+  }
+  if (body.hasAttribute('data-report-publication') && mast) {
+    const progress = document.createElement('div'); progress.className = 'reading-progress'; progress.setAttribute('aria-hidden', 'true'); mast.append(progress);
+    let pending = false;
+    const updateProgress = () => {
+      pending = false;
+      const height = document.documentElement.scrollHeight - innerHeight;
+      progress.style.transform = `scaleX(${height > 0 ? Math.min(1, Math.max(0, scrollY / height)) : 0})`;
+    };
+    const queueProgress = () => { if (!pending) { pending = true; requestAnimationFrame(updateProgress); } };
+    window.addEventListener('scroll', queueProgress, { passive: true });
+    window.addEventListener('resize', queueProgress); window.addEventListener('pageshow', queueProgress); updateProgress();
+  }
   function clearIdentity() { document.querySelectorAll('[data-v2-transition]').forEach((el) => { el.style.viewTransitionName = ''; el.removeAttribute('data-v2-transition'); }); }
   function identityFor(href) {
     try {

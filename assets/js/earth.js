@@ -226,13 +226,19 @@
     spin.add(connections);
     const arcMaterial = new THREE.LineBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
     const pointMaterial = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
+    const travelMaterial = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
+    const trailMaterial = new THREE.LineBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
     const pointGeometry = new THREE.SphereGeometry(0.0035, 8, 6);
+    const travellers = [];
+    let connectionTime = 0;
     function themeConnections() {
       const paper = uniforms.paper.value > 0.5;
       arcMaterial.color.set(paper ? '#536a57' : '#c6b38e');
       arcMaterial.opacity = paper ? 0.24 : 0.34;
       pointMaterial.color.copy(arcMaterial.color);
       pointMaterial.opacity = paper ? 0.46 : 0.68;
+      travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.62 : 0.88;
+      trailMaterial.color.copy(arcMaterial.color); trailMaterial.opacity = paper ? 0.40 : 0.58;
     }
     const geographicPoint = (c) => {
       const lat = c.lat * Math.PI / 180, lon = c.lon * Math.PI / 180;
@@ -264,11 +270,30 @@
       }
       const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), arcMaterial);
       line.renderOrder = 1; connections.add(line);
+      // A small moving accent carries no quantitative flow meaning. Reuse the
+      // same geometry and the Earth's RAF; pause and reduced motion stop it.
+      const head = new THREE.Mesh(pointGeometry, travelMaterial); head.scale.setScalar(1.35); head.renderOrder = 1;
+      const trailGeometry = new THREE.BufferGeometry(); trailGeometry.setAttribute('position', line.geometry.attributes.position);
+      trailGeometry.setDrawRange(0, 0);
+      const trail = new THREE.Line(trailGeometry, trailMaterial); trail.renderOrder = 1;
+      connections.add(head, trail);
+      travellers.push({ points, head, trail });
       key.split(':').forEach((id) => { if (!endpoints.has(id)) endpoints.set(id, geographicPoint(graph.country(id))); });
     });
     endpoints.forEach((point) => { const dot = new THREE.Mesh(pointGeometry, pointMaterial); dot.position.copy(point).multiplyScalar(1.015); dot.renderOrder = 1; connections.add(dot); });
     themeConnections();
-    plate.dataset.researchArcs = String(connections.children.filter((child) => child.isLine).length);
+    plate.dataset.researchArcs = String(travellers.length);
+    function moveConnections(dt, moving) {
+      if (moving) connectionTime += dt;
+      travellers.forEach(({ points, head, trail }, i) => {
+        head.visible = trail.visible = !reduceMotion.matches;
+        const progress = (connectionTime / (13 + i * 0.9) + i / travellers.length) % 1;
+        const position = progress * (points.length - 1), start = Math.floor(position);
+        head.position.copy(points[start]).lerp(points[Math.min(start + 1, points.length - 1)], position - start);
+        trail.geometry.setDrawRange(Math.max(0, start - 3), Math.min(4, start + 1));
+      });
+    }
+    moveConnections(0, false);
     const haloShell = new THREE.Mesh(new THREE.SphereGeometry(1.2, 96, 48), halo);
     haloShell.renderOrder = 3;
     world.add(haloShell);
@@ -280,6 +305,7 @@
     const lean = { x: 0, y: 0, tx: 0, ty: 0 };      // pointer lean, eased
     let scrollP = 0;                                 // 0 at the top of the page, 1 once the front page has scrolled away
     let playing = !reduceMotion.matches;
+    let lastReduced = reduceMotion.matches;
     let spinVel = 0;
     const omega = new THREE.Vector3();
     let dragging = false, moved = false, touch = false;
@@ -403,6 +429,9 @@
 
     function loop(now) {
       raf = 0;
+      // Reconcile while drawing as well: media changes can be deferred while
+      // the page is busy or hidden. No extra timer is needed.
+      if (lastReduced !== reduceMotion.matches) onMotionPref(reduceMotion);
       const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
       last = now;
       let busy = false;
@@ -414,6 +443,7 @@
       }
       const e = easeOut(intro);
       uniforms.glow.value = e;
+      moveConnections(dt, playing && !reduceMotion.matches);
 
       // the Earth's own slow turn, eased in and out
       const target = playing ? AUTO : 0;
@@ -426,7 +456,7 @@
       uniforms.cloudShift.value = (uniforms.cloudShift.value + (spinVel * dt / (Math.PI * 2)) * CLOUD_DRIFT) % 1;
 
       // textures that arrive late fade in rather than pop
-      const fade = 1 - Math.exp(-dt * 2.5);
+      const fade = reduceMotion.matches ? 1 : 1 - Math.exp(-dt * 2.5);
       if (uniforms.cloudMix.value < cloudTarget - 0.002) { uniforms.cloudMix.value += (cloudTarget - uniforms.cloudMix.value) * fade; busy = true; } else uniforms.cloudMix.value = cloudTarget;
       if (uniforms.nightMix.value < nightTarget - 0.002) { uniforms.nightMix.value += (nightTarget - uniforms.nightMix.value) * fade; busy = true; } else uniforms.nightMix.value = nightTarget;
 
@@ -525,6 +555,16 @@
     stage.addEventListener('pointerleave', (e) => {
       if (e.pointerType === 'mouse') { lean.tx = 0; lean.ty = 0; requestFrame(); }
     });
+    if (hero) {
+      hero.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse' || reduceMotion.matches || dragging || stage.contains(e.target)) return;
+        const bounds = hero.getBoundingClientRect();
+        lean.tx = ((e.clientX - bounds.left) / bounds.width - .5) * .8;
+        lean.ty = ((e.clientY - bounds.top) / bounds.height - .5) * .5;
+        requestFrame();
+      }, { passive: true });
+      hero.addEventListener('pointerleave', () => { lean.tx = lean.ty = 0; requestFrame(); });
+    }
     const release = (e) => {
       if (!dragging) return;
       dragging = false;
@@ -601,8 +641,12 @@
     document.dispatchEvent(new CustomEvent('longhand:globe-ready'));
     setPlaying(playing);
     const onMotionPref = (ev) => {
+      lastReduced = ev.matches;
       setPlaying(!ev.matches);
-      if (ev.matches) { intro = 1; lean.tx = lean.ty = 0; scrollP = 0; }
+      if (ev.matches) {
+        intro = 1; spinVel = 0; omega.set(0, 0, 0);
+        lean.x = lean.y = lean.tx = lean.ty = 0; scrollP = 0;
+      }
       onScroll();
     };
     if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', onMotionPref);

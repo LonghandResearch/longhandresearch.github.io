@@ -85,6 +85,30 @@ The catalogue, report files, research datasets, model controllers, deployment
 workflows and owner checkout remain unchanged. This correction is a local commit
 only; no push, pull request, merge or publication was authorized or performed.
 
+### Editorial motion follow-up
+
+The existing seven research arcs now carry small travelling accents and short
+trails, sharing the globe's render loop and pause state. Desktop pointer movement
+adds a gentle response across the hero. Public discovery rows and publication
+tiles enter once when visible; hover feedback, image movement and the mobile
+menu remain restrained. Report headers now show the current document scroll
+position. Research figures, chart controllers and calculations remain unchanged.
+
+Content remains visible without animations or JavaScript. Reduced motion cancels
+active reveals, removes travelling accents and stops automatic globe movement.
+The render loop also reconciles preference changes so rotation stops immediately
+when reduced motion is enabled during a session. No additional animation timer
+or dependency was introduced.
+
+Edge Playwright checked 60 page/theme/viewport combinations: ten public pages in
+both themes at 320, 768 and 1440 pixels, with no root overflow or page errors.
+Library search, mobile navigation/Escape, Coverage selection, hover feedback and
+the report position indicator passed. Instrumented WebGL recorded zero draws
+offscreen and zero draws after switching to reduced motion; active DOM animations
+were also zero. Site validation passed for 59 scripts, 67 JSON files, 11 catalogue
+entries, 16 sitemap pages and internal links in 19 pages. Changed JavaScript
+syntax and diff checks pass. This pass remains local only.
+
 ## Preservation and limitations
 
 ### Globe atmosphere follow-up
