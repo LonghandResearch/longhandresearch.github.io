@@ -368,14 +368,14 @@ See [V2 validation](docs/v2-validation.md) for the local implementation checks.
 
 ## The front page
 
-The front page stays dark in both themes. It introduces the publication, links to the research map and displays four recent catalogue entries. A compact latest-report link appears before the globe on mobile. The publication ledger derives its counts from the catalogue; it is not a live market feed. The Earth is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
+The front page follows the selected dark or warm-paper theme. It introduces the publication, links to the Library and Coverage, and displays four recent catalogue entries. The publication ledger derives its counts from the catalogue; it is not a live market feed. The Earth uses NASA imagery: Blue Marble for surface detail, Black Marble for city lights, and a cloud layer. Warm paper uses a subdued relief treatment with sage seas.
 
-- **Turning it.** Drag the Earth in any direction; on a touch screen, swipe sideways (an upward swipe still scrolls the page). Click it or press Space to stop or start it, and double-click it or press Home to set it straight. Arrow keys turn it too. Left alone, it settles back onto its axis.
+- **Turning it.** The homepage globe turns automatically, with no drag, pointer tilt or scroll parallax. Open Coverage for interactive rotation and country selection: drag or swipe sideways, use arrow keys, press Space to pause or resume, or choose World view to reset. A vertical swipe still scrolls the page.
 - **Opening.** The heading and report link are available at once while the Earth imagery loads. On narrow screens they come before the globe.
 - **Leaving it.** A short zoom and fade carries the landing into the next page, and reverses on return. These are cross-document view transitions (Chrome, Edge, Safari), set in `site.css` and `site.js`.
 - **Latest research.** The front page draws publication links, dates and categories from the catalogue. It updates when a report is published. Equal publication dates keep the established title tie-break; catalogue numbers remain chronological identifiers.
 - **Behind it.** Seeded stars, drawn once against the dark sky.
-- **Settings** at the top of `assets/js/earth.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), how far the sun moves on scroll (`SUN_SWEEP`) and the Earth's size in its frame (`RADIUS_SHARE`).
+- **Settings** at the top of `assets/js/earth.js`: the opening meridian (`START_LON`), rotation speed (`TURN_SECONDS`) and size in its frame (`RADIUS_SHARE`). Arc selections are described in [research graph](docs/research-graph.md).
 
 Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view and pages change without the zoom.
 

@@ -47,8 +47,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
-<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-11plain">
-<link rel="stylesheet" href="assets/css/home-v2.css?v=2026-10-11plain">
+<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-11quiet">
+<link rel="stylesheet" href="assets/css/home-v2.css?v=2026-10-11quiet">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
@@ -60,10 +60,10 @@
 <script src="assets/js/home-v2.js?v=2026-10-10covers-final" defer></script>
 <script src="assets/js/home.js?v=2026-10-10motion" defer></script>
 <script src="assets/js/research-graph.js?v=2026-10-10a" defer></script>
-<script src="assets/js/earth.js?v=2026-10-10polish" defer></script>
+<script src="assets/js/earth.js?v=2026-10-11quiet" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<link rel="stylesheet" href="assets/css/covers.css?v=2026-10-10polish">
+<link rel="stylesheet" href="assets/css/covers.css?v=2026-10-11quiet">
 </head>
 <body class="page-home v2-page v2-dark">
 <a class="skip" href="#main">Skip to content</a>
@@ -100,15 +100,15 @@
           <a class="btn" href="library.html">Explore research
             <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </a>
+          <a class="btn" href="coverage.html">Explore coverage <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
       <figure class="plate" data-globe>
-        <div class="plate-stage" data-globe-stage role="button" tabindex="0"
-             aria-label="Control the Earth's rotation" aria-describedby="globe-help">
+        <div class="plate-stage" data-globe-stage role="img"
+             aria-label="Slowly rotating Earth" aria-describedby="globe-help">
         </div>
-        <p class="sr-only" id="globe-help">A photographic globe of the Earth, made from NASA imagery. Arcs connect countries discussed together in published research; they are not transport routes or measured flows. Use the arrow keys to turn it, Home to reset it, and Enter or Space to pause or resume its rotation.</p>
-      <figcaption class="home-globe-caption"><span><small>01 / The research atlas</small>Research connections · not transport routes</span><a href="coverage.html">Explore coverage <span aria-hidden="true">↗</span></a></figcaption>
+        <p class="sr-only" id="globe-help">The Earth rotates slowly using NASA imagery and remains still with reduced motion enabled. Arcs show selected substantive research relationships, not transport routes or measured flows. Open Coverage to explore the research geography.</p>
       </figure>
       <aside class="home-latest" data-latest aria-label="Latest report" hidden></aside>
     </div>

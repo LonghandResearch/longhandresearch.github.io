@@ -1,10 +1,9 @@
-/* Longhand Research: the Earth on the front page.
+/* Longhand Research: the Earth on the front page and Coverage.
    A photographic globe drawn with three.js from NASA imagery: Blue Marble for
    the day side, Black Marble for the lights of the night side, and a cloud
    layer that drifts a little faster than the ground. It turns slowly on its
-   tilted axis. Drag it to turn it any way; click it, or press Space, to stop
-   it; double-click or press Home to set it straight. As the page scrolls, the
-   sun moves on and the cities come up out of the dark. */
+   tilted axis. The homepage uses a simple ambient turn. Coverage supports
+   dragging, keyboard rotation and country selection. */
 (function () {
   'use strict';
 
@@ -21,7 +20,6 @@
   const TURN_SECONDS = 150;        // one full turn of the Earth on its axis
   const CLOUD_DRIFT = 0.012;       // how far the clouds run ahead of the ground, turns per turn
   const RETURN_AFTER_MS = 5000;    // idle time before a hand-turned Earth settles back onto its axis
-  const SUN_SWEEP = 75;            // degrees the sun moves on as the front page scrolls away
   const RADIUS_SHARE = hero ? 0.46 : 0.40;       // the Earth's radius as a share of the stage's shorter side
 
   function unavailable(err) {
@@ -49,6 +47,7 @@
     renderer.setClearColor(0x000000, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.02;
+    renderer.localClippingEnabled = true;
     const canvas = renderer.domElement;
     canvas.setAttribute('aria-hidden', 'true');
     stage.appendChild(canvas);
@@ -130,10 +129,13 @@
           float fres = pow(1.0 - max(dot(N, V), 0.0), 3.0);
           col += vec3(0.24, 0.38, 0.49) * fres * 0.080;
           if (paper > 0.5) {
-            // An atlas treatment of the same NASA land/water geography.
-            col = mix(vec3(0.19, 0.29, 0.22), vec3(0.60, 0.58, 0.50), water);
-            col *= 0.76 + 0.24 * max(dot(N, V), 0.0);
-            col += vec3(0.025) * cloud;
+            // Warm relief and sage seas, retaining the NASA surface texture.
+            float terrain = dot(albedo, vec3(0.2126, 0.7152, 0.0722));
+            vec3 land = vec3(0.50, 0.47, 0.38) * (0.78 + 0.65 * terrain);
+            vec3 sea = vec3(0.16, 0.23, 0.20);
+            col = mix(land, sea, water);
+            col *= 0.64 + 0.30 * max(dot(N, V), 0.0) + 0.06 * max(NdL, 0.0);
+            col += vec3(0.014, 0.016, 0.012) * cloud;
           }
           gl_FragColor = vec4(col, 1.0);
           #include <tonemapping_fragment>
@@ -219,22 +221,29 @@
     const cloudShell = new THREE.Mesh(new THREE.SphereGeometry(1.012, seg, seg / 2), clouds);
     cloudShell.renderOrder = 2;
     spin.add(cloudShell);
-    /* Quiet research connections, not transport routes or traffic volumes.
-       Their endpoints come only from countries linked by published research.
+    /* Selected substantive research connections, never a network of mentions.
+       Co-primary geographies qualify directly. Material connections require
+       an explicit, reviewed editorial selection as well as a graph relationship.
+       The coal study identifies China and India as substantial export markets
+       (assets/js/coal/data.js, BPS destination register). Context-only markets
+       remain in the country list. These arcs do not encode trade volumes.
        Depth testing lets the opaque Earth hide the far side of each arc. */
     const connections = new THREE.Group();
     spin.add(connections);
-    const arcMaterial = new THREE.LineBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
-    const pointMaterial = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
-    const travelMaterial = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
-    const trailMaterial = new THREE.LineBasicMaterial({ transparent: true, depthTest: true, depthWrite: false, toneMapped: false });
+    // Hide grazing fragments before they become isolated loops at the horizon.
+    const clippingPlanes = [new THREE.Plane(new THREE.Vector3(0, 0, 1), -0.12)];
+    const connectionStyle = { transparent: true, depthTest: true, depthWrite: false, toneMapped: false, clippingPlanes };
+    const arcMaterial = new THREE.LineBasicMaterial(connectionStyle);
+    const pointMaterial = new THREE.MeshBasicMaterial(connectionStyle);
+    const travelMaterial = new THREE.MeshBasicMaterial(connectionStyle);
+    const trailMaterial = new THREE.LineBasicMaterial(connectionStyle);
     const pointGeometry = new THREE.SphereGeometry(0.0035, 8, 6);
     const travellers = [];
     let connectionTime = 0;
     function themeConnections() {
       const paper = uniforms.paper.value > 0.5;
-      arcMaterial.color.set(paper ? '#536a57' : '#c6b38e');
-      arcMaterial.opacity = paper ? 0.22 : 0.28;
+      arcMaterial.color.set(paper ? '#405948' : '#c6b38e');
+      arcMaterial.opacity = paper ? 0.24 : 0.26;
       pointMaterial.color.copy(arcMaterial.color);
       pointMaterial.opacity = paper ? 0.46 : 0.68;
       travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.62 : 0.88;
@@ -246,6 +255,9 @@
     };
     const graph = window.LonghandGraph;
     const published = (window.Longhand?.publishedSorted() || []).filter((report) => !report.isLocal);
+    const materialSelections = new Map([
+      ['coal-in-transition-2026-10-08', new Set(['CN:ID', 'ID:IN'])],
+    ]);
     const pairs = new Map();
     if (graph) published.forEach((report) => {
       const countries = graph.contextFor(report).countries;
@@ -253,6 +265,7 @@
       primary.forEach((from) => countries.forEach((to) => {
         if (from.id === to.id || ![from.lat, from.lon, to.lat, to.lon].every(Number.isFinite)) return;
         const key = [from.id, to.id].sort().join(':');
+        if (to.role !== 'primary' && !materialSelections.get(report.id)?.has(key)) return;
         if (pairs.has(key)) return;
         const start = geographicPoint(from), end = geographicPoint(to);
         const angle = Math.acos(THREE.MathUtils.clamp(start.dot(end), -1, 1));
@@ -261,10 +274,7 @@
       }));
     });
     const endpoints = new Map();
-    // Regional links show the readable curvature without edge-on paths crossing
-    // the entire opening scene. The country list retains every global relation.
-    const orderedPairs = [...pairs.values()].sort((a, b) => a.angle - b.angle);
-    const visiblePairs = orderedPairs.slice(0, 7);
+    const visiblePairs = [...pairs.values()];
     visiblePairs.forEach(({ start, end, angle, key }) => {
       // Keep long connections close to the surface, so edge-on paths read as
       // geography rather than tall antennae. Endpoints remain above the clouds.
@@ -283,23 +293,37 @@
       trailGeometry.setDrawRange(0, 0);
       const trail = new THREE.Line(trailGeometry, trailMaterial); trail.renderOrder = 1;
       connections.add(head, trail);
-      travellers.push({ points, head, trail });
+      travellers.push({ points, head, trail, line, start, end, ids: key.split(':') });
       key.split(':').forEach((id) => { if (!endpoints.has(id)) endpoints.set(id, geographicPoint(graph.country(id))); });
     });
-    endpoints.forEach((point) => { const dot = new THREE.Mesh(pointGeometry, pointMaterial); dot.position.copy(point).multiplyScalar(1.015); dot.renderOrder = 1; connections.add(dot); });
+    const endpointDots = new Map();
+    endpoints.forEach((point, id) => { const dot = new THREE.Mesh(pointGeometry, pointMaterial); dot.position.copy(point).multiplyScalar(1.015); dot.renderOrder = 1; connections.add(dot); endpointDots.set(id, dot); });
     themeConnections();
     plate.dataset.researchArcs = String(travellers.length);
+    plate.dataset.researchLinks = visiblePairs.map((p) => p.key).join(',');
+    let connectionCountry = '';
+    function selectConnections(id) {
+      connectionCountry = id;
+      const activeEndpoints = new Set();
+      travellers.forEach((t) => {
+        t.line.visible = !id || t.ids.includes(id);
+        if (t.line.visible) t.ids.forEach((endpoint) => activeEndpoints.add(endpoint));
+      });
+      endpointDots.forEach((dot, endpoint) => { dot.visible = activeEndpoints.has(endpoint); });
+      plate.dataset.activeResearchArcs = String(travellers.filter((t) => t.line.visible).length);
+      moveConnections(0, false);
+    }
     function moveConnections(dt, moving) {
       if (moving) connectionTime += dt;
-      travellers.forEach(({ points, head, trail }, i) => {
-        head.visible = trail.visible = !reduceMotion.matches;
+      travellers.forEach(({ points, head, trail, ids }, i) => {
+        head.visible = trail.visible = !reduceMotion.matches && (!connectionCountry || ids.includes(connectionCountry));
         const progress = (connectionTime / (13 + i * 0.9) + i / travellers.length) % 1;
         const position = progress * (points.length - 1), start = Math.floor(position);
         head.position.copy(points[start]).lerp(points[Math.min(start + 1, points.length - 1)], position - start);
         trail.geometry.setDrawRange(Math.max(0, start - 3), Math.min(4, start + 1));
       });
     }
-    moveConnections(0, false);
+    selectConnections('');
     const haloShell = new THREE.Mesh(new THREE.SphereGeometry(1.2, 96, 48), halo);
     haloShell.renderOrder = 3;
     world.add(haloShell);
@@ -309,7 +333,6 @@
     const UPRIGHT = new THREE.Quaternion();
     const sunBase = new THREE.Vector3(-0.45, 0.3, -1).normalize();
     const lean = { x: 0, y: 0, tx: 0, ty: 0 };      // pointer lean, eased
-    let scrollP = 0;                                 // 0 at the top of the page, 1 once the front page has scrolled away
     let playing = !reduceMotion.matches;
     let lastReduced = reduceMotion.matches;
     let spinVel = 0;
@@ -319,7 +342,7 @@
     let lastTouch = 0;
     let returning = false;
     let visible = true, raf = 0, last = 0, shown = false, dirty = true;
-    let intro = reduceMotion.matches ? 1 : 0;       // the opening turn and bloom, 0 to 1
+    let intro = hero || reduceMotion.matches ? 1 : 0; // homepage begins with the ambient turn only
     let cloudTarget = 0, nightTarget = 0;
     document.addEventListener('longhand:theme', (e) => {
       uniforms.paper.value = e.detail.theme === 'light' ? 1 : 0;
@@ -431,7 +454,6 @@
 
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const sun = new THREE.Vector3();
-    const yAxis = new THREE.Vector3(0, 1, 0);
 
     function loop(now) {
       raf = 0;
@@ -488,15 +510,29 @@
         if (ball.quaternion.angleTo(focusTarget) < .001) { ball.quaternion.copy(focusTarget); focusTarget = null; }
         busy = true;
       }
-      // the pointer's lean, and the page's scroll
+      // A small pointer response is confined to the interactive Coverage globe.
       lean.x += (lean.tx - lean.x) * (1 - Math.exp(-dt * 4));
       lean.y += (lean.ty - lean.y) * (1 - Math.exp(-dt * 4));
       if (Math.abs(lean.tx - lean.x) + Math.abs(lean.ty - lean.y) > 1e-4) busy = true;
-      world.rotation.set(lean.y * 0.06, lean.x * 0.08 + introTurn, 0);
-      world.position.y = -scrollP * 0.55;
-      sun.copy(sunBase).applyAxisAngle(yAxis, (-scrollP * SUN_SWEEP * Math.PI) / 180);
+      world.rotation.set(hero ? 0 : lean.y * 0.06, hero ? 0 : lean.x * 0.08 + introTurn, 0);
+      world.position.y = 0;
+      sun.copy(sunBase);
       uniforms.sunDir.value.copy(sun);
 
+      // A connection enters the view only when both geographic ends are on
+      // the readable hemisphere. This avoids stray lines to hidden countries.
+      world.updateMatrixWorld(true);
+      let visibleArcs = 0;
+      travellers.forEach((t) => {
+        const onFront = [t.start, t.end].every((endpoint) => {
+          const point = spin.localToWorld(endpoint.clone());
+          return point.clone().normalize().dot(camera.position.clone().sub(point).normalize()) > 0.15;
+        });
+        t.line.visible = onFront && (!connectionCountry || t.ids.includes(connectionCountry));
+        t.head.visible = t.trail.visible = t.line.visible && !reduceMotion.matches;
+        if (t.line.visible) visibleArcs++;
+      });
+      plate.dataset.visibleResearchArcs = String(visibleArcs);
       renderer.render(scene, camera);
       if (markers.length) projectMarkers();
       dirty = false;
@@ -513,6 +549,7 @@
        the Earth side to side only, so an upward swipe still scrolls the page. */
     const perPixel = () => (Math.PI * 1.1) / Math.max(260, radiusPx * 2.4);
     stage.addEventListener('pointerdown', (e) => {
+      if (hero) return;
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       focused = false; focusTarget = null;
       dragging = true;
@@ -528,6 +565,7 @@
       requestFrame();
     });
     stage.addEventListener('pointermove', (e) => {
+      if (hero) return;
       if (!dragging) {
         if (e.pointerType === 'mouse' && !reduceMotion.matches) {
           const r = stage.getBoundingClientRect();
@@ -561,16 +599,6 @@
     stage.addEventListener('pointerleave', (e) => {
       if (e.pointerType === 'mouse') { lean.tx = 0; lean.ty = 0; requestFrame(); }
     });
-    if (hero) {
-      hero.addEventListener('pointermove', (e) => {
-        if (e.pointerType !== 'mouse' || reduceMotion.matches || dragging || stage.contains(e.target)) return;
-        const bounds = hero.getBoundingClientRect();
-        lean.tx = ((e.clientX - bounds.left) / bounds.width - .5) * .8;
-        lean.ty = ((e.clientY - bounds.top) / bounds.height - .5) * .5;
-        requestFrame();
-      }, { passive: true });
-      hero.addEventListener('pointerleave', () => { lean.tx = lean.ty = 0; requestFrame(); });
-    }
     const release = (e) => {
       if (!dragging) return;
       dragging = false;
@@ -589,10 +617,11 @@
     stage.addEventListener('pointerup', release);
     stage.addEventListener('pointercancel', release);
     stage.addEventListener('lostpointercapture', release);
-    stage.addEventListener('dblclick', () => { if (tilted()) settle(); });
+    stage.addEventListener('dblclick', () => { if (!hero && tilted()) settle(); });
 
     /* Keyboard: arrows turn the Earth, Space or Enter stops and starts it, Home sets it straight */
     stage.addEventListener('keydown', (e) => {
+      if (hero) return;
       const dir = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
       if (dir) {
         focused = false; focusTarget = null;
@@ -617,8 +646,10 @@
       playing = on;
       if (on) { focused = false; focusTarget = null; }
       document.dispatchEvent(new CustomEvent('longhand:globe-playing', { detail: { playing: on } }));
-      stage.setAttribute('aria-label', on ? 'Pause the Earth turning' : 'Resume the Earth turning');
-      stage.title = on ? 'Drag to turn the Earth any way. Click to stop it.' : 'Drag to turn the Earth any way. Click to set it turning again.';
+      if (!hero) {
+        stage.setAttribute('aria-label', on ? 'Pause the Earth turning' : 'Resume the Earth turning');
+        stage.title = on ? 'Drag to turn the Earth any way. Click to stop it.' : 'Drag to turn the Earth any way. Click to set it turning again.';
+      }
       requestFrame();
     }
     window.LonghandEarth = {
@@ -627,6 +658,7 @@
       toggle() { setPlaying(!playing); },
       reset() {
         focused = false; focusTarget = null; focusId = '';
+        selectConnections('');
         omega.set(0, 0, 0); ball.quaternion.identity(); spin.rotation.y = facing(START_LON);
         lean.x = lean.y = lean.tx = lean.ty = 0; returning = false;
         setPlaying(!reduceMotion.matches); requestFrame();
@@ -635,6 +667,7 @@
         if (!Number.isFinite(location.lat) || !Number.isFinite(location.lon)) return;
         setPlaying(false); spinVel = 0; omega.set(0, 0, 0); returning = false;
         focused = true; focusId = location.id || ''; intro = 1;
+        selectConnections(focusId);
         lean.x = lean.y = lean.tx = lean.ty = 0; world.rotation.set(0, 0, 0);
         world.updateMatrixWorld(true);
         const from = surfacePoint(location.lat, location.lon).applyQuaternion(spin.quaternion).normalize();
@@ -651,21 +684,10 @@
       setPlaying(!ev.matches);
       if (ev.matches) {
         intro = 1; spinVel = 0; omega.set(0, 0, 0);
-        lean.x = lean.y = lean.tx = lean.ty = 0; scrollP = 0;
+        lean.x = lean.y = lean.tx = lean.ty = 0;
       }
-      onScroll();
     };
     if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', onMotionPref);
-
-    /* The page's scroll moves the sun on and lets the Earth linger */
-    function onScroll() {
-      if (!hero || reduceMotion.matches) { scrollP = 0; return; }
-      const h = hero.offsetHeight || 1;
-      const p = Math.max(0, Math.min(1, window.scrollY / (h * 0.9)));
-      if (Math.abs(p - scrollP) > 1e-4) { scrollP = p; dirty = true; requestFrame(); }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
     /* Only draw while the Earth is on screen and the tab is open */
     new IntersectionObserver(([entry]) => {

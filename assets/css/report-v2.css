@@ -154,9 +154,9 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
 [data-report-publication] .pbai-sub { font-size: clamp(22px, 2vw, 28px); line-height: 1.35; max-width: 38ch; }
 [data-report-publication] :is(.micro, .tag, .flag, .badge, .report-related-meta, .report-context) { font-size: 11px; line-height: 1.7; }
 [data-report-publication] :is(.segmented, .period-buttons) { gap: 8px 20px; }
-[data-report-publication] :is(.segmented button, .period-buttons button) { font-size: 12px; font-weight: 400; min-height: 44px; background: transparent; color: var(--ink-2, var(--muted)); border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; padding-inline: 0; margin-left: 0; }
+[data-report-publication] :is(.segmented button, .period-buttons button) { font-size: 12px; font-weight: 400; min-height: 44px; background: transparent; color: var(--ink-2, var(--muted)); border: 0; border-bottom: 1px solid transparent; border-radius: 0; padding-inline: 0; margin-left: 0; }
 [data-report-publication] :is(.segmented button, .period-buttons button)[aria-pressed="true"] { background: transparent; color: var(--gold-ink, var(--teal)); border-bottom-color: currentColor; }
-[data-report-publication] .atlas-section .segmented button { color: #c7d0cf; border-bottom-color: #526872; }
+[data-report-publication] .atlas-section .segmented button { color: #c7d0cf; border-bottom-color: transparent; }
 [data-report-publication] .atlas-section .segmented button[aria-pressed="true"] { color: #dbbc82; border-bottom-color: currentColor; background: transparent; }
 @media (max-width: 760px) {
   .reading-rail { border-right: 0; border-bottom: 1px solid var(--rule); }

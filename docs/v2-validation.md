@@ -266,3 +266,53 @@ Cross-browser certification and physical iOS/Android device testing remain open.
 Browser evidence and temporary harnesses are outside Git under
 `C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/`; primary visual screenshots are
 in the parent tooling directory. The local preview is served at port 8765.
+
+### Quieter separators and substantive atlas links — 11 October 2026
+
+Owner brief: reduce decorative rules, remove the visible Pause rotation control,
+replace the homepage atlas-caption strip, refine the globe and plain labels,
+connect only strongly related research geographies, and use upright Wire type
+with institutional introductory copy. The homepage now uses ambient rotation
+without drag, pointer tilt, scroll parallax or a keyboard-button role; Coverage
+retains geographic selection, drag, keyboard rotation and World view reset.
+Reduced motion remains respected on both pages.
+
+Rules remain at major section boundaries, data rows, inputs and active choices.
+Repeated country/sector/control underlines, cover-grid rules, ledger dividers
+and the second footer rule were removed. Globe labels are small, transparent
+sans-serif annotations without boxes or underlines. The homepage caption and
+its rule were removed; Coverage is linked beside the Library action instead.
+Warm paper uses NASA surface texture, shaded ivory land and sage seas.
+
+The arc policy now draws three substantive relationships: Indonesia–China and
+Indonesia–India from the coal study's existing BPS destination register, and
+Indonesia–US from the co-primary monetary-policy report. It no longer selects
+seven shortest links or treats every material country mention as an arc.
+Country selection filters this subset; Viet Nam, for example, has no qualifying
+arc. Both ends must be on the readable hemisphere, preventing isolated horizon
+loops and lines pointing to hidden countries. No volume, measured financial
+correlation or transport route is encoded. The full research index is unchanged.
+Future material arcs require an explicit reviewed selection and an existing
+published graph relationship; co-primary links derive from the graph.
+
+Edge Playwright inspected 60 combinations across Home, Coverage, Library, Wire,
+About, country, sector, company, PDF Report and Coal at 320, 390 and 1440 pixels
+in both themes, with no root overflow or page errors. After the final hemisphere
+filter, the light Coverage screenshot was inspected again: two regional arcs
+are visible at opening, while the third connection remains behind the Earth.
+Marker selection, context-preserving sector links, Back, World view reset,
+CN/VN/US eligible counts (1/0/1), keyboard rotation, theme switching, Compact
+Library/search, upright Wire title, institutional copy and Menu/Escape passed.
+WebGL instrumentation confirmed ongoing ambient drawing in normal motion,
+zero additional draws after textures settle with reduced motion, and zero draws
+once the stage is outside the viewport. Homepage semantics are an image, with
+no tabindex or pointer interaction. Checks on both changed scripts, four existing
+research-graph tests, site validation and diff whitespace passed.
+
+All research bodies, catalogue entries, PDFs, dated data, source registers,
+financial calculations, news data, RSS, sitemap and publishing workflows remain
+unchanged. Specialized report HTML changes only refresh stylesheet version tags.
+Screenshots stay outside Git under `v2-qa`. Owner checkout remains clean on main
+at `54df02460f2068185bf381b754d76d1de219b7dd`; this work remains local to the
+external worktree's `codex/longhand-v2` branch. Physical-device and Safari/Firefox
+checks remain open. No push, PR, merge or publication was performed.

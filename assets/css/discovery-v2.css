@@ -9,7 +9,7 @@
 .discovery-facets label span { font: 500 9px var(--font-sans); text-transform: uppercase; letter-spacing: .12em; color: var(--ink-3); }
 .discovery-facets select { width: 100%; min-height: 44px; background: transparent; border: 1px solid var(--rule-2); color: var(--ink); padding: 8px 30px 8px 12px; font: 400 12px var(--font-sans); }
 .discovery-facets option { background: var(--bg); color: var(--ink); }
-.discovery-reset { min-height: 44px; border: 0; border-bottom: 1px solid var(--rule); background: none; font: 400 11px var(--font-sans); }
+.discovery-reset { min-height: 44px; border: 0; background: none; font: 400 11px var(--font-sans); }
 .library-context { display: flex; flex-wrap: wrap; gap: 12px; padding-bottom: 20px; font: 400 11px var(--font-sans); }
 .library-context a { display: flex; gap: 10px; align-items: center; }
 .v2-page .report-context { position: relative; z-index: 2; padding: 0; margin-top: 13px; display: flex; gap: 8px; flex-wrap: wrap; font: 400 10px/1.7 var(--font-sans); color: var(--ink-3); }
@@ -19,7 +19,7 @@
 .page-library .report-blurb { max-width: 72ch; font: 400 12px/1.75 var(--font-sans); color: var(--ink-2); }
 .page-library .report-id { font-variant-numeric: tabular-nums; }
 .page-library .filters .filter { border-radius: 1px; min-height: 44px; }
-.discovery-method { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule); font: 400 11px/1.8 var(--font-sans); color: var(--ink-3); max-width: 88ch; }
+.discovery-method { margin-top: 28px; padding-top: 20px; font: 400 11px/1.8 var(--font-sans); color: var(--ink-3); max-width: 88ch; }
 .discovery-method a { display: inline-flex; margin-left: 8px; }
 .entity-mast { padding-block: 30px 44px; }
 .entity-mast h1 { margin-block: 28px 20px; max-width: 22ch; }
@@ -31,7 +31,7 @@
 .entity-rail { align-self: start; position: sticky; top: 104px; }
 .entity-rail h2 { font: 500 10px var(--font-sans); text-transform: uppercase; letter-spacing: .12em; margin: 0 0 14px; }
 .entity-rail nav { display: flex; flex-direction: column; margin-bottom: 28px; }
-.entity-rail a { padding-block: 12px; border-bottom: 1px solid var(--rule); font: 400 12px/1.5 var(--font-sans); display: flex; justify-content: space-between; gap: 10px; text-decoration: none; }
+.entity-rail a { padding-block: 12px; font: 400 12px/1.5 var(--font-sans); display: flex; justify-content: space-between; gap: 10px; text-decoration: none; }
 .entity-rail a:hover { color: var(--gold-ink); }
 .entity-rail small { color: var(--ink-3); }
 .entity-report-list { list-style: none; margin: 0; padding: 0; }
@@ -44,7 +44,7 @@
 .entity-report p { font: 400 12px/1.8 var(--font-sans); color: var(--ink-2); }
 .entity-report .entity-report-meta { font: 400 10px/1.6 var(--font-sans); color: var(--gold-ink); }
 .entity-index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
-.entity-index a { border-top: 1px solid var(--rule-2); padding-block: 24px; text-decoration: none; }
+.entity-index a { padding-block: 24px; text-decoration: none; }
 .entity-index h2 { font-size: 28px; line-height: 1.15; margin: 12px 0; }
 .entity-index p { color: var(--ink-2); font: 400 12px/1.8 var(--font-sans); }
 .entity-index small { font: 400 10px var(--font-sans); color: var(--gold-ink); }
@@ -83,7 +83,7 @@
 .page-library .report-title { font-size: 28px; line-height: 1.13; margin-top: 8px; }
 .page-library .report-blurb { font-size: 11px; line-height: 1.8; -webkit-line-clamp: 2; }
 .page-library .report-context { margin-top: 10px; gap: 7px; }
-.page-library .report-context a { border: 0; border-bottom: 1px solid var(--rule); padding: 1px 0; font-size: 9px; text-decoration: none; }
+.page-library .report-context a { border: 0; padding: 1px 0; font-size: 9px; text-decoration: none; }
 .page-library .report-context > span { display: none; }
 .page-library .report-call { align-self: stretch; }
 .page-library .report-call .call { font-size: 11px; gap: 8px; }
@@ -144,7 +144,7 @@
 .entity-report p, .entity-index p { font-size: 13px; }
 .entity-meta, .entity-evidence { font-size: 12px; }
 .library-view { display: flex; justify-content: flex-end; gap: 24px; padding-block: 4px 22px; }
-.library-view button { background: transparent; border: 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); min-height: 44px; padding: 8px 0; font: 400 12px var(--font-sans); }
+.library-view button { background: transparent; border: 0; border-bottom: 1px solid transparent; color: var(--ink-2); min-height: 44px; padding: 8px 0; font: 400 12px var(--font-sans); }
 .library-view button[aria-pressed="true"], .library-view button:hover { color: var(--gold-ink); border-bottom-color: var(--gold-ink); }
 @media (max-width: 640px) {
   .page-library .discovery-facets label { flex-basis: 100%; }

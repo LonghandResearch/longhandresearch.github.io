@@ -18,7 +18,7 @@
 
 /* Keep the existing search, calls and research relationships around the covers. */
 .page-library .report-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 30px; border-top: 0; }
-.page-library .report { display: flex; flex-direction: column; gap: 16px; padding: 0 0 22px; min-width: 0; border-top: 0; border-bottom: 1px solid var(--rule); }
+.page-library .report { display: flex; flex-direction: column; gap: 16px; padding: 0 0 22px; min-width: 0; border: 0; }
 .page-library .report-id { display: flex; flex-direction: row; gap: 10px; flex-wrap: wrap; align-items: baseline; }
 .page-library .report-id .report-no { font-size: 14px; }
 .page-library .report-date { margin-left: auto; font-size: 9px; }
@@ -53,7 +53,7 @@
 .page-library .report-date, .page-library .report-call .call dd, .page-library .report-call .call dt { font-size: 11px; }
 .page-home .publication-tile p, .page-home .publication-tile:first-child p { font-size: 13px; }
 .page-library[data-library-view="compact"] .report-list { grid-template-columns: minmax(0, 1fr); gap: 0; }
-.page-library[data-library-view="compact"] .report { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 26px; row-gap: 12px; padding-block: 24px; align-items: start; }
+.page-library[data-library-view="compact"] .report { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: 26px; row-gap: 12px; padding-block: 24px; align-items: start; border-bottom: 1px solid var(--rule); }
 .page-library[data-library-view="compact"] .report-id { grid-column: 2; grid-row: 1; }
 .page-library[data-library-view="compact"] .research-cover, .page-library[data-library-view="compact"] .report-thumbnail { grid-column: 1; grid-row: 1 / 4; }
 .page-library[data-library-view="compact"] .report-main { grid-column: 2; grid-row: 2; }

@@ -24,6 +24,16 @@ Its rounded latitude/longitude values are representative locator points, not
 offices, projects, exact boundaries, territorial claims or investment exposure.
 The complete country list is available without WebGL.
 
+Globe arcs are an editorial subset, not every country mentioned in a report.
+Co-primary geographies qualify; material connections also require a reviewed
+selection in `assets/js/earth.js`. Currently these are Indonesia–US monetary
+policy research and Indonesia–China / Indonesia–India coal-market research.
+The latter selections use the existing study's BPS destination register in
+`assets/js/coal/data.js`; neither line width nor animation represents volume.
+Selection narrows arcs to the chosen country, and both endpoints must be on the
+readable hemisphere before the renderer draws a connection. Context-only markets
+remain discoverable through the full list, with no inferred arcs.
+
 Add a new publication to the existing catalogue first. Add evidence-linked
 relationships to the graph after checking the report. Unmapped publications still
 appear in the Library and Homepage; they do not acquire inferred country/company
