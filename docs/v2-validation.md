@@ -362,3 +362,51 @@ This is Codex author QA for the existing local V2 branch. The owner checkout
 remains clean on main at `54df02460f2068185bf381b754d76d1de219b7dd`.
 Physical-device and Safari/Firefox verification remain open. No push, PR,
 merge or publication was performed.
+
+### Editorial composition and reading preview — 11 October 2026
+
+The owner approved the proposed design development and requested a local
+preview. This pass implements the first priorities: Homepage composition and
+Report reading. Latest research now presents the newest catalogue entry as a
+larger portrait edition, with three companion publications. The titles, order,
+dates, subject labels and destinations come from the existing catalogue.
+Tablet and mobile compositions preserve portrait artwork and readable text.
+Image size hints follow each placement without new assets or dependencies.
+
+The PDF reading rail reuses the existing publication jacket, with transparent
+Overview, Full report and Library links. Its active location follows the
+reading position. A duplicate Library link is hidden only when that rail exists.
+The original Memory War cover remains intact. On smaller screens the jacket
+yields space to the report text and the navigation remains available. Narrative
+paragraphs use a 65-character measure, 18–20px type and ragged-right alignment,
+with more room around native exhibits. Source notes, tables and model controls
+retain their existing typography and data.
+
+Playwright checked 32 page/theme/viewport combinations: Home and PDF Report
+at 320, 390, 768 and 1440px in both themes, plus Library, Coal, PBAI and the
+October weekly edition at 390 and 1440px in both themes. No page errors or root
+overflow were observed. Additional mobile probes of the October PBAI supplement,
+September weekly edition and resource study fit without overflow. All eleven
+Library covers loaded in 2:3 frames. All five PDF jackets matched their reports,
+including the original anime cover. The four Homepage entries exactly match
+catalogue order, titles and links, and the lead opens the Coal report.
+
+Overview/Full report navigation and active states, PDF zoom (100–110–100%),
+ADRO search, clear search, Covers/Compact switching and theme persistence passed
+on desktop and mobile. Desktop and mobile screenshots of both Homepage themes
+and the PDF reader, the tablet composition, and representative research sections
+were visually inspected. Screenshots remain outside Git under
+`C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/edition-*`.
+
+All changed JavaScript passes syntax checks. Site validation passed for 59
+scripts, 67 JSON files, 11 catalogue entries, 16 sitemap pages and links in 19
+pages. Diff whitespace checks passed. Specialized report HTML edits refresh
+asset versions only. Catalogue records, PDFs, research bodies, financial data,
+source registers, model code, news, feed, sitemap and deployment workflows have
+no changes in this pass. Homepage globe rendering, ambient rotation and the
+three substantive research connections are preserved.
+
+This is Codex author QA for the local `codex/longhand-v2` branch in the external
+worktree. The owner checkout remains clean on main at
+`54df02460f2068185bf381b754d76d1de219b7dd`. Physical-device and Safari/Firefox
+verification remain open. No push, PR, merge or publication was performed.

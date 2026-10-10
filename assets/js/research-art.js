@@ -1,5 +1,5 @@
-/* Presentation-only art. Original document captures remain available to the
-   reading rail. Editorial illustrations are conceptual, never research data. */
+/* Presentation-only art. Original document captures remain available as a
+   fallback. Editorial illustrations are conceptual, never research data. */
 (function () {
   'use strict';
   const base = new URL('../../assets/img/research/', document.currentScript.src);
@@ -38,12 +38,12 @@
       const entry = !report.isLocal && covers[report.id];
       return entry ? { src: new URL(`covers/${entry[0]}-art.webp?v=2026-10-10final`, base).href, caption: `Editorial illustration · ${entry[4]}`, kind: 'illustration' } : originalForReport(report);
     },
-    coverHTML(report, { compact = false } = {}) {
+    coverHTML(report, { compact = false, sizes: sizesHint } = {}) {
       const LH = window.Longhand;
       const entry = !report.isLocal && covers[report.id];
       if (!LH || (!entry && report.id !== 'sector-2026-09-24')) return '';
       const { esc, dateShort } = LH.util;
-      const sizes = compact ? '(max-width: 580px) 84px, 112px' : document.body.classList.contains('page-home') ? '(max-width: 580px) calc(100vw - 40px), (max-width: 1050px) calc((100vw - 80px) / 2), (max-width: 1400px) calc((100vw - 180px) / 4), 298px' : '(max-width: 580px) calc(100vw - 40px), (max-width: 1050px) calc((100vw - 80px) / 2), (max-width: 1400px) calc((100vw - 120px) / 3), 407px';
+      const sizes = sizesHint || (compact ? '(max-width: 580px) 84px, 112px' : document.body.classList.contains('page-home') ? '(max-width: 580px) calc(100vw - 40px), (max-width: 1050px) calc((100vw - 80px) / 2), (max-width: 1400px) calc((100vw - 180px) / 4), 298px' : '(max-width: 580px) calc(100vw - 40px), (max-width: 1050px) calc((100vw - 80px) / 2), (max-width: 1400px) calc((100vw - 120px) / 3), 407px');
       if (!entry) {
         const art = originalForReport(report);
         return `<figure class="research-cover cover-original" data-report-cover="${esc(report.id)}"><img src="${esc(art.src)}" srcset="${esc(new URL('covers/memory-original-320.webp', base).href)} 320w, ${esc(art.src)} 637w" sizes="${sizes}" alt="${esc(report.title)} — original anime cover with three memory companies" width="637" height="900" loading="lazy" decoding="async"></figure>`;

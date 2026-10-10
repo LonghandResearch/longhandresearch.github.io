@@ -72,20 +72,37 @@
     const aside = document.createElement('aside'); aside.className = 'reading-rail';
     aside.setAttribute('aria-label', 'Publication navigation');
     const inner = document.createElement('div'); inner.className = 'reading-rail-inner';
-    const rubric = document.createElement('p'); rubric.className = 'reading-rubric'; rubric.textContent = 'The reading room';
-    const meta = document.createElement('p'); meta.className = 'reading-meta'; meta.textContent = `${r.category} · ${r.date}`;
-    const title = document.createElement('h2'); title.textContent = r.title;
-    const nav = document.createElement('nav');
-    nav.append(link('01 Overview', `#${head.id}`), link('02 Full publication', `#${documentView.id}`), link('← Return to Library', at('library.html')));
-    inner.append(rubric, meta, title, nav);
-    const art = window.LonghandArt?.originalForReport(r) || window.LonghandArt?.forReport(r);
-    if (art) {
-      const figure = document.createElement('figure');
-      const image = document.createElement('img'); image.src = art.src; image.alt = art.caption; image.width = 180; image.height = 255; image.loading = 'lazy';
-      const caption = document.createElement('figcaption'); caption.textContent = 'From the original publication';
-      figure.append(image, caption); inner.append(figure);
+    const rubric = document.createElement('p'); rubric.className = 'reading-rubric'; rubric.textContent = 'Publication';
+    inner.append(rubric);
+    const cover = window.LonghandArt?.coverHTML(r, { sizes: '176px' });
+    if (cover) {
+      const jacket = document.createElement('div'); jacket.className = 'reading-jacket';
+      jacket.innerHTML = cover;
+      inner.append(jacket);
+    } else {
+      const title = document.createElement('h2'); title.textContent = r.title;
+      inner.append(title);
     }
+    const meta = document.createElement('p'); meta.className = 'reading-meta';
+    meta.textContent = `${r.category} · ${window.Longhand ? window.Longhand.util.dateLong(r.date) : r.date}`;
+    const nav = document.createElement('nav');
+    const overviewLink = link('Overview', `#${head.id}`);
+    const documentLink = link('Full report', `#${documentView.id}`);
+    overviewLink.setAttribute('aria-current', 'location');
+    nav.append(overviewLink, documentLink, link('← Library', at('library.html')));
+    inner.append(meta, nav);
     aside.append(inner); main.prepend(aside);
+    if ('IntersectionObserver' in window) {
+      const position = new IntersectionObserver(() => {
+        if (!aside.isConnected) { position.disconnect(); return; }
+        const inDocument = documentView.getBoundingClientRect().top <= innerHeight * .4;
+        [overviewLink, documentLink].forEach((a, i) => {
+          if (i === (inDocument ? 1 : 0)) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+      position.observe(head); position.observe(documentView);
+    }
   }
 
   function addContents() {
