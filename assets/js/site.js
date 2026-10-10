@@ -107,6 +107,7 @@
       targetPrice,
       upside,
       pdfUrl,
+      contentUrl: /^(?!\/)(?!.*\.\.)[\w./-]+\.json$/.test(String(r.contentUrl || '')) ? String(r.contentUrl) : '',
       fileName: String(r.fileName || '').trim() || decodeURIComponentSafe(pdfUrl.split(/[\\/]/).pop() || ''),
       fileSize: num(r.fileSize),
       pages: num(r.pages),
@@ -215,7 +216,7 @@
       if (seen.has(r.id)) { found.push(`${where} uses the id “${r.id}”, which is already taken; it is not shown.`); return; }
       if (!raw.title) found.push(`${where} has no title.`);
       if (!parseISO(raw.date)) found.push(`${where}: write the date as YYYY-MM-DD, for example 2026-09-03.`);
-      if (!r.pdfUrl && !r.page) found.push(`${where} has no pdfUrl, so there is no PDF to open.`);
+      if (!r.pdfUrl && !r.page && !r.contentUrl) found.push(`${where} has no PDF, interactive page or structured content to open.`);
       if (raw.category && !CATEGORIES.includes(raw.category)) found.push(`${where}: the category should be Initiation, Update, Sector or Macro.`);
       seen.add(r.id);
       out.push(r);

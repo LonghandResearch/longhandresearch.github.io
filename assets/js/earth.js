@@ -232,6 +232,48 @@
     let intro = reduceMotion.matches ? 1 : 0;       // the opening turn and bloom, 0 to 1
     let cloudTarget = 0, nightTarget = 0;
     let radiusPx = 100;
+    let focused = false, focusTarget = null, focusId = '';
+    let markers = [];
+    const markerLayer = document.createElement('div');
+    markerLayer.className = 'globe-markers';
+    markerLayer.setAttribute('aria-label', 'Research locations');
+    stage.after(markerLayer);
+    const surfacePoint = (lat, lon) => {
+      const p = lat * Math.PI / 180, l = lon * Math.PI / 180;
+      return new THREE.Vector3(Math.cos(p) * Math.cos(l), Math.sin(p), -Math.cos(p) * Math.sin(l));
+    };
+    function setMarkers(items) {
+      markerLayer.replaceChildren();
+      markers = items.filter((m) => Number.isFinite(m.lat) && Number.isFinite(m.lon)).map((m) => {
+        const button = document.createElement('button');
+        button.type = 'button'; button.className = 'globe-marker';
+        button.textContent = m.name; button.title = m.name + ' research';
+        button.setAttribute('aria-label', 'Explore ' + m.name + ' research');
+        button.addEventListener('click', () => document.dispatchEvent(new CustomEvent('longhand:globe-select', { detail: { id: m.id } })));
+        markerLayer.append(button);
+        return { ...m, button, point: surfacePoint(m.lat, m.lon) };
+      });
+      requestFrame();
+    }
+    function projectMarkers() {
+      const bounds = stage.getBoundingClientRect(), parent = plate.getBoundingClientRect();
+      markerLayer.style.left = (bounds.left - parent.left) + 'px';
+      markerLayer.style.top = (bounds.top - parent.top) + 'px';
+      markerLayer.style.width = bounds.width + 'px';
+      markerLayer.style.height = bounds.height + 'px';
+      const q = spin.getWorldQuaternion(new THREE.Quaternion());
+      markers.forEach((m) => {
+        const point = spin.localToWorld(m.point.clone().multiplyScalar(1.03));
+        const normal = m.point.clone().applyQuaternion(q).normalize();
+        m.button.hidden = normal.dot(camera.position.clone().sub(point).normalize()) < .1;
+        const projected = point.project(camera);
+        m.button.style.left = ((projected.x + 1) * bounds.width / 2) + 'px';
+        m.button.style.top = ((1 - projected.y) * bounds.height / 2) + 'px';
+        m.button.classList.toggle('is-selected', m.id === focusId);
+        m.button.classList.toggle('is-muted', !!focusId && m.id !== focusId);
+        m.button.setAttribute('aria-pressed', String(m.id === focusId));
+      });
+    }
 
     const camRight = new THREE.Vector3(1, 0, 0);
     const camUp = new THREE.Vector3(0, 1, 0);
@@ -334,7 +376,7 @@
         } else if (w) {
           omega.set(0, 0, 0);
         }
-        if (!returning && !omega.lengthSq() && now - lastTouch > RETURN_AFTER_MS && tilted()) settle();
+        if (!focused && !returning && !omega.lengthSq() && now - lastTouch > RETURN_AFTER_MS && tilted()) settle();
         if (returning) {
           ball.quaternion.slerp(UPRIGHT, reduceMotion.matches ? 1 : 1 - Math.exp(-dt * 1.8));
           if (!tilted()) { ball.quaternion.identity(); returning = false; }
@@ -342,6 +384,11 @@
         }
       } else busy = true;
 
+      if (focusTarget) {
+        ball.quaternion.slerp(focusTarget, reduceMotion.matches ? 1 : 1 - Math.exp(-dt * 7));
+        if (ball.quaternion.angleTo(focusTarget) < .001) { ball.quaternion.copy(focusTarget); focusTarget = null; }
+        busy = true;
+      }
       // the pointer's lean, and the page's scroll
       lean.x += (lean.tx - lean.x) * (1 - Math.exp(-dt * 4));
       lean.y += (lean.ty - lean.y) * (1 - Math.exp(-dt * 4));
@@ -352,6 +399,7 @@
       uniforms.sunDir.value.copy(sun);
 
       renderer.render(scene, camera);
+      if (markers.length) projectMarkers();
       dirty = false;
       if (!shown) { shown = true; plate.classList.add('is-ready'); }
       if ((busy || playing || dirty) && visible && !document.hidden) raf = requestAnimationFrame(loop);
@@ -367,6 +415,7 @@
     const perPixel = () => (Math.PI * 1.1) / Math.max(260, radiusPx * 2.4);
     stage.addEventListener('pointerdown', (e) => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
+      focused = false; focusTarget = null;
       dragging = true;
       moved = false;
       touch = e.pointerType !== 'mouse';
@@ -437,6 +486,7 @@
     stage.addEventListener('keydown', (e) => {
       const dir = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
       if (dir) {
+        focused = false; focusTarget = null;
         e.preventDefault();
         returning = false;
         tv.copy(camUp).multiplyScalar(dir[0]).addScaledVector(camRight, dir[1]).normalize();
@@ -456,10 +506,36 @@
     // The button names the action available in its current state.
     function setPlaying(on) {
       playing = on;
+      if (on) { focused = false; focusTarget = null; }
+      document.dispatchEvent(new CustomEvent('longhand:globe-playing', { detail: { playing: on } }));
       stage.setAttribute('aria-label', on ? 'Pause the Earth turning' : 'Resume the Earth turning');
       stage.title = on ? 'Drag to turn the Earth any way. Click to stop it.' : 'Drag to turn the Earth any way. Click to set it turning again.';
       requestFrame();
     }
+    window.LonghandEarth = {
+      setMarkers,
+      pause() { setPlaying(false); },
+      toggle() { setPlaying(!playing); },
+      reset() {
+        focused = false; focusTarget = null; focusId = '';
+        omega.set(0, 0, 0); ball.quaternion.identity(); spin.rotation.y = facing(START_LON);
+        lean.x = lean.y = lean.tx = lean.ty = 0; returning = false;
+        setPlaying(!reduceMotion.matches); requestFrame();
+      },
+      focus(location) {
+        if (!Number.isFinite(location.lat) || !Number.isFinite(location.lon)) return;
+        setPlaying(false); spinVel = 0; omega.set(0, 0, 0); returning = false;
+        focused = true; focusId = location.id || ''; intro = 1;
+        lean.x = lean.y = lean.tx = lean.ty = 0; world.rotation.set(0, 0, 0);
+        world.updateMatrixWorld(true);
+        const from = surfacePoint(location.lat, location.lon).applyQuaternion(spin.quaternion).normalize();
+        const to = new THREE.Vector3(0, 0, 1).applyQuaternion(axis.getWorldQuaternion(new THREE.Quaternion()).invert()).normalize();
+        focusTarget = new THREE.Quaternion().setFromUnitVectors(from, to);
+        if (reduceMotion.matches) { ball.quaternion.copy(focusTarget); focusTarget = null; }
+        requestFrame();
+      }
+    };
+    document.dispatchEvent(new CustomEvent('longhand:globe-ready'));
     setPlaying(playing);
     const onMotionPref = (ev) => {
       setPlaying(!ev.matches);

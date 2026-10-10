@@ -21,7 +21,7 @@
     m.GlobalWorkerOptions.workerSrc = `${PDFJS}pdf.worker.min.mjs`;
     return m;
   }));
-  if (location.protocol !== 'file:') loadPdfjs().catch(() => { pdfjsReady = null; });
+  if (location.protocol !== 'file:' && !(window.LONGHAND_REPORTS || []).some((r) => r.id === id && r.contentUrl)) loadPdfjs().catch(() => { pdfjsReady = null; });
 
   let view = null;
 
@@ -65,7 +65,8 @@
     const url = LH.fileUrl(r);
     const ledger = LH.ledgerHtml(r, 'Key data');
     const company = r.company && r.company !== r.title ? r.company : '';
-    const canFs = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+    const structured = !!r.contentUrl;
+    const canFs = !structured && !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
 
     root.innerHTML = `
       <div class="wrap">
@@ -77,8 +78,8 @@
             ${company ? `<p class="reader-company">${esc(company)}</p>` : ''}
             ${r.summary ? `<p class="reader-summary">${esc(r.summary)}</p>` : ''}
             <div class="reader-actions">
-              <a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>
-              <a class="text-link" data-open-file href="${esc(url)}" target="_blank" rel="noopener">Open file in a new tab ${icon('external')}</a>
+              ${url ? `<a class="btn" href="${esc(url)}" download="${esc(LH.downloadName(r))}">${icon('download')} Download</a>
+              <a class="text-link" data-open-file href="${esc(url)}" target="_blank" rel="noopener">Open file in a new tab ${icon('external')}</a>` : ''}
               ${canFs ? `<button type="button" class="btn btn-quiet" data-fullscreen>${icon('maximize')} <span data-fs-label>Read full screen</span></button>` : ''}
               ${r.isLocal ? '' : `<button type="button" class="text-link" data-copy-link>${icon('link')} <span data-copy-label aria-live="polite">Copy link</span></button>`}
               <span class="file-meta" data-file-meta>${esc(LH.fileMeta(r))}</span>
@@ -98,6 +99,7 @@
         </header>
       </div>
 
+      ${structured ? '<div class="wrap" data-structured-report><p class="state-text" role="status">Loading the research…</p></div>' : `
       <section class="viewer" data-viewer aria-label="The full report">
         <span class="sr-only" data-reader-announcement role="status" aria-atomic="true"></span>
         <div class="viewer-bar">
@@ -113,10 +115,11 @@
             </div>
           </div>
         </div>
+        <details class="report-pdf-contents wrap" data-pdf-contents hidden><summary>Contents</summary><nav aria-label="PDF contents"></nav></details>
         <div class="viewer-scroll">
           <div class="viewer-pages" data-pages></div>
         </div>
-      </section>`;
+      </section>`}`;
 
     // Back to the library exactly as it was left (search, filter, scroll),
     // when that is where the reader came from
@@ -152,7 +155,12 @@
       });
     }
 
-    view = new PdfView(r, $('[data-viewer]', root));
+    document.dispatchEvent(new CustomEvent('longhand:report-ready', { detail: { report: r } }));
+    if (structured) {
+      view = window.LonghandStructured.load(r, $('[data-structured-report]', root));
+    } else {
+      view = new PdfView(r, $('[data-viewer]', root));
+    }
   }
 
   /* The PDF viewer */
@@ -236,8 +244,58 @@
       this.observe();
       this.updateStatus();
       this.announce(`Report loaded, ${this.doc.numPages} ${this.doc.numPages === 1 ? 'page' : 'pages'}.`);
+      this.loadOutline();
       this.rememberPages();
       this.fillPages();
+    }
+
+    async loadOutline() {
+      // Use the document's own bookmarks; never infer a research outline from page text.
+      const holder = $('[data-pdf-contents]', this.el);
+      if (!holder) return;
+      try {
+        const outline = await this.doc.getOutline();
+        if (this.dead || !outline || !outline.length) return;
+        const list = document.createElement('ol');
+        const append = (items, target, depth = 0) => {
+          if (depth > 4) return;
+          items.slice(0, 80).forEach((item) => {
+            const li = document.createElement('li');
+            if (item.dest) {
+              const button = document.createElement('button');
+              button.type = 'button';
+              button.textContent = item.title || 'Section';
+              button.addEventListener('click', async () => {
+                try {
+                  const dest = typeof item.dest === 'string' ? await this.doc.getDestination(item.dest) : item.dest;
+                  if (!dest || this.dead) return;
+                  const n = Number.isInteger(dest[0]) ? dest[0] : await this.doc.getPageIndex(dest[0]);
+                  const page = this.pages[n];
+                  if (!page || this.dead) return;
+                  page.el.scrollIntoView({ block: 'start', behavior: 'instant' });
+                  page.el.tabIndex = -1;
+                  page.el.focus({ preventScroll: true });
+                  holder.open = false;
+                } catch (e) { this.announce('This bookmark is unavailable. Use the page controls to continue.'); }
+              });
+              li.append(button);
+            } else {
+              const label = document.createElement('span');
+              label.textContent = item.title || 'Section';
+              li.append(label);
+            }
+            if (item.items && item.items.length) {
+              const nested = document.createElement('ol');
+              append(item.items, nested, depth + 1);
+              li.append(nested);
+            }
+            target.append(li);
+          });
+        };
+        append(outline, list);
+        holder.querySelector('nav').replaceChildren(list);
+        holder.hidden = false;
+      } catch (e) { /* PDF bookmarks are optional; the reader remains available. */ }
     }
 
     async fillPages() {

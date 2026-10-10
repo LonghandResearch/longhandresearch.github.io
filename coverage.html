@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Coverage · Longhand Research</title>
-<meta name="description" content="Every company Longhand Research rates: the current call, target and price at publication, and the calls before it.">
+<meta name="description" content="Explore the geography of Longhand research. Follow documented country, sector and company relationships to the full reports.">
 <meta name="theme-color" content="#f3efe7">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Longhand Research">
@@ -51,12 +51,18 @@
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
-<script src="assets/js/site.js?v=2026-10-09g" defer blocking="render"></script>
+<script src="assets/js/site.js?v=2026-10-10v2" defer blocking="render"></script>
 <script src="assets/js/coverage.js?v=2026-09-27b" defer blocking="render"></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-10a">
+<link rel="stylesheet" href="assets/css/coverage-v2.css?v=2026-10-10a">
+<script src="assets/js/research-graph.js?v=2026-10-10a" defer></script>
+<script src="assets/js/v2.js?v=2026-10-10a" defer></script>
+<script src="assets/js/coverage-map.js?v=2026-10-10a" defer></script>
+<script src="assets/js/earth.js?v=2026-10-10a" defer></script>
 </head>
-<body class="page-coverage">
+<body class="page-coverage v2-page v2-dark">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -80,31 +86,23 @@
 </header>
 
 <main id="main">
-  <header class="page-head wrap">
-    <svg class="page-emblem" viewBox="0 0 72 88" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true" focusable="false">
-      <circle cx="36" cy="34" r="27" stroke-width="1.5"/>
-      <circle cx="36" cy="34" r="21.5" stroke-width="1.2"/>
-      <g transform="rotate(-23.44 36 34)">
-        <ellipse cx="36" cy="34" rx="8.5" ry="21.5" stroke-width="1"/>
-        <ellipse cx="36" cy="34" rx="16" ry="21.5" stroke-width="0.8" opacity="0.55"/>
-        <path d="M14.5 34h43" class="gold" stroke-width="1.3"/>
-        <path d="M16.6 25h38.8M16.6 43h38.8" stroke-width="0.7" opacity="0.5"/>
-        <path d="M36 7V3.5M36 61v3.5" stroke-width="1.6"/>
-      </g>
-      <path d="M36 61v12" stroke-width="1.5"/>
-      <path d="M23.5 85c0-6.5 5.5-10 12.5-10s12.5 3.5 12.5 10z" stroke-width="1.5"/>
-    </svg>
-    <div>
-      <p class="eyebrow">Coverage</p>
-      <h1 class="page-title">Company coverage</h1>
-      <p class="page-lede">Current ratings and earlier calls for every company covered by Longhand. Sector studies and macro notes are in the <a href="library.html">library</a>.</p>
-      <p class="page-folio" data-folio hidden></p>
+  <header class="coverage-opening wrap"><p class="eyebrow">Longhand / Global research map</p><h1>Explore the world.<br><em>Follow the research.</em></h1><p>A geography of our published work. Start with a country, discover a sector, and follow the evidence to a company or report.</p></header>
+  <div class="coverage-explorer wrap">
+    <nav class="coverage-country-list" data-country-list aria-label="Choose research geography"></nav>
+    <div class="coverage-globe">
+      <figure class="plate" data-globe><div class="plate-stage" data-globe-stage role="button" tabindex="0" aria-label="Control the Earth's rotation" aria-describedby="globe-help"></div><p class="sr-only" id="globe-help">Use arrow keys to turn the Earth. Space pauses or resumes rotation. Choose a named research location or use the country list. Markers are representative geographic points, not office locations.</p></figure>
+      <div class="globe-controls"><button type="button" data-globe-pause>Pause rotation</button><button type="button" data-globe-reset>World view</button></div>
+      <p class="globe-caption">NASA Earth imagery. Markers locate research geographies approximately. The country list provides every documented connection.</p>
     </div>
-  </header>
-
+    <section class="coverage-panel" data-coverage-panel aria-label="Selected research geography"></section>
+  </div>
+  <p class="sr-only" role="status" data-coverage-status></p>
+  <noscript><div class="wrap"><p>Explore all publications in the <a href="library.html">Library</a>. The research map requires JavaScript.</p></div></noscript>
+  <div class="wrap"><p class="coverage-definition">A research connection is not a country investment recommendation. Primary geographies are the central subjects of reports; other connections include trade destinations and regional context. Companies discussed in sector studies remain distinct from the rated company calls below.</p></div>
   <section class="section wrap" id="coverage" aria-labelledby="coverage-title">
     <div class="section-head">
-      <h2 class="section-label" id="coverage-title">Rated companies</h2>
+      <h2 class="section-label" id="coverage-title">Published company calls</h2>
+      <p class="page-folio" data-folio hidden></p>
     </div>
     <ol class="report-list" data-coverage></ol>
     <noscript><p class="empty-text">The coverage list needs JavaScript. Please turn it on to see it.</p></noscript>

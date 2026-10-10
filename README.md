@@ -15,9 +15,12 @@ uncommitted branch.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | The front page: the Earth, a direct introduction and the latest published report |
+| `index.html` | Editorial front page: the Earth, latest research and the publication ledger |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
-| `coverage.html` | Every rated company: its current call and the calls before it, built from the catalogue |
+| `coverage.html` | Research geography explorer: a functional globe, country list, sectors and reports; the existing rated-company history remains below |
+| `country.html?id=ID` | Country or market research and its documented connections |
+| `sector.html?id=...` | Sector research, optionally within a country |
+| `company.html?id=...` | A company identity, listing and published research history |
 | `about.html` | How the reports are built, the rating key and the report types |
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
@@ -336,14 +339,41 @@ Some publishers turn away automated readers (CNBC Indonesia, Kontan and Mining.c
 
 Opened straight from the disk, the browser will not read `news/news.json`, so The Wire shows only on the live site (or from `localhost`).
 
+## Longhand V2 public interface
+
+The public experience remains static HTML, CSS and JavaScript with no required
+build step. Homepage and Coverage use the dark research palette; Library,
+entity pages and reports use the editorial reading palette with the existing
+saved theme preference. Newsreader and Libre Franklin remain the typefaces.
+
+`assets/css/v2.css` and `assets/js/v2.js` add the shared public shell, mobile menu,
+footer and progressive identity transitions. Page-specific V2 styles keep the
+archive, globe and reading layouts separate. Ordinary links and query parameters
+remain the navigation layer; unsupported view-transition browsers navigate normally.
+
+The public discovery graph is an additive index over the unchanged catalogue.
+See [research graph](docs/research-graph.md) for evidence roles, entity IDs,
+count definitions and maintenance. Library search includes abstracts and documented
+relationships; country, sector and company filters persist in its address.
+The country list remains fully usable if WebGL is unavailable. Country selection
+focuses the existing Earth renderer; representative markers are not project sites.
+
+Existing PDFs and specialized reports retain their readers and calculations.
+Future text-led reports can use a reviewed JSON `contentUrl` with the existing
+`report.html?id=...` template; see [structured reports](docs/structured-reports.md).
+No existing publication has been converted to that format. Authoring, local
+research storage, RSS, Wire and the publishing workflow remain as documented above.
+
+See [V2 validation](docs/v2-validation.md) for the local implementation checks.
+
 ## The front page
 
-The front page is a night plate that stays dark in both themes. It introduces the library immediately, shows the latest published report from the catalogue, and keeps a photographic Earth as its one visual feature. The Earth is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
+The front page stays dark in both themes. It introduces the publication, links to the research map and displays four recent catalogue entries. A compact latest-report link appears before the globe on mobile. The publication ledger derives its counts from the catalogue; it is not a live market feed. The Earth is drawn with three.js from NASA imagery: Blue Marble for the day side, Black Marble for the city lights and a cloud layer that drifts a little ahead of the ground.
 
 - **Turning it.** Drag the Earth in any direction; on a touch screen, swipe sideways (an upward swipe still scrolls the page). Click it or press Space to stop or start it, and double-click it or press Home to set it straight. Arrow keys turn it too. Left alone, it settles back onto its axis.
 - **Opening.** The heading and report link are available at once while the Earth imagery loads. On narrow screens they come before the globe.
 - **Leaving it.** A short zoom and fade carries the landing into the next page, and reverses on return. These are cross-document view transitions (Chrome, Edge, Safari), set in `site.css` and `site.js`.
-- **Latest report.** The front page draws its link, date, ticker and category from the newest published catalogue entry. It does not need a manual edit after publication.
+- **Latest research.** The front page draws publication links, dates and categories from the catalogue. It updates when a report is published. Equal publication dates keep the established title tie-break; catalogue numbers remain chronological identifiers.
 - **Behind it.** Seeded stars, drawn once against the dark sky.
 - **Settings** at the top of `assets/js/earth.js`: the meridian it opens on (`START_LON`), how fast it turns (`TURN_SECONDS`), how far the sun moves on scroll (`SUN_SWEEP`) and the Earth's size in its frame (`RADIUS_SHARE`).
 
