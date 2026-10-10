@@ -44,7 +44,7 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
 /* Navigation remains ordinary links; the menu is only a small-screen disclosure. */
 @media (max-width: 900px) {
   html:has(body.v2-page) { --masthead-h: 68px; }
-  .v2-page .masthead-inner { height: 68px; flex-wrap: wrap; gap: 0; }
+  .v2-page .masthead-inner { display: flex; height: 68px; flex-wrap: nowrap; gap: 0; }
   .v2-page .brand-name { font-size: 25px; }
   .v2-page .brand-sub { font-size: 8px; }
   .v2-page .site-nav { gap: 12px; width: 100%; flex-wrap: wrap; padding: 8px 0 14px; }
@@ -76,4 +76,31 @@ html:has(.v2-page)::view-transition-group(globe) { animation-duration: 850ms; }
   html:has(.v2-page) { scroll-behavior: auto; }
   .v2-page *, .v2-page *::before, .v2-page *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
   html:has(.v2-page)::view-transition-group(*), html:has(.v2-page)::view-transition-old(*), html:has(.v2-page)::view-transition-new(*) { animation: none !important; }
+}
+
+/* A publication colophon, continuous with the dark research atlas. */
+.v2-page .site-footer { --ink: #eeeee4; --ink-2: #b9c6c5; --ink-3: #9eafb0; --rule: #dce6e526; color: var(--ink); background: linear-gradient(90deg, #07171df5 12%, #07171d88 70%, #07171dbb), url('../img/earth/earth-night-2048.jpg') center 45% / cover; }
+.v2-page .footer-signature { min-height: 240px; padding-block: 50px 35px; }
+.v2-page .footer-statement::before { content: 'LONGHAND  /  RESEARCH'; display: block; margin-bottom: 26px; color: #d5b581; font: 400 10px var(--font-sans); letter-spacing: .22em; }
+.v2-page .footer-statement { max-width: 26ch; font-size: clamp(30px, 3.1vw, 43px); font-weight: 300; }
+.v2-page .footer-links { color: var(--ink); }
+.v2-page .footer-inner { border-top: 1px solid var(--rule); }
+.v2-page .footer-links a:hover { color: #d5b581; }
+
+/* Two publication themes. Warm paper carries a quiet green ink accent. */
+html[data-theme="light"] .v2-page { --v2-paper: #e8e3d7; --bg: #e8e3d7; --bg-sunk: #dcd6c9; --ink: #23332d; --ink-2: #4f6057; --ink-3: #59665c; --rule: #23332d2b; --rule-2: #23332d4a; --gold: #718064; --gold-ink: #3d5b49; --tint: #3d5b490a; --tint-2: #3d5b491b; color-scheme: light; }
+html[data-theme="dark"] .v2-page { --bg: #0b1216; --bg-sunk: #080f12; --ink: #ece9df; --ink-2: #bbc3c0; --ink-3: #9faeaa; --rule: #dce6e522; --rule-2: #dce6e53b; --gold: #b49c70; --gold-ink: #ccb78f; color-scheme: dark; }
+.v2-page .site-nav { margin-left: auto; }
+.v2-page .masthead.is-over-night { --bg: inherit; --ink: inherit; --ink-2: inherit; --rule: inherit; --gold: inherit; background: var(--bg); }
+.v2-page .masthead .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: auto; min-width: 44px; min-height: 44px; height: 44px; gap: 9px; border: 1px solid var(--rule-2); padding: 0 12px; font: 400 10px var(--font-sans); margin-left: 20px; }
+.v2-page .masthead .theme-label { white-space: nowrap; }
+html[data-theme="light"] .v2-page .site-footer { --ink: #23332d; --ink-2: #4f6057; --ink-3: #59665c; --rule: #23332d2b; color: var(--ink); background: linear-gradient(90deg, #ded8cbf7, #e8e3d7ed), url('../img/earth/earth-night-2048.jpg') center / cover; }
+html[data-theme="light"] .v2-page .footer-statement::before { color: #3d5b49; }
+html[data-theme="light"] .v2-page .footer-links a:hover { color: #3d5b49; }
+@media (max-width: 900px) {
+  .v2-page .brand { margin-right: auto; }
+  .v2-page .masthead .theme-toggle { margin: 0 8px 0 0; padding: 0; width: 44px; order: 2; }
+  .v2-page .masthead .theme-label { display: none; }
+  .v2-page .v2-menu-button { order: 3; }
+  .v2-page .site-nav { order: 4; margin: 0; }
 }

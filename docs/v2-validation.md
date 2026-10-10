@@ -10,7 +10,7 @@ remains untouched on `main` at `54df02460f2068185bf381b754d76d1de219b7dd`.
 
 ## Automated checks
 
-- `node scripts/check-site.mjs`: 58 JavaScript scripts, 67 JSON files, 11 catalogue
+- `node scripts/check-site.mjs`: 59 JavaScript scripts, 67 JSON files, 11 catalogue
   entries, 16 existing sitemap URLs and links in 19 HTML pages pass.
 - `node --test world/tests/*.test.mjs tests/*.test.mjs`: 131 tests pass.
 - `node indonesia-ai-datacenter-research/tests/test_interactive.cjs`: all 18 Python
@@ -52,6 +52,38 @@ when the globe scrolls out of view. The desktop homepage used 22 resources and
 about 2.01 MB of locally served encoded data in this run; existing progressive
 Earth imagery accounts for about 1.82 MB. These are diagnostic observations,
 not a Lighthouse/Core Web Vitals score.
+
+## Owner-requested presentation correction, 10 October
+
+The supplied redesign HTML and Fermat Earth reference informed a quieter dark
+hero, thin serif typography and a warm paper theme with green ink. Exactly two
+theme choices remain. Homepage, Coverage, Library and the PDF reader now use
+editorial exhibit thumbnails and a coherent publication layout. The thumbnails
+come from unchanged publications; their origins and scenario caveats are listed
+in `assets/img/research/README.md`. No example financial data from the design
+references was copied into Longhand.
+
+Codex author QA repeated the 131 automated tests, 18 resource-model scenarios,
+all site checks, changed-script syntax checks and diff whitespace checks. Edge
+Playwright checked 15 pages at 320, 390, 768, 1024 and 1440 pixels. An additional
+dark-theme pass covered the same pages at 390 and 1440; final 320-pixel checks
+covered Home, Library, Coverage, PDF reader and the standalone resource study
+in both themes. The older 320-pixel header grid was corrected so the logo,
+theme switch and menu remain visible. The standalone study now shares the
+publication theme preference without changing its calculator controller.
+
+Library search, reload persistence, geography filters, clear and empty states,
+mobile navigation and Escape passed. Coverage country selection, Back, reset,
+keyboard rotation, reduced-motion pause and Country → Sector → Company → Report
+navigation passed. The INET PDF rendered 24 pages; zoom, fit and the reading-rail
+anchor passed. The weekly FX lab, Coal country selector, PBAI company dialog and
+resource calculator/reset were exercised again. No page errors or root horizontal
+overflow remain. Visual screenshots are outside Git in the existing `v2-qa`
+directory. Physical device and cross-browser certification remain unperformed.
+
+The catalogue, report files, research datasets, model controllers, deployment
+workflows and owner checkout remain unchanged. This correction is a local commit
+only; no push, pull request, merge or publication was authorized or performed.
 
 ## Preservation and limitations
 

@@ -2,12 +2,45 @@
 (function () {
   'use strict';
   const body = document.body;
+  // The standalone resource study retains its calculator and existing theme
+  // handler. Share only the reader's preference with the public publication.
+  if (!body.classList.contains('v2-page') && body.hasAttribute('data-report-publication')) {
+    const standaloneTheme = document.getElementById('theme');
+    if (standaloneTheme) {
+      let saved;
+      try { saved = localStorage.getItem('longhand-theme'); } catch (_) {}
+      document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
+      const describe = () => {
+        standaloneTheme.setAttribute('aria-label', document.documentElement.dataset.theme === 'dark' ? 'Switch to warm paper theme' : 'Switch to dark theme');
+      };
+      describe();
+      standaloneTheme.addEventListener('click', () => {
+        try { localStorage.setItem('longhand-theme', document.documentElement.dataset.theme); } catch (_) {}
+        describe();
+      });
+    }
+  }
   if (!body.classList.contains('v2-page')) return;
   const ownScript = document.currentScript;
   const base = ownScript ? new URL('../../', ownScript.src) : new URL('./', location.href);
   const path = (file) => new URL(file, base).href;
   const mast = document.querySelector('.masthead');
   const nav = mast?.querySelector('.site-nav');
+  const theme = mast?.querySelector('[data-theme-toggle]');
+  if (theme) {
+    // Keep the two-theme control available without opening the mobile menu.
+    mast.querySelector('.masthead-inner').append(theme);
+    const label = document.createElement('span'); label.className = 'theme-label'; theme.append(label);
+    const describeTheme = () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      label.textContent = dark ? 'Warm paper' : 'Dark';
+      theme.setAttribute('aria-label', dark ? 'Switch to warm paper theme' : 'Switch to dark theme');
+      theme.title = dark ? 'Switch to warm paper theme' : 'Switch to dark theme';
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = dark ? '#0b1216' : '#e8e3d7';
+    };
+    document.addEventListener('longhand:theme', describeTheme); describeTheme();
+  }
   if (nav) {
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'v2-menu-button';

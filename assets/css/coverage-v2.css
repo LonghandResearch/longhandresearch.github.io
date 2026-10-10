@@ -62,3 +62,64 @@
   .coverage-globe { order: 3; }
   .coverage-panel h2 { font-size: 40px; }
 }
+
+/* The atlas is the page's main exhibit; the selected research sits beneath it. */
+.page-coverage .coverage-opening { position: relative; z-index: 2; pointer-events: none; padding-block: 42px 16px; }
+.coverage-opening h1 { font-size: clamp(42px, 4.2vw, 59px); max-width: 20ch; font-weight: 300; }
+.coverage-opening > p:last-of-type { max-width: 43ch; font-size: 12px; }
+.coverage-path { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; color: var(--ink-3); font: 400 9px/1.7 var(--font-sans); text-transform: uppercase; letter-spacing: .08em; }
+.coverage-path span { color: var(--gold-ink); }
+.coverage-explorer { grid-template-columns: 180px minmax(0, 1fr); column-gap: 40px; padding-top: 15px; }
+.coverage-country-list { grid-row: 1; grid-column: 1; margin-top: 22px; }
+.coverage-globe { position: relative; top: auto; grid-column: 2; grid-row: 1; margin-top: -265px; padding-bottom: 15px; }
+.coverage-globe .plate { width: min(100%, 870px); margin-left: auto; }
+.coverage-globe .plate-stage { width: 100%; max-width: none; aspect-ratio: 1.16; }
+.coverage-globe .globe-controls { position: absolute; right: 0; bottom: 76px; flex-direction: column; gap: 8px; }
+.coverage-globe .globe-controls button { font-size: 9px; padding: 10px; background: #07171da6; }
+.coverage-globe .globe-caption { margin: -12px auto 0; max-width: 58ch; font-size: 9px; }
+.map-marginalia { position: absolute; right: 25px; top: 7px; color: #cbb58e; font: italic 18px/1.35 var(--font-serif); transform: rotate(-6deg); }
+.coverage-panel { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 42px; padding-top: 25px; }
+.coverage-panel h2 { font-size: 40px; font-weight: 300; }
+.coverage-panel h3 { margin: 0 0 15px; color: var(--ink-3); font-size: 9px; }
+.coverage-panel .coverage-numbers { gap: 22px; padding-block: 18px; border-block: 1px solid var(--rule); margin-block: 22px; }
+.coverage-numbers strong { font-size: 37px; font-weight: 300; }
+.coverage-sectors a { font-size: 11px; padding-block: 11px; }
+.coverage-sector-index, .coverage-latest-index { border-left: 1px solid var(--rule); padding-left: 30px; }
+.coverage-report strong { font-size: 28px; }
+.globe-marker { background: #07171dcf; backdrop-filter: blur(5px); border-color: #b4a47f80; font-size: 10px; }
+.globe-marker::before { box-shadow: 0 0 10px #d5b58177; }
+@media (max-width: 1100px) {
+  .coverage-globe { margin-top: -170px; }
+  .coverage-globe .plate-stage { aspect-ratio: 1; }
+  .coverage-explorer { gap: 30px; grid-template-columns: 150px minmax(0, 1fr); }
+  .coverage-opening h1 { font-size: 49px; }
+  .coverage-panel { grid-template-columns: 1fr 1fr; }
+  .coverage-latest-index { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; border-left: 0; padding-left: 0; }
+  .coverage-latest-index h3 { grid-column: 1 / -1; }
+  .map-marginalia { top: 0; right: 0; font-size: 15px; }
+}
+@media (max-width: 760px) {
+  .coverage-explorer { grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 22px; }
+  .coverage-opening > p:last-of-type { max-width: 56ch; }
+  .coverage-country-list { width: 100%; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0; }
+  .coverage-country-list h2 { width: 100%; padding-block: 14px 8px; }
+  .coverage-country-list > button { width: auto; border: 1px solid var(--rule-2); padding-inline: 12px; }
+  .coverage-country-list details { width: 100%; }
+  .coverage-country-list details > div { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+  .coverage-globe { order: 1; width: 100%; margin-top: -8px; padding-top: 20px; }
+  .coverage-globe .plate-stage { width: 100%; aspect-ratio: 1.1; }
+  .coverage-globe .globe-controls { position: static; flex-direction: row; margin-top: 0; }
+  .coverage-globe .globe-caption { margin: 15px auto 0; }
+  .map-marginalia { font-size: 14px; right: 8px; top: 0; }
+  .coverage-panel { order: 2; width: 100%; grid-template-columns: 1fr; gap: 30px; }
+  .coverage-sector-index, .coverage-latest-index { border-left: 0; padding-left: 0; }
+  .coverage-sectors { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+  .coverage-latest-index { display: block; }
+  .coverage-opening h1 { font-size: 45px; }
+  .coverage-path { gap: 7px; font-size: 8px; }
+}
+.coverage-opening > p:last-of-type { font: 400 12px/1.85 var(--font-sans); color: var(--ink-2); margin-top: 20px; }
+html[data-theme="light"] .globe-marker { background: #e8e3d7ed; color: #23332d; border-color: #3d5b4980; }
+html[data-theme="light"] .globe-marker::before { background: #3d5b49; box-shadow: none; }
+html[data-theme="light"] .globe-marker.is-selected { background: #d1d8c9; border-color: #3d5b49; }
+html[data-theme="light"] .coverage-globe .globe-controls button { background: #e8e3d7d9; }

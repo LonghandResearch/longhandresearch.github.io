@@ -22,7 +22,7 @@
   const CLOUD_DRIFT = 0.012;       // how far the clouds run ahead of the ground, turns per turn
   const RETURN_AFTER_MS = 5000;    // idle time before a hand-turned Earth settles back onto its axis
   const SUN_SWEEP = 75;            // degrees the sun moves on as the front page scrolls away
-  const RADIUS_SHARE = 0.36;       // the Earth's radius as a share of the stage's shorter side
+  const RADIUS_SHARE = hero ? 0.46 : 0.40;       // the Earth's radius as a share of the stage's shorter side
 
   function unavailable(err) {
     if (err) console.warn('The Earth could not be shown:', err);
@@ -94,6 +94,7 @@
       cloudMix: { value: 0 },
       nightMix: { value: 0 },
       glow: { value: 0 },
+      paper: { value: document.documentElement.dataset.theme === 'light' ? 1 : 0 },
     };
 
     const surface = new THREE.ShaderMaterial({
@@ -102,7 +103,7 @@
       fragmentShader: `
         uniform sampler2D dayMap, nightMap, waterMap, cloudMap;
         uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix, nightMix;
+        uniform float cloudShift, cloudMix, nightMix, paper;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
@@ -114,19 +115,26 @@
           float day = smoothstep(-0.12, 0.22, NdL);
           float cloud = texture2D(cloudMap, vUv + vec2(cloudShift, 0.0)).r * cloudMix;
           vec3 albedo = texture2D(dayMap, vUv).rgb;
-          vec3 col = albedo * (0.028 + 1.06 * max(NdL, 0.0)) * (1.0 - 0.38 * cloud);
+          albedo = mix(vec3(dot(albedo, vec3(0.2126, 0.7152, 0.0722))), albedo, 0.18) * vec3(0.80, 0.82, 0.81);
+          vec3 col = albedo * (0.012 + 0.12 * max(NdL, 0.0)) * (1.0 - 0.18 * cloud);
           // the sun's glint on open water
           float water = texture2D(waterMap, vUv).r;
           vec3 H = normalize(L + V);
           float glint = pow(max(dot(N, H), 0.0), 140.0) * water * day * (1.0 - cloud);
-          col += vec3(1.0, 0.9, 0.74) * glint * 0.22;
+          col += vec3(1.0, 0.9, 0.74) * glint * 0.025;
           // city lights on the night side, warmed towards the page's gold
           vec3 lights = texture2D(nightMap, vUv).rgb;
           float night = 1.0 - smoothstep(-0.26, 0.04, NdL);
-          col += lights * vec3(1.0, 0.76, 0.42) * 1.9 * night * nightMix * (1.0 - 0.65 * cloud);
+          col += lights * vec3(1.0, 0.91, 0.77) * 1.25 * nightMix;
           // blue haze towards the rim on the lit side
           float fres = pow(1.0 - max(dot(N, V), 0.0), 3.0);
-          col += vec3(0.28, 0.52, 1.0) * fres * 0.6 * smoothstep(-0.25, 0.5, NdL);
+          col += vec3(0.24, 0.38, 0.49) * fres * 0.045;
+          if (paper > 0.5) {
+            // An atlas treatment of the same NASA land/water geography.
+            col = mix(vec3(0.30, 0.37, 0.30), vec3(0.66, 0.63, 0.54), water);
+            col *= 0.76 + 0.24 * max(dot(N, V), 0.0);
+            col += vec3(0.025) * cloud;
+          }
           gl_FragColor = vec4(col, 1.0);
           #include <tonemapping_fragment>
           #include <colorspace_fragment>
@@ -141,7 +149,7 @@
       fragmentShader: `
         uniform sampler2D cloudMap;
         uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix;
+        uniform float cloudShift, cloudMix, paper;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
@@ -152,10 +160,10 @@
           float a = smoothstep(0.1, 0.92, texture2D(cloudMap, vUv + vec2(cloudShift, 0.0)).r) * cloudMix;
           // warmer and dimmer where the sun is low, as at dusk
           float low = 1.0 - smoothstep(0.0, 0.35, NdL);
-          vec3 col = mix(vec3(1.0), vec3(1.0, 0.78, 0.6), low) * (0.02 + 0.94 * max(NdL, 0.0));
+          vec3 col = vec3(0.65, 0.72, 0.76) * (0.009 + 0.05 * max(NdL, 0.0));
           // thin out at the very rim so the edge of the layer does not show
           a *= smoothstep(0.0, 0.28, dot(N, V));
-          gl_FragColor = vec4(col, a * 0.9);
+          gl_FragColor = vec4(col, a * 0.32 * (1.0 - paper));
           #include <tonemapping_fragment>
           #include <colorspace_fragment>
         }`,
@@ -174,7 +182,7 @@
         }`,
       fragmentShader: `
         uniform vec3 sunDir;
-        uniform float glow;
+        uniform float glow, paper;
         varying vec3 vNormalV;
         varying vec3 vNormalW;
         void main() {
@@ -184,7 +192,7 @@
           float i = pow(smoothstep(0.0, 0.56, t), 1.35);
           float lit = 0.16 + 0.84 * smoothstep(-0.45, 0.6, dot(normalize(vNormalW), normalize(sunDir)));
           // coloured light with its own alpha, so the stars behind still show through
-          gl_FragColor = vec4(vec3(0.36, 0.62, 1.0), clamp(i * lit * 1.05 * glow, 0.0, 1.0));
+          gl_FragColor = vec4(vec3(0.20, 0.29, 0.34), clamp(i * lit * 0.07 * glow * (1.0 - paper), 0.0, 1.0));
           #include <colorspace_fragment>
         }`,
       side: THREE.BackSide,
@@ -218,7 +226,7 @@
     /* State. The camera never moves: only the Earth turns. */
     const AUTO = (Math.PI * 2) / TURN_SECONDS;
     const UPRIGHT = new THREE.Quaternion();
-    const sunBase = new THREE.Vector3(-0.78, 0.34, 0.62).normalize();
+    const sunBase = new THREE.Vector3(-0.45, 0.3, -1).normalize();
     const lean = { x: 0, y: 0, tx: 0, ty: 0 };      // pointer lean, eased
     let scrollP = 0;                                 // 0 at the top of the page, 1 once the front page has scrolled away
     let playing = !reduceMotion.matches;
@@ -231,6 +239,10 @@
     let visible = true, raf = 0, last = 0, shown = false, dirty = true;
     let intro = reduceMotion.matches ? 1 : 0;       // the opening turn and bloom, 0 to 1
     let cloudTarget = 0, nightTarget = 0;
+    document.addEventListener('longhand:theme', (e) => {
+      uniforms.paper.value = e.detail.theme === 'light' ? 1 : 0;
+      requestFrame();
+    });
     let radiusPx = 100;
     let focused = false, focusTarget = null, focusId = '';
     let markers = [];

@@ -81,3 +81,56 @@
 
 .structured-chart-readout { display: block; min-height: 30px; color: var(--ink-2); font: 400 12px/1.7 var(--font-sans); }
 .structured-chart circle:focus-visible { outline: none; stroke-width: 5; }
+
+/* Preserve the standalone resource study's layout and chart palette while
+   giving its reading surfaces the same two publication themes. */
+html:has(body[data-report-publication]:not(.v2-page)) { --paper: #e8e3d7; --sheet: #eee9dd; --ink: #23332d; --muted: #4f6057; --rule: #b4bbab; --gold: #60744f; --teal: #3d5b49; }
+html[data-theme="dark"]:has(body[data-report-publication]:not(.v2-page)) { --paper: #0b1216; --sheet: #142126; --ink: #ece9df; --muted: #bbc3c0; --rule: #43504d; --gold: #ccb78f; --teal: #9ebcb0; }
+
+/* The reading room: a dark publication spine beside the paper. */
+.page-report main.has-reading-rail { position: relative; padding-left: 242px; }
+.reading-rail { position: absolute; left: 0; top: 0; bottom: 0; width: 242px; background: #08191f; color: #eeeee3; }
+.reading-rail-inner { position: sticky; top: 102px; padding: 36px 26px; }
+.reading-rubric { font: 400 8px/1.6 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: #cbb58e; }
+.reading-meta { font: 400 9px/1.7 var(--font-sans); margin-top: 42px; color: #a7b8b9; }
+.reading-rail h2 { font: 400 26px/1.12 var(--font-serif); margin-top: 13px; letter-spacing: -.02em; }
+.reading-rail nav { display: flex; flex-direction: column; margin-block: 28px; }
+.reading-rail nav a { border-block-start: 1px solid #dce6e526; padding: 15px 0; text-decoration: none; font: 400 10px/1.6 var(--font-sans); min-height: 44px; }
+.reading-rail nav a:hover { color: #d5b581; }
+.reading-rail figure { margin: 32px 0 0; }
+.reading-rail img { width: 130px; height: auto; display: block; opacity: .95; }
+.reading-rail figcaption { color: #a7b8b9; font: italic 15px/1.5 var(--font-serif); margin-top: 15px; }
+.page-report .has-reading-rail > .wrap { max-width: 1120px; }
+.page-report .reader-head { grid-template-columns: minmax(0, 1fr) 230px; gap: 40px; padding-block: 28px 42px; }
+.page-report .reader-title { font-size: clamp(38px, 3.6vw, 53px); max-width: 22ch; font-weight: 400; }
+.page-report .reader-summary { font-size: 17px; line-height: 1.75; }
+.page-report .reader-side { background: #b29e7310; border: 1px solid var(--rule-2); padding: 20px; }
+.page-report .reader-side .ledger-title { color: var(--gold-ink); }
+.page-report .reader-actions { gap: 12px 20px; }
+.page-report .reader-actions .btn { font-size: 11px; }
+.page-report .reader-actions .text-link { font-size: 10px; }
+.page-report .reader-company { font-size: 19px; }
+.page-report .viewer-title { font-size: 21px; }
+.page-report .viewer { background: #e5e2d8; }
+html[data-theme="dark"] .page-report .viewer { background: #07151b; }
+[data-report-publication] :is(.pbai-toc, .market-rail, .coal-nav) { border-color: var(--rule-2); }
+[data-report-publication] :is(.pbai-toc, .market-rail) { background: #0b2027; color: #e7e7dc; padding: 20px; }
+[data-report-publication] :is(.pbai-toc, .market-rail) a { color: #c5d0cd; }
+[data-report-publication] :is(.pbai-toc, .market-rail) a[aria-current] { color: #e0c69b; }
+@media (max-width: 1150px) { .page-report .reader-head { grid-template-columns: 1fr; gap: 25px; } .page-report .reader-side { width: 100%; max-width: 620px; } }
+@media (max-width: 1000px) {
+  .page-report main.has-reading-rail { padding-left: 0; }
+  .reading-rail { position: static; width: 100%; }
+  .reading-rail-inner { position: static; padding: 18px var(--gutter); }
+  .reading-rail :is(.reading-meta, h2, figure) { display: none; }
+  .reading-rail nav { margin: 10px 0 0; flex-direction: row; flex-wrap: wrap; gap: 6px 22px; }
+  .reading-rail nav a { font-size: 10px; padding-block: 10px; border: 0; }
+  .page-report .reader-title { font-size: clamp(37px, 6vw, 53px); }
+}
+@media print { .reading-rail { display: none; } .page-report main.has-reading-rail { padding-left: 0; } }
+.page-report .reader-side .ledger-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; font-size: 11px; line-height: 1.6; border-top: 1px solid var(--rule); padding-block: 11px; }
+.page-report .reader-side .ledger-row dt { display: block; }
+.page-report .reader-side .ledger-row dt::after { display: none; }
+.page-report .reader-side .ledger-ticker { font-size: 36px; }
+[data-report-publication] :is(.pbai-toc, .market-rail) { --ink: #eeeee4; --ink-2: #b9c6c5; --ink-3: #9eafb0; --gold-ink: #d5b581; --rule: #dce6e526; }
+@media (max-width: 1180px) { [data-report-publication] .pbai-toc { padding: 0; } [data-report-publication] .pbai-toc-toggle { background: #0b2027; color: #eeeee4; } }

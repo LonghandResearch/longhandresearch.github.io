@@ -56,8 +56,36 @@
       nav.append(label);
       main.prepend(nav);
     }
+    addReadingRail(r);
     addContents();
     addRelated(r, ctx);
+  }
+
+  function addReadingRail(r) {
+    if (!document.body.classList.contains('page-report') || main.querySelector('.reading-rail')) return;
+    const head = main.querySelector('.reader-head');
+    const documentView = main.querySelector('[data-viewer], [data-structured-report]');
+    if (!head || !documentView) return;
+    head.id ||= 'publication-overview';
+    documentView.id ||= 'publication-document';
+    main.classList.add('has-reading-rail');
+    const aside = document.createElement('aside'); aside.className = 'reading-rail';
+    aside.setAttribute('aria-label', 'Publication navigation');
+    const inner = document.createElement('div'); inner.className = 'reading-rail-inner';
+    const rubric = document.createElement('p'); rubric.className = 'reading-rubric'; rubric.textContent = 'Longhand / The reading room';
+    const meta = document.createElement('p'); meta.className = 'reading-meta'; meta.textContent = `${r.category} · ${r.date}`;
+    const title = document.createElement('h2'); title.textContent = r.title;
+    const nav = document.createElement('nav');
+    nav.append(link('01 / Overview', `#${head.id}`), link('02 / Full publication', `#${documentView.id}`), link('← Return to Library', at('library.html')));
+    inner.append(rubric, meta, title, nav);
+    const art = window.LonghandArt?.forReport(r);
+    if (art) {
+      const figure = document.createElement('figure');
+      const image = document.createElement('img'); image.src = art.src; image.alt = art.caption; image.width = 180; image.height = 255; image.loading = 'lazy';
+      const caption = document.createElement('figcaption'); caption.textContent = 'From the original publication';
+      figure.append(image, caption); inner.append(figure);
+    }
+    aside.append(inner); main.prepend(aside);
   }
 
   function addContents() {
