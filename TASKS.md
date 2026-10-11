@@ -76,6 +76,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-027 | Align long editorial paragraphs and verify reading layout on desktop and narrow phones | Codex | `codex/editorial-paragraphs` | Done | [PR #95](https://github.com/LonghandResearch/longhandresearch.github.io/pull/95). Owner requested justified, tidy paragraphs. Preserves research copy, fonts and data. Codex author QA and publication under continuing temporary takeover authorization: 144 reading layouts, 228 reflow cases and six final AI text-spacing cases passed. See docs/editorial-reading-qa.md. |
 
+| RPT-016 | Publish the 5-9 October IHSG weekly edition from owner-supplied IDX/BI files, with reconciled Flowless readings and a fundamentally documented liquid large-cap focus | Codex | `codex/ihsg-weekly-oct09` | In progress | Codex author QA and publication under the continuing temporary takeover authorization; owner requires supplied-file cross-checks and fundamentally documented liquid large caps. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
