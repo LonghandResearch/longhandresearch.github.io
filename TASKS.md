@@ -66,6 +66,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-022 | Audit V2 on phone and tablet viewport families, repair touch fields and the Home/Coverage globe entrance, and publish | Codex | `codex/mobile-qa` | Done (mobile QA and globe entrance repair) | [PR #89](https://github.com/LonghandResearch/longhandresearch.github.io/pull/89). Codex author QA under the owner's mobile check and temporary takeover authorization. Checked 380 route/viewport/theme combinations, fourteen touch assertions, eighteen navigation checks and four additional throttled globe snapshot checks. Touch fields retain at least 16px, and Home/Coverage no longer morphs a globe snapshot into an uninitialized canvas or repeats its opening turn. Research and publishing are preserved. All 131 tests pass. See docs/mobile-qa.md and the publication PR for evidence and browser limits. Physical devices and Safari/Firefox remain unverified. |
 
+| WEB-023 | Restore the traveling Home/Coverage globe with a ready frame and audit other public page transitions | Codex | `codex/transition-continuity` | Review | Owner clarified that the globe should retain its original spatial transition, with the stutter repaired. Codex author QA and publication follow the continuing owner authorization while Claude is unavailable. Preserve research, public routes and static publishing. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.

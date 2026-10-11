@@ -136,6 +136,10 @@
     list.querySelector(`button[data-country="${selected}"]`)?.focus({ preventScroll: true });
   });
   document.addEventListener('longhand:globe-ready', updateGlobe);
+  document.addEventListener('longhand:globe-navigation-end', () => {
+    const country = G.country(selected);
+    if (country) window.LonghandEarth?.focus(country);
+  });
   document.querySelector('[data-globe-reset]')?.addEventListener('click', () => choose(''));
   window.addEventListener('popstate', () => choose(new URLSearchParams(location.search).get('country') || '', false));
   render(); updateGlobe();
