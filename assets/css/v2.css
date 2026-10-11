@@ -50,7 +50,8 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
   .v2-page .brand-sub { font-size: 8px; }
   .v2-page .site-nav { gap: 12px; width: 100%; flex-wrap: wrap; padding: 8px 0 14px; }
   .v2-page .site-nav a { display: inline-flex !important; }
-  .v2-page .masthead:has(.site-nav):not(.has-v2-menu) .masthead-inner { height: auto; min-height: 68px; padding-block: 12px; }
+  html:not(.js) .v2-page .masthead:has(.site-nav):not(.has-v2-menu) .masthead-inner { height: auto; min-height: 68px; padding-block: 12px; }
+  .js .v2-page .masthead:not(.has-v2-menu) .site-nav { display: none; }
   .v2-page .has-v2-menu .v2-menu-button { display: inline-flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; background: transparent; font: 400 11px var(--font-sans); min-height: 44px; }
   .v2-page .has-v2-menu .site-nav { display: none; }
   .v2-page .has-v2-menu.menu-open .site-nav { display: flex; position: absolute; top: 68px; left: 0; right: 0; background: var(--bg); padding: 12px var(--gutter) 20px; border-bottom: 1px solid var(--rule-2); gap: 8px 24px; }
@@ -63,6 +64,14 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
 @media (max-width: 360px) { .v2-page .brand { gap: 8px; } .v2-page .brand-name { font-size: 23px; } .v2-page .brand-sub { font-size: 7px; } }
 
 /* Spatial continuity: shared identity plus a small directional shift in the paper. */
+/* V2 owns entrances. Legacy page/list fades otherwise move the same content
+   a second time beneath a frozen navigation snapshot. */
+.js .v2-page .page-head > *,
+.v2-page .report-list.is-arriving .report,
+.v2-page .wire.is-arriving .wire-day:first-child .wire-item:nth-child(-n + 12) { animation: none; }
+/* The globe is already introduced by the navigation snapshot. A second
+   canvas fade would leave the incoming geographic surface nearly invisible. */
+.publication-nav-vt .v2-page .plate-stage canvas { transition: none; }
 html:has(.v2-page):not(.theme-vt)::view-transition-old(root) { animation: v2-leave 280ms ease both; }
 html:has(.v2-page):not(.theme-vt)::view-transition-new(root) { animation: v2-enter 520ms cubic-bezier(.2,.7,.2,1) both; }
 html[data-nav="back"]:has(.v2-page)::view-transition-new(root) { animation-name: v2-return; }
@@ -70,6 +79,9 @@ html:has(.v2-page)::view-transition-group(research-identity), html:has(.v2-page)
 html:has(.v2-page)::view-transition-old(research-identity) { animation: none; opacity: 0; }
 html:has(.v2-page)::view-transition-new(research-identity) { animation: none; }
 html:has(.v2-page)::view-transition-group(globe) { animation-duration: 850ms; }
+html:has(.v2-page):not(.theme-vt)::view-transition-group(masthead),
+html:has(.v2-page):not(.theme-vt)::view-transition-new(masthead) { animation: none; }
+html:has(.v2-page):not(.theme-vt)::view-transition-old(masthead) { display: none; animation: none; }
 @keyframes v2-leave { to { opacity: 0; transform: translateY(-12px) scale(.992); } }
 @keyframes v2-enter { from { opacity: .3; transform: translateY(24px); clip-path: inset(0 0 6% 0); } to { opacity: 1; transform: none; clip-path: inset(0); } }
 @keyframes v2-return { from { opacity: .3; transform: translateY(-18px); } to { opacity: 1; transform: none; } }
@@ -135,6 +147,13 @@ html[data-theme="light"] .v2-page .footer-links a:hover { color: #3d5b49; }
 .v2-page .v2-breadcrumb a { min-height: 44px; }
 .wire-pagination { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 28px; }
 .wire-pagination p { font: 400 12px/1.6 var(--font-sans); color: var(--ink-2); }
+/* Reserve the wire's controls and reading area while its hourly data loads. */
+.page-wire .page-folio { min-height: 1.8em; }
+.page-wire .filter-n { min-width: 3ch; }
+.page-wire :is(.wire, .empty) { min-height: 55svh; }
+.wire-loading { padding-block: 28px; color: var(--ink-3); font: 400 13px/1.7 var(--font-sans); }
+html:not(.js) .page-wire :is([data-folio], .index-tools, [data-wire]) { display: none; }
+@media (max-width: 760px) { .page-wire .page-folio { min-height: 3.6em; } }
 
 /* Lines mark structural boundaries and active choices, rather than every action. */
 .v2-page :is(.reader-actions, .coverage-panel, .wire-pagination, .viewer-reading-help) .btn { background: transparent; border: 0; border-bottom: 1px solid transparent; border-radius: 0; padding-inline: 0; font-weight: 400; }

@@ -606,3 +606,80 @@ RSS, sitemap and deployment/publishing workflows were not edited. The owner
 checkout remains clean on main at `54df02460f2068185bf381b754d76d1de219b7dd`.
 Physical-device and Safari/Firefox verification remain open. No push, PR, merge
 or publication was performed.
+
+### Public navigation and interaction audit — 11 October 2026
+
+The owner requested a thorough bug pass with immediate fixes. This pass retains
+the approved visual composition and both themes. Legacy header/list entrances,
+the masthead's old camera zoom and the canvas's separate loading fade no longer
+run over the V2 navigation snapshots. Scroll/filter reveals remain available
+after navigation. Transition flags clear on completion, cancellation and Back.
+
+The mobile masthead now reserves its final height before the menu initializes.
+The expanded navigation remains available with JavaScript disabled. Coal's
+early script sets the same JavaScript flag as the other public pages. Wire
+reserves its folio, topic controls and reading area while loading, exposes a
+busy status, keeps controls disabled until data settles and displays useful
+empty/error states. Topic selection is retained when its result count is zero.
+The stored news file and hourly workflow were not edited.
+
+Library and Wire flush pending search text before a link navigation. Back
+therefore retains text entered immediately before leaving. Clearing Library
+filters restores search focus. Report context/reading-rail Library links return
+to the originating filtered archive and its scroll position, including an
+archive fragment and any later in-report anchor history. Modified clicks retain
+the archive URL; direct report entry still links to the complete Library.
+
+The standalone resource study's Home/Library links stay on the current origin.
+Its stored theme applies before painting. Its navigation opt-in is declared
+inline before external styles arrive: the previous external-only declaration
+could leave the incoming transition disabled at first render. Skipped transition
+promises are handled before the calculator scripts run. Four normal-motion
+round trips at 390/1440px in both saved themes passed after this correction.
+Shared changed asset versions were refreshed in all 15 importing HTML pages.
+
+Playwright checked 138 direct route/viewport/theme combinations: 23 routes at
+320, 768 and 1440px in both themes. These include discovery pages, entity indexes
+and filtered contexts, all 11 published reports, About, Wire and the 404 page.
+No unexpected script/network errors, document overflow, duplicate IDs or broken
+in-page anchors were observed. Representative tablet/desktop screenshots in
+both themes and mobile screenshots were inspected. All 11 Library artworks
+loaded and retained portrait proportions, including the original Memory War.
+
+Actual click flows at 390/1440px checked navigation, Back, stored themes, normal
+and reduced motion, geography selection and World reset, and the path from
+Indonesia through coal and Alamtri to its report. Library search/highlighting,
+category/facet counts, Covers/Compact, no-results/reset and immediate-navigation
+state recovery passed. Wire topic/search recovery, 24-to-48 pagination and the
+final 240-headline batch passed, with focus on the first newly revealed story.
+Delayed, failed and empty Wire responses retained usable navigation and explicit
+status messages. Invalid entity/report/week addresses provided recovery links.
+
+PDF checks covered zoom, mobile Larger view, fullscreen entry/exit, selectable
+text and an HTTP 200 download. Copy-link behavior was verified with an isolated
+clipboard stub rather than changing the owner's clipboard. Interactive controls
+were exercised on all six HTML studies at 390/1440px: scenario ranges/reset,
+period/market/company/risk selection, update sorting/stock selection, the resource
+diagram and project filters. No page errors, non-finite output text or document
+overflow were observed. The company dialog opened, closed with Escape and
+returned focus. Contents links closed their disclosure and exposed headings
+below the masthead. A final normal-motion Library click through every published
+report completed all 11 transitions without errors or stale transition flags.
+
+All 131 existing automated tests pass after the final changes. Changed shared
+JavaScript passes `node --check`; site validation passes for 59 scripts, 67 JSON
+files, 11 catalogue entries, 16 sitemap pages and links in 19 pages. Diff whitespace
+checks pass. Evidence is outside Git under
+`C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/audit-*`.
+
+Limits: external font swapping still causes small cold-load movement (Wire CLS
+0.003–0.024 in the delayed-load checks); warm real-navigation Wire checks had
+CLS 0 after the structural fixes, compared with the original desktop 0.54.
+Initial WebGL/shader work depends on hardware. Physical devices and Safari/Firefox
+have not been verified, so this audit does not certify universal smoothness.
+
+This is Codex author QA in the external `codex/longhand-v2` worktree. Report prose,
+financial figures, dates, sources, PDFs, models, graph/catalogue records, news,
+RSS, sitemap and deployment/publishing workflows were not changed. The owner
+checkout remains clean on main at `54df02460f2068185bf381b754d76d1de219b7dd`.
+No push, PR, merge or publication was performed.

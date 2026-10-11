@@ -6,7 +6,26 @@
   <title>AI runs on power and water | Indonesia resource research</title>
   <meta name="description" content="Explore Indonesia's data-center electricity, water and resource costs with source-linked scenarios and a reproducible model.">
   <link rel="canonical" href="https://longhandresearch.github.io/indonesia-ai-datacenter-research/interactive/index.html">
-  <link rel="stylesheet" href="../../assets/css/v2.css?v=2026-10-11editorial-final">
+  <style>@view-transition { navigation: auto; }</style>
+  <script>
+    (function () {
+      var saved;
+      try { saved = localStorage.getItem('longhand-theme'); } catch (_) {}
+      document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
+    })();
+    // A navigation can be skipped while styles arrive or the tab is hidden.
+    // Handle its promises before the calculator's deferred scripts run.
+    ['pageswap', 'pagereveal'].forEach(function (event) {
+      window.addEventListener(event, function (e) {
+        var vt = e.viewTransition;
+        if (!vt) return;
+        ['ready', 'finished', 'updateCallbackDone'].forEach(function (key) {
+          if (vt[key]) vt[key].catch(function () {});
+        });
+      });
+    });
+  </script>
+  <link rel="stylesheet" href="../../assets/css/v2.css?v=2026-10-11navigation-qa">
   <link rel="stylesheet" href="style.css?v=20261005-publish">
   <script src="data.js" defer></script><script src="model.js?v=20261005" defer></script><script src="app.js?v=20261005" defer></script>
   <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
@@ -14,12 +33,12 @@
 <link rel="stylesheet" href="../../assets/css/report-v2.css?v=2026-10-11edition">
 <script src="../../reports/reports.js" defer></script>
 <script src="../../assets/js/research-graph.js?v=2026-10-10" defer></script>
-<script src="../../assets/js/v2.js?v=2026-10-10polish" defer></script>
-<script src="../../assets/js/report-context.js?v=2026-10-11edition" defer></script>
+<script src="../../assets/js/v2.js?v=2026-10-11navigation-qa" defer></script>
+<script src="../../assets/js/report-context.js?v=2026-10-11navigation-qa" defer></script>
 </head>
 <body data-report-publication>
 <a class="skip" href="#calculator">Skip to the calculator</a>
-<header class="masthead"><a class="brand" href="https://longhandresearch.github.io/">Longhand <i>Research</i></a><span class="mast-label">Indonesia / Infrastructure</span><nav aria-label="Page"><a href="https://longhandresearch.github.io/library.html">Library</a><a href="#sources">Sources</a><a href="../outputs/indonesia_ai_datacenter_model.xlsx" download>Excel model ↗</a><button id="theme" aria-label="Switch to dark theme">◐</button></nav></header>
+<header class="masthead"><a class="brand" href="../../index.html">Longhand <i>Research</i></a><span class="mast-label">Indonesia / Infrastructure</span><nav aria-label="Page"><a href="../../library.html">Library</a><a href="#sources">Sources</a><a href="../outputs/indonesia_ai_datacenter_model.xlsx" download>Excel model ↗</a><button id="theme" aria-label="Switch to dark theme">◐</button></nav></header>
 <main>
   <section class="hero wrap">
     <div class="hero-copy"><p class="eyebrow">The resources behind AI <span>05 October 2026</span></p><h1>AI runs on<br><em>power and water.</em></h1><p class="lede">A server hall is also a claim on the grid and the local water supply. As Indonesia adds AI infrastructure, those demands become part of the investment case.</p><a class="text-link" href="#calculator">Follow one gigawatt through the system <span>↓</span></a></div>
@@ -81,6 +100,6 @@
     <article id="pipeline-interpretation" class="newsletter section-commentary" data-newsletter="6"></article>
     <div class="constraint-grid"><article><span>01</span><h3>Power has to reach the site.</h3><p>Check connection capacity, transformer headroom and delivery timing. Annual national energy does not establish local grid availability.</p></article><article><span>02</span><h3>Water needs a local balance.</h3><p>Check dry-season allocation, permitted intake, discharge and reuse. A low water bill can still sit beside a difficult supply constraint.</p></article><article><span>03</span><h3>Cooling choices have to work together.</h3><p>Efficient server cooling does not by itself determine outdoor water use. PUE and WUE need to be tested against the actual heat-rejection design.</p></article></div></section>
   <section class="sources-section" id="sources"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Sources and reproducibility</p><h2>Open the model.<br><em>Check the evidence.</em></h2></div><p>Every calculator result is a scenario. Reported Indonesian observations, derived estimates, foreign technical benchmarks and analyst assumptions stay distinct in the research files.</p></div><div class="downloads"><a href="../outputs/indonesia_ai_datacenter_model.xlsx" download><span>Excel</span>15-sheet research model ↗</a><a href="../outputs/summary.md"><span>Research</span>Findings and limitations ↗</a><a href="../sources.csv" download><span>Data</span>Full source registry ↗</a><a href="../README.md"><span>Python</span>Reproduce the calculations ↗</a></div><ol id="source-list"></ol><p class="micro">Non-Indonesian water evidence is used only as a labeled technical benchmark. Resource costs exclude land, servers, construction, financing and other operating costs. Research cutoff 4 October 2026.</p></div></section>
-</main><footer class="wrap footer"><a class="brand" href="https://longhandresearch.github.io/">Longhand <i>Research</i></a><span>Indonesia AI and data-center resource research</span></footer>
+</main><footer class="wrap footer"><a class="brand" href="../../index.html">Longhand <i>Research</i></a><span>Indonesia AI and data-center resource research</span></footer>
 <noscript><p class="wrap">Enable JavaScript to use the controls. The Python tables and Excel workbook contain all calculations.</p></noscript>
 </body></html>

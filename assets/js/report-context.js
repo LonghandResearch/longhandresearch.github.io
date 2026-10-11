@@ -25,6 +25,38 @@
     const a = document.createElement('a');
     a.textContent = label;
     a.href = url;
+    // Return to the archive as the reader left it, including its search,
+    // filters and scroll position. Modified clicks still open that archive URL.
+    if (url === at('library.html')) {
+      try {
+        const ref = new URL(document.referrer);
+        if (ref.origin === location.origin && ref.pathname === new URL(at('library.html')).pathname) {
+          a.href = ref.href;
+          const arrivedFrom = window.navigation?.activation?.from?.url;
+          if (arrivedFrom) {
+            const archive = new URL(arrivedFrom);
+            const withoutAnchor = new URL(archive); withoutAnchor.hash = '';
+            if (withoutAnchor.href === ref.href) a.href = archive.href;
+          }
+          a.addEventListener('click', (e) => {
+            if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || history.length < 2) return;
+            const from = window.navigation?.activation?.from;
+            const current = window.navigation?.currentEntry;
+            const origin = from?.url ? new URL(from.url) : null;
+            if (origin) origin.hash = ''; // Referrer URLs omit their fragment.
+            // In-report anchors can add history entries after arrival.
+            // Traverse past those entries to the actual originating archive.
+            if (origin?.href === ref.href && current && from.index >= 0 && from.index < current.index) {
+              e.preventDefault();
+              history.go(from.index - current.index);
+            } else if (!window.navigation && !location.hash) {
+              e.preventDefault();
+              history.back();
+            }
+          });
+        }
+      } catch (_) { /* Direct entry retains the full Library destination. */ }
+    }
     return a;
   }
   function enhance(report) {

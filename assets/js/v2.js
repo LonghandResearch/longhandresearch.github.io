@@ -87,7 +87,9 @@
       entries.forEach(({ target, isIntersecting }) => {
         if (!isIntersecting) return;
         reveal.unobserve(target);
-        if (reduced.matches || document.hidden) return;
+        // The page transition already introduces everything in its snapshot.
+        // Only later scroll/filter reveals need an additional local entrance.
+        if (reduced.matches || document.hidden || window.LONGHAND_VT) return;
         const animation = target.animate([
           { opacity: .65, transform: 'translateY(16px)' },
           { opacity: 1, transform: 'translateY(0)' }
@@ -158,7 +160,19 @@
     title.style.viewTransitionName = id.name; title.dataset.v2Transition = '';
   });
   window.addEventListener('pagereveal', (e) => {
-    if (!e.viewTransition || reduced.matches) return;
+    const vt = e.viewTransition;
+    if (!vt) return;
+    const root = document.documentElement;
+    window.LONGHAND_VT = vt;
+    root.classList.add('publication-nav-vt');
+    const activation = window.navigation?.activation;
+    if (activation?.navigationType === 'traverse' && activation.from && activation.entry && activation.entry.index < activation.from.index) root.dataset.nav = 'back';
+    const finish = () => {
+      root.classList.remove('publication-nav-vt');
+      if (window.LONGHAND_VT === vt) { window.LONGHAND_VT = null; delete root.dataset.nav; }
+    };
+    vt.finished.then(finish, finish);
+    if (reduced.matches) return;
     const file = location.pathname.split('/').pop();
     if (body.classList.contains('page-home') || body.classList.contains('page-coverage')) {
       const globe = document.querySelector('.plate-stage'); if (globe) globe.style.viewTransitionName = 'globe';

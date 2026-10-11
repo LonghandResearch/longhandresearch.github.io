@@ -301,10 +301,10 @@
     renderIndex();
     writeUrl({ push: true });
   }
-  els.reset?.addEventListener('click', resetAll);
+  els.reset?.addEventListener('click', () => { resetAll(); els.search.focus(); });
   window.addEventListener('popstate', () => { clearTimeout(urlTimer); readUrl(); els.search.value = state.q; renderIndex(); });
   // Flush a typed query before leaving so Back restores the precise archive view.
-  listEl.addEventListener('click', (e) => { if (e.target.closest('a')) writeUrl({ immediate: true }); });
+  document.addEventListener('click', (e) => { if (e.target.closest('a[href]')) writeUrl({ immediate: true }); });
 
   // Author tools on a row: publish a draft, or delete a report
   listEl.addEventListener('click', (e) => {
