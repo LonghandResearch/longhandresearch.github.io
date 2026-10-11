@@ -144,13 +144,6 @@
   window.addEventListener('pageswap', (e) => {
     if (!e.viewTransition || reduced.matches) return;
     const href = e.activation?.entry?.url;
-    // Carry the same geographic object between the front page and the map.
-    try {
-      const target = new URL(href).pathname.split('/').pop();
-      if ((body.classList.contains('page-home') && target === 'coverage.html') || (body.classList.contains('page-coverage') && (target === 'index.html' || !target))) {
-        const globe = document.querySelector('.plate-stage'); if (globe) globe.style.viewTransitionName = 'globe';
-      }
-    } catch (_) {}
     const id = identityFor(href); if (!id) return;
     clearIdentity();
     let link = [...document.querySelectorAll('a[href]')].find((a) => a.href === href && a.getBoundingClientRect().top >= 0 && a.getBoundingClientRect().bottom < innerHeight);
@@ -174,9 +167,6 @@
     vt.finished.then(finish, finish);
     if (reduced.matches) return;
     const file = location.pathname.split('/').pop();
-    if (body.classList.contains('page-home') || body.classList.contains('page-coverage')) {
-      const globe = document.querySelector('.plate-stage'); if (globe) globe.style.viewTransitionName = 'globe';
-    }
     if (body.hasAttribute('data-report-publication') && !document.querySelector('.reader-title')) {
       const title = document.querySelector('main h1');
       if (title) { title.style.viewTransitionName = 'report-title'; title.dataset.v2Transition = ''; }

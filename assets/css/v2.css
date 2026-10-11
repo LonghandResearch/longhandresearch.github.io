@@ -37,6 +37,9 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
 .v2-page :is(input, select) { border-radius: 1px; }
 .v2-page :is(table, time, .catalogue-no) { font-variant-numeric: tabular-nums; }
 .v2-page .page-emblem { view-transition-name: none; }
+/* A WebGL scene is rebuilt asynchronously on each document. Keep it in the
+   page entrance rather than morphing an old globe into an empty new canvas. */
+.v2-page .plate-stage { view-transition-name: none; }
 .v2-page :is(h1, h2, h3, p, a) { overflow-wrap: break-word; }
 .v2-page .about { gap: 8vw; }
 .v2-page .about-text { max-width: var(--v2-reading); }
@@ -69,9 +72,10 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
 .js .v2-page .page-head > *,
 .v2-page .report-list.is-arriving .report,
 .v2-page .wire.is-arriving .wire-day:first-child .wire-item:nth-child(-n + 12) { animation: none; }
-/* The globe is already introduced by the navigation snapshot. A second
-   canvas fade would leave the incoming geographic surface nearly invisible. */
-.publication-nav-vt .v2-page .plate-stage canvas { transition: none; }
+.v2-page .plate-stage canvas { transition: opacity 450ms ease; }
+.v2-page .globe-markers { opacity: 0; transition: opacity 450ms ease; }
+.v2-page .plate.is-ready .globe-markers { opacity: 1; }
+.v2-page .plate:not(.is-ready) .globe-marker { visibility: hidden; }
 html:has(.v2-page):not(.theme-vt)::view-transition-old(root) { animation: v2-leave 280ms ease both; }
 html:has(.v2-page):not(.theme-vt)::view-transition-new(root) { animation: v2-enter 520ms cubic-bezier(.2,.7,.2,1) both; }
 html[data-nav="back"]:has(.v2-page)::view-transition-new(root) { animation-name: v2-return; }
@@ -186,4 +190,11 @@ html[data-theme="light"] .v2-page .site-footer { background: linear-gradient(90d
   .v2-page .colophon { white-space: normal; }
   .v2-page .search input { font-size: 16px; }
   .wire-pagination { align-items: start; flex-direction: column; }
+}
+
+/* Touch readers need readable fields in portrait and landscape. The body
+   selector also wins over later narrow Library rules without changing desktop. */
+@media (pointer: coarse) {
+  body.v2-page .search input,
+  body.v2-page .discovery-facets select { font-size: 16px; }
 }
