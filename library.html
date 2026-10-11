@@ -46,17 +46,23 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
 <link rel="stylesheet" href="assets/css/catalogue.css?v=2026-09-29b">
+<link rel="stylesheet" href="assets/css/v2.css?v=2026-10-11navigation-qa">
+<link rel="stylesheet" href="assets/css/discovery-v2.css?v=2026-10-11quiet">
 <script>
   /* The catalogue changes whenever a report is published, so it is fetched fresh
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
-<script src="assets/js/site.js?v=2026-10-09g" defer blocking="render"></script>
-<script src="assets/js/library.js?v=2026-09-24j" defer blocking="render"></script>
+<script src="assets/js/site.js?v=2026-10-11editorial-final" defer blocking="render"></script>
+<script src="assets/js/research-graph.js?v=2026-10-10" defer></script>
+<script src="assets/js/v2.js?v=2026-10-11navigation-qa" defer></script>
+<script src="assets/js/research-art.js?v=2026-10-11edition" defer></script>
+<script src="assets/js/library.js?v=2026-10-11navigation-qa" defer blocking="render"></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="stylesheet" href="assets/css/covers.css?v=2026-10-11edition">
 </head>
-<body class="page-library">
+<body class="page-library v2-page">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -95,9 +101,9 @@
       <path d="M23.5 85c0-6.5 5.5-10 12.5-10s12.5 3.5 12.5 10z" stroke-width="1.5"/>
     </svg>
     <div>
-      <p class="eyebrow">The catalogue</p>
-      <h1 class="page-title">Research library</h1>
-      <p class="page-lede">Company initiations and updates, sector studies and macro notes, ordered by publication date. Search by ticker, company or title. The latest call for each rated company is on <a href="coverage.html">Coverage</a>.</p>
+      <p class="eyebrow">The Longhand archive</p>
+      <h1 class="page-title">Full reports.<br>A closer reading.</h1>
+      <p class="page-lede">Company convictions. Industry studies. The forces shaping markets. Every report, with its argument and evidence intact.</p>
       <p class="page-folio" data-folio hidden></p>
     </div>
   </header>
@@ -119,11 +125,26 @@
         </button>
       </label>
     </div>
+    <details class="library-geography" open>
+    <summary>Explore by country, sector or company <span aria-hidden="true">+</span></summary>
+    <div class="discovery-facets" data-discovery-facets aria-label="Research relationships">
+      <label><span>Geography</span><select data-facet="country" aria-label="Filter by country or market"><option value="">All countries &amp; markets</option></select></label>
+      <label><span>Sector</span><select data-facet="sector" aria-label="Filter by sector"><option value="">All sectors</option></select></label>
+      <label><span>Company</span><select data-facet="company" aria-label="Filter by company"><option value="">All companies</option></select></label>
+      <button class="discovery-reset" type="button" data-reset-filters hidden>Clear all filters</button>
+    </div>
+    </details>
+    <div class="library-context" data-library-context hidden></div>
+    <div class="library-view" role="group" aria-label="Archive layout">
+      <button type="button" data-library-view="covers" aria-pressed="true">Covers</button>
+      <button type="button" data-library-view="compact" aria-pressed="false">Compact</button>
+    </div>
     <div class="catalog-note" data-catalog-note role="note" hidden></div>
     <ol class="report-list" data-list></ol>
-    <noscript><p class="empty-text">The library needs JavaScript. Please turn it on to browse and read the reports.</p></noscript>
+    <noscript><div class="discovery-noscript"><p>Search and filters need JavaScript. You can read the published research directly:</p><ul><li><a href="power-behind-ai-update-2026-10-09.html">The Power Behind AI: October Checkpoint</a></li><li><a href="coal-in-transition.html">Coal Still Burns. Trade Is Changing.</a></li><li><a href="reports/US_Treasury_Repricing_Update_2026-10-08.pdf">Higher Yields, Uneven Effects (PDF)</a></li><li><a href="indonesia-ai-datacenter-research/interactive/index.html">AI Runs on Power and Water</a></li><li><a href="ihsg-weekly.html?week=2026-10-02">Foreign Selling Deepened. Technology Led the Fall.</a></li><li><a href="reports/INET_Initiation_Report.pdf">Priced for a Network Nobody Has Paid For Yet (PDF)</a></li><li><a href="ihsg-weekly-2026-09-25.html">Foreign Selling Persisted. The Rebound Failed.</a></li><li><a href="power-behind-ai.html">The Power Behind AI</a></li><li><a href="reports/Dovish_or_Hawkish.pdf">Dovish or Hawkish? (PDF)</a></li><li><a href="reports/The_Memory_War.pdf">The Memory War (PDF)</a></li><li><a href="reports/ADRO_Initiation_Report.pdf">The Smelter Is the Whole Thesis (PDF)</a></li></ul></div></noscript>
     <div class="empty" data-empty hidden></div>
     <p class="index-note" data-index-note hidden>Prices and targets are as at the date of publication.</p>
+    <p class="discovery-method">Country and company links describe documented relationships in the research. A sector study’s company discussion is distinct from a rated company initiation. <a href="coverage.html">Explore the research map <span aria-hidden="true">→</span></a></p>
   </section>
 </main>
 

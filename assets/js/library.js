@@ -4,6 +4,7 @@
   'use strict';
 
   const LH = window.Longhand;
+  const graph = window.LonghandGraph;
   const { $, esc, icon, dateLong, dateShort } = LH.util;
 
   const listEl = $('[data-list]');
@@ -18,36 +19,52 @@
     count: $('[data-count]'),
     empty: $('[data-empty]'),
     note: $('[data-index-note]'),
+    facets: $('[data-discovery-facets]'),
+    reset: $('[data-reset-filters]'),
+    context: $('[data-library-context]'),
+    views: $('.library-view'),
   };
 
-  const state = { all: [], cat: 'All', q: '' };
+  const state = { all: [], cat: 'All', q: '', country: '', sector: '', company: '', view: 'covers' };
 
   /* Filters and search live in the address, so a reload or a shared link
      keeps them. */
-  (function readUrl() {
+  function readUrl() {
     const p = new URLSearchParams(location.search);
     state.q = (p.get('q') || '').slice(0, 80);
+    state.view = p.get('view') === 'compact' ? 'compact' : 'covers';
     const c = (p.get('cat') || '').toLowerCase();
     state.cat = LH.CATEGORIES.find((x) => x.toLowerCase() === c) || 'All';
-  })();
+    ['country', 'sector', 'company'].forEach((key) => { state[key] = (p.get(key) || '').slice(0, 100); });
+  }
+  readUrl();
+  const geographyDisclosure = document.querySelector('.library-geography');
+  const phoneLayout = matchMedia('(max-width: 640px)');
+  if (geographyDisclosure) {
+    const fitGeography = () => { geographyDisclosure.open = !phoneLayout.matches || !!(state.country || state.sector || state.company); };
+    fitGeography(); phoneLayout.addEventListener('change', fitGeography);
+  }
 
   let urlTimer = 0;
-  function writeUrl() {
+  function writeUrl({ push = false, immediate = false } = {}) {
     clearTimeout(urlTimer);
-    urlTimer = setTimeout(() => {
+    const update = () => {
       const p = new URLSearchParams(location.search);
       if (state.q) p.set('q', state.q); else p.delete('q');
+      if (state.view === 'compact') p.set('view', 'compact'); else p.delete('view');
       if (state.cat !== 'All') p.set('cat', state.cat); else p.delete('cat');
+      ['country', 'sector', 'company'].forEach((key) => { if (state[key]) p.set(key, state[key]); else p.delete(key); });
       const qs = p.toString();
-      try { history.replaceState(history.state, '', location.pathname + (qs ? `?${qs}` : '') + location.hash); } catch (e) { /* file: URLs */ }
-    }, 250);
+      try { history[push ? 'pushState' : 'replaceState'](history.state, '', location.pathname + (qs ? `?${qs}` : '') + location.hash); } catch (e) { /* file: URLs */ }
+    };
+    if (immediate || push) update(); else urlTimer = setTimeout(update, 250);
   }
 
   /* Search */
 
   const fold = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
   const tokenize = (q) => fold(q).split(/[\s,]+/).map((t) => t.trim()).filter(Boolean);
-  const haystack = (r) => fold([r.ticker, r.exchange, r.company, r.title, r.sector, r.category, ...(r.tags || [])].join(' '));
+  const haystack = (r) => fold([r.ticker, r.exchange, r.company, r.title, r.sector, r.category, r.blurb, r.summary, ...(r.tags || []), ...Object.values(graph?.contextFor(r) || {}).flat().map((x) => x.name)].join(' '));
   const matches = (r, tokens) => { const h = haystack(r); return tokens.every((t) => h.includes(t)); };
 
   /* Wrap the matched words in <mark>, escaping everything else. */
@@ -112,6 +129,10 @@
     const blurb = r.blurb || r.summary;
     const company = r.company && r.company !== r.title ? r.company : '';
     const no = LH.catalogueNo(r);
+    const art = window.LonghandArt?.forReport(r);
+    const cover = window.LonghandArt?.coverHTML(r, { compact: state.view === 'compact' });
+    const context = graph?.contextFor(r);
+    const relationships = context ? [...context.countries.filter((x) => x.role === 'primary').slice(0, 2).map((x) => `<a href="${graph.urlFor('country', x.id)}">${esc(x.name)}</a>`), ...context.sectors.filter((x) => x.role === 'primary').slice(0, 2).map((x) => `<a href="${graph.urlFor('sector', x.id, { country: state.country })}">${esc(x.name)}</a>`)] : [];
     return `
       <li class="report${r.isLocal ? ' is-draft' : ''}" style="--i:${Math.min(i, 8)}">
         <div class="report-id">
@@ -119,10 +140,12 @@
           <span class="report-ticker${r.ticker ? '' : ' is-category'}">${highlight(LH.subjectOf(r), tokens)}${r.ticker && r.exchange ? `<span class="report-exch">${highlight(r.exchange, tokens)}</span>` : ''}</span>
           <time class="report-date" datetime="${esc(r.date)}">${esc(dateShort(r.date))}</time>
         </div>
+        ${cover || (art ? `<figure class="report-thumbnail is-${art.kind}"><img src="${esc(art.src)}" alt="${esc(art.caption)}" loading="lazy" decoding="async" width="240" height="150"></figure>` : '<div class="report-thumbnail report-thumbnail-text" aria-hidden="true">Longhand<br><em>Research</em></div>')}
         <div class="report-main">
           <p class="kicker">${LH.kickerHtml(r, [company ? highlight(company, tokens) : ''], { category: !!r.ticker })}</p>
           <h3 class="report-title" data-vt-title="${esc(r.id)}"><a href="${LH.reportHref(r)}">${highlight(r.title, tokens)}</a></h3>
-          ${blurb ? `<p class="report-blurb">${esc(blurb)}</p>` : ''}
+          ${blurb ? `<p class="report-blurb">${esc(LH.util.editorialText(blurb))}</p>` : ''}
+          ${relationships.length ? `<p class="report-context" aria-label="Research relationships">${relationships.join('<span aria-hidden="true">·</span>')}</p>` : ''}
         </div>
         <div class="report-call">
           ${call.length ? `<dl class="call">${call.map((x) => `<div><dt>${esc(x.short || x.label)}</dt><dd${x.cls ? ` class="${x.cls}"` : ''}>${esc(x.value)}</dd></div>`).join('')}</dl>` : '<span></span>'}
@@ -138,8 +161,13 @@
   }
 
   function renderIndex({ arriving = false } = {}) {
+    document.body.dataset.libraryView = state.view;
+    els.views?.querySelectorAll('[data-library-view]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.libraryView === state.view)));
     const tokens = tokenize(state.q);
-    const searched = state.all.filter((r) => matches(r, tokens));
+    const searchedByText = state.all.filter((r) => matches(r, tokens));
+    renderFacets(searchedByText);
+    const hasFacets = state.country || state.sector || state.company;
+    const searched = hasFacets && graph ? graph.reportsFor(state, searchedByText) : searchedByText;
     renderFilters(searched);
     const shown = searched.filter((r) => state.cat === 'All' || r.category === state.cat);
 
@@ -161,7 +189,7 @@
     els.empty.hidden = shown.length > 0;
     if (els.note) els.note.hidden = !shown.some((r) => r.targetPrice != null || r.price != null);
     if (!shown.length) {
-      const what = [state.q ? `“${esc(state.q)}”` : '', state.cat !== 'All' ? `in ${esc(state.cat)}` : ''].filter(Boolean).join(' ');
+      const what = [state.q ? `“${esc(state.q)}”` : '', state.cat !== 'All' ? `in ${esc(state.cat)}` : '', hasFacets ? 'the selected research relationships' : ''].filter(Boolean).join(' ') || 'these filters';
       const example = (state.all.find((r) => r.ticker) || {}).ticker || 'ADRO';
       els.empty.innerHTML = !total && LH.catalogProblem()
         ? `<p class="empty-title">The report list could not be loaded.</p>
@@ -172,6 +200,31 @@
         : `<p class="empty-title">No reports match ${what}.</p>
            <p class="empty-text">Try a ticker such as ${esc(example)}, a company name or a word from a title.
            <button type="button" class="text-link" data-reset>Clear the search and filters</button></p>`;
+    }
+  }
+
+  function renderFacets(searched) {
+    if (!els.facets || !graph) return;
+    const nouns = { country: 'countries & markets', sector: 'sectors', company: 'companies' };
+    const selected = ['country', 'sector', 'company'].filter((key) => state[key]);
+    els.facets.querySelectorAll('[data-facet]').forEach((select) => {
+      const key = select.dataset.facet;
+      const other = { ...state, [key]: '' };
+      const available = graph.entitiesFor(key, other, searched.filter((r) => state.cat === 'All' || r.category === state.cat));
+      const all = key === 'country' ? graph.countries : key === 'sector' ? graph.sectors : graph.companies;
+      select.innerHTML = `<option value="">All ${nouns[key]}</option>` + all.map((entity) => {
+        const count = graph.reportsFor({ ...other, [key]: entity.id }, searched.filter((r) => state.cat === 'All' || r.category === state.cat)).length;
+        return `<option value="${esc(entity.id)}"${state[key] === entity.id ? ' selected' : ''}${!available.some((x) => x.id === entity.id) && state[key] !== entity.id ? ' disabled' : ''}>${esc(entity.name)} (${count})</option>`;
+      }).join('');
+      if (state[key] && !all.some((x) => x.id === state[key])) select.insertAdjacentHTML('beforeend', `<option value="${esc(state[key])}" selected>Unknown ${key}: ${esc(state[key])}</option>`);
+    });
+    if (els.reset) els.reset.hidden = !selected.length && !state.q && state.cat === 'All';
+    if (els.context) {
+      els.context.hidden = !selected.length;
+      els.context.innerHTML = selected.map((key) => {
+        const entity = graph[key](state[key]);
+        return entity ? `<a href="${graph.urlFor(key, entity.id, state)}">${esc(entity.name)} ${icon('arrowRight')}</a>` : `<span>Unknown ${esc(key)}</span>`;
+      }).join('');
     }
   }
 
@@ -200,6 +253,14 @@
 
   /* Events */
 
+  els.views?.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-library-view]');
+    if (!button || button.dataset.libraryView === state.view) return;
+    state.view = button.dataset.libraryView;
+    renderIndex();
+    writeUrl({ push: true });
+  });
+
   els.search.value = state.q;
   els.search.addEventListener('input', () => {
     state.q = els.search.value.slice(0, 80);
@@ -223,8 +284,27 @@
     if (!b) return;
     state.cat = b.dataset.cat;
     renderIndex();
-    writeUrl();
+    writeUrl({ push: true });
   });
+
+  els.facets?.addEventListener('change', (e) => {
+    const select = e.target.closest('[data-facet]');
+    if (!select) return;
+    state[select.dataset.facet] = select.value;
+    renderIndex();
+    writeUrl({ push: true });
+  });
+  function resetAll() {
+    state.cat = 'All';
+    state.country = state.sector = state.company = state.q = '';
+    els.search.value = '';
+    renderIndex();
+    writeUrl({ push: true });
+  }
+  els.reset?.addEventListener('click', () => { resetAll(); els.search.focus(); });
+  window.addEventListener('popstate', () => { clearTimeout(urlTimer); readUrl(); els.search.value = state.q; renderIndex(); });
+  // Flush a typed query before leaving so Back restores the precise archive view.
+  document.addEventListener('click', (e) => { if (e.target.closest('a[href]')) writeUrl({ immediate: true }); });
 
   // Author tools on a row: publish a draft, or delete a report
   listEl.addEventListener('click', (e) => {
@@ -236,8 +316,7 @@
 
   els.empty.addEventListener('click', (e) => {
     if (!e.target.closest('[data-reset]')) return;
-    state.cat = 'All';
-    resetSearch();
+    resetAll();
     els.search.focus();
   });
 

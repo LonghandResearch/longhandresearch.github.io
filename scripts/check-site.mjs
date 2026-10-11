@@ -135,8 +135,19 @@ for (const r of reports) {
         } catch (e) { bad(`weekly data "${dataFile}" is not valid JSON: ${e.message}`); }
       }
     }
+  } else if (r.contentUrl) {
+    if (!/^(?!\/)(?!.*\.\.)[\w./-]+\.json$/.test(r.contentUrl) || !existsExactly(r.contentUrl)) bad('contentUrl must identify an existing local JSON file');
+    else {
+      try {
+        const scope = { window: {} };
+        runInNewContext(read('assets/js/structured-report.js'), scope, { timeout: 1000 });
+        const errors = scope.window.LonghandStructured.validate(JSON.parse(read(r.contentUrl)), r.id);
+        errors.forEach((message) => bad(`structured report: ${message}`));
+      } catch (e) { bad(`structured report could not be validated: ${e.message}`); }
+    }
+    if (r.pdfUrl && !/^[a-z]+:/i.test(r.pdfUrl) && !existsExactly(r.pdfUrl)) bad('optional PDF does not exist');
   } else if (!r.pdfUrl) {
-    bad('has neither pdfUrl nor page');
+    bad('has neither pdfUrl, page nor contentUrl');
   } else if (!/^[a-z]+:/i.test(r.pdfUrl) && !existsExactly(r.pdfUrl)) {
     bad(`points to "${r.pdfUrl}", which is not a file in the site (check upper and lower case)`);
   }

@@ -88,8 +88,12 @@
     clear: $('[data-search-clear]'),
     count: $('[data-count]'),
     empty: $('[data-empty]'),
+    pagination: $('[data-wire-pagination]'),
+    visible: $('[data-wire-visible]'),
+    more: $('[data-wire-more]'),
   };
-  const state = { all: [], topic: 'All', q: '', loaded: false, failed: false };
+  const PAGE_SIZE = 24;
+  const state = { all: [], topic: 'All', q: '', loaded: false, failed: false, limit: PAGE_SIZE };
 
   (function readUrl() {
     const p = new URLSearchParams(location.search);
@@ -99,15 +103,16 @@
   })();
 
   let urlTimer = 0;
-  function writeUrl() {
+  function writeUrl({ immediate = false } = {}) {
     clearTimeout(urlTimer);
-    urlTimer = setTimeout(() => {
+    const update = () => {
       const p = new URLSearchParams(location.search);
       if (state.q) p.set('q', state.q); else p.delete('q');
       if (state.topic !== 'All') p.set('topic', state.topic.toLowerCase()); else p.delete('topic');
       const qs = p.toString();
       try { history.replaceState(history.state, '', location.pathname + (qs ? `?${qs}` : '') + location.hash); } catch (e) { /* file: URLs */ }
-    }, 250);
+    };
+    if (immediate) update(); else urlTimer = setTimeout(update, 250);
   }
 
   const fold = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '');
@@ -116,7 +121,11 @@
 
   function renderFolio() {
     if (!els.folio) return;
-    if (!state.all.length) { els.folio.hidden = true; return; }
+    if (!state.all.length) {
+      els.folio.textContent = state.failed ? 'Headlines unavailable' : 'No headlines yet';
+      els.folio.hidden = false;
+      return;
+    }
     const sources = new Set(state.all.map((x) => x.source).filter(Boolean)).size;
     const latest = state.all[0].date;
     const bits = [
@@ -129,14 +138,13 @@
   }
 
   function renderFilters(searched) {
-    const present = TOPICS.filter((t) => state.all.some((x) => x.topic === t));
-    if (state.topic !== 'All' && !present.includes(state.topic)) state.topic = 'All';
+    const disabled = !state.loaded || !state.all.length;
     const count = (t) => (t === 'All' ? searched.length : searched.filter((x) => x.topic === t).length);
     const focused = els.filters.contains(document.activeElement) ? document.activeElement.dataset.topic : null;
-    els.filters.hidden = !state.all.length;
-    els.filters.innerHTML = ['All', ...present].map((t) => `
-      <button type="button" class="filter" data-topic="${t}" aria-pressed="${state.topic === t}">
-        ${t}<span class="sr-only">,</span><span class="filter-n">${count(t)}</span>
+    els.filters.hidden = false;
+    els.filters.innerHTML = ['All', ...TOPICS].map((t) => `
+      <button type="button" class="filter" data-topic="${t}" aria-pressed="${state.topic === t}"${disabled ? ' disabled' : ''}>
+        ${t}<span class="sr-only">,</span><span class="filter-n">${!state.loaded || state.failed ? '—' : count(t)}</span>
       </button>`).join('');
     if (focused) {
       const again = els.filters.querySelector(`[data-topic="${focused}"]`);
@@ -148,7 +156,14 @@
     const ts = tokens();
     const searched = state.all.filter((x) => matches(x, ts));
     renderFilters(searched);
-    const shown = searched.filter((x) => state.topic === 'All' || x.topic === state.topic);
+    const matching = searched.filter((x) => state.topic === 'All' || x.topic === state.topic);
+    const shown = matching.slice(0, state.limit);
+    if (els.pagination) els.pagination.hidden = !matching.length;
+    if (els.visible) els.visible.textContent = `${shown.length} of ${matching.length} headlines`;
+    if (els.more) {
+      els.more.hidden = shown.length >= matching.length;
+      els.more.textContent = `Show next ${Math.min(PAGE_SIZE, matching.length - shown.length)} headlines`;
+    }
 
     // One block per day, newest first
     const days = [];
@@ -174,9 +189,10 @@
     }
 
     const total = state.all.length;
-    els.count.textContent = !total || shown.length === total ? '' : `${shown.length} of ${total} headlines`;
+    els.count.textContent = !total || matching.length === total ? '' : `${matching.length} of ${total} headlines`;
     els.clear.hidden = !state.q;
-    els.searchBox.hidden = !total;
+    els.searchBox.hidden = false;
+    els.search.disabled = !total;
     els.searchBox.classList.toggle('has-value', !!state.q);
     els.empty.hidden = shown.length > 0;
     if (shown.length) return;
@@ -200,7 +216,7 @@
   /* Events */
 
   els.search.value = state.q;
-  els.search.addEventListener('input', () => { state.q = els.search.value.slice(0, 80); render(); writeUrl(); });
+  els.search.addEventListener('input', () => { state.q = els.search.value.slice(0, 80); state.limit = PAGE_SIZE; render(); writeUrl(); });
   els.search.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && els.search.value) { e.preventDefault(); resetSearch(); }
   });
@@ -208,6 +224,7 @@
   function resetSearch() {
     els.search.value = '';
     state.q = '';
+    state.limit = PAGE_SIZE;
     render();
     writeUrl();
   }
@@ -215,6 +232,7 @@
     const b = e.target.closest('[data-topic]');
     if (!b) return;
     state.topic = b.dataset.topic;
+    state.limit = PAGE_SIZE;
     render();
     writeUrl();
   });
@@ -223,6 +241,18 @@
     state.topic = 'All';
     resetSearch();
     els.search.focus();
+  });
+  els.more?.addEventListener('click', () => {
+    const previous = page.querySelectorAll('.wire-item').length;
+    state.limit += PAGE_SIZE;
+    render();
+    // Move keyboard focus to the first newly revealed story, including the
+    // final batch where the More button disappears.
+    page.querySelectorAll('.wire-title a')[previous]?.focus({ preventScroll: true });
+  });
+  // Commit a typed query before a navigation can freeze this page for Back.
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a[href]')) writeUrl({ immediate: true });
   });
   document.addEventListener('keydown', (e) => {
     if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
@@ -234,10 +264,14 @@
     els.search.select();
   });
 
-  els.filters.hidden = true;
-  els.searchBox.hidden = true;
+  renderFilters([]);
+  els.search.disabled = true;
   load()
     .then((items) => { state.all = items; })
     .catch(() => { state.failed = true; })
-    .then(() => { renderFolio(); render({ arriving: true }); });
+    .then(() => {
+      state.loaded = true;
+      renderFolio(); render({ arriving: true });
+      page.removeAttribute('aria-busy');
+    });
 })();

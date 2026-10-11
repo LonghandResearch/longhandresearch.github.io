@@ -1,10 +1,9 @@
-/* Longhand Research: the Earth on the front page.
+/* Longhand Research: the Earth on the front page and Coverage.
    A photographic globe drawn with three.js from NASA imagery: Blue Marble for
    the day side, Black Marble for the lights of the night side, and a cloud
    layer that drifts a little faster than the ground. It turns slowly on its
-   tilted axis. Drag it to turn it any way; click it, or press Space, to stop
-   it; double-click or press Home to set it straight. As the page scrolls, the
-   sun moves on and the cities come up out of the dark. */
+   tilted axis. The homepage uses a simple ambient turn. Coverage supports
+   dragging, keyboard rotation and country selection. */
 (function () {
   'use strict';
 
@@ -21,8 +20,7 @@
   const TURN_SECONDS = 150;        // one full turn of the Earth on its axis
   const CLOUD_DRIFT = 0.012;       // how far the clouds run ahead of the ground, turns per turn
   const RETURN_AFTER_MS = 5000;    // idle time before a hand-turned Earth settles back onto its axis
-  const SUN_SWEEP = 75;            // degrees the sun moves on as the front page scrolls away
-  const RADIUS_SHARE = 0.36;       // the Earth's radius as a share of the stage's shorter side
+  const RADIUS_SHARE = hero ? 0.46 : 0.40;       // the Earth's radius as a share of the stage's shorter side
 
   function unavailable(err) {
     if (err) console.warn('The Earth could not be shown:', err);
@@ -49,6 +47,7 @@
     renderer.setClearColor(0x000000, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.02;
+    renderer.localClippingEnabled = true;
     const canvas = renderer.domElement;
     canvas.setAttribute('aria-hidden', 'true');
     stage.appendChild(canvas);
@@ -94,6 +93,8 @@
       cloudMix: { value: 0 },
       nightMix: { value: 0 },
       glow: { value: 0 },
+      ambience: { value: hero ? 1 : 0 },
+      paper: { value: document.documentElement.dataset.theme === 'light' ? 1 : 0 },
     };
 
     const surface = new THREE.ShaderMaterial({
@@ -102,7 +103,7 @@
       fragmentShader: `
         uniform sampler2D dayMap, nightMap, waterMap, cloudMap;
         uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix, nightMix;
+        uniform float cloudShift, cloudMix, nightMix, paper, ambience;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
@@ -114,19 +115,39 @@
           float day = smoothstep(-0.12, 0.22, NdL);
           float cloud = texture2D(cloudMap, vUv + vec2(cloudShift, 0.0)).r * cloudMix;
           vec3 albedo = texture2D(dayMap, vUv).rgb;
-          vec3 col = albedo * (0.028 + 1.06 * max(NdL, 0.0)) * (1.0 - 0.38 * cloud);
+          albedo = mix(vec3(dot(albedo, vec3(0.2126, 0.7152, 0.0722))), albedo, 0.18) * vec3(0.80, 0.82, 0.81);
+          vec3 col = albedo * (0.012 + 0.012 * ambience + 0.12 * max(NdL, 0.0)) * (1.0 - 0.18 * cloud);
           // the sun's glint on open water
           float water = texture2D(waterMap, vUv).r;
           vec3 H = normalize(L + V);
           float glint = pow(max(dot(N, H), 0.0), 140.0) * water * day * (1.0 - cloud);
-          col += vec3(1.0, 0.9, 0.74) * glint * 0.22;
+          col += vec3(1.0, 0.9, 0.74) * glint * 0.025;
           // city lights on the night side, warmed towards the page's gold
           vec3 lights = texture2D(nightMap, vUv).rgb;
           float night = 1.0 - smoothstep(-0.26, 0.04, NdL);
-          col += lights * vec3(1.0, 0.76, 0.42) * 1.9 * night * nightMix * (1.0 - 0.65 * cloud);
+          float cityLight = dot(lights, vec3(0.2126, 0.7152, 0.0722));
+          vec3 cityTint = mix(lights, cityLight * vec3(1.10, 0.98, 0.75), 0.35 * ambience);
+          col += cityTint * vec3(1.0, 0.94, 0.82) * (1.40 + 0.35 * ambience) * nightMix;
           // blue haze towards the rim on the lit side
           float fres = pow(1.0 - max(dot(N, V), 0.0), 3.0);
-          col += vec3(0.28, 0.52, 1.0) * fres * 0.6 * smoothstep(-0.25, 0.5, NdL);
+          col += vec3(0.24, 0.38, 0.49) * fres * (0.080 + 0.035 * ambience);
+          if (paper > 0.5) {
+            // Sunlit relief and sage seas retain the NASA surface texture.
+            // Terrain variation is imagery, not a research-density heatmap.
+            float terrain = dot(albedo, vec3(0.2126, 0.7152, 0.0722));
+            float front = max(dot(N, V), 0.0);
+            float light = smoothstep(-0.65, 0.85, dot(N, normalize(vec3(-0.55, 0.65, 1.0))));
+            vec3 parchment = mix(vec3(0.31, 0.35, 0.255), vec3(0.78, 0.66, 0.46), clamp(0.22 + 2.40 * terrain, 0.0, 1.0));
+            vec3 sage = mix(vec3(0.045, 0.10, 0.08), vec3(0.19, 0.30, 0.24), 0.25 + 0.45 * front + 0.30 * light);
+            col = mix(parchment * (0.72 + 0.28 * light), sage * (0.70 + 0.30 * light), water);
+            // Fine coastal ink follows the existing land/water mask.
+            col *= 1.0 - 0.12 * smoothstep(0.02, 0.30, fwidth(water));
+            // Original NASA settlement texture becomes a quiet bronze ink.
+            float settlement = smoothstep(0.04, 0.40, cityLight) * nightMix * (1.0 - water);
+            col = mix(col, col * vec3(0.70, 0.67, 0.48), settlement * 0.38);
+            col += vec3(0.018, 0.014, 0.006) * cloud;
+            col += vec3(0.018, 0.025, 0.017) * fres * light;
+          }
           gl_FragColor = vec4(col, 1.0);
           #include <tonemapping_fragment>
           #include <colorspace_fragment>
@@ -141,7 +162,7 @@
       fragmentShader: `
         uniform sampler2D cloudMap;
         uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix;
+        uniform float cloudShift, cloudMix, paper, ambience;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
@@ -152,10 +173,11 @@
           float a = smoothstep(0.1, 0.92, texture2D(cloudMap, vUv + vec2(cloudShift, 0.0)).r) * cloudMix;
           // warmer and dimmer where the sun is low, as at dusk
           float low = 1.0 - smoothstep(0.0, 0.35, NdL);
-          vec3 col = mix(vec3(1.0), vec3(1.0, 0.78, 0.6), low) * (0.02 + 0.94 * max(NdL, 0.0));
+          vec3 col = vec3(0.65, 0.72, 0.76) * (0.009 + 0.025 * ambience + 0.05 * max(NdL, 0.0));
+          if (paper > 0.5) col = vec3(0.82, 0.76, 0.62);
           // thin out at the very rim so the edge of the layer does not show
           a *= smoothstep(0.0, 0.28, dot(N, V));
-          gl_FragColor = vec4(col, a * 0.9);
+          gl_FragColor = vec4(col, a * mix(0.32, 0.085, paper));
           #include <tonemapping_fragment>
           #include <colorspace_fragment>
         }`,
@@ -174,7 +196,7 @@
         }`,
       fragmentShader: `
         uniform vec3 sunDir;
-        uniform float glow;
+        uniform float glow, paper, ambience;
         varying vec3 vNormalV;
         varying vec3 vNormalW;
         void main() {
@@ -184,7 +206,9 @@
           float i = pow(smoothstep(0.0, 0.56, t), 1.35);
           float lit = 0.16 + 0.84 * smoothstep(-0.45, 0.6, dot(normalize(vNormalW), normalize(sunDir)));
           // coloured light with its own alpha, so the stars behind still show through
-          gl_FragColor = vec4(vec3(0.36, 0.62, 1.0), clamp(i * lit * 1.05 * glow, 0.0, 1.0));
+          vec3 rim = mix(vec3(0.20, 0.29, 0.34), vec3(0.50, 0.43, 0.26), paper);
+          float strength = mix(0.13 + 0.10 * ambience, 0.035 * ambience + 0.065, paper);
+          gl_FragColor = vec4(rim, clamp(i * lit * strength * glow, 0.0, 1.0));
           #include <colorspace_fragment>
         }`,
       side: THREE.BackSide,
@@ -211,6 +235,109 @@
     const cloudShell = new THREE.Mesh(new THREE.SphereGeometry(1.012, seg, seg / 2), clouds);
     cloudShell.renderOrder = 2;
     spin.add(cloudShell);
+    /* Selected substantive research connections, never a network of mentions.
+       Co-primary geographies qualify directly. Material connections require
+       an explicit, reviewed editorial selection as well as a graph relationship.
+       The coal study identifies China and India as substantial export markets
+       (assets/js/coal/data.js, BPS destination register). Context-only markets
+       remain in the country list. These arcs do not encode trade volumes.
+       Depth testing lets the opaque Earth hide the far side of each arc. */
+    const connections = new THREE.Group();
+    spin.add(connections);
+    // Hide grazing fragments before they become isolated loops at the horizon.
+    const clippingPlanes = [new THREE.Plane(new THREE.Vector3(0, 0, 1), -0.12)];
+    const connectionStyle = { transparent: true, depthTest: true, depthWrite: false, toneMapped: false, clippingPlanes };
+    const arcMaterial = new THREE.LineBasicMaterial(connectionStyle);
+    const pointMaterial = new THREE.MeshBasicMaterial(connectionStyle);
+    const travelMaterial = new THREE.MeshBasicMaterial(connectionStyle);
+    const trailMaterial = new THREE.LineBasicMaterial(connectionStyle);
+    const pointGeometry = new THREE.SphereGeometry(0.0035, 8, 6);
+    const travellers = [];
+    let connectionTime = 0;
+    function themeConnections() {
+      const paper = uniforms.paper.value > 0.5;
+      arcMaterial.color.set(paper ? '#846f42' : '#c6b38e');
+      arcMaterial.opacity = paper ? 0.34 : 0.26;
+      pointMaterial.color.copy(arcMaterial.color);
+      pointMaterial.opacity = paper ? 0.64 : 0.68;
+      travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.82 : 0.88;
+      trailMaterial.color.copy(arcMaterial.color); trailMaterial.opacity = paper ? 0.48 : 0.58;
+    }
+    const geographicPoint = (c) => {
+      const lat = c.lat * Math.PI / 180, lon = c.lon * Math.PI / 180;
+      return new THREE.Vector3(Math.cos(lat) * Math.cos(lon), Math.sin(lat), -Math.cos(lat) * Math.sin(lon));
+    };
+    const graph = window.LonghandGraph;
+    const published = (window.Longhand?.publishedSorted() || []).filter((report) => !report.isLocal);
+    const materialSelections = new Map([
+      ['coal-in-transition-2026-10-08', new Set(['CN:ID', 'ID:IN'])],
+    ]);
+    const pairs = new Map();
+    if (graph) published.forEach((report) => {
+      const countries = graph.contextFor(report).countries;
+      const primary = countries.filter((c) => c.role === 'primary');
+      primary.forEach((from) => countries.forEach((to) => {
+        if (from.id === to.id || ![from.lat, from.lon, to.lat, to.lon].every(Number.isFinite)) return;
+        const key = [from.id, to.id].sort().join(':');
+        if (to.role !== 'primary' && !materialSelections.get(report.id)?.has(key)) return;
+        if (pairs.has(key)) return;
+        const start = geographicPoint(from), end = geographicPoint(to);
+        const angle = Math.acos(THREE.MathUtils.clamp(start.dot(end), -1, 1));
+        if (angle < 0.001 || angle > Math.PI - 0.001) return;
+        pairs.set(key, { start, end, angle, key });
+      }));
+    });
+    const endpoints = new Map();
+    const visiblePairs = [...pairs.values()];
+    visiblePairs.forEach(({ start, end, angle, key }) => {
+      // Keep long connections close to the surface, so edge-on paths read as
+      // geography rather than tall antennae. Endpoints remain above the clouds.
+      const points = [], height = 0.022 + 0.055 * (1 - angle / Math.PI);
+      for (let i = 0; i <= 64; i++) {
+        const t = i / 64;
+        const point = start.clone().multiplyScalar(Math.sin((1 - t) * angle)).addScaledVector(end, Math.sin(t * angle)).divideScalar(Math.sin(angle));
+        points.push(point.normalize().multiplyScalar(1.015 + height * Math.sin(Math.PI * t)));
+      }
+      const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), arcMaterial);
+      line.renderOrder = 1; connections.add(line);
+      // A small moving accent carries no quantitative flow meaning. Reuse the
+      // same geometry and the Earth's RAF; pause and reduced motion stop it.
+      const head = new THREE.Mesh(pointGeometry, travelMaterial); head.scale.setScalar(1.35); head.renderOrder = 1;
+      const trailGeometry = new THREE.BufferGeometry(); trailGeometry.setAttribute('position', line.geometry.attributes.position);
+      trailGeometry.setDrawRange(0, 0);
+      const trail = new THREE.Line(trailGeometry, trailMaterial); trail.renderOrder = 1;
+      connections.add(head, trail);
+      travellers.push({ points, head, trail, line, start, end, ids: key.split(':') });
+      key.split(':').forEach((id) => { if (!endpoints.has(id)) endpoints.set(id, geographicPoint(graph.country(id))); });
+    });
+    const endpointDots = new Map();
+    endpoints.forEach((point, id) => { const dot = new THREE.Mesh(pointGeometry, pointMaterial); dot.position.copy(point).multiplyScalar(1.015); dot.renderOrder = 1; connections.add(dot); endpointDots.set(id, dot); });
+    themeConnections();
+    plate.dataset.researchArcs = String(travellers.length);
+    plate.dataset.researchLinks = visiblePairs.map((p) => p.key).join(',');
+    let connectionCountry = '';
+    function selectConnections(id) {
+      connectionCountry = id;
+      const activeEndpoints = new Set();
+      travellers.forEach((t) => {
+        t.line.visible = !id || t.ids.includes(id);
+        if (t.line.visible) t.ids.forEach((endpoint) => activeEndpoints.add(endpoint));
+      });
+      endpointDots.forEach((dot, endpoint) => { dot.visible = activeEndpoints.has(endpoint); });
+      plate.dataset.activeResearchArcs = String(travellers.filter((t) => t.line.visible).length);
+      moveConnections(0, false);
+    }
+    function moveConnections(dt, moving) {
+      if (moving) connectionTime += dt;
+      travellers.forEach(({ points, head, trail, ids }, i) => {
+        head.visible = trail.visible = !reduceMotion.matches && (!connectionCountry || ids.includes(connectionCountry));
+        const progress = (connectionTime / (13 + i * 0.9) + i / travellers.length) % 1;
+        const position = progress * (points.length - 1), start = Math.floor(position);
+        head.position.copy(points[start]).lerp(points[Math.min(start + 1, points.length - 1)], position - start);
+        trail.geometry.setDrawRange(Math.max(0, start - 3), Math.min(4, start + 1));
+      });
+    }
+    selectConnections('');
     const haloShell = new THREE.Mesh(new THREE.SphereGeometry(1.2, 96, 48), halo);
     haloShell.renderOrder = 3;
     world.add(haloShell);
@@ -218,10 +345,10 @@
     /* State. The camera never moves: only the Earth turns. */
     const AUTO = (Math.PI * 2) / TURN_SECONDS;
     const UPRIGHT = new THREE.Quaternion();
-    const sunBase = new THREE.Vector3(-0.78, 0.34, 0.62).normalize();
+    const sunBase = new THREE.Vector3(-0.45, 0.3, -1).normalize();
     const lean = { x: 0, y: 0, tx: 0, ty: 0 };      // pointer lean, eased
-    let scrollP = 0;                                 // 0 at the top of the page, 1 once the front page has scrolled away
     let playing = !reduceMotion.matches;
+    let lastReduced = reduceMotion.matches;
     let spinVel = 0;
     const omega = new THREE.Vector3();
     let dragging = false, moved = false, touch = false;
@@ -229,9 +356,95 @@
     let lastTouch = 0;
     let returning = false;
     let visible = true, raf = 0, last = 0, shown = false, dirty = true;
-    let intro = reduceMotion.matches ? 1 : 0;       // the opening turn and bloom, 0 to 1
+    let intro = hero || reduceMotion.matches ? 1 : 0; // homepage begins with the ambient turn only
     let cloudTarget = 0, nightTarget = 0;
+    document.addEventListener('longhand:theme', (e) => {
+      uniforms.paper.value = e.detail.theme === 'light' ? 1 : 0;
+      themeConnections();
+      requestFrame();
+    });
     let radiusPx = 100;
+    let focused = false, focusTarget = null, focusId = '';
+    let markers = [];
+    const markerLayer = document.createElement('div');
+    markerLayer.className = 'globe-markers';
+    markerLayer.setAttribute('aria-label', 'Research locations');
+    stage.after(markerLayer);
+    const surfacePoint = (lat, lon) => {
+      const p = lat * Math.PI / 180, l = lon * Math.PI / 180;
+      return new THREE.Vector3(Math.cos(p) * Math.cos(l), Math.sin(p), -Math.cos(p) * Math.sin(l));
+    };
+    function setMarkers(items) {
+      const previous = new Map(markers.map((m) => [m.id, m.button]));
+      markers = items.filter((m) => Number.isFinite(m.lat) && Number.isFinite(m.lon)).map((m) => {
+        const button = previous.get(m.id) || document.createElement('button');
+        button.type = 'button'; button.className = 'globe-marker';
+        button.dataset.countryId = m.id;
+        const count = graph?.reportsFor({ country: m.id }).length || 0;
+        button.replaceChildren();
+        const name = document.createElement('span'); name.className = 'globe-marker-name'; name.textContent = m.name;
+        const total = document.createElement('span'); total.className = 'globe-marker-count'; total.textContent = `${count} ${count === 1 ? 'report' : 'reports'}`;
+        button.append(name, total); button.title = m.name + ' research';
+        button.setAttribute('aria-label', `Explore ${m.name} research, ${count} connected ${count === 1 ? 'report' : 'reports'}`);
+        if (!previous.has(m.id)) {
+          button.addEventListener('click', () => document.dispatchEvent(new CustomEvent('longhand:globe-select', { detail: { id: m.id } })));
+          // Reveal a secondary label on demand without keeping an idle RAF alive.
+          ['pointerenter', 'pointerleave', 'focus', 'blur'].forEach((event) => button.addEventListener(event, requestFrame));
+          markerLayer.append(button);
+        }
+        return { ...m, button, point: surfacePoint(m.lat, m.lon) };
+      });
+      const retained = new Set(markers.map((m) => m.id));
+      previous.forEach((button, id) => { if (!retained.has(id)) button.remove(); });
+      requestFrame();
+    }
+    function projectMarkers() {
+      const bounds = stage.getBoundingClientRect(), parent = plate.getBoundingClientRect();
+      markerLayer.style.left = (bounds.left - parent.left) + 'px';
+      markerLayer.style.top = (bounds.top - parent.top) + 'px';
+      markerLayer.style.width = bounds.width + 'px';
+      markerLayer.style.height = bounds.height + 'px';
+      const q = spin.getWorldQuaternion(new THREE.Quaternion());
+      const occupied = [];
+      const overlaps = (box) => occupied.some((other) => box.left < other.right + 4 && box.right > other.left - 4 && box.top < other.bottom + 4 && box.bottom > other.top - 4);
+      /* Keep the selected location readable first. Additional endpoints can
+         use the other side of their point or collapse when space is scarce. */
+      [...markers].sort((a, b) => Number(b.id === focusId) - Number(a.id === focusId)).forEach((m) => {
+        m.button.classList.toggle('is-selected', m.id === focusId);
+        m.button.classList.toggle('is-muted', !!focusId && m.id !== focusId);
+        m.button.setAttribute('aria-pressed', String(m.id === focusId));
+        const point = spin.localToWorld(m.point.clone().multiplyScalar(1.03));
+        const normal = m.point.clone().applyQuaternion(q).normalize();
+        m.button.hidden = normal.dot(camera.position.clone().sub(point).normalize()) < .1;
+        if (m.button.hidden) return;
+        const projected = point.project(camera);
+        const x = (projected.x + 1) * bounds.width / 2, y = (1 - projected.y) * bounds.height / 2;
+        m.button.classList.remove('is-crowded');
+        const boxFor = (align) => {
+          const w = m.button.offsetWidth, h = m.button.offsetHeight;
+          const left = align === 'left' ? x - w + 6 : x - 6;
+          return { left, right: left + w, top: y - h / 2, bottom: y + h / 2 };
+        };
+        const fits = (box) => box.left >= 0 && box.right <= bounds.width && !overlaps(box);
+        let align = x + m.button.offsetWidth > bounds.width - 8 ? 'left' : 'right';
+        let box = boxFor(align);
+        if (!fits(box)) {
+          const opposite = align === 'left' ? 'right' : 'left';
+          if (fits(boxFor(opposite))) { align = opposite; box = boxFor(align); }
+          else if (m.id !== focusId && !m.button.matches(':hover, :focus-visible')) {
+            m.button.classList.add('is-crowded');
+            box = boxFor(align);
+            if (!fits(box) && fits(boxFor(opposite))) { align = opposite; box = boxFor(align); }
+            // The country selector and connection shortcuts remain available.
+            if (!fits(box)) { m.button.hidden = true; return; }
+          }
+        }
+        occupied.push(box);
+        m.button.dataset.align = align;
+        m.button.style.left = x + 'px';
+        m.button.style.top = y + 'px';
+      });
+    }
 
     const camRight = new THREE.Vector3(1, 0, 0);
     const camUp = new THREE.Vector3(0, 1, 0);
@@ -294,10 +507,12 @@
 
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const sun = new THREE.Vector3();
-    const yAxis = new THREE.Vector3(0, 1, 0);
 
     function loop(now) {
       raf = 0;
+      // Reconcile while drawing as well: media changes can be deferred while
+      // the page is busy or hidden. No extra timer is needed.
+      if (lastReduced !== reduceMotion.matches) onMotionPref(reduceMotion);
       const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
       last = now;
       let busy = false;
@@ -309,6 +524,7 @@
       }
       const e = easeOut(intro);
       uniforms.glow.value = e;
+      moveConnections(dt, playing && !reduceMotion.matches);
 
       // the Earth's own slow turn, eased in and out
       const target = playing ? AUTO : 0;
@@ -321,7 +537,7 @@
       uniforms.cloudShift.value = (uniforms.cloudShift.value + (spinVel * dt / (Math.PI * 2)) * CLOUD_DRIFT) % 1;
 
       // textures that arrive late fade in rather than pop
-      const fade = 1 - Math.exp(-dt * 2.5);
+      const fade = reduceMotion.matches ? 1 : 1 - Math.exp(-dt * 2.5);
       if (uniforms.cloudMix.value < cloudTarget - 0.002) { uniforms.cloudMix.value += (cloudTarget - uniforms.cloudMix.value) * fade; busy = true; } else uniforms.cloudMix.value = cloudTarget;
       if (uniforms.nightMix.value < nightTarget - 0.002) { uniforms.nightMix.value += (nightTarget - uniforms.nightMix.value) * fade; busy = true; } else uniforms.nightMix.value = nightTarget;
 
@@ -334,7 +550,7 @@
         } else if (w) {
           omega.set(0, 0, 0);
         }
-        if (!returning && !omega.lengthSq() && now - lastTouch > RETURN_AFTER_MS && tilted()) settle();
+        if (!focused && !returning && !omega.lengthSq() && now - lastTouch > RETURN_AFTER_MS && tilted()) settle();
         if (returning) {
           ball.quaternion.slerp(UPRIGHT, reduceMotion.matches ? 1 : 1 - Math.exp(-dt * 1.8));
           if (!tilted()) { ball.quaternion.identity(); returning = false; }
@@ -342,16 +558,36 @@
         }
       } else busy = true;
 
-      // the pointer's lean, and the page's scroll
+      if (focusTarget) {
+        ball.quaternion.slerp(focusTarget, reduceMotion.matches ? 1 : 1 - Math.exp(-dt * 7));
+        if (ball.quaternion.angleTo(focusTarget) < .001) { ball.quaternion.copy(focusTarget); focusTarget = null; }
+        busy = true;
+      }
+      // A small pointer response is confined to the interactive Coverage globe.
       lean.x += (lean.tx - lean.x) * (1 - Math.exp(-dt * 4));
       lean.y += (lean.ty - lean.y) * (1 - Math.exp(-dt * 4));
       if (Math.abs(lean.tx - lean.x) + Math.abs(lean.ty - lean.y) > 1e-4) busy = true;
-      world.rotation.set(lean.y * 0.06, lean.x * 0.08 + introTurn, 0);
-      world.position.y = -scrollP * 0.55;
-      sun.copy(sunBase).applyAxisAngle(yAxis, (-scrollP * SUN_SWEEP * Math.PI) / 180);
+      world.rotation.set(hero ? 0 : lean.y * 0.06, hero ? 0 : lean.x * 0.08 + introTurn, 0);
+      world.position.y = 0;
+      sun.copy(sunBase);
       uniforms.sunDir.value.copy(sun);
 
+      // A connection enters the view only when both geographic ends are on
+      // the readable hemisphere. This avoids stray lines to hidden countries.
+      world.updateMatrixWorld(true);
+      let visibleArcs = 0;
+      travellers.forEach((t) => {
+        const onFront = [t.start, t.end].every((endpoint) => {
+          const point = spin.localToWorld(endpoint.clone());
+          return point.clone().normalize().dot(camera.position.clone().sub(point).normalize()) > 0.15;
+        });
+        t.line.visible = onFront && (!connectionCountry || t.ids.includes(connectionCountry));
+        t.head.visible = t.trail.visible = t.line.visible && !reduceMotion.matches;
+        if (t.line.visible) visibleArcs++;
+      });
+      plate.dataset.visibleResearchArcs = String(visibleArcs);
       renderer.render(scene, camera);
+      if (markers.length) projectMarkers();
       dirty = false;
       if (!shown) { shown = true; plate.classList.add('is-ready'); }
       if ((busy || playing || dirty) && visible && !document.hidden) raf = requestAnimationFrame(loop);
@@ -366,7 +602,9 @@
        the Earth side to side only, so an upward swipe still scrolls the page. */
     const perPixel = () => (Math.PI * 1.1) / Math.max(260, radiusPx * 2.4);
     stage.addEventListener('pointerdown', (e) => {
+      if (hero) return;
       if (e.pointerType === 'mouse' && e.button !== 0) return;
+      focused = false; focusTarget = null;
       dragging = true;
       moved = false;
       touch = e.pointerType !== 'mouse';
@@ -380,6 +618,7 @@
       requestFrame();
     });
     stage.addEventListener('pointermove', (e) => {
+      if (hero) return;
       if (!dragging) {
         if (e.pointerType === 'mouse' && !reduceMotion.matches) {
           const r = stage.getBoundingClientRect();
@@ -431,12 +670,14 @@
     stage.addEventListener('pointerup', release);
     stage.addEventListener('pointercancel', release);
     stage.addEventListener('lostpointercapture', release);
-    stage.addEventListener('dblclick', () => { if (tilted()) settle(); });
+    stage.addEventListener('dblclick', () => { if (!hero && tilted()) settle(); });
 
     /* Keyboard: arrows turn the Earth, Space or Enter stops and starts it, Home sets it straight */
     stage.addEventListener('keydown', (e) => {
+      if (hero) return;
       const dir = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
       if (dir) {
+        focused = false; focusTarget = null;
         e.preventDefault();
         returning = false;
         tv.copy(camUp).multiplyScalar(dir[0]).addScaledVector(camRight, dir[1]).normalize();
@@ -456,27 +697,50 @@
     // The button names the action available in its current state.
     function setPlaying(on) {
       playing = on;
-      stage.setAttribute('aria-label', on ? 'Pause the Earth turning' : 'Resume the Earth turning');
-      stage.title = on ? 'Drag to turn the Earth any way. Click to stop it.' : 'Drag to turn the Earth any way. Click to set it turning again.';
+      if (on) { focused = false; focusTarget = null; }
+      document.dispatchEvent(new CustomEvent('longhand:globe-playing', { detail: { playing: on } }));
+      if (!hero) {
+        stage.setAttribute('aria-label', on ? 'Pause the Earth turning' : 'Resume the Earth turning');
+        stage.title = on ? 'Drag to turn the Earth any way. Click to stop it.' : 'Drag to turn the Earth any way. Click to set it turning again.';
+      }
       requestFrame();
     }
+    window.LonghandEarth = {
+      setMarkers,
+      pause() { setPlaying(false); },
+      toggle() { setPlaying(!playing); },
+      reset() {
+        focused = false; focusTarget = null; focusId = '';
+        selectConnections('');
+        omega.set(0, 0, 0); ball.quaternion.identity(); spin.rotation.y = facing(START_LON);
+        lean.x = lean.y = lean.tx = lean.ty = 0; returning = false;
+        setPlaying(!reduceMotion.matches); requestFrame();
+      },
+      focus(location) {
+        if (!Number.isFinite(location.lat) || !Number.isFinite(location.lon)) return;
+        setPlaying(false); spinVel = 0; omega.set(0, 0, 0); returning = false;
+        focused = true; focusId = location.id || ''; intro = 1;
+        selectConnections(focusId);
+        lean.x = lean.y = lean.tx = lean.ty = 0; world.rotation.set(0, 0, 0);
+        world.updateMatrixWorld(true);
+        const from = surfacePoint(location.lat, location.lon).applyQuaternion(spin.quaternion).normalize();
+        const to = new THREE.Vector3(0, 0, 1).applyQuaternion(axis.getWorldQuaternion(new THREE.Quaternion()).invert()).normalize();
+        focusTarget = new THREE.Quaternion().setFromUnitVectors(from, to);
+        if (reduceMotion.matches) { ball.quaternion.copy(focusTarget); focusTarget = null; }
+        requestFrame();
+      }
+    };
+    document.dispatchEvent(new CustomEvent('longhand:globe-ready'));
     setPlaying(playing);
     const onMotionPref = (ev) => {
+      lastReduced = ev.matches;
       setPlaying(!ev.matches);
-      if (ev.matches) { intro = 1; lean.tx = lean.ty = 0; scrollP = 0; }
-      onScroll();
+      if (ev.matches) {
+        intro = 1; spinVel = 0; omega.set(0, 0, 0);
+        lean.x = lean.y = lean.tx = lean.ty = 0;
+      }
     };
     if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', onMotionPref);
-
-    /* The page's scroll moves the sun on and lets the Earth linger */
-    function onScroll() {
-      if (!hero || reduceMotion.matches) { scrollP = 0; return; }
-      const h = hero.offsetHeight || 1;
-      const p = Math.max(0, Math.min(1, window.scrollY / (h * 0.9)));
-      if (Math.abs(p - scrollP) > 1e-4) { scrollP = p; dirty = true; requestFrame(); }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
     /* Only draw while the Earth is on screen and the tab is open */
     new IntersectionObserver(([entry]) => {
