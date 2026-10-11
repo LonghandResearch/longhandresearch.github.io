@@ -180,11 +180,44 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
   max-width: 65ch;
   font-size: clamp(18px, 1.35vw, 20px);
   line-height: 1.8;
-  text-align: left;
-  hyphens: manual;
   margin-block: 22px;
 }
 [data-report-publication].page-coal .prose > p:last-child { margin-bottom: 0; }
+
+/* Align reading copy, leaving the last line natural and keeping interface
+   labels out of justification. English language metadata enables hyphenation
+   on narrow columns without adding breaks to the research text. */
+[data-report-publication] :is(.pbai-section, .market-section, .structured-section, .newsletter) > p:not([class]),
+[data-report-publication] :is(.prose > p:not(.eyebrow):not(.micro), .reader-summary, .pbai-lede, .market-lede, .update-callout:not([role])),
+[data-report-publication] :is(.finding > div, .market-callout, .update-callout) > p:not([class]) {
+  text-align: justify;
+  text-align-last: start;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
+}
+
+/* A readable small-phone measure also limits stretched word spaces in
+   browsers whose English hyphenation dictionary is unavailable. */
+@media (max-width: 420px) {
+  [data-report-publication] :is(.pbai-section, .market-section, .structured-section) > p:not([class]),
+  [data-report-publication] :is(.prose > p:not(.eyebrow):not(.micro), .reader-summary, .pbai-lede, .market-lede, .update-callout:not([role])),
+  [data-report-publication] :is(.finding > div, .market-callout, .update-callout) > p:not([class]) {
+    font-size: clamp(16px, 4.6vw, 18px);
+    line-height: 1.75;
+  }
+}
+
+/* On phones, the finding number shares the heading row rather than narrowing
+   every line of the accompanying paragraph. */
+@media (max-width: 600px) {
+  [data-report-publication] .finding { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
+  [data-report-publication] .finding > div { display: contents; }
+  [data-report-publication] .finding-no { grid-column: 1; grid-row: 1; font-size: 30px; }
+  [data-report-publication] .finding-title { grid-column: 2; grid-row: 1; margin-bottom: 0; }
+  [data-report-publication] .finding > div > p { grid-column: 1 / -1; }
+}
+
 [data-report-publication] .pbai-section > .pbai-figure,
 [data-report-publication] .market-section > .research-figure { margin-block: 32px; }
 

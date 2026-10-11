@@ -54,6 +54,20 @@ html:has(.v2-page):not(.theme-vt)::view-transition-new(globe):only-child { displ
 .v2-page .about { gap: 8vw; }
 .v2-page .about-text { max-width: var(--v2-reading); }
 .v2-page .about-lede { font-size: 29px; line-height: 1.35; }
+.v2-page .about-text > p:not(.about-lede) {
+  text-align: justify;
+  text-align-last: start;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
+}
+@media (max-width: 420px) {
+  .v2-page .about-text > p:not(.about-lede) {
+    font-size: clamp(16px, 4.6vw, 18px);
+    line-height: 1.75;
+  }
+  .v2-page .about-lede { font-size: clamp(23px, 6vw, 29px); }
+}
 
 /* Navigation remains ordinary links; the menu is only a small-screen disclosure. */
 @media (max-width: 900px) {
