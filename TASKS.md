@@ -70,6 +70,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-024 | Audit public browser compatibility, accessibility and globe performance; repair verified defects and publish | Codex | `codex/browser-accessibility-qa` | Done | [PR #92](https://github.com/LonghandResearch/longhandresearch.github.io/pull/92). Codex author QA and publication under the owner's continuing takeover authorization. Repaired text contrast, globe semantics and keyboard scrolling regions. Final local QA passed 152 Edge/WebKit route/theme/viewport accessibility combinations, 92 interaction assertions, 24 globe flights, four render-lifecycle checks and all 131 tests. See docs/browser-accessibility-qa.md for evidence and the remaining physical-device, assistive-technology and Firefox runtime limits. |
 
+| WEB-025 | Audit remaining browsers, zoom and mobile report collisions; repair verified layout defects | Codex | `codex/mobile-report-collisions` | Review | Codex author QA under continuing temporary takeover authorization. Repaired Coal IEA labels and open tables, AI chart labels and data access, narrow IHSG axes, and Homepage reflow. Firefox is now tested using an isolated runtime outside Git. See docs/mobile-report-qa.md for the full public-page, interaction-state and accessibility checks, 131 passing tests and physical-device limits. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.

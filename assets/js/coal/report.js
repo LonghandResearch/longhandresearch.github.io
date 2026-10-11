@@ -12,19 +12,19 @@
     $(host).innerHTML=`<table><caption class="sr-only">${esc(unit)}</caption><thead><tr><th scope="col">Period</th><th scope="col">${esc(unit)}</th><th scope="col">Status</th></tr></thead><tbody>${rows.map(r=>`<tr><th scope="row">${esc(r.year||r.period)}</th><td>${num(r.value,r.year? (unit==='Billion tonnes'?2:0):1)}</td><td>${esc(r.status||'Observed average')}</td></tr>`).join('')}</tbody></table>`;
   };
   function bars(host,rows,max,label) {
-    const w=620,h=310,l=65,r=25,t=38,b=48,iw=w-l-r,ih=h-t-b,bw=iw/rows.length*.38;
+    const w=620,h=330,l=85,r=25,t=38,b=68,iw=w-l-r,ih=h-t-b,bw=iw/rows.length*.38;
     let g=`<defs><pattern id="${host}-hatch" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 7 7 0" stroke="var(--chart-fill)" stroke-width="2"/></pattern></defs>`;
     for(let i=0;i<=4;i++){const v=max*i/4,y=t+ih*(1-i/4);g+=`<path class="chart-axis" d="M${l} ${y}H${w-r}"/><text x="${l-12}" y="${y+4}" text-anchor="end">${num(v,0)}</text>`;}
-    rows.forEach((d,i)=>{const x=l+iw*(i+.5)/rows.length,ht=d.value/max*ih,forecast=/forecast/i.test(d.status);g+=`<rect x="${x-bw/2}" y="${t+ih-ht}" width="${bw}" height="${ht}" fill="${forecast?'url(#'+host+'-hatch)':'var(--chart-fill)'}" stroke="var(--chart-fill)"/><text class="value-label" x="${x}" y="${t+ih-ht-13}" text-anchor="middle">${num(d.value,0)}</text><text x="${x}" y="${h-25}" text-anchor="middle">${d.year}</text><text x="${x}" y="${h-8}" text-anchor="middle" class="chart-status">${esc(d.status)}</text>`;});
-    $(host).innerHTML=svg(label,g);
+    rows.forEach((d,i)=>{const x=l+iw*(i+.5)/rows.length,ht=d.value/max*ih,forecast=/forecast/i.test(d.status);g+=`<rect x="${x-bw/2}" y="${t+ih-ht}" width="${bw}" height="${ht}" fill="${forecast?'url(#'+host+'-hatch)':'var(--chart-fill)'}" stroke="var(--chart-fill)"/><text class="value-label" x="${x}" y="${t+ih-ht-13}" text-anchor="middle">${num(d.value,0)}</text><text x="${x}" y="${h-43}" text-anchor="middle">${d.year}</text><text x="${x}" y="${h-12}" text-anchor="middle" class="chart-status">${esc(d.status)}</text>`;});
+    $(host).innerHTML=svg(label,g,w,h);
   }
   const series=D.consumption;
   let cg='';
   for(const v of [8.7,8.8,8.9,9]){const y=238-(v-8.7)/.3*185;cg+=`<path class="chart-axis" d="M65 ${y}H590"/><text x="50" y="${y+4}" text-anchor="end">${num(v)}</text>`;}
   const cx=i=>105+i*210,cy=v=>238-(v-8.7)/.3*185;
   cg+=`<path class="chart-line forecast-line" d="${series.map((d,i)=>(i?'L':'M')+cx(i)+' '+cy(d.value)).join(' ')}"/>`;
-  series.forEach((d,i)=>{cg+=`<circle class="point" cx="${cx(i)}" cy="${cy(d.value)}" r="5"/><text class="value-label" x="${cx(i)}" y="${cy(d.value)-18}" text-anchor="middle">${num(d.value,2)}</text><text x="${cx(i)}" y="280" text-anchor="middle">${d.year}</text><text x="${cx(i)}" y="299" text-anchor="middle" class="chart-status">${d.status}</text>`;});
-  $('consumption-chart').innerHTML=svg('Global coal consumption: 8.84 billion tonnes preliminary in 2025, 8.94 forecast in 2026, 8.91 conditional forecast in 2027. Axis 8.7 to 9.0 billion tonnes.',cg);
+  series.forEach((d,i)=>{cg+=`<circle class="point" cx="${cx(i)}" cy="${cy(d.value)}" r="5"/><text class="value-label" x="${cx(i)}" y="${cy(d.value)-18}" text-anchor="middle">${num(d.value,2)}</text><text x="${cx(i)}" y="280" text-anchor="middle">${d.year}</text><text x="${cx(i)}" y="311" text-anchor="middle" class="chart-status">${d.status}</text>`;});
+  $('consumption-chart').innerHTML=svg('Global coal consumption: 8.84 billion tonnes preliminary in 2025, 8.94 forecast in 2026, 8.91 conditional forecast in 2027. Axis 8.7 to 9.0 billion tonnes.',cg,620,330);
   table('consumption-values',series,'Billion tonnes');
   bars('trade-chart',D.thermalSeaborne,1200,'Seaborne thermal coal demand: 1,074 million tonnes preliminary in 2025 and 1,062 forecast in 2026. Axis starts at zero.');
   table('trade-values',D.thermalSeaborne,'Million tonnes');
@@ -33,6 +33,23 @@
 
   // Keep customs coverage and issuer accounting separate from the illustrative lab.
   function renderCoverage() {
+    const host=$('coverage-chart'),narrow=host.clientWidth<500;
+    const label=`Export coverage check, million tonnes. ${D.coverageBridge.map(r=>`${r.year}: BPS coal plus lignite ${num((r.coalKt+r.ligniteKt)/1000,4)}, IEA preliminary thermal estimate ${r.ieaThermalMt}`).join('. ')}. Definitions are not harmonised. Axis begins at zero.`;
+    const key='<div class="coverage-key" aria-hidden="true"><span><i class="coverage-key-coal"></i>BPS coal</span><span><i class="coverage-key-lignite"></i>BPS lignite</span><span><i class="coverage-key-iea"></i>IEA thermal estimate</span></div>';
+    if(narrow){
+      // Phone labels occupy their own lines; the bars retain a shared zero-based scale.
+      const w=Math.max(180,Math.round(host.clientWidth)),x=8,scale=(w-x-48)/600;
+      let g='';
+      for(const v of [0,150,300,450,600]){const xx=x+v*scale;g+=`<path class="chart-axis" d="M${xx} 32V290"/><text x="${xx}" y="310" text-anchor="middle">${v}</text>`;}
+      D.coverageBridge.forEach((r,i)=>{
+        const yy=20+i*144,total=(r.coalKt+r.ligniteKt)/1000;
+        g+=`<text class="value-label" x="${x}" y="${yy}">${r.year}</text><text x="${x}" y="${yy+25}">BPS coal + lignite</text>`;
+        g+=`<rect x="${x}" y="${yy+34}" width="${r.coalKt/1000*scale}" height="20" fill="var(--teal)"/><rect x="${x+r.coalKt/1000*scale}" y="${yy+34}" width="${r.ligniteKt/1000*scale}" height="20" fill="var(--chart-fill)"/><text class="value-label" x="${x+total*scale+7}" y="${yy+49}">${num(total,1)}</text>`;
+        g+=`<text x="${x}" y="${yy+79}">IEA thermal</text><rect x="${x}" y="${yy+88}" width="${r.ieaThermalMt*scale}" height="20" fill="none" stroke="var(--ink)" stroke-width="1.5"/><text class="value-label" x="${x+r.ieaThermalMt*scale+7}" y="${yy+103}">${num(r.ieaThermalMt,0)}</text>`;
+      });
+      host.innerHTML=svg(label,g,w,322)+key;
+      return;
+    }
     const x=118,scale=445/600;
     let g='';
     for(const v of [0,150,300,450,600]){
@@ -45,9 +62,7 @@
       g+=`<rect x="${x}" y="${yy}" width="${r.coalKt/1000*scale}" height="32" fill="var(--teal)"/><rect x="${x+r.coalKt/1000*scale}" y="${yy}" width="${r.ligniteKt/1000*scale}" height="32" fill="var(--chart-fill)"/><text class="value-label" x="${x+total*scale+9}" y="${yy+22}">${num(total,1)}</text>`;
       g+=`<text x="18" y="${yy+70}">IEA thermal</text><rect x="${x}" y="${yy+49}" width="${r.ieaThermalMt*scale}" height="25" fill="none" stroke="var(--ink)" stroke-width="1.5"/><text x="${x+r.ieaThermalMt*scale+9}" y="${yy+67}">${num(r.ieaThermalMt,0)}</text>`;
     });
-    g+=`<rect x="118" y="322" width="10" height="10" fill="var(--teal)"/><text x="135" y="332">BPS coal</text><rect x="250" y="322" width="10" height="10" fill="var(--chart-fill)"/><text x="267" y="332">BPS lignite</text><rect x="398" y="322" width="10" height="10" fill="none" stroke="var(--ink)"/><text x="415" y="332">IEA thermal estimate</text>`;
-    $('coverage-chart').innerHTML=svg(`Export coverage check, million tonnes. ${D.coverageBridge.map(r=>`${r.year}: BPS coal plus lignite ${num((r.coalKt+r.ligniteKt)/1000,4)}, IEA preliminary thermal estimate ${r.ieaThermalMt}`).join('. ')}. Definitions are not harmonised. Axis begins at zero.`,g,650,352);
-    $('coverage-values').innerHTML=`<table><caption>Million tonnes / BPS records and preliminary IEA estimates, definitions not harmonised</caption><thead><tr><th scope="col">Year</th><th scope="col">BPS coal</th><th scope="col">BPS lignite</th><th scope="col">Derived BPS sum</th><th scope="col">IEA thermal</th><th scope="col">Sum minus IEA</th></tr></thead><tbody>${D.coverageBridge.map(r=>{const total=(r.coalKt+r.ligniteKt)/1000;return `<tr><th scope="row">${r.year}</th><td>${num(r.coalKt/1000,4)}</td><td>${num(r.ligniteKt/1000,4)}</td><td>${num(total,4)}</td><td>${num(r.ieaThermalMt,0)}</td><td>${num(total-r.ieaThermalMt,4)}</td></tr>`;}).join('')}</tbody></table>`;
+    host.innerHTML=svg(label,g,650,312)+key;
   }
   function pairedCompanyBars(host,rows,keys,labels,max,unit,divisor=1) {
     const l=60,t=40,bottom=250,iw=520,barWidth=58,height=210;
@@ -72,6 +87,11 @@
     $(host).innerHTML=`<table><caption>${esc(caption)}</caption><thead><tr><th scope="col">Metric</th>${rows.map(r=>`<th scope="col">${esc(r.period)}</th>`).join('')}</tr></thead><tbody>${metrics.map(([label,key,divisor,d])=>`<tr><th scope="row">${esc(label)}</th>${rows.map(r=>`<td>${num(r[key]/divisor,d)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
   }
   renderCoverage();
+  $('coverage-values').innerHTML=`<table><caption>Million tonnes / BPS records and preliminary IEA estimates, definitions not harmonised</caption><thead><tr><th scope="col">Year</th><th scope="col">BPS coal</th><th scope="col">BPS lignite</th><th scope="col">Derived BPS sum</th><th scope="col">IEA thermal</th><th scope="col">Sum minus IEA</th></tr></thead><tbody>${D.coverageBridge.map(r=>{const total=(r.coalKt+r.ligniteKt)/1000;return `<tr><th scope="row">${r.year}</th><td>${num(r.coalKt/1000,4)}</td><td>${num(r.ligniteKt/1000,4)}</td><td>${num(total,4)}</td><td>${num(r.ieaThermalMt,0)}</td><td>${num(total-r.ieaThermalMt,4)}</td></tr>`;}).join('')}</tbody></table>`;
+  if('ResizeObserver' in window){
+    let coverageWidth=$('coverage-chart').clientWidth;
+    new ResizeObserver(([entry])=>{const width=Math.round(entry.contentRect.width);if(width>0&&width!==coverageWidth){coverageWidth=width;renderCoverage();}}).observe($('coverage-chart'));
+  }else window.addEventListener('resize',renderCoverage);
   const bayan=D.companies.bayan,ptba=D.companies.ptba;
   pairedCompanyBars('bayan-chart',bayan.periods,['aspUsdT','cashCostUsdT'],['Selling price','Inclusive cash cost'],60,'US dollars per tonne');
   $('bayan-readout').textContent=`Derived unit spread: ${bayan.periods.map(r=>`${r.period} ${money(r.aspUsdT-r.cashCostUsdT,1)}/t`).join(' → ')}. H1 2026 capex: ${money(bayan.capexQuarterlyUsdM.reduce((sum,r)=>sum+r.actual,0),1)}m, derived from the two quarterly actuals.`;
@@ -85,7 +105,7 @@
 
   let priceView='quarterly',priceIndex=4;
   function renderPrice() {
-    const rows=D.australianPrice[priceView],w=matchMedia('(max-width: 760px)').matches?600:900,h=310,l=65,r=25,t=35,b=45,ih=h-t-b;
+    const rows=D.australianPrice[priceView],w=matchMedia('(max-width: 760px)').matches?600:900,h=350,l=65,r=25,t=35,b=85,ih=h-t-b;
     const x=i=>l+35+(w-l-r-70)*i/Math.max(rows.length-1,1),y=v=>t+ih*(1-v/200);
     let g='';
     for(const v of [0,50,100,150,200]){const yy=y(v);g+=`<path class="chart-axis" d="M${l} ${yy}H${w-r}"/><text x="${l-10}" y="${yy+4}" text-anchor="end">${v}</text>`;}

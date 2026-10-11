@@ -70,7 +70,7 @@
 
   function histogram(host, res, unit, mkt) {
     const w = Math.max(280, host.clientWidth || 600);
-    const h = 252; const padL = 46; const padR = 12; const padT = 44; const padB = 34;
+    const h = 300; const padL = 46; const padR = 12; const padT = 74; const padB = 52;
     // Trim the far tails to the 1st to 99th percentile so the body is readable
     const lo = res.sorted[Math.floor(RUNS * 0.01)]; const hi = res.sorted[Math.floor(RUNS * 0.99)];
     const bins = 36; const width = (hi - lo) / bins || 1;
@@ -95,15 +95,15 @@
     marks.forEach(([n, v], i) => {
       const x = xs(v);
       g += `<line class="pmark${n === 'P50' ? ' p50' : ''}" x1="${x}" x2="${x}" y1="${padT - 4}" y2="${h - padB}"/>`;
-      g += `<text class="plab" x="${x}" y="${padT - 8 - (i % 2) * 11}" text-anchor="middle">${n}</text>`;
+      g += `<text class="plab" x="${x}" y="${padT - 8 - (i % 2) * 18}" text-anchor="middle">${n}</text>`;
     });
     if (mkt != null && mkt >= lo && mkt <= hi) {
       const x = xs(mkt);
-      g += `<line class="pmark mkt" x1="${x}" x2="${x}" y1="${padT - 30}" y2="${h - padB}"/><text class="plab mkt" x="${x}" y="${padT - 32}" text-anchor="middle">Market EV</text>`;
+      g += `<line class="pmark mkt" x1="${x}" x2="${x}" y1="${padT - 30}" y2="${h - padB}"/><text class="plab mkt" x="${x}" y="${padT - 42}" text-anchor="middle">Market EV</text>`;
     }
     const xt = niceTicks(lo, hi, 4).filter((t) => t >= lo && t <= hi);
     xt.forEach((t) => { g += `<text class="tick" x="${xs(t)}" y="${h - padB + 16}" text-anchor="middle">${nf(t)}</text>`; });
-    g += `<text class="axis-unit" x="${w - padR}" y="${h - 4}" text-anchor="end">Model enterprise value, ${esc(unit)}</text><text class="axis-unit" x="0" y="10">Runs</text>`;
+    g += `<text class="axis-unit" x="${w - padR}" y="${h - 4}" text-anchor="end">Model enterprise value, ${esc(unit)}</text><text class="axis-unit" x="1" y="16">Runs</text>`;
     host.innerHTML = `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" class="viz">${g}</svg>`;
     bindTips(host);
   }
