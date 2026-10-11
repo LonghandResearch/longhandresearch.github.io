@@ -84,3 +84,21 @@ Safari/Firefox have not been verified. Browsers without native cross-document
 transitions retain ordinary navigation. Network failure can leave the globe
 unavailable while research links remain usable. The asynchronous weekly loading
 fallback deliberately has no shared-title flight until content exists.
+
+## Publication verification
+
+[PR #90](https://github.com/LonghandResearch/longhandresearch.github.io/pull/90)
+merged as `3fe205115e5cfdce7891ff5f773a9497a2c7d4e5`. Site checks and the Indonesia
+resource research reproduction both passed on its exact head. The subsequent
+[Pages deployment](https://github.com/LonghandResearch/longhandresearch.github.io/actions/runs/38134470803)
+completed successfully for that merge.
+
+On the public origin, 24 globe flights passed the same frame, orientation,
+first-draw and cleanup assertions. Another 24 source/filtered-Library-return/
+invalid-handoff assertions passed. Seventy-six route/theme/viewport checks
+covered the eight discovery pages and all eleven reports in both themes at
+desktop and phone widths: headings populated, no horizontal overflow, public
+author mode disabled, the new navigation asset version present, and no page
+JavaScript exceptions. These are live browser checks, not physical-device or
+universal-frame-rate certifications. This follow-up records results only;
+the deployed website files and research remain unchanged.
