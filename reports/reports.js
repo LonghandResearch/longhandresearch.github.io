@@ -46,7 +46,7 @@ window.LONGHAND_REPORTS = [
   "title": "Prices Recovered. Foreign Selling Persisted.",
   "date": "2026-10-11",
   "blurb": "IHSG gained 0.94% as breadth improved. Official foreign sales eased, negotiated trading lifted turnover, and five liquid large caps still showed estimated foreign net selling.",
-  "summary": "IHSG weekly update for 5 to 9 October 2026, checked against IDX daily and weekly statistics, BI JISDOR and Flowless, with five fundamentally documented liquid large caps.",
+  "summary": "IHSG weekly update for 5 to 9 October 2026, checked against IDX statistics, BI JISDOR and issuer disclosures, with five liquid large caps and a documented earnings base.",
   "tags": [
     "IHSG",
     "Weekly Market Update",
