@@ -697,5 +697,41 @@ The branch was merged normally with public `main` at
 `5f0fc9e543af6334d464df4b0c144c062caef42d` before publication. Its seven automatic
 Wire update commits were preserved without conflicts. The V2 change does not
 edit the report catalogue, PDFs, research data/models, RSS, sitemap, publishing
-scripts or GitHub Actions workflows. Public deployment and live verification
-will be recorded after the pull request and Pages build complete.
+scripts or GitHub Actions workflows.
+
+[PR #87](https://github.com/LonghandResearch/longhandresearch.github.io/pull/87)
+was squash-merged after both GitHub checks passed: site validation (including
+all 131 automated tests) and reproduction of the Indonesia resource model,
+browser reconciliation, notebooks and deterministic tables. GitHub Pages
+successfully built and deployed commit
+`b55976c95eef4a8ee8dcb4b9724d9a45a517f2a4` at 08:15 UTC on 11 October.
+The main-branch site check also passed. The existing deployment, report feed
+and hourly news workflows remain unchanged.
+
+Live Playwright checks used the real public origin,
+`https://longhandresearch.github.io/`, with fresh reader contexts. Nineteen routes,
+including every published report, were inspected at 390 and 1440px in both
+saved themes (76 combinations). They returned HTTP 200 and rendered headings
+and the V2 shell, with no root horizontal overflow, visible author controls,
+unexpected page errors or failed same-origin requests. Both homepage and Coverage
+rendered their WebGL globe. Representative public screenshots were inspected.
+
+Forty-five live interaction assertions passed across mobile and desktop.
+They cover saved-theme startup and actual theme switching across navigation,
+decoding all 11 portrait artworks, Library search, PDF canvas rendering,
+report-to-filtered-Library return, Coverage selection and World reset, the
+country route, Wire pagination from 24 to 48 stories, mobile menu Escape and
+return to Home. All 16 observed cross-document transitions resolved both their
+ready and finished promises and cleared the navigation flag, without page errors.
+All five original PDF download URLs, RSS and sitemap returned HTTP 200.
+
+Live screenshots remain outside Git under
+`C:/Users/user/.codex/tooling/longhand-mcp/v2-qa/live-*`. The owner's clean main
+checkout was safely fast-forwarded to the published commit. The external
+worktree was also clean and had identical file contents before this publication
+record was added on `codex/longhand-v2-publication`.
+
+These are Codex author QA results. Small cold-load font movement, hardware-
+dependent WebGL startup and the unverified physical-device/Safari/Firefox scope
+remain as documented above. Public verification does not claim universal
+smoothness or replace the research evidence review required for future reports.
