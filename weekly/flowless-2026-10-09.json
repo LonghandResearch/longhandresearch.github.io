@@ -1,0 +1,800 @@
+{
+  "weekEnding": "2026-10-09",
+  "reviewed": "2026-10-11",
+  "basis": "Regular-market foreign value estimated using daily closing prices. Official all-market observations remain in the edition.",
+  "selection": "Editorial focus: BBCA, BBRI, BMRI, TLKM and ASII; market cap >= Rp100tn, ADTV20 >= Rp50bn, zero no-trade sessions; positive first-half reported profit in dated issuer disclosures.",
+  "selected": [
+    {
+      "ticker": "BBCA",
+      "marketCapIdr": 738355911975000.0,
+      "adtv20Idr": 739401145875.0,
+      "zeroTradeDays": 0,
+      "close": 6050.0,
+      "priorClose": 6100.0,
+      "weekReturnPct": -0.8196721311475419,
+      "netForeignIdr": -295765885000.0,
+      "daily": [
+        {
+          "date": "2026-09-14",
+          "close": 6500.0,
+          "valueIdr": 1396352157500.0,
+          "volume": 218017200,
+          "netForeignIdr": -149061250000.0
+        },
+        {
+          "date": "2026-09-15",
+          "close": 6400.0,
+          "valueIdr": 614491297500.0,
+          "volume": 95608200,
+          "netForeignIdr": -33745280000.0
+        },
+        {
+          "date": "2026-09-16",
+          "close": 6325.0,
+          "valueIdr": 459157155000.0,
+          "volume": 72157400,
+          "netForeignIdr": -66411867500.0
+        },
+        {
+          "date": "2026-09-17",
+          "close": 6350.0,
+          "valueIdr": 393453237500.0,
+          "volume": 61812000,
+          "netForeignIdr": -24629745000.0
+        },
+        {
+          "date": "2026-09-18",
+          "close": 6300.0,
+          "valueIdr": 1109371660000.0,
+          "volume": 176753700,
+          "netForeignIdr": -357599970000.0
+        },
+        {
+          "date": "2026-09-21",
+          "close": 6225.0,
+          "valueIdr": 436969230000.0,
+          "volume": 69914100,
+          "netForeignIdr": -131035627500.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 6200.0,
+          "valueIdr": 579943142500.0,
+          "volume": 93211200,
+          "netForeignIdr": -101325980000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 6300.0,
+          "valueIdr": 606393387500.0,
+          "volume": 96826100,
+          "netForeignIdr": -16905420000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 6225.0,
+          "valueIdr": 471971375000.0,
+          "volume": 75648600,
+          "netForeignIdr": 6861817500.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 6250.0,
+          "valueIdr": 557956642500.0,
+          "volume": 89447400,
+          "netForeignIdr": 103129375000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 6225.0,
+          "valueIdr": 695482890000.0,
+          "volume": 112107600,
+          "netForeignIdr": 17729422500.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 6150.0,
+          "valueIdr": 923009067500.0,
+          "volume": 149783400,
+          "netForeignIdr": -138688650000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 6075.0,
+          "valueIdr": 1349339117500.0,
+          "volume": 221335700,
+          "netForeignIdr": -175577220000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 6000.0,
+          "valueIdr": 715298500000.0,
+          "volume": 118044900,
+          "netForeignIdr": -39341400000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 6100.0,
+          "valueIdr": 798136850000.0,
+          "volume": 131920300,
+          "netForeignIdr": 42934850000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 6175.0,
+          "valueIdr": 551443295000.0,
+          "volume": 89905700,
+          "netForeignIdr": 24540685000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 6100.0,
+          "valueIdr": 936031042500.0,
+          "volume": 152173400,
+          "netForeignIdr": -15307950000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 6050.0,
+          "valueIdr": 982525082500.0,
+          "volume": 162690800,
+          "netForeignIdr": -300647490000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 6000.0,
+          "valueIdr": 684530305000.0,
+          "volume": 113140300,
+          "netForeignIdr": -657000000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 6050.0,
+          "valueIdr": 526167482500.0,
+          "volume": 87098600,
+          "netForeignIdr": -3694130000.0
+        }
+      ]
+    },
+    {
+      "ticker": "BBRI",
+      "marketCapIdr": 465134575919700.0,
+      "adtv20Idr": 498944720500.0,
+      "zeroTradeDays": 0,
+      "close": 3100.0,
+      "priorClose": 3080.0,
+      "weekReturnPct": 0.6493506493506551,
+      "netForeignIdr": -182955948000.0,
+      "daily": [
+        {
+          "date": "2026-09-14",
+          "close": 3400.0,
+          "valueIdr": 922339678000.0,
+          "volume": 278495400,
+          "netForeignIdr": -12259040000.0
+        },
+        {
+          "date": "2026-09-15",
+          "close": 3320.0,
+          "valueIdr": 527658272000.0,
+          "volume": 158042700,
+          "netForeignIdr": -99386856000.0
+        },
+        {
+          "date": "2026-09-16",
+          "close": 3330.0,
+          "valueIdr": 394206697000.0,
+          "volume": 118364900,
+          "netForeignIdr": -8750907000.0
+        },
+        {
+          "date": "2026-09-17",
+          "close": 3330.0,
+          "valueIdr": 442293086000.0,
+          "volume": 132493900,
+          "netForeignIdr": 1733598000.0
+        },
+        {
+          "date": "2026-09-18",
+          "close": 3310.0,
+          "valueIdr": 798330474000.0,
+          "volume": 242737200,
+          "netForeignIdr": -39572043000.0
+        },
+        {
+          "date": "2026-09-21",
+          "close": 3300.0,
+          "valueIdr": 337759369000.0,
+          "volume": 102594200,
+          "netForeignIdr": 23167980000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 3180.0,
+          "valueIdr": 875447057000.0,
+          "volume": 272879800,
+          "netForeignIdr": -336114234000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 3190.0,
+          "valueIdr": 655575407000.0,
+          "volume": 205953900,
+          "netForeignIdr": -188375242000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 3140.0,
+          "valueIdr": 408040137000.0,
+          "volume": 129218800,
+          "netForeignIdr": -140410438000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 3150.0,
+          "valueIdr": 273791252000.0,
+          "volume": 87244800,
+          "netForeignIdr": -63016065000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 3140.0,
+          "valueIdr": 323177020000.0,
+          "volume": 102848000,
+          "netForeignIdr": 49382466000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 3170.0,
+          "valueIdr": 427744676000.0,
+          "volume": 134943400,
+          "netForeignIdr": 58257309000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 3140.0,
+          "valueIdr": 577024979000.0,
+          "volume": 181840000,
+          "netForeignIdr": -79087494000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 3100.0,
+          "valueIdr": 416507055000.0,
+          "volume": 134095700,
+          "netForeignIdr": -40981070000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 3080.0,
+          "valueIdr": 523699934000.0,
+          "volume": 170339200,
+          "netForeignIdr": -171932684000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 3120.0,
+          "valueIdr": 417855509000.0,
+          "volume": 135379500,
+          "netForeignIdr": -72533136000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 3110.0,
+          "valueIdr": 437042438000.0,
+          "volume": 139170200,
+          "netForeignIdr": 45360283000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 3140.0,
+          "valueIdr": 277951508000.0,
+          "volume": 88629800,
+          "netForeignIdr": 129679802000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 3030.0,
+          "valueIdr": 463216933000.0,
+          "volume": 150854000,
+          "netForeignIdr": -204927687000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 3100.0,
+          "valueIdr": 479232929000.0,
+          "volume": 155846800,
+          "netForeignIdr": -80535210000.0
+        }
+      ]
+    },
+    {
+      "ticker": "BMRI",
+      "marketCapIdr": 373295999983840.0,
+      "adtv20Idr": 496977207550.0,
+      "zeroTradeDays": 0,
+      "close": 4040.0,
+      "priorClose": 4030.0,
+      "weekReturnPct": 0.2481389578163684,
+      "netForeignIdr": -233804224000.0,
+      "daily": [
+        {
+          "date": "2026-09-14",
+          "close": 4440.0,
+          "valueIdr": 997765024000.0,
+          "volume": 229164500,
+          "netForeignIdr": -177246576000.0
+        },
+        {
+          "date": "2026-09-15",
+          "close": 4340.0,
+          "valueIdr": 558864134000.0,
+          "volume": 128314600,
+          "netForeignIdr": -282115624000.0
+        },
+        {
+          "date": "2026-09-16",
+          "close": 4260.0,
+          "valueIdr": 604756368000.0,
+          "volume": 140870900,
+          "netForeignIdr": -236413386000.0
+        },
+        {
+          "date": "2026-09-17",
+          "close": 4350.0,
+          "valueIdr": 478987829000.0,
+          "volume": 110580900,
+          "netForeignIdr": 209285025000.0
+        },
+        {
+          "date": "2026-09-18",
+          "close": 4260.0,
+          "valueIdr": 794649344000.0,
+          "volume": 186217000,
+          "netForeignIdr": -217144980000.0
+        },
+        {
+          "date": "2026-09-21",
+          "close": 4200.0,
+          "valueIdr": 315257706000.0,
+          "volume": 74720000,
+          "netForeignIdr": -139988940000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 4160.0,
+          "valueIdr": 514998693000.0,
+          "volume": 123121600,
+          "netForeignIdr": -84732960000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 4190.0,
+          "valueIdr": 369086685000.0,
+          "volume": 88290300,
+          "netForeignIdr": -129227142000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 4070.0,
+          "valueIdr": 748056301000.0,
+          "volume": 182057400,
+          "netForeignIdr": -526749982000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 4080.0,
+          "valueIdr": 288531662000.0,
+          "volume": 70546200,
+          "netForeignIdr": -70894488000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 4020.0,
+          "valueIdr": 504858592000.0,
+          "volume": 124768400,
+          "netForeignIdr": -239930484000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 4030.0,
+          "valueIdr": 764074053000.0,
+          "volume": 189538000,
+          "netForeignIdr": -276086434000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 4010.0,
+          "valueIdr": 690930837000.0,
+          "volume": 171069100,
+          "netForeignIdr": -205004433000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 4010.0,
+          "valueIdr": 322117728000.0,
+          "volume": 80311200,
+          "netForeignIdr": -68501226000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 4030.0,
+          "valueIdr": 302444571000.0,
+          "volume": 75138400,
+          "netForeignIdr": -66364025000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 4100.0,
+          "valueIdr": 355891037000.0,
+          "volume": 87169800,
+          "netForeignIdr": 87065960000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 4100.0,
+          "valueIdr": 371889295000.0,
+          "volume": 90258000,
+          "netForeignIdr": -126702710000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 4100.0,
+          "valueIdr": 212574691000.0,
+          "volume": 51806600,
+          "netForeignIdr": -794990000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 4000.0,
+          "valueIdr": 527942822000.0,
+          "volume": 130849900,
+          "netForeignIdr": -189526000000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 4040.0,
+          "valueIdr": 215866779000.0,
+          "volume": 53448900,
+          "netForeignIdr": -3846484000.0
+        }
+      ]
+    },
+    {
+      "ticker": "TLKM",
+      "marketCapIdr": 229824342512000.0,
+      "adtv20Idr": 369728041700.0,
+      "zeroTradeDays": 0,
+      "close": 2320.0,
+      "priorClose": 2250.0,
+      "weekReturnPct": 3.111111111111109,
+      "netForeignIdr": -170414949000.0,
+      "daily": [
+        {
+          "date": "2026-09-14",
+          "close": 2690.0,
+          "valueIdr": 370065867000.0,
+          "volume": 139730300,
+          "netForeignIdr": 31619336000.0
+        },
+        {
+          "date": "2026-09-15",
+          "close": 2700.0,
+          "valueIdr": 384410904000.0,
+          "volume": 142432700,
+          "netForeignIdr": 97190010000.0
+        },
+        {
+          "date": "2026-09-16",
+          "close": 2660.0,
+          "valueIdr": 194023938000.0,
+          "volume": 72687900,
+          "netForeignIdr": -18143328000.0
+        },
+        {
+          "date": "2026-09-17",
+          "close": 2590.0,
+          "valueIdr": 235311916000.0,
+          "volume": 90206300,
+          "netForeignIdr": -121600500000.0
+        },
+        {
+          "date": "2026-09-18",
+          "close": 2560.0,
+          "valueIdr": 544238793000.0,
+          "volume": 212768300,
+          "netForeignIdr": -100395520000.0
+        },
+        {
+          "date": "2026-09-21",
+          "close": 2500.0,
+          "valueIdr": 185557029000.0,
+          "volume": 73848400,
+          "netForeignIdr": -114044500000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 2470.0,
+          "valueIdr": 277593798000.0,
+          "volume": 111856600,
+          "netForeignIdr": -54082626000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 2440.0,
+          "valueIdr": 341882994000.0,
+          "volume": 140225800,
+          "netForeignIdr": -124676680000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 2410.0,
+          "valueIdr": 275417647000.0,
+          "volume": 114511100,
+          "netForeignIdr": -84776570000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 2410.0,
+          "valueIdr": 407385256000.0,
+          "volume": 170051400,
+          "netForeignIdr": -113514133000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 2370.0,
+          "valueIdr": 313457274000.0,
+          "volume": 131894200,
+          "netForeignIdr": -121390689000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 2370.0,
+          "valueIdr": 539573097000.0,
+          "volume": 228706200,
+          "netForeignIdr": -160607790000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 2290.0,
+          "valueIdr": 800110290000.0,
+          "volume": 346746900,
+          "netForeignIdr": -213432122000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 2250.0,
+          "valueIdr": 505994325000.0,
+          "volume": 224735400,
+          "netForeignIdr": 57679200000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 2250.0,
+          "valueIdr": 327637394000.0,
+          "volume": 145636900,
+          "netForeignIdr": -30501225000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 2290.0,
+          "valueIdr": 246051258000.0,
+          "volume": 108272300,
+          "netForeignIdr": -22052700000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 2280.0,
+          "valueIdr": 369614323000.0,
+          "volume": 162461500,
+          "netForeignIdr": -73315908000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 2310.0,
+          "valueIdr": 400279602000.0,
+          "volume": 173346600,
+          "netForeignIdr": 22204875000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 2260.0,
+          "valueIdr": 290296911000.0,
+          "volume": 126548900,
+          "netForeignIdr": -50944016000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 2320.0,
+          "valueIdr": 385658218000.0,
+          "volume": 166319300,
+          "netForeignIdr": -46307200000.0
+        }
+      ]
+    },
+    {
+      "ticker": "ASII",
+      "marketCapIdr": 195130726134800.0,
+      "adtv20Idr": 190356424850.0,
+      "zeroTradeDays": 0,
+      "close": 4820.0,
+      "priorClose": 4630.0,
+      "weekReturnPct": 4.10367170626349,
+      "netForeignIdr": -40391318000.0,
+      "daily": [
+        {
+          "date": "2026-09-14",
+          "close": 4980.0,
+          "valueIdr": 251752157000.0,
+          "volume": 51166200,
+          "netForeignIdr": 44749284000.0
+        },
+        {
+          "date": "2026-09-15",
+          "close": 4890.0,
+          "valueIdr": 147544873000.0,
+          "volume": 30001800,
+          "netForeignIdr": -34850052000.0
+        },
+        {
+          "date": "2026-09-16",
+          "close": 4850.0,
+          "valueIdr": 170955853000.0,
+          "volume": 35084600,
+          "netForeignIdr": -22623310000.0
+        },
+        {
+          "date": "2026-09-17",
+          "close": 4900.0,
+          "valueIdr": 101596267000.0,
+          "volume": 20770400,
+          "netForeignIdr": 2754290000.0
+        },
+        {
+          "date": "2026-09-18",
+          "close": 4820.0,
+          "valueIdr": 308204570000.0,
+          "volume": 63499200,
+          "netForeignIdr": -41337284000.0
+        },
+        {
+          "date": "2026-09-21",
+          "close": 4820.0,
+          "valueIdr": 111703445000.0,
+          "volume": 23075000,
+          "netForeignIdr": -26292618000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 4780.0,
+          "valueIdr": 152519363000.0,
+          "volume": 31702600,
+          "netForeignIdr": -10568102000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 4750.0,
+          "valueIdr": 218566277000.0,
+          "volume": 45765700,
+          "netForeignIdr": -16850150000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 4770.0,
+          "valueIdr": 103456982000.0,
+          "volume": 21665700,
+          "netForeignIdr": 24333201000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 4690.0,
+          "valueIdr": 145575833000.0,
+          "volume": 30912500,
+          "netForeignIdr": -49660534000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 4670.0,
+          "valueIdr": 120989453000.0,
+          "volume": 25788600,
+          "netForeignIdr": -13727465000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 4700.0,
+          "valueIdr": 208699906000.0,
+          "volume": 44529100,
+          "netForeignIdr": 1357360000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 4600.0,
+          "valueIdr": 349225726000.0,
+          "volume": 74750800,
+          "netForeignIdr": -97295060000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 4510.0,
+          "valueIdr": 392354420000.0,
+          "volume": 86157700,
+          "netForeignIdr": 44598488000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 4630.0,
+          "valueIdr": 159061071000.0,
+          "volume": 34548100,
+          "netForeignIdr": 18235255000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 4750.0,
+          "valueIdr": 281717260000.0,
+          "volume": 59764300,
+          "netForeignIdr": -56209600000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 4820.0,
+          "valueIdr": 171015669000.0,
+          "volume": 35508900,
+          "netForeignIdr": -1230546000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 4780.0,
+          "valueIdr": 88419602000.0,
+          "volume": 18474300,
+          "netForeignIdr": 3826868000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 4800.0,
+          "valueIdr": 202596430000.0,
+          "volume": 41894000,
+          "netForeignIdr": 27595200000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 4820.0,
+          "valueIdr": 121173340000.0,
+          "volume": 25070300,
+          "netForeignIdr": -14373240000.0
+        }
+      ]
+    }
+  ],
+  "market": [
+    {
+      "date": "2026-10-05",
+      "valueIdr": 9238348198300.0,
+      "volume": 39343770700,
+      "netForeignIdr": -117035850600.0
+    },
+    {
+      "date": "2026-10-06",
+      "valueIdr": 11130223645000.0,
+      "volume": 46443620900,
+      "netForeignIdr": -597750263800.0
+    },
+    {
+      "date": "2026-10-07",
+      "valueIdr": 8715185031500.0,
+      "volume": 36295760900,
+      "netForeignIdr": -820589401000.0
+    },
+    {
+      "date": "2026-10-08",
+      "valueIdr": 11306356106500.0,
+      "volume": 56100656800,
+      "netForeignIdr": -831506087800.0
+    },
+    {
+      "date": "2026-10-09",
+      "valueIdr": 8576002929800.0,
+      "volume": 35081373900,
+      "netForeignIdr": -141598331000.0
+    }
+  ]
+}

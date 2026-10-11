@@ -36,6 +36,35 @@
     extra        optional list of [label, value] pairs for the key data panel
 */
 window.LONGHAND_REPORTS = [
+{
+  "id": "ihsg-weekly-2026-10-09",
+  "ticker": "IHSG",
+  "exchange": "IDX",
+  "company": "Indonesia equity market",
+  "sector": "Macro and equities",
+  "category": "Update",
+  "title": "Prices Recovered. Foreign Selling Persisted.",
+  "date": "2026-10-11",
+  "blurb": "IHSG gained 0.94% as breadth improved. Official foreign sales eased, negotiated trading lifted turnover, and five liquid large caps still showed estimated foreign net selling.",
+  "summary": "IHSG weekly update for 5 to 9 October 2026, checked against IDX daily and weekly statistics, BI JISDOR and Flowless, with five fundamentally documented liquid large caps.",
+  "tags": [
+    "IHSG",
+    "Weekly Market Update",
+    "Foreign Flow",
+    "Rupiah",
+    "BBCA",
+    "BBRI",
+    "BMRI",
+    "TLKM",
+    "ASII"
+  ],
+  "rating": null,
+  "currency": "IDR",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "ihsg-weekly.html?week=2026-10-09"
+},
   {
     "id": "the-power-behind-ai-update-2026-10-09",
     "ticker": "",

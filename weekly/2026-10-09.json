@@ -1,0 +1,841 @@
+{
+  "schemaVersion": 1,
+  "weekEnding": "2026-10-09",
+  "published": "2026-10-11",
+  "reviewed": "2026-10-11",
+  "period": "5 to 9 October 2026",
+  "title": "Prices Recovered. Foreign Selling Persisted.",
+  "titleLead": "Prices recovered.",
+  "titleEmphasis": "Foreign selling persisted.",
+  "deck": "IHSG gained 0.94% as breadth improved. Official foreign sales eased, negotiated trading lifted turnover, and five liquid large caps still showed estimated foreign net selling.",
+  "description": "IHSG weekly update for 5 to 9 October 2026, checked against IDX daily and weekly statistics, BI JISDOR and Flowless, with five fundamentally documented liquid large caps.",
+  "stats": [
+    {
+      "label": "IHSG close",
+      "value": "6,093.76",
+      "note": "+0.94% over the week"
+    },
+    {
+      "label": "Foreign net flow, week",
+      "value": "-Rp2.45tn",
+      "note": "Official net selling across all stock markets"
+    },
+    {
+      "label": "JISDOR USD/IDR",
+      "value": "17,884",
+      "note": "-0.08% from 2 October, a slightly firmer rupiah"
+    },
+    {
+      "label": "Average daily value",
+      "value": "Rp16.23tn",
+      "note": "+28.52%; negotiated market was 39.64% of weekly value"
+    }
+  ],
+  "sources": {
+    "weekly": {
+      "label": "IDX Weekly Statistics, 5 to 9 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ws_261009.pdf. Pages 1-2: activity and foreign flow; page 4: market types and breadth; page 5: index contributions; pages 7-8: sectors and regional indices. Accessed 11 October 2026."
+    },
+    "daily": {
+      "label": "IDX Daily Statistics, 5, 6, 7, 8 and 9 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ds_261005.pdf through ds_261009.pdf. Page 1: closes and ranges; page 2: official foreign totals; pages 3-4: stock activity and contributors; page 5: regular-market totals and breadth; page 6: sector changes. Accessed 11 October 2026."
+    },
+    "jisdor": {
+      "label": "Bank Indonesia JISDOR, 5 to 9 October 2026",
+      "url": "https://www.bi.go.id/en/statistik/informasi-kurs/jisdor/Default.aspx",
+      "note": "Owner-supplied Informasi Kurs Jisdor.xlsx. All five reference rates also agree with the BI rate printed in each daily IDX report."
+    },
+    "prior": {
+      "label": "Audited IHSG edition, 2 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/2026-10-02.json",
+      "note": "The 2 October JISDOR starting rate of 17,898 comes from the prior audited edition, not the current five-row workbook. Prior-period figures retain their own dates."
+    },
+    "flowless": {
+      "label": "Frozen Flowless readings, 9 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-09.json",
+      "note": "Five selected companies, daily regular-market observations and independently recomputed 20-session averages. Foreign values are estimated as foreign share volumes times each day's close."
+    },
+    "bca": {
+      "label": "BCA first-half 2026 results, 29 July 2026",
+      "url": "https://www.bca.co.id/en/tentang-bca/media-riset/pressroom/siaran-pers/2026/07/29/07/10/pertama-kali-kredit-tembus-rp1000-triliun-bca-komit-dukung-perekonomian-nasional",
+      "note": "Company release: first-half net profit and June asset-quality ratios."
+    },
+    "bri": {
+      "label": "BRI consolidated financial publication, 30 June 2026",
+      "url": "https://ir-bri.com/misc/QR/2026/BRI-Lapkeu-Q2-2026-Eng.pdf",
+      "note": "Listed in BRI investor relations on 31 August. Page 4: profit attributable to the parent for the six-month period, in Rp million."
+    },
+    "mandiri": {
+      "label": "Bank Mandiri June 2026 investor snapshot",
+      "url": "https://www.bankmandiri.co.id/web/ir",
+      "note": "Snapshot explicitly dated June 2026: net profit, NPL and capital adequacy. Reviewed 11 October; these are financial-period readings, not October earnings."
+    },
+    "telkom": {
+      "label": "Telkom first-half 2026 results, 31 July 2026",
+      "url": "https://www.telkom.co.id/sites/berita/id_ID/news/laporan-keuangan-telkom-semester-i-2026-akselerasi-transformasi-tlkm-30-pendapatan-ebitda-dan-laba-bersih-normalisasi-telkom-tumbuh-kuat-di-paruh-pertama-2026-3861",
+      "note": "Opening financial summary: reported profit, operating cash flow and revenue. Reported and normalized profit are distinct."
+    },
+    "astra": {
+      "label": "Astra first-half 2026 results, 30 July 2026",
+      "url": "https://r2.astra.co.id/financial-reports/Astra_2026_06_30%20Rilis%20Kinerja.pdf",
+      "note": "Pages 2-3: reported profit attributable to owners, equity and net debt excluding financial-services subsidiaries."
+    }
+  },
+  "observations": {
+    "closes": [
+      {
+        "date": "2026-10-02",
+        "label": "2 Oct",
+        "close": 6036.888
+      },
+      {
+        "date": "2026-10-05",
+        "label": "Mon 5",
+        "close": 6118.86
+      },
+      {
+        "date": "2026-10-06",
+        "label": "Tue 6",
+        "close": 6192.927
+      },
+      {
+        "date": "2026-10-07",
+        "label": "Wed 7",
+        "close": 6146.724
+      },
+      {
+        "date": "2026-10-08",
+        "label": "Thu 8",
+        "close": 6031.284
+      },
+      {
+        "date": "2026-10-09",
+        "label": "Fri 9",
+        "close": 6093.759
+      }
+    ],
+    "foreignFlow": [
+      {
+        "date": "2026-10-05",
+        "label": "10-05",
+        "netBn": -115.71
+      },
+      {
+        "date": "2026-10-06",
+        "label": "10-06",
+        "netBn": -629.87
+      },
+      {
+        "date": "2026-10-07",
+        "label": "10-07",
+        "netBn": -871.36
+      },
+      {
+        "date": "2026-10-08",
+        "label": "10-08",
+        "netBn": -859.25
+      },
+      {
+        "date": "2026-10-09",
+        "label": "10-09",
+        "netBn": 30.4
+      }
+    ],
+    "sectors": [
+      {
+        "name": "Transport & logistics",
+        "weekly": 5.85
+      },
+      {
+        "name": "Healthcare",
+        "weekly": 3.59
+      },
+      {
+        "name": "Basic materials",
+        "weekly": 2.1
+      },
+      {
+        "name": "Technology",
+        "weekly": 1.45
+      },
+      {
+        "name": "Consumer non-cyclicals",
+        "weekly": 1.25
+      },
+      {
+        "name": "Infrastructure",
+        "weekly": 1.16
+      },
+      {
+        "name": "Property",
+        "weekly": 1.11
+      },
+      {
+        "name": "Energy",
+        "weekly": 0.76
+      },
+      {
+        "name": "Consumer cyclicals",
+        "weekly": 0.53
+      },
+      {
+        "name": "Financials",
+        "weekly": 0.31
+      },
+      {
+        "name": "Industrials",
+        "weekly": 0.14
+      }
+    ],
+    "stocks": [
+      {
+        "ticker": "ASII",
+        "points": 7.71
+      },
+      {
+        "ticker": "TLKM",
+        "points": 6.45
+      },
+      {
+        "ticker": "BBRI",
+        "points": 2.95
+      },
+      {
+        "ticker": "BBCA",
+        "points": -4.55
+      }
+    ],
+    "jisdor": [
+      {
+        "date": "2026-10-02",
+        "rate": 17898
+      },
+      {
+        "date": "2026-10-05",
+        "rate": 17917
+      },
+      {
+        "date": "2026-10-06",
+        "rate": 17910
+      },
+      {
+        "date": "2026-10-07",
+        "rate": 17880
+      },
+      {
+        "date": "2026-10-08",
+        "rate": 17890
+      },
+      {
+        "date": "2026-10-09",
+        "rate": 17884
+      }
+    ],
+    "dailyMarket": [
+      {
+        "date": "2026-10-05",
+        "close": 6118.86,
+        "netBn": -115.71,
+        "regularVolume": 39343770700,
+        "regularValueIdr": 9238348198300,
+        "totalVolume": 40249592084,
+        "totalValueIdr": 9960686347600,
+        "up": 547,
+        "down": 164,
+        "unchanged": 252
+      },
+      {
+        "date": "2026-10-06",
+        "close": 6192.927,
+        "netBn": -629.87,
+        "regularVolume": 46443620900,
+        "regularValueIdr": 11130223645000,
+        "totalVolume": 47129343130,
+        "totalValueIdr": 12340471870732,
+        "up": 511,
+        "down": 198,
+        "unchanged": 254
+      },
+      {
+        "date": "2026-10-07",
+        "close": 6146.724,
+        "netBn": -871.36,
+        "regularVolume": 36295760900,
+        "regularValueIdr": 8715185031500,
+        "totalVolume": 47789261253,
+        "totalValueIdr": 36193390001903,
+        "up": 280,
+        "down": 390,
+        "unchanged": 293
+      },
+      {
+        "date": "2026-10-08",
+        "close": 6031.284,
+        "netBn": -859.25,
+        "regularVolume": 56100656800,
+        "regularValueIdr": 11306356106500,
+        "totalVolume": 59921604655,
+        "totalValueIdr": 12707924813405,
+        "up": 187,
+        "down": 518,
+        "unchanged": 258
+      },
+      {
+        "date": "2026-10-09",
+        "close": 6093.759,
+        "netBn": 30.4,
+        "regularVolume": 35081373900,
+        "regularValueIdr": 8576002929800,
+        "totalVolume": 37573800044,
+        "totalValueIdr": 9926765955575,
+        "up": 407,
+        "down": 245,
+        "unchanged": 311
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "thesis",
+      "nav": "The week in brief",
+      "title": "Prices recovered. Foreign selling persisted.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The IHSG gained 0.94% to 6,093.759, with 548 stocks higher and all eleven sector indices up over the week. Foreign investors still sold a net Rp2.45tn across all stock markets. Selling was smaller than the previous week, but the recovery lost ground after Tuesday before a partial rebound on Friday.",
+          "sources": [
+            "weekly",
+            "daily"
+          ],
+          "lede": true
+        },
+        {
+          "type": "callout",
+          "label": "Assessment",
+          "text": "The recovery has more breadth, but the flow evidence is mixed. Friday brought a small official foreign net purchase across all markets, while the regular-market estimate remained negative. Our company focus stays with five liquid large caps whose earnings and financial position can be checked against dated issuer disclosures."
+        },
+        {
+          "type": "closes",
+          "label": "01 DAILY CLOSES",
+          "title": "An early rise, a sharp reversal, then a partial recovery",
+          "sources": [
+            "daily",
+            "weekly"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The index reached 6,216.439 during Tuesday's session. Thursday closed at its daily low of 6,031.284, below the previous Friday's close. Friday traded as low as 5,995.821 before ending higher. These are observed trading ranges, not tested support or resistance levels.",
+          "sources": [
+            "daily"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daily",
+      "nav": "Five trading days",
+      "title": "The daily reports show where the recovery weakened",
+      "blocks": [
+        {
+          "type": "table",
+          "caption": "Five daily sessions, all stock markets combined",
+          "headers": [
+            "Date",
+            "IHSG close",
+            "Daily change",
+            "Value, Rp tn",
+            "Foreign net, Rp bn",
+            "Stocks up / down"
+          ],
+          "rows": [
+            [
+              "2026-10-05",
+              "6,118.860",
+              "+1.36%",
+              "9.961",
+              "-115.71",
+              "547 / 164"
+            ],
+            [
+              "2026-10-06",
+              "6,192.927",
+              "+1.21%",
+              "12.340",
+              "-629.87",
+              "511 / 198"
+            ],
+            [
+              "2026-10-07",
+              "6,146.724",
+              "-0.75%",
+              "36.193",
+              "-871.36",
+              "280 / 390"
+            ],
+            [
+              "2026-10-08",
+              "6,031.284",
+              "-1.88%",
+              "12.708",
+              "-859.25",
+              "187 / 518"
+            ],
+            [
+              "2026-10-09",
+              "6,093.759",
+              "+1.04%",
+              "9.927",
+              "+30.40",
+              "407 / 245"
+            ]
+          ],
+          "sources": [
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Monday's gain included positive contributions from BBCA, BBRI and BMRI. Tuesday's index gain continued even as BBCA fell. Wednesday began the reversal. Thursday was the weakest session, with 518 stocks lower and BBRI, AMMN, BMRI and BREN among the largest negative index contributors. Friday's rebound was led by BBRI, AMMN, TLKM and BBCA. The daily contributor lists describe the price mechanics; they do not identify the news behind the moves.",
+          "sources": [
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Healthcare and transport remained positive on Thursday, rising 0.70% and 0.61% while nine other sector indices fell. Both also rose on Friday. Their stronger weekly performance therefore includes resilience during the weakest session.",
+          "sources": [
+            "daily",
+            "weekly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flows",
+      "nav": "Foreign flow",
+      "title": "A smaller weekly sale is not a completed reversal",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Official weekly foreign net selling was Rp2,445.80bn, down 51.4% from Rp5,036.31bn in the previous week. Monday through Thursday were net-selling days. Friday's Rp30.40bn official net purchase was small beside the previous four days' sales. IDX's year-to-date figure still showed Rp84,999.31bn of net selling at Friday's close.",
+          "sources": [
+            "weekly",
+            "daily"
+          ]
+        },
+        {
+          "type": "flows",
+          "label": "02 OFFICIAL FOREIGN FLOW",
+          "title": "Four selling days and one small buying day",
+          "note": "IDX official foreign trading values across regular, cash and negotiated stock markets.",
+          "sources": [
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Flowless estimate for all regular-market stocks remained negative on Friday at Rp141.60bn. The five companies selected below also had a combined negative regular-market estimate that day. This does not contradict the official positive all-market total: coverage and valuation differ. The estimate uses each day's close rather than actual execution prices.",
+          "sources": [
+            "flowless",
+            "daily"
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Different measures of foreign flow, Rp bn",
+          "headers": [
+            "Date",
+            "IDX official, all markets",
+            "Regular-market estimate",
+            "Official less estimate"
+          ],
+          "rows": [
+            [
+              "2026-10-05",
+              "-115.71",
+              "-117.04",
+              "+1.33"
+            ],
+            [
+              "2026-10-06",
+              "-629.87",
+              "-597.75",
+              "-32.12"
+            ],
+            [
+              "2026-10-07",
+              "-871.36",
+              "-820.59",
+              "-50.77"
+            ],
+            [
+              "2026-10-08",
+              "-859.25",
+              "-831.51",
+              "-27.74"
+            ],
+            [
+              "2026-10-09",
+              "+30.40",
+              "-141.60",
+              "+172.00"
+            ]
+          ],
+          "sources": [
+            "daily",
+            "flowless"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "activity",
+      "nav": "Trading quality",
+      "title": "A large negotiated session inflated the headline",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Total stock trading value was Rp81.129tn. Average daily value rose 28.52% to Rp16.226tn, while average daily share volume fell 7.62% and frequency fell 0.27%. The higher value did not come with more shares or more trades on those weekly averages.",
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Weekly trading value by market",
+          "headers": [
+            "Market",
+            "Value, Rp tn",
+            "Share"
+          ],
+          "rows": [
+            [
+              "Regular",
+              "48.966",
+              "60.36%"
+            ],
+            [
+              "Negotiated",
+              "32.163",
+              "39.64%"
+            ],
+            [
+              "Cash",
+              "0.000132",
+              "Less than 0.01%"
+            ],
+            [
+              "Total",
+              "81.129",
+              "100.00%"
+            ]
+          ],
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Wednesday accounted for Rp36.193tn of stock trading, including Rp27.478tn in the negotiated market, about 75.9% of that day's value. BYAN accounted for Rp26.186tn, or 72.35% of Wednesday's total stock value. The reports establish this concentration but do not disclose the counterparties or purpose. BYAN is discussed here to explain turnover, not included in the company focus.",
+          "sources": [
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Regular-market trading averaged Rp9.793tn a day over the week. Friday's regular value of Rp8.576tn was lower than Thursday's Rp11.306tn. A stronger headline index on Friday therefore came with less regular-market value.",
+          "sources": [
+            "daily",
+            "weekly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "breadth",
+      "nav": "Breadth and sectors",
+      "title": "The weekly recovery reached most stocks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Of the 963 stocks in the weekly breakdown, 548 rose, 222 fell and 193 were unchanged. That is 56.9%, 23.1% and 20.0%, calculated from the published counts. The source's percentages beside the two declining-stock groups appear swapped, so this report uses the counts and recalculates their shares.",
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Weekly breadth, counts checked against the chart legend",
+          "headers": [
+            "Move",
+            "Stocks",
+            "Calculated share"
+          ],
+          "rows": [
+            [
+              "Up more than 2%",
+              "403",
+              "41.8%"
+            ],
+            [
+              "Up 0% to 2%",
+              "145",
+              "15.1%"
+            ],
+            [
+              "Unchanged",
+              "193",
+              "20.0%"
+            ],
+            [
+              "Down 0% to 2%",
+              "94",
+              "9.8%"
+            ],
+            [
+              "Down more than 2%",
+              "128",
+              "13.3%"
+            ]
+          ],
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "sectors",
+          "label": "03 WEEKLY SECTOR INDICES",
+          "title": "All eleven sectors finished higher",
+          "note": "Official IDX sector-index price returns. These cover each index, not the five-stock company focus or a Flowless sector basket.",
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Transport and logistics led at 5.85%, followed by healthcare at 3.59% and basic materials at 2.10%. Financials gained only 0.31% and industrials 0.14%. The broad positive weekly result coexisted with a severe Thursday decline; it does not imply a steady rise through the week.",
+          "sources": [
+            "weekly",
+            "daily"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "companies",
+      "nav": "Company focus",
+      "title": "Five liquid large caps with documented earnings",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The company focus uses BBCA, BBRI, BMRI, TLKM and ASII. Each has a market value above Rp100tn, at least Rp50bn in average daily regular-market trading over the latest 20 sessions, and no zero-volume session in that window. Each also has a dated first-half financial disclosure showing positive reported profit. This is an editorial focus, not the full list passing a size-and-liquidity screen.",
+          "sources": [
+            "flowless",
+            "bca",
+            "bri",
+            "mandiri",
+            "telkom",
+            "astra"
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Company focus at 9 October: regular-market estimates",
+          "headers": [
+            "Company",
+            "Market cap, Rp tn",
+            "20-session value, Rp bn",
+            "Weekly price change",
+            "Foreign net estimate, Rp bn"
+          ],
+          "rows": [
+            [
+              "BBCA",
+              "738.36",
+              "739.40",
+              "-0.82%",
+              "-295.77"
+            ],
+            [
+              "BBRI",
+              "465.13",
+              "498.94",
+              "+0.65%",
+              "-182.96"
+            ],
+            [
+              "BMRI",
+              "373.30",
+              "496.98",
+              "+0.25%",
+              "-233.80"
+            ],
+            [
+              "TLKM",
+              "229.82",
+              "369.73",
+              "+3.11%",
+              "-170.41"
+            ],
+            [
+              "ASII",
+              "195.13",
+              "190.36",
+              "+4.10%",
+              "-40.39"
+            ]
+          ],
+          "sources": [
+            "flowless",
+            "daily",
+            "weekly"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "All five recorded estimated regular-market foreign net selling during the week. Yet four prices rose: ASII gained 4.10%, TLKM 3.11%, BBRI 0.65% and BMRI 0.25%. BBCA fell 0.82%. The price recovery in this group was therefore not accompanied by weekly foreign net buying in the regular-market estimate. These observations do not establish who ultimately bought the shares or why.",
+          "sources": [
+            "flowless"
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Fundamental evidence, financial period ending 30 June 2026",
+          "headers": [
+            "Company",
+            "1H26 reported profit, Rp tn",
+            "Issuer definition"
+          ],
+          "rows": [
+            [
+              "BBCA",
+              "29.5",
+              "Group net profit"
+            ],
+            [
+              "BBRI",
+              "30.865",
+              "Attributable to parent"
+            ],
+            [
+              "BMRI",
+              "30.4",
+              "June IR net profit"
+            ],
+            [
+              "TLKM",
+              "10.6",
+              "Reported net profit"
+            ],
+            [
+              "ASII",
+              "12.533",
+              "Attributable to owners"
+            ]
+          ],
+          "sources": [
+            "bca",
+            "bri",
+            "mandiri",
+            "telkom",
+            "astra"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "BBCA reported June NPL of 1.9% and loan at risk of 4.9%. BMRI's June investor snapshot reported NPL of 1.01% and capital adequacy of 17.9%. Their earnings and asset-quality evidence give the banking focus a financial basis; lending margins, funding costs and loan quality remain the next checks. BBRI's consolidated publication reports profit attributable to the parent separately from total group profit. Its credit costs and micro-loan performance remain relevant to the next earnings review.",
+          "sources": [
+            "bca",
+            "bri",
+            "mandiri"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Telkom's opening results summary reports Rp34.9tn of operating cash flow alongside Rp10.6tn of reported profit. Cash conversion and capital spending are the next checks. Astra's reported profit fell 19% to Rp12.533tn, while net debt excluding financial-services subsidiaries reached Rp6.0tn. Its mining and equipment earnings need particular attention. Positive earnings do not remove those weaknesses.",
+          "sources": [
+            "telkom",
+            "astra"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The financial evidence is dated June, with releases before this trading week. It establishes a traceable earnings base and exposes weaknesses such as Astra's profit decline. It does not explain October price moves or establish fair value. No new target price or company rating is assigned.",
+          "sources": [
+            "bca",
+            "bri",
+            "mandiri",
+            "telkom",
+            "astra"
+          ]
+        },
+        {
+          "type": "stocks",
+          "label": "04 OFFICIAL INDEX CONTRIBUTIONS",
+          "title": "Published weekly contributions for four focus companies",
+          "note": "ASII, TLKM, BBRI and BBCA appear in IDX's weekly top-ten contributor lists. BMRI does not appear there, so no exact weekly contribution is inferred for it.",
+          "sources": [
+            "weekly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "currency",
+      "nav": "Region and currency",
+      "title": "A slightly firmer rupiah added little to the result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In IDX's weekly ASEAN comparison, Indonesia gained 0.94%, behind the Philippines at 1.28% and ahead of Thailand at 0.38%. Vietnam, Malaysia and Singapore declined. Those comparisons retain the source's collection times and may not represent simultaneous exchange closes.",
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "JISDOR was 17,884 rupiah per dollar on Friday, compared with 17,898 in the previous audited edition. The dollar reference rate fell 0.08% between those Fridays. Within the supplied workbook, Monday's 17,917 fell to Friday's 17,884, a different comparison of 0.18%. The current workbook contains only 5 to 9 October; the earlier Friday is sourced separately.",
+          "sources": [
+            "jisdor",
+            "prior"
+          ]
+        },
+        {
+          "type": "fxLab",
+          "title": "A small currency contribution",
+          "sources": [
+            "daily",
+            "jisdor",
+            "prior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "watch",
+      "nav": "What to watch",
+      "title": "Look for sustained recovery in the liquid names",
+      "blocks": [
+        {
+          "type": "callout",
+          "label": "Our reading",
+          "text": "Breadth improved and foreign selling eased, but the liquid company focus still showed weekly estimated foreign net sales. The next useful confirmation would be repeated positive official daily flows together with stronger regular-market flows, participation across profitable large caps, and trading value that is not dominated by negotiated blocks."
+        },
+        {
+          "type": "paragraph",
+          "text": "For BBCA, BBRI and BMRI, follow earnings, asset quality, credit costs and funding alongside price and flow. For TLKM, follow reported profit and cash conversion. For ASII, follow whether mining and equipment earnings recover. These are monitoring questions, not forecasts of the next week's prices.",
+          "sources": []
+        },
+        {
+          "type": "paragraph",
+          "text": "The report describes the supplied market observations and dated issuer evidence. It does not assign a cause to an unsourced daily move or treat the week's high and low as technical trading signals.",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "method": "Price returns exclude dividends and costs. Rp bn means billions of rupiah; Rp tn means trillions. IDX official foreign values cover all stock markets. The rounded daily foreign figures sum to -Rp2,445.79bn; the weekly report prints -Rp2,445.80bn, a Rp0.01bn rounding difference. Flowless foreign values cover the regular market and use foreign share volumes times each day's close; the displayed official-minus-estimate gap is not an attribution of negotiated foreign flow. Flowless regular-market value and share volume match all five supplied daily RG lines exactly. Market cap uses shares outstanding times close. ADTV uses the 20 regular-market sessions ending 9 October and was independently recalculated. The five-company focus is editorial and has documented positive first-half earnings, not a complete investment-quality or valuation assessment. Rounded financial metrics retain their issuer definition. Breadth follows the chart colors and legend; percentages are recalculated from counts. JISDOR and equity closes are set at different times, so dollar returns are indicative and exclude fees, taxes and hedging. The 2 October JISDOR baseline comes from the prior audited edition."
+}
