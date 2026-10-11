@@ -74,6 +74,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-026 | Remove the spurious negative zero at the Coal calculator's exact break-even boundary | Codex | `codex/coal-scenario-zero` | Done | [PR #94](https://github.com/LonghandResearch/longhandresearch.github.io/pull/94). Calculates the same contribution per tonne before scaling, preserving genuine loss/profit signs and all research data. Codex author QA and publication under continuing temporary takeover authorization. All 132 tests, the site checker and 72 browser checks across both themes and three engines passed. See docs/mobile-report-qa.md. |
 
+| WEB-027 | Align long editorial paragraphs and verify reading layout on desktop and narrow phones | Codex | `codex/editorial-paragraphs` | Done | [PR #95](https://github.com/LonghandResearch/longhandresearch.github.io/pull/95). Owner requested justified, tidy paragraphs. Preserves research copy, fonts and data. Codex author QA and publication under continuing temporary takeover authorization: 144 reading layouts, 228 reflow cases and six final AI text-spacing cases passed. See docs/editorial-reading-qa.md. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
