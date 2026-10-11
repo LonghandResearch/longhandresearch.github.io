@@ -187,3 +187,11 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
 [data-report-publication].page-coal .prose > p:last-child { margin-bottom: 0; }
 [data-report-publication] .pbai-section > .pbai-figure,
 [data-report-publication] .market-section > .research-figure { margin-block: 32px; }
+
+/* Keep editable report fields legible on touch screens. Safari may zoom
+   focused fields below 16px, including wide phone/tablet orientations. */
+@media (pointer: coarse) {
+  body[data-report-publication] :is(input[type="number"], select, textarea) {
+    font-size: max(16px, 1em);
+  }
+}

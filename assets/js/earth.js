@@ -37,10 +37,19 @@
   const small = Math.min(window.innerWidth, window.innerHeight) < 720 || (navigator.hardwareConcurrency || 8) <= 4;
 
   import(`${CDN}three@0.184.0/build/three.module.min.js`)
-    .then((THREE) => new THREE.TextureLoader().loadAsync(`${IMG}earth-day-1024.jpg`).then((day) => build(THREE, day)))
+    .then(async (THREE) => {
+      const loader = new THREE.TextureLoader();
+      // The first visible frame already has city lights. Sharper imagery and
+      // clouds can wait until navigation finishes without rebuilding the scene.
+      const [day, night] = await Promise.all([
+        loader.loadAsync(`${IMG}earth-day-1024.jpg`),
+        loader.loadAsync(`${IMG}earth-night-2048.jpg`).catch(() => null)
+      ]);
+      build(THREE, day, night);
+    })
     .catch(unavailable);
 
-  function build(THREE, dayLow) {
+  function build(THREE, dayLow, night) {
     /* Renderer and camera. The canvas is transparent: the sky behind it is the page's. */
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -68,6 +77,7 @@
       return t;
     };
     prep(dayLow, true);
+    if (night) prep(night, true);
 
     /* Shaders. Normals and positions are in world space, so the sun can be a
        plain direction that the page moves as it scrolls. */
@@ -85,13 +95,13 @@
 
     const uniforms = {
       dayMap: { value: dayLow },
-      nightMap: { value: blank(0) },
+      nightMap: { value: night || blank(0) },
       waterMap: { value: blank(0) },
       cloudMap: { value: blank(0) },
       sunDir: { value: new THREE.Vector3() },
       cloudShift: { value: 0 },
       cloudMix: { value: 0 },
-      nightMix: { value: 0 },
+      nightMix: { value: night ? 1 : 0 },
       glow: { value: 0 },
       ambience: { value: hero ? 1 : 0 },
       paper: { value: document.documentElement.dataset.theme === 'light' ? 1 : 0 },
@@ -356,8 +366,8 @@
     let lastTouch = 0;
     let returning = false;
     let visible = true, raf = 0, last = 0, shown = false, dirty = true;
-    let intro = hero || reduceMotion.matches ? 1 : 0; // homepage begins with the ambient turn only
-    let cloudTarget = 0, nightTarget = 0;
+    let intro = hero || document.body.classList.contains('v2-page') || reduceMotion.matches ? 1 : 0;
+    let cloudTarget = 0, nightTarget = night ? 1 : 0;
     document.addEventListener('longhand:theme', (e) => {
       uniforms.paper.value = e.detail.theme === 'light' ? 1 : 0;
       themeConnections();
@@ -750,13 +760,12 @@
     document.addEventListener('visibilitychange', () => { if (!document.hidden) requestFrame(); });
     new ResizeObserver(frame).observe(stage);
 
-    /* The rest of the imagery arrives after the first frame: the lights, the
-       water mask for the sun's glint, the clouds, and a sharper day map */
+    /* Defer optional texture uploads until the page entrance is finished.
+       Navigation does not wait for a large day map or the cloud layer. */
     const loader = new THREE.TextureLoader();
     const later = (file, srgb) => loader.loadAsync(IMG + file).then((t) => prep(t, srgb));
     // The sharper day map comes in later on its own.
-    requestAnimationFrame(() => {
-      later('earth-night-2048.jpg', true).then((t) => { uniforms.nightMap.value = t; nightTarget = 1; }).catch(() => {}).then(requestFrame);
+    const refine = () => {
       later('earth-water-2048.png', false).then((t) => { uniforms.waterMap.value = t; }).catch(() => {}).then(requestFrame);
       later('earth-clouds-2048.jpg', false).then((t) => { uniforms.cloudMap.value = t; cloudTarget = 1; }).catch(() => {}).then(requestFrame);
       later(small ? 'earth-day-2048.jpg' : 'earth-day-4096.jpg', true).then((t) => {
@@ -765,6 +774,10 @@
         old.dispose();
         requestFrame();
       }).catch(() => {});
+    };
+    requestAnimationFrame(() => {
+      const vt = window.LONGHAND_VT;
+      if (vt) vt.finished.then(refine, refine); else refine();
     });
   }
 })();
