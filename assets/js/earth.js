@@ -36,18 +36,21 @@
 
   const small = Math.min(window.innerWidth, window.innerHeight) < 720 || (navigator.hardwareConcurrency || 8) <= 4;
 
-  import(`${CDN}three@0.184.0/build/three.module.min.js`)
-    .then(async (THREE) => {
-      const loader = new THREE.TextureLoader();
-      // The first visible frame already has city lights. Sharper imagery and
-      // clouds can wait until navigation finishes without rebuilding the scene.
-      const [day, night] = await Promise.all([
-        loader.loadAsync(`${IMG}earth-day-1024.jpg`),
-        loader.loadAsync(`${IMG}earth-night-2048.jpg`).catch(() => null)
-      ]);
-      build(THREE, day, night);
-    })
-    .catch(unavailable);
+  async function loadEarth() {
+    // Keep module evaluation, image decoding and GPU setup out of the flight.
+    // Its painted frame remains visible until the arriving scene can take over.
+    if (window.LONGHAND_GLOBE_FLIGHT) await window.LONGHAND_GLOBE_FLIGHT;
+    const THREE = await import(`${CDN}three@0.184.0/build/three.module.min.js`);
+    const loader = new THREE.TextureLoader();
+    // The first visible frame already has city lights. Sharper imagery and
+    // clouds can wait until navigation finishes without rebuilding the scene.
+    const [day, night] = await Promise.all([
+      loader.loadAsync(`${IMG}earth-day-1024.jpg`),
+      loader.loadAsync(`${IMG}earth-night-2048.jpg`).catch(() => null)
+    ]);
+    build(THREE, day, night);
+  }
+  loadEarth().catch(unavailable);
 
   function build(THREE, dayLow, night) {
     /* Renderer and camera. The canvas is transparent: the sky behind it is the page's. */
@@ -366,6 +369,7 @@
     let lastTouch = 0;
     let returning = false;
     let visible = true, raf = 0, last = 0, shown = false, dirty = true;
+    let navigationHeld = false;
     let intro = hero || document.body.classList.contains('v2-page') || reduceMotion.matches ? 1 : 0;
     let cloudTarget = 0, nightTarget = night ? 1 : 0;
     document.addEventListener('longhand:theme', (e) => {
@@ -523,7 +527,7 @@
       // Reconcile while drawing as well: media changes can be deferred while
       // the page is busy or hidden. No extra timer is needed.
       if (lastReduced !== reduceMotion.matches) onMotionPref(reduceMotion);
-      const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
+      const dt = navigationHeld ? 0 : Math.min(0.05, Math.max(0, (now - last) / 1000));
       last = now;
       let busy = false;
 
@@ -599,8 +603,11 @@
       renderer.render(scene, camera);
       if (markers.length) projectMarkers();
       dirty = false;
-      if (!shown) { shown = true; plate.classList.add('is-ready'); }
-      if ((busy || playing || dirty) && visible && !document.hidden) raf = requestAnimationFrame(loop);
+      if (!shown) {
+        shown = true; plate.classList.add('is-ready');
+        document.dispatchEvent(new CustomEvent('longhand:globe-rendered'));
+      }
+      if (!raf && !navigationHeld && (busy || playing || dirty) && visible && !document.hidden) raf = requestAnimationFrame(loop);
     }
     function requestFrame() {
       if (raf || !visible) return;
@@ -715,8 +722,48 @@
       }
       requestFrame();
     }
+    function holdNavigation(pose) {
+      navigationHeld = true;
+      cancelAnimationFrame(raf); raf = 0;
+      if (pose) {
+        omega.set(0, 0, 0); returning = false; focusTarget = null; intro = 1;
+        lean.x = lean.y = lean.tx = lean.ty = 0; world.rotation.set(0, 0, 0);
+        spin.quaternion.fromArray(pose.spin);
+        world.updateMatrixWorld(true);
+        // Reconstruct the same world-space surface pose, including any hand turn.
+        ball.quaternion.copy(axis.getWorldQuaternion(new THREE.Quaternion()).invert())
+          .multiply(new THREE.Quaternion().fromArray(pose.world))
+          .multiply(spin.quaternion.clone().invert()).normalize();
+        uniforms.cloudShift.value = pose.cloudShift;
+        connectionTime = pose.connectionTime;
+        focused = true; // Do not settle the carried pose during the handoff.
+      }
+      loop(performance.now());
+    }
+    function captureNavigationFrame() {
+      if (!shown) return null;
+      renderer.render(scene, camera);
+      const picture = document.createElement('canvas');
+      picture.width = picture.height = small ? 512 : 768;
+      const crop = radiusPx * 2.34 * renderer.getPixelRatio();
+      picture.getContext('2d').drawImage(canvas,
+        (canvas.width - crop) / 2, (canvas.height - crop) / 2, crop, crop,
+        0, 0, picture.width, picture.height);
+      return { picture, pose: {
+        world: spin.getWorldQuaternion(new THREE.Quaternion()).toArray(),
+        spin: spin.quaternion.toArray(), cloudShift: uniforms.cloudShift.value,
+        connectionTime
+      } };
+    }
     window.LonghandEarth = {
       setMarkers,
+      holdNavigation,
+      captureNavigationFrame,
+      releaseNavigation() {
+        navigationHeld = false; last = performance.now();
+        if (hero) setPlaying(!reduceMotion.matches); else requestFrame();
+        document.dispatchEvent(new CustomEvent('longhand:globe-navigation-end'));
+      },
       pause() { setPlaying(false); },
       toggle() { setPlaying(!playing); },
       reset() {
@@ -751,6 +798,7 @@
       }
     };
     if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', onMotionPref);
+    if (window.LONGHAND_GLOBE_HANDOFF) holdNavigation(window.LONGHAND_GLOBE_HANDOFF);
 
     /* Only draw while the Earth is on screen and the tab is open */
     new IntersectionObserver(([entry]) => {

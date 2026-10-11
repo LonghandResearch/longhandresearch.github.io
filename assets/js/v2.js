@@ -77,6 +77,96 @@
   }
   /* Name only one selected identity. The browser restores document/scroll state on Back. */
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  /* Carry one already-painted Earth between documents. The square crop has
+     the same surface/halo proportions at both ends, so it cannot stretch or
+     shrink when the live renderer takes over. It contains no research data. */
+  const globeStage = document.querySelector('[data-globe-stage]');
+  const globePlate = globeStage?.closest('[data-globe]');
+  const handoffKey = 'longhand-globe-handoff';
+  let globeBridge = null, bridgeFinished = false;
+  let outgoingDocument = false, bridgeTimer = 0, finishFlight = null;
+  const globePair = (from, to) => {
+    try {
+      const a = new URL(from, location.href), b = new URL(to, location.href);
+      const home = (u) => /\/(?:index\.html)?$/.test(u.pathname);
+      const coverage = (u) => /\/coverage\.html$/.test(u.pathname);
+      return a.origin === location.origin && b.origin === a.origin &&
+        ((home(a) && coverage(b)) || (coverage(a) && home(b)));
+    } catch (_) { return false; }
+  };
+  const sizeBridge = () => {
+    if (!globeBridge) return;
+    const radius = Math.min(globeStage.clientWidth, globeStage.clientHeight) * (body.classList.contains('page-home') ? .46 : .4);
+    globeBridge.style.width = globeBridge.style.height = `${radius * 2.34}px`;
+  };
+  const clearBridge = () => {
+    clearTimeout(bridgeTimer);
+    finishFlight?.(); finishFlight = null; window.LONGHAND_GLOBE_FLIGHT = null;
+    globeBridge?.remove(); globeBridge = null;
+    globeStage?.classList.remove('has-globe-continuity');
+    window.LONGHAND_GLOBE_HANDOFF = null;
+  };
+  const finishBridge = () => {
+    if (!globeBridge || !bridgeFinished) return;
+    finishFlight?.(); finishFlight = null;
+    globeBridge.style.viewTransitionName = 'none';
+    if (globeBridge.classList.contains('is-released')) return;
+    if (!globePlate.classList.contains('is-ready') && !globePlate.classList.contains('is-unavailable')) return;
+    globeStage.classList.remove('has-globe-continuity');
+    globeBridge.classList.add('is-released');
+    window.LONGHAND_GLOBE_HANDOFF = null;
+    window.LonghandEarth?.releaseNavigation();
+    bridgeTimer = setTimeout(clearBridge, reduced.matches ? 0 : 240);
+  };
+  const showBridge = (picture) => {
+    clearBridge();
+    window.LONGHAND_GLOBE_FLIGHT = new Promise((resolve) => { finishFlight = resolve; });
+    globeBridge = document.createElement('div'); globeBridge.className = 'globe-continuity';
+    globeBridge.setAttribute('aria-hidden', 'true'); globeBridge.append(picture);
+    globeStage.append(globeBridge); globeStage.classList.add('has-globe-continuity');
+    bridgeFinished = false; sizeBridge();
+  };
+  function incomingGlobe() {
+    if (!globeStage || reduced.matches) return Promise.resolve();
+    let record;
+    try {
+      const saved = sessionStorage.getItem(handoffKey);
+      sessionStorage.removeItem(handoffKey);
+      record = JSON.parse(saved);
+    } catch (_) { return Promise.resolve(); }
+    const quaternion = (q) => Array.isArray(q) && q.length === 4 && q.every(Number.isFinite) && Math.abs(q.reduce((sum, n) => sum + n * n, 0) - 1) < .01;
+    if (!record || !Number.isFinite(record.time) || record.to !== location.href || !globePair(record.from, record.to) ||
+        record.theme !== document.documentElement.dataset.theme || Date.now() - record.time > 15000 || record.time > Date.now() + 1000 ||
+        !quaternion(record.pose?.world) || !quaternion(record.pose?.spin) || !Number.isFinite(record.pose?.cloudShift) || !Number.isFinite(record.pose?.connectionTime) ||
+        typeof record.image !== 'string' || record.image.length > 2000000 || !record.image.startsWith('data:image/png;base64,')) return Promise.resolve();
+    const earth = window.LonghandEarth;
+    let picture;
+    if (earth && globePlate.classList.contains('is-ready')) {
+      // A restored document already has a renderer: draw the carried pose
+      // synchronously, without waiting to decode a new image during Back.
+      earth.holdNavigation(record.pose);
+      picture = earth.captureNavigationFrame()?.picture;
+    }
+    if (picture) {
+      showBridge(picture); window.LONGHAND_GLOBE_HANDOFF = record.pose;
+      return Promise.resolve();
+    }
+    picture = new Image(); picture.src = record.image;
+    showBridge(picture); window.LONGHAND_GLOBE_HANDOFF = record.pose;
+    const arrivingBridge = globeBridge;
+    // The outgoing painted snapshot makes the flight. Decoding its copy for
+    // the landing need not delay or interrupt the incoming first paint.
+    return picture.decode().catch(() => {
+      if (globeBridge !== arrivingBridge) return;
+      window.LONGHAND_VT?.skipTransition();
+      clearBridge(); window.LonghandEarth?.releaseNavigation();
+    });
+  }
+  incomingGlobe();
+  document.addEventListener('longhand:globe-rendered', finishBridge);
+  document.addEventListener('longhand:theme', () => { if (globeBridge && !window.LONGHAND_VT) { clearBridge(); window.LonghandEarth?.releaseNavigation(); } });
+  if (globePlate) new MutationObserver(finishBridge).observe(globePlate, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('resize', sizeBridge);
   // Reveal publication furniture once, without hiding content before JavaScript
   // or animating research figures. Newly filtered catalogue rows also opt in.
   const motionSelector = '.hero-copy, .publication-tile, .home-coverage-intro, .home-coverage-links > a, .report-list > .report, .entity-index > a, .entity-report, .coverage-summary, .coverage-sector-index, .coverage-latest-index, .report-related-list > a, .footer-signature';
@@ -130,13 +220,19 @@
     window.addEventListener('scroll', queueProgress, { passive: true });
     window.addEventListener('resize', queueProgress); window.addEventListener('pageshow', queueProgress); updateProgress();
   }
+  let activatedLink = null;
+  document.addEventListener('click', (e) => {
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    activatedLink = e.target.closest?.('a[href]') || null;
+  }, true);
+  const onScreen = (el) => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
   function clearIdentity() { document.querySelectorAll('[data-v2-transition]').forEach((el) => { el.style.viewTransitionName = ''; el.removeAttribute('data-v2-transition'); }); }
   function identityFor(href) {
     try {
       const u = new URL(href, location.href);
       if (u.origin !== location.origin) return null;
       const file = u.pathname.split('/').pop();
-      if (['country.html', 'sector.html', 'company.html'].includes(file)) return { name: 'research-identity', selector: '[data-entity-title], h1' };
+      if (['country.html', 'sector.html', 'company.html'].includes(file)) return { name: 'research-identity', entity: file };
       const report = window.Longhand?.published().find((r) => new URL(window.Longhand.reportHref(r), base).href === u.href);
       return report ? { name: 'report-title', report } : null;
     } catch (_) { return null; }
@@ -144,17 +240,37 @@
   window.addEventListener('pageswap', (e) => {
     if (!e.viewTransition || reduced.matches) return;
     const href = e.activation?.entry?.url;
+    outgoingDocument = true;
+    try {
+      sessionStorage.removeItem(handoffKey);
+      const bounds = globeStage?.getBoundingClientRect();
+      if (globePair(location.href, href) && bounds && bounds.bottom > 0 && bounds.top < innerHeight) {
+        const frame = window.LonghandEarth?.captureNavigationFrame();
+        if (frame) {
+          sessionStorage.setItem(handoffKey, JSON.stringify({ from: location.href, to: href, time: Date.now(),
+            theme: document.documentElement.dataset.theme, pose: frame.pose, image: frame.picture.toDataURL('image/png') }));
+          showBridge(frame.picture);
+          window.LonghandEarth.holdNavigation();
+        }
+      }
+    } catch (_) { /* Storage/readback unavailable: keep ordinary page navigation. */ }
+    let link = activatedLink; activatedLink = null;
     const id = identityFor(href); if (!id) return;
     clearIdentity();
-    let link = [...document.querySelectorAll('a[href]')].find((a) => a.href === href && a.getBoundingClientRect().top >= 0 && a.getBoundingClientRect().bottom < innerHeight);
+    if (!link?.isConnected || link.href !== href || !onScreen(link)) link = [...document.querySelectorAll('a[href]')].find((a) => a.href === href && onScreen(a));
     if (!link) return;
-    let title = (id.name === 'research-identity' ? link.closest('.coverage-panel')?.querySelector('h2') : null) || link.querySelector('[data-vt-title], h2, h3') || (link.closest('[data-vt-title]')) || link;
+    const countryTitle = id.entity === 'country.html' ? link.closest('.coverage-panel')?.querySelector('h2') : null;
+    const title = (countryTitle && onScreen(countryTitle) ? countryTitle : null) || link.querySelector('[data-vt-title], h2, h3') || link.closest('[data-vt-title]') || link.querySelector(':scope > span:not([aria-hidden])') || link;
     document.querySelectorAll('[data-vt-title], .reader-title').forEach((el) => { el.style.viewTransitionName = 'none'; });
     title.style.viewTransitionName = id.name; title.dataset.v2Transition = '';
   });
   window.addEventListener('pagereveal', (e) => {
     const vt = e.viewTransition;
-    if (!vt) return;
+    if (outgoingDocument) {
+      clearBridge(); window.LonghandEarth?.releaseNavigation();
+      incomingGlobe(); outgoingDocument = false;
+    }
+    if (!vt) { bridgeFinished = true; finishBridge(); return; }
     const root = document.documentElement;
     window.LONGHAND_VT = vt;
     root.classList.add('publication-nav-vt');
@@ -163,9 +279,13 @@
     const finish = () => {
       root.classList.remove('publication-nav-vt');
       if (window.LONGHAND_VT === vt) { window.LONGHAND_VT = null; delete root.dataset.nav; }
+      bridgeFinished = true; finishBridge();
     };
     vt.finished.then(finish, finish);
     if (reduced.matches) return;
+    // A data-only report may still be fetching its edition. Retain its loading
+    // UI instead of animating an empty shared title that will jump later.
+    if (body.hasAttribute('data-report-publication') && !document.querySelector('main h1')) { vt.skipTransition(); return; }
     const file = location.pathname.split('/').pop();
     if (body.hasAttribute('data-report-publication') && !document.querySelector('.reader-title')) {
       const title = document.querySelector('main h1');
@@ -177,5 +297,15 @@
     }
     e.viewTransition.finished.then(clearIdentity, clearIdentity);
   });
-  window.addEventListener('pageshow', clearIdentity);
+  window.addEventListener('pageshow', () => {
+    activatedLink = null;
+    clearIdentity();
+    // Also finish if the browser revealed the document before this deferred
+    // script registered its pagereveal listener. Never strand the renderer.
+    if (globeBridge && !bridgeFinished) {
+      const finish = () => { bridgeFinished = true; finishBridge(); };
+      const vt = window.LONGHAND_VT;
+      if (vt) vt.finished.then(finish, finish); else finish();
+    }
+  });
 })();

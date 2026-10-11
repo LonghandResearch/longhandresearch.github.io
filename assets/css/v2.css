@@ -37,9 +37,19 @@ html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3
 .v2-page :is(input, select) { border-radius: 1px; }
 .v2-page :is(table, time, .catalogue-no) { font-variant-numeric: tabular-nums; }
 .v2-page .page-emblem { view-transition-name: none; }
-/* A WebGL scene is rebuilt asynchronously on each document. Keep it in the
-   page entrance rather than morphing an old globe into an empty new canvas. */
+/* The live canvas stays in its document. A ready square frame carries the
+   Earth between pages while the incoming WebGL scene initializes. */
 .v2-page .plate-stage { view-transition-name: none; }
+.globe-continuity { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 2; view-transition-name: globe; transition: opacity 200ms ease; mask-image: radial-gradient(circle closest-side, #000 90%, transparent 100%); }
+.globe-continuity > :is(img, canvas) { display: block; position: static; width: 100% !important; height: 100% !important; opacity: 1 !important; }
+.v2-page .has-globe-continuity > canvas,
+.v2-page .has-globe-continuity + .globe-markers { opacity: 0 !important; }
+.v2-page .plate-stage:has(.globe-continuity) > canvas { transition-duration: 200ms; }
+.globe-continuity.is-released { opacity: 0; }
+html:has(.v2-page):not(.theme-vt)::view-transition-old(globe) { animation: none; mix-blend-mode: normal; }
+html:has(.v2-page):not(.theme-vt)::view-transition-old(globe):only-child { display: block; animation: v2-leave 280ms ease both; }
+html:has(.v2-page):not(.theme-vt)::view-transition-new(globe) { display: none; animation: none; }
+html:has(.v2-page):not(.theme-vt)::view-transition-new(globe):only-child { display: block; }
 .v2-page :is(h1, h2, h3, p, a) { overflow-wrap: break-word; }
 .v2-page .about { gap: 8vw; }
 .v2-page .about-text { max-width: var(--v2-reading); }

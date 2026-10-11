@@ -58,9 +58,12 @@ at 342ms while the globe's first frame arrived at 916ms. A separately named
 globe snapshot was therefore empty, while the rebuilt scene started its own
 1.6-second opening turn underneath the navigation animation.
 
-The V2 globe now participates in the directional page entrance rather than
-being morphed between two WebGL canvases. Its canvas and geographic labels
-appear together once ready, without a second opening turn. City lights are
+The first repair in PR #89 used the directional page entrance rather than
+morphing two WebGL canvases. The owner subsequently clarified that the spatial
+globe flight should be retained; [the continuity repair](transition-qa.md)
+supersedes that entrance with a carried, painted frame and matching surface pose.
+The canvas and geographic labels appear together once ready, without a second
+opening turn. City lights are
 loaded with the small initial day map so the first frame is already illuminated.
 Clouds, the water mask and the sharper day texture load after an active page
 transition finishes. A failed night texture still permits the day scene to render.
