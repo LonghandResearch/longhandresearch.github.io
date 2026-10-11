@@ -77,5 +77,9 @@ JavaScript syntax and site checks passed. The preview was reviewed before public
 
 Owner explicitly requested publication on 12 October 2026. The source recheck
 passed again immediately before publication. Final site checks and the complete
-132-test regression suite are run before committing. Prior audited observations,
+132-test regression suite passed before committing. Prior audited observations,
 statistics, financial table cells and publication dates remain unchanged.
+
+Publication PR: https://github.com/LonghandResearch/longhandresearch.github.io/pull/97.
+Deployment/live verification follows merge; its completion is recorded in the
+PR and the owner’s Obsidian publication notes.
