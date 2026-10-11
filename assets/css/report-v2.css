@@ -84,8 +84,8 @@
 
 /* Preserve the standalone resource study's layout and chart palette while
    giving its reading surfaces the same two publication themes. */
-html:has(body[data-report-publication]:not(.v2-page)) { --paper: #e8e3d7; --sheet: #eee9dd; --ink: #23332d; --muted: #4f6057; --rule: #b4bbab; --gold: #60744f; --teal: #3d5b49; }
-html[data-theme="dark"]:has(body[data-report-publication]:not(.v2-page)) { --paper: #0b1216; --sheet: #142126; --ink: #ece9df; --muted: #bbc3c0; --rule: #43504d; --gold: #ccb78f; --teal: #9ebcb0; }
+html:has(body[data-report-publication]:not(.v2-page)) { --paper: #e8e3d7; --sheet: #eee9dd; --ink: #23332d; --muted: #4f6057; --ink-3: #505d53; --rule: #b4bbab; --gold: #546844; --teal: #3d5b49; }
+html[data-theme="dark"]:has(body[data-report-publication]:not(.v2-page)) { --paper: #0b1216; --sheet: #142126; --ink: #ece9df; --muted: #bbc3c0; --ink-3: #9faeaa; --rule: #43504d; --gold: #ccb78f; --teal: #9ebcb0; }
 
 /* A publication jacket and a quiet navigation beside the reader. */
 .page-report main.has-reading-rail { position: relative; padding-left: 220px; }

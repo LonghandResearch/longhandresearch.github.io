@@ -207,6 +207,53 @@
     main.append(section);
   }
 
+  // Charts and tables may overflow only at phone widths or after a data redraw.
+  // Make those regions reachable with a keyboard, without adding desktop stops.
+  const scrollSelector = '.chart-scroll, .table-scroll, .structured-table-scroll';
+  const scrollRegions = new WeakMap();
+  function fitScrollRegion(region) {
+    const state = scrollRegions.get(region);
+    if (!state) return;
+    const scrolls = region.clientWidth > 0 && region.scrollWidth > region.clientWidth + 1;
+    if (scrolls) {
+      region.tabIndex = 0;
+      if (state.role) region.setAttribute('role', 'region');
+      if (state.label) region.setAttribute('aria-label',
+        (region.closest('figure')?.querySelector('figcaption')?.textContent || region.querySelector('caption')?.textContent ||
+          (region.matches('.chart-scroll') ? 'Scrollable research chart' : 'Scrollable research table')).replace(/\s+/g, ' ').trim().slice(0, 180));
+    } else {
+      region.removeAttribute('tabindex');
+      if (state.role) region.removeAttribute('role');
+      if (state.label) region.removeAttribute('aria-label');
+    }
+  }
+  const scrollResize = 'ResizeObserver' in window ? new ResizeObserver((entries) => entries.forEach(({ target }) => fitScrollRegion(target))) : null;
+  function registerScrollRegion(region) {
+    if (!scrollRegions.has(region)) {
+      // Preserve regions whose own report controller already manages focus.
+      if (region.hasAttribute('tabindex')) return;
+      scrollRegions.set(region, { role: !region.hasAttribute('role'), label: !region.hasAttribute('aria-label') && !region.hasAttribute('aria-labelledby') });
+    }
+    scrollResize?.observe(region);
+    fitScrollRegion(region);
+  }
+  main.querySelectorAll(scrollSelector).forEach(registerScrollRegion);
+  new MutationObserver((records) => records.forEach((record) => {
+    const parent = record.target.closest?.(scrollSelector);
+    if (parent) registerScrollRegion(parent);
+    record.addedNodes.forEach((node) => {
+      if (node.nodeType !== 1) return;
+      if (node.matches(scrollSelector)) registerScrollRegion(node);
+      node.querySelectorAll(scrollSelector).forEach(registerScrollRegion);
+    });
+    record.removedNodes.forEach((node) => {
+      if (node.nodeType !== 1) return;
+      if (node.matches(scrollSelector)) scrollResize?.unobserve(node);
+      node.querySelectorAll(scrollSelector).forEach((region) => scrollResize?.unobserve(region));
+    });
+  })).observe(main, { childList: true, subtree: true });
+  if (!scrollResize) window.addEventListener('resize', () => main.querySelectorAll(scrollSelector).forEach(registerScrollRegion));
+
   // Weekly editions arrive asynchronously; observe only until their body exists.
   function start() {
     enhance();

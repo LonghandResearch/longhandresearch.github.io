@@ -382,7 +382,11 @@
     let markers = [];
     const markerLayer = document.createElement('div');
     markerLayer.className = 'globe-markers';
-    markerLayer.setAttribute('aria-label', 'Research locations');
+    if (hero) markerLayer.setAttribute('aria-hidden', 'true');
+    else {
+      markerLayer.setAttribute('role', 'group');
+      markerLayer.setAttribute('aria-label', 'Research locations');
+    }
     stage.after(markerLayer);
     const surfacePoint = (lat, lon) => {
       const p = lat * Math.PI / 180, l = lon * Math.PI / 180;

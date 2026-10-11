@@ -499,11 +499,11 @@ caption.fig-cap { display: table-caption; caption-side: top; padding-bottom: 12p
 .hk-announced { border-radius: 50%; border: 2px solid var(--h-n); box-shadow: 0 0 6px var(--h-n); }
 .holo-float-t { margin: 4px 0 0; font: 500 10.5px/1.3 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--h-dim); }
 .holo-float { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.holo-float .hf { opacity: 0.25; transition: opacity 0.35s ease; }
+.holo-float .hf { opacity: 1; }
 .holo-float .hf.is-on { opacity: 1; }
 .holo-float button { display: flex; gap: 8px; align-items: flex-start; width: 100%; text-align: left; background: var(--tint); border: 1px solid var(--h-edge); color: var(--h-ink); padding: 7px 8px; font: 400 12.5px/1.35 var(--font-sans); cursor: pointer; }
 .holo-float button .hk { margin-top: 3px; }
-.holo-float .muted, .holo-detail .muted { color: var(--h-dim); }
+.holo-float .muted, .holo-detail .muted { color: var(--ink-3); }
 .holo-detail { border-top: 1px solid var(--h-edge); padding-top: 10px; font-size: 13px; }
 .holo-detail h4 { margin: 2px 0 2px; font: 600 15px/1.3 var(--font-sans); color: var(--h-ink); }
 .holo-detail dl { margin: 8px 0; display: grid; gap: 3px; }
