@@ -17,6 +17,7 @@
     'adro-2026-09-03': ['adro-2026-09-03.png', 'Original report · opening page', 'document']
   };
   const covers = {
+    'ihsg-weekly-2026-10-09': ['ihsg-recovery', '#ead7ae', 10.1, 'Prices Recovered.|Foreign Selling|Persisted.', 'A Jakarta skyline, elevated roads and terrace greenery at golden hour, conceptually illustrated'],
     'adro-2026-09-03': ['smelter', '#ead7ae', 11.2, 'The Smelter|Is the Whole|Thesis', 'A tropical aluminium smelter and industrial infrastructure'],
     'macro-2026-09-24': ['rates', '#14262b', 12.2, 'Dovish or|Hawkish?', 'Conceptual central-bank architecture illustrated in vintage ink'],
     'the-power-behind-ai-2026-09-24': ['ai-power', '#ead7ae', 12.2, 'The Power|Behind AI', 'A data-center campus connected to electrical infrastructure'],

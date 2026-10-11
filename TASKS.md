@@ -78,6 +78,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | RPT-016 | Publish the 5-9 October IHSG weekly edition from owner-supplied IDX/BI files, with reconciled Flowless readings and a fundamentally documented liquid large-cap focus | Codex | `codex/ihsg-weekly-oct09` | Done (Codex author QA; publication through PR #96) | [PR #96](https://github.com/LonghandResearch/longhandresearch.github.io/pull/96). Continuing temporary takeover authorization. Five supplied daily regular-market value/volume totals reconcile exactly; weekly returns, flows, sectors, breadth and JISDOR are audited. Focus BBCA, BBRI, BMRI, TLKM and ASII meets Rp100tn cap, Rp50bn ADTV20, uninterrupted trading and dated positive reported first-half earnings. Flowless estimates remain distinct from official all-market flow. Site validation, 132 tests and six responsive/theme cases passed. See audits/RPT-016-2026-10-09.md. |
 
+| WEB-028 | Refine the 9 October IHSG charts and narrative, tidy paragraphs and recheck the supplied data | Codex | `codex/ihsg-editorial-layout` | Review | Owner approved publication on 12 October 2026 after reviewing the local preview. Original layout retained, new charts, consistent typography, tidy prose, four compact source groups and the owner-supplied Jakarta cover. Codex author QA under continuing takeover authorization; source recheck and browser QA passed. See `docs/ihsg-preview-qa.md`. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.

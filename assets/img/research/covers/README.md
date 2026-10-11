@@ -84,3 +84,19 @@ The no-people revisions removed figures from the generated illustrations while
 preserving their portrait format, palette, print style and unaffected scenery.
 The final selected assets were encoded as WebP without cropping or retouching.
 Cover lettering and JPG exports were rendered from the actual website layout.
+
+## 12 October 2026 local preview: IHSG recovery cover
+
+The owner supplied `Jakarta Markets at Golden Hour.png` for the 5–9 October
+IHSG edition. The built-in imagegen edit preserves its sunset city, highway and
+terrace composition, removes lettering and the decorative market figures/logo,
+and extends it to the existing 2:3 portrait format. It is conceptual artwork,
+not a documentary exchange image or a market-data exhibit. The supplied file
+remains unchanged in Downloads.
+
+`ihsg-recovery-art.webp` is the 1024 × 1536 clean illustration. Responsive
+320 × 480 and 640 × 960 versions use the same composition. Website typography
+comes from the current catalogue: No. 012, 11 October 2026,
+“Prices Recovered. Foreign Selling Persisted.” The 1024 × 1536
+`ihsg-weekly-2026-10-09-cover.jpg` is exported from that same HTML/CSS typesetting.
+The owner approved publication of the reviewed cover on 12 October 2026.
