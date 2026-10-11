@@ -72,6 +72,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-025 | Audit remaining browsers, zoom and mobile report collisions; repair verified layout defects | Codex | `codex/mobile-report-collisions` | Done | [PR #93](https://github.com/LonghandResearch/longhandresearch.github.io/pull/93). Codex author QA and publication under continuing temporary takeover authorization. Repaired Coal IEA labels and open tables, AI chart labels and data access, narrow IHSG axes, and Homepage reflow. Firefox is now tested using an isolated runtime outside Git. All 1,280 local layout, reflow, accessibility and chart-state checks and 131 tests passed. See docs/mobile-report-qa.md for evidence and physical-device limits. |
 
+| WEB-026 | Remove the spurious negative zero at the Coal calculator's exact break-even boundary | Codex | `codex/coal-scenario-zero` | Review | Calculates the same contribution per tonne before scaling, preserving genuine loss/profit signs and all research data. Codex author QA under continuing temporary takeover authorization. All 132 tests, the site checker and 72 browser checks across both themes and three engines passed. See docs/mobile-report-qa.md. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.

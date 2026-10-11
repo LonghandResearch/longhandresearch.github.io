@@ -70,3 +70,24 @@ Publication is checked after merge using the Pages deployment status, byte
 comparison of changed public assets, and the mobile chart-state suite against
 the live site. Git continues to report permission warnings while cleaning four
 old worktree registrations; those unrelated registrations are preserved.
+
+## Published layout and calculator boundary follow-up
+
+PR #93 merged as `a2f9e41`. Both the main-branch site check and Pages deployment
+passed. All 13 changed public HTML/CSS/JavaScript files matched the merged Git
+objects byte for byte, and all 594 normal-spacing chart-state checks passed
+against the live site in Edge, WebKit and Firefox. Both local checkouts were
+clean after synchronization.
+
+An additional live check at the Coal sliders' maximum settings found a tiny
+floating-point subtraction residue presented as `-$0.00` and a loss at exact
+break-even: 160 Mt, $120/t, $70/t production cost, $20/t logistics and a 25%
+revenue-linked charge. WEB-026 calculates the same contribution per tonne before
+scaling by volume. Revenue, charges, costs, the economic formula and research
+data are preserved. Genuine small positive/negative margins retain their sign.
+
+The follow-up adds a strict zero/sign regression test; all 132 tests and the site
+checker passed. Both themes at 320/390 CSS pixels in all three browser engines
+passed 72 local calculator checks covering baseline, minimum, maximum, profit,
+loss and reset. The maximum case now shows `$0.00`, a `0.0%` margin and the
+ordinary explanatory text, with no loss warning or viewport overflow.
