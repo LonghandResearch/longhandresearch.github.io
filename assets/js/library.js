@@ -25,7 +25,7 @@
     views: $('.library-view'),
   };
 
-  const state = { all: [], cat: 'All', q: '', country: '', sector: '', company: '', view: 'covers' };
+  const state = { all: [], cat: 'All', q: '', country: '', sector: '', company: '', view: 'covers', primaryCountriesOnly: true };
 
   /* Filters and search live in the address, so a reload or a shared link
      keeps them. */
@@ -211,17 +211,21 @@
       const key = select.dataset.facet;
       const other = { ...state, [key]: '' };
       const available = graph.entitiesFor(key, other, searched.filter((r) => state.cat === 'All' || r.category === state.cat));
-      const all = key === 'country' ? graph.countries : key === 'sector' ? graph.sectors : graph.companies;
+      const all = key === 'country' ? graph.entitiesFor('country', { primaryCountriesOnly: true }, state.all) : key === 'sector' ? graph.sectors : graph.companies;
       select.innerHTML = `<option value="">All ${nouns[key]}</option>` + all.map((entity) => {
         const count = graph.reportsFor({ ...other, [key]: entity.id }, searched.filter((r) => state.cat === 'All' || r.category === state.cat)).length;
         return `<option value="${esc(entity.id)}"${state[key] === entity.id ? ' selected' : ''}${!available.some((x) => x.id === entity.id) && state[key] !== entity.id ? ' disabled' : ''}>${esc(entity.name)} (${count})</option>`;
       }).join('');
-      if (state[key] && !all.some((x) => x.id === state[key])) select.insertAdjacentHTML('beforeend', `<option value="${esc(state[key])}" selected>Unknown ${key}: ${esc(state[key])}</option>`);
+      if (state[key] && !all.some((x) => x.id === state[key])) {
+        const contextCountry = key === 'country' && graph.country(state[key]);
+        select.insertAdjacentHTML('beforeend', `<option value="${esc(state[key])}" selected>${contextCountry ? esc(contextCountry.name) + ' · Context only' : 'Unknown ' + esc(key) + ': ' + esc(state[key])}</option>`);
+      }
     });
     if (els.reset) els.reset.hidden = !selected.length && !state.q && state.cat === 'All';
     if (els.context) {
       els.context.hidden = !selected.length;
-      els.context.innerHTML = selected.map((key) => {
+      const countryContext = state.country && graph.countryCoverage(state.country).primary.length === 0 && graph.country(state.country);
+      els.context.innerHTML = (countryContext ? `<span>No report focuses on ${esc(countryContext.name)}. This market is discussed within other research.</span>` : '') + selected.map((key) => {
         const entity = graph[key](state[key]);
         return entity ? `<a href="${graph.urlFor(key, entity.id, state)}">${esc(entity.name)} ${icon('arrowRight')}</a>` : `<span>Unknown ${esc(key)}</span>`;
       }).join('');

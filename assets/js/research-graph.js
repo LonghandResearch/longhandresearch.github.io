@@ -73,7 +73,7 @@
     link(id, 'company', [companyId], 'primary', catalogue(id), 'Published company initiation');
     link(id, 'sector', [sectorId], 'primary', catalogue(id), 'Sector identified in the catalogue');
   });
-  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02'].forEach((id) => {
+  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09'].forEach((id) => {
     link(id, 'country', ['ID'], 'primary', catalogue(id), 'Indonesia equity-market update');
     link(id, 'sector', ['rates-macro'], 'primary', catalogue(id), 'Market and currency observations; IHSG is an index, not a company');
   });
@@ -85,6 +85,7 @@
 
   const collections = { country: countries, sector: sectors, company: companies };
   const active = (r, allRoles) => allRoles || r.role === 'primary' || r.role === 'material';
+  const inScope = (r, filters) => active(r, filters.allRoles) && (!filters.primaryCountriesOnly || r.type !== 'country' || r.role === 'primary');
   const published = () => window.Longhand ? window.Longhand.publishedSorted() : (window.LONGHAND_REPORTS || []).slice().sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
   const find = (type, id) => collections[type]?.find((entity) => entity.id === id) || null;
   function contextFor(reportOrId, { allRoles = false } = {}) {
@@ -100,7 +101,7 @@
   function reportsFor(filters = {}, reports = published()) {
     const selectedCompany = filters.company ? find('company', filters.company) : null;
     if (selectedCompany && ((filters.country && !selectedCompany.countryIds.includes(filters.country)) || (filters.sector && !selectedCompany.sectorIds.includes(filters.sector)))) return [];
-    return reports.filter((report) => !report.isLocal && ['country', 'sector', 'company'].every((type) => !filters[type] || relationships.some((r) => r.reportId === report.id && r.type === type && r.entityId === filters[type] && active(r, filters.allRoles))));
+    return reports.filter((report) => !report.isLocal && ['country', 'sector', 'company'].every((type) => !filters[type] || relationships.some((r) => r.reportId === report.id && r.type === type && r.entityId === filters[type] && inScope(r, filters))));
   }
   function entitiesFor(type, filters = {}, reports = published()) {
     const ids = new Set(reportsFor(filters, reports).map((r) => r.id));
@@ -108,7 +109,7 @@
       if (type === 'company' && ((filters.country && !entity.countryIds.includes(filters.country)) || (filters.sector && !entity.sectorIds.includes(filters.sector)))) return false;
       if (type === 'sector' && filters.company && !find('company', filters.company)?.sectorIds.includes(entity.id)) return false;
       if (type === 'country' && filters.company && !find('company', filters.company)?.countryIds.includes(entity.id)) return false;
-      return relationships.some((r) => ids.has(r.reportId) && r.type === type && r.entityId === entity.id && active(r, filters.allRoles));
+      return relationships.some((r) => ids.has(r.reportId) && r.type === type && r.entityId === entity.id && inScope(r, filters));
     });
   }
   function urlFor(type, id, context = {}) {
@@ -121,6 +122,11 @@
   function counts(filters = {}, reports = published()) {
     return { reports: reportsFor(filters, reports).length, countries: entitiesFor('country', filters, reports).length, sectors: entitiesFor('sector', filters, reports).length, companies: entitiesFor('company', filters, reports).length };
   }
+  function countryCoverage(id, reports = published()) {
+    const primary = reportsFor({ country: id, primaryCountriesOnly: true }, reports);
+    const ids = new Set(primary.map((r) => r.id));
+    return { primary, context: reportsFor({ country: id }, reports).filter((r) => !ids.has(r.id)) };
+  }
   function freeze(value) { if (value && typeof value === 'object' && !Object.isFrozen(value)) { Object.values(value).forEach(freeze); Object.freeze(value); } return value; }
-  window.LonghandGraph = freeze({ version: 1, countries, sectors, companies, listings, relationships, country: (id) => find('country', id), sector: (id) => find('sector', id), company: (id) => find('company', id), reportsFor, contextFor, entitiesFor, urlFor, counts });
+  window.LonghandGraph = freeze({ version: 2, countries, sectors, companies, listings, relationships, country: (id) => find('country', id), sector: (id) => find('sector', id), company: (id) => find('company', id), reportsFor, countryCoverage, contextFor, entitiesFor, urlFor, counts });
 })();

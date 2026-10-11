@@ -80,6 +80,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-028 | Refine the 9 October IHSG charts and narrative, tidy paragraphs and recheck the supplied data | Codex | `codex/ihsg-editorial-layout` | Done (Codex author QA; publication through PR #97) | [PR #97](https://github.com/LonghandResearch/longhandresearch.github.io/pull/97). Owner approved publication on 12 October 2026 after reviewing the local preview. Original layout retained, new charts, consistent typography, tidy prose, four compact source groups and the owner-supplied Jakarta cover. Codex author QA under continuing takeover authorization; source recheck and browser QA passed. See `docs/ihsg-preview-qa.md`. |
 
+| WEB-029 | Clarify primary report geographies versus trade context and give both footer themes a readable atlas background | Codex | `codex/coverage-geography` | Review | Owner requested consistent country labels and filters, restrained documented arcs, and a clearer map behind the footer in both themes. Codex author QA under continuing takeover authorization: 240 browser layouts, 120 accessibility audits, 80 phone collision cases, 24 globe-navigation cases and 133 tests. Also separates the weekly chart's scale and date labels. See `docs/coverage-geography-qa.md`. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
