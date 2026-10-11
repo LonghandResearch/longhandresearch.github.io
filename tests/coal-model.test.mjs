@@ -22,6 +22,14 @@ test('losses, zero output and non-zero charge remain explicit',()=>{
  assert.throws(()=>M.calculate({...M.baseline,charge:100}));
  assert.throws(()=>M.calculate({...M.baseline,volume:NaN}));
 });
+test('exact slider-boundary break-even has no spurious loss, while small real margins retain their sign',()=>{
+ const input={volume:160,price:120,cost:70,logistics:20,charge:25};
+ const r=M.calculate(input);
+ assert.equal(r.contribution,0);assert.equal(r.margin,0);assert.equal(r.breakEven,120);
+ assert.ok(M.calculate({...input,price:120.01}).contribution>0);
+ assert.ok(M.calculate({...input,price:119.99}).contribution<0);
+ assert.equal(M.calculate({...input,volume:0,price:30}).contribution,0);
+});
 test('source comparisons use matching periods and denominators',()=>{
  close(M.change(495,517),-4.255319148936166);
  close(M.change(1062,1074),-1.11731843575419);

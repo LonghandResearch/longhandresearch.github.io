@@ -8,7 +8,9 @@
     const revenue = volume * price / 1000;
     const revenueCharge = revenue * charge / 100;
     const operatingCost = volume * (cost + logistics) / 1000;
-    const contribution = revenue - revenueCharge - operatingCost;
+    // Calculate the same margin per tonne before scaling, so exact break-even
+    // is not presented as a loss from subtracting large floating-point totals.
+    const contribution = volume === 0 ? 0 : volume * (price * (1 - charge / 100) - (cost + logistics)) / 1000;
     return {revenue,revenueCharge,operatingCost,contribution,breakEven:(cost+logistics)/(1-charge/100),margin:revenue>0?contribution/revenue*100:null};
   }
   function change(current, previous) {
