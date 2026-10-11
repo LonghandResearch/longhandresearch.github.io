@@ -68,6 +68,8 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-023 | Restore the traveling Home/Coverage globe with a ready frame and audit other public page transitions | Codex | `codex/transition-continuity` | Done (published and verified) | [PR #90](https://github.com/LonghandResearch/longhandresearch.github.io/pull/90). Codex author QA and publication under the continuing owner takeover authorization. Pages deployed `3fe2051`. Local QA passed 140 public navigation checks, 24 globe flights, 24 source/return/fallback assertions and additional cache/failure tests. Live QA passed 24 globe flights, 24 source/return/fallback assertions and 76 route/theme/viewport checks. All 131 automated tests and both GitHub checks passed. Research and static publishing are preserved. See docs/transition-qa.md for evidence and physical-device/browser limits. |
 
+| WEB-024 | Audit public browser compatibility, accessibility and globe performance; repair verified defects and publish | Codex | `codex/browser-accessibility-qa` | Review | Codex author QA under the owner's continuing takeover authorization. Repaired text contrast, globe semantics and keyboard scrolling regions. Final local QA passed 152 Edge/WebKit route/theme/viewport accessibility combinations, 92 interaction assertions, 24 globe flights, four render-lifecycle checks and all 131 tests. See docs/browser-accessibility-qa.md for evidence and the remaining physical-device, assistive-technology and Firefox runtime limits. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
