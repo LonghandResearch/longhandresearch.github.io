@@ -4,6 +4,8 @@
 authorization while Claude is unavailable. This is not an independent Claude
 review or a WCAG certification.
 
+Publication is tracked in [PR #92](https://github.com/LonghandResearch/longhandresearch.github.io/pull/92).
+
 ## Verified defects and repairs
 
 - Small warm-paper labels did not meet 4.5:1 contrast on inset reading surfaces.
