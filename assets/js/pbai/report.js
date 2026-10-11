@@ -93,14 +93,23 @@
   /* Horizontal bar chart. items: [{label, value, display, tip, series}] */
   function hbar(host, items, { unit = '', max = null, height = 30 } = {}) {
     const w = Math.max(260, host.clientWidth || 600);
-    const longest = (key) => Math.max(...items.map((i) => String(i[key] || '').length));
+    const measure = document.createElement('canvas').getContext('2d');
+    const style = getComputedStyle(host);
+    if (measure) {
+      measure.font = `13px ${style.getPropertyValue('--font-sans') || style.fontFamily}`;
+      measure.letterSpacing = style.letterSpacing;
+    }
+    const longest = (key) => Math.max(0, ...items.map((i) => {
+      const text = String(i[key] || '');
+      return measure ? measure.measureText(text).width : text.length * 7;
+    }));
     // label and value columns sized from their longest text, so nothing spills past the chart
     // On narrow screens each label sits above its bar instead of beside it
-    const stacked = w < 480 || longest('label') * 6.6 + 10 > w * 0.36;
-    const labelW = stacked ? 0 : Math.max(60, longest('label') * 6.6 + 10);
-    const valueW = Math.min(Math.round(w * 0.45), Math.max(48, longest('display') * 6.4 + 14));
+    const stacked = w < 480 || longest('label') + 20 > w * 0.36 || longest('label') + longest('display') + 114 > w;
+    const labelW = stacked ? 0 : Math.max(60, longest('label') + 20);
+    const valueW = stacked ? 32 : Math.max(48, longest('display') + 14);
     const plotW = Math.max(40, w - labelW - valueW);
-    const rowH = stacked ? height + 16 : height;
+    const rowH = stacked ? height + 36 : height;
     const top = 22;   // room for the unit label above the plot
     const h = top + items.length * rowH + 22;
     const vmax = max || Math.max(...items.map((i) => Math.abs(i.value || 0)), 1);
@@ -119,7 +128,7 @@
         ? `<text class="lab" x="0" y="${y - 6}">${esc(it.label)}</text>`
         : `<text class="lab" x="${labelW - 10}" y="${y + bh / 2 + 4}" text-anchor="end">${esc(it.label)}</text>`;
       g += `<path class="bar s${it.series || 1}" d="${roundedBar(labelW, y, bw, bh)}" tabindex="0" data-tip="${esc(it.tip || `${it.label}: ${it.display}`)}"><title>${esc(`${it.label}: ${it.display}`)}</title></path>`;
-      g += `<text class="val" x="${labelW + bw + 8}" y="${y + bh / 2 + 4}">${esc(it.display)}</text>`;
+      g += `<text class="val" x="${stacked ? 0 : labelW + bw + 8}" y="${stacked ? y + bh + 17 : y + bh / 2 + 4}">${esc(it.display)}</text>`;
     });
     g += `<text class="axis-unit" x="${w}" y="11" text-anchor="end">${esc(unit)}</text>`;
     host.innerHTML = `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" class="viz" aria-hidden="false">${g}</svg>`;
@@ -151,11 +160,20 @@
   /* Column chart for a few categories; values may be negative or missing */
   function columns(host, cats, values, { unit = '', fmt = (v) => nf(v), series = 1, h = 180, tipPrefix = '' } = {}) {
     const w = Math.max(220, host.clientWidth || 320);
-    const padL = 44; const padR = 8; const padT = 18; const padB = 26;
+    const padR = 8; const padT = 22; const padB = 42;
     const vals = values.filter((v) => v != null && Number.isFinite(v));
     let lo = Math.min(0, ...vals); let hi = Math.max(0, ...vals);
     if (lo === hi) hi = 1;
     const ticks = niceTicks(lo, hi, 3);
+    // Reserve actual label width, including signs, units and grouped digits.
+    const measure = document.createElement('canvas').getContext('2d');
+    const tickStyle = getComputedStyle(host);
+    if (measure) {
+      measure.font = `12px ${tickStyle.getPropertyValue('--font-sans') || tickStyle.fontFamily}`;
+      measure.letterSpacing = tickStyle.letterSpacing;
+    }
+    const labelWidth = text => measure ? measure.measureText(text).width : String(text).length * 7;
+    const padL = Math.max(44, ...ticks.map(t => Math.ceil(labelWidth(fmt(t))) + 12));
     lo = Math.min(lo, ticks[0]); hi = ticks[ticks.length - 1];
     const plotH = h - padT - padB;
     const ys = (v) => padT + (1 - (v - lo) / (hi - lo)) * plotH;
@@ -175,10 +193,12 @@
       const hh = y0 - ys(v);
       g += `<path class="bar s${series}" d="${roundedCol(cx - bw / 2, y0, bw, hh)}" tabindex="0" data-tip="${esc(`${tipPrefix}${c}: ${fmt(v)}`)}"><title>${esc(`${c}: ${fmt(v)}`)}</title></path>`;
       const ly = v >= 0 ? ys(v) - 5 : ys(v) + 13;
-      g += `<text class="val" x="${cx}" y="${ly}" text-anchor="middle">${esc(fmt(v))}</text>`;
+      // Dense five-year charts retain full values in keyboard tips and the table.
+      if (labelWidth(fmt(v)) + 6 <= band) g += `<text class="val" x="${cx}" y="${ly}" text-anchor="middle">${esc(fmt(v))}</text>`;
     });
     if (unit) g += `<text class="axis-unit" x="${padL}" y="11">${esc(unit)}</text>`;
     host.innerHTML = `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" class="viz">${g}</svg>`;
+    tableView(host, ['Year', unit || 'Value'], cats.map((c, i) => [c, values[i] == null || !Number.isFinite(values[i]) ? 'n/a' : fmt(values[i])]));
     bindTips(host);
   }
 
@@ -190,6 +210,10 @@
     if (f && f.w !== w) { f.w = w; f.fn(); }
   })) : null;
   function responsive(host, fn) {
+    // Metric switches replace chart hosts; release their retained redraw closures.
+    if (ro) redraws.forEach((_, oldHost) => {
+      if (!oldHost.isConnected) { ro.unobserve(oldHost); redraws.delete(oldHost); }
+    });
     fn();
     if (ro) { redraws.set(host, { fn, w: host.clientWidth }); ro.observe(host); }
   }

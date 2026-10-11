@@ -149,7 +149,9 @@
 .formula-box > span { font: 500 16px/1.7 ui-monospace, Consolas, monospace; }
 .formula-box p { margin-top: 8px; color: var(--ink-3); font: 400 12px/1.7 var(--font-sans); }
 .sector-axis { position: relative; margin: 20px 80px 7px 155px; display: flex; justify-content: space-between; font: 400 10px var(--font-sans); color: var(--ink-3); }
+.sector-axis span:first-child { transform:translateX(-50%); }
 .sector-axis span:nth-child(2) { position: absolute; left: 85.714%; transform: translateX(-50%); }
+.sector-axis span:last-child { position:absolute; left:100%; transform:translateX(-50%); }
 .sector-row { display: grid; grid-template-columns: 145px minmax(0,1fr) 70px; align-items: center; gap: 10px; min-height: 35px; font: 400 11px/1.4 var(--font-sans); }
 .sector-row strong { text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; }
 .sector-track { position: relative; height: 24px; background: var(--tint); }
@@ -202,6 +204,10 @@
   .finding-pair strong { font-size: 30px; }
   .market-table { min-width: 420px; }
   .market-table.compact-table { min-width: 0; }
+}
+@media (max-width:360px) {
+  .sector-axis { min-height:28px; }
+  .sector-axis span:nth-child(2) { top:14px; }
 }
 @media print {
   .figure-motion .index-line { animation: none !important; stroke-dashoffset: 0 !important; }

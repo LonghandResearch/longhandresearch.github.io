@@ -47,7 +47,7 @@
 .pbai-keys > div { padding: 18px 20px 4px 0; border-right: 1px solid var(--rule); }
 .pbai-keys > div + div { padding-left: 20px; }
 .pbai-keys > div:last-child { border-right: 0; }
-.pbai-keys dt { font: 400 13px/1.4 var(--font-sans); color: var(--ink-2); }
+.pbai-keys dt { margin-bottom:8px; font: 400 13px/1.4 var(--font-sans); color: var(--ink-2); }
 .pbai-keys dd { margin: 0; }
 .pbai-key-num { font: 500 clamp(40px, 5vw, 64px)/1.05 var(--font-sans); letter-spacing: -0.02em; }
 .pbai-key-unit { margin-left: 6px; font: 400 16px/1 var(--font-sans); color: var(--ink-2); }
