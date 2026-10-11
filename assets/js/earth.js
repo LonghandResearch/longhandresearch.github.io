@@ -270,11 +270,11 @@
     function themeConnections() {
       const paper = uniforms.paper.value > 0.5;
       arcMaterial.color.set(paper ? '#846f42' : '#c6b38e');
-      arcMaterial.opacity = paper ? 0.34 : 0.26;
+      arcMaterial.opacity = paper ? 0.28 : 0.22;
       pointMaterial.color.copy(arcMaterial.color);
       pointMaterial.opacity = paper ? 0.64 : 0.68;
-      travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.82 : 0.88;
-      trailMaterial.color.copy(arcMaterial.color); trailMaterial.opacity = paper ? 0.48 : 0.58;
+      travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.58 : 0.64;
+      trailMaterial.color.copy(arcMaterial.color); trailMaterial.opacity = paper ? 0.3 : 0.36;
     }
     const geographicPoint = (c) => {
       const lat = c.lat * Math.PI / 180, lon = c.lon * Math.PI / 180;
@@ -398,12 +398,13 @@
         const button = previous.get(m.id) || document.createElement('button');
         button.type = 'button'; button.className = 'globe-marker';
         button.dataset.countryId = m.id;
-        const count = graph?.reportsFor({ country: m.id }).length || 0;
+        const count = graph?.countryCoverage(m.id).primary.length || 0;
         button.replaceChildren();
         const name = document.createElement('span'); name.className = 'globe-marker-name'; name.textContent = m.name;
-        const total = document.createElement('span'); total.className = 'globe-marker-count'; total.textContent = `${count} ${count === 1 ? 'report' : 'reports'}`;
-        button.append(name, total); button.title = m.name + ' research';
-        button.setAttribute('aria-label', `Explore ${m.name} research, ${count} connected ${count === 1 ? 'report' : 'reports'}`);
+        const total = document.createElement('span'); total.className = 'globe-marker-count'; total.textContent = count ? `${count} ${count === 1 ? 'report' : 'reports'}` : 'Trade context';
+        button.append(name, total); button.title = count ? m.name + ' research' : m.name + ' in coal trade research';
+        button.dataset.geographyRole = count ? 'primary' : 'context';
+        button.setAttribute('aria-label', count ? `Explore ${m.name}, ${count} ${count === 1 ? 'report' : 'reports'} on this market` : `Explore ${m.name} as trade context, no report focuses on this market`);
         if (!previous.has(m.id)) {
           button.addEventListener('click', () => document.dispatchEvent(new CustomEvent('longhand:globe-select', { detail: { id: m.id } })));
           // Reveal a secondary label on demand without keeping an idle RAF alive.

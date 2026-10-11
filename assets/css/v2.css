@@ -190,7 +190,14 @@ html:not(.js) .page-wire :is([data-folio], .index-tools, [data-wire]) { display:
 .v2-page :is(.coverage-path a, .coverage-country-list button, .globe-marker, .globe-controls button, .library-view button):focus-visible { outline: 1px solid var(--gold-ink); outline-offset: 4px; }
 
 /* The colophon: a clear identity, two navigation columns and quiet geography. */
-.v2-page .site-footer { background: linear-gradient(90deg, #05090bfa 0%, #05090be8 40%, #05090b99 100%), url('../img/earth/earth-night-2048.jpg') 65% 50% / cover; }
+.v2-page .site-footer { position: relative; isolation: isolate; overflow: hidden; background: var(--bg); }
+.v2-page .site-footer::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url('../img/earth/footer-atlas.svg') right center / auto 108% no-repeat;
+  opacity: .65;
+  mask-image: linear-gradient(90deg, transparent, #000 44%, #000);
+}
+.v2-page .coverage-connections button small { color: var(--ink-3); font-size: 10px; }
 .v2-page .footer-signature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .65fr); align-items: start; gap: 64px; min-height: 280px; padding-block: 52px 42px; }
 .v2-page .footer-brand { display: flex; align-items: baseline; gap: 14px; font: 400 35px/1 var(--font-serif); text-transform: uppercase; letter-spacing: -.035em; text-decoration: none; width: fit-content; }
 .v2-page .footer-brand span { font: 500 11px/1.5 var(--font-sans); letter-spacing: .22em; }
@@ -203,9 +210,12 @@ html:not(.js) .page-wire :is([data-folio], .index-tools, [data-wire]) { display:
 .v2-page .footer-links a::after { content: '↗'; color: var(--gold-ink); font-size: 11px; }
 .v2-page .footer-inner { align-items: start; gap: 24px; padding-block: 22px; }
 .v2-page .disclaimer { font-size: 12px; line-height: 1.8; }
-html[data-theme="light"] .v2-page .site-footer { background: linear-gradient(90deg, #ded8cbfa 0%, #e8e3d7f2 50%, #e8e3d7d9), url('../img/earth/earth-night-2048.jpg') 65% 50% / cover; }
+html[data-theme="light"] .v2-page .site-footer { background: var(--bg); }
+html[data-theme="light"] .v2-page .site-footer::before { opacity: .7; filter: contrast(1.25); }
 @media (max-width: 760px) {
   .v2-page .footer-signature { grid-template-columns: 1fr; gap: 32px; padding-block: 36px 28px; }
+  .v2-page .site-footer::before { background-size: auto 70%; background-position: 65% top; opacity: .42; mask-image: linear-gradient(#000, #000 45%, transparent 85%); }
+  html[data-theme="light"] .v2-page .site-footer::before { opacity: .5; }
   .v2-page .footer-brand { font-size: 30px; }
   .v2-page .footer-statement { margin-top: 18px; font-size: 28px; }
   .v2-page .footer-links { width: 100%; }

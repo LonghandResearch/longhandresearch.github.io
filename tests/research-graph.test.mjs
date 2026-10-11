@@ -31,9 +31,25 @@ test('every graph relationship points to a published report, real entity and exi
 test('all published reports stay discoverable and market indices are not company identities', () => {
   assert.equal(G.reportsFor().length, reports.length);
   assert.equal(G.companies.some((c) => c.ticker === 'IHSG'), false);
-  assert.equal(G.reportsFor({ country: 'ID' }).length, 9);
+  assert.equal(G.reportsFor({ country: 'ID' }).length, 10);
   assert.equal(G.reportsFor({ country: 'US' }).length, 2);
   assert.equal(G.contextFor('sector-2026-09-24').countries.length, 0, 'No geography guessed from chip subject');
+});
+test('country report filters distinguish primary coverage from documented trade context', () => {
+  assert.deepEqual(Array.from(G.entitiesFor('country', { primaryCountriesOnly: true }), c => c.id), ['ID', 'US']);
+  for (const id of ['CN', 'IN', 'VN']) {
+    assert.equal(G.reportsFor({ country: id, primaryCountriesOnly: true }).length, 0);
+    assert.equal(G.countryCoverage(id).primary.length, 0);
+    assert.deepEqual(Array.from(G.countryCoverage(id).context, r => r.id), ['coal-in-transition-2026-10-08']);
+  }
+  assert.equal(G.countryCoverage('ID').primary.length, 10);
+  assert.equal(G.countryCoverage('US').primary.length, 2);
+  assert.equal(G.countryCoverage('unknown').context.length, 0);
+  const weekly = G.countryCoverage('ID').primary.find(r => r.id === 'ihsg-weekly-2026-10-09');
+  assert.equal(weekly?.page, 'ihsg-weekly.html?week=2026-10-09');
+  assert.equal(G.reportsFor({ sector: 'coal-mining', primaryCountriesOnly: true }).length, G.reportsFor({ sector: 'coal-mining' }).length, 'Country scope must not change sector-only discovery');
+  assert.deepEqual(Array.from(G.entitiesFor('company', { sector: 'coal-mining', primaryCountriesOnly: true }), c => c.id), Array.from(G.entitiesFor('company', { sector: 'coal-mining' }), c => c.id), 'Material company discussions remain available');
+  assert.equal(G.countryCoverage('CN', []).context.length, 0, 'Counts honor the supplied catalogue subset');
 });
 test('country-sector-company narrowing cannot create a company relationship through a shared sector report', () => {
   assert.equal(G.reportsFor({ country: 'CN', sector: 'coal-mining', company: 'bukit-asam' }).length, 0);

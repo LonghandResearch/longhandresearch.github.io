@@ -5,7 +5,7 @@
   const { esc, dateShort } = LH.util;
   const list = document.querySelector('[data-country-list]'), panel = document.querySelector('[data-coverage-panel]');
   if (!list || !panel) return;
-  const primary = G.countries.filter((c) => G.relationships.some((r) => r.type === 'country' && r.entityId === c.id && r.role === 'primary'));
+  const primary = G.entitiesFor('country', { primaryCountriesOnly: true });
   const plate = document.querySelector('[data-globe]'), stage = plate?.querySelector('[data-globe-stage]');
   const sky = plate?.querySelector('[data-coverage-sky]'), skyContext = sky?.getContext('2d');
   const connectionList = document.querySelector('[data-coverage-connections]');
@@ -60,22 +60,25 @@
       const fromId = selected || (ids.find((id) => id === primary[0]?.id) || ids[0]);
       const toId = ids.find((id) => id !== fromId), from = G.country(fromId), to = G.country(toId);
       const report = G.reportsFor({ country: fromId }).find((r) => G.contextFor(r).countries.some((c) => c.id === toId));
-      if (from && to && report) links.set(toId, { from, to, report });
+      if (from && to && report) {
+        const subjects = G.contextFor(report).countries;
+        const shared = [fromId, toId].every((id) => subjects.some((c) => c.id === id && c.role === 'primary'));
+        links.set(toId, { from, to, report, shared });
+      }
     });
     connectionList.hidden = !links.size;
-    connectionList.innerHTML = links.size ? `<p>Research connections</p><div>${[...links.values()].map(({ from, to, report }) => `<button type="button" data-connection-country="${esc(to.id)}" title="${esc(report.title)}" aria-label="Explore ${esc(to.name)}, connected with ${esc(from.name)} through ${esc(report.title)}">${esc(to.name)}<span aria-hidden="true">↗</span></button>`).join('')}</div>` : '';
+    connectionList.innerHTML = links.size ? `<p>Documented connections</p><div>${[...links.values()].map(({ from, to, report, shared }) => `<button type="button" data-connection-country="${esc(to.id)}" title="${esc(report.title)}" aria-label="Explore ${esc(to.name)}, connected with ${esc(from.name)} through ${esc(report.title)}">${esc(to.name)}<small>${shared ? 'Shared research' : 'Trade context'}</small><span aria-hidden="true">↗</span></button>`).join('')}</div>` : '';
   }
   const countryButton = (c) => {
-    const count = G.reportsFor({ country: c.id }).length;
-    return `<button type="button" data-country="${esc(c.id)}" aria-label="${esc(c.name)}, ${count} connected ${count === 1 ? 'report' : 'reports'}" aria-pressed="${selected === c.id}"><span>${esc(c.name)}</span><small aria-hidden="true">${count}</small></button>`;
+    const count = G.countryCoverage(c.id).primary.length;
+    return `<button type="button" data-country="${esc(c.id)}" aria-label="${esc(c.name)}, ${count ? count + ' reports on this market' : 'trade context, no focused report'}" aria-pressed="${selected === c.id}"><span>${esc(c.name)}</span><small aria-hidden="true">${count || 'Trade context'}</small></button>`;
   };
-  list.innerHTML = `<h2 class="sr-only">Explore by geography</h2><button type="button" data-country="" aria-label="World overview, ${G.reportsFor().length} published reports" aria-pressed="${!selected}"><span>World</span><small aria-hidden="true">${G.reportsFor().length}</small></button>${primary.map(countryButton).join('')}<span data-connected-country></span><details><summary>Other connections</summary><div>${G.countries.filter((c) => !primary.includes(c)).map(countryButton).join('')}</div></details>`;
+  list.innerHTML = `<h2 class="sr-only">Explore by geography</h2><button type="button" data-country="" aria-label="World overview, ${G.reportsFor().length} published reports" aria-pressed="${!selected}"><span>World</span><small aria-hidden="true">${G.reportsFor().length}</small></button>${primary.map(countryButton).join('')}<span data-connected-country></span><details><summary>Coal trade context</summary><div>${G.countries.filter((c) => !primary.includes(c) && G.countryCoverage(c.id).context.length).map(countryButton).join('')}</div></details>`;
   function updateGlobe() {
     const earth = window.LonghandEarth;
     if (!earth) return;
     const c = G.country(selected);
-    const endpoints = connections().filter((ids) => !c || ids.includes(c.id)).flat();
-    const locationIds = new Set([...primary.map((x) => x.id), ...endpoints, ...(c ? [c.id] : [])]);
+    const locationIds = new Set([...primary.map((x) => x.id), ...(c ? [c.id] : [])]);
     earth.setMarkers([...locationIds].map((id) => G.country(id)));
     renderConnections();
     if (c) earth.focus(c); else earth.reset();
@@ -97,15 +100,18 @@
     }
     list.querySelectorAll('button[data-country]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.country === selected)));
     if (selected && !c) { panel.innerHTML = '<h2>Geography unavailable</h2><p>This address does not match a documented research relationship. Choose a country or return to the world overview.</p>'; return; }
-    const reports = G.reportsFor(filters), companies = G.entitiesFor('company', filters), sectors = G.entitiesFor('sector', filters);
-    const primaryReports = c ? reports.filter((r) => G.contextFor(r).countries.some((x) => x.id === c.id && x.role === 'primary')).length : reports.length;
+    const countryScope = c ? G.countryCoverage(c.id) : null;
+    const contextual = c && countryScope.primary.length === 0;
+    const reports = c ? (contextual ? countryScope.context : countryScope.primary) : G.reportsFor();
+    const companies = G.entitiesFor('company', filters), sectors = G.entitiesFor('sector', filters);
+    const primaryReports = c ? countryScope.primary.length : reports.length;
     const statistic = (count, label, url) => url && count ? `<a href="${esc(url)}"><strong>${count}</strong><span>${label}</span></a>` : `<span><strong>${count}</strong><span>${label}</span></span>`;
-    const scope = c ? `${primaryReports} ${primaryReports === 1 ? 'report features' : 'reports feature'} ${c.name} as a primary subject.` : 'Primary geographies identify the central subjects of reports.';
-    panel.innerHTML = `<div class="coverage-summary"><p class="eyebrow">${c ? esc(c.region) + (primary.includes(c) ? ' · Primary geography' : ' · Related geography') : 'Research index'}</p><h2 data-entity-title>${esc(c?.name || 'World overview')}</h2><p>${esc(c?.description || 'Follow the connections between places, industries and companies. Each path leads back to published research.')}</p>
-      <div class="coverage-numbers">${statistic(reports.length, c ? (reports.length === 1 ? 'Connected report' : 'Connected reports') : 'Publications', `library.html${c ? '?country=' + encodeURIComponent(c.id) : ''}`)}${c ? statistic(sectors.length, sectors.length === 1 ? 'Sector' : 'Sectors', `sector.html?country=${encodeURIComponent(c.id)}`) : statistic(primary.length, 'Primary geographies')}${statistic(companies.length, companies.length === 1 ? 'Company discussed' : 'Companies discussed', `company.html${c ? '?country=' + encodeURIComponent(c.id) : ''}`)}</div>
+    const scope = contextual ? `No published report focuses on ${c.name}. This market appears as trade context within the Indonesia coal study.` : c ? `${primaryReports} ${primaryReports === 1 ? 'report features' : 'reports feature'} ${c.name} as a primary subject.` : 'Country labels count reports whose primary subject is that market. Arcs trace selected documented relationships.';
+    panel.innerHTML = `<div class="coverage-summary"><p class="eyebrow">${c ? esc(c.region) + (primary.includes(c) ? ' · Primary geography' : ' · Trade context') : 'Research index'}</p><h2 data-entity-title>${esc(c?.name || 'World overview')}</h2><p>${esc(c?.description || 'Follow the connections between places, industries and companies. Each path leads back to published research.')}</p>
+      <div class="coverage-numbers">${statistic(contextual ? 0 : reports.length, c ? 'Reports on this market' : 'Publications', contextual ? '' : `library.html${c ? '?country=' + encodeURIComponent(c.id) : ''}`)}${c ? statistic(sectors.length, sectors.length === 1 ? 'Sector discussed' : 'Sectors discussed', `sector.html?country=${encodeURIComponent(c.id)}`) : statistic(primary.length, 'Report geographies')}${statistic(companies.length, companies.length === 1 ? 'Company discussed' : 'Companies discussed', `company.html${c ? '?country=' + encodeURIComponent(c.id) : ''}`)}</div>
       <p class="coverage-scope">${esc(scope)}</p>
       ${c ? `<a class="btn" href="${G.urlFor('country', c.id)}">Explore ${esc(c.name)} <span aria-hidden="true">→</span></a>` : '<a class="btn" href="library.html">Browse the full Library →</a>'}
-      </div><div class="coverage-latest-index"><h3>${c ? 'Latest connected research' : 'Latest publications'}</h3>${reports.slice(0, 2).map((r) => {
+      </div><div class="coverage-latest-index"><h3>${contextual ? 'Discussed in other research' : c ? 'Reports on this market' : 'Latest publications'}</h3>${reports.slice(0, 2).map((r) => {
         const cover = window.LonghandArt?.coverHTML(r, { sizes: '58px' }) || '';
         return `<a class="coverage-report${cover ? '' : ' is-text-only'}" href="${esc(LH.reportHref(r))}">${cover}<span class="coverage-report-copy"><span class="coverage-report-meta">${esc(r.category)} · <time datetime="${esc(r.date)}">${esc(dateShort(r.date))}</time></span><strong data-vt-title="${esc(r.id)}">${esc(r.title)}</strong></span></a>`;
       }).join('')}</div><div class="coverage-sector-index"><h3>Follow a sector</h3><nav class="coverage-sectors" aria-label="Research sectors">${sectors.map((s) => `<a href="${G.urlFor('sector', s.id, filters)}"><span>${esc(s.name)}</span><small>${G.reportsFor({ ...filters, sector: s.id }).length} <span aria-hidden="true">↗</span></small></a>`).join('')}</nav></div>`;
@@ -115,7 +121,10 @@
     if (push) { const u = new URL(location.href); if (id) u.searchParams.set('country', id); else u.searchParams.delete('country'); try { history.pushState(history.state, '', u); } catch (_) {} }
     render(); updateGlobe();
     const status = document.querySelector('[data-coverage-status]');
-    if (status) status.textContent = selected ? `${G.country(selected)?.name || 'Unknown geography'} selected. ${G.reportsFor({ country: selected }).length} connected reports.` : 'World overview selected.';
+    if (status) {
+      const country = G.country(selected), count = country && G.countryCoverage(selected).primary.length;
+      status.textContent = country ? `${country.name} selected. ${count ? count + ' reports on this market.' : 'Trade context, no published report focuses on this market.'}` : selected ? 'Unknown geography selected.' : 'World overview selected.';
+    }
   }
   list.addEventListener('click', (e) => {
     const b = e.target.closest('button[data-country]');
