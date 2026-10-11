@@ -1,4 +1,4 @@
-# Longhand V2 local implementation validation
+# Longhand V2 implementation and publication validation
 
 Date: 10 October 2026 (Asia/Jakarta). Codex author QA, with a separate read-only
 Codex browser review. This is not independent Claude review.
@@ -683,3 +683,19 @@ financial figures, dates, sources, PDFs, models, graph/catalogue records, news,
 RSS, sitemap and deployment/publishing workflows were not changed. The owner
 checkout remains clean on main at `54df02460f2068185bf381b754d76d1de219b7dd`.
 No push, PR, merge or publication was performed.
+
+### Owner-authorized publication — 11 October 2026
+
+After the local navigation audit, the owner explicitly requested applying the
+completed version to the real website. This supersedes the earlier preview-only
+restriction. Publication uses the existing branch-source GitHub Pages workflow
+through a pull request from the external `codex/longhand-v2` worktree.
+Codex author QA, merge and publication are authorized by the temporary takeover
+section in `AI_COLLABORATION.md`; this is not independent Claude review.
+
+The branch was merged normally with public `main` at
+`5f0fc9e543af6334d464df4b0c144c062caef42d` before publication. Its seven automatic
+Wire update commits were preserved without conflicts. The V2 change does not
+edit the report catalogue, PDFs, research data/models, RSS, sitemap, publishing
+scripts or GitHub Actions workflows. Public deployment and live verification
+will be recorded after the pull request and Pages build complete.
