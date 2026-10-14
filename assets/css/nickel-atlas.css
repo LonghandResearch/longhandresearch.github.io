@@ -1,0 +1,98 @@
+/* Holographic atlas, using the publication's paper/ink/gold and a restrained signal colour. */
+.nickel-holo { --hud:#276e68; --hud-soft:color-mix(in srgb,var(--hud) 13%,transparent); --hud-line:color-mix(in srgb,var(--hud) 24%,transparent); display:grid; grid-template-columns:minmax(0,1fr) 216px; max-width:860px; background:var(--bg-sunk); border:1px solid var(--hud-line); position:relative; margin:18px auto; isolation:isolate; overflow:hidden; }
+:root[data-theme="dark"] .nickel-holo { --hud:#83d5d7; --hud-soft:color-mix(in srgb,var(--hud) 7%,transparent); --hud-line:color-mix(in srgb,var(--hud) 29%,transparent); background:linear-gradient(140deg,#0a171b,#081114 68%,#0b191a); }
+.holo-workspace { position:relative; padding:19px 16px 13px; min-width:0; display:flex; flex-direction:column; }
+.holo-workspace::before,.holo-workspace::after { content:none; }
+.holo-workspace::before { top:5px; left:5px; border-right:0; border-bottom:0; }
+.holo-workspace::after { bottom:5px; right:5px; border-left:0; border-top:0; }
+.holo-hud { display:flex; justify-content:space-between; align-items:center; gap:14px; font:500 10px/1.5 var(--font-sans); letter-spacing:.06em; color:var(--hud); margin-bottom:14px; }
+.holo-hud span:first-child { display:flex; align-items:center; gap:8px; }
+.holo-hud i { width:5px; height:5px; background:var(--gold-ink); border-radius:50%; box-shadow:0 0 9px color-mix(in srgb,var(--gold) 60%,transparent); }
+.holo-map { position:relative; flex:1; min-width:0; overflow:hidden; background:radial-gradient(ellipse at 60% 50%,var(--hud-soft),transparent 70%); scroll-margin-top:115px; }
+.holo-map svg { display:block; width:100%; height:auto; cursor:grab; overflow:hidden; }
+.holo-map.is-dragging svg { cursor:grabbing; }
+.holo-map:focus-visible { outline:1px solid var(--hud); outline-offset:3px; }
+.holo-map::after { content:none; }
+.holo-graticule { display:none; }
+.holo-map .map-land { fill:var(--hud-soft); stroke:color-mix(in srgb,var(--hud) 13%,transparent); stroke-width:.5; stroke-linejoin:round; stroke-linecap:round; vector-effect:non-scaling-stroke; }
+.holo-map .map-indonesia { fill:color-mix(in srgb,var(--gold) 8%,transparent); stroke:color-mix(in srgb,var(--gold-ink) 65%,transparent); stroke-width:.7; }
+.holo-map .island-labels { fill:var(--hud); opacity:.72; font-size:2.3px; }
+.holo-map .marker-dot { fill:var(--gold-ink); stroke:var(--bg); fill-opacity:.85; filter:drop-shadow(0 0 .5px var(--gold)); }
+.holo-map .marker-ring { stroke:var(--hud); }
+.holo-reticle { fill:none; stroke:var(--hud); pointer-events:none; opacity:.5; }
+.holo-reticle>circle,.holo-reticle>path { vector-effect:non-scaling-stroke; stroke-width:.85; }
+.reticle-orbit { stroke-dasharray:none; transform-box:fill-box; transform-origin:center; }
+.reticle-pulse { transform-box:fill-box; transform-origin:center; }
+.holo-map .export-link { stroke:var(--hud); opacity:.13; stroke-linecap:round; }
+.holo-map .export-link.selected { stroke:var(--gold-ink); opacity:.7; }
+.holo-map .export-dot,.holo-map .export-origin { fill:var(--gold-ink); }
+.holo-map .export-label { fill:var(--hud); stroke:var(--bg-sunk); font-size:8px; }
+.export-marker { cursor:pointer; }
+.export-marker:focus-visible { outline:none; }
+.export-marker:focus-visible .export-dot { stroke:var(--ink); stroke-width:2; }
+.packet-halo { fill:var(--gold); opacity:.12; }
+.packet-core { fill:var(--ink); filter:drop-shadow(0 0 2px var(--gold)); }
+.route-packet { pointer-events:none; }
+.holo-controls { margin-top:auto; padding-top:15px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; }
+.holo-hint { color:var(--hud); font-size:9px; letter-spacing:.06em; }
+.holo-camera { display:flex; gap:4px; flex-wrap:wrap; }
+.holo-camera button,.holo-foot button { background:transparent; border:1px solid var(--hud-line); color:var(--ink-2); font-size:11px; min-height:40px; padding:7px 9px; border-radius:2px; }
+.holo-camera button:hover,.holo-foot button:hover { border-color:var(--hud); color:var(--ink); background:var(--hud-soft); }
+.holo-camera button[data-camera="in"],.holo-camera button[data-camera="out"] { font-size:18px; line-height:1; min-width:36px; padding:7px; }
+.holo-foot { margin-top:12px; padding-top:8px; border-top:1px solid var(--hud-line); display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:9px; letter-spacing:.02em; color:var(--hud); }
+.holo-foot button { font-size:10px; border:0; padding:6px 0; min-height:36px; white-space:nowrap; }
+.holo-sidebar { padding:22px 19px; border-left:1px solid var(--hud-line); background:color-mix(in srgb,var(--bg) 35%,transparent); min-width:0; }
+.holo-sidebar>.technical { color:var(--hud); font-size:8px; }
+.holo-sidebar .atlas-detail { min-height:0; padding-top:15px; border-top:0; }
+.holo-sidebar .atlas-detail .technical { font-size:8px; color:var(--ink-3); }
+.holo-sidebar .atlas-detail h3 { font-size:24px; line-height:1.25; margin:12px 0 17px; overflow-wrap:anywhere; }
+.holo-sidebar .atlas-detail p:last-child { font-size:12px; line-height:1.8; }
+.holo-sidebar .reserve-stats { grid-template-columns:1fr; gap:17px; }
+.holo-sidebar .reserve-stats strong { font-size:28px; color:var(--gold-ink); }
+.holo-sidebar .reserve-stats span { font-size:10px; }
+.holo-side-note { font-size:10px; line-height:1.8; color:var(--ink-3); border-top:1px solid var(--hud-line); padding-top:14px; margin-top:22px; }
+.destination-stat strong { display:block; color:var(--gold-ink); font-size:34px; letter-spacing:-.04em; line-height:1.1; font-weight:400; }
+.destination-stat span { display:block; font-size:10px; color:var(--ink-3); margin:6px 0 20px; }
+.holo-record { font-size:11px; margin-bottom:17px; }
+.holo-record div { padding:10px 0; border-top:1px solid var(--hud-line); }
+.holo-record dt { font-size:8px; color:var(--hud); text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px; }
+.holo-record dd { margin:0; color:var(--ink-2); }
+.destination-bars .destination-row { width:100%; border:0; background:transparent; color:var(--ink-2); padding:8px 10px; margin:4px 0; text-align:left; min-height:40px; }
+.destination-bars .destination-row[aria-pressed="true"] { background:var(--tint); color:var(--ink); border-left:2px solid var(--gold-ink); padding-left:8px; }
+.destination-bars .destination-row:hover { background:var(--tint); }
+@media (prefers-reduced-motion:no-preference) {
+  .nickel-holo .reticle-orbit { animation:nickel-orbit 28s linear infinite; animation-play-state:paused; }
+  .nickel-holo .reticle-pulse { animation:nickel-radar 4s cubic-bezier(.16,1,.3,1) infinite; animation-play-state:paused; }
+  .nickel-holo.is-visible .reticle-orbit,.nickel-holo.is-visible .reticle-pulse { animation-play-state:running; }
+  .nickel-holo svg { animation:nickel-network-reveal 900ms ease-out; }
+}
+body[data-atlas-motion="off"] .nickel-holo :is(.reticle-orbit,.reticle-pulse) { animation-play-state:paused; }
+body[data-atlas-motion="off"] .nickel-holo svg { animation:none; }
+body[data-atlas-motion="off"] .destination-track i { transition:none; }
+@keyframes nickel-orbit { to { transform:rotate(360deg); } }
+@keyframes nickel-radar { 0% { opacity:.55; transform:scale(.8); } 90%,100% { opacity:0; transform:scale(2); } }
+@keyframes nickel-network-reveal { from { opacity:.6; } to { opacity:1; } }
+@media (max-width:1100px) { .nickel-holo { grid-template-columns:minmax(0,1fr) 205px; } .holo-sidebar { padding:18px 15px; } .holo-hud { flex-wrap:wrap; font-size:9px; } }
+@media (max-width:760px) {
+  .nickel-holo { grid-template-columns:1fr; }
+  .holo-sidebar { border-left:0; border-top:1px solid var(--hud-line); padding:20px; }
+  .holo-workspace { padding:18px 12px 12px; }
+  .holo-sidebar .reserve-stats { grid-template-columns:repeat(3,1fr); gap:14px; }
+  .holo-sidebar .reserve-stats strong { font-size:23px; }
+  .holo-record { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .holo-side-note { margin-top:14px; }
+  .holo-camera button { min-height:44px; }
+  .holo-controls { gap:8px; }
+}
+@media (max-width:420px) {
+  .holo-sidebar .reserve-stats { grid-template-columns:1fr; }
+  .holo-sidebar .reserve-stats p { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .holo-sidebar .reserve-stats span { max-width:125px; }
+  .holo-hud { font-size:9px; gap:6px; }
+  .holo-camera { gap:3px; }
+  .holo-camera button { font-size:10px; padding-inline:7px; }
+  .holo-foot>span { max-width:135px; }
+  .holo-record { grid-template-columns:1fr; gap:0; }
+}
+@media print { .holo-camera,.holo-foot button { display:none; } .route-packet { display:none; } .nickel-holo { break-inside:avoid; } }
+.page-nickel :is(.atlas-panel,.export-atlas) { border:0; background:none; padding:18px 0; }

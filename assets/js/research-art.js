@@ -4,6 +4,7 @@
   'use strict';
   const base = new URL('../../assets/img/research/', document.currentScript.src);
   const records = {
+    'more-nickel-2026-10-15': ['nickel-ore-illustration.png', 'AI-generated conceptual ore illustration, not an actual sample', 'illustration'],
     'coal-in-transition-2026-10-08': ['coal-trade-map.png', 'Export atlas · conceptual links, not vessel routes', 'exhibit'],
     'the-power-behind-ai-update-2026-10-09': ['ai-october-price.png', 'DCII price index · October checkpoint', 'exhibit'],
     'indonesia-ai-power-water-2026-10-05': ['ai-resource-flow.png', 'Power & water · schematic, not measured volumes', 'exhibit'],

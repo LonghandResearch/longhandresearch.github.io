@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" fill="none">
+  <defs>
+    <linearGradient id="top" x1="220" y1="160" x2="486" y2="275" gradientUnits="userSpaceOnUse"><stop stop-color="#f9fbfa"/><stop offset=".35" stop-color="#e2e7e6"/><stop offset=".72" stop-color="#fcfdfc"/><stop offset="1" stop-color="#9eaeae"/></linearGradient>
+    <linearGradient id="front" x1="199" y1="274" x2="405" y2="368" gradientUnits="userSpaceOnUse"><stop stop-color="#aebaba"/><stop offset=".25" stop-color="#e0e5e4"/><stop offset=".52" stop-color="#b4c2c0"/><stop offset="1" stop-color="#697e7d"/></linearGradient>
+    <linearGradient id="right" x1="396" y1="249" x2="493" y2="340" gradientUnits="userSpaceOnUse"><stop stop-color="#94a6a4"/><stop offset=".42" stop-color="#596f6d"/><stop offset="1" stop-color="#314e49"/></linearGradient>
+    <linearGradient id="stone" x1="210" y1="355" x2="334" y2="455" gradientUnits="userSpaceOnUse"><stop stop-color="#8d9289"/><stop offset="1" stop-color="#404d46"/></linearGradient>
+    <radialGradient id="ground"><stop stop-color="#597b71" stop-opacity=".2"/><stop offset="1" stop-color="#597b71" stop-opacity="0"/></radialGradient>
+    <pattern id="mesh" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#79948b" stroke-opacity=".09"/></pattern>
+    <filter id="blur"><feGaussianBlur stdDeviation="13"/></filter>
+  </defs>
+  <path fill="url(#mesh)" d="M0 0h680v520H0z"/>
+  <g stroke="#6f9485" stroke-opacity=".14" stroke-width="1">
+    <path d="M34 324c34-67 156-105 222-101s151 25 204 2 143-20 190 22M28 337c34-65 160-102 227-98s150 24 203 2 145-16 193 17M24 351c34-62 167-103 234-97s147 25 201 3 145-9 194 13M20 365c35-61 169-100 238-95s148 23 204 2 144-5 193 8M18 379c34-59 174-99 242-93s148 22 206 1 141 1 191 5M17 393c33-57 177-96 246-91s149 22 207 0 139 6 187 4M15 407c35-54 181-96 250-90s150 22 210 0 138 10 182 3M16 421c34-53 182-95 252-89s151 22 209-1 135 14 183 5M16 435c35-53 185-93 255-87s151 20 210-2 134 17 180 3M18 449c35-50 187-92 256-84s150 20 212-5 132 20 177 3"/>
+    <path d="m126 135 437 252M77 182l430 251M121 393l386-232M163 426l387-233" stroke-dasharray="3 8"/>
+  </g>
+  <ellipse cx="350" cy="405" rx="223" ry="81" fill="url(#ground)"/>
+  <ellipse cx="355" cy="392" rx="125" ry="19" fill="#3e5e52" opacity=".12" filter="url(#blur)"/>
+  <g class="ore-specimen">
+    <path d="m255 333-65 21-30 38 44 47 93 15 47-39-27-54Z" fill="url(#stone)"/>
+    <path d="m255 333-65 21 40 23 50-7Z" fill="#a6aaa0"/>
+    <path d="m190 354-30 38 55 14 15-29Z" fill="#6e7d6e"/>
+    <path d="m255 333 25 37 37-9Z" fill="#b8b9ad"/>
+    <path d="m280 370-50 7-15 29 60 10 42-55Z" fill="#7d8878"/>
+    <path d="m160 392 44 47 11-33Z" fill="#516556"/>
+    <path d="m215 406-11 33 93 15-22-38Z" fill="#49584c"/>
+    <path d="m275 416 22 38 47-39-27-54Z" fill="#647267"/>
+    <path d="m203 361 17 3m25-15 11 8m-19 36 17 4m-22 29 14 3m58-26 7-13m-9 43 12-5" stroke="#d9d9c8" stroke-opacity=".45" stroke-width="2"/>
+    <path d="m212 348 61 23 13 44" stroke="#dce2d6" stroke-opacity=".4" stroke-width=".8"/>
+  </g>
+  <g class="metal-specimen">
+  <g stroke="#dfe5e2" stroke-width=".6">
+    <path d="m201 233 111-77 185 75-101 84Z" fill="url(#top)"/>
+    <path d="m201 233 195 82v71l-195-85Z" fill="url(#front)"/>
+    <path d="m396 315 101-84v72l-101 83Z" fill="url(#right)"/>
+    <path d="m201 233 195 82 101-84" stroke="#fff" stroke-width="1.4"/>
+    <path d="m213 228 99-67 172 70-89 73Z" stroke="#8e9f98" stroke-opacity=".4"/>
+    <path d="m209 243 178 75v56l-178-77Z" stroke="#f8faf7" stroke-opacity=".55"/>
+    <path d="m403 317 86-72v53l-86 72Z" stroke="#d4dfd9" stroke-opacity=".3"/>
+    <path d="m236 178 4 82m35-111 13 130m29-119 16 135m34-99 15 118" stroke="#fff" stroke-opacity=".3"/>
+  </g>
+  <g transform="matrix(.95 .40 0 1 273 281)" fill="#536f64" font-family="Arial,Helvetica,sans-serif">
+    <text x="0" y="0" font-size="11" letter-spacing="2">28</text><text x="-3" y="43" font-size="48" font-weight="400">Ni</text><text x="0" y="65" font-size="9" letter-spacing="2.5">NICKEL</text>
+  </g>
+  </g>
+  <g class="specimen-guides" stroke="#9b8059" stroke-width="1">
+    <path d="M152 252H81v-44m444 51h59v-73M352 152v-49h101m-153 310H128"/>
+    <circle cx="152" cy="252" r="3" fill="#6a8c7b"/><circle cx="525" cy="259" r="3" fill="#6a8c7b"/><circle cx="352" cy="152" r="3" fill="#6a8c7b"/><circle cx="300" cy="413" r="3" fill="#6a8c7b"/>
+    <path d="M63 92h18m-9-9v18M591 403h18m-9-9v18" stroke-opacity=".45"/>
+  </g>
+  <g class="specimen-annotations" fill="#79694f" font-family="Arial,Helvetica,sans-serif" font-size="9" letter-spacing="1.5">
+    <text x="58" y="194">ORE</text><text x="538" y="171">METAL</text><text x="384" y="90">VALUE CHAIN</text><text x="56" y="427">FOLLOW THE RETURNS</text>
+  </g>
+</svg>

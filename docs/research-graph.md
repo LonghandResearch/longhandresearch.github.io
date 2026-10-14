@@ -17,7 +17,11 @@ IHSG is a market index, not a company. The Memory War's abstract supports a sect
 relationship but does not, by itself, establish geographic coverage.
 
 The current index identifies Indonesia and the United States as primary research
-geographies. Coal destinations are research connections with the report's BPS
+geographies. Nickel is an Indonesia industry study; China, India, South Korea,
+Japan, the Netherlands and Norway are material trade context from its 2024 WITS
+product tables. It creates no issuer relationship or rating, and no extra globe
+arcs. Smaller destinations remain in the report's complete data table.
+Coal destinations are research connections with the report's BPS
 definitions retained, including Viet Nam as regional context without a bilateral
 volume. The globe shows primary geographies and any selected contextual market.
 Its rounded latitude/longitude values are representative locator points, not

@@ -29,6 +29,7 @@ uncommitted branch.
 | `power-behind-ai-update-2026-10-09.html` | Dated October supplement: cached IDX price paths, capacity definitions and primary project checkpoints |
 | `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
 | `coal-in-transition.html` | Coal Still Burns. Trade Is Changing.: an interactive coal sector study, market atlas and illustrative producer economics |
+| `more-nickel.html` | More Nickel. Who Makes the Money?: Indonesia industry research, reserves and product-specific export destinations |
 | `indonesia-ai-datacenter-research/interactive/index.html` | AI Runs on Power and Water: Indonesia resource scenarios, project atlas and research model |
 | `ihsg-weekly-2026-09-25.html` | IHSG Weekly Market Update for 21–25 September 2026 |
 | `ihsg-weekly.html?week=YYYY-MM-DD` | Shared page for future data-driven IHSG weekly editions; the date is the last trading day |
@@ -112,6 +113,45 @@ Every pull request is checked on GitHub by `scripts/check-site.mjs`, and so is e
 Paths are matched letter for letter, because GitHub Pages treats `Report.pdf` and `report.pdf` as different files even though Windows does not. Run it on your own computer with `node scripts/check-site.mjs`. It checks the structure only; figures are checked by the other agent against `QA.md`.
 
 ## Interactive reports
+
+### Nickel research
+
+`more-nickel.html` is **More Nickel. Who Makes the Money?**,
+an Indonesia nickel industry study. Nine chapters cover the historical expansion,
+reported provincial reserves, selected mine/processing/manufacturing localities,
+product-specific export destinations, processing routes, battery chemistry,
+domestically retained value and conditional policy cases. It is not an issuer
+financial model or an investment recommendation.
+
+The current observations and source register are frozen in
+`updates/nickel-indonesia-2026-10-15.json`; `assets/js/nickel/industry-data.js`
+is the identical browser wrapper. The original 14 October dataset and wrapper
+remain as an unchanged archive. Charts reuse `model.js` and `report.js`; native
+SVG maps are rendered by `atlas.js` using Natural Earth public-domain outlines
+in `geography.js`. `atlas-hud.js` supplies smooth camera zoom/focus, mouse and
+keyboard panning, selected-point reticles and animated relationship lights, with
+visibility-aware playback and a map-motion toggle. `nickel-atlas.css` styles the
+holographic consoles in both publication themes. Province label anchors and locality markers are approximate;
+export links are country relationships, not cargo routes or mine provenance.
+
+`motion.js` uses native scrolling with a damped visual playhead and one continuous
+opening material movement. There are no automatic case swaps or pinned research
+panels. Body text remains readable before its subtle reveal settles. A motion
+toggle, system reduced-motion preference and compact-layout fallback are supported.
+The two AI-generated material illustrations are labelled conceptual and are not
+research evidence. `specimen.js` handles their shallow parallax and CSS drift.
+
+The reader sees six core source groups. Supporting documents, detailed methods
+and conditional cases expand on request. All 21 source records, individual
+observations and locators remain in the evidence download. Deep links open
+supporting references automatically and resolve after charts and fonts render.
+
+The owner authorized publication on 15 October after the reader-balance pass
+and a complete source recheck. Numerical verification passed 215 comparisons
+against publisher originals. Catalogue, sitemap, feed and primary Indonesia
+discovery are registered; foreign destinations remain trade context. Work stayed
+outside the watched owner checkout. See `audits/RPT-017-nickel-preview.md` and
+`audits/RPT-017-nickel-recheck.json` for the historical preview and author QA.
 
 A report can also be its own page instead of a PDF. Give its catalogue entry a `page` (for example `"page": "power-behind-ai.html"`) and leave out `pdfUrl`; the library, the front page and old `report.html?id=` links all open that page. `tags` is an optional list of words the library search also looks at.
 

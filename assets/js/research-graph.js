@@ -6,12 +6,14 @@
   const countries = [
     { id: 'ID', name: 'Indonesia', lat: -2, lon: 116, region: 'Asia', description: 'Company research, market updates and the infrastructure behind an industrial economy.' },
     { id: 'US', name: 'United States', lat: 39, lon: -98, region: 'Americas', description: 'Treasury repricing, monetary policy and their effects across the economy.' },
-    { id: 'CN', name: 'China', lat: 35, lon: 104, region: 'Asia', description: 'Coal demand, domestic supply and the import gap in Indonesia’s export research.' },
-    { id: 'IN', name: 'India', lat: 23, lon: 79, region: 'Asia', description: 'Coal demand and import substitution, examined through Indonesia’s export market.' },
+    { id: 'CN', name: 'China', lat: 35, lon: 104, region: 'Asia', description: 'Coal demand and product-specific nickel destinations in Indonesia’s export research.' },
+    { id: 'IN', name: 'India', lat: 23, lon: 79, region: 'Asia', description: 'Coal demand, import substitution and a recorded Indonesian ferronickel destination.' },
     { id: 'PH', name: 'Philippines', lat: 13, lon: 122, region: 'Asia', description: 'A recorded destination in the coal study’s BPS export series.' },
-    { id: 'KR', name: 'South Korea', lat: 36, lon: 128, region: 'Asia', description: 'A recorded coal destination and context for fuel procurement.' },
+    { id: 'KR', name: 'South Korea', lat: 36, lon: 128, region: 'Asia', description: 'A recorded destination in Indonesian coal and selected nickel-product trade.' },
     { id: 'MY', name: 'Malaysia', lat: 4, lon: 102, region: 'Asia', description: 'A recorded coal destination, with distinct buyer and delivery requirements.' },
-    { id: 'JP', name: 'Japan', lat: 37, lon: 138, region: 'Asia', description: 'Coal procurement and the changing power mix in the export-market study.' },
+    { id: 'JP', name: 'Japan', lat: 37, lon: 138, region: 'Asia', description: 'Coal procurement and a significant recorded destination for Indonesian nickel matte.' },
+    { id: 'NL', name: 'Netherlands', lat: 52.1, lon: 5.3, region: 'Europe', description: 'A recorded destination for Indonesian ferronickel and nickel matte in 2024; not proof of final consumption.' },
+    { id: 'NO', name: 'Norway', lat: 61, lon: 9, region: 'Europe', description: 'A recorded destination for Indonesian nickel matte in 2024; not mine-level shipment provenance.' },
     { id: 'TW', name: 'Taiwan', lat: 24, lon: 121, region: 'Asia', description: 'A purchasing market reported separately in the BPS destination statistics.' },
     { id: 'TH', name: 'Thailand', lat: 15, lon: 101, region: 'Asia', description: 'A recorded ASEAN destination in the coal study’s export series.' },
     { id: 'HK', name: 'Hong Kong', lat: 22, lon: 114, region: 'Asia', description: 'A statistical destination kept separate, following the BPS source definition.' },
@@ -24,6 +26,7 @@
     { id: 'power-utilities', name: 'Power & utilities', description: 'Electricity, grid access and water as operating constraints.' },
     { id: 'industrial-land', name: 'Industrial land', description: 'Industrial estates and the role of land in infrastructure delivery.' },
     { id: 'coal-mining', name: 'Coal & mining', description: 'Demand, trade, producer economics and the investment case for industrial assets.' },
+    { id: 'nickel-industry', name: 'Nickel industry', description: 'Mining, processing, export destinations, battery materials and domestically retained value.' },
     { id: 'rates-macro', name: 'Rates & macro', description: 'Monetary policy, financial conditions, currency and equity-market observations.' },
     { id: 'memory-semiconductors', name: 'Memory & semiconductors', description: 'DRAM, NAND and HBM through the memory cycle and AI demand.' },
   ];
@@ -66,6 +69,9 @@
   link(coal, 'country', ['CN', 'IN', 'PH', 'KR', 'MY', 'JP', 'TW', 'TH', 'HK', 'ES', 'VN'], 'material', 'coal-in-transition.html#atlas', 'Export destinations and regional context, following the report’s definitions');
   link(coal, 'sector', ['coal-mining'], 'primary', 'coal-in-transition.html#research-letter', 'Coal sector study');
   link(coal, 'company', ['bayan-resources', 'bukit-asam'], 'material', 'coal-in-transition.html#company-evidence', 'Company evidence cases; no rating');
+  link('more-nickel-2026-10-15', 'country', ['ID'], 'primary', 'more-nickel.html#thesis', 'Indonesia nickel industry study');
+  link('more-nickel-2026-10-15', 'country', ['CN', 'IN', 'KR', 'JP', 'NL', 'NO'], 'material', 'more-nickel.html#trade', '2024 WITS recorded product destinations, not final consumption or cargo routes');
+  link('more-nickel-2026-10-15', 'sector', ['nickel-industry'], 'primary', 'more-nickel.html#chain', 'Nickel processing and domestic industrial value; no issuer rating');
   link(power, 'country', ['ID'], 'primary', 'indonesia-ai-datacenter-research/interactive/index.html', 'Indonesia resource study');
   link(power, 'sector', ['ai-infrastructure', 'power-utilities'], 'primary', 'indonesia-ai-datacenter-research/interactive/index.html', 'Electricity, water and data-centre resource scenarios');
   [['inet-2026-09-27', 'sinergi-inti-andalan-prima', 'digital-infrastructure'], ['adro-2026-09-03', 'alamtri-resources-indonesia', 'coal-mining']].forEach(([id, companyId, sectorId]) => {
