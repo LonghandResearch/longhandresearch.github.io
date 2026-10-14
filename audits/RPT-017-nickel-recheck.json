@@ -1,0 +1,252 @@
+{
+  "checked": "2026-10-15",
+  "scope": "Current industry edition, not the unused issuer archive",
+  "numerical_checks": 215,
+  "failed_numerical_checks": 0,
+  "checks_by_group": {
+    "World Bank monthly": 129,
+    "USGS country/year": 60,
+    "WITS full World/partner tables": 3,
+    "BPS original rows": 5,
+    "Badan Geologi reserve fields": 18
+  },
+  "derived": {
+    "price_2025_vs_2021_percent": -17.886993410957675,
+    "price_2025_vs_2022_percent": -41.30887789268595,
+    "price_2025_vs_2016_percent": 58.0187941845721,
+    "mine_share_2025": 66.66666666666666,
+    "China_HS720260": 94.31684083080452,
+    "China_HS750110": 61.45445100571825,
+    "China_HS750120": 99.50884824099398
+  },
+  "primary_retrievals": [
+    {
+      "id": "worldbank",
+      "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
+      "status": 200,
+      "bytes": 586099,
+      "sha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+      "format": ".xlsx"
+    },
+    {
+      "id": "usgs",
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center/nickel-statistics-and-information",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "bps",
+      "url": "https://www.bps.go.id/id/publication/2026/08/10/556d446e35c86054cb33739f/statistik-perdagangan-luar-negeri-indonesia-ekspor-2025.html",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "geology",
+      "url": "https://geologi.esdm.go.id/storage/publikasi/KuRaTy8WEQyvo5KguWTchyJfBES8r6ZXs6rHLuYh.pdf",
+      "status": 200,
+      "bytes": 7419393,
+      "sha256": "13d6afa1df306d91ff15f4beeeb32e60b712de8855000ec85c66d393215042f7",
+      "format": ".pdf"
+    },
+    {
+      "id": "wits720260",
+      "url": "https://wits.worldbank.org/trade/comtrade/en/country/IDN/year/2024/tradeflow/Exports/partner/ALL/product/720260",
+      "status": 200,
+      "bytes": 33038,
+      "sha256": "198f39a9667970cde011627a94a00c6c0af8212fc12d31148f219d632d987d41",
+      "format": ".html"
+    },
+    {
+      "id": "wits750110",
+      "url": "https://wits.worldbank.org/trade/comtrade/en/country/IDN/year/2024/tradeflow/Exports/partner/ALL/product/750110",
+      "status": 200,
+      "bytes": 29777,
+      "sha256": "e02cfdc3a6ca83ca977dfdabaa1ae60dd72478ce0aaaa67947e559777b7bcfbb",
+      "format": ".html"
+    },
+    {
+      "id": "wits750120",
+      "url": "https://wits.worldbank.org/trade/comtrade/en/country/IDN/year/2024/tradeflow/Exports/partner/ALL/product/750120",
+      "status": 200,
+      "bytes": 30167,
+      "sha256": "f2e27f16952fbe186e1043ddc81f25727084dc6ddd27046a0fe64d165044684d",
+      "format": ".html"
+    },
+    {
+      "id": "oreban",
+      "url": "https://esdm.go.id/en/media-center/news-archives/bijih-nikel-tidak-boleh-diekspor-lagi-per-januari-2020",
+      "status": 200,
+      "bytes": 42105,
+      "sha256": "a42085f531520e515e8e132fc6268c4bf7feb085f26f5b86e9c4b18744eab963",
+      "format": ".html"
+    },
+    {
+      "id": "booklet",
+      "url": "https://www.esdm.go.id/assets/booklet/tambang-2020/Booklet-Nikel-FA.pdf",
+      "status": 200,
+      "bytes": 8944558,
+      "sha256": "fc3f00599479754c8b4cf0687edf1b9dce06c35f74ffcbacb7bb6b45673b5d50",
+      "format": ".pdf"
+    },
+    {
+      "id": "imip",
+      "url": "https://imip.co.id/helpie_faq/",
+      "status": 200,
+      "bytes": 385351,
+      "sha256": "17519736d1cfc201f577b03bf8f24d3b394e671f4a5a4faa7ada817a9314e579",
+      "format": ".html"
+    },
+    {
+      "id": "iwip",
+      "url": "https://iwip.co.id/tentang-iwip/",
+      "status": 200,
+      "bytes": 71813,
+      "sha256": "831f535cff749fc23f3439c7716d473a7e50aff14f7e8c4bd02d10b2b0b825a3",
+      "format": ".html"
+    },
+    {
+      "id": "sorowako",
+      "url": "https://www.esdm.go.id/id/media-center/arsip-berita/tinjau-tambang-nikel-di-sorowako-menteri-esdm-minta-industri-turunan-nikel-ditingkatkan",
+      "status": 200,
+      "bytes": 41892,
+      "sha256": "b6b62b049265b25b96932543b18873f8e790f23917c17798ddcb62475169a8ec",
+      "format": ".html"
+    },
+    {
+      "id": "obi",
+      "url": "https://geologi.esdm.go.id/index.php/media-center/jalur-metalogeni-indonesia-apa-kenapa-dan-bagaimana-sebarannya-bagian-empat",
+      "status": 200,
+      "bytes": 83833,
+      "sha256": "e591d7a31238103f68d703f8543d380e733d83a77fe5d0c8c4c2545b138cf676",
+      "format": ".html"
+    },
+    {
+      "id": "battery",
+      "url": "https://www.bkpm.go.id/id/info/siaran-pers/menteri-investasi-yakin-indonesia-jadi-pemain-global-ekosistem-baterai-mobil-listrik",
+      "status": 200,
+      "bytes": 655188,
+      "sha256": "ad123b9ef898190fe2fa709a5b54001e4cbcecbd3cc38bf33f99cbdd0ec711da",
+      "format": ".html"
+    },
+    {
+      "id": "ev",
+      "url": "https://www.iea.org/reports/global-ev-outlook-2026/electric-vehicle-batteries",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "security",
+      "url": "https://www.iea.org/reports/asean-energy-security-review/critical-minerals-security-review",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "acid",
+      "url": "https://www.iea.org/reports/global-critical-minerals-outlook-2026/executive-summary",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "outlook",
+      "url": "https://www.iea.org/reports/global-critical-minerals-outlook-2026/outlook",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "quota",
+      "url": "https://esdm.go.id/id/media-center/arsip-berita/kementerian-esdm-belum-putuskan-besaran-rkab-nikel-2026",
+      "status": 200,
+      "bytes": 41187,
+      "sha256": "c17705634c4ce52abded7f515dd3148a1146de619eea5bfd590bcecfeeb90720",
+      "format": ".html"
+    },
+    {
+      "id": "wto",
+      "url": "https://www.wto.org/english/tratop_e/dispu_e/cases_e/ds592_e.htm",
+      "status": 200,
+      "bytes": 27293,
+      "sha256": "094a5c8b645cc521115154fb42b6a3863577a8c8649ba8d6f033ae0c34e8209b",
+      "format": ".html"
+    },
+    {
+      "id": "processing2017",
+      "url": "https://esdm.go.id/id/media-center/arsip-berita/investasi-dan-keberlangsungan-operasi-fasilitas-pemurnian-pasca-peraturan-pemerintah-nomor-1-tahun-2017",
+      "status": 200,
+      "bytes": 63434,
+      "sha256": "761bc7e8d8cf7ff65858ffeb040229f18f291a6c1ea077bd4350d524e041eb52",
+      "format": ".html"
+    },
+    {
+      "id": "mcs2018",
+      "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/mineral-pubs/nickel/mcs-2018-nicke.pdf",
+      "status": 200,
+      "bytes": 74201,
+      "sha256": "4da8c09e134dade1239b7341a13763f55b1aa00ba26a40958a409818bb3ff86f",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2019",
+      "url": "https://d9-wret.s3-us-west-2.amazonaws.com/assets/palladium/production/atoms/files/mcs-2019-nicke.pdf",
+      "status": 200,
+      "bytes": 98530,
+      "sha256": "5e56e601c13d9f7b989e001d97004260288bee024347eddb3b8f1110b97c2c43",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2020",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2020/mcs2020-nickel.pdf",
+      "status": 200,
+      "bytes": 112883,
+      "sha256": "904379cfdcf567f9c0c67a7edbced4598f39c7d465116e29f4732f53cc04040f",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2021",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2021/mcs2021-nickel.pdf",
+      "status": 200,
+      "bytes": 132155,
+      "sha256": "ad119bb0f076cbf91d8806f4af59d229cfdf4f939ebbfb6a9501bdfd490b0a5f",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2022",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2022/mcs2022-nickel.pdf",
+      "status": 200,
+      "bytes": 142520,
+      "sha256": "f2d54f65a17ae685e81bb15a7db9343ef6cd205055ea4012a64f2dd31db129a6",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2023",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2023/mcs2023-nickel.pdf",
+      "status": 200,
+      "bytes": 205727,
+      "sha256": "b7821f62f32006b31f7912428715f6a15f8d65dd4c98ddd5c40a36b3616a2863",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2024",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2024/mcs2024-nickel.pdf",
+      "status": 200,
+      "bytes": 705468,
+      "sha256": "39f5aa8333e52385861dab8e184d36be57b276246f343848ec46ea2e06a9f5cf",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2025",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-nickel.pdf",
+      "status": 200,
+      "bytes": 695455,
+      "sha256": "ad0eabdf50cd4d63a5c110ab1445697127c9c33e42eb4dca64135e4183d7d410",
+      "format": ".pdf"
+    },
+    {
+      "id": "mcs2026",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf",
+      "status": 200,
+      "bytes": 142529,
+      "sha256": "70aab7644bc8b43fb9eef4d3a3e007186a9be6958dd476e3747a96e3c9d5de3c",
+      "format": ".pdf"
+    }
+  ],
+  "notes": [
+    "IEA pages were verified with the web reader after direct HTTP returned 403.",
+    "BPS observations were re-extracted from the retained publisher original downloaded earlier through its public browser download.",
+    "Nine USGS chapters, World Bank workbook, WITS partner tables and geological report were freshly retrieved.",
+    "Manual review covers each narrative chapter and all six locality descriptions. Dates, estimates, product units and open evidence gaps remain explicit."
+  ]
+}

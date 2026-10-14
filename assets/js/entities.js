@@ -20,7 +20,7 @@
   if (type !== 'country' && G.country(context.country)) bread.push(link('country', G.country(context.country)));
   if (type === 'company' && G.sector(context.sector)) bread.push(link('sector', G.sector(context.sector)));
   bread.push(`<span aria-current="page">${esc(entity?.name || plural)}</span>`);
-  const heading = (name, description) => `<header class="entity-mast wrap"><nav class="v2-breadcrumb" aria-label="Breadcrumb">${bread.join('<span aria-hidden="true">›</span>')}</nav><p class="eyebrow">${contextualCountry ? 'Trade context' : esc(type[0].toUpperCase() + type.slice(1)) + ' research'}</p><h1 class="page-title" data-entity-title>${esc(name)}</h1><p class="page-lede">${esc(description)}</p>${contextualCountry ? `<p class="discovery-method">No published report focuses on ${esc(entity.name)}. This market is discussed within the Indonesia coal study.</p>` : ''}`;
+  const heading = (name, description) => `<header class="entity-mast wrap"><nav class="v2-breadcrumb" aria-label="Breadcrumb">${bread.join('<span aria-hidden="true">›</span>')}</nav><p class="eyebrow">${contextualCountry ? 'Trade context' : esc(type[0].toUpperCase() + type.slice(1)) + ' research'}</p><h1 class="page-title" data-entity-title>${esc(name)}</h1><p class="page-lede">${esc(description)}</p>${contextualCountry ? `<p class="discovery-method">No published report focuses on ${esc(entity.name)}. Trade relationships are documented in the reports below.</p>` : ''}`;
   if (id && !entity) {
     root.innerHTML = `${heading('This research context is unavailable.', 'The address does not match a documented country, sector or company.')}<a class="text-link" href="${type}.html">Browse ${esc(plural.toLowerCase())} →</a></header>`;
     return;

@@ -37,6 +37,31 @@
 */
 window.LONGHAND_REPORTS = [
 {
+  "id": "more-nickel-2026-10-15",
+  "ticker": "",
+  "company": "Indonesia nickel industry",
+  "sector": "Nickel mining, processing and manufacturing",
+  "category": "Sector",
+  "title": "More Nickel. Who Makes the Money?",
+  "date": "2026-10-15",
+  "blurb": "Indonesia has moved past ore. Mine expansion, export customers and battery chemistry show why greater output does not settle how much value the country keeps.",
+  "summary": "An Indonesia industry study with ten years of benchmark and mine-output evidence, provincial reserves, selected industrial localities and product-specific export destinations. Facts, interpretations and conditional cases remain separate. Export receipts are not domestically retained profit.",
+  "tags": [
+    "Nickel",
+    "Indonesia",
+    "Downstream processing",
+    "Exports",
+    "Batteries",
+    "Industrial policy"
+  ],
+  "rating": null,
+  "currency": "USD",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "more-nickel.html"
+},
+{
   "id": "ihsg-weekly-2026-10-09",
   "ticker": "IHSG",
   "exchange": "IDX",
