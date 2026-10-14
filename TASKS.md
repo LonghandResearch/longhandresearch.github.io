@@ -82,11 +82,11 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 | WEB-029 | Clarify primary report geographies versus trade context and give both footer themes a readable atlas background | Codex | `codex/coverage-geography` | Done (Codex author QA; publication through PR #98) | [PR #98](https://github.com/LonghandResearch/longhandresearch.github.io/pull/98). Owner requested consistent country labels and filters, restrained documented arcs, and a clearer map behind the footer in both themes. Codex author QA under continuing takeover authorization: 240 browser layouts, 120 accessibility audits, 80 phone collision cases, 24 globe-navigation cases and 133 tests. Also separates the weekly chart's scale and date labels. See `docs/coverage-geography-qa.md`. |
 
-## Current publication work
+## Latest publication
 
 | ID | Task | Owner | Branch | Status | Publication |
 | --- | --- | --- | --- | --- | --- |
-| RPT-017 | Deepen the local Indonesia nickel industry report, province and trade atlas, and continuous scroll motion | Codex | `codex/nickel-research` | Review (source recheck passed; publication authorized) | `more-nickel.html`. Owner authorized publication after the complete recheck on 15 October. Industry edition: nine chapters, 21 primary/official sources, province reserves, selected industry localities, product-specific destinations, explicit interpretations and conditional cases. Issuer financial panels removed from the current page; original evidence archive retained. Six visible source groups retain all 21 records; catalogue, sitemap and trade-context discovery prepared. 215 numerical source comparisons pass. Codex author QA under the temporary takeover authorization in `audits/RPT-017-nickel-preview.md`. |
+| RPT-017 | Publish Indonesia nickel industry research with a balanced reading layout, reserves and trade atlas, and continuous motion | Codex | `codex/nickel-research` | Done (publication through PR #99) | [PR #99](https://github.com/LonghandResearch/longhandresearch.github.io/pull/99). Owner authorized publication after rechecking data, narrative and export destinations on 15 October. Nine chapters, six visible source groups retaining 21 records, eight reserve provinces and six approximate industrial localities. 215 numerical comparisons to publisher originals, all 142 tests and the site checker pass. Country destinations remain trade context, with product/date/unit limits and open gaps explicit. Codex author QA under the continuing temporary takeover authorization; see `audits/RPT-017-nickel-preview.md` and `audits/RPT-017-nickel-recheck.json`. |
 
 ## Status values
 

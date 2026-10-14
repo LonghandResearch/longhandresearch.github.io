@@ -476,3 +476,11 @@ the updated graph/art versions; entity pages request their corrected renderer.
 Proof images and the detailed browser/source check records are stored outside
 Git in the local 15 October research folder. The repository recheck JSON keeps
 public retrieval metadata and derived values, not whole publisher documents.
+
+### Publication handoff
+
+The reviewed branch is published through PR #99. GitHub checks passed on the
+implementation head, including all 142 tests. The finishing task-board entry
+is committed with the publication so main records its completion on merge.
+Deployment and live-byte/browser verification follow the merge, with final
+publication notes also synchronized to the owner’s Obsidian vault.
