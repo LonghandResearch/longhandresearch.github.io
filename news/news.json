@@ -1,12 +1,129 @@
 {
- "updated": "2026-10-13T22:49:45.265Z",
+ "updated": "2026-10-14T01:56:34.512Z",
  "items": [
   {
-   "title": "US top diplomat Marco Rubio to visit India and Uzbekistan this month",
+   "title": "Gold holds two-day slide as Fed signals one more hike, U.S. CPI in focus",
+   "url": "https://www.investing.com/news/commodities-news/gold-holds-twoday-slide-as-fed-signals-one-more-hike-us-cpi-in-focus-4947854",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-14T01:43:07.000Z"
+  },
+  {
+   "title": "Bank Raksasa AS Kena Denda hingga Rp 21 Triliun!",
+   "url": "https://finance.detik.com/moneter/d-8705948/bank-raksasa-as-kena-denda-hingga-rp-21-triliun",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-14T01:30:44.000Z"
+  },
+  {
+   "title": "Oil prices climb as traders weigh Saudi supply risk, Russian diesel flow",
+   "url": "https://www.investing.com/news/commodities-news/oil-prices-climb-as-traders-weigh-saudi-supply-risk-russian-diesel-flow-4947843",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-14T01:30:24.000Z"
+  },
+  {
+   "title": "Saham Konglo Tekan IHSG, Pembiayaan Akuisisi Bayan Jadi Sorotan",
+   "url": "https://ekonomi.republika.co.id/berita/tmvitb490/saham-konglo-tekan-ihsg-pembiayaan-akuisisi-bayan-jadi-sorotan",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-14T01:29:35.000Z"
+  },
+  {
+   "title": "Largest Philippines crypto exchange, Coins.ph, said to face central bank regulatory action",
+   "url": "https://www.coindesk.com/policy/2026/10/13/largest-philippines-crypto-exchange-coins-ph-said-to-face-central-bank-regulatory-action",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-14T01:00:00.000Z"
+  },
+  {
+   "title": "Rupiah Diproyeksikan Melemah ke Rp17.950 per Dolar AS, Tertekan Inflasi Global dan Isu Energi",
+   "url": "https://economy.okezone.com/read/2026/10/14/320/3247744/rupiah-diproyeksikan-melemah-ke-rp17-950-per-dolar-as-tertekan-inflasi-global-dan-isu-energi",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-14T00:47:52.000Z"
+  },
+  {
+   "title": "Iran shifting tactics to step up attacks on shipping before US vote, officials say",
+   "url": "https://www.investing.com/news/commodities-news/iran-shifting-tactics-to-step-up-attacks-on-shipping-before-usvote-officials-say-4947753",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-14T00:18:22.000Z"
+  },
+  {
+   "title": "US top diplomat Marco Rubio to visit India and Uzbekistan",
    "url": "https://www.investing.com/news/commodities-news/us-top-diplomat-marco-rubio-to-visit-india-and-uzbekistan-this-month-4947652",
    "source": "Investing.com",
    "topic": "Commodities",
-   "time": "2026-10-13T22:19:08.000Z"
+   "time": "2026-10-14T00:12:21.000Z"
+  },
+  {
+   "title": "Oil prices rise as Houthi-Saudi attacks spur supply uncertainty",
+   "url": "https://www.investing.com/news/commodities-news/oil-prices-rise-as-houthisaudi-attacks-spur-supply-uncertainty-4947751",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-14T00:01:18.000Z"
+  },
+  {
+   "title": "Trump administration to expand a Delek Texas refinery using Defense ​Production ⁠Act",
+   "url": "https://www.investing.com/news/commodities-news/trump-administration-to-expand-a-delek-texas-refinery-using-defense-productionact-4947737",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-14T00:00:38.000Z"
+  },
+  {
+   "title": "Wall Street Sees Inflation Easing Even With Oil Above $90",
+   "url": "https://oilprice.com/Energy/Energy-General/Wall-Street-Sees-Inflation-Easing-Even-With-Oil-Above-90.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-14T00:00:00.000Z"
+  },
+  {
+   "title": "Ledger asks resellers to halt sales in Southeast Asia and Hong Kong",
+   "url": "https://cointelegraph.com/news/ledger-asks-resellers-to-halt-sales-in-southeast-asia-and-hong-kong?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-13T23:28:19.000Z"
+  },
+  {
+   "title": "Strive raising $500 million to buy additional bitcoin with new preferred share class",
+   "url": "https://www.coindesk.com/markets/2026/10/13/strive-to-ipo-second-preferred-share-class-as-it-looks-to-further-build-bitcoin-treasury",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-13T23:23:05.000Z"
+  },
+  {
+   "title": "Goldman says investors are looking for 'profitable' Chinese business growth overseas",
+   "url": "https://www.cnbc.com/2026/10/14/goldman-says-investors-seek-profitable-chinese-business-growth-abroad.html",
+   "source": "CNBC",
+   "topic": "Markets",
+   "time": "2026-10-13T23:05:12.000Z"
+  },
+  {
+   "title": "Harga BBM Rabu 14 Oktober 2026, Pertalite hingga Pertamax Jadi Segini",
+   "url": "https://economy.okezone.com/read/2026/10/13/320/3247622/harga-bbm-rabu-14-oktober-2026-pertalite-hingga-pertamax-jadi-segini",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-13T23:03:20.000Z"
+  },
+  {
+   "title": "Record Tanker Rates Leave Heavy Crude Stranded in the Americas",
+   "url": "https://oilprice.com/Energy/Crude-Oil/Record-Tanker-Rates-Leave-Heavy-Crude-Stranded-in-the-Americas.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-13T23:00:00.000Z"
+  },
+  {
+   "title": "Heboh Rumor Emiten Bakrie Caplok Tambang Kideco Rp 17,9 Triliun",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8705731/heboh-rumor-emiten-bakrie-caplok-tambang-kideco-rp-17-9-triliun",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-13T22:55:45.000Z"
   },
   {
    "title": "Stranded Middle East LNG Supply Upends Gas Markets",
@@ -337,17 +454,17 @@
    "time": "2026-10-13T13:31:58.000Z"
   },
   {
-   "title": "Super El Niño Could Ease Asia’s LNG Supply Concerns",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Super-El-Nio-Could-Ease-Asias-LNG-Supply-Concerns.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-13T13:30:00.000Z"
-  },
-  {
    "title": "Is Bitcoin kidding itself about the Lightning Network?",
    "url": "https://cointelegraph.com/magazine/is-bitcoin-kidding-itself-about-the-lightning-network?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
    "topic": "Crypto",
+   "time": "2026-10-13T13:30:00.000Z"
+  },
+  {
+   "title": "Super El Niño Could Ease Asia’s LNG Supply Concerns",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Super-El-Nio-Could-Ease-Asias-LNG-Supply-Concerns.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
    "time": "2026-10-13T13:30:00.000Z"
   },
   {
@@ -1638,129 +1755,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-10-12T06:32:31.000Z"
-  },
-  {
-   "title": "Global watchdog flags stablecoin risks, AI threats ahead of G20",
-   "url": "https://cointelegraph.com/news/fsb-stablecoin-ai-risks-g20-finance-meeting?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-12T06:30:21.000Z"
-  },
-  {
-   "title": "Bahlil Lobi Minyak ke Negara Afrika: Saya Bilang Kita Ini Saudara",
-   "url": "https://finance.detik.com/energi/d-8703149/bahlil-lobi-minyak-ke-negara-afrika-saya-bilang-kita-ini-saudara",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T06:15:06.000Z"
-  },
-  {
-   "title": "IHSG Rontok, Nyaris 2%!",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8703134/ihsg-rontok-nyaris-2",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T06:04:37.000Z"
-  },
-  {
-   "title": "Two More Oil Tankers Attacked Near Strait of Hormuz",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Two-More-Oil-Tankers-Attacked-Near-Strait-of-Hormuz.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-12T05:30:00.000Z"
-  },
-  {
-   "title": "DATA Network to migrate to Sui, retire own chain",
-   "url": "https://cointelegraph.com/news/data-network-to-migrate-to-sui-retire-its-own-chain?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-12T05:15:43.000Z"
-  },
-  {
-   "title": "Utang China Tembus Rekor, Beijing Sulit Kucurkan Stimulus Baru",
-   "url": "https://ekonomi.republika.co.id/berita/tms2v4423/utang-china-tembus-rekor-beijing-sulit-kucurkan-stimulus-baru",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-12T04:52:16.000Z"
-  },
-  {
-   "title": "Bitcoin pulls back from $84,000 as oil recovers, ETFs bleed over $600 million",
-   "url": "https://www.coindesk.com/markets/2026/10/12/bitcoin-shrugs-off-etf-outflows-to-trade-above-usd84-000-as-oil-falls",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-12T04:49:30.000Z"
-  },
-  {
-   "title": "French lawmakers back reporting rule for crypto wallets over $112K",
-   "url": "https://cointelegraph.com/news/french-lawmakers-back-reporting-rule-for-crypto-wallets-over-112k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-12T04:45:15.000Z"
-  },
-  {
-   "title": "Rupiah Menguat ke Rp 17.894 per Dolar AS Imbas Harga Minyak",
-   "url": "https://ekonomi.republika.co.id/berita/tms1jp423/rupiah-menguat-ke-rp-17894-per-dolar-as-imbas-harga-minyak",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-12T04:23:49.000Z"
-  },
-  {
-   "title": "Emiten Haji Isam Buka Suara soal Gadai Saham Besar-besaran ke Bank BUMN",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8702869/emiten-haji-isam-buka-suara-soal-gadai-saham-besar-besaran-ke-bank-bumn",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T03:48:12.000Z"
-  },
-  {
-   "title": "IHSG berpotensi sideways di tengah pasar cermati perkembangan global",
-   "url": "https://www.antaranews.com/berita/5781449/ihsg-berpotensi-sideways-di-tengah-pasar-cermati-perkembangan-global",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T03:10:33.000Z"
-  },
-  {
-   "title": "Harga Emas Akhirnya Naik, tapi Cuma Rp 2.000",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8702805/harga-emas-akhirnya-naik-tapi-cuma-rp-2-000",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T03:04:02.000Z"
-  },
-  {
-   "title": "MedcoEnergi Akuisisi 10 Persen Hak Partisipasi 4 Blok Migas, Ada Harta Karun Gas Terbesar",
-   "url": "https://economy.okezone.com/read/2026/10/12/320/3247351/medcoenergi-akuisisi-10-persen-hak-partisipasi-4-blok-migas-ada-harta-karun-gas-terbesar",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T03:01:01.000Z"
-  },
-  {
-   "title": "Dolar AS Turun Tipis ke Level Rp 17.883",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8702774/dolar-as-turun-tipis-ke-level-rp-17-883",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T02:27:02.000Z"
-  },
-  {
-   "title": "Awal Pekan, IHSG Dibuka Menguat ke 6.109",
-   "url": "https://economy.okezone.com/read/2026/10/12/278/3247356/awal-pekan-ihsg-dibuka-menguat-ke-6-109",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T02:23:49.000Z"
-  },
-  {
-   "title": "IHSG Menguat Sambut Awal Pekan",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8702771/ihsg-menguat-sambut-awal-pekan",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-12T02:20:34.000Z"
   }
  ]
 }
