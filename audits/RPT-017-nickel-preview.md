@@ -484,3 +484,22 @@ implementation head, including all 142 tests. The finishing task-board entry
 is committed with the publication so main records its completion on merge.
 Deployment and live-byte/browser verification follow the merge, with final
 publication notes also synchronized to the owner’s Obsidian vault.
+
+### Live verification and reading-position correction
+
+PR #99 merged as `ee21f7ff0b79c42d5ae7ead3d511e590c5a9e141`. Pages deployment
+38651372577, the main site check and feed workflow succeeded. All 30 checked
+public files match that commit byte-for-byte. Live browser source targets,
+six source groups, Japan matte share/value/product weight and console state
+were verified. Report, source, sector and status notes are synchronized in the
+owner's vault; no issuer notes were invented for this country study.
+
+The final live walkthrough found a stale active-chapter highlight inside the
+atlas: the earlier IntersectionObserver selected only entries changed in its
+last callback, allowing a long already-intersecting section to be skipped.
+The small follow-up uses one queued animation frame per scroll/resize to select
+the last heading above the reading line. It handles initial/deep-link navigation
+and reverse scrolling. Data, arithmetic, narrative, source records and all other
+assets remain unchanged. The report script's cache version is advanced.
+Browser validation reproduces the original mid-atlas position and verifies the
+correct chapter; subsequent forward/reverse chapter navigation is checked.

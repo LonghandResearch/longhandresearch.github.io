@@ -110,12 +110,19 @@
     });
     observer.observe(document.querySelector('.research-body'));
   }
-  if ('IntersectionObserver' in window) {
-    const links=[...document.querySelectorAll('.chapter-rail nav a')];
-    const observer=new IntersectionObserver(entries=>{
-      const active=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
-      if(active)links.forEach(a=>{if(a.hash==='#'+active.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
-    },{rootMargin:'-90px 0px -55% 0px',threshold:0});
-    document.querySelectorAll('.research-section').forEach(section=>observer.observe(section));
+  const chapterLinks=[...document.querySelectorAll('.chapter-rail nav a')];
+  const chapters=[...document.querySelectorAll('.research-section')];
+  let chapterFrame=0,currentChapter='';
+  function updateChapter(){
+    chapterFrame=0;
+    const readingLine=document.querySelector('.masthead').getBoundingClientRect().height+120;
+    const active=chapters.filter(section=>section.getBoundingClientRect().top<=readingLine).at(-1);
+    const id=active?.id||'';
+    if(id===currentChapter)return;currentChapter=id;
+    chapterLinks.forEach(link=>{if(link.hash==='#'+id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
   }
+  function queueChapter(){if(!chapterFrame)chapterFrame=requestAnimationFrame(updateChapter);}
+  addEventListener('scroll',queueChapter,{passive:true});addEventListener('resize',queueChapter);
+  addEventListener('pageshow',queueChapter);document.fonts?.ready.then(queueChapter);queueChapter();
+  addEventListener('pagehide',()=>{if(chapterFrame)cancelAnimationFrame(chapterFrame);chapterFrame=0;});
 })();
