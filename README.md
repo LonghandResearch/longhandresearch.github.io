@@ -140,10 +140,11 @@ material panels or pinned reading screens. Body text remains readable before its
 subtle reveal settles. A motion toggle and reduced-motion preference are supported.
 The opening map uses Natural Earth coastline. The homepage/Library cover is an
 original conceptual illustration generated with imagegen after the owner approved
-that direction on 15 October. Muted daylight, red laterite and gray processing
-halls distinguish it from Coal’s bright teal port scene. It depicts no named
+that direction on 15 October. The owner-approved view looks
+from sea toward a coastal processing works and inland laterite benches, using
+teal/rust ink textures without people or oversized machinery. It depicts no named
 operating site, measured process or mine-to-customer connection. The visual note
-and `nickel-panorama-art.json` retain its provenance. Existing Longhand typography
+and `nickel-seaview-art.json` retain its provenance. Existing Longhand typography
 supplies the title. The earlier photo montage and its CC BY-SA 4.0 credits, material
 cutouts, vector cover and `specimen.js` remain unused archives.
 
