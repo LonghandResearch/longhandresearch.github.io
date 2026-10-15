@@ -575,3 +575,9 @@ The final browser pass has no report console errors. Homepage cover alongside th
 other publications, Library phone cover, the new opening, and both wide process
 rows were visually inspected. Physical devices and other engines were not newly
 tested in this follow-up. All 143 automated tests and the site checker pass.
+
+
+The refinement is prepared for publication through [PR #101](https://github.com/LonghandResearch/longhandresearch.github.io/pull/101).
+GitHub runs the site checker and all 143 tests on the final head. Pages success
+and live-byte/browser checks follow merge, with publication details synchronized
+to the owner’s existing Report, source and status notes.
