@@ -84,6 +84,12 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 ## Latest publication
 
+Validated nickel reading cleanup: [PR #105](https://github.com/LonghandResearch/longhandresearch.github.io/pull/105), Codex on `codex/nickel-research`.
+Removed the decorative opening map, scroll-motion control, redundant preamble
+and badges. The two evidence maps and all research observations remain. Ten
+nickel tests and ten desktop/phone/theme/interaction browser checks pass. Codex author QA and
+publication follow the continuing owner authorization while Claude is unavailable.
+
 Validated owner-approved nickel sea-view cover: [PR #104](https://github.com/LonghandResearch/longhandresearch.github.io/pull/104), Codex on `codex/nickel-research`.
 The approved artwork removes the hand and looks from sea toward the shore factory
 and inland workings, with teal/rust print texture and cream live typography.
