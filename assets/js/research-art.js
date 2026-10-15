@@ -4,7 +4,7 @@
   'use strict';
   const base = new URL('../../assets/img/research/', document.currentScript.src);
   const records = {
-    'more-nickel-2026-10-15': ['nickel-ore-illustration.png', 'AI-generated conceptual ore illustration, not an actual sample', 'illustration'],
+    'more-nickel-2026-10-15': ['covers/nickel-atlas-art.svg', 'Indonesia coastline · Natural Earth, with decorative contours', 'exhibit'],
     'coal-in-transition-2026-10-08': ['coal-trade-map.png', 'Export atlas · conceptual links, not vessel routes', 'exhibit'],
     'the-power-behind-ai-update-2026-10-09': ['ai-october-price.png', 'DCII price index · October checkpoint', 'exhibit'],
     'indonesia-ai-power-water-2026-10-05': ['ai-resource-flow.png', 'Power & water · schematic, not measured volumes', 'exhibit'],
@@ -18,6 +18,7 @@
     'adro-2026-09-03': ['adro-2026-09-03.png', 'Original report · opening page', 'document']
   };
   const covers = {
+    'more-nickel-2026-10-15': ['nickel-atlas', '#ead7ae', 11.2, 'More Nickel.|Who Makes|the Money?', 'Indonesia coastline from Natural Earth, in an original vector composition'],
     'ihsg-weekly-2026-10-09': ['ihsg-recovery', '#ead7ae', 10.1, 'Prices Recovered.|Foreign Selling|Persisted.', 'A Jakarta skyline, elevated roads and terrace greenery at golden hour, conceptually illustrated'],
     'adro-2026-09-03': ['smelter', '#ead7ae', 11.2, 'The Smelter|Is the Whole|Thesis', 'A tropical aluminium smelter and industrial infrastructure'],
     'macro-2026-09-24': ['rates', '#14262b', 12.2, 'Dovish or|Hawkish?', 'Conceptual central-bank architecture illustrated in vintage ink'],
@@ -38,6 +39,7 @@
     originalForReport,
     forReport(report) {
       const entry = !report.isLocal && covers[report.id];
+      if (entry?.[0] === 'nickel-atlas') return { src: new URL('covers/nickel-atlas-art.svg?v=2026-10-15', base).href, caption: 'Editorial map · Natural Earth coastline. Decorative contours are not geological data.', kind: 'exhibit' };
       return entry ? { src: new URL(`covers/${entry[0]}-art.webp?v=2026-10-10final`, base).href, caption: `Editorial illustration · ${entry[4]}`, kind: 'illustration' } : originalForReport(report);
     },
     coverHTML(report, { compact = false, sizes: sizesHint } = {}) {
@@ -54,9 +56,9 @@
       // future catalogue revision changes the title.
       const title = entry[3].replaceAll('|', ' ') === report.title ? entry[3].split('|').map(esc).join('<br>') : esc(report.title);
       const art = this.forReport(report);
-      const variants = [320, 640].map((width) => `${esc(new URL(`covers/${entry[0]}-art-${width}.webp`, base).href)} ${width}w`).join(', ');
+      const variants = entry[0] === 'nickel-atlas' ? '' : [320, 640].map((width) => `${esc(new URL(`covers/${entry[0]}-art-${width}.webp`, base).href)} ${width}w`).join(', ');
       return `<figure class="research-cover${entry[1] === '#ead7ae' ? ' cover-tone-navy' : entry[1].startsWith('#14') ? ' cover-tone-paper' : ''}" data-report-cover="${esc(report.id)}" style="--cover-ink:${entry[1]};--cover-title-size:${entry[2]}cqw">
-        <img src="${esc(art.src)}" srcset="${variants}, ${esc(art.src)} 1024w" sizes="${sizes}" alt="${esc(art.caption)}" width="1024" height="1536" loading="lazy" decoding="async">
+        <img src="${esc(art.src)}" ${variants ? `srcset="${variants}, ${esc(art.src)} 1024w" sizes="${sizes}"` : ''} alt="${esc(art.caption)}" width="1024" height="1536" loading="lazy" decoding="async">
         <figcaption class="cover-type" aria-hidden="true"><div class="cover-edition"><span>${esc(LH.catalogueNo(report))}<b>${esc(report.ticker || report.category)}</b><time datetime="${esc(report.date)}">${esc(dateShort(report.date))}</time></span><span class="cover-subject">${esc(report.category)} · ${esc(report.company)}</span></div><strong class="cover-headline">${title}</strong><span class="cover-signature">Longhand <small>Research</small></span></figcaption>
       </figure>`;
     }

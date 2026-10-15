@@ -18,5 +18,12 @@
     }
     return [...groups].sort((a,b)=>a[0]-b[0]).map(([year,values])=>({year,months:values.length,mean:values.reduce((a,b)=>a+b,0)/values.length}));
   }
-  root.NickelModel = Object.freeze({change,unitValue,tradeComparison,annualPrices});
+  function destinationShareLabel(value,total) {
+    if(!Number.isFinite(value)||value<0||!Number.isFinite(total)||total<=0)return 'Unavailable';
+    if(value===0)return '0.00% reported';
+    const share=value/total*100;
+    if(share<.000001)return '<0.000001%';
+    return share.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:share<.01?6:2})+'%';
+  }
+  root.NickelModel = Object.freeze({change,unitValue,tradeComparison,annualPrices,destinationShareLabel});
 })(globalThis);

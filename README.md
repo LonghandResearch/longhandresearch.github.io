@@ -134,15 +134,21 @@ visibility-aware playback and a map-motion toggle. `nickel-atlas.css` styles the
 holographic consoles in both publication themes. Province label anchors and locality markers are approximate;
 export links are country relationships, not cargo routes or mine provenance.
 
-`motion.js` uses native scrolling with a damped visual playhead and one continuous
-opening material movement. There are no automatic case swaps or pinned research
-panels. Body text remains readable before its subtle reveal settles. A motion
-toggle, system reduced-motion preference and compact-layout fallback are supported.
-The two AI-generated material illustrations are labelled conceptual and are not
-research evidence. `specimen.js` handles their shallow parallax and CSS drift.
+`motion.js` uses native scrolling with a shallow, damped movement contained in
+the opening illustration. There are no floating cross-section images, repeated
+material panels or pinned reading screens. Body text remains readable before its
+subtle reveal settles. A motion toggle and reduced-motion preference are supported.
+The opening map and homepage/Library cover are original SVG compositions using
+Natural Earth coastline, with the existing Longhand cover typography. Decorative
+contours carry no geological claim. No generative images load in the current report
+or its cover. The earlier material cutouts and `specimen.js` remain unused archives.
 
-The reader sees six core source groups. Supporting documents, detailed methods
-and conditional cases expand on request. All 21 source records, individual
+The reader sees six core source groups. All 11 ferronickel destinations and
+all five destinations in each of the matte and intermediate tables are selectable.
+Shares use the original World export value, including small published values and
+explicit source-rounded zeros. Ministry of Finance royalty history and its 2025
+royalty summary, plus BPS Southeast Sulawesi exports, deepen the domestic evidence. Supporting documents, detailed methods
+and conditional cases expand on request. All 24 source records, individual
 observations and locators remain in the evidence download. Deep links open
 supporting references automatically and resolve after charts and fonts render.
 

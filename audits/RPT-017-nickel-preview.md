@@ -503,3 +503,75 @@ and reverse scrolling. Data, arithmetic, narrative, source records and all other
 assets remain unchanged. The report script's cache version is advanced.
 Browser validation reproduces the original mid-atlas position and verifies the
 correct chapter; subsequent forward/reverse chapter navigation is checked.
+
+### 15 October follow-up: complete destinations and reader refinement
+
+The owner requested every recorded export destination with its share, clearer
+language, fewer repeated caveats, wider processing routes, improved artwork and
+motion, and a cover matching the other Longhand publications. The owner clarified
+that “limits” meant the evidence boundary, rather than smaller type, and that
+“cover letter” meant the Homepage/Library cover. Continuing publication authority
+and the temporary Codex takeover apply. This is Codex author QA.
+
+All three original WITS tables were retrieved again. Their World rows and every
+partner value and kilogram observation match the frozen dataset exactly. There
+are 11 ferronickel destinations, five matte destinations and five intermediate
+destinations. The earlier five-row interactive truncation is removed. Every named
+country can now be selected, including the small destinations; the regional
+“Other Asia, nes” category is retained without guessing a country. Percentages use
+each product's original World export value. Small positive values use adaptive
+decimal places or an explicit threshold; source-rounded zeros are marked
+“0.00% reported” even where mass is recorded. Extra decimals are arithmetic from
+published values, not a claim of greater measurement precision.
+
+Three supporting sources deepen the domestic argument. Ministry of Finance
+Warta Fiskal III/2023, printed/PDF page 16, records nickel royalties of Rp1.4tn in
+2018 and Rp11.1tn in 2022. The original text and rendered page were inspected.
+Its broader KBLI tax series is not used as nickel-only tax revenue. APBN KiTa
+Q4 2025, PDF page 27/printed page 53, was inspected as a rendered original table:
+the ministry's PP 19/2025 summary gives ore royalties of 14% to 19%, with the
+stated integrated battery-EV exception at 2%, matte at 3.5% to 5.5%, and
+ferronickel at 4% to 6%. The text identifies this as a dated scheme summary,
+not a plant's effective burden or proof that no later amendment exists.
+BPS Southeast Sulawesi's 21 August 2026 release records 2025 provincial exports
+of USD3.72bn, about 95.76% in iron and steel, and names China, South Korea and
+India among the main destinations. Its full primary release was readable through
+web retrieval, although direct Python download returned HTTP 403. These measures
+remain distinct from mine output, nickel content, household income and net benefit.
+
+The ESDM 2025 Minerba report endpoint was found but its original download did not
+finish within the retrieval window. A battery-factory article failed direct
+certificate validation. Neither snippet supplies a new verified output figure.
+Current national quota, current provincial production reconciliation, cell output
+and mine-to-factory provenance remain in the expandable research notes. They are
+not silently declared resolved. The main boundary is two short sentences about
+net national return and final-user tracing. Repeated cautions in the body are
+replaced with specific analytical questions while essential units/periods remain.
+
+The six core reference groups now retain 24 source records. New observations and
+document hashes are in the download and its identical browser wrapper. The
+historical price, mine, BPS, WITS and reserve observations are unchanged. See
+`RPT-017-nickel-refinement.json` for the fresh partner comparison and new source
+locators. The earlier 215-check publication audit remains the historical record,
+not a claim that all 215 checks were rerun for this follow-up.
+
+The two processing routes use full-width rows and ordered stages. The repeated
+material image panel, floating cross-section cutouts and sticky opening are
+removed. The opening and publication cover use original SVG compositions with
+the existing Natural Earth public-domain coastline. Decorative contours carry no
+deposit, mine boundary or route claim. No image-generation tool or generative
+bitmap is used by the current cover or report. Old assets remain unused archives.
+Cover typography reuses the established Longhand system, including catalogue
+number, date and signature. All four art-loading pages receive cache updates.
+
+Motion remains native scrolling, with at most 12px of damped movement contained
+inside the opening map, subtle research reveals, a pause control and reduced-motion
+support. No image travels across reading sections. Browser QA passed 72 checks:
+all 21 partner table/share comparisons and selections, all three product lists,
+precision-label reflow at desktop/390px/320px in paper/dark themes, the Library
+compact cover, motion pause and the visual-source deep link. QA found and fixed
+two desktop precision-label overflows by correcting the CSS selector specificity.
+The final browser pass has no report console errors. Homepage cover alongside the
+other publications, Library phone cover, the new opening, and both wide process
+rows were visually inspected. Physical devices and other engines were not newly
+tested in this follow-up. All 143 automated tests and the site checker pass.

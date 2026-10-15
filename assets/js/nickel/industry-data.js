@@ -1832,6 +1832,30 @@ window.NICKEL_RESEARCH = {
       "locator": "January–October 2017 operating/export table",
       "note": "Historical confirmation that processing predates the 2020 ore ban. Neither 2017 output nor plant count is presented as current capacity.",
       "retrieved": "2026-10-15"
+    },
+    {
+      "id": "royalties",
+      "label": "Ministry of Finance, Warta Fiskal III/2023",
+      "url": "https://fiskal.kemenkeu.go.id/files/warta-fiskal/file/1701257420_wafis_ed3.rev2.pdf",
+      "locator": "Printed and PDF page 16, nickel royalty receipts, 2018 and 2022. Incentive mechanisms on page 13.",
+      "note": "Historical nominal nickel royalty receipts, not a 2025 observation or a net national return. The broader tax category includes non-ferrous basic metals and is not used as a nickel-only tax total.",
+      "retrieved": "2026-10-15"
+    },
+    {
+      "id": "royaltyscheme",
+      "label": "Ministry of Finance, APBN KiTa Q4 2025",
+      "url": "https://media.kemenkeu.go.id/getmedia/b1259fa9-5650-478a-970f-3e7ecb0e4303/Publikasi-APBNKITA-Q4-2025.pdf?ext=.pdf",
+      "locator": "PDF page 27, printed pages 52 and 53. Nickel royalty summary table on printed page 53.",
+      "note": "2025 fiscal review of PP 19/2025. Ore 14% to 19%, with the stated integrated battery-EV industry exception at 2%. Matte 3.5% to 5.5%. Ferronickel 4% to 6%. This is the ministry summary of that scheme, not a plant-specific effective tax rate or an assertion that later amendments cannot exist.",
+      "retrieved": "2026-10-15"
+    },
+    {
+      "id": "sultraexports",
+      "label": "BPS Southeast Sulawesi, 2025 export summary",
+      "url": "https://sultra.bps.go.id/id/news/2026/08/21/361/ekspor-sulawesi-tenggara-2025-ternyata-sebesar-ini-.html",
+      "locator": "Release of 21 August 2026, annual 2025 exports and iron-and-steel share.",
+      "note": "USD3.72bn total provincial exports. Iron and steel account for about 95.76%. This is a provincial export measure, not nickel content, mine production, local profit or a nickel-only product series.",
+      "retrieved": "2026-10-15"
     }
   ],
   "inputHashes": {
@@ -1841,7 +1865,47 @@ window.NICKEL_RESEARCH = {
     "neraca-2025.pdf": "13d6afa1df306d91ff15f4beeeb32e60b712de8855000ec85c66d393215042f7",
     "nickel-price-history.json": "ee306a976731eaad71fa89d2f258cf0e2f94131e1f7639284e7bbaa927d66064",
     "nickel-mine-production-history.json": "6201be09ee8e640a4db703c00233be4778ee62cc113d96b479a70bcf1ebf8e50",
-    "nickel-trade-bps-2024-2025.json": "99d3c6bbffb53734ed7c4363f520d766678a2de03168c6d8af6301e05e3a8114"
+    "nickel-trade-bps-2024-2025.json": "99d3c6bbffb53734ed7c4363f520d766678a2de03168c6d8af6301e05e3a8114",
+    "fiscal2025.pdf": "325d82dbcb08bed17cfd05cb50a0d3be883f432ceca680efd03e7a15556f1e43",
+    "royalty2022.pdf": "96a97b161f19fbb684a73c23bc7610150c50341f2e9f5025131245a8a4391d79"
   },
-  "archiveNote": "2016–2026 benchmark, mine series and BPS 2024–2025 rows retain their 14 October archive vintage and definitions; issuer financial observations are excluded from this industry edition."
+  "archiveNote": "2016–2026 benchmark, mine series and BPS 2024–2025 rows retain their 14 October archive vintage and definitions; issuer financial observations are excluded from this industry edition.",
+  "domesticEvidence": {
+    "nickel_royalty_receipts": {
+      "source": "royalties",
+      "unit": "nominal IDR trillion",
+      "observations": [
+        {
+          "year": 2018,
+          "value": 1.4
+        },
+        {
+          "year": 2022,
+          "value": 11.1
+        }
+      ]
+    },
+    "royalty_scheme_2025": {
+      "source": "royaltyscheme",
+      "unit": "percent",
+      "ore_range": [
+        14,
+        19
+      ],
+      "integrated_battery_ev_ore_exception": 2,
+      "matte_range": [
+        3.5,
+        5.5
+      ],
+      "ferronickel_range": [
+        4,
+        6
+      ]
+    },
+    "southeast_sulawesi_exports_2025": {
+      "source": "sultraexports",
+      "total_usd_billion": 3.72,
+      "iron_and_steel_share_percent": 95.76
+    }
+  }
 };
