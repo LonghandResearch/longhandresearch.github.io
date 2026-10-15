@@ -1,0 +1,176 @@
+{
+  "checked": "2026-10-15",
+  "export_tables": [
+    {
+      "hs": "720260",
+      "url": "https://wits.worldbank.org/trade/comtrade/en/country/IDN/year/2024/tradeflow/Exports/partner/ALL/product/720260",
+      "sha256": "11a99de996a782d99f26a69aef847a869549928efe1d5e3f4363127017fa1297",
+      "partner_rows": 11,
+      "all_values_and_weights_match": true,
+      "shares": [
+        {
+          "partner": "China",
+          "export_value_share_percent": 94.31684083080452
+        },
+        {
+          "partner": "India",
+          "export_value_share_percent": 2.1483749746757246
+        },
+        {
+          "partner": "Korea, Rep.",
+          "export_value_share_percent": 1.3904309220846118
+        },
+        {
+          "partner": "Netherlands",
+          "export_value_share_percent": 1.060477174348578
+        },
+        {
+          "partner": "Other Asia, nes",
+          "export_value_share_percent": 0.5798017238568558
+        },
+        {
+          "partner": "Italy",
+          "export_value_share_percent": 0.24887894436664743
+        },
+        {
+          "partner": "United Kingdom",
+          "export_value_share_percent": 0.24223013204012028
+        },
+        {
+          "partner": "South Africa",
+          "export_value_share_percent": 0.008947293633947596
+        },
+        {
+          "partner": "Malaysia",
+          "export_value_share_percent": 0.003645781071315324
+        },
+        {
+          "partner": "Germany",
+          "export_value_share_percent": 0.0003722942340453667
+        },
+        {
+          "partner": "Japan",
+          "export_value_share_percent": 0.0
+        }
+      ]
+    },
+    {
+      "hs": "750110",
+      "url": "https://wits.worldbank.org/trade/comtrade/en/country/IDN/year/2024/tradeflow/Exports/partner/ALL/product/750110",
+      "sha256": "0fe5f66e6aa0bf3cd1e960a7c99bd25c0284247b709bbdcdd026a3dbed3162c2",
+      "partner_rows": 5,
+      "all_values_and_weights_match": true,
+      "shares": [
+        {
+          "partner": "China",
+          "export_value_share_percent": 61.45445100571825
+        },
+        {
+          "partner": "Japan",
+          "export_value_share_percent": 32.275918183904864
+        },
+        {
+          "partner": "Netherlands",
+          "export_value_share_percent": 4.258746677756938
+        },
+        {
+          "partner": "Norway",
+          "export_value_share_percent": 2.0108051334161057
+        },
+        {
+          "partner": "Korea, Rep.",
+          "export_value_share_percent": 7.899920384224681e-05
+        }
+      ]
+    },
+    {
+      "hs": "750120",
+      "url": "https://wits.worldbank.org/trade/comtrade/en/country/IDN/year/2024/tradeflow/Exports/partner/ALL/product/750120",
+      "sha256": "38ab10ed28684825365b49361098a51489d4c4cacaad76ee528a0ee0e72e20fd",
+      "partner_rows": 5,
+      "all_values_and_weights_match": true,
+      "shares": [
+        {
+          "partner": "China",
+          "export_value_share_percent": 99.50884824099398
+        },
+        {
+          "partner": "Korea, Rep.",
+          "export_value_share_percent": 0.49115074546411625
+        },
+        {
+          "partner": "Japan",
+          "export_value_share_percent": 7.601564195148815e-07
+        },
+        {
+          "partner": "India",
+          "export_value_share_percent": 2.5338547317162715e-07
+        },
+        {
+          "partner": "Other Asia, nes",
+          "export_value_share_percent": 0.0
+        }
+      ]
+    }
+  ],
+  "new_source_checks": [
+    {
+      "source": "royalties",
+      "url": "https://fiskal.kemenkeu.go.id/files/warta-fiskal/file/1701257420_wafis_ed3.rev2.pdf",
+      "pdf_page": 16,
+      "printed_page": 16,
+      "method": "Original PDF text and rendered page inspected",
+      "verified": {
+        "2018_nominal_idr_trillion": 1.4,
+        "2022_nominal_idr_trillion": 11.1
+      }
+    },
+    {
+      "source": "royaltyscheme",
+      "url": "https://media.kemenkeu.go.id/getmedia/b1259fa9-5650-478a-970f-3e7ecb0e4303/Publikasi-APBNKITA-Q4-2025.pdf?ext=.pdf",
+      "pdf_page": 27,
+      "printed_page": 53,
+      "method": "Rendered original table inspected. Scheme summary, not plant effective tax rate.",
+      "verified": {
+        "source": "royaltyscheme",
+        "unit": "percent",
+        "ore_range": [
+          14,
+          19
+        ],
+        "integrated_battery_ev_ore_exception": 2,
+        "matte_range": [
+          3.5,
+          5.5
+        ],
+        "ferronickel_range": [
+          4,
+          6
+        ]
+      }
+    },
+    {
+      "source": "sultraexports",
+      "url": "https://sultra.bps.go.id/id/news/2026/08/21/361/ekspor-sulawesi-tenggara-2025-ternyata-sebesar-ini-.html",
+      "method": "Full primary BPS release retrieved through web browser text. Direct Python download returned HTTP403. Publication 21 August 2026, observations 2025.",
+      "verified": {
+        "source": "sultraexports",
+        "total_usd_billion": 3.72,
+        "iron_and_steel_share_percent": 95.76
+      }
+    }
+  ],
+  "new_document_hashes": {
+    "fiscal2025": "325d82dbcb08bed17cfd05cb50a0d3be883f432ceca680efd03e7a15556f1e43",
+    "royalty2022": "96a97b161f19fbb684a73c23bc7610150c50341f2e9f5025131245a8a4391d79"
+  },
+  "browser_checks": 72,
+  "browser_failures": [],
+  "automated_tests": 143,
+  "remaining_boundary": "No net national benefit or mine-to-final-user provenance is estimated. Historical source periods and source-rounded zeros remain explicit.",
+  "unsuccessful_retrievals": [
+    "ESDM 2025 Minerba report download did not finish within the retrieval window. No new production observation was taken from a snippet.",
+    "Kemenko battery article failed certificate validation in direct retrieval and was not added as verified output."
+  ],
+  "artwork": "Original SVG layouts with existing Natural Earth public-domain coastline. Decorative contours are not observations. No image-generation tool or generative bitmap used in current report or cover."
+}

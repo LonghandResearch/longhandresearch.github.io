@@ -8,6 +8,16 @@ runInNewContext(readFileSync(new URL('../assets/js/nickel/model.js',import.meta.
 const M=context.NickelModel;
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,`${a} differs from ${b}`);
 
+test('small export shares remain distinct from source-rounded zero and missing values',()=>{
+  assert.equal(M.destinationShareLabel(302092.86,14061458.71),'2.15%');
+  assert.equal(M.destinationShareLabel(52.35,14061458.71),'0.000372%');
+  assert.equal(M.destinationShareLabel(2.51,3177247.21),'0.000079%');
+  assert.equal(M.destinationShareLabel(.01,3946556.16),'<0.000001%');
+  assert.equal(M.destinationShareLabel(0,3946556.16),'0.00% reported');
+  assert.equal(M.destinationShareLabel(null,3946556.16),'Unavailable');
+  assert.equal(M.destinationShareLabel(10,0),'Unavailable');
+});
+
 test('site data and download preserve the same frozen observations',()=>{
   const ctx={window:{}};
   runInNewContext(readFileSync(new URL('../assets/js/nickel/data.js',import.meta.url),'utf8'),ctx);

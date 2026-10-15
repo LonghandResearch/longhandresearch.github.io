@@ -60,6 +60,16 @@
 .destination-bars .destination-row { width:100%; border:0; background:transparent; color:var(--ink-2); padding:8px 10px; margin:4px 0; text-align:left; min-height:40px; }
 .destination-bars .destination-row[aria-pressed="true"] { background:var(--tint); color:var(--ink); border-left:2px solid var(--gold-ink); padding-left:8px; }
 .destination-bars .destination-row:hover { background:var(--tint); }
+.destination-heading { margin-top:25px; }
+.destination-heading h4 { font-size:23px; font-weight:400; margin:0 0 7px; }
+.destination-heading .technical { color:var(--ink-3); font-size:9px; letter-spacing:.04em; }
+.destination-bars { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:22px; margin:14px 0; }
+.destination-bars .destination-row { grid-template-columns:minmax(100px,1fr) minmax(25px,.6fr) minmax(88px,auto); gap:9px; min-height:44px; font-variant-numeric:tabular-nums; }
+.destination-bars .destination-row strong { font-size:11px; white-space:nowrap; }
+.holo-record dd small { display:block; margin-top:5px; font-size:9px; line-height:1.6; color:var(--ink-3); }
+.holo-sidebar .destination-stat strong.precise-share { font-size:24px; white-space:nowrap; }
+@media (max-width:1100px) { .destination-bars { grid-template-columns:1fr; } }
+@media (max-width:420px) { .destination-bars .destination-row { grid-template-columns:minmax(0,1fr) 25px minmax(88px,auto); gap:7px; padding-inline:6px; } }
 @media (prefers-reduced-motion:no-preference) {
   .nickel-holo .reticle-orbit { animation:nickel-orbit 28s linear infinite; animation-play-state:paused; }
   .nickel-holo .reticle-pulse { animation:nickel-radar 4s cubic-bezier(.16,1,.3,1) infinite; animation-play-state:paused; }
