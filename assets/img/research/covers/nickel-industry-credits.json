@@ -1,0 +1,24 @@
+{
+  "title": "Nickel industry editorial cover",
+  "processing": "Non-generative photographic montage, crop, mask, colour grading, edge/ink treatment, deterministic print grain. Not one documentary scene.",
+  "licence": "CC BY-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "sources": [
+    {
+      "title": "Big Yellow",
+      "author": "Mirwanto Muda (Kolong)",
+      "date": "2019-08-01",
+      "page": "https://commons.wikimedia.org/wiki/File:Big_Yellow.jpg",
+      "licence": "CC BY-SA 4.0",
+      "original_sha256": "1a08eb15bb9c12b4f306b3a1ad98450029b22b4af977f24f3a467a1d4cccde85"
+    },
+    {
+      "title": "Weda Bay Nickel site",
+      "author": "Muhammad ECTOR Prasetyo",
+      "date": "2006-03-15",
+      "page": "https://commons.wikimedia.org/wiki/File:Weda_Bay_Nickel_site.jpg",
+      "licence": "CC BY 2.0",
+      "original_sha256": "07309a892d5003f1a3a9029c6e58c9b920ea2ccbb45fbd11631090050adff949"
+    }
+  ]
+}

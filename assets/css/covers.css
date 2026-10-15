@@ -13,6 +13,10 @@
 .cover-headline { display: block; margin-top: 6%; font: 600 var(--cover-title-size, 11cqw)/.96 var(--font-serif, Georgia, serif); letter-spacing: -.04em; text-wrap: balance; font-kerning: normal; }
 .cover-signature { margin-top: auto; align-self: start; padding: .35em .55em; background: #e8dac0; color: #172d31; font: 500 3.4cqw/1.2 var(--font-serif, Georgia, serif); letter-spacing: .035em; text-transform: uppercase; }
 .cover-signature small { font: 500 1.8cqw var(--font-sans, sans-serif); letter-spacing: .14em; margin-left: .6em; }
+.research-cover.cover-has-credit { z-index:2; pointer-events:none; }
+.research-cover .cover-credit { position:absolute; z-index:2; pointer-events:auto; bottom:7%; right:7%; color:#ead7ae; font:500 max(8px,2cqw)/1.4 var(--font-sans,sans-serif); text-decoration:none; text-shadow:0 1px 3px #102a31; }
+.research-cover .cover-credit:hover { text-decoration:underline; }
+.page-library[data-library-view="compact"] .cover-credit { display:none; }
 .cover-original { background: #f1ead8; }
 .cover-original img { object-fit: contain; }
 

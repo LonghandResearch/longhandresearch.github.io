@@ -100,3 +100,26 @@ comes from the current catalogue: No. 012, 11 October 2026,
 “Prices Recovered. Foreign Selling Persisted.” The 1024 × 1536
 `ihsg-weekly-2026-10-09-cover.jpg` is exported from that same HTML/CSS typesetting.
 The owner approved publication of the reviewed cover on 12 October 2026.
+
+
+## 15 October 2026: nickel editorial cover
+
+The owner requested the vintage print treatment and depth of the existing covers,
+retaining the earlier no-generative-image instruction. `nickel-industry-art.webp`
+and its 320/640 variants are a non-generative photographic editorial montage.
+It replaces the earlier flat vector cover in the public cover system. Existing
+Newsreader/Libre Franklin typesetting supplies the title, No. 013, date and signature.
+
+- “Big Yellow”, Mirwanto Muda (Kolong), 1 August 2019, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Big_Yellow.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- “Weda Bay Nickel site”, Muhammad ECTOR Prasetyo, 15 March 2006, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Weda_Bay_Nickel_site.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
+
+Changes: resize, crop, manual polygon mask, composition of separate photographs,
+tonal/colour mapping, photographic edge treatment and deterministic paper grain.
+No generative fill, image model, fabricated smelter or invented port is used.
+The montage is not a single documentary scene or a 2026 operating photograph.
+It carries no production or mine-to-customer claim. Source originals/hashes and
+the reusable preparation script remain in the local research folder.
+`nickel-industry-credits.json` retains the public attribution and source hashes.
+The adapted artwork and image variants are distributed under CC BY-SA 4.0.
+This asset licence does not purport to relicense the website's independent code
+or report text. A Credits link on the cover opens the report's visual note.

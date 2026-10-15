@@ -138,10 +138,13 @@ export links are country relationships, not cargo routes or mine provenance.
 the opening illustration. There are no floating cross-section images, repeated
 material panels or pinned reading screens. Body text remains readable before its
 subtle reveal settles. A motion toggle and reduced-motion preference are supported.
-The opening map and homepage/Library cover are original SVG compositions using
-Natural Earth coastline, with the existing Longhand cover typography. Decorative
-contours carry no geological claim. No generative images load in the current report
-or its cover. The earlier material cutouts and `specimen.js` remain unused archives.
+The opening map uses Natural Earth coastline. The homepage/Library cover combines
+licensed historical photographs of mining equipment and Weda Bay coast, with
+non-generative ink/colour/grain processing and the existing Longhand typography.
+It is an editorial montage, not one location or a current operating scene. Credits,
+dates, changes and CC BY-SA 4.0 terms are accessible from the cover and the visual
+note. No generative images load in the current report or its cover. The earlier
+material cutouts, vector cover and `specimen.js` remain unused archives.
 
 The reader sees six core source groups. All 11 ferronickel destinations and
 all five destinations in each of the matte and intermediate tables are selectable.
