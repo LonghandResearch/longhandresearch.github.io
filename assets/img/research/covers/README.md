@@ -102,7 +102,7 @@ comes from the current catalogue: No. 012, 11 October 2026,
 The owner approved publication of the reviewed cover on 12 October 2026.
 
 
-## 15 October 2026: nickel editorial cover
+## 15 October 2026: archived nickel photographic cover
 
 The owner requested the vintage print treatment and depth of the existing covers,
 retaining the earlier no-generative-image instruction. `nickel-industry-art.webp`
@@ -123,3 +123,19 @@ the reusable preparation script remain in the local research folder.
 The adapted artwork and image variants are distributed under CC BY-SA 4.0.
 This asset licence does not purport to relicense the website's independent code
 or report text. A Credits link on the cover opens the report's visual note.
+
+## 15 October 2026: nickel daylight panorama
+
+The owner explicitly approved generative illustration in Coal’s print language,
+then requested a distinct composition and less artificial light. The selected
+`nickel-panorama-art.webp` uses pale overcast daylight, rust-red laterite, muted
+olive vegetation and gray industrial halls in an asymmetric coastal composition.
+Equipment is small landscape detail. The earlier two teal/gold panorama drafts
+were not published. Built-in imagegen created the artwork; only proportional
+resizing and WebP encoding followed. No lettering is baked into the asset.
+
+The final exact revision prompt, generation method, source hash and dimensions
+are recorded in `nickel-panorama-art.json`. The picture is conceptual, not a named
+facility, documentary site photograph, process diagram or evidence of any cargo
+flow. Report facts and the Natural Earth opening map are unchanged. The prior
+photographic artwork and its separate credits/licence remain archived, not loaded.

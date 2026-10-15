@@ -1,5 +1,37 @@
 # Nickel editorial cover, 15 October 2026
 
+## Current revision: daylight panorama
+
+After rejecting the truck-dominated cover below, the owner explicitly approved
+generative illustration in the Coal cover style. Two teal/gold drafts were then
+rejected as too similar and too brightly illuminated. The selected revision uses
+overcast daylight, gray halls, muted olive vegetation and red laterite, with an
+asymmetric elevated view. Small equipment is landscape detail. Built-in imagegen
+created the image; encoding and proportional resizing are the only subsequent
+image operations. The exact final revision prompt, source hash and dimensions
+are retained in `assets/img/research/covers/nickel-panorama-art.json`.
+
+The scene is conceptual, not a named operating site, measured process or proof of
+shipments. This distinction and the generation method are disclosed in the
+expandable visual note. Old photo assets and their licence/credits remain archived.
+The cover keeps the site's live title, edition, date and Longhand signature.
+Only the visual-note paragraph changes in the report. Research prose outside
+that paragraph and all report data/calculations remain identical.
+
+Codex author QA: all 143 automated tests pass, the site checker passes, changed
+JavaScript passes `node --check`, and the new JSON parses. Thirteen browser checks
+pass: desktop Homepage and Library, artwork-note navigation, Compact handling,
+both themes on Homepage and Library at 390px and 320px, and ordinary image-click
+navigation. The complete cover was inspected beside the existing editions.
+Viewport overrides were reset. No new physical-device or other-engine testing
+was performed. Publication follows the owner's continuing authorization and
+temporary takeover exception; this is not independent Claude review.
+
+## Archived revision: photographic montage, PR #102
+
+The following record describes the superseded photographic artwork and the
+instructions in force at that time. It is not the current cover's provenance.
+
 The owner rejected the flat map cover after asking Codex to examine the existing
 Coal, Power Behind AI and IHSG samples. They then asked to combine the vintage
 editorial treatment and the landscape depth/lighting. The earlier instruction
