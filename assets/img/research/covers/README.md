@@ -124,7 +124,7 @@ The adapted artwork and image variants are distributed under CC BY-SA 4.0.
 This asset licence does not purport to relicense the website's independent code
 or report text. A Credits link on the cover opens the report's visual note.
 
-## 15 October 2026: nickel daylight panorama
+## 15 October 2026: archived nickel daylight panorama
 
 The owner explicitly approved generative illustration in Coal’s print language,
 then requested a distinct composition and less artificial light. The selected
@@ -139,3 +139,19 @@ are recorded in `nickel-panorama-art.json`. The picture is conceptual, not a nam
 facility, documentary site photograph, process diagram or evidence of any cargo
 flow. Report facts and the Natural Earth opening map are unchanged. The prior
 photographic artwork and its separate credits/licence remain archived, not loaded.
+
+## 15 October 2026: approved nickel sea-view cover
+
+The owner supplied coast, material and factory photographs as visual references,
+selected the earlier teal/rust engraved texture, then requested removal of the
+hand and a viewpoint from sea toward land. They approved that preview. The new
+`nickel-seaview-art.webp` and its 320/640 variants preserve the approved artwork
+without cropping or retouching. Existing live typography uses cream on teal.
+The factory sits on shore, inland workings behind it and water in the foreground.
+No hand, person, specimen, oversized truck or brightly glowing lights appear.
+
+Built-in imagegen created the conceptual scene. It is not a named real facility,
+exact location or verified supply route, and the supplied photographs are not
+treated as report evidence. `nickel-seaview-art.json` retains the final edit prompt,
+generation method, source hash and dimensions. Previous artwork/provenance remains
+archived. The report opening, data and research argument are unchanged.

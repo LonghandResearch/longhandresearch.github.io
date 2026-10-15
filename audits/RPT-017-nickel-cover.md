@@ -1,6 +1,28 @@
 # Nickel editorial cover, 15 October 2026
 
-## Current revision: daylight panorama
+## Current revision: owner-approved sea view
+
+The owner supplied three photographic visual references and selected the earlier
+teal/rust print texture. A combined conceptual draft was revised to remove the
+hand and look from sea toward land. The owner approved that sea-view preview.
+`nickel-seaview-art.webp` places water in front, the processing works on shore
+and laterite workings behind. No hand, person, specimen or oversized machinery
+appears. The approved image is encoded/resized only, not cropped or retouched.
+The final edit prompt, method and source hash are in `nickel-seaview-art.json`.
+No named site, exact location, measured process or verified shipment is depicted.
+Reference photographs supply visual direction, not research evidence.
+
+Live Longhand typography uses cream on teal. Thirteen fresh browser checks pass:
+desktop Homepage and Library, artwork-note navigation, Compact handling, both
+themes on both pages at 390px and 320px, and ordinary cover-click navigation.
+The complete composition and title were visually inspected. Viewport overrides
+were reset. All 143 tests, the site checker, JavaScript syntax and JSON parsing
+pass. Only the artwork-record URL changes in the report visual note; research
+prose, data and calculations are identical. No new physical-device/other-engine
+test was performed. Codex author QA and publication follow the owner approval
+and continuing temporary takeover exception, not independent Claude review.
+
+## Archived revision: daylight panorama, PR #103
 
 After rejecting the truck-dominated cover below, the owner explicitly approved
 generative illustration in the Coal cover style. Two teal/gold drafts were then

@@ -84,6 +84,11 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 ## Latest publication
 
+The owner-approved sea-view nickel cover is in progress with Codex on
+`codex/nickel-research`. It removes the hand and looks from sea toward the factory
+and inland workings. Research content is unchanged. Final QA and publication use
+the continuing owner takeover authorization.
+
 Validated nickel cover panorama revision: [PR #103](https://github.com/LonghandResearch/longhandresearch.github.io/pull/103), with Codex on `codex/nickel-research`.
 The owner explicitly approved generative illustration, then requested a distinct
 composition with less artificial light. The selected overcast gray/rust panorama

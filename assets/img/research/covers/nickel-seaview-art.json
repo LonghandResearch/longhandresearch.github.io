@@ -1,0 +1,25 @@
+{
+  "asset": "nickel-seaview-art.webp",
+  "created": "2026-10-15",
+  "method": "Built-in imagegen edit of an original generated composite preview",
+  "ownerDirection": "Owner supplied coast, material and factory reference photographs, selected a teal/rust ink style, then requested no hand and a viewpoint from the sea. The sea-view preview was approved for installation.",
+  "role": "Conceptual editorial illustration. Not a named operating facility, exact location, process diagram or verified supply route. Reference photographs are visual direction, not report evidence.",
+  "sourceSha256": "e0b097715f0053305f266322ba587cc88b46c1a190a8aae44100ba938762ba77",
+  "prompt": "Edit this conceptual nickel industry cover illustration according to two precise user changes: REMOVE the entire hand, forearm, sleeve and held rock; CHANGE CAMERA POSITION to a viewpoint FROM THE SEA LOOKING TOWARD THE LAND. Keep the original portrait 2:3, deep mineral teal / navy, rusty laterite red, muted tropical green, warm cream daylight, delicate engraved ink/crosshatching, halftone and tactile aged paper grain. Completely recompose spatial perspective to make the sea-facing view unmistakable: foreground lower 35-40 percent is textured blue-green seawater with fine engraved waves, looking from an offshore slightly elevated viewpoint toward a diagonal tropical shoreline. The main industrial processing works is on that shoreline in middle distance, seen from its seaward side, practical gray/ochre corrugated halls, coherent steel frameworks, conveyor galleries and a modest stack inspired by the original factory. A short utilitarian jetty projects naturally toward the water, not a giant crane or ship hero. Behind the factory, visible rusty-red laterite benches and access roads climb into tropical wooded hills. Layered dark green ridges and a few coastal headlands establish depth inland. All industrial buildings must be on land; water in the foreground, factory on shore, mine behind on hillside. No quarry in foreground water, no island factory floating in ocean, no hand or human anywhere, no floating specimen. Preserve a quiet deep teal sky in the upper 28-30 percent for separately added cream serif title, with restrained cream clouds near horizon. Natural late afternoon, restrained highlights, no glowing factory lights, neon, sunset flare or blazing windows. This is a cohesive vintage editorial engraving with factory and coastline central, not a photomontage or diagram. No huge machinery, no giant boat, no ore piled on export ships, no lettering, numbers, logos, labels, watermark, charts, arrows, borders or title text. Conceptual scenery, not a named operating facility, exact location or verified cargo route. Full bleed 1024x1536.",
+  "postProcessing": "RGB WebP encoding and proportional resizing only. No crop, retouching or baked typography.",
+  "dimensions": {
+    "full": [
+      1024,
+      1536
+    ],
+    "medium": [
+      640,
+      960
+    ],
+    "small": [
+      320,
+      480
+    ]
+  },
+  "previousCover": "nickel-panorama-art.webp and its artwork record remain archived. Older photo montage retains its independent credits and licence."
+}
