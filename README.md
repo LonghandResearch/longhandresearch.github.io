@@ -134,11 +134,13 @@ visibility-aware playback and a map-motion toggle. `nickel-atlas.css` styles the
 holographic consoles in both publication themes. Province label anchors and locality markers are approximate;
 export links are country relationships, not cargo routes or mine provenance.
 
-`motion.js` uses native scrolling with a shallow, damped movement contained in
-the opening illustration. There are no floating cross-section images, repeated
-material panels or pinned reading screens. Body text remains readable before its
-subtle reveal settles. A motion toggle and reduced-motion preference are supported.
-The opening map uses Natural Earth coastline. The homepage/Library cover is an
+`motion.js` keeps native scrolling, a reading-progress line and subtle section
+reveals that follow the system reduced-motion preference. There is no separate
+scroll-motion switch or opening parallax. The report starts with its title,
+summary and three evidence readings, then goes directly into the thesis. Only
+the two analytical maps remain: domestic reserves/localities and export customers.
+The decorative opening map and repeated question/preamble cards were removed.
+The homepage/Library cover is an
 original conceptual illustration generated with imagegen after the owner approved
 that direction on 15 October. The owner-approved view looks
 from sea toward a coastal processing works and inland laterite benches, using
