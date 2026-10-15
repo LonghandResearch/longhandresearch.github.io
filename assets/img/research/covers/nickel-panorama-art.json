@@ -1,0 +1,25 @@
+{
+  "asset": "nickel-panorama-art.webp",
+  "created": "2026-10-15",
+  "method": "Built-in imagegen, revision of an earlier original generated draft",
+  "ownerDirection": "Generative illustration approved, Coal print language; then distinct composition and reduced artificial light requested.",
+  "role": "Conceptual editorial cover. Not a named facility, measured process, documentary photograph or cargo-provenance exhibit.",
+  "sourceSha256": "163f10138e718d29361f07c66a091649464c77cd22616dc13c73b6aa3c65a0a6",
+  "prompt": "Create a substantially re-art-directed version of this portrait nickel report illustration. User rejects the very bright glowing lights and similarity to a generic Coal cover. Keep only the fine editorial ink/crosshatch print medium and portrait 2:3 ratio. CHANGE the composition and color story completely. OVERCAST DAYLIGHT, no sunset, no blue hour, no glowing lights anywhere, no orange/gold illumination in windows or factory, no night mood, no dark teal sky. Restrained warm limestone-gray sky, desaturated steel gray buildings, charcoal-black fine linework, burnt-sienna/burgundy laterite earth and muted olive tropical vegetation, slate-blue water. Think sober sophisticated economic editorial print, tactile paper, not nostalgic travel poster. New higher oblique bird's-eye view from a coastal promontory: a bold rust-red laterite quarry/cutting fills lower-left with small winding road and tiny equipment, while long quiet low-roofed steel processing halls and sparse coherent conveyors run in a strong diagonal from lower-right toward upper-middle. A narrow industrial waterfront with a single small moored bulk ship is visible on right mid-distance. Soft wooded headland behind, pale cloudy humid distance, asymmetric crop and strong negative space. Buildings have practical corrugated gray roofs, restrained architecture with only a few stacks; not a fantasy spaghetti chemical plant. Details should be sharply engraved but natural in scale, equipment tiny, not main subject. Upper 33 percent quiet pale warm-gray cloud/sky field intended for DARK live serif text, with delicate imperfect paper texture. Subtle variations in gray daylight, no theatrical golden rays. No text, letters, numbers, symbols, arrows, labels, logo, charts, people, watermark, gigantic truck, ingot or specimen. Conceptual editorial scene, not a named documentary site or evidence of specific shipments. Do not put ore piles onto ship. Do not reuse the old curved quarry-road centered factory sunset composition. Output a NEW distinctive calm gray/rust editorial composition.",
+  "postProcessing": "RGB WebP encoding and proportional resizing only; no crop or retouching. Title and publication details are live website typography.",
+  "dimensions": {
+    "full": [
+      1024,
+      1536
+    ],
+    "medium": [
+      640,
+      960
+    ],
+    "small": [
+      320,
+      480
+    ]
+  },
+  "previousCover": "nickel-industry-art.webp remains archived with its separate photo credits and CC BY-SA 4.0 terms."
+}

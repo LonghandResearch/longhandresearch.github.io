@@ -4,7 +4,7 @@
   'use strict';
   const base = new URL('../../assets/img/research/', document.currentScript.src);
   const records = {
-    'more-nickel-2026-10-15': ['covers/nickel-industry-art.webp', 'Editorial photo montage from credited historical nickel-related photographs', 'illustration'],
+    'more-nickel-2026-10-15': ['covers/nickel-panorama-art.webp', 'Conceptual editorial illustration of laterite benches, processing halls and a coastal port', 'illustration'],
     'coal-in-transition-2026-10-08': ['coal-trade-map.png', 'Export atlas · conceptual links, not vessel routes', 'exhibit'],
     'the-power-behind-ai-update-2026-10-09': ['ai-october-price.png', 'DCII price index · October checkpoint', 'exhibit'],
     'indonesia-ai-power-water-2026-10-05': ['ai-resource-flow.png', 'Power & water · schematic, not measured volumes', 'exhibit'],
@@ -18,7 +18,7 @@
     'adro-2026-09-03': ['adro-2026-09-03.png', 'Original report · opening page', 'document']
   };
   const covers = {
-    'more-nickel-2026-10-15': ['nickel-industry', '#ead7ae', 11.2, 'More Nickel.|Who Makes|the Money?', 'Historical nickel mining equipment and Weda Bay coast, combined as a print-style editorial montage'],
+    'more-nickel-2026-10-15': ['nickel-panorama', '#142b2b', 11.2, 'More Nickel.|Who Makes|the Money?', 'Laterite benches, processing halls and a coastal port in muted daylight, conceptually illustrated'],
     'ihsg-weekly-2026-10-09': ['ihsg-recovery', '#ead7ae', 10.1, 'Prices Recovered.|Foreign Selling|Persisted.', 'A Jakarta skyline, elevated roads and terrace greenery at golden hour, conceptually illustrated'],
     'adro-2026-09-03': ['smelter', '#ead7ae', 11.2, 'The Smelter|Is the Whole|Thesis', 'A tropical aluminium smelter and industrial infrastructure'],
     'macro-2026-09-24': ['rates', '#14262b', 12.2, 'Dovish or|Hawkish?', 'Conceptual central-bank architecture illustrated in vintage ink'],
@@ -56,7 +56,7 @@
       const title = entry[3].replaceAll('|', ' ') === report.title ? entry[3].split('|').map(esc).join('<br>') : esc(report.title);
       const art = this.forReport(report);
       const variants = [320, 640].map((width) => `${esc(new URL(`covers/${entry[0]}-art-${width}.webp`, base).href)} ${width}w`).join(', ');
-      const credit = entry[0] === 'nickel-industry' ? '<a class="cover-credit" href="more-nickel.html#visual-note" aria-label="Nickel cover photograph credits and licence">Credits ↗</a>' : '';
+      const credit = entry[0] === 'nickel-panorama' ? '<a class="cover-credit" href="more-nickel.html#visual-note" aria-label="About the nickel cover artwork">Artwork note ↗</a>' : '';
       return `<figure class="research-cover${credit ? ' cover-has-credit' : ''}${entry[1] === '#ead7ae' ? ' cover-tone-navy' : entry[1].startsWith('#14') ? ' cover-tone-paper' : ''}" data-report-cover="${esc(report.id)}" style="--cover-ink:${entry[1]};--cover-title-size:${entry[2]}cqw">
         <img src="${esc(art.src)}" ${variants ? `srcset="${variants}, ${esc(art.src)} 1024w" sizes="${sizes}"` : ''} alt="${esc(art.caption)}" width="1024" height="1536" loading="lazy" decoding="async">
         <figcaption class="cover-type" aria-hidden="true"><div class="cover-edition"><span>${esc(LH.catalogueNo(report))}<b>${esc(report.ticker || report.category)}</b><time datetime="${esc(report.date)}">${esc(dateShort(report.date))}</time></span><span class="cover-subject">${esc(report.category)} · ${esc(report.company)}</span></div><strong class="cover-headline">${title}</strong><span class="cover-signature">Longhand <small>Research</small></span></figcaption>${credit}

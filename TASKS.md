@@ -84,6 +84,12 @@ write the report, and the weekly IHSG Update alternates owner each week.
 
 ## Latest publication
 
+Nickel cover panorama revision is in progress with Codex on `codex/nickel-research`.
+The owner explicitly approved a generative illustration in the Coal cover style
+on 15 October, replacing the truck-dominated photograph montage. Report data and
+research claims remain unchanged. Codex author QA and publication follow the
+continuing temporary takeover authorization.
+
 | ID | Task | Owner | Branch | Status | Publication |
 | --- | --- | --- | --- | --- | --- |
 | RPT-017 | Publish Indonesia nickel industry research with a balanced reading layout, reserves and trade atlas, and continuous motion | Codex | `codex/nickel-research` | Done (research in PRs #99 to #101, editorial cover in PR #102) | [PR #99](https://github.com/LonghandResearch/longhandresearch.github.io/pull/99), [PR #100](https://github.com/LonghandResearch/longhandresearch.github.io/pull/100), [PR #101](https://github.com/LonghandResearch/longhandresearch.github.io/pull/101), [PR #102](https://github.com/LonghandResearch/longhandresearch.github.io/pull/102). Owner authorized publication after rechecking data, narrative and export destinations on 15 October. Nine chapters, six visible source groups retaining 24 records, eight reserve provinces and six approximate industrial localities. 215 numerical comparisons to publisher originals, all 143 tests and the site checker pass. Follow-up verifies all 21 partner rows in three WITS products, adds Ministry of Finance/BPS domestic evidence, and passes 72 browser checks. A Natural Earth map supplies the report opening. The revised cover combines credited historical photographs with non-generative ink/print treatment and Longhand typography. Its eleven browser checks, credits and CC BY-SA 4.0 adaptation terms are documented in `audits/RPT-017-nickel-cover.md`. Wider process rows and contained native motion remain. Country destinations remain trade context, with product/date/unit limits and open gaps explicit. Codex author QA under the continuing temporary takeover authorization; see `audits/RPT-017-nickel-preview.md` and `audits/RPT-017-nickel-recheck.json`, plus `audits/RPT-017-nickel-refinement.json`. |
