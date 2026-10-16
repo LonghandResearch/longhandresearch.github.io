@@ -1,12 +1,138 @@
 {
- "updated": "2026-10-16T17:28:18.226Z",
+ "updated": "2026-10-16T21:15:51.735Z",
  "items": [
   {
-   "title": "Oil prices gain more than 3%, heading for weekly gain with focus on Middle East supply",
+   "title": "Ukraine’s Zelenskiy blasts US-Russian diesel deal, welcomes bigger European role in peace process",
+   "url": "https://www.investing.com/news/commodities-news/ukraines-zelenskiy-blasts-usrussian-diesel-deal-welcomes-bigger-european-role-in-peace-process-4954777",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T20:00:20.000Z"
+  },
+  {
+   "title": "Oil set for weekly surge on Mideast supply fears, Russian diesel deal uncertainty",
+   "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-on-improving-supplies-wti-set-for-strong-week-4952863",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:50:40.000Z"
+  },
+  {
+   "title": "Oil touches $110 a barrel for first time since May on Middle East, Russia supply fears",
    "url": "https://www.investing.com/news/commodities-news/oil-edges-down-as-investors-weigh-possible-us-sanctions-on-shadow-fleet-4952926",
    "source": "Investing.com",
    "topic": "Commodities",
-   "time": "2026-10-16T17:06:16.000Z"
+   "time": "2026-10-16T19:36:37.000Z"
+  },
+  {
+   "title": "Crude Oil WTI overbought at $101.49 with RSI 78: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-stuck-in-tight-range-near-91-live-levels-93CH-4943297",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:18:20.000Z"
+  },
+  {
+   "title": "London Gas Oil consolidates at $1,457 in tight range: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/london-gas-oil-tests-200sma-support-after-double-top-live-93CH-4943301",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:18:19.000Z"
+  },
+  {
+   "title": "Natural Gas breaks below cloud at $3.115: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/natural-gas-coils-in-bull-flag-at-3172-live-levels-93CH-4943302",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:18:15.000Z"
+  },
+  {
+   "title": "Silver pinched below resistance at $57.19: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/silver-tests-61706220-resistance-in-macro-downtrend-live-levels-93CH-4943300",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:18:08.000Z"
+  },
+  {
+   "title": "Brent Oil tests $110.00 resistance with RSI near overbought: Live",
+   "url": "https://www.investing.com/news/commodities-news/brent-oil-stuck-in-1025010600-range-live-levels-93CH-4943298",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:18:04.000Z"
+  },
+  {
+   "title": "Copper breaks below Ichimoku cloud at $6.5623: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/copper-pinned-at-673-fib-level-amid-breakout-risk-live-levels-93CH-4943296",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:17:59.000Z"
+  },
+  {
+   "title": "Gold consolidates $4,100-$4,250, fakeout risk high: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/gold-rejects-at-4245-resistance-on-5h-chart-live-levels-93CH-4943295",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:17:56.000Z"
+  },
+  {
+   "title": "Here’s what happened in crypto today",
+   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-16T19:17:04.000Z"
+  },
+  {
+   "title": "Norway's Untapped Oil and Gas Frontier Is Drawing Renewed Interest",
+   "url": "https://oilprice.com/Energy/Crude-Oil/Norways-Untapped-Oil-and-Gas-Frontier-Is-Drawing-Renewed-Interest.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T19:00:00.000Z"
+  },
+  {
+   "title": "U.S. Offers Another 17 Million SPR Barrels as Fuel Crisis Deepens",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Offers-Another-17-Million-SPR-Barrels-as-Fuel-Crisis-Deepens.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T18:30:00.000Z"
+  },
+  {
+   "title": "Analysis: Why a $2 trillion deficit and 5% Treasury yields are becoming America's biggest economic challenge",
+   "url": "https://www.cnbc.com/2026/10/15/treasury-yields-deficit-national-debt-ai.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-10-16T18:04:20.000Z"
+  },
+  {
+   "title": "U.S. budget deficit swells to almost $2 trillion for fiscal 2026, up 12% in a single year",
+   "url": "https://www.cnbc.com/2026/10/16/us-budget-deficit-2026.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-10-16T18:00:15.000Z"
+  },
+  {
+   "title": "Wind Farm Approved in Victoria, Australia Would Be Largest in Southern Hemispher",
+   "url": "https://oilprice.com/Alternative-Energy/Wind-Power/Wind-Farm-Approved-in-Victoria-Australia-Would-Be-Largest-in-Southern-Hemispher.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T18:00:00.000Z"
+  },
+  {
+   "title": "Crypto PACs escalate spending against Sherrod Brown in Ohio Senate race",
+   "url": "https://cointelegraph.com/news/crypto-pac-fairshake-spending-ohio-senate-race-sherrod-brown?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-16T17:30:09.000Z"
+  },
+  {
+   "title": "U.S. Oil Drillers Back Off Even As Prices Soar",
+   "url": "https://oilprice.com/Energy/Energy-General/US-Oil-Drillers-Back-Off-Even-As-Prices-Soar.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T17:29:00.000Z"
+  },
+  {
+   "title": "Stablecoin remittances cost 84% less than traditional transfers, report finds",
+   "url": "https://cointelegraph.com/news/stablecoin-remittances-cost-savings-traditional-transfers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-16T17:21:45.000Z"
   },
   {
    "title": "U.S. presses China on Mastercard, Citigroup market access in bilateral Bangkok talks, official says",
@@ -164,14 +290,6 @@
    "time": "2026-10-16T14:11:03.000Z"
   },
   {
-   "title": "Wanti-wanti Ekonom soal MSCI Buka Peluang Downgrade Bursa Saham RI",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8710772/wanti-wanti-ekonom-soal-msci-buka-peluang-downgrade-bursa-saham-ri",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-16T14:00:00.000Z"
-  },
-  {
    "title": "Ukraine Defies Trump With Renewed Attacks on Russian Oil Infrastructure",
    "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Defies-Trump-With-Renewed-Attacks-on-Russian-Oil-Infrastructure.html",
    "source": "OilPrice",
@@ -179,11 +297,12 @@
    "time": "2026-10-16T14:00:00.000Z"
   },
   {
-   "title": "Here’s what happened in crypto today",
-   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-16T13:56:15.000Z"
+   "title": "Wanti-wanti Ekonom soal MSCI Buka Peluang Downgrade Bursa Saham RI",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8710772/wanti-wanti-ekonom-soal-msci-buka-peluang-downgrade-bursa-saham-ri",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T14:00:00.000Z"
   },
   {
    "title": "Ledger’s early implant warnings deserved more action, Karpelès says",
@@ -198,13 +317,6 @@
    "source": "Investing.com",
    "topic": "Commodities",
    "time": "2026-10-16T13:46:08.000Z"
-  },
-  {
-   "title": "Oil prices on track for weekly gain amid Middle East supply worries",
-   "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-on-improving-supplies-wti-set-for-strong-week-4952863",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-16T13:44:13.000Z"
   },
   {
    "title": "Estrella Resources secures approval for first Laleno Dome drilling",
@@ -479,7 +591,7 @@
    "time": "2026-10-16T09:52:43.000Z"
   },
   {
-   "title": "Live updates: Crypto gives up some ground as AI selloff picks up steam",
+   "title": "Live updates: Bitcoin dips to $81,000 as stocks slide, VIX soars ahead of Black Monday anniversary",
    "url": "https://www.coindesk.com/markets/2026/10/16/live-updates-bitcoin-back-above-usd82-000-zec-jumps-11-as-etf-outflows-continue",
    "source": "CoinDesk",
    "topic": "Crypto",
@@ -1298,41 +1410,6 @@
    "time": "2026-10-15T19:30:00.000Z"
   },
   {
-   "title": "Natural Gas flirts with double top at $3.237: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/natural-gas-coils-in-bull-flag-at-3172-live-levels-93CH-4943302",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-15T19:19:31.000Z"
-  },
-  {
-   "title": "London Gas Oil holds 200-MA in tight range: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/london-gas-oil-tests-200sma-support-after-double-top-live-93CH-4943301",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-15T19:19:03.000Z"
-  },
-  {
-   "title": "Crude Oil WTI overbought at $97.86 resistance: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-stuck-in-tight-range-near-91-live-levels-93CH-4943297",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-15T19:18:58.000Z"
-  },
-  {
-   "title": "Silver bears hold firm at $57.39 near key resistance: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/silver-tests-61706220-resistance-in-macro-downtrend-live-levels-93CH-4943300",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-15T19:18:52.000Z"
-  },
-  {
-   "title": "Copper tests $6.53-6.55 support with bearish momentum: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/copper-pinned-at-673-fib-level-amid-breakout-risk-live-levels-93CH-4943296",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-15T19:18:50.000Z"
-  },
-  {
    "title": "U.S. Targets Central Asia's Energy and Critical Minerals in Major Trade Push",
    "url": "https://oilprice.com/Geopolitics/Asia/US-Targets-Central-Asias-Energy-and-Critical-Minerals-in-Major-Trade-Push.html",
    "source": "OilPrice",
@@ -1645,13 +1722,6 @@
    "time": "2026-10-15T12:12:57.000Z"
   },
   {
-   "title": "Analysis: Why a $2 trillion deficit and 5% Treasury yields are becoming America's biggest economic challenge",
-   "url": "https://www.cnbc.com/2026/10/15/treasury-yields-deficit-national-debt-ai.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-10-15T12:11:15.000Z"
-  },
-  {
    "title": "Under pressure, Ledger unveils plan to turn its crypto hardware wallet into a smartphone",
    "url": "https://www.coindesk.com/tech/2026/10/15/under-pressure-ledger-unveils-plan-to-turn-its-crypto-hardware-wallet-into-a-smartphone",
    "source": "CoinDesk",
@@ -1714,79 +1784,6 @@
    "source": "Cointelegraph",
    "topic": "Crypto",
    "time": "2026-10-15T10:22:00.000Z"
-  },
-  {
-   "title": "Live updates: Bitcoin bounces back to $82,000 after first fall below $80,000 in one month",
-   "url": "https://www.coindesk.com/business/2026/10/15/live-updates-bitcoin-back-under-usd81-000-as-ai-selloff-worsens",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-15T10:16:15.000Z"
-  },
-  {
-   "title": "Yukon Metals identifies copper-gold system at Viper prospect",
-   "url": "https://www.mining-technology.com/news/yukon-copper-gold-system-viper/",
-   "source": "Mining Technology",
-   "topic": "Commodities",
-   "time": "2026-10-15T10:15:14.000Z"
-  },
-  {
-   "title": "Analysis-Oil shipping costs spike, lifting prices from pump to grocery",
-   "url": "https://www.investing.com/news/commodities-news/analysisoil-shipping-costs-spike-lifting-prices-from-pump-to-grocery-4951042",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-15T10:13:11.000Z"
-  },
-  {
-   "title": "Industri Kripto Global Bahas Stablecoin hingga Peran Investor Institusi",
-   "url": "https://ekonomi.republika.co.id/berita/tmy1mr416/industri-kripto-global-bahas-stablecoin-hingga-peran-investor-institusi",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-15T10:11:15.000Z"
-  },
-  {
-   "title": "Seharian di Zona Merah, IHSG Ditutup di Level 5.863",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8708712/seharian-di-zona-merah-ihsg-ditutup-di-level-5-863",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-15T10:09:50.000Z"
-  },
-  {
-   "title": "Hyperliquid founder wants U.S. oversight of trading platforms, not his blockchain",
-   "url": "https://www.coindesk.com/policy/2026/10/15/hyperliquid-founder-wants-u-s-oversight-of-trading-platforms-not-his-blockchain",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-15T10:00:56.000Z"
-  },
-  {
-   "title": "Bitget, Liquid exploits push Q3 crypto hacks toward $1.2B",
-   "url": "https://cointelegraph.com/news/bitget-liquid-exploits-push-crypto-hacks-near-12b-q3?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-15T10:00:00.000Z"
-  },
-  {
-   "title": "Wamenkeu Tegaskan Kripto Bukan Mata Uang, Tetap Kena Pajak",
-   "url": "https://finance.detik.com/fintech/d-8708701/wamenkeu-tegaskan-kripto-bukan-mata-uang-tetap-kena-pajak",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-15T09:57:39.000Z"
-  },
-  {
-   "title": "In charts: How one of the world's biggest economies got trapped by debt",
-   "url": "https://www.cnbc.com/2026/10/13/france-2027-budget-debt.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-10-15T09:54:54.000Z"
-  },
-  {
-   "title": "Australia’s financial watchdog seeks stiffer rules for crypto exchanges ahead of licensing deadline",
-   "url": "https://www.coindesk.com/policy/2026/10/15/australia-s-financial-watchdog-seeks-stiffer-rules-for-crypto-exchanges-ahead-of-licensing-deadline",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-15T09:53:37.000Z"
   }
  ]
 }
