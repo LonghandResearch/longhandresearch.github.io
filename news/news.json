@@ -1,6 +1,42 @@
 {
- "updated": "2026-10-16T21:15:51.735Z",
+ "updated": "2026-10-16T23:41:04.734Z",
  "items": [
+  {
+   "title": "Pengumuman MSCI Bikin IHSG & Rupiah Jatuh",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8710413/pengumuman-msci-bikin-ihsg-rupiah-jatuh",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T23:00:26.000Z"
+  },
+  {
+   "title": "U.S. budget deficit swells to almost $2 trillion for fiscal 2026, up 12% in a single year",
+   "url": "https://www.cnbc.com/2026/10/16/us-budget-deficit-2026.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-10-16T22:34:29.000Z"
+  },
+  {
+   "title": "Analysis: Why a $2 trillion deficit and 5% Treasury yields are becoming America's biggest economic challenge",
+   "url": "https://www.cnbc.com/2026/10/15/treasury-yields-deficit-national-debt-ai.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-10-16T22:33:05.000Z"
+  },
+  {
+   "title": "Global Energy Import Dependence Set to Peak by 2034, Rystad Says",
+   "url": "https://oilprice.com/Energy/Energy-General/Global-Energy-Import-Dependence-Set-to-Peak-by-2034-Rystad-Says.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T22:00:00.000Z"
+  },
+  {
+   "title": "Gold prices slip for the week as oil gains offset weaker dollar, U.S. bond rally",
+   "url": "https://www.investing.com/news/commodities-news/gold-steadies-near-4160-as-stock-selloff-drives-bond-rally-treasury-yields-fall-4952940",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T21:15:59.000Z"
+  },
   {
    "title": "Ukraine’s Zelenskiy blasts US-Russian diesel deal, welcomes bigger European role in peace process",
    "url": "https://www.investing.com/news/commodities-news/ukraines-zelenskiy-blasts-usrussian-diesel-deal-welcomes-bigger-european-role-in-peace-process-4954777",
@@ -91,20 +127,6 @@
    "source": "OilPrice",
    "topic": "Commodities",
    "time": "2026-10-16T18:30:00.000Z"
-  },
-  {
-   "title": "Analysis: Why a $2 trillion deficit and 5% Treasury yields are becoming America's biggest economic challenge",
-   "url": "https://www.cnbc.com/2026/10/15/treasury-yields-deficit-national-debt-ai.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-10-16T18:04:20.000Z"
-  },
-  {
-   "title": "U.S. budget deficit swells to almost $2 trillion for fiscal 2026, up 12% in a single year",
-   "url": "https://www.cnbc.com/2026/10/16/us-budget-deficit-2026.html",
-   "source": "CNBC",
-   "topic": "Macro",
-   "time": "2026-10-16T18:00:15.000Z"
   },
   {
    "title": "Wind Farm Approved in Victoria, Australia Would Be Largest in Southern Hemispher",
@@ -290,13 +312,6 @@
    "time": "2026-10-16T14:11:03.000Z"
   },
   {
-   "title": "Ukraine Defies Trump With Renewed Attacks on Russian Oil Infrastructure",
-   "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Defies-Trump-With-Renewed-Attacks-on-Russian-Oil-Infrastructure.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-16T14:00:00.000Z"
-  },
-  {
    "title": "Wanti-wanti Ekonom soal MSCI Buka Peluang Downgrade Bursa Saham RI",
    "url": "https://finance.detik.com/bursa-dan-valas/d-8710772/wanti-wanti-ekonom-soal-msci-buka-peluang-downgrade-bursa-saham-ri",
    "source": "detikFinance",
@@ -305,18 +320,18 @@
    "time": "2026-10-16T14:00:00.000Z"
   },
   {
+   "title": "Ukraine Defies Trump With Renewed Attacks on Russian Oil Infrastructure",
+   "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Defies-Trump-With-Renewed-Attacks-on-Russian-Oil-Infrastructure.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T14:00:00.000Z"
+  },
+  {
    "title": "Ledger’s early implant warnings deserved more action, Karpelès says",
    "url": "https://cointelegraph.com/news/ledger-early-implant-warnings-mark-karpeles?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
    "topic": "Crypto",
    "time": "2026-10-16T13:51:35.000Z"
-  },
-  {
-   "title": "Gold inches higher as dollar softens, investors eye Fed rate outlook",
-   "url": "https://www.investing.com/news/commodities-news/gold-steadies-near-4160-as-stock-selloff-drives-bond-rally-treasury-yields-fall-4952940",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-16T13:46:08.000Z"
   },
   {
    "title": "Estrella Resources secures approval for first Laleno Dome drilling",
@@ -1770,20 +1785,6 @@
    "source": "Cointelegraph",
    "topic": "Crypto",
    "time": "2026-10-15T10:41:09.000Z"
-  },
-  {
-   "title": "TotalEnergies Eyes Massive Profit Windfall as Refining Margins Soar",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-Eyes-Massive-Profit-Windfall-as-Refining-Margins-Soar.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-15T10:30:00.000Z"
-  },
-  {
-   "title": "Starknet opens vote on potential Ethereum L2 exit over quantum risks",
-   "url": "https://cointelegraph.com/news/starknet-vote-ethereum-l2-exit-post-quantum-l1?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-15T10:22:00.000Z"
   }
  ]
 }
