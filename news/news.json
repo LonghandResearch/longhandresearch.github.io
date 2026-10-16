@@ -1,12 +1,311 @@
 {
- "updated": "2026-10-16T01:25:18.972Z",
+ "updated": "2026-10-16T07:15:19.602Z",
  "items": [
   {
-   "title": "Oil edges down as investors weigh possible US sanctions on ’shadow fleet’",
+   "title": "Tharisa signs PGM offtake deal with Valterra Platinum subsidiary",
+   "url": "https://www.mining-technology.com/news/tharisa-pgm-offtake-valterra-platinum/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-10-16T07:10:21.000Z"
+  },
+  {
+   "title": "Global Fuel Oil Shortage Deepens as Middle East and Russia Supplies Collapse",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Global-Fuel-Oil-Shortage-Deepens-as-Middle-East-and-Russia-Supplies-Collapse.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T07:00:00.000Z"
+  },
+  {
+   "title": "BEI Imbau Investor Saham Tetap Rasional dan Cermati Fundamental",
+   "url": "https://ekonomi.republika.co.id/berita/tmzndf370/bei-imbau-investor-saham-tetap-rasional-dan-cermati-fundamental",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T06:58:27.000Z"
+  },
+  {
+   "title": "BEI minta investor tetap rasional dan lihat fundamental bursa RI",
+   "url": "https://www.antaranews.com/berita/5790901/bei-minta-investor-tetap-rasional-dan-lihat-fundamental-bursa-ri",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T06:51:19.000Z"
+  },
+  {
+   "title": "Oil eases, but set for weekly gain on Mideast supply risks",
    "url": "https://www.investing.com/news/commodities-news/oil-edges-down-as-investors-weigh-possible-us-sanctions-on-shadow-fleet-4952926",
    "source": "Investing.com",
    "topic": "Commodities",
-   "time": "2026-10-16T01:12:55.000Z"
+   "time": "2026-10-16T06:49:27.000Z"
+  },
+  {
+   "title": "Menko Airlangga Buka Suara soal MSCI Ancam Turunkan Status Pasar Saham RI ke Standalone Market",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248284/menko-airlangga-buka-suara-soal-msci-ancam-turunkan-status-pasar-saham-ri-ke-standalone-market",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T06:46:39.000Z"
+  },
+  {
+   "title": "BEI: Standalone Market Bukan Klasifikasi Pasar Modal Terendah",
+   "url": "https://ekonomi.republika.co.id/berita/tmzlii370/bei-standalone-market-bukan-klasifikasi-pasar-modal-terendah",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T06:26:17.000Z"
+  },
+  {
+   "title": "Here’s what happened in crypto today",
+   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-16T06:21:30.000Z"
+  },
+  {
+   "title": "BEI: Standalone Market bukan klasifikasi terendah, tapi diawasi khusus",
+   "url": "https://www.antaranews.com/berita/5790821/bei-standalone-market-bukan-klasifikasi-terendah-tapi-diawasi-khusus",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T06:18:35.000Z"
+  },
+  {
+   "title": "MSCI Ancam Turunkan Status Pasar Saham RI ke Standalone Market, Ini Dampaknya",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248279/msci-ancam-turunkan-status-pasar-saham-ri-ke-standalone-market-ini-dampaknya",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T06:13:02.000Z"
+  },
+  {
+   "title": "OpenAI model helped itself to testnet crypto, then kept quiet about it",
+   "url": "https://cointelegraph.com/news/openai-model-spent-testnet-eth-without-authorization?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-16T06:11:22.000Z"
+  },
+  {
+   "title": "Exclusive-US holds more secret talks with Myanmar’s military-backed rulers in Tokyo, sources say",
+   "url": "https://www.investing.com/news/commodities-news/exclusiveus-holds-more-secret-talks-with-myanmars-militarybacked-rulers-in-tokyo-sources-say-4953078",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T06:06:21.000Z"
+  },
+  {
+   "title": "IHSG Sesi I Anjlok 10,7 Persen ke 5.233 Usai Pengumuman MSCI",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248276/ihsg-sesi-i-anjlok-10-7-persen-ke-5-233-usai-pengumuman-msci",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T06:00:31.000Z"
+  },
+  {
+   "title": "XRP has failed to make holders rich like bitcoin and ether. Here’s why",
+   "url": "https://www.coindesk.com/markets/2026/10/16/xrp-has-failed-to-make-holders-rich-like-bitcoin-and-ether-here-s-why",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-16T05:53:58.000Z"
+  },
+  {
+   "title": "OJK Beri Fleksibilitas Pemenuhan Free Float Perbankan",
+   "url": "https://ekonomi.republika.co.id/berita/tmzjoc370/ojk-beri-fleksibilitas-pemenuhan-free-float-perbankan",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T05:38:36.000Z"
+  },
+  {
+   "title": "Waspada Arus Modal Asing Kabur dari Indonesia",
+   "url": "https://economy.okezone.com/read/2026/10/16/320/3248248/waspada-arus-modal-asing-kabur-dari-indonesia",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T05:35:45.000Z"
+  },
+  {
+   "title": "Oil Prices Head for Weekly Gain as Hormuz Attacks Rattle Markets",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Head-for-Weekly-Gain-as-Hormuz-Attacks-Rattle-Markets.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T05:30:00.000Z"
+  },
+  {
+   "title": "IHSG anjlok pada pembukaan sesi I Jumat ini, perdagangan dihentikan sementara",
+   "url": "https://www.antaranews.com/foto/5790705/ihsg-anjlok-pada-pembukaan-sesi-i-jumat-ini-perdagangan-dihentikan-sementara",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T05:24:38.000Z"
+  },
+  {
+   "title": "Balaji’s ‘Singapore of social media’ begins with a wave of bans",
+   "url": "https://cointelegraph.com/news/balajis-singapore-of-social-media-begins-with-a-wave-of-bans?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-16T05:16:11.000Z"
+  },
+  {
+   "title": "Gold steadies as bond rally supports bullion, weaker dollar offers further support",
+   "url": "https://www.investing.com/news/commodities-news/gold-steadies-near-4160-as-stock-selloff-drives-bond-rally-treasury-yields-fall-4952940",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T05:07:05.000Z"
+  },
+  {
+   "title": "MSCI Kaji Status Pasar Modal Indonesia, OJK Respons Positif",
+   "url": "https://ekonomi.republika.co.id/berita/tmzhkw370/msci-kaji-status-pasar-modal-indonesia-ojk-respons-positif",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T04:53:20.000Z"
+  },
+  {
+   "title": "An OpenAI agent ran out of Ethereum funds, and took from a wallet it did not own",
+   "url": "https://www.coindesk.com/tech/2026/10/16/an-openai-agent-ran-out-of-ethereum-funds-and-took-from-a-wallet-it-did-not-own",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-16T04:29:19.000Z"
+  },
+  {
+   "title": "Ancaman Outflow Bayangi IHSG Buntut Usulan Standalone Market",
+   "url": "https://ekonomi.republika.co.id/berita/tmzg94370/ancaman-outflow-bayangi-ihsg-buntut-usulan-standalone-market",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T04:24:40.000Z"
+  },
+  {
+   "title": "Bitcoin buyers snap up a brief drop below $80,000 as Asian stocks rebound",
+   "url": "https://www.coindesk.com/markets/2026/10/16/bitcoin-buyers-snap-up-a-brief-drop-below-usd80-000-as-asian-stocks-rebound",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-16T04:14:22.000Z"
+  },
+  {
+   "title": "LKPP Buka Peluang UMKM Penuhi Kebutuhan Pengadaan Pemerintah Senilai Rp 929,4 Triliun",
+   "url": "https://ekonomi.republika.co.id/berita/tmz4c5522/lkpp-buka-peluang-umkm-penuhi-kebutuhan-pengadaan-pemerintah-senilai-rp-9294-triliun",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T04:05:00.000Z"
+  },
+  {
+   "title": "Mideast war alters global bunker buying patterns, industry execs say",
+   "url": "https://www.investing.com/news/commodities-news/mideast-war-alters-global-bunker-buying-patterns-industry-execs-say-4953018",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-16T03:24:17.000Z"
+  },
+  {
+   "title": "WTI Outpaces Brent as U.S. Crude Draw Ignites Fresh Buying",
+   "url": "https://oilprice.com/Energy/Energy-General/WTI-Outpaces-Brent-as-US-Crude-Draw-Ignites-Fresh-Buying.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-16T03:10:00.000Z"
+  },
+  {
+   "title": "Penyebab IHSG Anjlok hingga 11 Persen Berujung Trading Halt",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248240/penyebab-ihsg-anjlok-hingga-11-persen-berujung-trading-halt",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T03:08:47.000Z"
+  },
+  {
+   "title": "IHSG Kembali Anjlok 11,1 Persen ke 5.211",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248236/ihsg-kembali-anjlok-11-1-persen-ke-5-211",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:54:59.000Z"
+  },
+  {
+   "title": "Perdagangan Dibuka Kembali, IHSG Lanjutkan Tren Pelemahan",
+   "url": "https://ekonomi.republika.co.id/berita/tmzc2x370/perdagangan-dibuka-kembali-ihsg-lanjutkan-tren-pelemahan",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T02:54:33.000Z"
+  },
+  {
+   "title": "Ancaman MSCI, Saham BBCA Hingga BYAN Alami Auto Reject Bawah",
+   "url": "https://ekonomi.republika.co.id/berita/tmzbt6484/ancaman-msci-saham-bbca-hingga-byan-alami-auto-reject-bawah",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
+   "time": "2026-10-16T02:48:42.000Z"
+  },
+  {
+   "title": "MSCI Ancam Turunkan Status Pasar Modal Indonesia ke Standalone Market, OJK Buka Suara",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248232/msci-ancam-turunkan-status-pasar-modal-indonesia-ke-standalone-market-ojk-buka-suara",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:44:06.000Z"
+  },
+  {
+   "title": "OJK hormati pandangan MSCI dan tindak lanjuti masukan atas bursa RI",
+   "url": "https://www.antaranews.com/berita/5790533/ojk-hormati-pandangan-msci-dan-tindak-lanjuti-masukan-atas-bursa-ri",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:42:10.000Z"
+  },
+  {
+   "title": "IHSG Anjlok 8 Persen, BEI Hentikan Sementara Perdagangan Saham",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248230/ihsg-anjlok-8-persen-bei-hentikan-sementara-perdagangan-saham",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:36:19.000Z"
+  },
+  {
+   "title": "Rupiah Anjlok ke Level Rp18.070 per Dolar AS!",
+   "url": "https://economy.okezone.com/read/2026/10/16/278/3248229/rupiah-anjlok-ke-level-rp18-070-per-dolar-as",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:26:42.000Z"
+  },
+  {
+   "title": "IHSG \"trading halt\" dipicu MSCI buka peluang ubah klasifikasi bursa RI",
+   "url": "https://www.antaranews.com/berita/5790489/ihsg-trading-halt-dipicu-msci-buka-peluang-ubah-klasifikasi-bursa-ri",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:22:05.000Z"
+  },
+  {
+   "title": "IHSG dibuka turun 8 persen, BEI hentikan sementara perdagangan saham",
+   "url": "https://www.antaranews.com/berita/5790465/ihsg-dibuka-turun-8-persen-bei-hentikan-sementara-perdagangan-saham",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:14:44.000Z"
+  },
+  {
+   "title": "IHSG Jumat dibuka melemah 469,86 poin ke posisi 5.393",
+   "url": "https://www.antaranews.com/berita/5790441/ihsg-jumat-dibuka-melemah-46986-poin-ke-posisi-5393",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:04:11.000Z"
+  },
+  {
+   "title": "Harga Emas Antam Hari Ini 16 Oktober Naik Rp4.000, Cek Daftar Terbarunya",
+   "url": "https://economy.okezone.com/read/2026/10/16/622/3248224/harga-emas-antam-hari-ini-16-oktober-naik-rp4-000-cek-daftar-terbarunya",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T02:02:31.000Z"
+  },
+  {
+   "title": "BEI minta klarifikasi MSCI potensi perubahan status pasar modal RI",
+   "url": "https://www.antaranews.com/berita/5790385/bei-minta-klarifikasi-msci-potensi-perubahan-status-pasar-modal-ri",
+   "source": "Antara",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-16T01:26:34.000Z"
   },
   {
    "title": "Yemen’s Houthis hit palace in Aden, coalition details attacks on Saudi infrastructure",
@@ -32,7 +331,7 @@
    "time": "2026-10-16T01:08:05.000Z"
   },
   {
-   "title": "Isu Haji Isam Caplok Saham BCA, OJK Awasi Risiko dan Stabilitas Sistem Keuangan",
+   "title": "MSCI Buka Konsultasi, Status Pasar Saham RI Terancam Turun Jadi Standalone Market",
    "url": "https://economy.okezone.com/read/2026/10/16/278/3248213/isu-haji-isam-caplok-saham-bca-ojk-awasi-risiko-dan-stabilitas-sistem-keuangan",
    "source": "Okezone",
    "topic": "Markets",
@@ -200,13 +499,6 @@
    "time": "2026-10-15T19:42:34.000Z"
   },
   {
-   "title": "Here’s what happened in crypto today",
-   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-15T19:37:27.000Z"
-  },
-  {
    "title": "Ukraine Strikes Major Russian Oil Refinery",
    "url": "https://oilprice.com/Latest-Energy-News/World-News/Ukraine-Strikes-Major-Russian-Oil-Refinery.html",
    "source": "OilPrice",
@@ -368,17 +660,17 @@
    "time": "2026-10-15T15:10:44.000Z"
   },
   {
-   "title": "Bulgaria Breaks Ranks With EU Over Trump-Putin Diesel Deal",
-   "url": "https://oilprice.com/Energy/Energy-General/Bulgaria-Breaks-Ranks-With-EU-Over-Trump-Putin-Diesel-Deal.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-15T15:00:00.000Z"
-  },
-  {
    "title": "Crypto for Advisors: Wall Street is done waiting on Congress for crypto rules",
    "url": "https://www.coindesk.com/coindesk-indices/2026/10/15/crypto-for-advisors-wall-street-is-done-waiting-on-congress-for-crypto-rules",
    "source": "CoinDesk",
    "topic": "Crypto",
+   "time": "2026-10-15T15:00:00.000Z"
+  },
+  {
+   "title": "Bulgaria Breaks Ranks With EU Over Trump-Putin Diesel Deal",
+   "url": "https://oilprice.com/Energy/Energy-General/Bulgaria-Breaks-Ranks-With-EU-Over-Trump-Putin-Diesel-Deal.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
    "time": "2026-10-15T15:00:00.000Z"
   },
   {
@@ -454,6 +746,13 @@
    "source": "CNBC",
    "topic": "Macro",
    "time": "2026-10-15T13:42:32.000Z"
+  },
+  {
+   "title": "Blue Lagoon confirms first finalised gold output from Dome Mountain",
+   "url": "https://www.mining-technology.com/news/blue-lagoon-first-finalised-gold-dome-mountain/",
+   "source": "Mining Technology",
+   "topic": "Commodities",
+   "time": "2026-10-15T13:39:02.000Z"
   },
   {
    "title": "Can the SEC and CFTC’s pro-crypto rules be overturned? Legal opinion",
@@ -561,14 +860,6 @@
    "time": "2026-10-15T12:11:15.000Z"
   },
   {
-   "title": "Pasar Kripto RI Makin Ramai, Investor Diminta Pahami Risiko",
-   "url": "https://ekonomi.republika.co.id/berita/tmy35k416/pasar-kripto-ri-makin-ramai-investor-diminta-pahami-risiko",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-15T12:00:00.000Z"
-  },
-  {
    "title": "Under pressure, Ledger unveils plan to turn its crypto hardware wallet into a smartphone",
    "url": "https://www.coindesk.com/tech/2026/10/15/under-pressure-ledger-unveils-plan-to-turn-its-crypto-hardware-wallet-into-a-smartphone",
    "source": "CoinDesk",
@@ -580,6 +871,14 @@
    "url": "https://cointelegraph.com/news/ledger-new-hardware-device-asia-wallet-tampering?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
    "topic": "Crypto",
+   "time": "2026-10-15T12:00:00.000Z"
+  },
+  {
+   "title": "Pasar Kripto RI Makin Ramai, Investor Diminta Pahami Risiko",
+   "url": "https://ekonomi.republika.co.id/berita/tmy35k416/pasar-kripto-ri-makin-ramai-investor-diminta-pahami-risiko",
+   "source": "Republika",
+   "topic": "Macro",
+   "lang": "id",
    "time": "2026-10-15T12:00:00.000Z"
   },
   {
@@ -1468,288 +1767,6 @@
    "source": "CoinDesk",
    "topic": "Crypto",
    "time": "2026-10-14T13:51:12.000Z"
-  },
-  {
-   "title": "‘Bunker mode’ won’t protect your crypto, critics say",
-   "url": "https://cointelegraph.com/magazine/bunker-mode-wont-protect-your-crypto-critics-say?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T13:30:00.000Z"
-  },
-  {
-   "title": "Russian Strikes Cut Power to 600,000 Ukrainians Days After U.S. Diesel Deal",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Russian-Strikes-Cut-Power-to-600000-Ukrainians-Days-After-US-Diesel-Deal.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-14T13:30:00.000Z"
-  },
-  {
-   "title": "Global diesel shortages could persist well into 2027, IEA says",
-   "url": "https://www.investing.com/news/commodities-news/diesel-shortages-could-persist-well-into-2027-iea-says-4949070",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-14T13:25:05.000Z"
-  },
-  {
-   "title": "Ionic Rare Earths submits Belfast recycling plant application",
-   "url": "https://www.mining-technology.com/news/ionic-rare-earths-belfast-recycling-plant-application/",
-   "source": "Mining Technology",
-   "topic": "Commodities",
-   "time": "2026-10-14T13:21:15.000Z"
-  },
-  {
-   "title": "Krakatoa deploys second drill rig at Georgia’s Zopkhito project",
-   "url": "https://www.mining-technology.com/news/krakatoa-second-drill-rig-zopkhito-project/",
-   "source": "Mining Technology",
-   "topic": "Commodities",
-   "time": "2026-10-14T13:09:23.000Z"
-  },
-  {
-   "title": "Kraken parent Payward to become first crypto firm to buy a EU bank as it expands into deposits, lending",
-   "url": "https://www.coindesk.com/business/2026/10/14/kraken-parent-payward-to-become-first-crypto-firm-to-buy-a-eu-bank-as-it-expands-into-deposits-lending",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T13:07:45.000Z"
-  },
-  {
-   "title": "Canada crypto remittances to Asian countries surge 141% to $2.36B: Chainalysis",
-   "url": "https://cointelegraph.com/news/canada-crypto-remittances-asia-surge-chainalysis?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T13:00:00.000Z"
-  },
-  {
-   "title": "Qivalis wins Dutch e-money license for euro stablecoin",
-   "url": "https://cointelegraph.com/news/qivalis-authorization-dutch-central-bank-euro-stablecoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T12:53:41.000Z"
-  },
-  {
-   "title": "U.S. September CPI comes in hot, sending bitcoin sharply lower",
-   "url": "https://www.coindesk.com/markets/2026/10/14/u-s-september-cpi-comes-in-hot-sending-bitcoin-sharply-lower",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T12:33:56.000Z"
-  },
-  {
-   "title": "OJK cermati generasi muda kian minati investasi di pasar modal",
-   "url": "https://www.antaranews.com/berita/5786521/ojk-cermati-generasi-muda-kian-minati-investasi-di-pasar-modal",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T12:33:39.000Z"
-  },
-  {
-   "title": "Aramco’s New Chinese JV Refinery Gets First Saudi Crude Cargo",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Aramcos-New-Chinese-JV-Refinery-Gets-First-Saudi-Crude-Cargo.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-14T12:30:00.000Z"
-  },
-  {
-   "title": "Kraken parent to buy Lithuanian Saldo Bank amid TradFi expansion",
-   "url": "https://cointelegraph.com/news/krakens-parent-buy-lithuanian-saldo-bank-tradfi-expansion?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T12:26:05.000Z"
-  },
-  {
-   "title": "Can crypto users trust the supply chain behind hardware wallets?",
-   "url": "https://cointelegraph.com/news/hardware-wallet-supply-chain-risk-ledger-incident?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T11:59:42.000Z"
-  },
-  {
-   "title": "Bursa kripto CFX pangkas biaya transaksi jadi 0,01 persen",
-   "url": "https://www.antaranews.com/berita/5786373/bursa-kripto-cfx-pangkas-biaya-transaksi-jadi-001-persen",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T11:47:37.000Z"
-  },
-  {
-   "title": "Oman Overtakes U.S. as India's Top LNG Supplier in September",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Oman-Overtakes-US-as-Indias-Top-LNG-Supplier-in-September.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-14T11:30:00.000Z"
-  },
-  {
-   "title": "Here's how analysts see U.S. inflation influencing bitcoin",
-   "url": "https://www.coindesk.com/daybook-us/2026/10/14/here-s-how-analysts-see-u-s-inflation-influencing-bitcoin",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T11:15:00.000Z"
-  },
-  {
-   "title": "Dutch central bank grants Qivalis e-money license for MiCA-compliant euro token",
-   "url": "https://www.coindesk.com/policy/2026/10/14/dutch-regulator-approves-qivalis-as-electronic-money-institution-under-mica-rules",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T11:12:36.000Z"
-  },
-  {
-   "title": "Coins.ph says Philippine central bank license intact amid revocation claims",
-   "url": "https://cointelegraph.com/news/coinsph-says-bsp-license-intact-amid-claims-of-potential-revocation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T11:05:00.000Z"
-  },
-  {
-   "title": "Bitcoin holds above $83,000 ahead of U.S. inflation data as altcoins lag",
-   "url": "https://www.coindesk.com/markets/2026/10/14/bitcoin-holds-above-usd83-000-ahead-of-u-s-inflation-data-as-altcoins-lag",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T10:51:39.000Z"
-  },
-  {
-   "title": "Morning Bid: Trillion dollar trade",
-   "url": "https://www.investing.com/news/commodities-news/morning-bid-trillion-dollar-trade-4948648",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-14T10:49:05.000Z"
-  },
-  {
-   "title": "IHSG ditutup menguat ke 5.943 seiring aksi \"bargain hunting\" investor",
-   "url": "https://www.antaranews.com/berita/5786205/ihsg-ditutup-menguat-ke-5943-seiring-aksi-bargain-hunting-investor",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T10:44:41.000Z"
-  },
-  {
-   "title": "S&P 500 options are the hottest bet on this Hyperliquid exchange",
-   "url": "https://www.coindesk.com/markets/2026/10/14/s-and-p-500-options-are-the-hottest-bet-on-this-hyperliquid-exchange",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T10:38:47.000Z"
-  },
-  {
-   "title": "CryptoQuant’s 3 charts keeping Bitcoin’s ‘Uptober’ thesis valid",
-   "url": "https://cointelegraph.com/markets/cryptoquant-charts-bitcoin-uptober-thesis-valid?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T10:38:22.000Z"
-  },
-  {
-   "title": "Bahlil Targetkan Ekspor Nikel Naik Jadi Rp 805,5 T",
-   "url": "https://finance.detik.com/energi/d-8707056/bahlil-targetkan-ekspor-nikel-naik-jadi-rp-805-5-t",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T10:31:37.000Z"
-  },
-  {
-   "title": "Trump Announces “Massive” Greenland Oil Exploration Plans",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Trump-Announces-Massive-Greenland-Oil-Exploration-Plans.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-14T10:30:00.000Z"
-  },
-  {
-   "title": "Sam Bankman-Fried’s lawyer lays out ex-FTX CEO’s Supreme Court case",
-   "url": "https://cointelegraph.com/news/ftx-sam-bankman-fried-lawyer-supreme-court-appeal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T10:29:47.000Z"
-  },
-  {
-   "title": "Bitcoin will become ‘less volatile’ and larger than gold: ‘The Bitcoin Standard’ author",
-   "url": "https://cointelegraph.com/news/bitcoin-less-volatile-larger-gold-bitcoin-standard-author?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T10:25:53.000Z"
-  },
-  {
-   "title": "Standard Chartered expands Bitcoin and Ether trading to professional investors in UAE",
-   "url": "https://cointelegraph.com/news/standard-chartered-bitcoin-ether-trading-professional-investors-uae?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-14T10:07:03.000Z"
-  },
-  {
-   "title": "Russian strikes kill three, damage dozens of power facilities",
-   "url": "https://www.investing.com/news/commodities-news/russian-strikes-kill-three-damage-dozens-of-power-facilities-4948302",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-14T09:55:01.000Z"
-  },
-  {
-   "title": "IHSG Menguat ke Level 5.943 di Akhir Perdagangan",
-   "url": "https://economy.okezone.com/read/2026/10/14/278/3247885/ihsg-menguat-ke-level-5-943-di-akhir-perdagangan",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T09:48:23.000Z"
-  },
-  {
-   "title": "Live updates: Bitcoin falls back to $82,000 after inflation rises more than forecast",
-   "url": "https://www.coindesk.com/business/2026/10/14/live-updates-bitcoin-tumbles-from-near-usd84-000-ahead-of-u-s-inflation-data",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T09:45:53.000Z"
-  },
-  {
-   "title": "Aurania concludes drilling at Thormódsdalur gold-silver site",
-   "url": "https://www.mining-technology.com/news/aurania-finishes-drilling-thormodsdalur-site/",
-   "source": "Mining Technology",
-   "topic": "Commodities",
-   "time": "2026-10-14T09:39:25.000Z"
-  },
-  {
-   "title": "OJK Targetkan Bursa Mineral Beroperasi 2027, Harga Komoditas Dibentuk di Dalam Negeri",
-   "url": "https://ekonomi.republika.co.id/berita/tmw55m416/ojk-targetkan-bursa-mineral-beroperasi-2027-harga-komoditas-dibentuk-di-dalam-negeri",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-14T09:35:18.000Z"
-  },
-  {
-   "title": "Saudi Aramco Headquarters Hit as Houthi Attacks Escalate",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Aramco-Headquarters-Hit-as-Houthi-Attacks-Escalate.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-14T09:30:00.000Z"
-  },
-  {
-   "title": "Rupiah Loyo ke Rp17.903, Ini Pemicunya",
-   "url": "https://economy.okezone.com/read/2026/10/14/320/3247875/rupiah-loyo-ke-rp17-903-ini-pemicunya",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T09:26:17.000Z"
-  },
-  {
-   "title": "IHSG Ditutup Menguat ke 5.943",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8706823/ihsg-ditutup-menguat-ke-5-943",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T09:19:07.000Z"
-  },
-  {
-   "title": "Blibli Raup Pendapatan Neto Rp 14,8 T di Semester I-2026, Tumbuh 55%",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8706811/blibli-raup-pendapatan-neto-rp-14-8-t-di-semester-i-2026-tumbuh-55",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-14T09:09:29.000Z"
-  },
-  {
-   "title": "Proposed 31.4% French tax on regulated stablecoins could drive crypto traders offshore",
-   "url": "https://www.coindesk.com/policy/2026/10/14/proposed-french-tax-on-regulated-stablecoins-could-drive-crypto-traders-offshore",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-14T08:48:11.000Z"
-  },
-  {
-   "title": "Exclusive-China buys 8-10 US soybean cargoes in first deals since Trump-Xi summit, sources say",
-   "url": "https://www.investing.com/news/commodities-news/exclusivechina-buys-810-us-soybean-cargoes-in-first-deals-since-trumpxi-summit-sources-say-4948374",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-14T08:42:43.000Z"
   }
  ]
 }
