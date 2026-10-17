@@ -1,6 +1,13 @@
 {
- "updated": "2026-10-17T17:15:31.393Z",
+ "updated": "2026-10-17T19:29:39.517Z",
  "items": [
+  {
+   "title": "Zelenskiy criticizes Trump’s waiver of sanctions on Russia as ’wrong’",
+   "url": "https://www.investing.com/news/commodities-news/trump-waives-many-russiarelated-sanctions-tariffs-before-they-were-to-take-effect-under-new-law-4955088",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-17T17:48:59.000Z"
+  },
   {
    "title": "Texas Researchers Say Permian Wastewater Could Cool AI Data Centers",
    "url": "https://oilprice.com/Energy/Crude-Oil/Texas-Researchers-Say-Permian-Wastewater-Could-Cool-AI-Data-Centers.html",
@@ -56,13 +63,6 @@
    "source": "Cointelegraph",
    "topic": "Crypto",
    "time": "2026-10-17T13:29:00.000Z"
-  },
-  {
-   "title": "Trump waives key Russia-related sanctions, tariffs before they take effect under new law",
-   "url": "https://www.investing.com/news/commodities-news/trump-waives-many-russiarelated-sanctions-tariffs-before-they-were-to-take-effect-under-new-law-4955088",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-17T13:06:22.000Z"
   },
   {
    "title": "Solana shows resilience, but some areas need continued observation, Fidelity says",
@@ -616,18 +616,18 @@
    "time": "2026-10-16T14:11:03.000Z"
   },
   {
-   "title": "Ukraine Defies Trump With Renewed Attacks on Russian Oil Infrastructure",
-   "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Defies-Trump-With-Renewed-Attacks-on-Russian-Oil-Infrastructure.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-16T14:00:00.000Z"
-  },
-  {
    "title": "Wanti-wanti Ekonom soal MSCI Buka Peluang Downgrade Bursa Saham RI",
    "url": "https://finance.detik.com/bursa-dan-valas/d-8710772/wanti-wanti-ekonom-soal-msci-buka-peluang-downgrade-bursa-saham-ri",
    "source": "detikFinance",
    "topic": "Markets",
    "lang": "id",
+   "time": "2026-10-16T14:00:00.000Z"
+  },
+  {
+   "title": "Ukraine Defies Trump With Renewed Attacks on Russian Oil Infrastructure",
+   "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Defies-Trump-With-Renewed-Attacks-on-Russian-Oil-Infrastructure.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
    "time": "2026-10-16T14:00:00.000Z"
   },
   {
