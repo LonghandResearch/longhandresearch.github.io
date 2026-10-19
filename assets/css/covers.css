@@ -5,6 +5,8 @@
 .research-cover.cover-tone-navy::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #061d2b22 0%, #061d2b22 15%, #061d2b99 30%, #061d2b99 42%, transparent 58%); pointer-events: none; }
 .research-cover.cover-tone-paper::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #efe1bc90 0%, #efe1bc70 28%, #efe1bc44 40%, transparent 54%); pointer-events: none; }
 .research-cover .cover-type { position: absolute; inset: 0; z-index: 1; color: var(--cover-ink, #ead7ae); padding: 6.2% 6.8%; display: flex; flex-direction: column; }
+.cover-trust .cover-type { mask: url('../img/research/covers/ihsg-trust-text-mask.svg') center / 100% 100% no-repeat; }
+.cover-trust .cover-foreground { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: url('../img/research/covers/ihsg-trust-art.webp') center / 100% 100% no-repeat; mask: url('../img/research/covers/ihsg-trust-foreground-mask.svg') center / 100% 100% no-repeat; }
 .cover-edition { display: flex; justify-content: space-between; gap: 7%; font: 500 3.2cqw/1.25 var(--font-sans, sans-serif); text-transform: uppercase; }
 .cover-edition > span:first-child { white-space: nowrap; flex: 0 0 23%; font-size: 4.6cqw; }
 .cover-edition b { display: block; margin-top: .45em; font-size: 3cqw; font-weight: 600; }

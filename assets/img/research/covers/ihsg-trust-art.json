@@ -1,0 +1,13 @@
+{
+  "title": "The weight of market trust",
+  "created": "2026-10-19",
+  "reportId": "ihsg-weekly-2026-10-16",
+  "method": "Built-in image_gen generation, then proportional resizing and WebP encoding. No semantic retouching or cropping.",
+  "width": 1024,
+  "height": 1536,
+  "conceptual": true,
+  "caption": "A brass balance with glass blocks and a stone weight on a fractured pedestal. Conceptual editorial artwork, not a documentary scene or a measurement of market conditions.",
+  "files": ["ihsg-trust-art.webp", "ihsg-trust-art-640.webp", "ihsg-trust-art-320.webp"],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The generated artwork contains no lettering.",
+  "prompt": "Use case: stylized-concept. Create one brand-new 2:3 portrait editorial illustration for Longhand Research's Indonesia equity weekly titled 'Trust Has a Price. The Market Is Paying.' This is illustration artwork only, the website adds all typography later. Primary concept: the weight of market trust. A monumental antique brass balance scale stands on a dark charcoal stone pedestal, a fine but clearly visible fracture runs down the pedestal. The scale is subtly tilted. One shallow pan carries a few plain translucent glass blocks that evoke financial assets, the other a single heavy rough stone. A tiny distant tropical financial-district silhouette is etched along the very bottom, subordinate to the scale. Entirely conceptual, do not depict a real exchange building collapsing. Composition: disciplined premium institutional magazine cover, strong bold silhouette at thumbnail size, scale and pedestal occupy the lower two thirds, upper third is quiet deep mineral navy with very subtle engraved atmospheric texture and open space for a cream headline. Bottom edge also quiet enough for a small signature. Style: sophisticated mid-century editorial print illustration, hand-inked contours, dense controlled crosshatching, muted halftone and tactile warm paper grain. Palette: deep navy and dark teal, aged brass ochre, warm ivory accents, one restrained brick-red accent in the fracture. Atmospheric directional light. Strong depth, elegant and sober, not melodramatic. Distinct from a city skyline or sunset panorama cover. No people. No text, no letters, no numbers, no charts, no graphs, no currency symbols, no logos, no watermarks. No photographic realism, no glossy 3D, no flat vector icon."
+}
