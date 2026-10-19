@@ -30,3 +30,8 @@ Publication status: local work is complete at commit 5b1f56c. Repeated GitHub
 push/API requests timed out, including an explicit TLS handshake timeout and
 a separate 15-second HTTPS request timeout. No PR or live deployment is yet
 confirmed. Resume from this branch and publish when connectivity returns.
+
+Publication resumed on 19 October: upload succeeded using an IPv4 connection.
+PR #108 contains the owner-selected large title behind the balance, with fine
+fractures. The owner explicitly requested publication to GitHub Pages.
+

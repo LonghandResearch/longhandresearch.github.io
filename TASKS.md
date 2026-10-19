@@ -104,7 +104,7 @@ takeover authorization while Claude is unavailable.
 
 | RPT-018 | Publish 12 to 16 October IHSG research with the 19 October morning policy addendum, audited scenarios and polished native charts | Codex | `codex/ihsg-weekly-oct16` | Done (published and verified) | [PR #106](https://github.com/LonghandResearch/longhandresearch.github.io/pull/106). Codex author QA under continuing temporary takeover authorization. Source reconciliation, 150 tests, 38 local browser cases and 10 live cases passed. Pages deployed `8fd646a`. Seven principal public files match the merged source. Owner-requested curves retain the exact observations. Obsidian Report, five issuer notes, sector, topics and sources synchronized. See `audits/RPT-018-2026-10-16.md`. |
 
-| WEB-030 | Replace the reused 16 October IHSG cover with a unique conceptual illustration while retaining the Longhand cover system | Codex | `codex/ihsg-oct16-cover` | Review | Owner requested a distinct cover. Codex author QA under continuing temporary takeover authorization. |
+| WEB-030 | Replace the reused 16 October IHSG cover with a unique conceptual illustration while retaining the Longhand cover system | Codex | `codex/ihsg-oct16-cover` | Review | [PR #108](https://github.com/LonghandResearch/longhandresearch.github.io/pull/108). Owner selected the large title behind the balance with fine fractures and explicitly requested Pages publication. 150 tests, site checker and eight responsive cover cases passed. Codex author QA under continuing temporary takeover authorization. |
 
 ## Status values
 
