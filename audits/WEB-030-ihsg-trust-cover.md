@@ -12,6 +12,11 @@ pixel responsive variants. No semantic retouch or crop. Website typography
 retains the exact catalogue title, issue 014 and publication date. A full
 typeset JPEG is exported from the browser. Earlier artwork remains preserved.
 
+Owner follow-up: the balance sits in front of the title using a vector mask
+aligned to the existing illustration. Three fine vector fractures cut through
+small portions of the title. Both treatments are specific to this cover, retain
+the accessible catalogue title, and do not alter the underlying raster artwork.
+
 Validation: JavaScript syntax and metadata JSON parse, 150 passing tests,
 and eight desktop/mobile Home and Library checks across both themes.
 Browser inspection confirms readable typesetting, no horizontal overflow,

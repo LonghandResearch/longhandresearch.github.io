@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536">
+  <defs><mask id="cracks"><rect width="1024" height="1536" fill="white"/>
+  <g fill="none" stroke="black" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M685 268 L680 286 L688 298 L679 312 L685 328 L681 350 M688 298 L700 293"/>
+    <path d="M370 369 L377 388 L369 399 L378 414 L373 435 L379 451 M369 399 L358 403"/>
+    <path d="M197 477 L204 492 L199 506 L207 519 L203 544"/>
+  </g></mask></defs>
+  <rect width="1024" height="1536" fill="white" mask="url(#cracks)"/>
+</svg>
