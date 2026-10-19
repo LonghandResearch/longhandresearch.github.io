@@ -37,6 +37,25 @@
 */
 window.LONGHAND_REPORTS = [
 {
+  "id": "ihsg-weekly-2026-10-16",
+  "ticker": "IHSG",
+  "exchange": "IDX",
+  "company": "Indonesia equity market",
+  "sector": "Macro and equities",
+  "category": "Update",
+  "title": "Trust Has a Price. The Market Is Paying.",
+  "date": "2026-10-19",
+  "blurb": "IHSG fell 14.91%. MSCI proposed standalone status, and a new 7% downside limit raises questions about executable liquidity.",
+  "summary": "Weekly research for 12 to 16 October with a 19 October morning addendum. Audited IDX observations, the MSCI consultation, OJK enforcement, free-float arithmetic and conditional valuation scenarios.",
+  "tags": ["IHSG", "Weekly Market Update", "MSCI", "Standalone", "Free float", "Foreign flow", "Market governance", "ARB"],
+  "rating": null,
+  "currency": "IDR",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "ihsg-weekly.html?week=2026-10-16"
+},
+{
   "id": "more-nickel-2026-10-15",
   "ticker": "",
   "company": "Indonesia nickel industry",

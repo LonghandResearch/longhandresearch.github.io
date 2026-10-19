@@ -1,0 +1,987 @@
+{
+  "schemaVersion": 1,
+  "weekEnding": "2026-10-16",
+  "published": "2026-10-19",
+  "reviewed": "2026-10-19",
+  "period": "12 to 16 October 2026",
+  "title": "Trust Has a Price. The Market Is Paying.",
+  "titleLead": "Trust has a price.",
+  "titleEmphasis": "The market is paying.",
+  "deck": "IHSG lost 14.91% as MSCI proposed standalone status. A new 7% daily downside limit slows the price adjustment. Restoring confidence requires evidence that ownership, free float and enforcement can be trusted.",
+  "description": "Indonesia weekly research for 12 to 16 October with the 19 October morning policy addendum. Audited IDX data, MSCI risk, free-float mathematics and conditional valuation scenarios.",
+  "presentation": "refined",
+  "stats": [
+    {
+      "label": "IHSG close",
+      "value": "5,185.11",
+      "note": "-14.91% over the week"
+    },
+    {
+      "label": "Official weekly foreign net",
+      "value": "-Rp3.19tn",
+      "note": "All stock markets. Friday net selling Rp3.34tn"
+    },
+    {
+      "label": "JISDOR, Rp per USD",
+      "value": "18,052",
+      "note": "+0.94% from 9 October. Indicative USD equity return -15.70%"
+    },
+    {
+      "label": "New reported ARB",
+      "value": "7%",
+      "note": "Effective 19 October. Morning policy addendum"
+    }
+  ],
+  "sources": {
+    "weekly": {
+      "label": "IDX Weekly Statistics, 12 to 16 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ws_261016. Pages 1 and 2 market activity and official flow, page 4 exact market totals and breadth, page 5 contributions, page 6 exact foreign buy and sell, page 7 sectors."
+    },
+    "daily": {
+      "label": "IDX Daily Statistics, 12 to 16 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ds_261012 through ds_261016. Page 1 closes and ranges, page 2 foreign net and market multiples, page 4 capitalization, page 5 market types and breadth."
+    },
+    "jisdor": {
+      "label": "Bank Indonesia JISDOR, 9 to 16 October 2026",
+      "url": "https://www.bi.go.id/id/statistik/informasi-kurs/jisdor/default.aspx",
+      "note": "All six dates checked against the BI table. The five current-week rates also match the IDX daily footer."
+    },
+    "msci": {
+      "label": "MSCI reclassification announcement, 15 October 2026",
+      "url": "https://ir.msci.com/news-releases/news-release-details/msci-launches-consultation-proposal-reclassify-indonesia",
+      "note": "Consultation status, continuing freeze and decision dates. Announcement at 20:40 GMT on 15 October is 03:40 WIB on 16 October."
+    },
+    "msciTimestamp": {
+      "label": "MSCI timestamped index announcement, 15 October 2026 at 20:40 GMT",
+      "url": "https://app2.msci.com/webapp/index_ann/DocGet?format=html&lang=en&pub_key=cOQ9FiTsR0g%3D",
+      "note": "20:40 GMT on 15 October is 03:40 WIB on 16 October."
+    },
+    "consultation": {
+      "label": "MSCI Indonesia consultation, October 2026",
+      "url": "https://www.msci.com/downloads/documents/indexes/consultations/equity/Indonesia_Consultation_Oct_26.pdf",
+      "note": "Pages 2 to 4 proposal and evidence sought, page 7 the 30 September index weight, capitalization and sector concentration. Implementation timing is a consultation question, not a fixed exit date."
+    },
+    "ojk": {
+      "label": "OJK reform response, 16 October 2026",
+      "url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/OJK-Berkomitmen-untuk-Terus-Melanjutkan-dan-Memperkuat-Reformasi-Pasar-Modal-Indonesia.aspx",
+      "note": "Regulator response to the MSCI proposal. Reform initiatives and continuing enforcement commitments."
+    },
+    "sanctions": {
+      "label": "OJK sanctions concerning DSSA, BREN and CUAN, 16 October 2026",
+      "url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/OJK-Putuskan-Sanksi-Pihak-Terkait-Emiten-DSSA-BREN-dan-CUAN.aspx",
+      "note": "Official findings and administrative fines against related parties. This report does not describe the fines as collected, or as a final criminal conviction."
+    },
+    "arb": {
+      "label": "IDXChannel report on Kep-00157, 19 October 2026 at 06:15 WIB",
+      "url": "https://www.idxchannel.com/market-news/bei-pangkas-batas-arb-jadi-7-persen-berlaku-mulai-hari-ini/all",
+      "note": "Secondary source reporting the IDX decision. 7% ARB from 19 October through 31 December. The signed decision could not be independently retrieved from the exchange site."
+    },
+    "arbCrosscheck": {
+      "label": "Bloomberg Technoz report on Kep-00157, 19 October 2026 at 06:40 WIB",
+      "url": "https://www.bloombergtechnoz.com/detail-news/124957/bei-pangkas-batas-arb-jadi-7",
+      "note": "Independent press cross-check of the decision number, dates, unchanged upper bands and Rp1 band for Rp1 to Rp10 shares."
+    },
+    "prior": {
+      "label": "Longhand IHSG weekly archive, 9 October 2026",
+      "url": "https://longhandresearch.github.io/ihsg-weekly.html?week=2026-10-09",
+      "note": "Previous close, prior market totals and the previous five-company focus. Earlier financial analysis retains its original date."
+    },
+    "flowless": {
+      "label": "Frozen Flowless observations, 16 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-16.json",
+      "note": "Read-only fresh weekly export plus 20 daily rows per focus company, independent rolling calculations and daily scope reconciliation. Regular-market foreign values are closing-price estimates."
+    },
+    "observations": {
+      "label": "Frozen IDX observations and source hashes",
+      "url": "https://longhandresearch.github.io/weekly/market-2026-10-16.json",
+      "note": "Exact source observations, source-file hashes and visually checked breadth counts."
+    }
+  },
+  "observations": {
+    "closes": [
+      {
+        "date": "2026-10-09",
+        "label": "9 Oct",
+        "close": 6093.759
+      },
+      {
+        "date": "2026-10-12",
+        "label": "12 Oct",
+        "close": 5936.147
+      },
+      {
+        "date": "2026-10-13",
+        "label": "13 Oct",
+        "close": 5925.976
+      },
+      {
+        "date": "2026-10-14",
+        "label": "14 Oct",
+        "close": 5943.024
+      },
+      {
+        "date": "2026-10-15",
+        "label": "15 Oct",
+        "close": 5863.78
+      },
+      {
+        "date": "2026-10-16",
+        "label": "16 Oct",
+        "close": 5185.105
+      }
+    ],
+    "foreignFlow": [
+      {
+        "date": "2026-10-12",
+        "label": "12 Oct",
+        "netBn": 142.75
+      },
+      {
+        "date": "2026-10-13",
+        "label": "13 Oct",
+        "netBn": 570.4
+      },
+      {
+        "date": "2026-10-14",
+        "label": "14 Oct",
+        "netBn": -1133.4
+      },
+      {
+        "date": "2026-10-15",
+        "label": "15 Oct",
+        "netBn": 569.38
+      },
+      {
+        "date": "2026-10-16",
+        "label": "16 Oct",
+        "netBn": -3343.71
+      }
+    ],
+    "jisdor": [
+      {
+        "date": "2026-10-09",
+        "rate": 17884
+      },
+      {
+        "date": "2026-10-12",
+        "rate": 17899
+      },
+      {
+        "date": "2026-10-13",
+        "rate": 17930
+      },
+      {
+        "date": "2026-10-14",
+        "rate": 17898
+      },
+      {
+        "date": "2026-10-15",
+        "rate": 17948
+      },
+      {
+        "date": "2026-10-16",
+        "rate": 18052
+      }
+    ],
+    "sectors": [
+      {
+        "name": "Energy",
+        "weekly": -19.27
+      },
+      {
+        "name": "Infrastructure",
+        "weekly": -19.03
+      },
+      {
+        "name": "Industrials",
+        "weekly": -17.96
+      },
+      {
+        "name": "Basic materials",
+        "weekly": -17.15
+      },
+      {
+        "name": "Consumer cyclicals",
+        "weekly": -17
+      },
+      {
+        "name": "Transport and logistics",
+        "weekly": -15.53
+      },
+      {
+        "name": "Healthcare",
+        "weekly": -13.25
+      },
+      {
+        "name": "Consumer non-cyclicals",
+        "weekly": -11.46
+      },
+      {
+        "name": "Technology",
+        "weekly": -11.09
+      },
+      {
+        "name": "Financials",
+        "weekly": -10.56
+      },
+      {
+        "name": "Property",
+        "weekly": -8.89
+      }
+    ],
+    "stocks": [
+      {
+        "ticker": "BBCA",
+        "points": -79.68
+      },
+      {
+        "ticker": "BBRI",
+        "points": -67.74
+      },
+      {
+        "ticker": "BMRI",
+        "points": -51.81
+      },
+      {
+        "ticker": "TLKM",
+        "points": -38.68
+      },
+      {
+        "ticker": "ASII",
+        "points": -25.54
+      }
+    ]
+  },
+  "riskParameters": {
+    "index": 5185.105,
+    "multiple": 11.03,
+    "fx": 18052,
+    "weightPct": 0.43,
+    "weightDate": "2026-09-30",
+    "preShockAdtvTn": 10.219402871525,
+    "scenarios": [
+      {
+        "name": "Unresolved reform, our planning case",
+        "earningsPct": [
+          -5,
+          0
+        ],
+        "yieldBps": [
+          100,
+          0
+        ],
+        "levels": [
+          4436.503422498423,
+          5185.105
+        ],
+        "trigger": "Freeze persists, orderly trading returns unevenly and no verified governance breakthrough."
+      },
+      {
+        "name": "Credible repair and relief",
+        "earningsPct": [
+          0,
+          5
+        ],
+        "yieldBps": [
+          -50,
+          -100
+        ],
+        "levels": [
+          5487.754670053448,
+          6119.3214004720685
+        ],
+        "trigger": "Repeatable ownership evidence, enforceable float corrections and durable two-way trading."
+      },
+      {
+        "name": "Escalation and earnings damage",
+        "earningsPct": [
+          -15,
+          -10
+        ],
+        "yieldBps": [
+          250,
+          150
+        ],
+        "levels": [
+          3454.704487556339,
+          4004.113861598524
+        ],
+        "trigger": "Confidence deteriorates, redemptions intensify and earnings expectations fall."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "judgment",
+      "title": "A confidence shock with a measurable cost",
+      "nav": "The judgment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Indonesia ended the week with a credibility problem that a narrower trading band cannot solve. IHSG fell 14.91% to 5,185.105. The immediate question is whether investors can trust the ownership data, the tradable float and the enforcement behind the prices they see. A recovery built on a reassuring statement will be fragile until those questions have better answers.",
+          "sources": [
+            "weekly"
+          ],
+          "lede": true
+        },
+        {
+          "type": "paragraph",
+          "text": "Our stance is defensive over the next four to twelve weeks. A sharp relief rally is possible after Friday's fall, but we would require evidence that selling can clear and that reform is changing market behaviour before treating it as a durable recovery. The scenario range later in this report makes that judgment explicit. It is a planning framework, with no assigned probabilities or claim that the index has reached fair value."
+        },
+        {
+          "type": "callout",
+          "label": "Edition cutoff",
+          "text": "Market observations end at the 16 October close. The policy addendum includes news published by 07:30 WIB on 19 October, before Monday trading. No 19 October price action is included. This edition preserves the earlier weekly archives."
+        }
+      ]
+    },
+    {
+      "id": "damage",
+      "title": "The damage started before the headline",
+      "nav": "The selloff",
+      "blocks": [
+        {
+          "type": "closes",
+          "label": "Exhibit 01",
+          "title": "A weak week became a disorderly Friday",
+          "sources": [
+            "daily",
+            "prior",
+            "msciTimestamp"
+          ],
+          "note": "Select a date to inspect the closing observation. Curves are visual guides through daily closes, not intraday observations. They preserve every observed close and introduce no extra highs or lows.",
+          "event": {
+            "label": "MSCI proposal reached Jakarta before Friday trading",
+            "note": "16 October at 03:40 WIB"
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "IHSG had already lost 3.77% from the previous Friday by Thursday's close. MSCI's announcement arrived at 03:40 WIB on Friday. Friday then removed another 678.675 points, or 11.57%, and the index closed at its reported daily low. Friday accounted for 74.69% of the week's point loss. The sequence supports an event-driven escalation, but it does not establish that every point lost during the week came from MSCI.",
+          "sources": [
+            "daily",
+            "msci",
+            "msciTimestamp"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A 14.91% fall needs a 17.52% rise to recover. That asymmetry matters when a rebound starts to look impressive. A 10% rally from Friday would take IHSG to 5,704, still 6.40% below 9 October. Total listed-equity capitalization fell by about Rp1,544tn using the rounded weekly figures. That is a change in quoted value, not Rp1,544tn of cash withdrawn."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Weekly breadth",
+            "Stocks",
+            "Share"
+          ],
+          "rows": [
+            [
+              "Advanced",
+              "29",
+              "3.01%"
+            ],
+            [
+              "Unchanged",
+              "127",
+              "13.19%"
+            ],
+            [
+              "Declined",
+              "807",
+              "83.80%"
+            ]
+          ],
+          "caption": "Breadth across 963 listed stocks"
+        },
+        {
+          "type": "paragraph",
+          "text": "The decline was broad. Only 29 stocks advanced over the week and 807 fell. On Friday alone, 812 fell and 11 advanced, a decline share of 84.32%. The weekly source prints the two declining-group percentages in the wrong order. We use the counts and the chart legend, then calculate the shares ourselves.",
+          "sources": [
+            "weekly",
+            "daily"
+          ]
+        },
+        {
+          "type": "sectors",
+          "label": "Exhibit 02",
+          "title": "Every sector finished lower",
+          "note": "Weekly price changes from IDX, not sector foreign-flow estimates.",
+          "sources": [
+            "weekly"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Energy and infrastructure lost about 19% each. Financials fell less than the headline index, yet the large banks remained important sources of index damage. Relative resilience does not mean a sector offered capital protection. We do not use the weekly international comparison to isolate a global factor because foreign market closes and reporting cutoffs are not synchronized."
+        }
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Heavy trading does not mean easy exits",
+      "nav": "Flow and liquidity",
+      "blocks": [
+        {
+          "type": "flows",
+          "label": "Exhibit 03",
+          "title": "Friday reversed the earlier foreign buying",
+          "note": "Official all-market stock trading, foreign purchases less sales. These figures do not measure cross-border cash transfers.",
+          "sources": [
+            "weekly",
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Official weekly foreign net selling was Rp3.19tn. The first four rounded daily readings netted to +Rp149.13bn, then Friday recorded -Rp3,343.71bn. Weekly selling was 30.61% heavier than the prior week. Summed daily rounded figures give -Rp3,194.58bn. The exact weekly buy and sell totals give -Rp3,194.57bn, a Rp0.01bn rounding difference.",
+          "sources": [
+            "weekly",
+            "daily",
+            "prior"
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Trading measure",
+            "12 to 16 October",
+            "Interpretation"
+          ],
+          "rows": [
+            [
+              "All-stock value",
+              "Rp81.07tn",
+              "Roughly unchanged from the prior week"
+            ],
+            [
+              "Regular-market value",
+              "Rp67.40tn",
+              "83.14% of weekly stock value"
+            ],
+            [
+              "Negotiated-market value",
+              "Rp13.67tn",
+              "16.86% of weekly stock value"
+            ],
+            [
+              "Regular daily average, first four sessions",
+              "Rp10.22tn",
+              "Baseline before Friday's shock"
+            ],
+            [
+              "Friday regular value",
+              "Rp26.52tn",
+              "2.60 times the first-four-session average"
+            ]
+          ],
+          "caption": "Separate ordinary trading from negotiated blocks"
+        },
+        {
+          "type": "paragraph",
+          "text": "The headline daily average of Rp16.21tn was almost unchanged. Beneath it, regular-market turnover rose 37.65% while negotiated turnover fell sharply from the previous week's exceptional level. Friday contributed 39.35% of this week's regular value. A burst of transactions in a falling market tells us trades cleared at those prices. It does not tell us what a large remaining order could sell for.",
+          "sources": [
+            "weekly",
+            "daily",
+            "prior"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Flowless estimates -Rp2.75tn of net foreign selling in the regular market. The official all-market total is different in both scope and valuation. The daily regular-market value and volume reconcile exactly to all five supplied IDX reports. The foreign-flow gap remains a combination of scope and closing-price estimation, not a measurement of negotiated foreign flow.",
+          "sources": [
+            "flowless"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "msci",
+      "title": "The cost of losing a benchmark buyer",
+      "nav": "MSCI and capacity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "MSCI opened a consultation on 15 October proposing Emerging Market to Standalone status. Indonesia has not yet been reclassified. Feedback closes on 30 April 2027 and a decision is due by 30 June 2027. Implementation timing remains open. MSCI says it expects to proceed unless material improvements justify reconsideration. Its concerns include opaque ownership, suspected coordinated trading and insufficient evidence of effective enforcement. The existing freeze on additions, upward migrations and increases in inclusion factors or shares remains. HSC deletions can continue.",
+          "sources": [
+            "msci"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "That changes the investment question. A company can earn money and still become harder for a benchmark mandate to own. If Indonesia is removed from relevant composite indexes, an index-tracking portfolio that must replicate those indexes would need to remove the affected exposure according to the implementation arrangements. Active portfolios and country-specific mandates have different constraints. There is no defensible reason to turn every foreign shareholder into an automatic seller on one assumed date.",
+          "sources": [
+            "consultation"
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            "MSCI Indonesia snapshot",
+            "31 December 2025",
+            "30 September 2026"
+          ],
+          "rows": [
+            [
+              "Weight in MSCI EM",
+              "1.16%",
+              "0.43%"
+            ],
+            [
+              "Free-float-adjusted index capitalization",
+              "$119.14bn",
+              "$53.36bn"
+            ],
+            [
+              "Constituents",
+              "18",
+              "9"
+            ]
+          ],
+          "caption": "A September snapshot, before the October selloff"
+        },
+        {
+          "type": "paragraph",
+          "text": "The September weight was already about 63% below December. Financials represented 71.71% of the MSCI Indonesia index at that snapshot. This helps explain why the capacity of large financial stocks matters to benchmark exposure. These figures describe MSCI's index, not total IDX capitalization, and the September weight cannot be treated as a current post-crash allocation.",
+          "sources": [
+            "consultation"
+          ]
+        },
+        {
+          "type": "exitLab",
+          "label": "Exhibit 04",
+          "title": "How much selling could ordinary turnover absorb?",
+          "sources": [
+            "consultation",
+            "daily",
+            "jisdor"
+          ],
+          "note": "Assumptions, not measured assets or a flow forecast. Fixed September EM weight 0.43%, 16 October JISDOR 18,052 and first-four-session regular ADTV Rp10.2194tn. This market-wide denominator includes non-constituents, ignores concurrent selling and can overstate usable liquidity. Participation is an assumption, not an execution guarantee."
+        },
+        {
+          "type": "paragraph",
+          "text": "At a hypothetical $1tn of non-overlapping EM index-tracking assets, a 0.43% allocation equals $4.30bn, or Rp77.62tn at Friday's JISDOR. At 10% of pre-shock regular daily value, that equals 76.0 market-wide turnover sessions. At 20% it is 38.0. Neither is an estimated exit timetable. The assets under management are an explicit sensitivity, the weight predates the selloff, and the turnover includes shares those funds may not own."
+        },
+        {
+          "type": "paragraph",
+          "text": "The useful conclusion is that a seemingly small country weight can still be large beside available trading capacity. A claim that the market will lose exactly $4.3bn would require a verified fund inventory, current constituent weights, mandate rules and a treatment of overlapping funds. We have not established those inputs. Price impact cannot be inferred by dividing this hypothetical sale by market capitalization."
+        }
+      ]
+    },
+    {
+      "id": "governance",
+      "title": "Reform must survive contact with the order book",
+      "nav": "Reform and float",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "OJK's 16 October response recognizes MSCI's concerns and commits to further reform and enforcement. Its separate sanctions release reports Rp1.5tn of fines against parties related to DSSA trading, Rp500bn related to BREN allocations and Rp100bn related to CUAN allocations. The combined announced fines are Rp2.1tn. OJK describes structured market manipulation in DSSA trading and concealed links in BREN and CUAN allocations that concentrated ownership. These are the regulator's stated findings. The release does not establish that the fines have been collected or that criminal proceedings have reached final judgment.",
+          "sources": [
+            "ojk",
+            "sanctions"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Those actions matter. They also make a purely public-relations answer harder to defend. A regulator that identifies disguised concentration has itself supplied evidence that the problem is substantive. The credible response is to show who ultimately owns the shares, how that knowledge changes the float calculation, what restrictions follow and whether the same standards apply beyond a handful of prominent cases."
+        },
+        {
+          "type": "callout",
+          "label": "Our assessment",
+          "text": "A market cannot advertise a large free float while asking investors to take the independence of its holders on trust. Rules earn a valuation premium when investors can verify that they work. Announcing the rule earns less."
+        },
+        {
+          "type": "paragraph",
+          "text": "Consider an explicitly hypothetical company with 100bn shares, of which 10bn are genuinely available to independent public investors. Moving from 10% to 15% float through a controller sell-down requires 5bn existing shares to change hands. No new shares are issued. At an assumed Rp1,000 per share, investors must absorb Rp5tn. The issuer receives none of that secondary-sale cash."
+        },
+        {
+          "type": "paragraph",
+          "text": "A pure primary issue is different. If every new share goes to independent public holders and none to the controller, solve (10 + x) ÷ (100 + x) = 15%. The answer is 5.882bn new shares. At the same assumed price, the issuer raises Rp5.882tn before costs. Existing holders' percentage ownership falls by 5.56%. With unchanged profit, earnings per share falls by the same percentage. Future earnings and the use of proceeds can change that outcome."
+        },
+        {
+          "type": "paragraph",
+          "text": "A displayed 15% float is not automatically a 15% investable float. If holdings classified as public are ultimately connected to the controller, adding their percentages does not produce independent supply. In the simple identity of price times shares times an inclusion factor, a move from 10% to 15% raises float-adjusted value by 50% only with price and shares held constant. MSCI's rounding, foreign-room rules and continuing freeze can prevent that arithmetic from becoming a 50% index-weight increase. A compliance threshold is not an automatic index admission.",
+          "sources": [
+            "msci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": "A slower markdown is still a markdown",
+      "nav": "The 7% rule",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The 19 October morning reports say IDX decision Kep-00157 cuts the lower auto-rejection limit from 15% to 7% through 31 December 2026. Reported upper bands remain 35%, 25% and 20% for the relevant price brackets above Rp10. The Rp1 to Rp10 bracket retains a Rp1 move. The signed exchange decision was not retrievable in our source check, so the rule summary rests on two named press reports and is kept separate from directly reviewed exchange statistics.",
+          "sources": [
+            "arb",
+            "arbCrosscheck"
+          ]
+        },
+        {
+          "type": "riskChart",
+          "kind": "limits",
+          "label": "Exhibit 05",
+          "title": "Compounding moves the loss across sessions",
+          "note": "Hypothetical paths for a security that trades down by exactly the assumed limit each session. No tick rounding, reference-price adjustment or exceptional board treatment. This is neither an IHSG price path nor a forecast.",
+          "sources": [
+            "arb",
+            "arbCrosscheck"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Starting wealth of 100 becomes 93 after one 7% fall, 86.49 after two, 80.44 after three and 69.57 after five. The five-session loss is 30.43%, requiring a 43.74% gain to recover. One 15% fall leaves 85. A narrower band limits the speed of recorded repricing. It does not place a five-day floor under economic losses."
+        },
+        {
+          "type": "paragraph",
+          "text": "If willing buyers value a hypothetical Rp1,000 share at Rp850, a 7% band permits Rp930 in the first session and about Rp864.90 in the second before tick rounding. Neither level guarantees a buyer. The market may need a third session to reach the assumed clearing price. Conversely, a cooling-off interval can help investors process information and allow new bids to arrive. The benefit is conditional on those bids actually arriving."
+        },
+        {
+          "type": "paragraph",
+          "text": "Execution risk is the missing term in a comforting price-limit headline. A quoted lower limit is not cash available to a seller. A queued order can remain unfilled while collateral needs, redemptions and currency exposure continue. We would track unexecuted sell queues, spreads and actual trading value alongside the index. Those queue and spread data are not in the supplied reports, so this edition does not claim that they have improved."
+        },
+        {
+          "type": "paragraph",
+          "text": "There is also a measurement trap. In an idealized fixed-weight index where every constituent has a 7% daily floor measured from the same reference, the weighted decline cannot exceed 7%. But real-world reference adjustments, exceptions and index mechanics require the full rules. We therefore do not claim that a market-wide trading halt has become impossible. A quieter index print under a new constraint would not, by itself, demonstrate restored confidence."
+        }
+      ]
+    },
+    {
+      "id": "companies",
+      "title": "Liquidity did not spare the large caps",
+      "nav": "Large caps",
+      "blocks": [
+        {
+          "type": "stocks",
+          "label": "Exhibit 06",
+          "title": "The previous five-company focus lost 263.45 index points",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Official weekly IHSG contributions. These five names account for 28.99% of the weekly index point decline. No contribution is inferred from their full market capitalization."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Close, Rp",
+            "Week",
+            "Foreign net, Rp bn"
+          ],
+          "rows": [
+            [
+              "BBCA",
+              "5,175",
+              "-14.46%",
+              "-1,838.71"
+            ],
+            [
+              "BBRI",
+              "2,640",
+              "-14.84%",
+              "-1,085.54"
+            ],
+            [
+              "BMRI",
+              "3,390",
+              "-16.09%",
+              "-1,031.59"
+            ],
+            [
+              "TLKM",
+              "1,900",
+              "-18.10%",
+              "-207.22"
+            ],
+            [
+              "ASII",
+              "4,190",
+              "-13.07%",
+              "+132.35"
+            ]
+          ],
+          "caption": "Five-company regular-market flow estimates"
+        },
+        {
+          "type": "paragraph",
+          "text": "BBCA, BBRI and BMRI together recorded an estimated Rp3.96tn of regular-market foreign net selling. TLKM also saw net selling. ASII attracted an estimated Rp132.35bn of net buying while its price fell 13.07%. That divergence is worth watching, but a single week of buying during a selloff does not establish a floor or reveal investor intentions. These are closing-price estimates and remain separate from official all-market foreign flow.",
+          "sources": [
+            "flowless"
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Market cap, Rp tn",
+            "ADTV20, Rp bn"
+          ],
+          "rows": [
+            [
+              "BBCA",
+              "631.6",
+              "1,012.4"
+            ],
+            [
+              "BBRI",
+              "396.1",
+              "575.6"
+            ],
+            [
+              "BMRI",
+              "313.2",
+              "548.9"
+            ],
+            [
+              "TLKM",
+              "188.2",
+              "432.0"
+            ],
+            [
+              "ASII",
+              "169.6",
+              "214.3"
+            ]
+          ],
+          "caption": "Liquidity screen at 16 October"
+        },
+        {
+          "type": "paragraph",
+          "text": "All five still exceed Rp100tn in market capitalization and Rp50bn in 20-session regular daily value, with no zero-volume session in that window. We recomputed the rolling averages from daily observations. The crisis session itself raises those averages, especially for BBCA. Historical turnover should therefore be read alongside the calmer pre-shock market baseline, not as a promise of tomorrow's exit capacity. Caps round to the figures printed on Friday's IDX top-ten table.",
+          "sources": [
+            "flowless",
+            "daily"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This continues the earlier edition's company focus rather than introducing five new recommendations. The June-period earnings discussed in that report keep their original date. They have not been refreshed into October profit forecasts here. Before adding a company thesis, we would update earnings, balance-sheet risks, ownership exposure and valuation separately. A country-level liquidity shock can overwhelm an otherwise profitable company in the short run.",
+          "sources": [
+            "prior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outlook",
+      "title": "The forecast depends on the price of trust",
+      "nav": "Forecast",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Our preferred planning case is an uneven stabilization while the classification threat remains unresolved. The next week, 19 to 23 October, can produce a violent relief rally without invalidating that view. Friday's intraday high of 5,404.508 and Thursday's close of 5,863.780 are observable reference points for how much damage a rebound repairs. They are not model-derived support, resistance or promised targets.",
+          "sources": [
+            "daily"
+          ]
+        },
+        {
+          "type": "riskChart",
+          "kind": "valuation",
+          "label": "Exhibit 07",
+          "title": "A lower multiple can outrun earnings growth",
+          "sources": [
+            "daily"
+          ],
+          "note": "Illustrative valuation sensitivity, anchored to IHSG 5,185.105 and IDX reported market P/E 11.03 times. Lines compare unchanged earnings, a 10% decline and 5% growth. The P/E is a market proxy, not a matched constituent earnings model. The horizontal axis is a valuation assumption, not time."
+        },
+        {
+          "type": "paragraph",
+          "text": "We use the identity price equals earnings times the valuation multiple. The reported market P/E of 11.03 implies a reciprocal earnings yield of 9.07%. A hypothetical 100 basis point increase takes that proxy multiple to 9.93 times. With unchanged earnings, the index sensitivity is about 4,670, a 9.93% fall from Friday. At 200 basis points with earnings down 10%, it is about 3,823. These changes in earnings yield are analyst assumptions. They are not observed changes in the cost of equity or a calibrated MSCI effect."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Case over 4 to 12 weeks",
+            "Assumed earnings and yield change",
+            "Illustrative levels"
+          ],
+          "rows": [
+            [
+              "Unresolved reform, our planning case",
+              "Earnings -5% to +0%. Yield change +0 to +100 basis points.",
+              "4,437 to 5,185"
+            ],
+            [
+              "Credible repair and relief",
+              "Earnings +0% to +5%. Yield change -100 to -50 basis points.",
+              "5,488 to 6,119"
+            ],
+            [
+              "Escalation and earnings damage",
+              "Earnings -15% to -10%. Yield change +150 to +250 basis points.",
+              "3,455 to 4,004"
+            ]
+          ],
+          "caption": "Conditional valuation ranges from the 16 October anchor"
+        },
+        {
+          "type": "paragraph",
+          "text": "The range endpoints pair the weaker earnings assumption with the more demanding valuation and the stronger earnings assumption with the more forgiving valuation. For example, the lower planning-case endpoint is 5,185.105 × 0.95 ÷ (1 + 11.03 × 0.01) = 4,436.50. The calculation is reproducible, but the assumptions are judgments. These are scenario endpoints, not statistical confidence intervals, forecast paths or an estimated fair value."
+        },
+        {
+          "type": "paragraph",
+          "text": "The four-to-twelve-week horizon is our monitoring window from 19 October. The algebra itself contains no timing mechanism. The final classification decision is on a different calendar. A severe scenario can be priced before a formal decision, while real reform can improve prices before a freeze is lifted. No probability-weighted target is published because we do not have a defensible probability model for either outcome."
+        },
+        {
+          "type": "fxLab",
+          "title": "The currency compounds the equity loss",
+          "note": "The initial inputs use this week's IHSG and BI JISDOR. Move the sliders to explore a separate currency assumption. Equity and reference-rate observation times differ.",
+          "sources": [
+            "jisdor",
+            "daily",
+            "prior"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "JISDOR rose from Rp17,884 to Rp18,052 per dollar, a 0.94% increase in USD/IDR. Combined with the equity decline, the indicative unhedged dollar return is -15.70%. Under a separate hypothetical 20% equity loss and 5% rise in USD/IDR, the dollar loss would be 23.81%. Adding the two percentages would be wrong because the currency conversion is multiplicative.",
+          "sources": [
+            "jisdor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "What would change our mind",
+      "nav": "What changes the view",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "What we would require",
+            "Why it matters"
+          ],
+          "rows": [
+            [
+              "Ownership records that can be reconciled",
+              "Independent public holders must remain independent after tracing control and affiliations."
+            ],
+            [
+              "Published enforcement follow-through",
+              "The terms, collection status, restrictions and subsequent compliance need a visible record."
+            ],
+            [
+              "Consistent treatment across the market",
+              "A few corrected names cannot establish that the wider system has changed."
+            ],
+            [
+              "Trading that clears without persistent queues",
+              "A small daily fall is less informative if investors cannot execute."
+            ],
+            [
+              "Revised constituent and fund exposure",
+              "Current weights and verified mandates are needed before estimating forced sales."
+            ],
+            [
+              "Updated issuer earnings and funding risks",
+              "A lower price cannot be called cheap solely because it used to be higher."
+            ]
+          ],
+          "caption": "Research tests for upgrading the outlook"
+        },
+        {
+          "type": "paragraph",
+          "text": "The criticism is straightforward. If the priority becomes producing a calmer screen, investors may get a smoother record of a problem that remains unresolved. IDX and OJK can improve that outcome by publishing evidence outsiders can reproduce and by showing consequences when ownership and trading rules are breached. That would address the reason capital demands a discount."
+        },
+        {
+          "type": "callout",
+          "label": "Investment conclusion",
+          "text": "We remain cautious on a broad recovery until confidence can be checked in ownership records, enforcement outcomes and executable liquidity. A rebound can be traded. A durable investment case needs stronger evidence. The burden of proof now sits with the institutions asking investors to trust the market."
+        }
+      ]
+    }
+  ],
+  "sourceIntro": "Checked on 19 October 2026. Market data end on 16 October. The policy addendum uses reports published by 07:30 WIB on 19 October. IDX and BI observations and MSCI and OJK statements are primary sources. The new ARB decision is covered through two press reports because its signed original was not retrievable.",
+  "sourceGroups": [
+    {
+      "label": "Market observations",
+      "links": [
+        {
+          "source": "weekly",
+          "label": "IDX Weekly Statistics"
+        },
+        {
+          "source": "daily",
+          "label": "IDX Daily Statistics"
+        },
+        {
+          "source": "observations",
+          "label": "Frozen observations"
+        }
+      ],
+      "note": "12 to 16 October. Weekly pages 1, 2, 4 to 7. Daily pages 1, 2, 4 and 5. Breadth follows visually checked counts and legend. Source hashes and exact daily market totals are retained."
+    },
+    {
+      "label": "Currency and stock context",
+      "links": [
+        {
+          "source": "jisdor",
+          "label": "BI JISDOR"
+        },
+        {
+          "source": "flowless",
+          "label": "Frozen Flowless data"
+        },
+        {
+          "source": "prior",
+          "label": "Previous weekly edition"
+        }
+      ],
+      "note": "BI rates checked for 9 to 16 October. Five-company snapshot ends 16 October with 20 daily rows per company. Previous earnings discussion retains its earlier date."
+    },
+    {
+      "label": "MSCI policy and index exposure",
+      "links": [
+        {
+          "source": "msci",
+          "label": "15 October announcement"
+        },
+        {
+          "source": "consultation",
+          "label": "October consultation"
+        },
+        {
+          "source": "msciTimestamp",
+          "label": "Timestamped announcement"
+        }
+      ],
+      "note": "Consultation pages 2 to 4 and 7. Index exposure is dated 30 September. No final reclassification or implementation date is assumed."
+    },
+    {
+      "label": "Regulatory response and enforcement",
+      "links": [
+        {
+          "source": "ojk",
+          "label": "OJK reform response"
+        },
+        {
+          "source": "sanctions",
+          "label": "OJK sanctions release"
+        }
+      ],
+      "note": "16 October releases. Findings are attributed to OJK. Announced fines are distinguished from collection or final criminal judgment."
+    },
+    {
+      "label": "19 October morning trading rule",
+      "links": [
+        {
+          "source": "arb",
+          "label": "IDXChannel at 06:15 WIB"
+        },
+        {
+          "source": "arbCrosscheck",
+          "label": "Bloomberg Technoz at 06:40 WIB"
+        }
+      ],
+      "note": "Secondary sources reporting Kep-00157. Signed decision not independently retrieved. Board-specific exceptions and detailed execution rules are not inferred."
+    }
+  ],
+  "method": "Official foreign trading totals cover all stock markets. Flowless foreign values are regular-market estimates from foreign share volumes valued at daily closes. Daily value and volume reconcile exactly to the supplied IDX reports. Twenty-session liquidity is independently recomputed. Daily rounded official net sums differ from exact weekly net by about Rp0.01bn. Scenario assumptions, stock-price reference levels and observed data are kept distinct. The market P/E is a proxy that does not reproduce constituent earnings weights. No actual tracker assets under management, queue depth, liquidation schedule, downgrade probability or price-impact coefficient has been established. No new stock ratings or targets are assigned.",
+  "displayMethod": "Price returns exclude dividends and costs. Dollar returns use JISDOR and are indicative. Official all-market flows and regular-market foreign estimates have different scopes. All model results are conditional sensitivities. Exact observations and calculations are available beside the exhibits and in the linked snapshots."
+}

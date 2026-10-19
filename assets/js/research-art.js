@@ -18,6 +18,7 @@
     'adro-2026-09-03': ['adro-2026-09-03.png', 'Original report · opening page', 'document']
   };
   const covers = {
+    'ihsg-weekly-2026-10-16': ['ihsg-october', '#f0ddbb', 10.1, 'Trust Has a Price.|The Market|Is Paying.', 'An exchange district in muted red and charcoal, reused from the October market series as conceptual artwork'],
     'more-nickel-2026-10-15': ['nickel-seaview', '#ead7ae', 11.2, 'More Nickel.|Who Makes|the Money?', 'A view from sea toward a coastal processing works and inland laterite benches, conceptually illustrated'],
     'ihsg-weekly-2026-10-09': ['ihsg-recovery', '#ead7ae', 10.1, 'Prices Recovered.|Foreign Selling|Persisted.', 'A Jakarta skyline, elevated roads and terrace greenery at golden hour, conceptually illustrated'],
     'adro-2026-09-03': ['smelter', '#ead7ae', 11.2, 'The Smelter|Is the Whole|Thesis', 'A tropical aluminium smelter and industrial infrastructure'],

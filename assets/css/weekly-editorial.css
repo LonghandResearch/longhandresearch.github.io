@@ -1,4 +1,4 @@
-/* Refined charts for the 9 October edition. Original report layout is retained. */
+/* Editorial weekly charts. Optional risk exhibits retain the shared report layout. */
 .weekly-edition { --weekly-prose-size: clamp(18px, 1.35vw, 20px); }
 .weekly-edition .market-section > p:not([class]),
 .weekly-edition .market-lede,
@@ -49,12 +49,83 @@
 .weekly-edition .liquidity-track > span { position: relative; height: 3px; }
 .weekly-edition .liquidity-track > span::after { content: ''; position: absolute; right: -4px; top: -3px; width: 9px; height: 9px; border-radius: 50%; background: var(--chart-line); }
 .weekly-edition .liquidity-track > span.loss::after { background: var(--chart-down); }
+.weekly-model-scroll svg { display: block; width: 100%; min-width: 0; }
+.weekly-model-scroll .chart-axis { font-size: 13px; }
+.weekly-model-axis-title { text-align: center; margin: 0 0 20px; font: 400 12px/1.5 var(--font-sans); color: var(--ink-2); }
+.weekly-model-key { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: center; font: 500 12px/1.5 var(--font-sans); color: var(--ink-2); }
+.weekly-model-key span { display: inline-flex; align-items: center; gap: 8px; }
+.weekly-model-key i { width: 24px; border-top: 3px var(--series-style) var(--series-color); }
+.weekly-exit-lab { padding: clamp(16px, 3vw, 32px); border: 1px solid var(--rule); }
+.weekly-exit-lab > p { font: 400 14px/1.65 var(--font-sans); }
+.weekly-exit-lab .lab-result strong { font-size: clamp(30px, 4vw, 50px); }
+.weekly-exit-lab input { width: 100%; accent-color: var(--gold-ink); margin: 14px 0 28px; }
+.weekly-exit-lab .formula-box { overflow-wrap: anywhere; }
+
+/* The October stress edition uses a restrained sage, rust and ochre chart key. */
+.weekly-risk-edition { --weekly-sage: #3b7064; --weekly-ochre: #92642f; }
+[data-theme="dark"] .weekly-risk-edition { --weekly-sage: #8cc6af; --weekly-ochre: #d8b578; }
+.weekly-risk-edition .research-figure { padding: clamp(20px, 3vw, 34px); border-color: var(--rule); background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 96%, var(--weekly-sage) 4%), var(--bg)); }
+.weekly-risk-edition .research-figure figcaption { text-align: left; margin-bottom: 28px; }
+.weekly-risk-edition .research-figure h3 { text-wrap: balance; max-width: 30ch; font-size: clamp(25px, 2.5vw, 32px); }
+.weekly-risk-edition .figure-label { letter-spacing: .16em; }
+.weekly-risk-edition .chart-rule { stroke-dasharray: 2 5; opacity: .7; }
+.weekly-risk-edition .chart-axis { fill: var(--ink-2); }
+.weekly-risk-edition .weekly-price-layout { display: flex; flex-direction: column-reverse; align-items: stretch; gap: 20px; }
+.weekly-risk-edition .weekly-close-readout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; border: 0; padding: 0 0 20px; text-align: left; border-bottom: 1px solid var(--rule); }
+.weekly-risk-edition .weekly-close-readout > :is(span, strong, small) { grid-column: 1; }
+.weekly-risk-edition .weekly-close-readout > strong { font-size: clamp(30px, 4vw, 42px); letter-spacing: -.04em; margin-top: 8px; }
+.weekly-risk-edition .weekly-return { grid-column: 2; grid-row: 1 / 4; margin: 0; padding: 0 0 0 24px; border: 0; border-left: 1px solid var(--rule); text-align: right; }
+.weekly-risk-edition .weekly-return strong { font-size: clamp(30px, 4vw, 42px); letter-spacing: -.04em; }
+.weekly-risk-edition .weekly-price-plot { color: var(--chart-down); }
+.weekly-risk-edition .weekly-price-plot .index-line { stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.weekly-risk-edition .weekly-price-plot .index-point { r: 3; opacity: .65; }
+.weekly-risk-edition .weekly-price-plot .index-point.selected { r: 6; opacity: 1; }
+.weekly-risk-edition .weekly-price-plot .index-point { stroke: currentColor; }
+.weekly-risk-edition .weekly-price-plot .index-point.selected { fill: currentColor; }
+.weekly-chart-event { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 18px; border-left: 2px solid var(--chart-down); padding: 8px 12px; margin-bottom: 24px; background: color-mix(in srgb, var(--chart-down) 5%, transparent); font: 500 11px/1.5 var(--font-sans); }
+.weekly-chart-event small { color: var(--ink-2); font-size: inherit; }
+.weekly-model-baseline { stroke: var(--ink-3); stroke-dasharray: 3 6; opacity: .5; }
+.weekly-model-guide { stroke: var(--ink-3); stroke-dasharray: 3 4; opacity: .4; }
+.weekly-model-line { stroke-linecap: round; stroke-linejoin: round; }
+.weekly-model-point { stroke: var(--bg); stroke-width: 2; opacity: 0; }
+.weekly-model-point[r="6"] { opacity: 1; }
+.weekly-model-readouts { display: grid; grid-template-columns: repeat(var(--series-count), minmax(0, 1fr)); gap: 18px; margin: 0 0 22px; padding-bottom: 22px; border-bottom: 1px solid var(--rule); }
+.weekly-model-readouts > div { min-width: 0; }
+.weekly-model-readouts span { display: block; font: 500 11px/1.5 var(--font-sans); color: var(--ink-2); }
+.weekly-model-readouts i { display: inline-block; width: 15px; border-top: 2px solid var(--series-color); margin-right: 7px; vertical-align: middle; }
+.weekly-model-readouts strong { display: block; color: var(--series-color); font: 500 clamp(25px, 3vw, 38px)/1.2 var(--font-sans); font-variant-numeric: tabular-nums; letter-spacing: -.04em; margin: 8px 0 5px; }
+.weekly-model-readouts small { font: 400 11px/1.5 var(--font-sans); color: var(--ink-2); }
+.weekly-model-control { padding-top: 10px; }
+.weekly-model-control > span { display: block; font: 500 10px/1.5 var(--font-sans); color: var(--ink-2); letter-spacing: .08em; text-transform: uppercase; }
+.weekly-model-control .chart-buttons { margin-top: 10px; gap: 7px; }
+.weekly-model-control button { min-height: 44px; border-radius: 3px; min-width: 44px; padding: 8px 13px; }
+.weekly-flow-summary { display: flex; justify-content: space-between; gap: 24px; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+.weekly-flow-summary span { display: block; color: var(--ink-2); font: 500 11px/1.5 var(--font-sans); }
+.weekly-flow-summary strong { display: block; font: 500 36px/1.2 var(--font-sans); letter-spacing: -.04em; color: var(--chart-down); margin-top: 8px; }
+.weekly-flow-summary strong small { font-size: 13px; letter-spacing: normal; }
+.weekly-flow-summary p { text-align: right; font: 400 11px/1.7 var(--font-sans); color: var(--ink-2); }
+.weekly-risk-edition .weekly-flow-bar { border-radius: 3px 3px 0 0; left: 28%; width: 44%; }
+.weekly-risk-edition .weekly-flow-bar.loss { border-radius: 0 0 3px 3px; }
+.weekly-risk-edition .weekly-flow-column:last-child { background: color-mix(in srgb, var(--chart-down) 4%, transparent); border-radius: 4px; }
+.weekly-bar-axis { display: grid; grid-template-columns: 160px 1fr 86px; gap: 12px; color: var(--ink-3); font: 400 10px/1.5 var(--font-sans); padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.weekly-bar-axis span:last-child { text-align: right; }
+.weekly-risk-edition .liquidity-row { margin: 0; padding-block: 13px; border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent); }
+.weekly-risk-edition .liquidity-row strong { font-weight: 600; color: var(--chart-down); }
 
 @media (max-width: 900px) {
   .weekly-price-layout { grid-template-columns: minmax(0, 1fr) 160px; gap: 12px; }
   .weekly-close-readout > strong { font-size: 31px; }
 }
 @media (max-width: 600px) {
+  .weekly-model-readouts { gap: 10px; }
+  .weekly-model-readouts span, .weekly-model-readouts small { font-size: 10px; }
+  .weekly-model-readouts strong { font-size: 25px; }
+  .weekly-model-readouts i { width: 10px; margin-right: 5px; }
+  .weekly-model-control button { padding-inline: 10px; font-size: 11px; }
+  .weekly-flow-summary { display: block; }
+  .weekly-flow-summary p { text-align: left; margin-top: 12px; }
+  .weekly-bar-axis { grid-template-columns: 95px 1fr 64px; gap: 8px; }
+  .weekly-model-scroll .chart-axis { font-size: 23px; }
   .weekly-edition .weekly-table-short .market-table { min-width: 0; }
   .weekly-edition .weekly-table-short :is(th, td) { padding-inline: 8px; }
   .weekly-edition .weekly-price-plot .chart-axis { font-size: 28px; }

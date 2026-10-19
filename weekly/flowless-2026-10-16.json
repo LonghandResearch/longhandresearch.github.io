@@ -1,0 +1,1169 @@
+{
+  "weekEnding": "2026-10-16",
+  "method": "Regular-market foreign volume valued at each daily close. These are estimates, not official executed foreign values. Twenty-session averages independently recomputed.",
+  "freshExport": {
+    "weekEnding": "2026-10-16",
+    "days": [
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16"
+    ],
+    "basis": "Liquid large caps only: market value of at least Rp100tn and average daily trading of at least Rp50bn over 20 days, at the week's last close. Regular market only. IDX gives foreign trading per stock in shares, so values are shares times each day's closing price.",
+    "universe": {
+      "rule": "Liquid large caps",
+      "minMarketCapTn": 100.0,
+      "minAdtvBn": 50.0,
+      "stocks": 11,
+      "marketCapSharePct": 27.7,
+      "foreignTradingSharePct": 55.9
+    },
+    "totals": {
+      "foreignNetBn": -3767.36,
+      "foreignBuyBn": 11881.83,
+      "foreignSellBn": 15649.19,
+      "valueBn": 29348.91,
+      "allStocksForeignNetBn": -2751.17
+    },
+    "daily": [
+      {
+        "date": "2026-10-12",
+        "foreignNetBn": -29.94,
+        "valueBn": 3698.67,
+        "volumeM": 1665.47,
+        "stocks": 11
+      },
+      {
+        "date": "2026-10-13",
+        "foreignNetBn": -154.17,
+        "valueBn": 2994.55,
+        "volumeM": 1299.0,
+        "stocks": 11
+      },
+      {
+        "date": "2026-10-14",
+        "foreignNetBn": 121.57,
+        "valueBn": 2928.64,
+        "volumeM": 1098.11,
+        "stocks": 11
+      },
+      {
+        "date": "2026-10-15",
+        "foreignNetBn": 474.65,
+        "valueBn": 3158.64,
+        "volumeM": 1325.59,
+        "stocks": 11
+      },
+      {
+        "date": "2026-10-16",
+        "foreignNetBn": -4179.47,
+        "valueBn": 16568.41,
+        "volumeM": 5119.57,
+        "stocks": 11
+      }
+    ],
+    "topSells": [
+      {
+        "ticker": "BBCA",
+        "name": "Bank Central Asia Tbk.",
+        "sector": "Financials",
+        "netBn": -1838.71,
+        "buyBn": 3904.13,
+        "sellBn": 5742.84,
+        "close": 5175.0,
+        "weekReturnPct": -14.46,
+        "read": "Fall with foreign selling"
+      },
+      {
+        "ticker": "BBRI",
+        "name": "Bank Rakyat Indonesia (Persero) Tbk.",
+        "sector": "Financials",
+        "netBn": -1085.54,
+        "buyBn": 1439.3,
+        "sellBn": 2524.84,
+        "close": 2640.0,
+        "weekReturnPct": -14.84,
+        "read": "Fall with foreign selling"
+      },
+      {
+        "ticker": "BMRI",
+        "name": "Bank Mandiri (Persero) Tbk.",
+        "sector": "Financials",
+        "netBn": -1031.59,
+        "buyBn": 1354.59,
+        "sellBn": 2386.18,
+        "close": 3390.0,
+        "weekReturnPct": -16.09,
+        "read": "Fall with foreign selling"
+      },
+      {
+        "ticker": "TLKM",
+        "name": "Telkom Indonesia (Persero) Tbk.",
+        "sector": "Infrastructure",
+        "netBn": -207.22,
+        "buyBn": 2029.42,
+        "sellBn": 2236.64,
+        "close": 1900.0,
+        "weekReturnPct": -18.1,
+        "read": "Fall with foreign selling"
+      }
+    ],
+    "topBuys": [
+      {
+        "ticker": "ASII",
+        "name": "Astra International Tbk.",
+        "sector": "Industrials",
+        "netBn": 132.35,
+        "buyBn": 1092.55,
+        "sellBn": 960.2,
+        "close": 4190.0,
+        "weekReturnPct": -13.07,
+        "read": "Foreigners bought into the fall"
+      },
+      {
+        "ticker": "DSSA",
+        "name": "Dian Swastatika Sentosa Tbk",
+        "sector": "Energy",
+        "netBn": 67.92,
+        "buyBn": 490.99,
+        "sellBn": 423.07,
+        "close": 715.0,
+        "weekReturnPct": -36.73,
+        "read": "Foreigners bought into the fall"
+      },
+      {
+        "ticker": "BRPT",
+        "name": "Barito Pacific Tbk.",
+        "sector": "Basic materials",
+        "netBn": 60.06,
+        "buyBn": 270.12,
+        "sellBn": 210.06,
+        "close": 1210.0,
+        "weekReturnPct": -13.88,
+        "read": "Foreigners bought into the fall"
+      },
+      {
+        "ticker": "TPIA",
+        "name": "Chandra Asri Pacific Tbk.",
+        "sector": "Basic materials",
+        "netBn": 54.45,
+        "buyBn": 322.17,
+        "sellBn": 267.72,
+        "close": 1205.0,
+        "weekReturnPct": -28.06,
+        "read": "Foreigners bought into the fall"
+      },
+      {
+        "ticker": "EMAS",
+        "name": "Merdeka Gold Resources Tbk.",
+        "sector": "Basic materials",
+        "netBn": 36.02,
+        "buyBn": 253.84,
+        "sellBn": 217.82,
+        "close": 7050.0,
+        "weekReturnPct": -12.96,
+        "read": "Foreigners bought into the fall"
+      },
+      {
+        "ticker": "BBNI",
+        "name": "Bank Negara Indonesia (Persero) Tbk.",
+        "sector": "Financials",
+        "netBn": 35.15,
+        "buyBn": 495.09,
+        "sellBn": 459.94,
+        "close": 2970.0,
+        "weekReturnPct": -13.41,
+        "read": "Foreigners bought into the fall"
+      },
+      {
+        "ticker": "AMMN",
+        "name": "Amman Mineral Internasional Tbk.",
+        "sector": "Basic materials",
+        "netBn": 9.73,
+        "buyBn": 229.63,
+        "sellBn": 219.89,
+        "close": 3740.0,
+        "weekReturnPct": -15.19,
+        "read": "Foreign flow too small to read"
+      }
+    ],
+    "sectors": [
+      {
+        "sector": "Financials",
+        "netBn": -3920.68,
+        "buyBn": 7193.12,
+        "sellBn": 11113.8,
+        "stocksTraded": 4,
+        "returnPct": -14.87,
+        "read": "Fall with foreign selling",
+        "leadStock": "BBCA",
+        "leadSharePct": 46.1,
+        "oneStock": false
+      },
+      {
+        "sector": "Infrastructure",
+        "netBn": -207.22,
+        "buyBn": 2029.42,
+        "sellBn": 2236.64,
+        "stocksTraded": 1,
+        "returnPct": -18.1,
+        "read": "Fall with foreign selling",
+        "leadStock": "TLKM",
+        "leadSharePct": 100.0,
+        "oneStock": false
+      },
+      {
+        "sector": "Energy",
+        "netBn": 67.92,
+        "buyBn": 490.99,
+        "sellBn": 423.07,
+        "stocksTraded": 1,
+        "returnPct": -36.73,
+        "read": "Foreigners bought into the fall",
+        "leadStock": "DSSA",
+        "leadSharePct": 100.0,
+        "oneStock": false
+      },
+      {
+        "sector": "Industrials",
+        "netBn": 132.35,
+        "buyBn": 1092.55,
+        "sellBn": 960.2,
+        "stocksTraded": 1,
+        "returnPct": -13.07,
+        "read": "Foreigners bought into the fall",
+        "leadStock": "ASII",
+        "leadSharePct": 100.0,
+        "oneStock": false
+      },
+      {
+        "sector": "Basic materials",
+        "netBn": 160.27,
+        "buyBn": 1075.76,
+        "sellBn": 915.49,
+        "stocksTraded": 4,
+        "returnPct": -18.91,
+        "read": "Foreigners bought into the fall",
+        "leadStock": "BRPT",
+        "leadSharePct": 37.5,
+        "oneStock": false
+      }
+    ],
+    "standouts": [
+      {
+        "ticker": "ASII",
+        "name": "Astra International Tbk.",
+        "sector": "Industrials",
+        "netBn": 132.35,
+        "buyBn": 1092.55,
+        "sellBn": 960.2,
+        "close": 4190.0,
+        "weekReturnPct": -13.07,
+        "read": "Foreigners bought into the fall",
+        "flowPercentile": 95.8,
+        "flowZScore": 1.83,
+        "flowState": "distribution"
+      }
+    ]
+  },
+  "marketDaily": [
+    {
+      "date": "2026-10-12",
+      "valueIdr": 12812569799100.0,
+      "volume": 55925726000,
+      "estimatedForeignNetBn": 108.0326774,
+      "officialLessEstimateBn": 34.7173226
+    },
+    {
+      "date": "2026-10-13",
+      "valueIdr": 8967460754700.0,
+      "volume": 31468818000,
+      "estimatedForeignNetBn": 15.5917119,
+      "officialLessEstimateBn": 554.8082881
+    },
+    {
+      "date": "2026-10-14",
+      "valueIdr": 8830253188400.0,
+      "volume": 27087687300,
+      "estimatedForeignNetBn": -97.4739672,
+      "officialLessEstimateBn": -1035.9260328
+    },
+    {
+      "date": "2026-10-15",
+      "valueIdr": 10267327743900.0,
+      "volume": 29736555300,
+      "estimatedForeignNetBn": 529.7280993,
+      "officialLessEstimateBn": 39.65190069999994
+    },
+    {
+      "date": "2026-10-16",
+      "valueIdr": 26524755908700.0,
+      "volume": 65091732900,
+      "estimatedForeignNetBn": -3307.0482902,
+      "officialLessEstimateBn": -36.66170980000015
+    }
+  ],
+  "focus": [
+    {
+      "ticker": "BBCA",
+      "previousClose": 6050.0,
+      "close": 5175.0,
+      "returnPct": -14.462809917355369,
+      "marketCapTn": 631.5688999125,
+      "adtv20Bn": 1012.43082125,
+      "netBn": -1838.7051125,
+      "zeroVolumeSessions": 0,
+      "observations": [
+        {
+          "date": "2026-09-21",
+          "close": 6225.0,
+          "volume": 69914100,
+          "valueIdr": 436969230000.0,
+          "foreignBuyEstimateIdr": 181681605000.0,
+          "foreignSellEstimateIdr": 312717232500.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 6200.0,
+          "volume": 93211200,
+          "valueIdr": 579943142500.0,
+          "foreignBuyEstimateIdr": 303502400000.0,
+          "foreignSellEstimateIdr": 404828380000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 6300.0,
+          "volume": 96826100,
+          "valueIdr": 606393387500.0,
+          "foreignBuyEstimateIdr": 434199780000.0,
+          "foreignSellEstimateIdr": 451105200000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 6225.0,
+          "volume": 75648600,
+          "valueIdr": 471971375000.0,
+          "foreignBuyEstimateIdr": 375828150000.0,
+          "foreignSellEstimateIdr": 368966332500.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 6250.0,
+          "volume": 89447400,
+          "valueIdr": 557956642500.0,
+          "foreignBuyEstimateIdr": 460070625000.0,
+          "foreignSellEstimateIdr": 356941250000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 6225.0,
+          "volume": 112107600,
+          "valueIdr": 695482890000.0,
+          "foreignBuyEstimateIdr": 540158812500.0,
+          "foreignSellEstimateIdr": 522429390000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 6150.0,
+          "volume": 149783400,
+          "valueIdr": 923009067500.0,
+          "foreignBuyEstimateIdr": 608000685000.0,
+          "foreignSellEstimateIdr": 746689335000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 6075.0,
+          "volume": 221335700,
+          "valueIdr": 1349339117500.0,
+          "foreignBuyEstimateIdr": 981469102500.0,
+          "foreignSellEstimateIdr": 1157046322500.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 6000.0,
+          "volume": 118044900,
+          "valueIdr": 715298500000.0,
+          "foreignBuyEstimateIdr": 497079000000.0,
+          "foreignSellEstimateIdr": 536420400000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 6100.0,
+          "volume": 131920300,
+          "valueIdr": 798136850000.0,
+          "foreignBuyEstimateIdr": 615208180000.0,
+          "foreignSellEstimateIdr": 572273330000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 6175.0,
+          "volume": 89905700,
+          "valueIdr": 551443295000.0,
+          "foreignBuyEstimateIdr": 439656295000.0,
+          "foreignSellEstimateIdr": 415115610000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 6100.0,
+          "volume": 152173400,
+          "valueIdr": 936031042500.0,
+          "foreignBuyEstimateIdr": 706753930000.0,
+          "foreignSellEstimateIdr": 722061880000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 6050.0,
+          "volume": 162690800,
+          "valueIdr": 982525082500.0,
+          "foreignBuyEstimateIdr": 562719575000.0,
+          "foreignSellEstimateIdr": 863367065000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 6000.0,
+          "volume": 113140300,
+          "valueIdr": 684530305000.0,
+          "foreignBuyEstimateIdr": 510175200000.0,
+          "foreignSellEstimateIdr": 510832200000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 6050.0,
+          "volume": 87098600,
+          "valueIdr": 526167482500.0,
+          "foreignBuyEstimateIdr": 379792380000.0,
+          "foreignSellEstimateIdr": 383486510000.0
+        },
+        {
+          "date": "2026-10-12",
+          "close": 5950.0,
+          "volume": 97965100,
+          "valueIdr": 586491892500.0,
+          "foreignBuyEstimateIdr": 306420240000.0,
+          "foreignSellEstimateIdr": 362254445000.0
+        },
+        {
+          "date": "2026-10-13",
+          "close": 5950.0,
+          "volume": 122716900,
+          "valueIdr": 726575115000.0,
+          "foreignBuyEstimateIdr": 528193995000.0,
+          "foreignSellEstimateIdr": 498246455000.0
+        },
+        {
+          "date": "2026-10-14",
+          "close": 6125.0,
+          "volume": 136303100,
+          "valueIdr": 828862772500.0,
+          "foreignBuyEstimateIdr": 734246012500.0,
+          "foreignSellEstimateIdr": 516325250000.0
+        },
+        {
+          "date": "2026-10-15",
+          "close": 6075.0,
+          "volume": 134763200,
+          "valueIdr": 816554920000.0,
+          "foreignBuyEstimateIdr": 734163750000.0,
+          "foreignSellEstimateIdr": 447356317500.0
+        },
+        {
+          "date": "2026-10-16",
+          "close": 5175.0,
+          "volume": 1241098200,
+          "valueIdr": 6474934315000.0,
+          "foreignBuyEstimateIdr": 1601107740000.0,
+          "foreignSellEstimateIdr": 3918654382500.0
+        }
+      ]
+    },
+    {
+      "ticker": "BBRI",
+      "previousClose": 3100.0,
+      "close": 2640.0,
+      "returnPct": -14.83870967741936,
+      "marketCapTn": 396.11460658968,
+      "adtv20Bn": 575.63107345,
+      "netBn": -1085.543793,
+      "zeroVolumeSessions": 0,
+      "observations": [
+        {
+          "date": "2026-09-21",
+          "close": 3300.0,
+          "volume": 102594200,
+          "valueIdr": 337759369000.0,
+          "foreignBuyEstimateIdr": 239179710000.0,
+          "foreignSellEstimateIdr": 216011730000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 3180.0,
+          "volume": 272879800,
+          "valueIdr": 875447057000.0,
+          "foreignBuyEstimateIdr": 250484148000.0,
+          "foreignSellEstimateIdr": 586598382000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 3190.0,
+          "volume": 205953900,
+          "valueIdr": 655575407000.0,
+          "foreignBuyEstimateIdr": 268271025000.0,
+          "foreignSellEstimateIdr": 456646267000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 3140.0,
+          "volume": 129218800,
+          "valueIdr": 408040137000.0,
+          "foreignBuyEstimateIdr": 165410804000.0,
+          "foreignSellEstimateIdr": 305821242000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 3150.0,
+          "volume": 87244800,
+          "valueIdr": 273791252000.0,
+          "foreignBuyEstimateIdr": 94344705000.0,
+          "foreignSellEstimateIdr": 157360770000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 3140.0,
+          "volume": 102848000,
+          "valueIdr": 323177020000.0,
+          "foreignBuyEstimateIdr": 195115204000.0,
+          "foreignSellEstimateIdr": 145732738000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 3170.0,
+          "volume": 134943400,
+          "valueIdr": 427744676000.0,
+          "foreignBuyEstimateIdr": 243610696000.0,
+          "foreignSellEstimateIdr": 185353387000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 3140.0,
+          "volume": 181840000,
+          "valueIdr": 577024979000.0,
+          "foreignBuyEstimateIdr": 316552192000.0,
+          "foreignSellEstimateIdr": 395639686000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 3100.0,
+          "volume": 134095700,
+          "valueIdr": 416507055000.0,
+          "foreignBuyEstimateIdr": 178678730000.0,
+          "foreignSellEstimateIdr": 219659800000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 3080.0,
+          "volume": 170339200,
+          "valueIdr": 523699934000.0,
+          "foreignBuyEstimateIdr": 208944736000.0,
+          "foreignSellEstimateIdr": 380877420000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 3120.0,
+          "volume": 135379500,
+          "valueIdr": 417855509000.0,
+          "foreignBuyEstimateIdr": 200010720000.0,
+          "foreignSellEstimateIdr": 272543856000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 3110.0,
+          "volume": 139170200,
+          "valueIdr": 437042438000.0,
+          "foreignBuyEstimateIdr": 239879587000.0,
+          "foreignSellEstimateIdr": 194519304000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 3140.0,
+          "volume": 88629800,
+          "valueIdr": 277951508000.0,
+          "foreignBuyEstimateIdr": 227835260000.0,
+          "foreignSellEstimateIdr": 98155458000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 3030.0,
+          "volume": 150854000,
+          "valueIdr": 463216933000.0,
+          "foreignBuyEstimateIdr": 142005192000.0,
+          "foreignSellEstimateIdr": 346932879000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 3100.0,
+          "volume": 155846800,
+          "valueIdr": 479232929000.0,
+          "foreignBuyEstimateIdr": 237771860000.0,
+          "foreignSellEstimateIdr": 318307070000.0
+        },
+        {
+          "date": "2026-10-12",
+          "close": 3110.0,
+          "volume": 129810600,
+          "valueIdr": 402372587000.0,
+          "foreignBuyEstimateIdr": 252774269000.0,
+          "foreignSellEstimateIdr": 172080654000.0
+        },
+        {
+          "date": "2026-10-13",
+          "close": 3080.0,
+          "volume": 102010600,
+          "valueIdr": 312155170000.0,
+          "foreignBuyEstimateIdr": 113152424000.0,
+          "foreignSellEstimateIdr": 178908576000.0
+        },
+        {
+          "date": "2026-10-14",
+          "close": 3090.0,
+          "volume": 109152100,
+          "valueIdr": 338481482000.0,
+          "foreignBuyEstimateIdr": 153979953000.0,
+          "foreignSellEstimateIdr": 210734601000.0
+        },
+        {
+          "date": "2026-10-15",
+          "close": 3100.0,
+          "volume": 107210100,
+          "valueIdr": 330799545000.0,
+          "foreignBuyEstimateIdr": 225980080000.0,
+          "foreignSellEstimateIdr": 147299600000.0
+        },
+        {
+          "date": "2026-10-16",
+          "close": 2640.0,
+          "volume": 1193916400,
+          "valueIdr": 3234746482000.0,
+          "foreignBuyEstimateIdr": 693413952000.0,
+          "foreignSellEstimateIdr": 1815821040000.0
+        }
+      ]
+    },
+    {
+      "ticker": "BMRI",
+      "previousClose": 4040.0,
+      "close": 3390.0,
+      "returnPct": -16.089108910891092,
+      "marketCapTn": 313.23599998644,
+      "adtv20Bn": 548.89718245,
+      "netBn": -1031.588575,
+      "zeroVolumeSessions": 0,
+      "observations": [
+        {
+          "date": "2026-09-21",
+          "close": 4200.0,
+          "volume": 74720000,
+          "valueIdr": 315257706000.0,
+          "foreignBuyEstimateIdr": 73722180000.0,
+          "foreignSellEstimateIdr": 213711120000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 4160.0,
+          "volume": 123121600,
+          "valueIdr": 514998693000.0,
+          "foreignBuyEstimateIdr": 243918688000.0,
+          "foreignSellEstimateIdr": 328651648000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 4190.0,
+          "volume": 88290300,
+          "valueIdr": 369086685000.0,
+          "foreignBuyEstimateIdr": 142145750000.0,
+          "foreignSellEstimateIdr": 271372892000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 4070.0,
+          "volume": 182057400,
+          "valueIdr": 748056301000.0,
+          "foreignBuyEstimateIdr": 109152923000.0,
+          "foreignSellEstimateIdr": 635902905000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 4080.0,
+          "volume": 70546200,
+          "valueIdr": 288531662000.0,
+          "foreignBuyEstimateIdr": 92551944000.0,
+          "foreignSellEstimateIdr": 163446432000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 4020.0,
+          "volume": 124768400,
+          "valueIdr": 504858592000.0,
+          "foreignBuyEstimateIdr": 136539702000.0,
+          "foreignSellEstimateIdr": 376470186000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 4030.0,
+          "volume": 189538000,
+          "valueIdr": 764074053000.0,
+          "foreignBuyEstimateIdr": 347317087000.0,
+          "foreignSellEstimateIdr": 623403521000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 4010.0,
+          "volume": 171069100,
+          "valueIdr": 690930837000.0,
+          "foreignBuyEstimateIdr": 298076132000.0,
+          "foreignSellEstimateIdr": 503080565000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 4010.0,
+          "volume": 80311200,
+          "valueIdr": 322117728000.0,
+          "foreignBuyEstimateIdr": 128746263000.0,
+          "foreignSellEstimateIdr": 197247489000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 4030.0,
+          "volume": 75138400,
+          "valueIdr": 302444571000.0,
+          "foreignBuyEstimateIdr": 132803008000.0,
+          "foreignSellEstimateIdr": 199167033000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 4100.0,
+          "volume": 87169800,
+          "valueIdr": 355891037000.0,
+          "foreignBuyEstimateIdr": 251986000000.0,
+          "foreignSellEstimateIdr": 164920040000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 4100.0,
+          "volume": 90258000,
+          "valueIdr": 371889295000.0,
+          "foreignBuyEstimateIdr": 160584290000.0,
+          "foreignSellEstimateIdr": 287287000000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 4100.0,
+          "volume": 51806600,
+          "valueIdr": 212574691000.0,
+          "foreignBuyEstimateIdr": 137272920000.0,
+          "foreignSellEstimateIdr": 138067910000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 4000.0,
+          "volume": 130849900,
+          "valueIdr": 527942822000.0,
+          "foreignBuyEstimateIdr": 68683600000.0,
+          "foreignSellEstimateIdr": 258209600000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 4040.0,
+          "volume": 53448900,
+          "valueIdr": 215866779000.0,
+          "foreignBuyEstimateIdr": 120041328000.0,
+          "foreignSellEstimateIdr": 123887812000.0
+        },
+        {
+          "date": "2026-10-12",
+          "close": 4010.0,
+          "volume": 108842800,
+          "valueIdr": 437139613000.0,
+          "foreignBuyEstimateIdr": 148473859000.0,
+          "foreignSellEstimateIdr": 227138831000.0
+        },
+        {
+          "date": "2026-10-13",
+          "close": 3990.0,
+          "volume": 110238300,
+          "valueIdr": 437643021000.0,
+          "foreignBuyEstimateIdr": 126962199000.0,
+          "foreignSellEstimateIdr": 247638951000.0
+        },
+        {
+          "date": "2026-10-14",
+          "close": 3960.0,
+          "volume": 106870300,
+          "valueIdr": 426286060000.0,
+          "foreignBuyEstimateIdr": 210925044000.0,
+          "foreignSellEstimateIdr": 246856896000.0
+        },
+        {
+          "date": "2026-10-15",
+          "close": 3980.0,
+          "volume": 98614400,
+          "valueIdr": 390747506000.0,
+          "foreignBuyEstimateIdr": 176236788000.0,
+          "foreignSellEstimateIdr": 142279428000.0
+        },
+        {
+          "date": "2026-10-16",
+          "close": 3390.0,
+          "volume": 785788400,
+          "valueIdr": 2781605997000.0,
+          "foreignBuyEstimateIdr": 691995276000.0,
+          "foreignSellEstimateIdr": 1522267635000.0
+        }
+      ]
+    },
+    {
+      "ticker": "TLKM",
+      "previousClose": 2320.0,
+      "close": 1900.0,
+      "returnPct": -18.103448275862068,
+      "marketCapTn": 188.21821154,
+      "adtv20Bn": 431.956418375,
+      "netBn": -207.220299,
+      "zeroVolumeSessions": 0,
+      "observations": [
+        {
+          "date": "2026-09-21",
+          "close": 2500.0,
+          "volume": 73848400,
+          "valueIdr": 185557029000.0,
+          "foreignBuyEstimateIdr": 39109000000.0,
+          "foreignSellEstimateIdr": 153153500000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 2470.0,
+          "volume": 111856600,
+          "valueIdr": 277593798000.0,
+          "foreignBuyEstimateIdr": 168074114000.0,
+          "foreignSellEstimateIdr": 222156740000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 2440.0,
+          "volume": 140225800,
+          "valueIdr": 341882994000.0,
+          "foreignBuyEstimateIdr": 155398476000.0,
+          "foreignSellEstimateIdr": 280075156000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 2410.0,
+          "volume": 114511100,
+          "valueIdr": 275417647000.0,
+          "foreignBuyEstimateIdr": 130976029000.0,
+          "foreignSellEstimateIdr": 215752599000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 2410.0,
+          "volume": 170051400,
+          "valueIdr": 407385256000.0,
+          "foreignBuyEstimateIdr": 247382162000.0,
+          "foreignSellEstimateIdr": 360896295000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 2370.0,
+          "volume": 131894200,
+          "valueIdr": 313457274000.0,
+          "foreignBuyEstimateIdr": 140438853000.0,
+          "foreignSellEstimateIdr": 261829542000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 2370.0,
+          "volume": 228706200,
+          "valueIdr": 539573097000.0,
+          "foreignBuyEstimateIdr": 290309595000.0,
+          "foreignSellEstimateIdr": 450917385000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 2290.0,
+          "volume": 346746900,
+          "valueIdr": 800110290000.0,
+          "foreignBuyEstimateIdr": 498009964000.0,
+          "foreignSellEstimateIdr": 711442086000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 2250.0,
+          "volume": 224735400,
+          "valueIdr": 505994325000.0,
+          "foreignBuyEstimateIdr": 339263100000.0,
+          "foreignSellEstimateIdr": 281583900000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 2250.0,
+          "volume": 145636900,
+          "valueIdr": 327637394000.0,
+          "foreignBuyEstimateIdr": 211966875000.0,
+          "foreignSellEstimateIdr": 242468100000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 2290.0,
+          "volume": 108272300,
+          "valueIdr": 246051258000.0,
+          "foreignBuyEstimateIdr": 166499259000.0,
+          "foreignSellEstimateIdr": 188551959000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 2280.0,
+          "volume": 162461500,
+          "valueIdr": 369614323000.0,
+          "foreignBuyEstimateIdr": 252998148000.0,
+          "foreignSellEstimateIdr": 326314056000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 2310.0,
+          "volume": 173346600,
+          "valueIdr": 400279602000.0,
+          "foreignBuyEstimateIdr": 322847448000.0,
+          "foreignSellEstimateIdr": 300642573000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 2260.0,
+          "volume": 126548900,
+          "valueIdr": 290296911000.0,
+          "foreignBuyEstimateIdr": 174734612000.0,
+          "foreignSellEstimateIdr": 225678628000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 2320.0,
+          "volume": 166319300,
+          "valueIdr": 385658218000.0,
+          "foreignBuyEstimateIdr": 271182248000.0,
+          "foreignSellEstimateIdr": 317489448000.0
+        },
+        {
+          "date": "2026-10-12",
+          "close": 2280.0,
+          "volume": 149200000,
+          "valueIdr": 342019043000.0,
+          "foreignBuyEstimateIdr": 242958396000.0,
+          "foreignSellEstimateIdr": 270234264000.0
+        },
+        {
+          "date": "2026-10-13",
+          "close": 2240.0,
+          "volume": 109424100,
+          "valueIdr": 244244887000.0,
+          "foreignBuyEstimateIdr": 137363968000.0,
+          "foreignSellEstimateIdr": 212414048000.0
+        },
+        {
+          "date": "2026-10-14",
+          "close": 2250.0,
+          "volume": 87159900,
+          "valueIdr": 197725738000.0,
+          "foreignBuyEstimateIdr": 141817950000.0,
+          "foreignSellEstimateIdr": 136825200000.0
+        },
+        {
+          "date": "2026-10-15",
+          "close": 2230.0,
+          "volume": 150485300,
+          "valueIdr": 333287991000.0,
+          "foreignBuyEstimateIdr": 217168773000.0,
+          "foreignSellEstimateIdr": 235313614000.0
+        },
+        {
+          "date": "2026-10-16",
+          "close": 1900.0,
+          "volume": 963614200,
+          "valueIdr": 1855341292500.0,
+          "foreignBuyEstimateIdr": 1290108360000.0,
+          "foreignSellEstimateIdr": 1381850620000.0
+        }
+      ]
+    },
+    {
+      "ticker": "ASII",
+      "previousClose": 4820.0,
+      "close": 4190.0,
+      "returnPct": -13.070539419087135,
+      "marketCapTn": 169.6260876566,
+      "adtv20Bn": 214.26871645,
+      "netBn": 132.350121,
+      "zeroVolumeSessions": 0,
+      "observations": [
+        {
+          "date": "2026-09-21",
+          "close": 4820.0,
+          "volume": 23075000,
+          "valueIdr": 111703445000.0,
+          "foreignBuyEstimateIdr": 62781464000.0,
+          "foreignSellEstimateIdr": 89074082000.0
+        },
+        {
+          "date": "2026-09-22",
+          "close": 4780.0,
+          "volume": 31702600,
+          "valueIdr": 152519363000.0,
+          "foreignBuyEstimateIdr": 94156918000.0,
+          "foreignSellEstimateIdr": 104725020000.0
+        },
+        {
+          "date": "2026-09-23",
+          "close": 4750.0,
+          "volume": 45765700,
+          "valueIdr": 218566277000.0,
+          "foreignBuyEstimateIdr": 133741475000.0,
+          "foreignSellEstimateIdr": 150591625000.0
+        },
+        {
+          "date": "2026-09-24",
+          "close": 4770.0,
+          "volume": 21665700,
+          "valueIdr": 103456982000.0,
+          "foreignBuyEstimateIdr": 73635444000.0,
+          "foreignSellEstimateIdr": 49302243000.0
+        },
+        {
+          "date": "2026-09-25",
+          "close": 4690.0,
+          "volume": 30912500,
+          "valueIdr": 145575833000.0,
+          "foreignBuyEstimateIdr": 53773195000.0,
+          "foreignSellEstimateIdr": 103433729000.0
+        },
+        {
+          "date": "2026-09-28",
+          "close": 4670.0,
+          "volume": 25788600,
+          "valueIdr": 120989453000.0,
+          "foreignBuyEstimateIdr": 76679532000.0,
+          "foreignSellEstimateIdr": 90406997000.0
+        },
+        {
+          "date": "2026-09-29",
+          "close": 4700.0,
+          "volume": 44529100,
+          "valueIdr": 208699906000.0,
+          "foreignBuyEstimateIdr": 145298150000.0,
+          "foreignSellEstimateIdr": 143940790000.0
+        },
+        {
+          "date": "2026-09-30",
+          "close": 4600.0,
+          "volume": 74750800,
+          "valueIdr": 349225726000.0,
+          "foreignBuyEstimateIdr": 209569100000.0,
+          "foreignSellEstimateIdr": 306864160000.0
+        },
+        {
+          "date": "2026-10-01",
+          "close": 4510.0,
+          "volume": 86157700,
+          "valueIdr": 392354420000.0,
+          "foreignBuyEstimateIdr": 246471049000.0,
+          "foreignSellEstimateIdr": 201872561000.0
+        },
+        {
+          "date": "2026-10-02",
+          "close": 4630.0,
+          "volume": 34548100,
+          "valueIdr": 159061071000.0,
+          "foreignBuyEstimateIdr": 128990874000.0,
+          "foreignSellEstimateIdr": 110755619000.0
+        },
+        {
+          "date": "2026-10-05",
+          "close": 4750.0,
+          "volume": 59764300,
+          "valueIdr": 281717260000.0,
+          "foreignBuyEstimateIdr": 177699400000.0,
+          "foreignSellEstimateIdr": 233909000000.0
+        },
+        {
+          "date": "2026-10-06",
+          "close": 4820.0,
+          "volume": 35508900,
+          "valueIdr": 171015669000.0,
+          "foreignBuyEstimateIdr": 112161400000.0,
+          "foreignSellEstimateIdr": 113391946000.0
+        },
+        {
+          "date": "2026-10-07",
+          "close": 4780.0,
+          "volume": 18474300,
+          "valueIdr": 88419602000.0,
+          "foreignBuyEstimateIdr": 65203024000.0,
+          "foreignSellEstimateIdr": 61376156000.0
+        },
+        {
+          "date": "2026-10-08",
+          "close": 4800.0,
+          "volume": 41894000,
+          "valueIdr": 202596430000.0,
+          "foreignBuyEstimateIdr": 156412320000.0,
+          "foreignSellEstimateIdr": 128817120000.0
+        },
+        {
+          "date": "2026-10-09",
+          "close": 4820.0,
+          "volume": 25070300,
+          "valueIdr": 121173340000.0,
+          "foreignBuyEstimateIdr": 81754912000.0,
+          "foreignSellEstimateIdr": 96128152000.0
+        },
+        {
+          "date": "2026-10-12",
+          "close": 4810.0,
+          "volume": 69947600,
+          "valueIdr": 338987333000.0,
+          "foreignBuyEstimateIdr": 283697167000.0,
+          "foreignSellEstimateIdr": 206466364000.0
+        },
+        {
+          "date": "2026-10-13",
+          "close": 4750.0,
+          "volume": 34857900,
+          "valueIdr": 164858376000.0,
+          "foreignBuyEstimateIdr": 124364025000.0,
+          "foreignSellEstimateIdr": 79455150000.0
+        },
+        {
+          "date": "2026-10-14",
+          "close": 4810.0,
+          "volume": 34199000,
+          "valueIdr": 164568640000.0,
+          "foreignBuyEstimateIdr": 144825252000.0,
+          "foreignSellEstimateIdr": 136732908000.0
+        },
+        {
+          "date": "2026-10-15",
+          "close": 4780.0,
+          "volume": 32125800,
+          "valueIdr": 153382337000.0,
+          "foreignBuyEstimateIdr": 111298476000.0,
+          "foreignSellEstimateIdr": 93503492000.0
+        },
+        {
+          "date": "2026-10-16",
+          "close": 4190.0,
+          "volume": 150890200,
+          "valueIdr": 636502866000.0,
+          "foreignBuyEstimateIdr": 428361717000.0,
+          "foreignSellEstimateIdr": 444038602000.0
+        }
+      ]
+    }
+  ]
+}
