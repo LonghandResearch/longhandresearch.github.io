@@ -1,0 +1,22 @@
+# WEB-030: a distinct market-trust cover
+
+The owner requested a unique cover for the 16 October IHSG edition instead of
+the illustration reused from 2 October. The new conceptual artwork depicts a
+brass balance on a fractured pedestal, with glass blocks and a stone weight.
+It illustrates the report's trust theme; it is not documentary evidence.
+
+Generated with the built-in imagegen tool on 19 October 2026. The complete
+prompt and method are recorded in `assets/img/research/covers/ihsg-trust-art.json`.
+The 1024 by 1536 original is proportionally encoded as WebP with 640 and 320
+pixel responsive variants. No semantic retouch or crop. Website typography
+retains the exact catalogue title, issue 014 and publication date. A full
+typeset JPEG is exported from the browser. Earlier artwork remains preserved.
+
+Validation: JavaScript syntax and metadata JSON parse, 150 passing tests,
+and eight desktop/mobile Home and Library checks across both themes.
+Browser inspection confirms readable typesetting, no horizontal overflow,
+the distinct new asset and the unchanged 2 October cover. Research claims,
+charts and calculations are unchanged. The site checker runs before publication.
+
+Codex author QA and publication use the continuing temporary takeover
+authorization in AI_COLLABORATION.md while Claude is unavailable.

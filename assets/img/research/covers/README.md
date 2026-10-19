@@ -1,5 +1,18 @@
 # Longhand portrait editorial covers
 
+## 19 October 2026: a unique cover for the market-trust edition
+
+The owner requested a distinct cover instead of the initially reused October
+city artwork. `ihsg-trust-art.webp` is a new 1024 by 1536 illustration generated
+with the built-in imagegen tool. A brass balance on a fractured stone pedestal
+represents the weight of market trust. Glass blocks, a rough stone and a small
+distant skyline are conceptual details, not documentary exchange imagery.
+
+The 320 and 640 pixel versions retain the same 2:3 composition. No cropping or
+semantic retouching was applied. The exact prompt and generation method are in
+`ihsg-trust-art.json`. Longhand typesets No. 014, 19 October 2026 and the existing
+catalogue title on the website. Earlier editions retain their original covers.
+
 Ten original conceptual illustrations were generated with the built-in imagegen
 tool on 10 October 2026. The owner selected reference #3, requested portrait
 artwork, retained The Memory War's existing three-character anime cover and

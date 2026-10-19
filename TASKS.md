@@ -104,6 +104,8 @@ takeover authorization while Claude is unavailable.
 
 | RPT-018 | Publish 12 to 16 October IHSG research with the 19 October morning policy addendum, audited scenarios and polished native charts | Codex | `codex/ihsg-weekly-oct16` | Review | [PR #106](https://github.com/LonghandResearch/longhandresearch.github.io/pull/106). Codex author QA under continuing temporary takeover authorization. Source reconciliation, 150 tests and 38 responsive browser cases. Curves retain the exact observations. See `audits/RPT-018-2026-10-16.md`. |
 
+| WEB-030 | Replace the reused 16 October IHSG cover with a unique conceptual illustration while retaining the Longhand cover system | Codex | `codex/ihsg-oct16-cover` | In progress | Owner requested a distinct cover. Codex author QA under continuing temporary takeover authorization. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
