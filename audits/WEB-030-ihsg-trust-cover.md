@@ -25,3 +25,8 @@ charts and calculations are unchanged. The site checker runs before publication.
 
 Codex author QA and publication use the continuing temporary takeover
 authorization in AI_COLLABORATION.md while Claude is unavailable.
+
+Publication status: local work is complete at commit 5b1f56c. Repeated GitHub
+push/API requests timed out, including an explicit TLS handshake timeout and
+a separate 15-second HTTPS request timeout. No PR or live deployment is yet
+confirmed. Resume from this branch and publish when connectivity returns.
