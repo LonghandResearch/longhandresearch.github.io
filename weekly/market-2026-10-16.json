@@ -1,0 +1,165 @@
+{
+  "weekEnding": "2026-10-16",
+  "sourceFiles": [
+    {
+      "file": "ds_261012.pdf",
+      "sha256": "db18deb17b865d33224579dcd3563f99589999636be5e6dd7f6cfa9df1416194"
+    },
+    {
+      "file": "ds_261013.pdf",
+      "sha256": "50b426b19887adc1d9f9cf6adfd98799f2b9135f798d7ee4057274d10335fd7e"
+    },
+    {
+      "file": "ds_261014.pdf",
+      "sha256": "ea63a09eb73909d53ca789beb706b8ab72ca7f6c668d93cbee7489daec4fd15b"
+    },
+    {
+      "file": "ds_261015.pdf",
+      "sha256": "5a424eea2f52688cb71119f426d5a82dc60b9c444d7d26fa17f04b2383d9dbe3"
+    },
+    {
+      "file": "ds_261016.pdf",
+      "sha256": "08e80f11ec5fb466e6a34e430f9cc7bc60f756efe458c0dae1bf6d9b9d4c3608"
+    },
+    {
+      "file": "ws_261016.pdf",
+      "sha256": "7fa995f7fda2467c81378fbded5256cb9febe2728ced8822638d10aa0ad3f707"
+    }
+  ],
+  "daily": [
+    {
+      "date": "2026-10-12",
+      "close": 5936.147,
+      "biUsdIdr": 17899,
+      "officialNetBn": 142.75,
+      "markets": {
+        "RG": {
+          "volume": 55925726000,
+          "valueIdr": 12812569799100,
+          "frequency": 1855479
+        },
+        "TN": {
+          "volume": 11400,
+          "valueIdr": 3006200,
+          "frequency": 6
+        },
+        "NG": {
+          "volume": 1834984368,
+          "valueIdr": 842353566591,
+          "frequency": 470
+        }
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "close": 5925.976,
+      "biUsdIdr": 17930,
+      "officialNetBn": 570.4,
+      "markets": {
+        "RG": {
+          "volume": 31468818000,
+          "valueIdr": 8967460754700,
+          "frequency": 1457562
+        },
+        "TN": {
+          "volume": 19300,
+          "valueIdr": 6772000,
+          "frequency": 7
+        },
+        "NG": {
+          "volume": 1761550324,
+          "valueIdr": 1719539342412,
+          "frequency": 390
+        }
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "close": 5943.024,
+      "biUsdIdr": 17898,
+      "officialNetBn": -1133.4,
+      "markets": {
+        "RG": {
+          "volume": 27087687300,
+          "valueIdr": 8830253188400,
+          "frequency": 1473057
+        },
+        "TN": {
+          "volume": 8300,
+          "valueIdr": 3426100,
+          "frequency": 8
+        },
+        "NG": {
+          "volume": 2968692923,
+          "valueIdr": 2395564034589,
+          "frequency": 536
+        }
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "close": 5863.78,
+      "biUsdIdr": 17948,
+      "officialNetBn": 569.38,
+      "markets": {
+        "RG": {
+          "volume": 29736555300,
+          "valueIdr": 10267327743900,
+          "frequency": 1678499
+        },
+        "TN": {
+          "volume": 40300,
+          "valueIdr": 10368300,
+          "frequency": 6
+        },
+        "NG": {
+          "volume": 2135131801,
+          "valueIdr": 3237874480288,
+          "frequency": 543
+        }
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "close": 5185.105,
+      "biUsdIdr": 18052,
+      "officialNetBn": -3343.71,
+      "markets": {
+        "RG": {
+          "volume": 65091732900,
+          "valueIdr": 26524755908700,
+          "frequency": 2115734
+        },
+        "TN": {
+          "volume": 600,
+          "valueIdr": 93600,
+          "frequency": 1
+        },
+        "NG": {
+          "volume": 2499593258,
+          "valueIdr": 5475630021558,
+          "frequency": 502
+        }
+      }
+    }
+  ],
+  "weeklyForeign": {
+    "buyIdr": 30544742865637,
+    "sellIdr": 33739315805078
+  },
+  "weeklyBreadth": {
+    "upAbove2": 21,
+    "upTo2": 8,
+    "flat": 127,
+    "downTo2": 28,
+    "downBeyond2": 779
+  },
+  "fridayBreadth": {
+    "upAbove2": 3,
+    "upTo2": 8,
+    "flat": 140,
+    "downTo2": 20,
+    "downBeyond2": 792
+  },
+  "breadthMethod": "Counts checked visually against colors and legend on weekly page 4 and Friday daily page 5. Weekly printed percentages for the two declining groups are swapped. Recompute all percentages from counts."
+}

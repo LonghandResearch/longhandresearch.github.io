@@ -183,6 +183,14 @@ The 25 September report remains at its original address. [Its data-only example]
 
 ### Optional Flowless stock context
 
+The 16 October edition also demonstrates optional `riskChart` blocks with
+`kind: "limits"` or `kind: "valuation"`, and an `exitLab` block. Their explicit
+`riskParameters` include the index anchor, proxy multiple, exchange rate,
+dated benchmark weight and pre-shock daily turnover. Keep assumptions and
+observations distinct. The native model derives curves and interactive readouts
+without a new dependency. Price curves are shape-preserving visual guides,
+not additional market observations. Earlier weekly editions retain their graphs.
+
 Flowless is the owner's separate IDX Flow & Liquidity Terminal. After its data reaches the week's last trading day, run `python -m idxflow.weekly --week-ending YYYY-MM-DD --edition "<site>/weekly/YYYY-MM-DD.json" --blocks` from that local checkout. The command reads the database without changing it. It adds stock and sector flow data and an IDX Stock Summary source to the edition, prints table blocks for the writer to consider, and reports each day's difference from IDX's official net foreign figure. It does not write the report's narrative. Agents use the data already on the owner's machine; they do not run Flowless's download step.
 
 Flowless covers the regular market and estimates foreign value from share volume times the daily close. Keep IDX Statistics as the source of official all-market totals. Label any Flowless flow table as a regular-market estimate, record the gap in the audit, and use only its large, actively traded shares. The weekly export defaults to at least Rp10tn in market capitalisation and Rp10bn in 20-session average daily value. A report may use a stricter screen; the [2 October snapshot](weekly/flowless-2026-10-02.json) uses Rp50bn in average daily value. Size and liquidity do not make a stock safe.
