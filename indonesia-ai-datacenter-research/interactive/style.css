@@ -1604,8 +1604,9 @@ details .micro{
 #outlook-chart .outlook-tick{font-size:16px;fill:#b4c6c5;}
 #outlook-chart .outlook-year-label{font-size:20px;fill:#b4c6c5;}
 #outlook-chart .outlook-year-label.selected{fill:var(--teal);font-weight:600;}
-#outlook-chart .outlook-end-value{font-size:26px;fill:var(--series-color);font-weight:600;letter-spacing:-.5px;}
-#outlook-chart .outlook-end-rule{stroke:var(--series-color);stroke-width:1.2;opacity:.65;}
+/* Values stay in text ink on the fixed dark plot (12.9:1); the series colour is carried by the end rule and the legend. */
+#outlook-chart .outlook-end-value{font-size:26px;fill:#e8efec;font-weight:600;letter-spacing:-.5px;}
+#outlook-chart .outlook-end-rule{stroke:var(--series-color);stroke-width:2.5;opacity:1;}
 .outlook-selection-line{stroke:#dce9e3;stroke-width:1.5;opacity:.55;}
 .outlook-series.dimmed{opacity:.28;}
 .outlook-year-target{cursor:pointer;outline:none;}
