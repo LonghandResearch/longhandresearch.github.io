@@ -6,7 +6,14 @@ a pull request.
 
 ## Equal partners
 
-### Temporary owner authorization while Claude is unavailable
+### Temporary owner authorization while Claude is unavailable (ended)
+
+This authorization ended on 24 October 2026, when the owner confirmed that
+Claude is available again. The normal shared review workflow applies from that
+date. Work published under it was Codex author QA only, so each such report
+gets an independent Claude figure review afterwards (QA-004 and QA-005 in
+`TASKS.md`). The original text is kept below for the record.
+
 
 On 9 October 2026, the owner instructed Codex to take over while the owner's
 Claude subscription is inactive and not ask repeatedly for confirmation.
