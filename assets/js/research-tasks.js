@@ -38,8 +38,7 @@
       state.stage === 'writing' ? (state.research ? 'The saved draft needs submission for review.' : 'Researched prose still needs to be written.') :
       state.stage === 'review' ? 'A person must review the saved research and record a decision.' :
       state.stage === 'publication' ? 'Final PDF preparation and publication are manual.' : 'Live deployment must be confirmed separately.';
-    return { tasks, owner: task.name, section, next: state.next, blocker,
-      simulation: project.run.times.length + '/29 simulated events saved. Simulation does not fetch sources, validate data, write researched prose or grant approval.' };
+    return { tasks, owner: task.name, section, next: state.next, blocker };
   }
   LH.ResearchTasks = Object.freeze({ guide });
 })(globalThis);

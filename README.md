@@ -25,7 +25,6 @@ uncommitted branch.
 | `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
 | `research.html` | Local owner workspace: saved research projects, source notes, working drafts, review and JSON backups |
-| `world/index.html` | Five-agent research headquarters and simulated workflow, connected to saved local projects |
 | `power-behind-ai-update-2026-10-09.html` | Dated October supplement: cached IDX price paths, capacity definitions and primary project checkpoints |
 | `power-behind-ai.html` | The Power Behind AI: an interactive industry report (see below) |
 | `coal-in-transition.html` | Coal Still Burns. Trade Is Changing.: an interactive coal sector study, market atlas and illustrative producer economics |
@@ -43,10 +42,9 @@ uncommitted branch.
 | `feed.xml` | RSS feed of published reports |
 | `reports/*.pdf` | The report PDFs |
 | `assets/css/site.css` | Shared styling: light and dark themes, page transitions |
-| `assets/css/home-editorial.css` | Front-page layout and latest-report treatment |
 | `assets/js/site.js` | Shared: report data, theme, author mode, the Add report form, publishing and deleting, page transitions |
 | `assets/js/research-projects.js` | Versioned research model, validation, atomic saves, revision conflicts, manual review and backups |
-| `assets/js/research-backups.js` | Local folder snapshots, permission recovery and backup status in Workspace and World |
+| `assets/js/research-backups.js` | Local folder snapshots, permission recovery and backup status in the workspace |
 | `assets/js/research-workspace.js` | Local project desk and links to existing library records |
 | `assets/js/research-operations.js` | Read-only operations summary, project next actions and approved text handoff |
 | `assets/js/research-tasks.js` | Five role deliverables and manual next-action guidance derived from saved project records |
@@ -147,8 +145,8 @@ from sea toward a coastal processing works and inland laterite benches, using
 teal/rust ink textures without people or oversized machinery. It depicts no named
 operating site, measured process or mine-to-customer connection. The visual note
 and `nickel-seaview-art.json` retain its provenance. Existing Longhand typography
-supplies the title. The earlier photo montage and its CC BY-SA 4.0 credits, material
-cutouts, vector cover and `specimen.js` remain unused archives.
+supplies the title. The earlier photo montage, material cutouts, vector cover and specimen script
+were removed on 24 October because no page used them.
 
 The reader sees six core source groups. All 11 ferronickel destinations and
 all five destinations in each of the matte and intermediate tables are selectable.
@@ -254,138 +252,32 @@ Readers never see your drafts, and they cannot change the site: publishing and d
 ## Local research workspace
 
 Open `research.html` from localhost, or use **Workspace** in the local site's
-footer. The shared `longhand-research` IndexedDB database keeps each project
-under `research-project:<id>` in its existing `settings` store (database version
-2). Report PDFs stay in `reports`; the publishing-folder permission remains in
-its own settings entry. No new database, dependency, server or login is required.
-The workspace is hidden on the public host, as are the existing author tools.
+footer. It is hidden on the public host, like the other author tools, and is
+marked `noindex`. Projects live in the browser's `longhand-research` IndexedDB
+database under `research-project:<id>` in the `settings` store. Nothing is
+uploaded and nothing syncs across devices.
 
-**Delete project** removes the selected project's sources, draft, workflow and
-review history after confirmation. It keeps linked Library reports and other
-projects. There is no undo; export a backup first if recovery is needed. A stale
-revision cannot delete newer work, and a tab holding a deleted project cannot
-save or review it back into existence.
+Each project holds a brief, a source notebook, a reasoning record (thesis,
+analysis, assumptions, alternatives, uncertainty and review conditions), a plain
+text draft and its review history. Research moves **Draft → In review →
+Approved**. Approval is a person's attestation: it needs a checked source, the
+core reasoning, a reviewer name, six manual checks and a review note. Editing
+the research resets review to Draft and keeps up to five earlier versions.
 
-Each version-1 project has a stable ID, revision, brief, source notebook, plain
-text draft, workflow step times and five stage records, optional report ID and
-up to 100 history entries (retaining the current approval note). Sources are manual HTTP(S) links and
-evidence notes. Marking a source checked requires a note; the site does not
-fetch or verify it. Submitted World briefs are saved automatically. **Continue
-in World** restores progress by replaying the existing mock script with the
-saved step times, paused, so draft completion times remain unchanged. The
-automatic example is not saved. Custom adapter events remain session-only.
+**Download approved text** exports the reviewed draft for manual PDF preparation.
+Publication still goes through the Library's **Add report / Publish** tools, and
+linking a project to a Library record never publishes anything. See
+[`docs/research-constitution.md`](docs/research-constitution.md) for the rules.
 
-The workspace also saves a reasoning record: thesis, analysis, assumptions,
-alternatives, uncertainty, time/scope and review conditions. Thesis evidence uses
-stable notebook source IDs with a passage locator and its analytical relationship.
-Incomplete work can be saved. New approval requires the core reasoning, linked
-evidence, a reviewer name, six manual checks and a review note. Existing approvals
-without that checklist remain readable and are explicitly labelled as legacy.
-These are human attestations, not automatic source or claim verification.
+Saves compare revisions, so an older tab cannot overwrite newer work. **Export
+backup** and **Import backup** move versioned JSON (up to 5 MB, or per project
+with **Export this project**). In Chrome or Edge, **Local folder backup** writes
+dated snapshots to a private folder outside the site and Git repository. Each
+snapshot ends with `snapshot.json`, and a folder without it is incomplete. PDF
+files, browser settings and folder permissions are never included.
 
-Material research edits retain the previous reasoning, source notebook, draft,
-approval state and approval note together, including legacy approvals without a
-constitutional checklist. Earlier snapshots that never stored this metadata are
-labelled as unknown; missing approval notes are not invented. Versions are kept
-in a bounded trail of five recent versions within 2 MB. Unchanged saves and mock
-progress alone do not add versions. Review is cleared when relevant content
-changes. Existing backups include the added records. See
-[`docs/research-constitution.md`](docs/research-constitution.md) for the operating
-principles, limits and manual publication boundary.
-
-Research follows **Draft → In review → Approved**, with explicit review notes.
-Planning text must be replaced with researched prose before being marked ready
-for review. Approval requires a checked source and the constitutional review
-described above. Editing the brief, evidence, reasoning, draft or workflow resets
-review to Draft. Changing the brief also clears previous
-mock progress and its unchanged planning text. These are owner decisions, not AI
-verification. World completing its mock Director stage never approves research.
-An existing browser PDF draft or published catalogue report can be linked by
-its real ID; linking never copies a file, edits the catalogue or publishes.
-Publication still uses the library's existing **Add report / Publish** flow.
-
-The operations overview counts saved projects, review requests, approved projects
-awaiting a report, unchecked sources and projects linked to the local catalogue.
-The work queue can be filtered by stage or attention needed. These are derived
-views of existing records, not separately saved statuses. Simulated World progress
-does not advance manual editorial approval.
-
-Each saved project shows its next responsible role, the outstanding work and a
-link to the relevant source, writing, review or report section. Expand the five
-roles to see their deliverables and actual saved evidence. These are manual
-responsibilities, not automatic agent assignments. Calculation validation is
-not tracked separately; it must be documented and reviewed in the draft when
-relevant. All guidance derives from existing project and Library records without
-new saved statuses. World now names its start and completion as simulation;
-finishing all 29 events never completes real research.
-The guide also uses the constitutional reasoning requirements: a researched
-draft with missing core reasoning or thesis evidence routes to the Researcher
-and the Reasoning record, including when submitted prematurely for review.
-Once that work is saved, the Editor can submit the reconciled draft and the
-Director can record the named six-check review. Legacy approvals stay labelled.
-World and Workspace use the same constitutional project model, retaining the
-reasoning, evidence links and bounded versions through simulated progress.
-
-The publication checklist connects the approved draft, checked evidence, review
-note and real Library record. **Download approved text** includes the reviewed
-prose, reasoning, source notebook and attributed approval, for manual PDF preparation. It rejects
-unsaved edits and stale revisions. Add the final PDF through Library, connect its
-record in the workspace, then use Library's existing Publish tools. **Reload
-projects & reports** reads the current catalogue as well as saved browser work.
-A report in that local catalogue is not proof of live deployment. Editing a project
-resets its approval but never revises a linked published report. A missing record
-is shown explicitly; linking alone never publishes.
-
-Saves compare revisions in one IndexedDB transaction. An older tab gets a
-conflict message and keeps its open text rather than overwriting newer work.
-Storage failures are visible; World pauses and offers **Retry save**. Saving or
-failed runs warn before leaving. Backups are versioned JSON containing projects,
-sources, text drafts, progress and history. They exclude PDF blobs, site-folder
-permissions and browser preferences. **Import backup** validates the entire file
-and previews matching project IDs before asking to update them. One transaction
-adds new projects and updates confirmed matches: brief, draft, sources, evidence
-and reasoning together. Research or workflow changes return to Draft, clear the current review
-and retain the previous saved version (including planning drafts). Local IDs,
-creation dates and history are kept; unchanged content keeps its current review.
-A change to the Library connection alone updates that link without clearing
-approval or retaining another research version.
-Importing an older file deliberately replaces the current content after confirmation.
-Duplicate IDs, invalid records or a project changed/deleted in another tab cancel
-the entire import. Direct restore-only calls without a preview still reject existing IDs.
-Backups are limited to 5 MB; **Export this project** keeps larger workspaces
-recoverable one project at a time. Browser data is local to the origin and
-profile, is not encrypted by the application,
-and does not sync across devices. Export before clearing browser data.
-
-**Local folder backup** in Workspace lets Chrome or Edge keep independent JSON
-snapshots in a private folder you choose. Choose a folder outside the website and
-Git repository. After a saved change in Workspace or World, the open page checks
-for a backup after one second. Reopening either page also checks for changes.
-The folder handle stays in this browser; permissions may need to be granted again
-with **Back up now**. **Turn off folder backup** keeps existing files.
-The status distinguishes pending, completed, missing permission and failed writes.
-A backup failure does not undo a research save. No private research is uploaded.
-
-If clicking **Choose backup folder** produces no folder window, use **Export backup**
-to save your projects first. Open the same localhost address in Chrome or Edge,
-then **Import backup** before choosing a folder there: different browsers keep
-separate project stores. A cancelled selection shows guidance and keeps any
-previously configured folder.
-
-Each completed snapshot is a new dated folder under `longhand-research-backups/`,
-with `projects-1.json` (and further numbered files for workspaces above 5 MB) and
-`snapshot.json`, written last as its completion marker. To restore, import every
-`projects-*.json` file listed in that marker using Workspace's existing import
-preview. A folder without the marker is incomplete. A single project over the
-5 MB import limit shows an error rather than claiming a usable backup. Backups
-include saved project records only; unsaved edits, PDF files, browser settings and
-folder permissions are excluded. Files are kept until the owner removes them.
-Other browsers retain **Export backup** and **Export this project**.
-A missing project URL now opens the recovery tools and removes the stale project
-parameter while explaining how to select, create or import a project.
-
-Run `node --test world/tests/*.test.mjs tests/*.test.mjs` alongside
-`node scripts/check-site.mjs`. CI now runs both checks.
+Run `node --test tests/*.test.mjs` alongside `node scripts/check-site.mjs`. CI
+runs both.
 
 ## The Wire
 

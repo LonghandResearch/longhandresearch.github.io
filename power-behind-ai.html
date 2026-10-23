@@ -52,7 +52,7 @@
      (at most a minute old) instead of waiting out the browser cache */
   document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
 </script>
-<script src="assets/js/site.js?v=2026-10-11editorial-final" defer blocking="render"></script>
+<script src="assets/js/site.js?v=2026-10-24" defer blocking="render"></script>
 <script>window.PBAI_VERSION = '2026-10-11mobile';</script>
 <script src="assets/js/pbai/data.js?v=2026-09-28a" defer></script>
 <script src="assets/js/pbai/report.js?v=2026-10-11mobile" defer></script>
@@ -60,7 +60,7 @@
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <link rel="stylesheet" href="assets/css/report-v2.css?v=2026-10-11paragraphs">
-<script src="assets/js/research-graph.js?v=2026-10-19weekly" defer></script>
+<script src="assets/js/research-graph.js?v=2026-10-24" defer></script>
 <script src="assets/js/v2.js?v=2026-10-11continuity" defer blocking="render"></script>
 <script src="assets/js/report-context.js?v=2026-10-11a11y" defer></script>
 </head>
@@ -173,14 +173,14 @@
             <p class="finding-no">2</p>
             <div>
               <h3 class="finding-title">PLN’s own projection runs far ahead of today’s load.</h3>
-              <p>PLN puts installed data-centre IT capacity at about 580 MW in 2026 and projects a power need of 25,297 MW by 2034. Allowing for cooling and other overhead at an average PUE of 1.54, today’s IT capacity implies about 893 MW of facility load; the 2034 figure is roughly 28 times that.</p>
+              <p>PLN puts installed data-centre IT capacity at about 580 MW in 2026 and projects a power need of 25,297 MW by 2034. Allowing for cooling and other overhead at an average PUE of 1.54, today’s IT capacity implies about 893 MW of facility load. The 2034 figure is roughly 28 times that.</p>
               <p class="finding-src">Source: PLN <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a>; Uptime Institute <a class="cite" data-cite="uptime" href="#src-uptime">source</a>; Longhand calculation</p>
             </div>
           </li>
           <li class="finding">
             <p class="finding-no">3</p>
             <div>
-              <h3 class="finding-title">Electricity is cheap per kWh; the scarce thing is the connection.</h3>
+              <h3 class="finding-title">Electricity is cheap per kWh. The scarce thing is the connection.</h3>
               <p>The I-4 high-voltage tariff was held at about Rp997 per kWh for the third quarter of 2026. At that price a 100 MW hall running at 70% with a PUE of 1.54 pays about Rp941 billion a year for power. The harder problem is lines and substations: the 2025-2034 plan calls for about 48,000 kms of transmission and 108,000 MVA of substations.</p>
               <p class="finding-src">Source: CNBC Indonesia <a class="cite" data-cite="tariff" href="#src-tariff">source</a>; RUPTL <a class="cite" data-cite="ruptl" href="#src-ruptl">source</a>; Longhand calculation</p>
             </div>
@@ -212,7 +212,7 @@
         <figure class="pbai-figure">
           <figcaption class="fig-cap"><span class="fig-no">Figure 1.</span> The chain from AI demand to connectivity</figcaption>
           <div class="chain" data-chain></div>
-          <p class="fig-src">Source: Longhand framework; evidence for each link as cited in the panel.</p>
+          <p class="fig-src">Source: Longhand framework, with evidence for each link cited in the panel.</p>
         </figure>
       </section>
 
@@ -239,7 +239,7 @@
         <figure class="pbai-figure pbai-figure-wide">
           <figcaption class="fig-cap"><span class="fig-no">Figure 3.</span> Where the data centres are: projects by site and status, 2020 to 2029</figcaption>
           <div class="holo" data-holo><p class="muted small">The map needs JavaScript. The same projects are listed in Figure 4.</p></div>
-          <p class="fig-src">Source: company announcements and press as cited for each project, the same set as Figure 4. Sites are placed at the town or district named in the sources, not at exact addresses, and projects that share a place are spread on a small ring. Projects without a disclosed site are listed beside the map. The build-out replays by the date in the sources; announced dates are targets, not certainties. Map outline traced by Longhand, not survey accurate.</p>
+          <p class="fig-src">Source: company announcements and press as cited for each project, the same set as Figure 4. Sites are placed at the town or district named in the sources, not at exact addresses, and projects that share a place are spread on a small ring. Projects without a disclosed site are listed beside the map. The build-out replays by the date in the sources. Announced dates are targets, not certainties. Map outline traced by Longhand, not survey accurate.</p>
         </figure>
 
         <p>The map makes the concentration plain. Almost every operating hall and most of the construction sit in one corridor, from central Jakarta east through Bekasi and Cikarang to Purwakarta, inside the Java-Madura-Bali system that carries 99% of PLN’s data-centre load. Batam and Bintan are the only other cluster, built on their fibre links to Singapore, and Surabaya is a single outpost. The largest numbers on the map are also the least certain: the 1,000 MW design at Bintan has no timetable, and the two biggest AI commitments, CoreWeave and Zankore, have not named a site.</p>
@@ -266,7 +266,7 @@
         <h2 class="pbai-h2" id="s04-title">The power bottleneck</h2>
         <p class="pbai-lede">Why does AI need so much power? A chip turns electricity into computation and heat. An AI accelerator draws far more than an ordinary server, it runs close to flat out, and every watt of heat has to be removed by cooling that uses more electricity again.</p>
         <ol class="flow" aria-label="From compute to grid capacity">
-          <li><strong>AI compute</strong><span>Accelerators and servers; the IEA expects their electricity use to grow about 30% a year to 2030 <a class="cite" data-cite="iea" href="#src-iea">source</a></span></li>
+          <li><strong>AI compute</strong><span>Accelerators and servers. The IEA expects their electricity use to grow about 30% a year to 2030 <a class="cite" data-cite="iea" href="#src-iea">source</a></span></li>
           <li><strong>Data-centre load</strong><span>IT load plus cooling and losses, captured by the PUE ratio</span></li>
           <li><strong>MW</strong><span>Demand at a moment: what the connection must carry</span></li>
           <li><strong>MWh</strong><span>Energy over time: MW multiplied by hours in use</span></li>
@@ -334,7 +334,7 @@
           <figcaption class="fig-cap"><span class="fig-no">Figure 6.</span> Data-centre electricity demand in 2030 under three scenarios, TWh a year</figcaption>
           <div class="scen-table-wrap" data-power-scen></div>
           <div class="chart" data-chart="powerscen" role="img" aria-label="2030 data-centre electricity demand under three scenarios"></div>
-          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions anchored to PLN’s 580 MW (2026) and 3.5 GW (2030) <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a>. Labels give each scenario as a share of PLN’s 2025 electricity sales of 317.69 TWh <a class="cite" data-cite="pln-sales" href="#src-pln-sales">source</a>; a scenario is not a forecast.</p>
+          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions anchored to PLN’s 580 MW (2026) and 3.5 GW (2030) <a class="cite" data-cite="pln-forum" href="#src-pln-forum">source</a>. Labels give each scenario as a share of PLN’s 2025 electricity sales of 317.69 TWh <a class="cite" data-cite="pln-sales" href="#src-pln-sales">source</a>. A scenario is not a forecast.</p>
         </figure>
         <p>On PLN’s own path, data centres would use about 32 TWh a year by 2030. That is about a tenth of everything PLN sold in 2025, from an estimated 1.7% today (Longhand calculation, 580 MW at 70% utilisation and a PUE of 1.54). The grid question is not whether Indonesia can generate that much in total. It is whether it can deliver it to a few districts east of Jakarta within four years.</p>
       </section>
@@ -434,7 +434,7 @@
                 <p><code>Free cash flow = (EBITDA − capex) × (1 − 22% tax)</code></p>
                 <p><code>Terminal value = FCF(5) × (1 + g) ÷ (WACC − g)</code></p>
                 <p><code>Equity value = enterprise value − net debt</code></p>
-                <p class="calc-note">Treats depreciation as equal to capex for tax, ignores working capital, and uses Indonesia’s 22% corporate rate. The starting revenue and margin are reported FY2025 figures; every other input is an assumption.</p>
+                <p class="calc-note">Treats depreciation as equal to capex for tax, ignores working capital, and uses Indonesia’s 22% corporate rate. The starting revenue and margin are reported FY2025 figures. Every other input is an assumption.</p>
               </div>
             </div>
           </div>
@@ -455,7 +455,7 @@
         <figure class="pbai-figure">
           <figcaption class="fig-cap"><span class="fig-no">Figure 11.</span> Model enterprise value by scenario, indexed to the base case = 100</figcaption>
           <div class="chart" data-chart="scen" role="img" aria-label="Model enterprise value by scenario"></div>
-          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions; base-year figures as cited. Indexed so companies reporting in different currencies share one axis.</p>
+          <p class="fig-src"><span class="tag tag-scenario">Scenario</span> Longhand assumptions, with base-year figures as cited. Indexed so companies reporting in different currencies share one axis.</p>
         </figure>
       </section>
 
@@ -482,7 +482,7 @@
             <table class="riskmap" data-riskmap></table>
           </div>
           <div class="risk-detail" data-risk-detail aria-live="polite"></div>
-          <p class="fig-src">Source: Longhand framework; evidence as cited for each risk.</p>
+          <p class="fig-src">Source: Longhand framework, with evidence cited for each risk.</p>
         </figure>
       </section>
 
@@ -506,13 +506,13 @@
         <p>Figures are as reported, in the company’s reporting currency. Growth rates and margins are calculated from the reported figures. Where a figure is derived rather than reported (for example Mitratel’s EBITDA from its reported EBITDA margin), the company panel says so and shows the method. Free cash flow is operating cash flow less capex, and is shown only where both were found. ROE and ROIC are not shown: consistent equity and invested-capital figures were not available for enough years to calculate them properly.</p>
 
         <h3 class="pbai-h3">Valuation assumptions</h3>
-        <p>Multiples use FY2025 reported figures and the share counts cited. Market prices are closing prices on 24 September 2026, adjusted for splits; the reader can change them. The DCF uses a five-year projection, free cash flow of (EBITDA − capex) × (1 − 22%), a Gordon-growth terminal value, and the reader’s WACC. Net debt enters only where it was reported or can be derived from a reported ratio; elsewhere the model shows enterprise value only.</p>
+        <p>Multiples use FY2025 reported figures and the share counts cited. Market prices are closing prices on 24 September 2026, adjusted for splits. The reader can change them. The DCF uses a five-year projection, free cash flow of (EBITDA − capex) × (1 − 22%), a Gordon-growth terminal value, and the reader’s WACC. Net debt enters only where it was reported or can be derived from a reported ratio. Elsewhere the model shows enterprise value only.</p>
 
         <h3 class="pbai-h3">Scenario methodology</h3>
         <p>The power scenarios compound PLN’s 580 MW for 2026 to 2030 at the stated growth rate, then apply utilisation and PUE to get energy, and the tariff to get cost. The company scenarios set the DCF inputs to three coherent sets of assumptions. All scenario inputs are Longhand assumptions and are shown in full.</p>
 
         <h3 class="pbai-h3">Monte Carlo methodology</h3>
-        <p>Each run draws revenue growth, EBITDA margin, WACC, terminal growth, a utilisation index and a power-cost change from triangular distributions (low, most likely, high) set by the reader. Runs where WACC does not exceed terminal growth by at least one percentage point are redrawn. The generator is a seeded Mulberry32, so results are reproducible for a given seed and set of inputs. The page runs 10,000 draws in the browser; the percentiles are read from the sorted results.</p>
+        <p>Each run draws revenue growth, EBITDA margin, WACC, terminal growth, a utilisation index and a power-cost change from triangular distributions (low, most likely, high) set by the reader. Runs where WACC does not exceed terminal growth by at least one percentage point are redrawn. The generator is a seeded Mulberry32, so results are reproducible for a given seed and set of inputs. The page runs 10,000 draws in the browser. The percentiles are read from the sorted results.</p>
 
         <h3 class="pbai-h3">Limitations</h3>
         <ul class="pbai-list">
@@ -520,7 +520,7 @@
           <li>Market capacity figures come from different organisations using different definitions (IT MW, MVA connected, development stages) and are not additive.</li>
           <li>No reliable split of data-centre spending by component exists for Indonesia, so section 05 is a framework, not a measurement.</li>
           <li>Prices come from a market-data provider (Yahoo Finance), not an exchange closing file, and a single day’s close can move far from the average.</li>
-          <li>The DCF ignores working capital, leases and minority interests, and treats depreciation as equal to capex. It shows how the inputs move the result; it is not a valuation opinion.</li>
+          <li>The DCF ignores working capital, leases and minority interests, and treats depreciation as equal to capex. It shows how the inputs move the result. It is not a valuation opinion.</li>
           <li>Some five-year series still have gaps: capex, operating cash flow and net debt are not reported in every year for every company.</li>
         </ul>
 

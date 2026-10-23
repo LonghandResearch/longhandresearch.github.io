@@ -21,9 +21,8 @@ only in INET, the power/water study and the September IHSG cover. The seven othe
 new illustrations focus on infrastructure, architecture and industrial objects.
 
 All finished covers use a 2:3 portrait frame. `*-art.webp` files are illustrations
-without lettering. `*-cover.jpg` files are 1024 × 1536 exports of the cover layout,
-including exact catalogue titles, publication dates and catalogue numbers as of
-10 October. These are cover assets, not replacements for the published PDFs.
+without lettering. The website typesets titles, dates and catalogue numbers over them. The earlier
+`*-cover.jpg` exports were removed on 24 October because no page used them.
 The existing Memory War PNG remains unchanged and is contained in the portrait
 frame without cropping its artwork, company marks or headline.
 
@@ -48,19 +47,19 @@ measured flow or price chart. No invented financial numbers, graphs or ratings
 were added. The report reader retains its original publication capture. Existing
 research exhibits and PDF captures in the parent directory remain available.
 
-| No. | Catalogue title | Publication date | Illustration | Full portrait cover |
-| --- | --- | --- | --- | --- |
-| 001 | The Smelter Is the Whole Thesis | 2026-09-03 | [Smelter](smelter-art.webp) | [Cover](adro-2026-09-03-cover.jpg) |
-| 002 | Dovish or Hawkish? | 2026-09-24 | [Rates](rates-art.webp) | [Cover](macro-2026-09-24-cover.jpg) |
-| 003 | The Memory War | 2026-09-24 | [Original anime cover](../sector-2026-09-24.png) | [Cover](sector-2026-09-24-cover.jpg) |
-| 004 | The Power Behind AI | 2026-09-24 | [Power and computing](ai-power-art.webp) | [Cover](the-power-behind-ai-2026-09-24-cover.jpg) |
-| 005 | Foreign Selling Persisted. The Rebound Failed. | 2026-09-26 | [September IHSG](ihsg-september-art.webp) | [Cover](ihsg-weekly-2026-09-25-cover.jpg) |
-| 006 | Priced for a Network Nobody Has Paid For Yet | 2026-09-27 | [INET](inet-art.webp) | [Cover](inet-2026-09-27-cover.jpg) |
-| 007 | Foreign Selling Deepened. Technology Led the Fall. | 2026-10-03 | [October IHSG](ihsg-october-art.webp) | [Cover](ihsg-weekly-2026-10-02-cover.jpg) |
-| 008 | AI Runs on Power and Water | 2026-10-05 | [Power and water](ai-resource-art.webp) | [Cover](indonesia-ai-power-water-2026-10-05-cover.jpg) |
-| 009 | Higher Yields, Uneven Effects | 2026-10-08 | [Treasury](treasury-art.webp) | [Cover](us-treasury-update-2026-10-08-cover.jpg) |
-| 010 | Coal Still Burns. Trade Is Changing. | 2026-10-09 | [Coal trade](coal-trade-art.webp) | [Cover](coal-in-transition-2026-10-08-cover.jpg) |
-| 011 | The Power Behind AI: October Checkpoint | 2026-10-09 | [October campus](ai-october-art.webp) | [Cover](the-power-behind-ai-update-2026-10-09-cover.jpg) |
+| No. | Catalogue title | Publication date | Illustration |
+| --- | --- | --- | --- |
+| 001 | The Smelter Is the Whole Thesis | 2026-09-03 | [Smelter](smelter-art.webp) |
+| 002 | Dovish or Hawkish? | 2026-09-24 | [Rates](rates-art.webp) |
+| 003 | The Memory War | 2026-09-24 | [Original anime cover](../sector-2026-09-24.png) |
+| 004 | The Power Behind AI | 2026-09-24 | [Power and computing](ai-power-art.webp) |
+| 005 | Foreign Selling Persisted. The Rebound Failed. | 2026-09-26 | [September IHSG](ihsg-september-art.webp) |
+| 006 | Priced for a Network Nobody Has Paid For Yet | 2026-09-27 | [INET](inet-art.webp) |
+| 007 | Foreign Selling Deepened. Technology Led the Fall. | 2026-10-03 | [October IHSG](ihsg-october-art.webp) |
+| 008 | AI Runs on Power and Water | 2026-10-05 | [Power and water](ai-resource-art.webp) |
+| 009 | Higher Yields, Uneven Effects | 2026-10-08 | [Treasury](treasury-art.webp) |
+| 010 | Coal Still Burns. Trade Is Changing. | 2026-10-09 | [Coal trade](coal-trade-art.webp) |
+| 011 | The Power Behind AI: October Checkpoint | 2026-10-09 | [October campus](ai-october-art.webp) |
 
 ## Final prompt set
 

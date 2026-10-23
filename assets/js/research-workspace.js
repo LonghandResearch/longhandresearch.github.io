@@ -117,8 +117,6 @@
         const link = node('a', 'Open ' + task.name + ' work'); link.href = '#' + task.section; row.append(link);
         return row;
       }));
-      $('open-world').href = 'world/index.html?project=' + encodeURIComponent(selected.id);
-      $('workflow-progress').textContent = guide.simulation;
       $('project-draft').value = selected.draftBody;
       $('draft-research').checked = selected.draftKind === 'research';
       $('draft-note').textContent = selected.draftKind === 'planning' ? 'Planning text from the simulation. Replace it with researched prose before submitting for review.' : 'Your research draft. Source and claim checks are manual.';
@@ -129,12 +127,12 @@
         const row = document.createElement('li'), link = node('a', source.title);
         link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
         row.append(link, node('p', 'Source ID: ' + source.id), node('p', source.notes || 'No evidence note recorded.'), node('p', source.checked ? 'Checked manually' : 'Unchecked'));
-        const toggle = node('button', source.checked ? 'Mark unchecked' : 'Mark checked'); toggle.type = 'button'; toggle.className = 'world-action';
+        const toggle = node('button', source.checked ? 'Mark unchecked' : 'Mark checked'); toggle.type = 'button'; toggle.className = 'desk-action';
         toggle.addEventListener('click', () => perform(async () => {
           const sources = selected.sources.map(item => item.id === source.id ? { ...item, checked: !item.checked } : item);
           await save({ sources });
         }));
-        const remove = node('button', 'Remove'); remove.type = 'button'; remove.className = 'world-action';
+        const remove = node('button', 'Remove'); remove.type = 'button'; remove.className = 'desk-action';
         remove.addEventListener('click', async () => {
           if (selected.reasoning.evidence.some(item => item.sourceId === source.id)) {
             message('Remove this source\'s thesis evidence links first. Earlier reasoning keeps its own captured sources.'); return;
@@ -160,7 +158,7 @@
         link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
         row.append(node('strong', item.relation.charAt(0).toUpperCase() + item.relation.slice(1) + ' · '), link,
           node('p', item.locator + ' · ' + (source.checked ? 'Source checked manually' : 'Source unchecked')), node('p', item.note));
-        const remove = node('button', 'Unlink evidence'); remove.type = 'button'; remove.className = 'world-action';
+        const remove = node('button', 'Unlink evidence'); remove.type = 'button'; remove.className = 'desk-action';
         remove.addEventListener('click', () => perform(() => save({ reasoning: { ...readReasoning(),
           evidence: selected.reasoning.evidence.filter((unused, position) => position !== index) } })));
         row.append(remove); return row;

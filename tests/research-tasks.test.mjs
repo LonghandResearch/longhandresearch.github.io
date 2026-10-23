@@ -32,7 +32,6 @@ test('completed simulations cannot create evidence, analysis validation or appro
   assert.match(result.tasks.find(task => task.id === 'analyst').record, /not recorded separately/);
   assert.match(result.tasks.find(task => task.id === 'editor').record, /No researched draft/);
   assert.match(result.tasks.find(task => task.id === 'director').record, /no approval/);
-  assert.match(result.simulation, /29\/29 simulated/);
   assert.equal(JSON.stringify(record), before);
 });
 

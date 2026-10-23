@@ -92,7 +92,7 @@
   const collections = { country: countries, sector: sectors, company: companies };
   const active = (r, allRoles) => allRoles || r.role === 'primary' || r.role === 'material';
   const inScope = (r, filters) => active(r, filters.allRoles) && (!filters.primaryCountriesOnly || r.type !== 'country' || r.role === 'primary');
-  const published = () => window.Longhand ? window.Longhand.publishedSorted() : (window.LONGHAND_REPORTS || []).slice().sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+  const published = () => window.Longhand ? window.Longhand.publishedSorted() : (window.LONGHAND_REPORTS || []).slice().sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
   const find = (type, id) => collections[type]?.find((entity) => entity.id === id) || null;
   function contextFor(reportOrId, { allRoles = false } = {}) {
     const id = typeof reportOrId === 'string' ? reportOrId : reportOrId?.id;
