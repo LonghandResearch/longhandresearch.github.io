@@ -4,16 +4,11 @@
    colour-blind separation and contrast on the paper and on the dark ground. */
 
 :root {
-  --s1: #3a6ea5;   /* chart slot 1 */
-  --s2: #b07a2a;   /* chart slot 2 */
-  --s3: #8a5aa0;   /* chart slot 3 */
+  --s1: var(--viz-1);   /* chart slots follow the shared Longhand palette */
+  --s2: var(--viz-2);
+  --s3: var(--viz-3);
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
   --toc-top: calc(var(--masthead-h) + 1px);
-}
-:root[data-theme="dark"] {
-  --s1: #5b8fcc;
-  --s2: #c0843a;
-  --s3: #a27bc2;
 }
 
 /* Hero */
@@ -136,7 +131,7 @@
 .viz .na { fill: var(--ink-3); }
 .viz .lab { font-size: 12.5px; fill: var(--ink); }
 .viz .val { font-size: 12px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
-.viz .bar { cursor: default; transition: opacity 0.15s var(--ease); }
+.viz .bar { cursor: default; transition: opacity 0.15s var(--ease); rx: 2px; }
 .viz .bar.s1 { fill: var(--s1); } .viz .bar.s2 { fill: var(--s2); } .viz .bar.s3 { fill: var(--s3); }
 .viz .bar:hover, .viz .bar:focus-visible { opacity: 0.78; outline: none; }
 .viz .pmark { stroke: var(--ink-2); stroke-width: 1; }

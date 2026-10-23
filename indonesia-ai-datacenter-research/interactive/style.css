@@ -1525,8 +1525,7 @@ details .micro{
   #project-list{display:block;max-height:360px;}
 }
 /* Reading rhythm, responsive outlook and explicit calculation states. */
-:root{--case-low:#61765e;--case-base:#b94c2b;}
-:root[data-theme=dark]{--case-low:#b1c7a7;--case-base:#ff875f;}
+:root{--case-low:var(--viz-1);--case-base:var(--viz-2);}
 .newsletter{max-width:72ch;}
 .newsletter p{font-size:16px;line-height:1.85;margin-bottom:22px;}
 .newsletter h3{font-size:24px;max-width:36ch;}
@@ -1564,8 +1563,6 @@ details .micro{
 .outlook-plot,.outlook-detail{background:var(--sheet);border:1px solid var(--rule);border-radius:8px;min-width:0;}
 .outlook-plot{
   --plot-paper:#14292f;
-  --case-low:#b5c4ac;
-  --case-base:#ff875f;
   --gold:#dfb263;
   --teal:#a3d0c5;
   padding:24px;

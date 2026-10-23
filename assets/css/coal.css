@@ -3,13 +3,12 @@
   --rust:#873f2c;
   --coal-navy:#132831;
   --coal-gold:#dfbc7d;
-  --chart-fill:#b68b46;
+  --chart-fill:var(--viz-4);
   font-size:19px;
 }
 [data-theme=dark] .page-coal {
   --teal:#91d0bc;
   --rust:#e8a38d;
-  --chart-fill:#cfaa66;
 }
 .page-coal h1,.page-coal h2 {
   letter-spacing:-.045em;
