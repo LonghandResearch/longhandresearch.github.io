@@ -33,14 +33,12 @@ in the source itself (see reserves below).
 | APBN KiTa Q4 2025, printed page 53 | PP 19/2025 royalty table | Ore 14% to 19% (integrated KBLBB 2%), matte 3.5% to 5.5%, ferronickel 4% to 6% match |
 | BPS Southeast Sulawesi release, 21 August 2026 | 2025 provincial exports | USD3.72bn and iron and steel about 95.76% match |
 | BKPM release, 3 July 2024 | Karawang battery-cell plant | Inaugurated 3 July 2024, first phase 10 GWh match |
+| IEA Global EV Outlook 2026, EV batteries (read in the owner's Chrome) | LFP share, chemistries outside China | "over 55% of EV batteries deployed globally" in 2025; outside China "almost 80% of batteries used nickel-containing chemistries" match |
+| IEA ASEAN Energy Security Review, critical minerals | Investment concentration | "An estimated 75% of Indonesia's nickel refining capacity is linked to investment from Chinese companies" matches |
+| IEA Global Critical Minerals Outlook 2026, executive summary and outlook | Acid curbs, 2035 balance | China curbed sulphuric acid exports in May 2026; "base case sees slight supply gaps for nickel" match |
 
 ## Not independently verified
 
-- The four IEA statements (LFP above 55% of 2025 EV battery deployment, almost
-  80% outside China nickel-based, 75% of Indonesian refining capacity linked to
-  Chinese investment, May 2026 acid export curbs). The IEA site returned a
-  Cloudflare challenge to the browser, and bypassing bot checks is not
-  permitted. The owner can confirm them in a normal browser.
 - The BPS national export publication rows for HS720260 in 2025. Its 2024
   value equals the WITS World row exactly, which supports the transcription.
 - Map locality coordinates and operator descriptions, which the page already
