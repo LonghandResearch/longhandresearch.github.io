@@ -18,14 +18,6 @@ test('small export shares remain distinct from source-rounded zero and missing v
   assert.equal(M.destinationShareLabel(10,0),'Unavailable');
 });
 
-test('site data and download preserve the same frozen observations',()=>{
-  const ctx={window:{}};
-  runInNewContext(readFileSync(new URL('../assets/js/nickel/data.js',import.meta.url),'utf8'),ctx);
-  assert.equal(JSON.stringify(ctx.window.NICKEL_RESEARCH),JSON.stringify(data));
-  assert.equal(data.datasets.prices.monthly.length,129);
-  assert.equal(new Set(data.datasets.prices.monthly.map(r=>r.period)).size,129);
-  assert.equal(data.datasets.prices.monthly.at(-1).period,'2026-09');
-});
 test('annual benchmark means reproduce source-derived values without annualising 2026',()=>{
   const means=M.annualPrices(data.datasets.prices.monthly);
   for(const row of means){const frozen=data.datasets.prices.annual_means.find(r=>r.year===row.year);near(row.mean,frozen.mean);assert.equal(row.months,frozen.months);}

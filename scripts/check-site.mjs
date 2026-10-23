@@ -175,6 +175,13 @@ for (const r of reports) {
   if (r.id && !inSitemap.has(reportUrl(r))) fail('sitemap.xml', `is missing the report "${r.id}" (${site}${reportUrl(r)})`);
 }
 
+/* The Library's no-JavaScript list names every published report */
+const noscript = (read('library.html').match(/<noscript><div class="discovery-noscript">([\s\S]*?)<\/noscript>/) || [])[1] || '';
+for (const r of reports) {
+  const title = (r.title || '').replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  if (r.id && !r.draft && !noscript.includes(`>${title}</a>`)) fail('library.html', `the no-JavaScript list is missing "${r.title}"`);
+}
+
 /* 5. Links and files named in the pages exist */
 const SKIP = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;   // other sites, mailto:, data: and the like
 const pages = tracked.filter((f) => f.endsWith('.html'));

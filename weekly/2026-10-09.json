@@ -411,7 +411,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Thursday was the weakest session: 518 stocks fell, with BBRI, AMMN, BMRI and BREN among the largest negative contributors. BBRI, AMMN, TLKM and BBCA helped Friday's rebound. These contributions show how prices moved the index; they do not establish what drove investors' decisions.",
+          "text": "Thursday was the weakest session. 518 stocks fell, with BBRI, AMMN, BMRI and BREN among the largest negative contributors. BBRI, AMMN, TLKM and BBCA helped Friday's rebound. These contributions show how prices moved the index. They do not establish what drove investors' decisions.",
           "sources": [
             "daily"
           ]
@@ -450,7 +450,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The regular-market estimate showed Rp141.60bn of foreign net selling on Friday. The five companies in our focus also recorded a combined estimated net sale that day. This can coexist with the positive official all-market total because the coverage and valuation differ. Regular-market estimates value foreign share volumes at each day's close; official trading values reflect execution prices.",
+          "text": "The regular-market estimate showed Rp141.60bn of foreign net selling on Friday. The five companies in our focus also recorded a combined estimated net sale that day. This can coexist with the positive official all-market total because the coverage and valuation differ. Regular-market estimates value foreign share volumes at each day's close. Official trading values reflect execution prices.",
           "sources": [
             "flowless",
             "daily"
@@ -552,7 +552,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Wednesday dominated the turnover story. Of Rp36.193tn traded, Rp27.478tn was in the negotiated market, about 75.9% of the day's value. BYAN accounted for Rp26.186tn, or 72.35% of total stock value. The concentration is clear; the reports do not disclose counterparties or transaction purpose. BYAN is relevant to the turnover analysis and is outside our company focus.",
+          "text": "Wednesday dominated the turnover story. Of Rp36.193tn traded, Rp27.478tn was in the negotiated market, about 75.9% of the day's value. BYAN accounted for Rp26.186tn, or 72.35% of total stock value. The concentration is clear, but the reports do not disclose counterparties or transaction purpose. BYAN is relevant to the turnover analysis and is outside our company focus.",
           "sources": [
             "daily"
           ]
@@ -793,7 +793,7 @@
         },
         {
           "type": "paragraph",
-          "text": "These disclosures cover the period to June and were released before this trading week. They establish an earnings base and identify financial risks; they do not explain October price moves or establish fair value. We assign no new company rating or target price.",
+          "text": "These disclosures cover the period to June and were released before this trading week. They establish an earnings base and identify financial risks. They do not explain October price moves or establish fair value. We assign no new company rating or target price.",
           "sources": [
             "bca",
             "bri",

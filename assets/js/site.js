@@ -345,10 +345,11 @@
     }
   };
 
+  /* Same-day reports follow catalogue order, newest number first. */
   const byDateDesc = (a, b) =>
     (b.date || '').localeCompare(a.date || '') ||
     (a.isLocal === b.isLocal ? 0 : a.isLocal ? -1 : 1) ||
-    a.title.localeCompare(b.title);
+    (b.id || '').localeCompare(a.id || '');
 
   /* Published reports only, newest first, available at once so a page can
      be drawn before the browser's draft store has answered. */

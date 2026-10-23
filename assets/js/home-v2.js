@@ -8,7 +8,7 @@
     const ledger = document.querySelector('[data-research-ledger]');
     if (ledger && reports.length) {
       const pdfs = reports.filter((r) => r.pdfUrl).length;
-      ledger.innerHTML = `<span class="ledger-label">Longhand<br><em>The research ledger</em></span><span><strong>${String(reports.length).padStart(2, '0')}</strong><small>Published reports</small></span><span><strong>${String(pdfs).padStart(2, '0')}</strong><small>Complete PDFs</small></span><span><strong>${String(reports.filter((r) => r.page || r.contentUrl).length).padStart(2, '0')}</strong><small>Interactive editions</small></span><span class="ledger-date"><small>Latest publication</small><strong>${esc(dateShort(reports[0].date))}</strong><a href="feed.xml">Follow the journal ↗</a></span>`;
+      ledger.innerHTML = `<span class="ledger-label">Longhand<br><em>The research ledger</em></span><span><strong>${String(reports.length).padStart(2, '0')}</strong><small>Published reports</small></span><span><strong>${String(pdfs).padStart(2, '0')}</strong><small>Print editions</small></span><span><strong>${String(reports.filter((r) => r.page || r.contentUrl).length).padStart(2, '0')}</strong><small>Interactive editions</small></span><span class="ledger-date"><small>Latest publication</small><strong>${esc(dateShort(reports[0].date))}</strong><a href="feed.xml">Follow the journal ↗</a></span>`;
     }
     const list = document.querySelector('[data-home-publications]');
     if (!list) return;
