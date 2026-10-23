@@ -106,7 +106,7 @@ takeover authorization while Claude is unavailable.
 
 | WEB-030 | Replace the reused 16 October IHSG cover with a unique conceptual illustration while retaining the Longhand cover system | Codex | `codex/ihsg-oct16-cover` | Done (merged 19 October) | [PR #108](https://github.com/LonghandResearch/longhandresearch.github.io/pull/108). Owner selected the large title behind the balance with fine fractures and explicitly requested Pages publication. 150 tests, site checker and eight responsive cover cases passed. Codex author QA under continuing temporary takeover authorization. |
 
-| QA-004 | Independent review of RPT-018 (IHSG 12 to 16 October) against `QA.md`, the owner's IDX files, Flowless and the policy sources, and fix what is found | Claude | `claude/review-ihsg-oct16` | Review | Pull request to follow. All figures reproduce. Adds the 16 October trading halt the edition left out, cites IDX's own release for Kep-00157 and adds a dated note on Kep-00158 (20 October). See the review section in audits/RPT-018-2026-10-16.md. |
+| QA-004 | Independent review of RPT-018 (IHSG 12 to 16 October) against `QA.md`, the owner's IDX files, Flowless and the policy sources, and fix what is found | Claude | `claude/review-ihsg-oct16` | Review | [PR #109](https://github.com/LonghandResearch/longhandresearch.github.io/pull/109). All figures reproduce. Adds the 16 October trading halt the edition left out, cites IDX's own release for Kep-00157 and adds a dated note on Kep-00158 (20 October). See the review section in audits/RPT-018-2026-10-16.md. |
 
 | QA-005 | Independent figure review of the other work published under the temporary takeover (RPT-012 to RPT-017), starting with More Nickel | Claude | `claude/review-<report>`, one per report | Backlog | |
 
