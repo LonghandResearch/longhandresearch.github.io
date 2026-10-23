@@ -1525,8 +1525,7 @@ details .micro{
   #project-list{display:block;max-height:360px;}
 }
 /* Reading rhythm, responsive outlook and explicit calculation states. */
-:root{--case-low:#61765e;--case-base:#b94c2b;}
-:root[data-theme=dark]{--case-low:#b1c7a7;--case-base:#ff875f;}
+:root{--case-low:var(--viz-1);--case-base:var(--viz-2);}
 .newsletter{max-width:72ch;}
 .newsletter p{font-size:16px;line-height:1.85;margin-bottom:22px;}
 .newsletter h3{font-size:24px;max-width:36ch;}
@@ -1564,8 +1563,6 @@ details .micro{
 .outlook-plot,.outlook-detail{background:var(--sheet);border:1px solid var(--rule);border-radius:8px;min-width:0;}
 .outlook-plot{
   --plot-paper:#14292f;
-  --case-low:#b5c4ac;
-  --case-base:#ff875f;
   --gold:#dfb263;
   --teal:#a3d0c5;
   padding:24px;
@@ -1607,8 +1604,9 @@ details .micro{
 #outlook-chart .outlook-tick{font-size:16px;fill:#b4c6c5;}
 #outlook-chart .outlook-year-label{font-size:20px;fill:#b4c6c5;}
 #outlook-chart .outlook-year-label.selected{fill:var(--teal);font-weight:600;}
-#outlook-chart .outlook-end-value{font-size:26px;fill:var(--series-color);font-weight:600;letter-spacing:-.5px;}
-#outlook-chart .outlook-end-rule{stroke:var(--series-color);stroke-width:1.2;opacity:.65;}
+/* Values stay in text ink on the fixed dark plot (12.9:1); the series colour is carried by the end rule and the legend. */
+#outlook-chart .outlook-end-value{font-size:26px;fill:#e8efec;font-weight:600;letter-spacing:-.5px;}
+#outlook-chart .outlook-end-rule{stroke:var(--series-color);stroke-width:2.5;opacity:1;}
 .outlook-selection-line{stroke:#dce9e3;stroke-width:1.5;opacity:.55;}
 .outlook-series.dimmed{opacity:.28;}
 .outlook-year-target{cursor:pointer;outline:none;}

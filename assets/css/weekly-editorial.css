@@ -40,6 +40,7 @@
 .weekly-flow-zero { position: absolute; top: var(--flow-zero, 25%); left: -24px; transform: translateY(-50%); color: var(--ink-3); font: 400 12px/1 var(--font-sans); }
 .weekly-flow-column { position: relative; text-align: center; }
 .weekly-flow-bar { position: absolute; left: 20%; width: 60%; min-height: 1px; }
+.weekly-flow-bar.gain { border-radius: 3px 3px 0 0; } .weekly-flow-bar.loss { border-radius: 0 0 3px 3px; }
 .weekly-flow-value { position: absolute; left: 0; width: 100%; font: 600 13px/1.4 var(--font-sans); font-variant-numeric: tabular-nums; }
 .weekly-flow-date { position: absolute; bottom: 0; left: 0; width: 100%; color: var(--ink-2); font: 500 12px/1.5 var(--font-sans); }
 .weekly-flow-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 18px; color: var(--ink-2); font: 400 11px/1.5 var(--font-sans); }
@@ -48,7 +49,7 @@
 .weekly-edition .liquidity-track { background: transparent; height: 3px; border-bottom: 1px solid var(--rule); }
 .weekly-edition .liquidity-track > span { position: relative; height: 3px; }
 .weekly-edition .liquidity-track > span::after { content: ''; position: absolute; right: -4px; top: -3px; width: 9px; height: 9px; border-radius: 50%; background: var(--chart-line); }
-.weekly-edition .liquidity-track > span.loss::after { background: var(--chart-down); }
+.weekly-edition .liquidity-track > span.loss::after { background: var(--viz-down); }
 .weekly-model-scroll svg { display: block; width: 100%; min-width: 0; }
 .weekly-model-scroll .chart-axis { font-size: 13px; }
 .weekly-model-axis-title { text-align: center; margin: 0 0 20px; font: 400 12px/1.5 var(--font-sans); color: var(--ink-2); }
@@ -62,8 +63,7 @@
 .weekly-exit-lab .formula-box { overflow-wrap: anywhere; }
 
 /* The October stress edition uses a restrained sage, rust and ochre chart key. */
-.weekly-risk-edition { --weekly-sage: #3b7064; --weekly-ochre: #92642f; }
-[data-theme="dark"] .weekly-risk-edition { --weekly-sage: #8cc6af; --weekly-ochre: #d8b578; }
+.weekly-risk-edition { --weekly-sage: var(--viz-1); --weekly-ochre: var(--viz-4); }
 .weekly-risk-edition .research-figure { padding: clamp(20px, 3vw, 34px); border-color: var(--rule); background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 96%, var(--weekly-sage) 4%), var(--bg)); }
 .weekly-risk-edition .research-figure figcaption { text-align: left; margin-bottom: 28px; }
 .weekly-risk-edition .research-figure h3 { text-wrap: balance; max-width: 30ch; font-size: clamp(25px, 2.5vw, 32px); }
@@ -76,7 +76,7 @@
 .weekly-risk-edition .weekly-close-readout > strong { font-size: clamp(30px, 4vw, 42px); letter-spacing: -.04em; margin-top: 8px; }
 .weekly-risk-edition .weekly-return { grid-column: 2; grid-row: 1 / 4; margin: 0; padding: 0 0 0 24px; border: 0; border-left: 1px solid var(--rule); text-align: right; }
 .weekly-risk-edition .weekly-return strong { font-size: clamp(30px, 4vw, 42px); letter-spacing: -.04em; }
-.weekly-risk-edition .weekly-price-plot { color: var(--chart-down); }
+.weekly-risk-edition .weekly-price-plot { color: var(--viz-down); }
 .weekly-risk-edition .weekly-price-plot .index-line { stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .weekly-risk-edition .weekly-price-plot .index-point { r: 3; opacity: .65; }
 .weekly-risk-edition .weekly-price-plot .index-point.selected { r: 6; opacity: 1; }
@@ -93,7 +93,7 @@
 .weekly-model-readouts > div { min-width: 0; }
 .weekly-model-readouts span { display: block; font: 500 11px/1.5 var(--font-sans); color: var(--ink-2); }
 .weekly-model-readouts i { display: inline-block; width: 15px; border-top: 2px solid var(--series-color); margin-right: 7px; vertical-align: middle; }
-.weekly-model-readouts strong { display: block; color: var(--series-color); font: 500 clamp(25px, 3vw, 38px)/1.2 var(--font-sans); font-variant-numeric: tabular-nums; letter-spacing: -.04em; margin: 8px 0 5px; }
+.weekly-model-readouts strong { display: block; color: var(--ink); font: 500 clamp(25px, 3vw, 38px)/1.2 var(--font-sans); font-variant-numeric: tabular-nums; letter-spacing: -.04em; margin: 8px 0 5px; }
 .weekly-model-readouts small { font: 400 11px/1.5 var(--font-sans); color: var(--ink-2); }
 .weekly-model-control { padding-top: 10px; }
 .weekly-model-control > span { display: block; font: 500 10px/1.5 var(--font-sans); color: var(--ink-2); letter-spacing: .08em; text-transform: uppercase; }

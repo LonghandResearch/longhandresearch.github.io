@@ -1,5 +1,11 @@
 /* Longhand V2: editorial foundations. Public pages opt in; author tools keep their contract. */
 html:has(body.v2-page) { --masthead-h: 80px; }
+/* Longhand chart palette. One validated set for every report: categorical slots in this
+   fixed order (teal, rust, blue, ochre) pass the colour-blind and normal-vision separation
+   checks on the paper and the dark grounds. Marks use --viz-*; values printed in a series'
+   hue use the -ink variants, which meet text contrast. Rising is teal, falling is rust. */
+:root { --viz-1: #2f9a86; --viz-2: #c96736; --viz-3: #2266a4; --viz-4: #9f702f; --viz-up: var(--viz-1); --viz-down: var(--viz-2); --viz-up-ink: #1d6e5f; --viz-down-ink: #a3461f; --viz-grid: color-mix(in srgb, currentColor 12%, transparent); }
+html[data-theme="dark"] { --viz-1: #1fa68e; --viz-2: #c8653a; --viz-3: #3f8ad8; --viz-4: #b08236; --viz-up-ink: #5cc9ad; --viz-down-ink: #ec9a76; }
 :root { --v2-space: 8px; --v2-reading: 68ch; --v2-ink: #08171d; --v2-paper: #f3f0e8; }
 .v2-page { --maxw: 1280px; --bg: var(--v2-paper); --ink: #16252b; --ink-2: #48595e; --ink-3: #607077; --rule: #16252b24; --rule-2: #16252b44; --gold: #9b753c; --gold-ink: #775222; --bg-sunk: #e4e1d8; --tint: #9b753c0d; --tint-2: #9b753c20; }
 html[data-theme="dark"] .v2-page { --bg: #102027; --ink: #f0eee6; --ink-2: #b9c3c4; --ink-3: #a0afb1; --rule: #dce6e526; --rule-2: #dce6e544; --gold: #c5a36b; --gold-ink: #d5b581; --bg-sunk: #07151b; --tint: #c5a36b0c; --tint-2: #c5a36b20; }
