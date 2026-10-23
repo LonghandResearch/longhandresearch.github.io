@@ -27,9 +27,9 @@
       "note": "+0.94% from 9 October. Indicative USD equity return -15.70%"
     },
     {
-      "label": "New reported ARB",
+      "label": "New lower limit",
       "value": "7%",
-      "note": "Effective 19 October. Morning policy addendum"
+      "note": "Effective 19 October. Rp1 for Rp11 to Rp14 shares from 20 October"
     }
   ],
   "sources": {
@@ -73,15 +73,30 @@
       "url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/OJK-Putuskan-Sanksi-Pihak-Terkait-Emiten-DSSA-BREN-dan-CUAN.aspx",
       "note": "Official findings and administrative fines against related parties. This report does not describe the fines as collected, or as a final criminal conviction."
     },
+    "halt": {
+      "label": "IDX press release 093/BEI.SPR/10-2026, trading halt, 16 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2724",
+      "note": "Trading halted at 08:58 JATS after IHSG fell 8% and resumed at 09:28 JATS with no change to the trading schedule. Rule reference Kep-00002/BEI/04-2025. Located in the 24 October review."
+    },
     "arb": {
+      "label": "IDX press release 095/BEI.SPR/10-2026 on Kep-00157, 19 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2732",
+      "note": "Primary exchange release. Lower limit 7% for all brackets above Rp10, upper limits unchanged at 35%, 25% and 20%, Rp1 for Rp1 to Rp10 shares. Effective 19 October through 31 December 2026. Replaces Kep-00136/BEI/09-2026. Located in the 24 October review."
+    },
+    "arbPress": {
       "label": "IDXChannel report on Kep-00157, 19 October 2026 at 06:15 WIB",
       "url": "https://www.idxchannel.com/market-news/bei-pangkas-batas-arb-jadi-7-persen-berlaku-mulai-hari-ini/all",
-      "note": "Secondary source reporting the IDX decision. 7% ARB from 19 October through 31 December. The signed decision could not be independently retrieved from the exchange site."
+      "note": "Secondary source reporting the IDX decision at 06:15 WIB. The original edition relied on this report and the cross-check below. Its terms agree with the IDX release."
     },
     "arbCrosscheck": {
       "label": "Bloomberg Technoz report on Kep-00157, 19 October 2026 at 06:40 WIB",
       "url": "https://www.bloombergtechnoz.com/detail-news/124957/bei-pangkas-batas-arb-jadi-7",
       "note": "Independent press cross-check of the decision number, dates, unchanged upper bands and Rp1 band for Rp1 to Rp10 shares."
+    },
+    "arbUpdate": {
+      "label": "IDX press release 96/BEI.SPR/10-2026 on Kep-00158, 20 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2734",
+      "note": "Published after this edition's cutoff. From 20 October the lower limit for Rp11 to Rp14 shares is Rp1 instead of 7% on the Main, Development and New Economy boards. Acceleration and Special Monitoring boards keep their own limits."
     },
     "prior": {
       "label": "Longhand IHSG weekly archive, 9 October 2026",
@@ -333,7 +348,7 @@
         {
           "type": "callout",
           "label": "Edition cutoff",
-          "text": "Market observations end at the 16 October close. The policy addendum includes news published by 07:30 WIB on 19 October, before Monday trading. No 19 October price action is included. This edition preserves the earlier weekly archives."
+          "text": "Market observations end at the 16 October close. The policy addendum includes news published by 07:30 WIB on 19 October, before Monday trading. No 19 October price action is included. This edition preserves the earlier weekly archives. A review on 24 October added the Friday trading halt and a dated note on a later rule change."
         }
       ]
     },
@@ -359,11 +374,12 @@
         },
         {
           "type": "paragraph",
-          "text": "IHSG had already lost 3.77% from the previous Friday by Thursday's close. MSCI's announcement arrived at 03:40 WIB on Friday. Friday then removed another 678.675 points, or 11.57%, and the index closed at its reported daily low. Friday accounted for 74.69% of the week's point loss. The sequence supports an event-driven escalation, but it does not establish that every point lost during the week came from MSCI.",
+          "text": "IHSG had already lost 3.77% from the previous Friday by Thursday's close. MSCI's announcement arrived at 03:40 WIB on Friday. IHSG was already down 8% at 08:58 JATS, so IDX halted all trading for 30 minutes. Trading resumed at 09:28. Friday then removed another 678.675 points, or 11.57%, and the index closed at its reported daily low. Friday accounted for 74.69% of the week's point loss. The sequence supports an event-driven escalation, but it does not establish that every point lost during the week came from MSCI.",
           "sources": [
             "daily",
             "msci",
-            "msciTimestamp"
+            "msciTimestamp",
+            "halt"
           ]
         },
         {
@@ -616,10 +632,19 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "The 19 October morning reports say IDX decision Kep-00157 cuts the lower auto-rejection limit from 15% to 7% through 31 December 2026. Reported upper bands remain 35%, 25% and 20% for the relevant price brackets above Rp10. The Rp1 to Rp10 bracket retains a Rp1 move. The signed exchange decision was not retrievable in our source check, so the rule summary rests on two named press reports and is kept separate from directly reviewed exchange statistics.",
+          "text": "IDX decision Kep-00157 cuts the lower auto-rejection limit from 15% to 7% from 19 October through 31 December 2026. Upper bands remain 35%, 25% and 20% for the price brackets above Rp10. The Rp1 to Rp10 bracket keeps a Rp1 move. This edition first relied on two press reports because the exchange document was not retrievable before publication. IDX's own release, checked on 24 October, confirms the same terms.",
           "sources": [
             "arb",
+            "arbPress",
             "arbCrosscheck"
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "Update, 24 October",
+          "text": "On 20 October IDX changed the rule again through Kep-00158. Shares priced Rp11 to Rp14 on the Main, Development and New Economy boards now have a Rp1 lower limit instead of 7%. Acceleration and Special Monitoring boards keep their own limits. The change came after this edition's cutoff, so the analysis below is unchanged.",
+          "sources": [
+            "arbUpdate"
           ]
         },
         {
@@ -630,7 +655,7 @@
           "note": "Hypothetical paths for a security that trades down by exactly the assumed limit each session. No tick rounding, reference-price adjustment or exceptional board treatment. This is neither an IHSG price path nor a forecast.",
           "sources": [
             "arb",
-            "arbCrosscheck"
+            "arbPress"
           ]
         },
         {
@@ -647,7 +672,11 @@
         },
         {
           "type": "paragraph",
-          "text": "There is also a measurement trap. In an idealized fixed-weight index where every constituent has a 7% daily floor measured from the same reference, the weighted decline cannot exceed 7%. But real-world reference adjustments, exceptions and index mechanics require the full rules. We therefore do not claim that a market-wide trading halt has become impossible. A quieter index print under a new constraint would not, by itself, demonstrate restored confidence."
+          "text": "There is also a measurement trap. In an idealized fixed-weight index where every constituent has a 7% daily floor measured from the same reference, the weighted decline cannot exceed 7%. Friday's 8% fall, which triggered a 30-minute halt, would not fit that simple picture. But real-world reference adjustments, exceptions and index mechanics require the full rules. We therefore do not claim that a market-wide trading halt has become impossible. A quieter index print under a new constraint would not, by itself, demonstrate restored confidence.",
+          "sources": [
+            "halt",
+            "arb"
+          ]
         }
       ]
     },
@@ -897,7 +926,7 @@
       ]
     }
   ],
-  "sourceIntro": "Checked on 19 October 2026. Market data end on 16 October. The policy addendum uses reports published by 07:30 WIB on 19 October. IDX and BI observations and MSCI and OJK statements are primary sources. The new ARB decision is covered through two press reports because its signed original was not retrievable.",
+  "sourceIntro": "Checked on 19 October 2026 and reviewed again on 24 October. Market data end on 16 October. The policy addendum uses reports published by 07:30 WIB on 19 October. IDX and BI observations, IDX releases and MSCI and OJK statements are primary sources. The 24 October review added the IDX releases on the Friday trading halt and the new lower limit, and a dated note on the 20 October change.",
   "sourceGroups": [
     {
       "label": "Market observations",
@@ -968,18 +997,30 @@
       "note": "16 October releases. Findings are attributed to OJK. Announced fines are distinguished from collection or final criminal judgment."
     },
     {
-      "label": "19 October morning trading rule",
+      "label": "Trading halt and price limits",
       "links": [
         {
+          "source": "halt",
+          "label": "IDX trading halt release"
+        },
+        {
           "source": "arb",
+          "label": "IDX release on Kep-00157"
+        },
+        {
+          "source": "arbPress",
           "label": "IDXChannel at 06:15 WIB"
         },
         {
           "source": "arbCrosscheck",
           "label": "Bloomberg Technoz at 06:40 WIB"
+        },
+        {
+          "source": "arbUpdate",
+          "label": "IDX release on Kep-00158"
         }
       ],
-      "note": "Secondary sources reporting Kep-00157. Signed decision not independently retrieved. Board-specific exceptions and detailed execution rules are not inferred."
+      "note": "IDX releases dated 16, 19 and 20 October. The 20 October change came after the edition cutoff. Board-specific exceptions and detailed execution rules are not inferred."
     }
   ],
   "method": "Official foreign trading totals cover all stock markets. Flowless foreign values are regular-market estimates from foreign share volumes valued at daily closes. Daily value and volume reconcile exactly to the supplied IDX reports. Twenty-session liquidity is independently recomputed. Daily rounded official net sums differ from exact weekly net by about Rp0.01bn. Scenario assumptions, stock-price reference levels and observed data are kept distinct. The market P/E is a proxy that does not reproduce constituent earnings weights. No actual tracker assets under management, queue depth, liquidation schedule, downgrade probability or price-impact coefficient has been established. No new stock ratings or targets are assigned.",
