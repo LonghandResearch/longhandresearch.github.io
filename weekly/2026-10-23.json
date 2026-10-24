@@ -1,0 +1,978 @@
+{
+  "schemaVersion": 1,
+  "weekEnding": "2026-10-23",
+  "published": "2026-10-25",
+  "reviewed": "2026-10-25",
+  "period": "19 to 23 October 2026",
+  "title": "Local Money Bought the Bounce. Foreign Money Sold It.",
+  "titleLead": "Local money bought the bounce.",
+  "titleEmphasis": "Foreign money sold it.",
+  "deck": "IHSG rose 4.90% to 5,439.258 while foreign investors sold a net Rp6.67tn, more than twice the week before. Buyback plans and a state fund that says it is buying point to local support, though nobody has reported how much was spent. The rally won back 28% of last week's loss. It has not yet shown that foreign investors are willing to return.",
+  "description": "Indonesia weekly research for 19 to 23 October 2026. Audited IDX data, who bought and who sold, the high shareholding concentration stocks leaving IHSG on 2 November, and a check of last week's scenarios.",
+  "presentation": "refined",
+  "stats": [
+    {
+      "label": "IHSG close",
+      "value": "5,439.26",
+      "note": "+4.90% over the week. Monday low 4,907.37"
+    },
+    {
+      "label": "Official weekly foreign net",
+      "value": "-Rp6.67tn",
+      "note": "All stock markets. Net selling on four of five days"
+    },
+    {
+      "label": "LQ45",
+      "value": "+7.57%",
+      "note": "IDX BUMN20 +12.84%. LQ45 already excludes HSC stocks"
+    },
+    {
+      "label": "JISDOR, Rp per USD",
+      "value": "18,069",
+      "note": "+0.09% from 16 October. Indicative USD return +4.80%"
+    }
+  ],
+  "sources": {
+    "weekly": {
+      "label": "IDX Weekly Statistics, 19 to 23 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ws_261023. Page 1 market activity, page 2 official flow and investor composition, page 3 top stocks, page 4 exact market totals and breadth, page 5 index contributions, page 6 exact foreign buy and sell, page 7 sector and board indices, page 8 global comparison."
+    },
+    "daily": {
+      "label": "IDX Daily Statistics, 19 to 23 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ds_261019 through ds_261023. Page 1 closes, ranges and the intraday chart, page 2 foreign net and market multiples, page 5 market types and breadth."
+    },
+    "jisdor": {
+      "label": "Bank Indonesia JISDOR, 16 to 23 October 2026",
+      "url": "https://www.bi.go.id/id/statistik/informasi-kurs/jisdor/default.aspx",
+      "note": "All six dates read from the BI table on 25 October. The five current-week rates also match the IDX daily footer."
+    },
+    "observations": {
+      "label": "Frozen IDX observations and source hashes, 23 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/market-2026-10-23.json",
+      "note": "Exact source observations, source-file hashes, visually checked breadth counts, index contributions and sector indices."
+    },
+    "flowless": {
+      "label": "Frozen stock-level estimates, 23 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-23.json",
+      "note": "Read-only weekly export for 87 liquid large caps, 20 daily rows for eight focus stocks and a daily reconciliation with IDX regular-market value and volume. Foreign values are closing-price estimates."
+    },
+    "hsc": {
+      "label": "Frozen HSC comparison inputs, 23 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/hsc-2026-10-23.json",
+      "note": "The 80-stock list of 19 October, and for all 963 stocks the shares outstanding, closes on 16, 19 and 23 October and regular-market value for the week, with the formula and group totals."
+    },
+    "prior": {
+      "label": "Longhand IHSG weekly, 16 October 2026",
+      "url": "https://longhandresearch.github.io/ihsg-weekly.html?week=2026-10-16",
+      "note": "Previous close, previous regular-market value, the scenario ranges and the tests for a durable recovery."
+    },
+    "arb": {
+      "label": "IDX press release 095/BEI.SPR/10-2026 on Kep-00157, 19 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2732",
+      "note": "Lower auto-rejection limit of 7% from 19 October through 31 December 2026."
+    },
+    "arbUpdate": {
+      "label": "IDX press release 096/BEI.SPR/10-2026 on Kep-00158, 20 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2734",
+      "note": "Rp1 lower limit for shares priced Rp11 to Rp14 on the Main, Development and New Economy boards from 20 October."
+    },
+    "hscRule": {
+      "label": "IDX press release 097/BEI.SPR/10-2026, IHSG evaluation criteria, 22 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2736",
+      "note": "From 2 November IHSG excludes Acceleration Board and HSC stocks. Capped free-float method unchanged. Reviews move to January, April, July and October. HSC changes between reviews apply at once. HSC status follows joint IDX and KSEI decision Kep-00047/BEI/03-2026."
+    },
+    "weeklyRelease": {
+      "label": "IDX press release 098/BEI.SPR/10-2026, weekly summary, 23 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2738",
+      "note": "IDX's own weekly figures. They match the supplied statistics."
+    },
+    "hscList": {
+      "label": "Katadata, IDX to remove HSC stocks from IHSG, 19 October 2026, 17:39",
+      "url": "https://katadata.co.id/finansial/bursa/6ad5f8c1dfe35/bei-keluarkan-saham-hsc-dari-perhitungan-ihsg-bobot-18-termasuk-dssa-dan-bren",
+      "note": "IDX president director Jeffrey Hendrik on 19 October: HSC stocks are about 18% of IHSG, affiliation status to be added to the list of holders above 1%, and IDX met MSCI representatives. Lists 80 HSC stocks. Read on 25 October."
+    },
+    "danantaraPlan": {
+      "label": "Katadata, Danantara to add state-owned holdings, 20 October 2026, 08:38",
+      "url": "https://katadata.co.id/finansial/bursa/6ad6c620e531f/danantara-bakal-tambah-kepemilikan-saham-di-bumn-respons-tumbangnya-ihsg",
+      "note": "Danantara COO Dony Oskaria on 19 October. No amount or date given."
+    },
+    "danantaraBuying": {
+      "label": "ANTARA, Danantara buying shares on the exchange, 22 October 2026, 13:30 WIB",
+      "url": "https://www.antaranews.com/berita/5804121/danantara-beli-saham-saham-di-bursa-dalam-dua-hari-ini-utamanya-bumn",
+      "note": "Danantara CIO Pandu Sjahrir on 22 October: buying began \"per kemarin, hari ini\", mainly state-owned stocks. No tickers or amounts. Read on 25 October."
+    },
+    "danantaraCheck": {
+      "label": "Katadata, Danantara buying state-owned shares, 23 October 2026, 11:05",
+      "url": "https://katadata.co.id/finansial/bursa/6adadcf672d1e/danantara-tambah-genggam-39-saham-bumn-saat-ihsg-anjlok",
+      "note": "Second report of the same 22 October remarks with the same quote. No filing confirms the purchases."
+    },
+    "buybacks": {
+      "label": "IDX disclosures, Barito group buyback plans, 19 October 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/a67fa1c6c6_f4cbe93d94.pdf",
+      "note": "Company filings read on 25 October. BRPT up to Rp1tn, 19 October to 31 December (linked). BREN up to Rp1tn, same period (https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/02717897d1_54bc78a007.pdf). TPIA up to Rp1tn, 20 October 2026 to 19 January 2027 (https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/18e166ae56_758574782c.pdf). CUAN up to Rp500bn, 19 October to 31 December (https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/33ba166e91_f57bfc2abb.pdf). All under POJK 13/2023 and OJK letter S-112/D.04/2026 of 9 September 2026."
+    },
+    "otherBuybacks": {
+      "label": "IDX disclosures, UNTR and BBNI buyback plans",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/40d63c3d60_144189c2c1.pdf",
+      "note": "UNTR filed 1 October 2026, up to Rp2tn (linked). BBNI filed 27 July 2026, up to Rp627bn, to be completed within three months (https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202607/7bc693b7b9_220140e483.pdf)."
+    },
+    "bankBuybacks": {
+      "label": "Katadata, bank buybacks, 21 October 2026, 14:30",
+      "url": "https://katadata.co.id/finansial/bursa/6ad869ff908be/buyback-bank-jumbo-bbca-bbni-dinilai-jadi-bantalan-ihsg-sanggup-balikkan-tren",
+      "note": "BBCA buyback from 19 October under its March 2026 approval. No October BBCA filing was found on IDX, so this rests on the press report."
+    },
+    "bi": {
+      "label": "Bank Indonesia press release 28/233/DKom, 21 October 2026",
+      "url": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2823326.aspx",
+      "note": "BI-Rate held at 5.75%, Deposit Facility raised to 5.00%, conventional bank reserve requirement cut from 9% to 8% on 1 November and to 7% on 1 December. Read on 25 October."
+    },
+    "ojkFines": {
+      "label": "OJK press release SP 199/DKPU/OJK/X/2026, published 23 October 2026",
+      "url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/Serius-dalam-Penegakan-Hukum-OJK-Jatuhkan-Total-Denda-Rp2,52-Triliun-Pelaku-Pelanggaran-di-Pasar-Modal.aspx",
+      "note": "Fines to 16 October: Rp2.23tn of case fines on 166 parties and Rp293.78bn of late-filing fines on 805 parties. Sanction letters handed over on 21 October."
+    },
+    "msci": {
+      "label": "MSCI reclassification announcement, 15 October 2026",
+      "url": "https://ir.msci.com/news-releases/news-release-details/msci-launches-consultation-proposal-reclassify-indonesia",
+      "note": "Feedback until 30 April 2027 and a decision by 30 June 2027. Checked in the previous edition. No new MSCI release was read for this week."
+    }
+  },
+  "observations": {
+    "closes": [
+      {
+        "date": "2026-10-16",
+        "label": "16 Oct",
+        "close": 5185.105
+      },
+      {
+        "date": "2026-10-19",
+        "label": "19 Oct",
+        "close": 4996.609
+      },
+      {
+        "date": "2026-10-20",
+        "label": "20 Oct",
+        "close": 5278.888
+      },
+      {
+        "date": "2026-10-21",
+        "label": "21 Oct",
+        "close": 5328.36
+      },
+      {
+        "date": "2026-10-22",
+        "label": "22 Oct",
+        "close": 5387.905
+      },
+      {
+        "date": "2026-10-23",
+        "label": "23 Oct",
+        "close": 5439.258
+      }
+    ],
+    "foreignFlow": [
+      {
+        "date": "2026-10-19",
+        "label": "19 Oct",
+        "netBn": -1719.05
+      },
+      {
+        "date": "2026-10-20",
+        "label": "20 Oct",
+        "netBn": -2192.99
+      },
+      {
+        "date": "2026-10-21",
+        "label": "21 Oct",
+        "netBn": 12.49
+      },
+      {
+        "date": "2026-10-22",
+        "label": "22 Oct",
+        "netBn": -1486.59
+      },
+      {
+        "date": "2026-10-23",
+        "label": "23 Oct",
+        "netBn": -1285.12
+      }
+    ],
+    "jisdor": [
+      {
+        "date": "2026-10-16",
+        "rate": 18052
+      },
+      {
+        "date": "2026-10-19",
+        "rate": 18050
+      },
+      {
+        "date": "2026-10-20",
+        "rate": 18006
+      },
+      {
+        "date": "2026-10-21",
+        "rate": 17986
+      },
+      {
+        "date": "2026-10-22",
+        "rate": 18047
+      },
+      {
+        "date": "2026-10-23",
+        "rate": 18069
+      }
+    ],
+    "sectors": [
+      {
+        "name": "Transport and logistics",
+        "weekly": 9.02
+      },
+      {
+        "name": "Energy",
+        "weekly": 6.37
+      },
+      {
+        "name": "Infrastructure",
+        "weekly": 5.68
+      },
+      {
+        "name": "Property",
+        "weekly": 5.39
+      },
+      {
+        "name": "Financials",
+        "weekly": 4.96
+      },
+      {
+        "name": "Industrials",
+        "weekly": 4.39
+      },
+      {
+        "name": "Basic materials",
+        "weekly": 4.09
+      },
+      {
+        "name": "Consumer non-cyclicals",
+        "weekly": 3.5
+      },
+      {
+        "name": "Consumer cyclicals",
+        "weekly": 3.44
+      },
+      {
+        "name": "Healthcare",
+        "weekly": 3.03
+      },
+      {
+        "name": "Technology",
+        "weekly": 0.03
+      }
+    ],
+    "stocks": [
+      {
+        "ticker": "BMRI",
+        "points": 40.65
+      },
+      {
+        "ticker": "BBRI",
+        "points": 39.76
+      },
+      {
+        "ticker": "TLKM",
+        "points": 31.31
+      },
+      {
+        "ticker": "BREN",
+        "points": 20.39
+      },
+      {
+        "ticker": "BBNI",
+        "points": 14.79
+      },
+      {
+        "ticker": "ASII",
+        "points": 14.59
+      },
+      {
+        "ticker": "BYAN",
+        "points": -6.55
+      },
+      {
+        "ticker": "DCII",
+        "points": -7.32
+      },
+      {
+        "ticker": "MORA",
+        "points": -11.67
+      },
+      {
+        "ticker": "BBCA",
+        "points": -13.66
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "judgment",
+      "title": "A rally we would not chase yet",
+      "nav": "The judgment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "lede": true,
+          "sources": [
+            "weekly",
+            "prior"
+          ],
+          "text": "IHSG rose 4.90% to 5,439.258. It won back 254.153 of the 908.654 points lost the week before, about 28%. The index is still 10.74% below its 9 October close and would need to rise 12.03% to get there."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "danantaraBuying",
+            "buybacks",
+            "bankBuybacks"
+          ],
+          "text": "Who bought matters more than how far prices went. Foreign investors sold a net Rp6.67tn across all stock markets, more than twice the previous week's Rp3.19tn. Local buyers took all of it and still pushed prices up. We know less about who those buyers were. Several listed companies filed plans to buy back their own shares, the four Barito group companies alone up to Rp3.5tn, but none has yet reported what it bought. Danantara, the state investment fund, says it started buying state-owned stocks on 21 October and has given no amounts. So the support is announced capacity and stated intent. How much of the rally it paid for is not yet known."
+        },
+        {
+          "type": "paragraph",
+          "text": "Our view stays defensive. A rally carried by local buyers against foreign sellers, with issuers and a state fund promising more, has not shown that outside investors trust the market again. We would change our mind when foreign selling in the largest banks stops, and when the index change on 2 November produces a cleaner IHSG that holds its gains."
+        },
+        {
+          "type": "callout",
+          "label": "Checking last week's call",
+          "sources": [
+            "prior"
+          ],
+          "text": "Last week our planning case put IHSG between 4,437 and 5,185 over four to twelve weeks. Monday's low of 4,907 sat inside that range. Friday's close of 5,439 sat above it, 0.89% short of the 5,488 where our relief case began. The bounce came faster than we planned for. None of the conditions we attached to the relief case has been met, though IDX announced steps toward two of them. We keep the planning case and say plainly that the first week went against it."
+        }
+      ]
+    },
+    {
+      "id": "week",
+      "title": "Monday sold. Tuesday bought.",
+      "nav": "The week",
+      "blocks": [
+        {
+          "type": "closes",
+          "label": "Exhibit 01",
+          "title": "A fall on Monday, then four higher closes",
+          "sources": [
+            "daily",
+            "prior",
+            "hscList"
+          ],
+          "note": "Select a date to inspect the closing observation. Lines join daily closes and show no intraday highs or lows.",
+          "event": {
+            "label": "IDX said HSC stocks will leave IHSG",
+            "note": "19 October, after the close"
+          }
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "daily",
+            "arb",
+            "flowless"
+          ],
+          "text": "Monday was the first session under IDX's new 7% lower price limit. IHSG fell 3.64% to 4,996.609 and touched 4,907.370 during the day, 5.36% below the previous Friday. BBCA fell 6.86% to Rp4,820, its new lower limit."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "hscList",
+            "danantaraPlan",
+            "buybacks"
+          ],
+          "text": "Two statements came on Monday. IDX president director Jeffrey Hendrik said every high shareholding concentration (HSC) stock would be taken out of IHSG, about 18% of the index by his estimate. Danantara's chief operating officer, Dony Oskaria, said the fund would add to its holdings of state-owned companies with strong fundamentals. Before Monday's open, the four Barito group companies, BRPT, BREN, TPIA and CUAN, had filed buyback plans with IDX worth up to Rp3.5tn together. They rely on OJK's rules for a significantly fluctuating market."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "daily",
+            "flowless",
+            "danantaraBuying"
+          ],
+          "text": "On Tuesday IHSG rose 5.65% and closed at its high of 5,278.888. The state-owned names did most of the lifting. TLKM rose 16.38%, BBRI 9.84% and BMRI 9.82%. Foreign investors still sold a net Rp2.19tn that day. Danantara was probably not Tuesday's buyer. On 22 October its chief investment officer, Pandu Sjahrir, said the fund had started buying \"per kemarin, hari ini\", as of the day before and that day. He named no stocks and no amounts. Tuesday's buying came from other local investors, possibly including companies with fresh buyback plans. The data cannot tell them apart."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "daily"
+          ],
+          "text": "The rest of the week rose by less than 1.2% a day. Thursday opened with a sharp drop to 5,185.527 at 09:01, 2.68% below Wednesday's close, and climbed back by midday. We found no official explanation for it."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "daily",
+            "prior"
+          ],
+          "text": "Trading was heavier. Regular-market value averaged Rp18.02tn a day, 33.7% more than the week before, and Tuesday alone saw Rp25.25tn. Negotiated trades made up 11.38% of all stock value."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Weekly breadth",
+            "Stocks",
+            "Share"
+          ],
+          "rows": [
+            [
+              "Rose more than 2%",
+              "580",
+              "60.23%"
+            ],
+            [
+              "Rose up to 2%",
+              "71",
+              "7.37%"
+            ],
+            [
+              "Unchanged",
+              "157",
+              "16.30%"
+            ],
+            [
+              "Fell up to 2%",
+              "40",
+              "4.15%"
+            ],
+            [
+              "Fell more than 2%",
+              "115",
+              "11.94%"
+            ]
+          ],
+          "caption": "Breadth across 963 listed stocks"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly"
+          ],
+          "text": "By count the rise was broad. 651 stocks rose and 155 fell. By value it was narrower. Stocks worth Rp2,921tn fell, 30.66% of the value in IDX's chart. IDX again printed the two falling groups' percentages in the wrong order, in both bars. We recompute every share from the counts."
+        }
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Foreign investors sold into the rise",
+      "nav": "Who sold",
+      "blocks": [
+        {
+          "type": "flows",
+          "label": "Exhibit 02",
+          "title": "Net selling on four of five days",
+          "sources": [
+            "weekly",
+            "daily"
+          ],
+          "note": "Official all-market stock trading, foreign purchases less sales. This measures trading, not money leaving the country."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "daily",
+            "prior"
+          ],
+          "text": "Wednesday was the only day of foreign net buying, and only Rp12.49bn. The week's net selling of Rp6.67tn was 108.83% more than the week before. Foreign net selling this year has reached Rp94.87tn, and this week added 7.03% of it. Foreign investors still made up 40% of trading, the same share as the week before. They kept trading and they kept selling."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Possible explanation",
+            "Evidence for",
+            "Evidence against",
+            "Our read"
+          ],
+          "rows": [
+            [
+              "Foreign investors came back",
+              "None",
+              "Net selling of Rp6.67tn, on four of five days",
+              "Rejected"
+            ],
+            [
+              "Global markets rallied",
+              "The Dow rose 1.66%",
+              "Most markets on IDX's comparison fell. Nikkei -4.03%, Hang Seng -4.52%, KOSPI -2.08%",
+              "Rejected"
+            ],
+            [
+              "Local buyers, with issuers and the state fund behind them",
+              "Domestic net buying of Rp6.67tn. Buyback plans filed by BBNI, UNTR and four Barito companies, and reported at BBCA. Danantara says it bought from 21 October. Eight of the ten largest point contributors were state-owned or had a buyback plan",
+              "Plans and statements, not reported purchases. Danantara's buying began after Tuesday's jump",
+              "Best fit, size unknown"
+            ],
+            [
+              "A bounce after a 14.91% fall",
+              "651 of 963 stocks rose",
+              "Says nothing about who bought",
+              "Fits, explains little"
+            ],
+            [
+              "Index reform restored trust",
+              "Tuesday's jump followed the HSC announcement",
+              "HSC stocks rose less than the rest. Foreign selling went on",
+              "Possible, unproven"
+            ],
+            [
+              "Bank Indonesia eased",
+              "Reserve requirement cut on 21 October. Banks rose again on Thursday",
+              "Came after Tuesday's jump. The Deposit Facility rate went up",
+              "Fits Thursday only"
+            ]
+          ],
+          "caption": "Each explanation tested against the evidence that would rule it out"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "buybacks",
+            "bankBuybacks",
+            "danantaraBuying",
+            "bi"
+          ],
+          "text": "We tested each explanation against the evidence most likely to rule it out. Two fail outright. Foreigners did not return, and the rest of Asia mostly fell. The explanation that survives is local buying of large caps, with issuers and the state fund announcing support. It has the weakness that matters most. Nobody has said how much was actually spent."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "flowless"
+          ],
+          "text": "Our stock-level estimate covers the 87 liquid large caps with at least Rp10tn of market value and Rp10bn of average daily trading. It puts their regular-market foreign net selling at Rp8.13tn. The estimate values foreign share volume at each day's close and leaves out negotiated trades, so it measures something different from IDX's official total. We use it only to see which stocks foreigners sold."
+        }
+      ]
+    },
+    {
+      "id": "leaders",
+      "title": "State banks rose. Foreigners sold them anyway.",
+      "nav": "Large caps",
+      "blocks": [
+        {
+          "type": "stocks",
+          "label": "Exhibit 03",
+          "title": "Six leaders and four laggards",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Official weekly IHSG contributions from IDX. The ten largest gainers added 199.84 points in all."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly"
+          ],
+          "text": "Four state-owned stocks, BMRI, BBRI, TLKM and BBNI, added 126.51 points. That is 49.78% of the week's 254.153-point gain. The ten largest contributors added 199.84 points, or 78.63%. LQ45 rose 7.57% and IDX BUMN20 rose 12.84%, both well ahead of IHSG."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Close, Rp",
+            "Week",
+            "Foreign net, Rp bn",
+            "Traded, Rp bn"
+          ],
+          "rows": [
+            [
+              "BBRI",
+              "2,910",
+              "+10.23%",
+              "-2,165.03",
+              "9,188.25"
+            ],
+            [
+              "BMRI",
+              "3,900",
+              "+15.04%",
+              "-508.04",
+              "6,881.71"
+            ],
+            [
+              "TLKM",
+              "2,240",
+              "+17.89%",
+              "-565.69",
+              "5,511.88"
+            ],
+            [
+              "BBNI",
+              "3,420",
+              "+15.15%",
+              "-162.24",
+              "1,669.91"
+            ],
+            [
+              "BBCA",
+              "5,025",
+              "-2.90%",
+              "-2,951.93",
+              "13,751.84"
+            ]
+          ],
+          "caption": "Regular-market estimates for 19 to 23 October"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "flowless"
+          ],
+          "text": "Foreigners were net sellers of every stock in this table. They still bought an estimated Rp2,298.85bn of BBRI, but sold Rp4,463.88bn, a net Rp2.17tn, while the price rose 10.23%. Local buyers set that price. Foreign money gave the rise no net support, and nothing in the week tells us how much it would absorb if local demand faded."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless",
+            "bankBuybacks"
+          ],
+          "text": "BBCA shows the other side of the same trade. It was the most traded stock on the exchange, 15.14% of all stock value according to IDX, and it fell 2.90% while its own buyback was reported to be running. Its estimated foreign net selling of Rp2.95tn was the largest of any stock. Our reading is that funds cutting Indonesia sell first where they can sell in size, and BBCA is where they can. On that reading the fall says more about liquidity than about the bank. The other possibility is that foreigners are cutting BBCA on its own merits. One week of data cannot tell the two apart."
+        }
+      ]
+    },
+    {
+      "id": "hsc",
+      "title": "Too many index points come from stocks that barely trade",
+      "nav": "HSC stocks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "sources": [
+            "hscRule",
+            "hscList"
+          ],
+          "text": "IDX has now acted on the problem MSCI raised. On 22 October it confirmed that IHSG will drop HSC stocks from Monday 2 November. The capped free-float method stays. A stock newly placed on the HSC list will leave IHSG at once, without waiting for a review, and one taken off the list becomes eligible for the index again. IDX and KSEI decide the list together. A list of 80 stocks published on 19 October includes DCII, BYAN, BREN, DSSA and MORA."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Measure",
+            "80 HSC stocks",
+            "Other 883 stocks"
+          ],
+          "rows": [
+            [
+              "Market value, 23 October",
+              "Rp2,679tn",
+              "Rp6,904tn"
+            ],
+            [
+              "Share of market value",
+              "27.95%",
+              "72.05%"
+            ],
+            [
+              "Share of regular trading this week",
+              "3.06%",
+              "96.94%"
+            ],
+            [
+              "Price change over the week",
+              "+1.65%",
+              "+5.70%"
+            ],
+            [
+              "Price change, Tuesday to Friday",
+              "+4.25%",
+              "+9.90%"
+            ]
+          ],
+          "sources": [
+            "hsc",
+            "hscList"
+          ],
+          "caption": "Our calculation from daily closes and shares outstanding, using the 19 October list. Changes are weighted by full market value, not by IHSG weight"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "flowless",
+            "hscList"
+          ],
+          "text": "That is the problem in two numbers. These 80 companies are 28% of what the market is said to be worth and 3% of what actually changes hands. Their prices can move the index with very little money behind them. MORA fell 6.91%, 6.87%, 6.19% and 6.92% on four straight days, near the new 7% limit, then rose 9.46% on Friday. It traded Rp6.12bn all week and took 11.67 points off IHSG. BBRI needed Rp9,188bn of trading to add 39.76 points. For each rupiah traded, MORA moved the index about 440 times as far as BBRI."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "flowless",
+            "weekly",
+            "buybacks"
+          ],
+          "text": "DCII is worth Rp431tn at its last price. It traded Rp1.24bn in five days and had two sessions with no trades at all in the past 20. It still cost the index 7.32 points. BREN went the other way. It rose 28.3% and added 20.39 points on Rp379.91bn of trading, in the week it filed a buyback plan of up to Rp1tn. How much BREN actually bought has not been reported."
+        },
+        {
+          "type": "callout",
+          "label": "Our assessment",
+          "sources": [
+            "hscList",
+            "hscRule"
+          ],
+          "text": "Removing these stocks will make IHSG a more honest measure of prices investors can actually trade. It changes no company's value. It does change what the headline number measures, so IHSG after 2 November will not compare directly with IHSG today. A gain built partly on thin, concentrated stocks will become harder to produce."
+        }
+      ]
+    },
+    {
+      "id": "sectors",
+      "title": "Every sector rose. Technology stayed flat.",
+      "nav": "Sectors",
+      "blocks": [
+        {
+          "type": "sectors",
+          "label": "Exhibit 04",
+          "title": "Sector index changes over the week",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Weekly price changes of the IDX sector indices."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless"
+          ],
+          "text": "Transport and logistics rose most, by 9.02%. Energy gained 6.37% and infrastructure 5.68%. Technology rose only 0.03%. DCII, by far its largest company by market value, fell 3.81%. The Main Board index rose 6.26%. The Development Board rose 0.87% and the Acceleration Board 1.08%. The larger and more liquid the stock, the better it did, which is what we would expect when the main buyers are defending large stocks."
+        }
+      ]
+    },
+    {
+      "id": "policy",
+      "title": "A week of rule changes",
+      "nav": "Rules and regulators",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "sources": [
+            "arbUpdate",
+            "hscRule",
+            "bi"
+          ],
+          "text": "The authorities moved quickly. On 20 October IDX set a Rp1 lower limit for shares priced Rp11 to Rp14 on the Main, Development and New Economy boards. On 21 October Bank Indonesia held the BI-Rate at 5.75%, raised its Deposit Facility rate to 5.00% and cut conventional banks' reserve requirement from 9% to 7%, in steps on 1 November and 1 December. On 22 October IDX confirmed the HSC change and moved its index reviews to January, April, July and October."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "ojkFines"
+          ],
+          "text": "On 21 October OJK handed sanction letters to the parties it had fined. It puts capital-market fines up to 16 October at Rp2.52tn, made up of Rp2.23tn in case fines on 166 parties and Rp293.78bn in late-filing fines on 805 parties. The Rp2.1tn of fines linked to DSSA, BREN and CUAN is part of the first figure. OJK says criminal follow-up is possible if the evidence is sufficient. That is a possibility, not a case."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "hscList",
+            "msci"
+          ],
+          "text": "MSCI published nothing new that we could find. IDX says it met MSCI representatives before announcing the HSC change. The consultation on moving Indonesia to standalone status runs to 30 April 2027, with a decision due by 30 June 2027."
+        },
+        {
+          "type": "callout",
+          "label": "Our assessment",
+          "sources": [
+            "hscList",
+            "hscRule"
+          ],
+          "text": "The direction is right. Dropping HSC stocks and marking whether large shareholders are affiliated both answer MSCI's complaint about hidden ownership. For now they are announcements. The test is whether the shareholder data that comes out of them lets an outsider work out who controls a company's shares."
+        }
+      ]
+    },
+    {
+      "id": "outlook",
+      "title": "What would change our view",
+      "nav": "What changes the view",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Test we set on 19 October",
+            "Where it stands on 23 October"
+          ],
+          "rows": [
+            [
+              "Ownership records that can be reconciled",
+              "Announced. IDX plans to show whether holders above 1% are affiliated. No start date yet."
+            ],
+            [
+              "Published enforcement follow-through",
+              "Partly met. Sanction letters handed over on 21 October. Collection not reported."
+            ],
+            [
+              "Consistent treatment across the market",
+              "Partly met. All HSC stocks leave IHSG on 2 November under one rule."
+            ],
+            [
+              "Trading that clears without persistent queues",
+              "Mixed. Regular trading rose 33.7%. MORA closed near its lower limit four days running on thin trading."
+            ],
+            [
+              "Revised constituent and fund exposure",
+              "Not met. No new MSCI weights or fund data."
+            ],
+            [
+              "Updated issuer earnings and funding risks",
+              "Not covered in this edition."
+            ]
+          ],
+          "caption": "Last week's tests for a durable recovery"
+        },
+        {
+          "type": "fxLab",
+          "title": "The rupiah barely moved",
+          "sources": [
+            "jisdor",
+            "daily"
+          ],
+          "note": "The starting values use this week's IHSG and BI JISDOR. Move the sliders to try a different currency assumption. The equity close and the reference rate are taken at different times."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "jisdor"
+          ],
+          "text": "JISDOR went from Rp18,052 to Rp18,069 per dollar, a 0.09% rise. The rough dollar return on IHSG was 4.80% before costs and hedging. The currency neither added to the gain nor took much away."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "hscRule",
+            "prior"
+          ],
+          "text": "From 26 to 30 October we will watch whether foreign selling in BBRI and BBCA slows, and for any report of what Danantara and the buyback programmes actually spent. Then, on 2 November, comes the first IHSG without HSC stocks. Our relief case begins at 5,488, 0.89% above Friday's close. A close above it on its own will not change our view. A close above it with foreign buying would."
+        },
+        {
+          "type": "callout",
+          "label": "Investment conclusion",
+          "text": "Local money can carry prices for a while, and this week it did. We stay cautious on a broad recovery until foreign investors stop selling the stocks they can sell most easily. Traders can use the bounce. Investors still need the ownership and enforcement evidence we set out last week."
+        }
+      ]
+    }
+  ],
+  "sourceIntro": "Checked on 25 October 2026. Market data end at the 23 October close. IDX statistics, BI rates, IDX, BI and OJK releases and the companies' buyback filings are primary sources. Statements by IDX and Danantara officials come from dated ANTARA and Katadata reports. No Danantara purchase amounts have been disclosed.",
+  "sourceGroups": [
+    {
+      "label": "Market observations",
+      "links": [
+        {
+          "source": "weekly",
+          "label": "IDX Weekly Statistics"
+        },
+        {
+          "source": "daily",
+          "label": "IDX Daily Statistics"
+        },
+        {
+          "source": "observations",
+          "label": "Frozen observations"
+        },
+        {
+          "source": "weeklyRelease",
+          "label": "IDX weekly release"
+        }
+      ],
+      "note": "19 to 23 October. Weekly pages 1 to 8. Daily pages 1, 2 and 5. Breadth follows visually checked counts. Source hashes and exact daily market totals are kept."
+    },
+    {
+      "label": "Currency and stock estimates",
+      "links": [
+        {
+          "source": "jisdor",
+          "label": "BI JISDOR"
+        },
+        {
+          "source": "flowless",
+          "label": "Frozen stock-level estimates"
+        },
+        {
+          "source": "prior",
+          "label": "Previous weekly edition"
+        }
+      ],
+      "note": "BI rates for 16 to 23 October. Stock-level foreign values are regular-market estimates and stay separate from IDX's official totals."
+    },
+    {
+      "label": "Exchange rules and the HSC change",
+      "links": [
+        {
+          "source": "arb",
+          "label": "Kep-00157"
+        },
+        {
+          "source": "arbUpdate",
+          "label": "Kep-00158"
+        },
+        {
+          "source": "hscRule",
+          "label": "IHSG criteria release"
+        },
+        {
+          "source": "hscList",
+          "label": "HSC list and IDX remarks"
+        },
+        {
+          "source": "hsc",
+          "label": "Frozen HSC comparison"
+        }
+      ],
+      "note": "IDX releases dated 19, 20 and 22 October. The 80-stock list is as published on 19 October. The comparison file holds every input to the HSC table."
+    },
+    {
+      "label": "Buyers",
+      "links": [
+        {
+          "source": "buybacks",
+          "label": "Barito group filings"
+        },
+        {
+          "source": "otherBuybacks",
+          "label": "UNTR and BBNI filings"
+        },
+        {
+          "source": "bankBuybacks",
+          "label": "BBCA buyback report"
+        },
+        {
+          "source": "danantaraPlan",
+          "label": "Danantara plan"
+        },
+        {
+          "source": "danantaraBuying",
+          "label": "Danantara buying, ANTARA"
+        },
+        {
+          "source": "danantaraCheck",
+          "label": "Danantara buying, Katadata"
+        }
+      ],
+      "note": "Buyback figures are limits in the companies' own filings, not amounts spent. Danantara's statements are attributed to its officials and confirmed by two outlets. No filing shows its purchases."
+    },
+    {
+      "label": "Regulators and the central bank",
+      "links": [
+        {
+          "source": "bi",
+          "label": "Bank Indonesia"
+        },
+        {
+          "source": "ojkFines",
+          "label": "OJK fines"
+        },
+        {
+          "source": "msci",
+          "label": "MSCI consultation"
+        }
+      ],
+      "note": "Primary releases dated 21 and 23 October, and MSCI's 15 October announcement."
+    }
+  ],
+  "method": "Official foreign trading totals cover all stock markets. Stock-level foreign values are regular-market estimates from foreign share volumes valued at daily closes, for stocks with at least Rp10tn market value and Rp10bn 20-session average daily value. Daily regular-market value and volume in the estimates match all five IDX daily reports exactly. HSC group figures use the 80-stock list published on 19 October, shares outstanding and daily closes, weighted by full market value: sum of shares times close on the later date over the same sum on the earlier date, less one. They are not IHSG weights. Every input is frozen in the HSC comparison file. Breadth shares are recomputed from counts. Index contributions and sector changes are read from rendered IDX pages.",
+  "displayMethod": "Price returns exclude dividends and costs. Dollar returns use JISDOR and are indicative. Official all-market flows and regular-market stock estimates have different scopes. Exact observations and calculations are available beside the exhibits and in the linked snapshots."
+}

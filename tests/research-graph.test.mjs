@@ -31,7 +31,7 @@ test('every graph relationship points to a published report, real entity and exi
 test('all published reports stay discoverable and market indices are not company identities', () => {
   assert.equal(G.reportsFor().length, reports.length);
   assert.equal(G.companies.some((c) => c.ticker === 'IHSG'), false);
-  assert.equal(G.reportsFor({ country: 'ID' }).length, 12);
+  assert.equal(G.reportsFor({ country: 'ID' }).length, 13);
   assert.equal(G.reportsFor({ country: 'US' }).length, 2);
   assert.equal(G.contextFor('sector-2026-09-24').countries.length, 0, 'No geography guessed from chip subject');
 });
@@ -42,7 +42,7 @@ test('country report filters distinguish primary coverage from documented trade 
     assert.equal(G.countryCoverage(id).primary.length, 0);
     assert.deepEqual(Array.from(G.countryCoverage(id).context, r => r.id), id==='VN'?['coal-in-transition-2026-10-08']:['more-nickel-2026-10-15','coal-in-transition-2026-10-08']);
   }
-  assert.equal(G.countryCoverage('ID').primary.length, 12);
+  assert.equal(G.countryCoverage('ID').primary.length, 13);
   assert.equal(G.countryCoverage('US').primary.length, 2);
   assert.equal(G.countryCoverage('unknown').context.length, 0);
   const weekly = G.countryCoverage('ID').primary.find(r => r.id === 'ihsg-weekly-2026-10-09');
