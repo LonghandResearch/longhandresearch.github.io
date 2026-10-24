@@ -22,7 +22,7 @@ uncommitted branch.
 | `sector.html?id=...` | Sector research, optionally within a country |
 | `company.html?id=...` | A company identity, listing and published research history |
 | `about.html` | How the reports are built, the rating key and the report types |
-| `wire.html` | The Wire: market headlines from the financial press, gathered every hour |
+| `wire.html` | The Wire: market headlines from the financial press, gathered several times a day |
 | `report.html?id=...` | One report: its details, key data and the full PDF read on the page |
 | `research.html` | Local owner workspace: saved research projects, source notes, working drafts, review and JSON backups |
 | `power-behind-ai-update-2026-10-09.html` | Dated October supplement: cached IDX price paths, capacity definitions and primary project checkpoints |
@@ -281,7 +281,7 @@ runs both.
 
 ## The Wire
 
-The Wire (`wire.html`) shows headlines on markets, the economy, commodities and crypto. It fills itself: every hour a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days.
+The Wire (`wire.html`) shows headlines on markets, the economy, commodities and crypto. It fills itself: a job on GitHub (`.github/workflows/wire.yml`) reads the sources in `news/feeds.json` and saves the headlines to `news/news.json`. Only headlines and links are kept, and each one opens at its publisher's site. Headlines drop off after four days. The job is scheduled hourly, but GitHub runs scheduled jobs on a best-effort basis and in practice it runs about four to six times a day.
 
 - **Change the sources**: edit `news/feeds.json`. Each source has a `name`, the address of its RSS feed (`url`), a `topic` (`Markets`, `Macro`, `Commodities` or `Crypto`) and, for headlines not in English, a `lang` such as `"id"`.
 - **Only market news**: a source that also carries general news is marked `"strict": true`, and its headlines are kept only when they are about shares, rates, currencies, commodities, crypto, company results and deals, or the economy. Sport, celebrities, accidents, promotions and how-to pieces are never kept, from any source. The word lists are at the top of `scripts/fetch-news.mjs`.
