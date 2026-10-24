@@ -45,7 +45,7 @@ window.LONGHAND_REPORTS = [
   "category": "Update",
   "title": "Local Money Bought the Bounce. Foreign Money Sold It.",
   "date": "2026-10-25",
-  "blurb": "IHSG rose 4.90% while foreign investors sold a net Rp6.67tn. Buybacks and state buying lifted the large caps, and HSC stocks leave IHSG on 2 November.",
+  "blurb": "IHSG rose 4.90% while foreign investors sold a net Rp6.67tn. Local buyers took the other side, and HSC stocks leave IHSG on 2 November.",
   "summary": "Weekly research for 19 to 23 October. Audited IDX observations, who bought and who sold, the high shareholding concentration stocks leaving IHSG and a check of last week's scenarios.",
   "tags": ["IHSG", "Weekly Market Update", "Foreign flow", "Buyback", "Danantara", "HSC", "Free float", "Market governance"],
   "rating": null,

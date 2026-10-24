@@ -46,6 +46,30 @@ test('Typed weekly figures recompute from the frozen data', () => {
   const usd = ((close / 5185.105) * (18052 / 18069) - 1) * 100;
   assert.ok(edition.stats[3].note.includes(`+${usd.toFixed(2)}%`));
 });
+test('HSC table cells recompute from the frozen membership and constituent inputs', () => {
+  const hsc = read('hsc-2026-10-23');
+  assert.equal(hsc.membership.tickers.length, 80);
+  assert.equal(new Set(hsc.membership.tickers).size, 80);
+  assert.equal(hsc.stocks.length, 963);
+  const members = new Set(hsc.membership.tickers);
+  hsc.stocks.forEach(s => assert.equal(s.hsc, members.has(s.ticker)));
+  const sum = (group, f) => group.reduce((t, s) => t + f(s), 0);
+  const groups = [hsc.stocks.filter(s => s.hsc), hsc.stocks.filter(s => !s.hsc)];
+  const cap = (g, k) => sum(g, s => s.sharesOutstanding * s[k]);
+  const value = g => sum(g, s => s.weekRegularValueIdr);
+  const totalCap = cap(groups[0], 'close23') + cap(groups[1], 'close23');
+  const totalValue = value(groups[0]) + value(groups[1]);
+  near(totalCap / 1e12, raw.daily.at(-1).idxMarketCapTn, 0.5);
+  const cells = groups.map(g => [
+    `Rp${Math.round(cap(g, 'close23') / 1e12).toLocaleString('en-US')}tn`,
+    `${(cap(g, 'close23') / totalCap * 100).toFixed(2)}%`,
+    `${(value(g) / totalValue * 100).toFixed(2)}%`,
+    `+${((cap(g, 'close23') / cap(g, 'close16') - 1) * 100).toFixed(2)}%`,
+    `+${((cap(g, 'close23') / cap(g, 'close19') - 1) * 100).toFixed(2)}%`
+  ]);
+  const table = edition.sections.find(s => s.id === 'hsc').blocks.find(b => b.type === 'table');
+  table.rows.forEach((row, i) => { assert.equal(row[1], cells[0][i]); assert.equal(row[2], cells[1][i]); });
+});
 test('Focus stocks match daily rows and the fresh export', () => {
   for (const [ticker, stock] of Object.entries(flow.focus)) {
     assert.equal(stock.rows.length, 20);

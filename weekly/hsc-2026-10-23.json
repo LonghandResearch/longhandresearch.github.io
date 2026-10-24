@@ -1,0 +1,8783 @@
+{
+ "weekEnding": "2026-10-23",
+ "membership": {
+  "source": "Katadata, 19 October 2026, 17:39, https://katadata.co.id/finansial/bursa/6ad5f8c1dfe35/bei-keluarkan-saham-hsc-dari-perhitungan-ihsg-bobot-18-termasuk-dssa-dan-bren",
+  "note": "80-stock HSC list as printed on 19 October. IDX publishes HSC notices per issuer. No consolidated official list was found.",
+  "tickers": [
+   "SSMS",
+   "SMMT",
+   "BMAS",
+   "TBIG",
+   "CITA",
+   "PSAB",
+   "BALI",
+   "MAYA",
+   "CLAY",
+   "ADES",
+   "TMAS",
+   "BBMD",
+   "INPP",
+   "SAME",
+   "DMND",
+   "MTEL",
+   "EPMT",
+   "SHIP",
+   "DUTI",
+   "BSWD",
+   "INDO",
+   "BIKE",
+   "MSJA",
+   "NICK",
+   "SAFE",
+   "BDKR",
+   "MDIA",
+   "BAJA",
+   "BKDP",
+   "ALKA",
+   "AGAR",
+   "BNII",
+   "MCOL",
+   "LIFE",
+   "POLU",
+   "ELPI",
+   "KING",
+   "ALII",
+   "FITT",
+   "YUPI",
+   "KONI",
+   "MKPI",
+   "CMNT",
+   "SMAR",
+   "CMNP",
+   "PRAY",
+   "MPRO",
+   "BELI",
+   "MEGA",
+   "GEMS",
+   "MLPT",
+   "STTP",
+   "BTPN",
+   "BBSI",
+   "SILO",
+   "FAPA",
+   "RISE",
+   "SOHO",
+   "BBHI",
+   "PGUN",
+   "BINA",
+   "BNLI",
+   "SRAJ",
+   "MORA",
+   "DNET",
+   "BYAN",
+   "DCII",
+   "HATM",
+   "DGWG",
+   "SATU",
+   "MGRO",
+   "TCPI",
+   "WBSA",
+   "SOTS",
+   "ROCK",
+   "RLCO",
+   "IFSH",
+   "DSSA",
+   "BREN",
+   "AGII"
+  ]
+ },
+ "method": "Full market value = shares outstanding x daily close, from the owner's read-only Flowless database. Group change = sum(shares x close on the later date) / sum(shares x close on the earlier date) - 1. Week is 16 to 23 October, Tuesday to Friday is 19 to 23 October (the 19 October close is the base). Trading share uses regular-market value, 19 to 23 October. These are full-value weights, not IHSG capped free-float weights.",
+ "groups": {
+  "hsc": {
+   "stocks": 80,
+   "cap16Idr": 2635391212434487.0,
+   "cap19Idr": 2569638883343338.0,
+   "cap23Idr": 2678849725917900.0,
+   "weekRegularValueIdr": 2759381658600.0,
+   "weekChangePct": 1.6490346206803785,
+   "tueToFriChangePct": 4.250046311272682,
+   "capSharePct": 27.953823360949574,
+   "valueSharePct": 3.061999454533021
+  },
+  "others": {
+   "stocks": 883,
+   "cap16Idr": 6531711406541448.0,
+   "cap19Idr": 6282493795495335.0,
+   "cap23Idr": 6904274884006303.0,
+   "weekRegularValueIdr": 87357605609800.0,
+   "weekChangePct": 5.703918227185234,
+   "tueToFriChangePct": 9.897042619553353,
+   "capSharePct": 72.04617663905042,
+   "valueSharePct": 96.93800054546698
+  }
+ },
+ "stocks": [
+  {
+   "ticker": "AADI",
+   "hsc": false,
+   "sharesOutstanding": 7786891760,
+   "close16": 9900.0,
+   "close19": 10175.0,
+   "close23": 11375.0,
+   "weekRegularValueIdr": 1159862932500.0
+  },
+  {
+   "ticker": "AALI",
+   "hsc": false,
+   "sharesOutstanding": 1924688333,
+   "close16": 7825.0,
+   "close19": 7800.0,
+   "close23": 9625.0,
+   "weekRegularValueIdr": 320531645000.0
+  },
+  {
+   "ticker": "ABBA",
+   "hsc": false,
+   "sharesOutstanding": 3935892857,
+   "close16": 30.0,
+   "close19": 30.0,
+   "close23": 30.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ABDA",
+   "hsc": false,
+   "sharesOutstanding": 620806680,
+   "close16": 4710.0,
+   "close19": 4390.0,
+   "close23": 5025.0,
+   "weekRegularValueIdr": 522019000.0
+  },
+  {
+   "ticker": "ABMM",
+   "hsc": false,
+   "sharesOutstanding": 2753165000,
+   "close16": 2430.0,
+   "close19": 2350.0,
+   "close23": 2540.0,
+   "weekRegularValueIdr": 16521741000.0
+  },
+  {
+   "ticker": "ACES",
+   "hsc": false,
+   "sharesOutstanding": 17120389700,
+   "close16": 328.0,
+   "close19": 322.0,
+   "close23": 342.0,
+   "weekRegularValueIdr": 59076160600.0
+  },
+  {
+   "ticker": "ACRO",
+   "hsc": false,
+   "sharesOutstanding": 3469345537,
+   "close16": 42.0,
+   "close19": 42.0,
+   "close23": 48.0,
+   "weekRegularValueIdr": 1775908500.0
+  },
+  {
+   "ticker": "ACST",
+   "hsc": false,
+   "sharesOutstanding": 17675160000,
+   "close16": 69.0,
+   "close19": 66.0,
+   "close23": 73.0,
+   "weekRegularValueIdr": 131674100.0
+  },
+  {
+   "ticker": "ADCP",
+   "hsc": false,
+   "sharesOutstanding": 22222222200,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ADES",
+   "hsc": true,
+   "sharesOutstanding": 589896800,
+   "close16": 34200.0,
+   "close19": 32875.0,
+   "close23": 33650.0,
+   "weekRegularValueIdr": 18457740000.0
+  },
+  {
+   "ticker": "ADHI",
+   "hsc": false,
+   "sharesOutstanding": 8407608979,
+   "close16": 133.0,
+   "close19": 133.0,
+   "close23": 133.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ADMF",
+   "hsc": false,
+   "sharesOutstanding": 1235803109,
+   "close16": 7650.0,
+   "close19": 7325.0,
+   "close23": 7800.0,
+   "weekRegularValueIdr": 11576865000.0
+  },
+  {
+   "ticker": "ADMG",
+   "hsc": false,
+   "sharesOutstanding": 3889179559,
+   "close16": 190.0,
+   "close19": 188.0,
+   "close23": 216.0,
+   "weekRegularValueIdr": 268939100.0
+  },
+  {
+   "ticker": "ADMR",
+   "hsc": false,
+   "sharesOutstanding": 40882331500,
+   "close16": 1165.0,
+   "close19": 1085.0,
+   "close23": 1305.0,
+   "weekRegularValueIdr": 418814165000.0
+  },
+  {
+   "ticker": "ADRO",
+   "hsc": false,
+   "sharesOutstanding": 28800494200,
+   "close16": 2210.0,
+   "close19": 2210.0,
+   "close23": 2460.0,
+   "weekRegularValueIdr": 722230277000.0
+  },
+  {
+   "ticker": "AEGS",
+   "hsc": false,
+   "sharesOutstanding": 1006080721,
+   "close16": 42.0,
+   "close19": 39.0,
+   "close23": 44.0,
+   "weekRegularValueIdr": 1666615800.0
+  },
+  {
+   "ticker": "AGAR",
+   "hsc": true,
+   "sharesOutstanding": 1000000000,
+   "close16": 1370.0,
+   "close19": 1275.0,
+   "close23": 1480.0,
+   "weekRegularValueIdr": 4781139000.0
+  },
+  {
+   "ticker": "AGII",
+   "hsc": true,
+   "sharesOutstanding": 3066660000,
+   "close16": 3190.0,
+   "close19": 2970.0,
+   "close23": 3420.0,
+   "weekRegularValueIdr": 6781479000.0
+  },
+  {
+   "ticker": "AGRO",
+   "hsc": false,
+   "sharesOutstanding": 24493093216,
+   "close16": 109.0,
+   "close19": 104.0,
+   "close23": 118.0,
+   "weekRegularValueIdr": 5053712500.0
+  },
+  {
+   "ticker": "AGRS",
+   "hsc": false,
+   "sharesOutstanding": 47367057874,
+   "close16": 53.0,
+   "close19": 53.0,
+   "close23": 57.0,
+   "weekRegularValueIdr": 884667600.0
+  },
+  {
+   "ticker": "AHAP",
+   "hsc": false,
+   "sharesOutstanding": 7730150865,
+   "close16": 51.0,
+   "close19": 50.0,
+   "close23": 57.0,
+   "weekRegularValueIdr": 21824727800.0
+  },
+  {
+   "ticker": "AIMS",
+   "hsc": false,
+   "sharesOutstanding": 220000000,
+   "close16": 990.0,
+   "close19": 925.0,
+   "close23": 700.0,
+   "weekRegularValueIdr": 4172282500.0
+  },
+  {
+   "ticker": "AISA",
+   "hsc": false,
+   "sharesOutstanding": 9311800000,
+   "close16": 95.0,
+   "close19": 94.0,
+   "close23": 104.0,
+   "weekRegularValueIdr": 3748970200.0
+  },
+  {
+   "ticker": "AKKU",
+   "hsc": false,
+   "sharesOutstanding": 6449463636,
+   "close16": 105.0,
+   "close19": 98.0,
+   "close23": 86.0,
+   "weekRegularValueIdr": 46005728500.0
+  },
+  {
+   "ticker": "AKPI",
+   "hsc": false,
+   "sharesOutstanding": 612248000,
+   "close16": 444.0,
+   "close19": 450.0,
+   "close23": 590.0,
+   "weekRegularValueIdr": 5967033500.0
+  },
+  {
+   "ticker": "AKRA",
+   "hsc": false,
+   "sharesOutstanding": 20073474600,
+   "close16": 1250.0,
+   "close19": 1165.0,
+   "close23": 1390.0,
+   "weekRegularValueIdr": 313809232000.0
+  },
+  {
+   "ticker": "AKSI",
+   "hsc": false,
+   "sharesOutstanding": 720000000,
+   "close16": 252.0,
+   "close19": 236.0,
+   "close23": 290.0,
+   "weekRegularValueIdr": 554409000.0
+  },
+  {
+   "ticker": "ALDO",
+   "hsc": false,
+   "sharesOutstanding": 2700713744,
+   "close16": 1955.0,
+   "close19": 1820.0,
+   "close23": 1370.0,
+   "weekRegularValueIdr": 3354068500.0
+  },
+  {
+   "ticker": "ALII",
+   "hsc": true,
+   "sharesOutstanding": 15825800000,
+   "close16": 635.0,
+   "close19": 600.0,
+   "close23": 645.0,
+   "weekRegularValueIdr": 11140950500.0
+  },
+  {
+   "ticker": "ALKA",
+   "hsc": true,
+   "sharesOutstanding": 507665055,
+   "close16": 5600.0,
+   "close19": 5225.0,
+   "close23": 4380.0,
+   "weekRegularValueIdr": 8007180000.0
+  },
+  {
+   "ticker": "ALMI",
+   "hsc": false,
+   "sharesOutstanding": 3816000000,
+   "close16": 74.0,
+   "close19": 74.0,
+   "close23": 74.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ALTO",
+   "hsc": false,
+   "sharesOutstanding": 2191870558,
+   "close16": 18.0,
+   "close19": 18.0,
+   "close23": 18.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "AMAG",
+   "hsc": false,
+   "sharesOutstanding": 5001552516,
+   "close16": 360.0,
+   "close19": 350.0,
+   "close23": 384.0,
+   "weekRegularValueIdr": 163620000.0
+  },
+  {
+   "ticker": "AMAN",
+   "hsc": false,
+   "sharesOutstanding": 3873500000,
+   "close16": 185.0,
+   "close19": 173.0,
+   "close23": 179.0,
+   "weekRegularValueIdr": 272477500.0
+  },
+  {
+   "ticker": "AMAR",
+   "hsc": false,
+   "sharesOutstanding": 18197283760,
+   "close16": 220.0,
+   "close19": 214.0,
+   "close23": 222.0,
+   "weekRegularValueIdr": 3045173800.0
+  },
+  {
+   "ticker": "AMFG",
+   "hsc": false,
+   "sharesOutstanding": 434000000,
+   "close16": 3000.0,
+   "close19": 3000.0,
+   "close23": 3030.0,
+   "weekRegularValueIdr": 503232000.0
+  },
+  {
+   "ticker": "AMIN",
+   "hsc": false,
+   "sharesOutstanding": 1080000000,
+   "close16": 214.0,
+   "close19": 230.0,
+   "close23": 238.0,
+   "weekRegularValueIdr": 360203600.0
+  },
+  {
+   "ticker": "AMMN",
+   "hsc": false,
+   "sharesOutstanding": 72518217656,
+   "close16": 3740.0,
+   "close19": 3480.0,
+   "close23": 4030.0,
+   "weekRegularValueIdr": 1323355050000.0
+  },
+  {
+   "ticker": "AMMS",
+   "hsc": false,
+   "sharesOutstanding": 1235296802,
+   "close16": 144.0,
+   "close19": 130.0,
+   "close23": 104.0,
+   "weekRegularValueIdr": 2373638600.0
+  },
+  {
+   "ticker": "AMOR",
+   "hsc": false,
+   "sharesOutstanding": 2222222400,
+   "close16": 336.0,
+   "close19": 326.0,
+   "close23": 356.0,
+   "weekRegularValueIdr": 245148000.0
+  },
+  {
+   "ticker": "AMRT",
+   "hsc": false,
+   "sharesOutstanding": 41524501700,
+   "close16": 1055.0,
+   "close19": 985.0,
+   "close23": 1045.0,
+   "weekRegularValueIdr": 884631794000.0
+  },
+  {
+   "ticker": "ANDI",
+   "hsc": false,
+   "sharesOutstanding": 9350000000,
+   "close16": 19.0,
+   "close19": 18.0,
+   "close23": 28.0,
+   "weekRegularValueIdr": 13321037800.0
+  },
+  {
+   "ticker": "ANJT",
+   "hsc": false,
+   "sharesOutstanding": 3354175000,
+   "close16": 1240.0,
+   "close19": 1240.0,
+   "close23": 1350.0,
+   "weekRegularValueIdr": 445165000.0
+  },
+  {
+   "ticker": "ANTM",
+   "hsc": false,
+   "sharesOutstanding": 24030764725,
+   "close16": 2550.0,
+   "close19": 2480.0,
+   "close23": 2860.0,
+   "weekRegularValueIdr": 1850665302000.0
+  },
+  {
+   "ticker": "APEX",
+   "hsc": false,
+   "sharesOutstanding": 3764556978,
+   "close16": 138.0,
+   "close19": 135.0,
+   "close23": 158.0,
+   "weekRegularValueIdr": 4986778900.0
+  },
+  {
+   "ticker": "APIC",
+   "hsc": false,
+   "sharesOutstanding": 11766313488,
+   "close16": 340.0,
+   "close19": 318.0,
+   "close23": 410.0,
+   "weekRegularValueIdr": 2301393600.0
+  },
+  {
+   "ticker": "APII",
+   "hsc": false,
+   "sharesOutstanding": 1075760000,
+   "close16": 169.0,
+   "close19": 172.0,
+   "close23": 193.0,
+   "weekRegularValueIdr": 134797500.0
+  },
+  {
+   "ticker": "APLI",
+   "hsc": false,
+   "sharesOutstanding": 1362671400,
+   "close16": 270.0,
+   "close19": 252.0,
+   "close23": 274.0,
+   "weekRegularValueIdr": 527464400.0
+  },
+  {
+   "ticker": "APLN",
+   "hsc": false,
+   "sharesOutstanding": 22699326779,
+   "close16": 87.0,
+   "close19": 81.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 11418266900.0
+  },
+  {
+   "ticker": "ARCI",
+   "hsc": false,
+   "sharesOutstanding": 25235000000,
+   "close16": 1025.0,
+   "close19": 955.0,
+   "close23": 1045.0,
+   "weekRegularValueIdr": 161138132500.0
+  },
+  {
+   "ticker": "AREA",
+   "hsc": false,
+   "sharesOutstanding": 2539601000,
+   "close16": 276.0,
+   "close19": 258.0,
+   "close23": 260.0,
+   "weekRegularValueIdr": 2244807000.0
+  },
+  {
+   "ticker": "ARGO",
+   "hsc": false,
+   "sharesOutstanding": 3174339029,
+   "close16": 1170.0,
+   "close19": 1090.0,
+   "close23": 1220.0,
+   "weekRegularValueIdr": 685339000.0
+  },
+  {
+   "ticker": "ARII",
+   "hsc": false,
+   "sharesOutstanding": 3750000000,
+   "close16": 400.0,
+   "close19": 440.0,
+   "close23": 480.0,
+   "weekRegularValueIdr": 5568435100.0
+  },
+  {
+   "ticker": "ARKA",
+   "hsc": false,
+   "sharesOutstanding": 2000000000,
+   "close16": 22.0,
+   "close19": 22.0,
+   "close23": 22.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ARKO",
+   "hsc": false,
+   "sharesOutstanding": 2928495000,
+   "close16": 1855.0,
+   "close19": 1730.0,
+   "close23": 1575.0,
+   "weekRegularValueIdr": 148511406000.0
+  },
+  {
+   "ticker": "ARMY",
+   "hsc": false,
+   "sharesOutstanding": 9006250000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ARNA",
+   "hsc": false,
+   "sharesOutstanding": 7341430976,
+   "close16": 494.0,
+   "close19": 486.0,
+   "close23": 510.0,
+   "weekRegularValueIdr": 16456026100.0
+  },
+  {
+   "ticker": "ARTA",
+   "hsc": false,
+   "sharesOutstanding": 446674175,
+   "close16": 2340.0,
+   "close19": 2180.0,
+   "close23": 2850.0,
+   "weekRegularValueIdr": 3291063000.0
+  },
+  {
+   "ticker": "ARTI",
+   "hsc": false,
+   "sharesOutstanding": 7840000000,
+   "close16": 2.0,
+   "close19": 2.0,
+   "close23": 2.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ARTO",
+   "hsc": false,
+   "sharesOutstanding": 13722768400,
+   "close16": 625.0,
+   "close19": 585.0,
+   "close23": 625.0,
+   "weekRegularValueIdr": 56416750500.0
+  },
+  {
+   "ticker": "ASBI",
+   "hsc": false,
+   "sharesOutstanding": 348386472,
+   "close16": 344.0,
+   "close19": 320.0,
+   "close23": 354.0,
+   "weekRegularValueIdr": 297787200.0
+  },
+  {
+   "ticker": "ASDM",
+   "hsc": false,
+   "sharesOutstanding": 384000000,
+   "close16": 456.0,
+   "close19": 480.0,
+   "close23": 484.0,
+   "weekRegularValueIdr": 101592000.0
+  },
+  {
+   "ticker": "ASGR",
+   "hsc": false,
+   "sharesOutstanding": 1348780500,
+   "close16": 2260.0,
+   "close19": 2270.0,
+   "close23": 2390.0,
+   "weekRegularValueIdr": 36421385000.0
+  },
+  {
+   "ticker": "ASHA",
+   "hsc": false,
+   "sharesOutstanding": 5000000000,
+   "close16": 38.0,
+   "close19": 36.0,
+   "close23": 41.0,
+   "weekRegularValueIdr": 1257900200.0
+  },
+  {
+   "ticker": "ASII",
+   "hsc": false,
+   "sharesOutstanding": 40483553140,
+   "close16": 4190.0,
+   "close19": 4130.0,
+   "close23": 4550.0,
+   "weekRegularValueIdr": 1968269063000.0
+  },
+  {
+   "ticker": "ASJT",
+   "hsc": false,
+   "sharesOutstanding": 1400000000,
+   "close16": 149.0,
+   "close19": 142.0,
+   "close23": 157.0,
+   "weekRegularValueIdr": 170449500.0
+  },
+  {
+   "ticker": "ASLC",
+   "hsc": false,
+   "sharesOutstanding": 12746354780,
+   "close16": 46.0,
+   "close19": 44.0,
+   "close23": 46.0,
+   "weekRegularValueIdr": 2511215300.0
+  },
+  {
+   "ticker": "ASLI",
+   "hsc": false,
+   "sharesOutstanding": 6250000000,
+   "close16": 318.0,
+   "close19": 296.0,
+   "close23": 362.0,
+   "weekRegularValueIdr": 252455121600.0
+  },
+  {
+   "ticker": "ASMI",
+   "hsc": false,
+   "sharesOutstanding": 8958380460,
+   "close16": 23.0,
+   "close19": 22.0,
+   "close23": 27.0,
+   "weekRegularValueIdr": 22812005500.0
+  },
+  {
+   "ticker": "ASPI",
+   "hsc": false,
+   "sharesOutstanding": 683810725,
+   "close16": 820.0,
+   "close19": 765.0,
+   "close23": 995.0,
+   "weekRegularValueIdr": 8936460000.0
+  },
+  {
+   "ticker": "ASPR",
+   "hsc": false,
+   "sharesOutstanding": 2712000000,
+   "close16": 126.0,
+   "close19": 121.0,
+   "close23": 151.0,
+   "weekRegularValueIdr": 22475804100.0
+  },
+  {
+   "ticker": "ASRI",
+   "hsc": false,
+   "sharesOutstanding": 19649411888,
+   "close16": 97.0,
+   "close19": 93.0,
+   "close23": 100.0,
+   "weekRegularValueIdr": 10290874400.0
+  },
+  {
+   "ticker": "ASRM",
+   "hsc": false,
+   "sharesOutstanding": 1277992036,
+   "close16": 234.0,
+   "close19": 220.0,
+   "close23": 248.0,
+   "weekRegularValueIdr": 110602600.0
+  },
+  {
+   "ticker": "ASSA",
+   "hsc": false,
+   "sharesOutstanding": 3691137517,
+   "close16": 484.0,
+   "close19": 464.0,
+   "close23": 555.0,
+   "weekRegularValueIdr": 25958714200.0
+  },
+  {
+   "ticker": "ATAP",
+   "hsc": false,
+   "sharesOutstanding": 1250000000,
+   "close16": 468.0,
+   "close19": 436.0,
+   "close23": 466.0,
+   "weekRegularValueIdr": 3712402000.0
+  },
+  {
+   "ticker": "ATIC",
+   "hsc": false,
+   "sharesOutstanding": 2894201693,
+   "close16": 390.0,
+   "close19": 434.0,
+   "close23": 432.0,
+   "weekRegularValueIdr": 282933400.0
+  },
+  {
+   "ticker": "ATLA",
+   "hsc": false,
+   "sharesOutstanding": 6199577693,
+   "close16": 19.0,
+   "close19": 18.0,
+   "close23": 24.0,
+   "weekRegularValueIdr": 12056296000.0
+  },
+  {
+   "ticker": "AUTO",
+   "hsc": false,
+   "sharesOutstanding": 4819733000,
+   "close16": 3110.0,
+   "close19": 3140.0,
+   "close23": 3280.0,
+   "weekRegularValueIdr": 44976885000.0
+  },
+  {
+   "ticker": "AVIA",
+   "hsc": false,
+   "sharesOutstanding": 61953555600,
+   "close16": 322.0,
+   "close19": 312.0,
+   "close23": 338.0,
+   "weekRegularValueIdr": 31249865800.0
+  },
+  {
+   "ticker": "AWAN",
+   "hsc": false,
+   "sharesOutstanding": 3435000000,
+   "close16": 136.0,
+   "close19": 127.0,
+   "close23": 145.0,
+   "weekRegularValueIdr": 1162467100.0
+  },
+  {
+   "ticker": "AXIO",
+   "hsc": false,
+   "sharesOutstanding": 5840126500,
+   "close16": 110.0,
+   "close19": 117.0,
+   "close23": 135.0,
+   "weekRegularValueIdr": 4515734100.0
+  },
+  {
+   "ticker": "AYAM",
+   "hsc": false,
+   "sharesOutstanding": 4000000000,
+   "close16": 460.0,
+   "close19": 462.0,
+   "close23": 490.0,
+   "weekRegularValueIdr": 69733543400.0
+  },
+  {
+   "ticker": "AYLS",
+   "hsc": false,
+   "sharesOutstanding": 853423236,
+   "close16": 161.0,
+   "close19": 150.0,
+   "close23": 218.0,
+   "weekRegularValueIdr": 9177122800.0
+  },
+  {
+   "ticker": "BABP",
+   "hsc": false,
+   "sharesOutstanding": 44014333126,
+   "close16": 24.0,
+   "close19": 25.0,
+   "close23": 25.0,
+   "weekRegularValueIdr": 2179500800.0
+  },
+  {
+   "ticker": "BABY",
+   "hsc": false,
+   "sharesOutstanding": 2854826582,
+   "close16": 156.0,
+   "close19": 146.0,
+   "close23": 166.0,
+   "weekRegularValueIdr": 1146043400.0
+  },
+  {
+   "ticker": "BACA",
+   "hsc": false,
+   "sharesOutstanding": 19753494636,
+   "close16": 91.0,
+   "close19": 87.0,
+   "close23": 95.0,
+   "weekRegularValueIdr": 551397100.0
+  },
+  {
+   "ticker": "BACH",
+   "hsc": false,
+   "sharesOutstanding": 4084430000,
+   "close16": 264.0,
+   "close19": 246.0,
+   "close23": 278.0,
+   "weekRegularValueIdr": 16213283800.0
+  },
+  {
+   "ticker": "BAIK",
+   "hsc": false,
+   "sharesOutstanding": 1127497572,
+   "close16": 224.0,
+   "close19": 210.0,
+   "close23": 214.0,
+   "weekRegularValueIdr": 9121489700.0
+  },
+  {
+   "ticker": "BAJA",
+   "hsc": true,
+   "sharesOutstanding": 2700000000,
+   "close16": 196.0,
+   "close19": 183.0,
+   "close23": 212.0,
+   "weekRegularValueIdr": 3841762900.0
+  },
+  {
+   "ticker": "BALI",
+   "hsc": true,
+   "sharesOutstanding": 3934592500,
+   "close16": 1200.0,
+   "close19": 1265.0,
+   "close23": 1380.0,
+   "weekRegularValueIdr": 131447000.0
+  },
+  {
+   "ticker": "BANK",
+   "hsc": false,
+   "sharesOutstanding": 14793174908,
+   "close16": 204.0,
+   "close19": 190.0,
+   "close23": 188.0,
+   "weekRegularValueIdr": 1048620500.0
+  },
+  {
+   "ticker": "BAPA",
+   "hsc": false,
+   "sharesOutstanding": 661784520,
+   "close16": 84.0,
+   "close19": 82.0,
+   "close23": 101.0,
+   "weekRegularValueIdr": 18931019500.0
+  },
+  {
+   "ticker": "BAPI",
+   "hsc": false,
+   "sharesOutstanding": 5591980103,
+   "close16": 16.0,
+   "close19": 15.0,
+   "close23": 17.0,
+   "weekRegularValueIdr": 3175642900.0
+  },
+  {
+   "ticker": "BATA",
+   "hsc": false,
+   "sharesOutstanding": 1300000000,
+   "close16": 59.0,
+   "close19": 59.0,
+   "close23": 59.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "BATR",
+   "hsc": false,
+   "sharesOutstanding": 3025037353,
+   "close16": 94.0,
+   "close19": 96.0,
+   "close23": 99.0,
+   "weekRegularValueIdr": 2989028700.0
+  },
+  {
+   "ticker": "BAUT",
+   "hsc": false,
+   "sharesOutstanding": 4800182969,
+   "close16": 27.0,
+   "close19": 26.0,
+   "close23": 28.0,
+   "weekRegularValueIdr": 1621948900.0
+  },
+  {
+   "ticker": "BAYU",
+   "hsc": false,
+   "sharesOutstanding": 353220780,
+   "close16": 1200.0,
+   "close19": 1130.0,
+   "close23": 1270.0,
+   "weekRegularValueIdr": 2205652000.0
+  },
+  {
+   "ticker": "BBCA",
+   "hsc": false,
+   "sharesOutstanding": 122042299500,
+   "close16": 5175.0,
+   "close19": 4820.0,
+   "close23": 5025.0,
+   "weekRegularValueIdr": 13751841614000.0
+  },
+  {
+   "ticker": "BBHI",
+   "hsc": true,
+   "sharesOutstanding": 21512953877,
+   "close16": 625.0,
+   "close19": 585.0,
+   "close23": 600.0,
+   "weekRegularValueIdr": 907782500.0
+  },
+  {
+   "ticker": "BBKP",
+   "hsc": false,
+   "sharesOutstanding": 185819884852,
+   "close16": 34.0,
+   "close19": 32.0,
+   "close23": 38.0,
+   "weekRegularValueIdr": 18216492900.0
+  },
+  {
+   "ticker": "BBLD",
+   "hsc": false,
+   "sharesOutstanding": 1645796054,
+   "close16": 635.0,
+   "close19": 635.0,
+   "close23": 670.0,
+   "weekRegularValueIdr": 174502500.0
+  },
+  {
+   "ticker": "BBMD",
+   "hsc": true,
+   "sharesOutstanding": 4049189100,
+   "close16": 1900.0,
+   "close19": 1900.0,
+   "close23": 1980.0,
+   "weekRegularValueIdr": 42304500.0
+  },
+  {
+   "ticker": "BBNI",
+   "hsc": false,
+   "sharesOutstanding": 36924339786,
+   "close16": 2970.0,
+   "close19": 2960.0,
+   "close23": 3420.0,
+   "weekRegularValueIdr": 1669908385000.0
+  },
+  {
+   "ticker": "BBRI",
+   "hsc": false,
+   "sharesOutstanding": 150043411587,
+   "close16": 2640.0,
+   "close19": 2540.0,
+   "close23": 2910.0,
+   "weekRegularValueIdr": 9188248332000.0
+  },
+  {
+   "ticker": "BBRM",
+   "hsc": false,
+   "sharesOutstanding": 8479490328,
+   "close16": 87.0,
+   "close19": 85.0,
+   "close23": 98.0,
+   "weekRegularValueIdr": 1530742100.0
+  },
+  {
+   "ticker": "BBSI",
+   "hsc": true,
+   "sharesOutstanding": 3637976068,
+   "close16": 3450.0,
+   "close19": 3230.0,
+   "close23": 3490.0,
+   "weekRegularValueIdr": 819247000.0
+  },
+  {
+   "ticker": "BBSS",
+   "hsc": false,
+   "sharesOutstanding": 4800016020,
+   "close16": 59.0,
+   "close19": 55.0,
+   "close23": 60.0,
+   "weekRegularValueIdr": 6342119600.0
+  },
+  {
+   "ticker": "BBTN",
+   "hsc": false,
+   "sharesOutstanding": 13894099969,
+   "close16": 885.0,
+   "close19": 850.0,
+   "close23": 950.0,
+   "weekRegularValueIdr": 235907179000.0
+  },
+  {
+   "ticker": "BBYB",
+   "hsc": false,
+   "sharesOutstanding": 13216977523,
+   "close16": 162.0,
+   "close19": 153.0,
+   "close23": 170.0,
+   "weekRegularValueIdr": 34109502600.0
+  },
+  {
+   "ticker": "BCAP",
+   "hsc": false,
+   "sharesOutstanding": 42618850927,
+   "close16": 23.0,
+   "close19": 22.0,
+   "close23": 22.0,
+   "weekRegularValueIdr": 2914032800.0
+  },
+  {
+   "ticker": "BCIC",
+   "hsc": false,
+   "sharesOutstanding": 17926071041,
+   "close16": 99.0,
+   "close19": 96.0,
+   "close23": 110.0,
+   "weekRegularValueIdr": 256915800.0
+  },
+  {
+   "ticker": "BCIP",
+   "hsc": false,
+   "sharesOutstanding": 1429915525,
+   "close16": 49.0,
+   "close19": 48.0,
+   "close23": 56.0,
+   "weekRegularValueIdr": 809396900.0
+  },
+  {
+   "ticker": "BDKR",
+   "hsc": true,
+   "sharesOutstanding": 4725101522,
+   "close16": 175.0,
+   "close19": 163.0,
+   "close23": 183.0,
+   "weekRegularValueIdr": 21092991400.0
+  },
+  {
+   "ticker": "BDMN",
+   "hsc": false,
+   "sharesOutstanding": 9675817341,
+   "close16": 4420.0,
+   "close19": 4400.0,
+   "close23": 5025.0,
+   "weekRegularValueIdr": 112572649000.0
+  },
+  {
+   "ticker": "BEBS",
+   "hsc": false,
+   "sharesOutstanding": 45000000000,
+   "close16": 5.0,
+   "close19": 5.0,
+   "close23": 5.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "BEEF",
+   "hsc": false,
+   "sharesOutstanding": 8120249598,
+   "close16": 352.0,
+   "close19": 328.0,
+   "close23": 362.0,
+   "weekRegularValueIdr": 3558879600.0
+  },
+  {
+   "ticker": "BEER",
+   "hsc": false,
+   "sharesOutstanding": 4000000000,
+   "close16": 51.0,
+   "close19": 48.0,
+   "close23": 57.0,
+   "weekRegularValueIdr": 7737704400.0
+  },
+  {
+   "ticker": "BEKS",
+   "hsc": false,
+   "sharesOutstanding": 51351733883,
+   "close16": 30.0,
+   "close19": 28.0,
+   "close23": 28.0,
+   "weekRegularValueIdr": 18164934600.0
+  },
+  {
+   "ticker": "BELI",
+   "hsc": true,
+   "sharesOutstanding": 137218985689,
+   "close16": 272.0,
+   "close19": 268.0,
+   "close23": 274.0,
+   "weekRegularValueIdr": 3611355600.0
+  },
+  {
+   "ticker": "BELL",
+   "hsc": false,
+   "sharesOutstanding": 7250000000,
+   "close16": 74.0,
+   "close19": 69.0,
+   "close23": 84.0,
+   "weekRegularValueIdr": 3256794000.0
+  },
+  {
+   "ticker": "BESS",
+   "hsc": false,
+   "sharesOutstanding": 3440455528,
+   "close16": 710.0,
+   "close19": 695.0,
+   "close23": 710.0,
+   "weekRegularValueIdr": 693938500.0
+  },
+  {
+   "ticker": "BEST",
+   "hsc": false,
+   "sharesOutstanding": 9647311150,
+   "close16": 99.0,
+   "close19": 97.0,
+   "close23": 112.0,
+   "weekRegularValueIdr": 12370054300.0
+  },
+  {
+   "ticker": "BFIN",
+   "hsc": false,
+   "sharesOutstanding": 15039383620,
+   "close16": 765.0,
+   "close19": 715.0,
+   "close23": 805.0,
+   "weekRegularValueIdr": 84827836000.0
+  },
+  {
+   "ticker": "BGTG",
+   "hsc": false,
+   "sharesOutstanding": 23731287132,
+   "close16": 89.0,
+   "close19": 83.0,
+   "close23": 89.0,
+   "weekRegularValueIdr": 4352248400.0
+  },
+  {
+   "ticker": "BHAT",
+   "hsc": false,
+   "sharesOutstanding": 5000000000,
+   "close16": 1770.0,
+   "close19": 1770.0,
+   "close23": 1770.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "BHIT",
+   "hsc": false,
+   "sharesOutstanding": 86068156705,
+   "close16": 17.0,
+   "close19": 16.0,
+   "close23": 19.0,
+   "weekRegularValueIdr": 4953688600.0
+  },
+  {
+   "ticker": "BIKA",
+   "hsc": false,
+   "sharesOutstanding": 592280000,
+   "close16": 55.0,
+   "close19": 55.0,
+   "close23": 55.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "BIKE",
+   "hsc": true,
+   "sharesOutstanding": 1293916404,
+   "close16": 4200.0,
+   "close19": 5150.0,
+   "close23": 5150.0,
+   "weekRegularValueIdr": 44802180500.0
+  },
+  {
+   "ticker": "BIMA",
+   "hsc": false,
+   "sharesOutstanding": 608175716,
+   "close16": 82.0,
+   "close19": 82.0,
+   "close23": 82.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "BINA",
+   "hsc": true,
+   "sharesOutstanding": 6073369498,
+   "close16": 3900.0,
+   "close19": 3950.0,
+   "close23": 3890.0,
+   "weekRegularValueIdr": 11604792000.0
+  },
+  {
+   "ticker": "BINO",
+   "hsc": false,
+   "sharesOutstanding": 2275316111,
+   "close16": 86.0,
+   "close19": 87.0,
+   "close23": 96.0,
+   "weekRegularValueIdr": 262345300.0
+  },
+  {
+   "ticker": "BIPI",
+   "hsc": false,
+   "sharesOutstanding": 63710196917,
+   "close16": 93.0,
+   "close19": 87.0,
+   "close23": 95.0,
+   "weekRegularValueIdr": 311292191800.0
+  },
+  {
+   "ticker": "BIPP",
+   "hsc": false,
+   "sharesOutstanding": 5028669376,
+   "close16": 57.0,
+   "close19": 61.0,
+   "close23": 58.0,
+   "weekRegularValueIdr": 4755352200.0
+  },
+  {
+   "ticker": "BIRD",
+   "hsc": false,
+   "sharesOutstanding": 2502100000,
+   "close16": 1380.0,
+   "close19": 1380.0,
+   "close23": 1490.0,
+   "weekRegularValueIdr": 18817651000.0
+  },
+  {
+   "ticker": "BISI",
+   "hsc": false,
+   "sharesOutstanding": 3000000000,
+   "close16": 615.0,
+   "close19": 600.0,
+   "close23": 670.0,
+   "weekRegularValueIdr": 1259776000.0
+  },
+  {
+   "ticker": "BJBR",
+   "hsc": false,
+   "sharesOutstanding": 10416229249,
+   "close16": 715.0,
+   "close19": 685.0,
+   "close23": 735.0,
+   "weekRegularValueIdr": 14328043500.0
+  },
+  {
+   "ticker": "BJTM",
+   "hsc": false,
+   "sharesOutstanding": 14865343101,
+   "close16": 488.0,
+   "close19": 472.0,
+   "close23": 500.0,
+   "weekRegularValueIdr": 31100166900.0
+  },
+  {
+   "ticker": "BKDP",
+   "hsc": true,
+   "sharesOutstanding": 7513992252,
+   "close16": 149.0,
+   "close19": 162.0,
+   "close23": 155.0,
+   "weekRegularValueIdr": 3013200800.0
+  },
+  {
+   "ticker": "BKSL",
+   "hsc": false,
+   "sharesOutstanding": 167708902705,
+   "close16": 44.0,
+   "close19": 41.0,
+   "close23": 48.0,
+   "weekRegularValueIdr": 25351594900.0
+  },
+  {
+   "ticker": "BKSW",
+   "hsc": false,
+   "sharesOutstanding": 34806467881,
+   "close16": 43.0,
+   "close19": 42.0,
+   "close23": 47.0,
+   "weekRegularValueIdr": 578649500.0
+  },
+  {
+   "ticker": "BLES",
+   "hsc": false,
+   "sharesOutstanding": 8890206400,
+   "close16": 178.0,
+   "close19": 173.0,
+   "close23": 210.0,
+   "weekRegularValueIdr": 12323062800.0
+  },
+  {
+   "ticker": "BLOG",
+   "hsc": false,
+   "sharesOutstanding": 3379487200,
+   "close16": 306.0,
+   "close19": 298.0,
+   "close23": 330.0,
+   "weekRegularValueIdr": 632402600.0
+  },
+  {
+   "ticker": "BLTA",
+   "hsc": false,
+   "sharesOutstanding": 25940187103,
+   "close16": 31.0,
+   "close19": 30.0,
+   "close23": 34.0,
+   "weekRegularValueIdr": 8485248000.0
+  },
+  {
+   "ticker": "BLTZ",
+   "hsc": false,
+   "sharesOutstanding": 873937142,
+   "close16": 3230.0,
+   "close19": 3720.0,
+   "close23": 3510.0,
+   "weekRegularValueIdr": 319567000.0
+  },
+  {
+   "ticker": "BLUE",
+   "hsc": false,
+   "sharesOutstanding": 418000000,
+   "close16": 2780.0,
+   "close19": 2590.0,
+   "close23": 2990.0,
+   "weekRegularValueIdr": 4122466000.0
+  },
+  {
+   "ticker": "BMAS",
+   "hsc": true,
+   "sharesOutstanding": 17921635680,
+   "close16": 408.0,
+   "close19": 380.0,
+   "close23": 418.0,
+   "weekRegularValueIdr": 120260200.0
+  },
+  {
+   "ticker": "BMBL",
+   "hsc": false,
+   "sharesOutstanding": 1030080995,
+   "close16": 27.0,
+   "close19": 25.0,
+   "close23": 28.0,
+   "weekRegularValueIdr": 1420001800.0
+  },
+  {
+   "ticker": "BMHS",
+   "hsc": false,
+   "sharesOutstanding": 8603416176,
+   "close16": 199.0,
+   "close19": 198.0,
+   "close23": 199.0,
+   "weekRegularValueIdr": 880970400.0
+  },
+  {
+   "ticker": "BMRI",
+   "hsc": false,
+   "sharesOutstanding": 92399999996,
+   "close16": 3390.0,
+   "close19": 3360.0,
+   "close23": 3900.0,
+   "weekRegularValueIdr": 6881714160000.0
+  },
+  {
+   "ticker": "BMSR",
+   "hsc": false,
+   "sharesOutstanding": 1159200024,
+   "close16": 268.0,
+   "close19": 260.0,
+   "close23": 294.0,
+   "weekRegularValueIdr": 207620400.0
+  },
+  {
+   "ticker": "BMTR",
+   "hsc": false,
+   "sharesOutstanding": 16583997586,
+   "close16": 63.0,
+   "close19": 59.0,
+   "close23": 63.0,
+   "weekRegularValueIdr": 42381813200.0
+  },
+  {
+   "ticker": "BNBA",
+   "hsc": false,
+   "sharesOutstanding": 3354120000,
+   "close16": 625.0,
+   "close19": 610.0,
+   "close23": 755.0,
+   "weekRegularValueIdr": 1995988000.0
+  },
+  {
+   "ticker": "BNBR",
+   "hsc": false,
+   "sharesOutstanding": 263336671587,
+   "close16": 52.0,
+   "close19": 49.0,
+   "close23": 56.0,
+   "weekRegularValueIdr": 175148832700.0
+  },
+  {
+   "ticker": "BNGA",
+   "hsc": false,
+   "sharesOutstanding": 24890783784,
+   "close16": 1505.0,
+   "close19": 1460.0,
+   "close23": 1650.0,
+   "weekRegularValueIdr": 239560586000.0
+  },
+  {
+   "ticker": "BNII",
+   "hsc": true,
+   "sharesOutstanding": 75357433911,
+   "close16": 174.0,
+   "close19": 164.0,
+   "close23": 176.0,
+   "weekRegularValueIdr": 1367370000.0
+  },
+  {
+   "ticker": "BNLI",
+   "hsc": true,
+   "sharesOutstanding": 35819545925,
+   "close16": 1610.0,
+   "close19": 1555.0,
+   "close23": 1725.0,
+   "weekRegularValueIdr": 694701500.0
+  },
+  {
+   "ticker": "BOAT",
+   "hsc": false,
+   "sharesOutstanding": 3501680000,
+   "close16": 108.0,
+   "close19": 104.0,
+   "close23": 113.0,
+   "weekRegularValueIdr": 1597513200.0
+  },
+  {
+   "ticker": "BOBA",
+   "hsc": false,
+   "sharesOutstanding": 1155750000,
+   "close16": 158.0,
+   "close19": 165.0,
+   "close23": 177.0,
+   "weekRegularValueIdr": 329942900.0
+  },
+  {
+   "ticker": "BOGA",
+   "hsc": false,
+   "sharesOutstanding": 3803526210,
+   "close16": 1465.0,
+   "close19": 1380.0,
+   "close23": 1530.0,
+   "weekRegularValueIdr": 90144500.0
+  },
+  {
+   "ticker": "BOLA",
+   "hsc": false,
+   "sharesOutstanding": 6000000000,
+   "close16": 157.0,
+   "close19": 147.0,
+   "close23": 160.0,
+   "weekRegularValueIdr": 484478300.0
+  },
+  {
+   "ticker": "BOLT",
+   "hsc": false,
+   "sharesOutstanding": 2343750000,
+   "close16": 750.0,
+   "close19": 720.0,
+   "close23": 760.0,
+   "weekRegularValueIdr": 49332000.0
+  },
+  {
+   "ticker": "BOSS",
+   "hsc": false,
+   "sharesOutstanding": 1400000000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "BPFI",
+   "hsc": false,
+   "sharesOutstanding": 2673995362,
+   "close16": 236.0,
+   "close19": 232.0,
+   "close23": 240.0,
+   "weekRegularValueIdr": 143276200.0
+  },
+  {
+   "ticker": "BPII",
+   "hsc": false,
+   "sharesOutstanding": 9884153240,
+   "close16": 406.0,
+   "close19": 406.0,
+   "close23": 416.0,
+   "weekRegularValueIdr": 27479800.0
+  },
+  {
+   "ticker": "BPTR",
+   "hsc": false,
+   "sharesOutstanding": 3534000000,
+   "close16": 59.0,
+   "close19": 55.0,
+   "close23": 62.0,
+   "weekRegularValueIdr": 489727700.0
+  },
+  {
+   "ticker": "BRAM",
+   "hsc": false,
+   "sharesOutstanding": 450056980,
+   "close16": 4550.0,
+   "close19": 4500.0,
+   "close23": 4560.0,
+   "weekRegularValueIdr": 109921000.0
+  },
+  {
+   "ticker": "BREN",
+   "hsc": true,
+   "sharesOutstanding": 133786220000,
+   "close16": 1855.0,
+   "close19": 1835.0,
+   "close23": 2380.0,
+   "weekRegularValueIdr": 379908752000.0
+  },
+  {
+   "ticker": "BRIS",
+   "hsc": false,
+   "sharesOutstanding": 45667877639,
+   "close16": 1095.0,
+   "close19": 1020.0,
+   "close23": 1020.0,
+   "weekRegularValueIdr": 1047942701500.0
+  },
+  {
+   "ticker": "BRMS",
+   "hsc": false,
+   "sharesOutstanding": 141784040338,
+   "close16": 468.0,
+   "close19": 436.0,
+   "close23": 432.0,
+   "weekRegularValueIdr": 1033006088400.0
+  },
+  {
+   "ticker": "BRNA",
+   "hsc": false,
+   "sharesOutstanding": 1322272342,
+   "close16": 505.0,
+   "close19": 496.0,
+   "close23": 520.0,
+   "weekRegularValueIdr": 157976200.0
+  },
+  {
+   "ticker": "BRPT",
+   "hsc": false,
+   "sharesOutstanding": 93747218044,
+   "close16": 1210.0,
+   "close19": 1195.0,
+   "close23": 1440.0,
+   "weekRegularValueIdr": 1199277572500.0
+  },
+  {
+   "ticker": "BRRC",
+   "hsc": false,
+   "sharesOutstanding": 994603036,
+   "close16": 51.0,
+   "close19": 48.0,
+   "close23": 51.0,
+   "weekRegularValueIdr": 1568447500.0
+  },
+  {
+   "ticker": "BSBK",
+   "hsc": false,
+   "sharesOutstanding": 25091882375,
+   "close16": 34.0,
+   "close19": 33.0,
+   "close23": 37.0,
+   "weekRegularValueIdr": 2143946400.0
+  },
+  {
+   "ticker": "BSDE",
+   "hsc": false,
+   "sharesOutstanding": 21171365812,
+   "close16": 468.0,
+   "close19": 442.0,
+   "close23": 505.0,
+   "weekRegularValueIdr": 64188802500.0
+  },
+  {
+   "ticker": "BSIM",
+   "hsc": false,
+   "sharesOutstanding": 19517921842,
+   "close16": 745.0,
+   "close19": 930.0,
+   "close23": 840.0,
+   "weekRegularValueIdr": 2645886500.0
+  },
+  {
+   "ticker": "BSML",
+   "hsc": false,
+   "sharesOutstanding": 1850225000,
+   "close16": 515.0,
+   "close19": 480.0,
+   "close23": 520.0,
+   "weekRegularValueIdr": 41140771700.0
+  },
+  {
+   "ticker": "BSSR",
+   "hsc": false,
+   "sharesOutstanding": 2616500000,
+   "close16": 4940.0,
+   "close19": 4970.0,
+   "close23": 5225.0,
+   "weekRegularValueIdr": 57091111000.0
+  },
+  {
+   "ticker": "BSWD",
+   "hsc": true,
+   "sharesOutstanding": 3651978177,
+   "close16": 5625.0,
+   "close19": 6750.0,
+   "close23": 8075.0,
+   "weekRegularValueIdr": 1233435000.0
+  },
+  {
+   "ticker": "BTEK",
+   "hsc": false,
+   "sharesOutstanding": 46277496376,
+   "close16": 12.0,
+   "close19": 9.0,
+   "close23": 11.0,
+   "weekRegularValueIdr": 16063688100.0
+  },
+  {
+   "ticker": "BTEL",
+   "hsc": false,
+   "sharesOutstanding": 61847903535,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "BTON",
+   "hsc": false,
+   "sharesOutstanding": 720000000,
+   "close16": 332.0,
+   "close19": 314.0,
+   "close23": 338.0,
+   "weekRegularValueIdr": 226329800.0
+  },
+  {
+   "ticker": "BTPN",
+   "hsc": true,
+   "sharesOutstanding": 10536203690,
+   "close16": 2400.0,
+   "close19": 2270.0,
+   "close23": 2390.0,
+   "weekRegularValueIdr": 761446000.0
+  },
+  {
+   "ticker": "BTPS",
+   "hsc": false,
+   "sharesOutstanding": 7626663000,
+   "close16": 880.0,
+   "close19": 890.0,
+   "close23": 1000.0,
+   "weekRegularValueIdr": 60708120500.0
+  },
+  {
+   "ticker": "BUAH",
+   "hsc": false,
+   "sharesOutstanding": 2000000000,
+   "close16": 462.0,
+   "close19": 430.0,
+   "close23": 460.0,
+   "weekRegularValueIdr": 965406600.0
+  },
+  {
+   "ticker": "BUDI",
+   "hsc": false,
+   "sharesOutstanding": 4498997362,
+   "close16": 204.0,
+   "close19": 195.0,
+   "close23": 214.0,
+   "weekRegularValueIdr": 192732200.0
+  },
+  {
+   "ticker": "BUKA",
+   "hsc": false,
+   "sharesOutstanding": 103167090767,
+   "close16": 98.0,
+   "close19": 99.0,
+   "close23": 109.0,
+   "weekRegularValueIdr": 108345725100.0
+  },
+  {
+   "ticker": "BUKK",
+   "hsc": false,
+   "sharesOutstanding": 2640452000,
+   "close16": 840.0,
+   "close19": 800.0,
+   "close23": 1140.0,
+   "weekRegularValueIdr": 4997565000.0
+  },
+  {
+   "ticker": "BULL",
+   "hsc": false,
+   "sharesOutstanding": 15494436593,
+   "close16": 272.0,
+   "close19": 254.0,
+   "close23": 308.0,
+   "weekRegularValueIdr": 418433078000.0
+  },
+  {
+   "ticker": "BUMI",
+   "hsc": false,
+   "sharesOutstanding": 371335392068,
+   "close16": 134.0,
+   "close19": 125.0,
+   "close23": 140.0,
+   "weekRegularValueIdr": 2101695903500.0
+  },
+  {
+   "ticker": "BUVA",
+   "hsc": false,
+   "sharesOutstanding": 28834826487,
+   "close16": 400.0,
+   "close19": 372.0,
+   "close23": 378.0,
+   "weekRegularValueIdr": 738129591200.0
+  },
+  {
+   "ticker": "BVIC",
+   "hsc": false,
+   "sharesOutstanding": 18235266754,
+   "close16": 73.0,
+   "close19": 70.0,
+   "close23": 77.0,
+   "weekRegularValueIdr": 697176200.0
+  },
+  {
+   "ticker": "BWPT",
+   "hsc": false,
+   "sharesOutstanding": 31525291000,
+   "close16": 84.0,
+   "close19": 79.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 36502924800.0
+  },
+  {
+   "ticker": "BYAN",
+   "hsc": true,
+   "sharesOutstanding": 33333335000,
+   "close16": 11150.0,
+   "close19": 10375.0,
+   "close23": 10750.0,
+   "weekRegularValueIdr": 80799182500.0
+  },
+  {
+   "ticker": "CAKK",
+   "hsc": false,
+   "sharesOutstanding": 1203300219,
+   "close16": 145.0,
+   "close19": 148.0,
+   "close23": 154.0,
+   "weekRegularValueIdr": 345443500.0
+  },
+  {
+   "ticker": "CAMP",
+   "hsc": false,
+   "sharesOutstanding": 5885000000,
+   "close16": 142.0,
+   "close19": 135.0,
+   "close23": 143.0,
+   "weekRegularValueIdr": 440597400.0
+  },
+  {
+   "ticker": "CANI",
+   "hsc": false,
+   "sharesOutstanding": 833440000,
+   "close16": 135.0,
+   "close19": 135.0,
+   "close23": 135.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "CARE",
+   "hsc": false,
+   "sharesOutstanding": 33250000000,
+   "close16": 320.0,
+   "close19": 298.0,
+   "close23": 370.0,
+   "weekRegularValueIdr": 438891156400.0
+  },
+  {
+   "ticker": "CARS",
+   "hsc": false,
+   "sharesOutstanding": 15000000000,
+   "close16": 85.0,
+   "close19": 80.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 2197529800.0
+  },
+  {
+   "ticker": "CASA",
+   "hsc": false,
+   "sharesOutstanding": 54476269803,
+   "close16": 1800.0,
+   "close19": 1765.0,
+   "close23": 1820.0,
+   "weekRegularValueIdr": 184741000.0
+  },
+  {
+   "ticker": "CASH",
+   "hsc": false,
+   "sharesOutstanding": 2427802216,
+   "close16": 216.0,
+   "close19": 195.0,
+   "close23": 224.0,
+   "weekRegularValueIdr": 1252438700.0
+  },
+  {
+   "ticker": "CASS",
+   "hsc": false,
+   "sharesOutstanding": 2086950000,
+   "close16": 1715.0,
+   "close19": 1750.0,
+   "close23": 1820.0,
+   "weekRegularValueIdr": 946718500.0
+  },
+  {
+   "ticker": "CBDK",
+   "hsc": false,
+   "sharesOutstanding": 5668944500,
+   "close16": 3130.0,
+   "close19": 3000.0,
+   "close23": 3350.0,
+   "weekRegularValueIdr": 59509893000.0
+  },
+  {
+   "ticker": "CBMF",
+   "hsc": false,
+   "sharesOutstanding": 1875000000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "CBPE",
+   "hsc": false,
+   "sharesOutstanding": 1356250000,
+   "close16": 630.0,
+   "close19": 590.0,
+   "close23": 520.0,
+   "weekRegularValueIdr": 825704900.0
+  },
+  {
+   "ticker": "CBRE",
+   "hsc": false,
+   "sharesOutstanding": 4538067441,
+   "close16": 605.0,
+   "close19": 565.0,
+   "close23": 670.0,
+   "weekRegularValueIdr": 53420846000.0
+  },
+  {
+   "ticker": "CBUT",
+   "hsc": false,
+   "sharesOutstanding": 3125000000,
+   "close16": 790.0,
+   "close19": 745.0,
+   "close23": 860.0,
+   "weekRegularValueIdr": 662970500.0
+  },
+  {
+   "ticker": "CCSI",
+   "hsc": false,
+   "sharesOutstanding": 1333333331,
+   "close16": 276.0,
+   "close19": 258.0,
+   "close23": 292.0,
+   "weekRegularValueIdr": 2716009400.0
+  },
+  {
+   "ticker": "CDIA",
+   "hsc": false,
+   "sharesOutstanding": 124829374700,
+   "close16": 404.0,
+   "close19": 376.0,
+   "close23": 426.0,
+   "weekRegularValueIdr": 153529361000.0
+  },
+  {
+   "ticker": "CEKA",
+   "hsc": false,
+   "sharesOutstanding": 595000000,
+   "close16": 1990.0,
+   "close19": 1920.0,
+   "close23": 2100.0,
+   "weekRegularValueIdr": 313410500.0
+  },
+  {
+   "ticker": "CENT",
+   "hsc": false,
+   "sharesOutstanding": 31183464900,
+   "close16": 75.0,
+   "close19": 70.0,
+   "close23": 80.0,
+   "weekRegularValueIdr": 5451765000.0
+  },
+  {
+   "ticker": "CFIN",
+   "hsc": false,
+   "sharesOutstanding": 3984520457,
+   "close16": 330.0,
+   "close19": 324.0,
+   "close23": 348.0,
+   "weekRegularValueIdr": 3395347600.0
+  },
+  {
+   "ticker": "CGAS",
+   "hsc": false,
+   "sharesOutstanding": 1771499039,
+   "close16": 125.0,
+   "close19": 117.0,
+   "close23": 130.0,
+   "weekRegularValueIdr": 1802450600.0
+  },
+  {
+   "ticker": "CHEK",
+   "hsc": false,
+   "sharesOutstanding": 4113331485,
+   "close16": 103.0,
+   "close19": 99.0,
+   "close23": 104.0,
+   "weekRegularValueIdr": 1255177400.0
+  },
+  {
+   "ticker": "CHEM",
+   "hsc": false,
+   "sharesOutstanding": 1700014594,
+   "close16": 52.0,
+   "close19": 49.0,
+   "close23": 54.0,
+   "weekRegularValueIdr": 2087979700.0
+  },
+  {
+   "ticker": "CHIP",
+   "hsc": false,
+   "sharesOutstanding": 806000000,
+   "close16": 525.0,
+   "close19": 492.0,
+   "close23": 478.0,
+   "weekRegularValueIdr": 255418100.0
+  },
+  {
+   "ticker": "CINT",
+   "hsc": false,
+   "sharesOutstanding": 1000000000,
+   "close16": 170.0,
+   "close19": 161.0,
+   "close23": 176.0,
+   "weekRegularValueIdr": 149552500.0
+  },
+  {
+   "ticker": "CITA",
+   "hsc": true,
+   "sharesOutstanding": 3960361250,
+   "close16": 2950.0,
+   "close19": 2870.0,
+   "close23": 3140.0,
+   "weekRegularValueIdr": 1209677000.0
+  },
+  {
+   "ticker": "CITY",
+   "hsc": false,
+   "sharesOutstanding": 5405188966,
+   "close16": 136.0,
+   "close19": 127.0,
+   "close23": 140.0,
+   "weekRegularValueIdr": 455539800.0
+  },
+  {
+   "ticker": "CLAY",
+   "hsc": true,
+   "sharesOutstanding": 2570000000,
+   "close16": 2720.0,
+   "close19": 2640.0,
+   "close23": 3000.0,
+   "weekRegularValueIdr": 226078000.0
+  },
+  {
+   "ticker": "CLEO",
+   "hsc": false,
+   "sharesOutstanding": 24000000000,
+   "close16": 392.0,
+   "close19": 374.0,
+   "close23": 408.0,
+   "weekRegularValueIdr": 39550134200.0
+  },
+  {
+   "ticker": "CLPI",
+   "hsc": false,
+   "sharesOutstanding": 306338500,
+   "close16": 1440.0,
+   "close19": 1445.0,
+   "close23": 1530.0,
+   "weekRegularValueIdr": 1854086500.0
+  },
+  {
+   "ticker": "CMNP",
+   "hsc": true,
+   "sharesOutstanding": 6696354391,
+   "close16": 1280.0,
+   "close19": 1295.0,
+   "close23": 1305.0,
+   "weekRegularValueIdr": 7096690000.0
+  },
+  {
+   "ticker": "CMNT",
+   "hsc": true,
+   "sharesOutstanding": 17125504000,
+   "close16": 755.0,
+   "close19": 755.0,
+   "close23": 760.0,
+   "weekRegularValueIdr": 40496249500.0
+  },
+  {
+   "ticker": "CMPP",
+   "hsc": false,
+   "sharesOutstanding": 10685124441,
+   "close16": 69.0,
+   "close19": 69.0,
+   "close23": 69.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "CMRY",
+   "hsc": false,
+   "sharesOutstanding": 7934683000,
+   "close16": 4250.0,
+   "close19": 3960.0,
+   "close23": 4140.0,
+   "weekRegularValueIdr": 88599369000.0
+  },
+  {
+   "ticker": "CNKO",
+   "hsc": false,
+   "sharesOutstanding": 8956361206,
+   "close16": 37.0,
+   "close19": 37.0,
+   "close23": 37.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "CNMA",
+   "hsc": false,
+   "sharesOutstanding": 83345000000,
+   "close16": 74.0,
+   "close19": 69.0,
+   "close23": 75.0,
+   "weekRegularValueIdr": 28297238400.0
+  },
+  {
+   "ticker": "COAL",
+   "hsc": false,
+   "sharesOutstanding": 6250000000,
+   "close16": 31.0,
+   "close19": 31.0,
+   "close23": 31.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "COCO",
+   "hsc": false,
+   "sharesOutstanding": 14237823696,
+   "close16": 97.0,
+   "close19": 91.0,
+   "close23": 102.0,
+   "weekRegularValueIdr": 109793035800.0
+  },
+  {
+   "ticker": "COIN",
+   "hsc": false,
+   "sharesOutstanding": 14705882400,
+   "close16": 434.0,
+   "close19": 404.0,
+   "close23": 396.0,
+   "weekRegularValueIdr": 125725203200.0
+  },
+  {
+   "ticker": "COWL",
+   "hsc": false,
+   "sharesOutstanding": 4871214021,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "CPIN",
+   "hsc": false,
+   "sharesOutstanding": 16398000000,
+   "close16": 2560.0,
+   "close19": 2440.0,
+   "close23": 2760.0,
+   "weekRegularValueIdr": 221177753000.0
+  },
+  {
+   "ticker": "CPRI",
+   "hsc": false,
+   "sharesOutstanding": 2433379958,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "CPRO",
+   "hsc": false,
+   "sharesOutstanding": 59572382787,
+   "close16": 33.0,
+   "close19": 33.0,
+   "close23": 37.0,
+   "weekRegularValueIdr": 14141396600.0
+  },
+  {
+   "ticker": "CRAB",
+   "hsc": false,
+   "sharesOutstanding": 1950000000,
+   "close16": 199.0,
+   "close19": 190.0,
+   "close23": 204.0,
+   "weekRegularValueIdr": 186208600.0
+  },
+  {
+   "ticker": "CRSN",
+   "hsc": false,
+   "sharesOutstanding": 2892000000,
+   "close16": 106.0,
+   "close19": 103.0,
+   "close23": 115.0,
+   "weekRegularValueIdr": 913411600.0
+  },
+  {
+   "ticker": "CSAP",
+   "hsc": false,
+   "sharesOutstanding": 5683175151,
+   "close16": 266.0,
+   "close19": 258.0,
+   "close23": 278.0,
+   "weekRegularValueIdr": 231494400.0
+  },
+  {
+   "ticker": "CSIS",
+   "hsc": false,
+   "sharesOutstanding": 1829804938,
+   "close16": 147.0,
+   "close19": 137.0,
+   "close23": 158.0,
+   "weekRegularValueIdr": 1613859900.0
+  },
+  {
+   "ticker": "CSMI",
+   "hsc": false,
+   "sharesOutstanding": 816061500,
+   "close16": 515.0,
+   "close19": 515.0,
+   "close23": 515.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "CSRA",
+   "hsc": false,
+   "sharesOutstanding": 2050000000,
+   "close16": 610.0,
+   "close19": 570.0,
+   "close23": 620.0,
+   "weekRegularValueIdr": 1649065000.0
+  },
+  {
+   "ticker": "CTBN",
+   "hsc": false,
+   "sharesOutstanding": 800371500,
+   "close16": 2420.0,
+   "close19": 2560.0,
+   "close23": 2580.0,
+   "weekRegularValueIdr": 382432000.0
+  },
+  {
+   "ticker": "CTRA",
+   "hsc": false,
+   "sharesOutstanding": 18535695255,
+   "close16": 540.0,
+   "close19": 520.0,
+   "close23": 575.0,
+   "weekRegularValueIdr": 49341236000.0
+  },
+  {
+   "ticker": "CTTH",
+   "hsc": false,
+   "sharesOutstanding": 1230839821,
+   "close16": 80.0,
+   "close19": 75.0,
+   "close23": 87.0,
+   "weekRegularValueIdr": 5674608400.0
+  },
+  {
+   "ticker": "CUAN",
+   "hsc": false,
+   "sharesOutstanding": 112418900000,
+   "close16": 540.0,
+   "close19": 505.0,
+   "close23": 510.0,
+   "weekRegularValueIdr": 1342122112500.0
+  },
+  {
+   "ticker": "CYBR",
+   "hsc": false,
+   "sharesOutstanding": 13488398454,
+   "close16": 408.0,
+   "close19": 388.0,
+   "close23": 420.0,
+   "weekRegularValueIdr": 78122645600.0
+  },
+  {
+   "ticker": "DAAZ",
+   "hsc": false,
+   "sharesOutstanding": 1997000000,
+   "close16": 1880.0,
+   "close19": 1750.0,
+   "close23": 1800.0,
+   "weekRegularValueIdr": 6073030500.0
+  },
+  {
+   "ticker": "DADA",
+   "hsc": false,
+   "sharesOutstanding": 7431530800,
+   "close16": 18.0,
+   "close19": 17.0,
+   "close23": 19.0,
+   "weekRegularValueIdr": 7100792800.0
+  },
+  {
+   "ticker": "DART",
+   "hsc": false,
+   "sharesOutstanding": 3141390962,
+   "close16": 123.0,
+   "close19": 116.0,
+   "close23": 125.0,
+   "weekRegularValueIdr": 93501300.0
+  },
+  {
+   "ticker": "DATA",
+   "hsc": false,
+   "sharesOutstanding": 1375000000,
+   "close16": 1095.0,
+   "close19": 1020.0,
+   "close23": 1190.0,
+   "weekRegularValueIdr": 7515260500.0
+  },
+  {
+   "ticker": "DAYA",
+   "hsc": false,
+   "sharesOutstanding": 2420547025,
+   "close16": 1215.0,
+   "close19": 1225.0,
+   "close23": 1200.0,
+   "weekRegularValueIdr": 528517000.0
+  },
+  {
+   "ticker": "DCII",
+   "hsc": true,
+   "sharesOutstanding": 2383745900,
+   "close16": 188175.0,
+   "close19": 186900.0,
+   "close23": 181000.0,
+   "weekRegularValueIdr": 1237497500.0
+  },
+  {
+   "ticker": "DEAL",
+   "hsc": false,
+   "sharesOutstanding": 1146170959,
+   "close16": 6.0,
+   "close19": 6.0,
+   "close23": 6.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "DEFI",
+   "hsc": false,
+   "sharesOutstanding": 687266666,
+   "close16": 79.0,
+   "close19": 74.0,
+   "close23": 85.0,
+   "weekRegularValueIdr": 13656392300.0
+  },
+  {
+   "ticker": "DEPO",
+   "hsc": false,
+   "sharesOutstanding": 6790000000,
+   "close16": 214.0,
+   "close19": 202.0,
+   "close23": 216.0,
+   "weekRegularValueIdr": 142623000.0
+  },
+  {
+   "ticker": "DEWA",
+   "hsc": false,
+   "sharesOutstanding": 40687434244,
+   "close16": 260.0,
+   "close19": 242.0,
+   "close23": 268.0,
+   "weekRegularValueIdr": 958055752400.0
+  },
+  {
+   "ticker": "DEWI",
+   "hsc": false,
+   "sharesOutstanding": 2000000000,
+   "close16": 214.0,
+   "close19": 202.0,
+   "close23": 228.0,
+   "weekRegularValueIdr": 41259879000.0
+  },
+  {
+   "ticker": "DFAM",
+   "hsc": false,
+   "sharesOutstanding": 1899852850,
+   "close16": 57.0,
+   "close19": 54.0,
+   "close23": 61.0,
+   "weekRegularValueIdr": 6261898500.0
+  },
+  {
+   "ticker": "DGIK",
+   "hsc": false,
+   "sharesOutstanding": 5541165000,
+   "close16": 135.0,
+   "close19": 130.0,
+   "close23": 137.0,
+   "weekRegularValueIdr": 2063299400.0
+  },
+  {
+   "ticker": "DGNS",
+   "hsc": false,
+   "sharesOutstanding": 1375000000,
+   "close16": 274.0,
+   "close19": 256.0,
+   "close23": 298.0,
+   "weekRegularValueIdr": 3381790600.0
+  },
+  {
+   "ticker": "DGWG",
+   "hsc": true,
+   "sharesOutstanding": 5882353000,
+   "close16": 290.0,
+   "close19": 278.0,
+   "close23": 270.0,
+   "weekRegularValueIdr": 11186678800.0
+  },
+  {
+   "ticker": "DIGI",
+   "hsc": false,
+   "sharesOutstanding": 1625000000,
+   "close16": 29.0,
+   "close19": 29.0,
+   "close23": 29.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "DILD",
+   "hsc": false,
+   "sharesOutstanding": 10365854185,
+   "close16": 98.0,
+   "close19": 94.0,
+   "close23": 104.0,
+   "weekRegularValueIdr": 7011156400.0
+  },
+  {
+   "ticker": "DIVA",
+   "hsc": false,
+   "sharesOutstanding": 1428571400,
+   "close16": 103.0,
+   "close19": 96.0,
+   "close23": 104.0,
+   "weekRegularValueIdr": 1370189400.0
+  },
+  {
+   "ticker": "DKFT",
+   "hsc": false,
+   "sharesOutstanding": 5638246600,
+   "close16": 600.0,
+   "close19": 605.0,
+   "close23": 645.0,
+   "weekRegularValueIdr": 11659046000.0
+  },
+  {
+   "ticker": "DKHH",
+   "hsc": false,
+   "sharesOutstanding": 2550312624,
+   "close16": 99.0,
+   "close19": 93.0,
+   "close23": 135.0,
+   "weekRegularValueIdr": 90209982300.0
+  },
+  {
+   "ticker": "DLTA",
+   "hsc": false,
+   "sharesOutstanding": 800659050,
+   "close16": 1705.0,
+   "close19": 1640.0,
+   "close23": 1700.0,
+   "weekRegularValueIdr": 1062113000.0
+  },
+  {
+   "ticker": "DMAS",
+   "hsc": false,
+   "sharesOutstanding": 48198111100,
+   "close16": 159.0,
+   "close19": 164.0,
+   "close23": 214.0,
+   "weekRegularValueIdr": 530958754400.0
+  },
+  {
+   "ticker": "DMMX",
+   "hsc": false,
+   "sharesOutstanding": 7692307700,
+   "close16": 133.0,
+   "close19": 124.0,
+   "close23": 149.0,
+   "weekRegularValueIdr": 622770000.0
+  },
+  {
+   "ticker": "DMND",
+   "hsc": true,
+   "sharesOutstanding": 9468359000,
+   "close16": 550.0,
+   "close19": 515.0,
+   "close23": 525.0,
+   "weekRegularValueIdr": 266834400.0
+  },
+  {
+   "ticker": "DNAR",
+   "hsc": false,
+   "sharesOutstanding": 16721891185,
+   "close16": 101.0,
+   "close19": 95.0,
+   "close23": 110.0,
+   "weekRegularValueIdr": 390746500.0
+  },
+  {
+   "ticker": "DNET",
+   "hsc": true,
+   "sharesOutstanding": 14184000000,
+   "close16": 9850.0,
+   "close19": 9525.0,
+   "close23": 9825.0,
+   "weekRegularValueIdr": 175527500.0
+  },
+  {
+   "ticker": "DOID",
+   "hsc": false,
+   "sharesOutstanding": 7651007132,
+   "close16": 170.0,
+   "close19": 162.0,
+   "close23": 173.0,
+   "weekRegularValueIdr": 3564846500.0
+  },
+  {
+   "ticker": "DOOH",
+   "hsc": false,
+   "sharesOutstanding": 7738891036,
+   "close16": 238.0,
+   "close19": 222.0,
+   "close23": 258.0,
+   "weekRegularValueIdr": 318742684000.0
+  },
+  {
+   "ticker": "DOSS",
+   "hsc": false,
+   "sharesOutstanding": 1725000000,
+   "close16": 138.0,
+   "close19": 134.0,
+   "close23": 148.0,
+   "weekRegularValueIdr": 1360800500.0
+  },
+  {
+   "ticker": "DPNS",
+   "hsc": false,
+   "sharesOutstanding": 331129952,
+   "close16": 310.0,
+   "close19": 310.0,
+   "close23": 310.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "DPUM",
+   "hsc": false,
+   "sharesOutstanding": 4175000000,
+   "close16": 97.0,
+   "close19": 103.0,
+   "close23": 107.0,
+   "weekRegularValueIdr": 30701044200.0
+  },
+  {
+   "ticker": "DRMA",
+   "hsc": false,
+   "sharesOutstanding": 4705882300,
+   "close16": 835.0,
+   "close19": 845.0,
+   "close23": 950.0,
+   "weekRegularValueIdr": 5517116000.0
+  },
+  {
+   "ticker": "DSFI",
+   "hsc": false,
+   "sharesOutstanding": 1857135500,
+   "close16": 66.0,
+   "close19": 63.0,
+   "close23": 71.0,
+   "weekRegularValueIdr": 1041324500.0
+  },
+  {
+   "ticker": "DSNG",
+   "hsc": false,
+   "sharesOutstanding": 10599842400,
+   "close16": 1300.0,
+   "close19": 1295.0,
+   "close23": 1420.0,
+   "weekRegularValueIdr": 34397410500.0
+  },
+  {
+   "ticker": "DSSA",
+   "hsc": true,
+   "sharesOutstanding": 192638080000,
+   "close16": 715.0,
+   "close19": 730.0,
+   "close23": 775.0,
+   "weekRegularValueIdr": 1442913921000.0
+  },
+  {
+   "ticker": "DUCK",
+   "hsc": false,
+   "sharesOutstanding": 1283330000,
+   "close16": 176.0,
+   "close19": 176.0,
+   "close23": 176.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "DUTI",
+   "hsc": true,
+   "sharesOutstanding": 1850000000,
+   "close16": 4790.0,
+   "close19": 4790.0,
+   "close23": 4770.0,
+   "weekRegularValueIdr": 13325000.0
+  },
+  {
+   "ticker": "DVLA",
+   "hsc": false,
+   "sharesOutstanding": 1120000000,
+   "close16": 1495.0,
+   "close19": 1470.0,
+   "close23": 1580.0,
+   "weekRegularValueIdr": 132203500.0
+  },
+  {
+   "ticker": "DWGL",
+   "hsc": false,
+   "sharesOutstanding": 9252820991,
+   "close16": 165.0,
+   "close19": 154.0,
+   "close23": 168.0,
+   "weekRegularValueIdr": 1232923000.0
+  },
+  {
+   "ticker": "DYAN",
+   "hsc": false,
+   "sharesOutstanding": 4272964279,
+   "close16": 71.0,
+   "close19": 69.0,
+   "close23": 76.0,
+   "weekRegularValueIdr": 1505084100.0
+  },
+  {
+   "ticker": "EAST",
+   "hsc": false,
+   "sharesOutstanding": 4126405336,
+   "close16": 86.0,
+   "close19": 85.0,
+   "close23": 87.0,
+   "weekRegularValueIdr": 853028500.0
+  },
+  {
+   "ticker": "ECII",
+   "hsc": false,
+   "sharesOutstanding": 1334333000,
+   "close16": 134.0,
+   "close19": 130.0,
+   "close23": 149.0,
+   "weekRegularValueIdr": 279006000.0
+  },
+  {
+   "ticker": "EDGE",
+   "hsc": false,
+   "sharesOutstanding": 2020250000,
+   "close16": 4790.0,
+   "close19": 4790.0,
+   "close23": 4790.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "EKAD",
+   "hsc": false,
+   "sharesOutstanding": 3493875000,
+   "close16": 308.0,
+   "close19": 288.0,
+   "close23": 328.0,
+   "weekRegularValueIdr": 3545032400.0
+  },
+  {
+   "ticker": "ELIT",
+   "hsc": false,
+   "sharesOutstanding": 2031643057,
+   "close16": 212.0,
+   "close19": 198.0,
+   "close23": 226.0,
+   "weekRegularValueIdr": 7412420700.0
+  },
+  {
+   "ticker": "ELPI",
+   "hsc": true,
+   "sharesOutstanding": 9524420000,
+   "close16": 434.0,
+   "close19": 404.0,
+   "close23": 456.0,
+   "weekRegularValueIdr": 3061379200.0
+  },
+  {
+   "ticker": "ELSA",
+   "hsc": false,
+   "sharesOutstanding": 7298500000,
+   "close16": 575.0,
+   "close19": 570.0,
+   "close23": 665.0,
+   "weekRegularValueIdr": 89273106000.0
+  },
+  {
+   "ticker": "ELTY",
+   "hsc": false,
+   "sharesOutstanding": 43521913019,
+   "close16": 20.0,
+   "close19": 19.0,
+   "close23": 25.0,
+   "weekRegularValueIdr": 37696719300.0
+  },
+  {
+   "ticker": "EMAS",
+   "hsc": false,
+   "sharesOutstanding": 14731366060,
+   "close16": 7050.0,
+   "close19": 6625.0,
+   "close23": 6675.0,
+   "weekRegularValueIdr": 703676420000.0
+  },
+  {
+   "ticker": "EMDE",
+   "hsc": false,
+   "sharesOutstanding": 3350000000,
+   "close16": 55.0,
+   "close19": 52.0,
+   "close23": 58.0,
+   "weekRegularValueIdr": 743939700.0
+  },
+  {
+   "ticker": "EMMI",
+   "hsc": false,
+   "sharesOutstanding": 1742857000,
+   "close16": 380.0,
+   "close19": 408.0,
+   "close23": 418.0,
+   "weekRegularValueIdr": 6306160400.0
+  },
+  {
+   "ticker": "EMTK",
+   "hsc": false,
+   "sharesOutstanding": 61426451483,
+   "close16": 334.0,
+   "close19": 318.0,
+   "close23": 348.0,
+   "weekRegularValueIdr": 91140687400.0
+  },
+  {
+   "ticker": "ENAK",
+   "hsc": false,
+   "sharesOutstanding": 2166666800,
+   "close16": 140.0,
+   "close19": 131.0,
+   "close23": 180.0,
+   "weekRegularValueIdr": 8144649100.0
+  },
+  {
+   "ticker": "ENRG",
+   "hsc": false,
+   "sharesOutstanding": 39284251006,
+   "close16": 880.0,
+   "close19": 845.0,
+   "close23": 880.0,
+   "weekRegularValueIdr": 1097780565000.0
+  },
+  {
+   "ticker": "ENVY",
+   "hsc": false,
+   "sharesOutstanding": 1800000000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ENZO",
+   "hsc": false,
+   "sharesOutstanding": 2162547122,
+   "close16": 48.0,
+   "close19": 45.0,
+   "close23": 57.0,
+   "weekRegularValueIdr": 2412085200.0
+  },
+  {
+   "ticker": "EPAC",
+   "hsc": false,
+   "sharesOutstanding": 3303400000,
+   "close16": 42.0,
+   "close19": 41.0,
+   "close23": 47.0,
+   "weekRegularValueIdr": 11222185200.0
+  },
+  {
+   "ticker": "EPMT",
+   "hsc": true,
+   "sharesOutstanding": 2708640000,
+   "close16": 2400.0,
+   "close19": 2460.0,
+   "close23": 2400.0,
+   "weekRegularValueIdr": 245612000.0
+  },
+  {
+   "ticker": "ERAA",
+   "hsc": false,
+   "sharesOutstanding": 15950000000,
+   "close16": 525.0,
+   "close19": 494.0,
+   "close23": 575.0,
+   "weekRegularValueIdr": 477766034600.0
+  },
+  {
+   "ticker": "ERAL",
+   "hsc": false,
+   "sharesOutstanding": 5187500000,
+   "close16": 268.0,
+   "close19": 250.0,
+   "close23": 284.0,
+   "weekRegularValueIdr": 9221725200.0
+  },
+  {
+   "ticker": "ERTX",
+   "hsc": false,
+   "sharesOutstanding": 1286539792,
+   "close16": 136.0,
+   "close19": 127.0,
+   "close23": 156.0,
+   "weekRegularValueIdr": 588754000.0
+  },
+  {
+   "ticker": "ESIP",
+   "hsc": false,
+   "sharesOutstanding": 1109953847,
+   "close16": 85.0,
+   "close19": 80.0,
+   "close23": 93.0,
+   "weekRegularValueIdr": 10877804400.0
+  },
+  {
+   "ticker": "ESSA",
+   "hsc": false,
+   "sharesOutstanding": 17226975700,
+   "close16": 476.0,
+   "close19": 470.0,
+   "close23": 515.0,
+   "weekRegularValueIdr": 315084886300.0
+  },
+  {
+   "ticker": "ESTA",
+   "hsc": false,
+   "sharesOutstanding": 2425354179,
+   "close16": 135.0,
+   "close19": 135.0,
+   "close23": 147.0,
+   "weekRegularValueIdr": 608670700.0
+  },
+  {
+   "ticker": "ESTI",
+   "hsc": false,
+   "sharesOutstanding": 2015208720,
+   "close16": 128.0,
+   "close19": 120.0,
+   "close23": 130.0,
+   "weekRegularValueIdr": 2522397600.0
+  },
+  {
+   "ticker": "ETWA",
+   "hsc": false,
+   "sharesOutstanding": 4668671400,
+   "close16": 70.0,
+   "close19": 70.0,
+   "close23": 70.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "EURO",
+   "hsc": false,
+   "sharesOutstanding": 2548826428,
+   "close16": 1240.0,
+   "close19": 1140.0,
+   "close23": 1195.0,
+   "weekRegularValueIdr": 616720000.0
+  },
+  {
+   "ticker": "EXCL",
+   "hsc": false,
+   "sharesOutstanding": 18199862451,
+   "close16": 1815.0,
+   "close19": 1690.0,
+   "close23": 1840.0,
+   "weekRegularValueIdr": 186261514000.0
+  },
+  {
+   "ticker": "FAPA",
+   "hsc": true,
+   "sharesOutstanding": 3629411800,
+   "close16": 7125.0,
+   "close19": 7100.0,
+   "close23": 7150.0,
+   "weekRegularValueIdr": 48995000.0
+  },
+  {
+   "ticker": "FAST",
+   "hsc": false,
+   "sharesOutstanding": 4523610492,
+   "close16": 300.0,
+   "close19": 280.0,
+   "close23": 380.0,
+   "weekRegularValueIdr": 10085629400.0
+  },
+  {
+   "ticker": "FASW",
+   "hsc": false,
+   "sharesOutstanding": 3221255423,
+   "close16": 5275.0,
+   "close19": 5275.0,
+   "close23": 5275.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "FILM",
+   "hsc": false,
+   "sharesOutstanding": 10887566758,
+   "close16": 452.0,
+   "close19": 422.0,
+   "close23": 408.0,
+   "weekRegularValueIdr": 32517076400.0
+  },
+  {
+   "ticker": "FIMP",
+   "hsc": false,
+   "sharesOutstanding": 400000975,
+   "close16": 69.0,
+   "close19": 69.0,
+   "close23": 69.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "FIRE",
+   "hsc": false,
+   "sharesOutstanding": 1475363179,
+   "close16": 84.0,
+   "close19": 79.0,
+   "close23": 96.0,
+   "weekRegularValueIdr": 10622280900.0
+  },
+  {
+   "ticker": "FISH",
+   "hsc": false,
+   "sharesOutstanding": 4800000000,
+   "close16": 505.0,
+   "close19": 470.0,
+   "close23": 540.0,
+   "weekRegularValueIdr": 321583500.0
+  },
+  {
+   "ticker": "FITT",
+   "hsc": true,
+   "sharesOutstanding": 1304272051,
+   "close16": 340.0,
+   "close19": 318.0,
+   "close23": 296.0,
+   "weekRegularValueIdr": 5289471600.0
+  },
+  {
+   "ticker": "FLMC",
+   "hsc": false,
+   "sharesOutstanding": 781250000,
+   "close16": 144.0,
+   "close19": 130.0,
+   "close23": 152.0,
+   "weekRegularValueIdr": 2644547000.0
+  },
+  {
+   "ticker": "FMII",
+   "hsc": false,
+   "sharesOutstanding": 6400000000,
+   "close16": 226.0,
+   "close19": 230.0,
+   "close23": 236.0,
+   "weekRegularValueIdr": 55170200.0
+  },
+  {
+   "ticker": "FOLK",
+   "hsc": false,
+   "sharesOutstanding": 4091357544,
+   "close16": 77.0,
+   "close19": 72.0,
+   "close23": 89.0,
+   "weekRegularValueIdr": 33777533900.0
+  },
+  {
+   "ticker": "FOOD",
+   "hsc": false,
+   "sharesOutstanding": 650000000,
+   "close16": 176.0,
+   "close19": 176.0,
+   "close23": 176.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "FORE",
+   "hsc": false,
+   "sharesOutstanding": 8918359270,
+   "close16": 615.0,
+   "close19": 575.0,
+   "close23": 605.0,
+   "weekRegularValueIdr": 11585582500.0
+  },
+  {
+   "ticker": "FORU",
+   "hsc": false,
+   "sharesOutstanding": 170075257380,
+   "close16": 108.0,
+   "close19": 101.0,
+   "close23": 108.0,
+   "weekRegularValueIdr": 230161442300.0
+  },
+  {
+   "ticker": "FPNI",
+   "hsc": false,
+   "sharesOutstanding": 5566414000,
+   "close16": 408.0,
+   "close19": 380.0,
+   "close23": 426.0,
+   "weekRegularValueIdr": 3506639200.0
+  },
+  {
+   "ticker": "FUJI",
+   "hsc": false,
+   "sharesOutstanding": 1300000000,
+   "close16": 238.0,
+   "close19": 222.0,
+   "close23": 232.0,
+   "weekRegularValueIdr": 6370941600.0
+  },
+  {
+   "ticker": "FUTR",
+   "hsc": false,
+   "sharesOutstanding": 6635551959,
+   "close16": 181.0,
+   "close19": 169.0,
+   "close23": 167.0,
+   "weekRegularValueIdr": 27743317400.0
+  },
+  {
+   "ticker": "FWCT",
+   "hsc": false,
+   "sharesOutstanding": 1963000000,
+   "close16": 68.0,
+   "close19": 70.0,
+   "close23": 79.0,
+   "weekRegularValueIdr": 16177697600.0
+  },
+  {
+   "ticker": "GAMA",
+   "hsc": false,
+   "sharesOutstanding": 10011027656,
+   "close16": 18.0,
+   "close19": 18.0,
+   "close23": 18.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "GDST",
+   "hsc": false,
+   "sharesOutstanding": 9242500000,
+   "close16": 87.0,
+   "close19": 83.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 1112768300.0
+  },
+  {
+   "ticker": "GDYR",
+   "hsc": false,
+   "sharesOutstanding": 410000000,
+   "close16": 1040.0,
+   "close19": 970.0,
+   "close23": 1090.0,
+   "weekRegularValueIdr": 15055500.0
+  },
+  {
+   "ticker": "GEMA",
+   "hsc": false,
+   "sharesOutstanding": 1600000000,
+   "close16": 74.0,
+   "close19": 69.0,
+   "close23": 74.0,
+   "weekRegularValueIdr": 667556800.0
+  },
+  {
+   "ticker": "GEMS",
+   "hsc": true,
+   "sharesOutstanding": 5882353000,
+   "close16": 7050.0,
+   "close19": 6850.0,
+   "close23": 7450.0,
+   "weekRegularValueIdr": 11387450000.0
+  },
+  {
+   "ticker": "GGRM",
+   "hsc": false,
+   "sharesOutstanding": 1924088000,
+   "close16": 15300.0,
+   "close19": 14950.0,
+   "close23": 16950.0,
+   "weekRegularValueIdr": 100631132500.0
+  },
+  {
+   "ticker": "GGRP",
+   "hsc": false,
+   "sharesOutstanding": 12111376157,
+   "close16": 328.0,
+   "close19": 328.0,
+   "close23": 362.0,
+   "weekRegularValueIdr": 1571443800.0
+  },
+  {
+   "ticker": "GHON",
+   "hsc": false,
+   "sharesOutstanding": 550000000,
+   "close16": 1520.0,
+   "close19": 1505.0,
+   "close23": 1645.0,
+   "weekRegularValueIdr": 103188500.0
+  },
+  {
+   "ticker": "GIAA",
+   "hsc": false,
+   "sharesOutstanding": 407091703837,
+   "close16": 44.0,
+   "close19": 40.0,
+   "close23": 43.0,
+   "weekRegularValueIdr": 4497185300.0
+  },
+  {
+   "ticker": "GJTL",
+   "hsc": false,
+   "sharesOutstanding": 3484800000,
+   "close16": 1090.0,
+   "close19": 1050.0,
+   "close23": 1215.0,
+   "weekRegularValueIdr": 34163307000.0
+  },
+  {
+   "ticker": "GLOB",
+   "hsc": false,
+   "sharesOutstanding": 1111112000,
+   "close16": 155.0,
+   "close19": 155.0,
+   "close23": 155.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "GLVA",
+   "hsc": false,
+   "sharesOutstanding": 1500000000,
+   "close16": 294.0,
+   "close19": 290.0,
+   "close23": 340.0,
+   "weekRegularValueIdr": 146896600.0
+  },
+  {
+   "ticker": "GMFI",
+   "hsc": false,
+   "sharesOutstanding": 124835258434,
+   "close16": 41.0,
+   "close19": 39.0,
+   "close23": 42.0,
+   "weekRegularValueIdr": 4395481100.0
+  },
+  {
+   "ticker": "GMTD",
+   "hsc": false,
+   "sharesOutstanding": 1015380000,
+   "close16": 845.0,
+   "close19": 820.0,
+   "close23": 880.0,
+   "weekRegularValueIdr": 103490500.0
+  },
+  {
+   "ticker": "GOLD",
+   "hsc": false,
+   "sharesOutstanding": 1277276000,
+   "close16": 234.0,
+   "close19": 258.0,
+   "close23": 252.0,
+   "weekRegularValueIdr": 1069163800.0
+  },
+  {
+   "ticker": "GOLF",
+   "hsc": false,
+   "sharesOutstanding": 19486760000,
+   "close16": 128.0,
+   "close19": 125.0,
+   "close23": 135.0,
+   "weekRegularValueIdr": 1877921800.0
+  },
+  {
+   "ticker": "GOLL",
+   "hsc": false,
+   "sharesOutstanding": 3665000759,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "GOOD",
+   "hsc": false,
+   "sharesOutstanding": 36897901455,
+   "close16": 288.0,
+   "close19": 284.0,
+   "close23": 298.0,
+   "weekRegularValueIdr": 286745600.0
+  },
+  {
+   "ticker": "GOTO",
+   "hsc": false,
+   "sharesOutstanding": 1140573267220,
+   "close16": 25.0,
+   "close19": 24.0,
+   "close23": 25.0,
+   "weekRegularValueIdr": 1001776393800.0
+  },
+  {
+   "ticker": "GOTOM",
+   "hsc": false,
+   "sharesOutstanding": 50571730000,
+   "close16": 68.0,
+   "close19": 68.0,
+   "close23": 68.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "GPRA",
+   "hsc": false,
+   "sharesOutstanding": 4276655336,
+   "close16": 91.0,
+   "close19": 96.0,
+   "close23": 99.0,
+   "weekRegularValueIdr": 23687959000.0
+  },
+  {
+   "ticker": "GPSO",
+   "hsc": false,
+   "sharesOutstanding": 733415103,
+   "close16": 204.0,
+   "close19": 214.0,
+   "close23": 218.0,
+   "weekRegularValueIdr": 11228420400.0
+  },
+  {
+   "ticker": "GRIA",
+   "hsc": false,
+   "sharesOutstanding": 7375720674,
+   "close16": 140.0,
+   "close19": 160.0,
+   "close23": 139.0,
+   "weekRegularValueIdr": 4449260900.0
+  },
+  {
+   "ticker": "GRPH",
+   "hsc": false,
+   "sharesOutstanding": 1000000000,
+   "close16": 95.0,
+   "close19": 89.0,
+   "close23": 100.0,
+   "weekRegularValueIdr": 23190149300.0
+  },
+  {
+   "ticker": "GRPM",
+   "hsc": false,
+   "sharesOutstanding": 1571666469,
+   "close16": 121.0,
+   "close19": 109.0,
+   "close23": 129.0,
+   "weekRegularValueIdr": 2540818000.0
+  },
+  {
+   "ticker": "GSMF",
+   "hsc": false,
+   "sharesOutstanding": 15456814805,
+   "close16": 74.0,
+   "close19": 69.0,
+   "close23": 79.0,
+   "weekRegularValueIdr": 672605100.0
+  },
+  {
+   "ticker": "GTBO",
+   "hsc": false,
+   "sharesOutstanding": 2500000000,
+   "close16": 189.0,
+   "close19": 171.0,
+   "close23": 170.0,
+   "weekRegularValueIdr": 258456800.0
+  },
+  {
+   "ticker": "GTRA",
+   "hsc": false,
+   "sharesOutstanding": 1894375000,
+   "close16": 232.0,
+   "close19": 232.0,
+   "close23": 290.0,
+   "weekRegularValueIdr": 1482864400.0
+  },
+  {
+   "ticker": "GTSI",
+   "hsc": false,
+   "sharesOutstanding": 15819142767,
+   "close16": 99.0,
+   "close19": 93.0,
+   "close23": 98.0,
+   "weekRegularValueIdr": 17613190900.0
+  },
+  {
+   "ticker": "GULA",
+   "hsc": false,
+   "sharesOutstanding": 1070362500,
+   "close16": 775.0,
+   "close19": 770.0,
+   "close23": 765.0,
+   "weekRegularValueIdr": 55821875500.0
+  },
+  {
+   "ticker": "GUNA",
+   "hsc": false,
+   "sharesOutstanding": 2500000000,
+   "close16": 191.0,
+   "close19": 196.0,
+   "close23": 208.0,
+   "weekRegularValueIdr": 418692400.0
+  },
+  {
+   "ticker": "GWSA",
+   "hsc": false,
+   "sharesOutstanding": 7800760000,
+   "close16": 125.0,
+   "close19": 125.0,
+   "close23": 138.0,
+   "weekRegularValueIdr": 426856500.0
+  },
+  {
+   "ticker": "GZCO",
+   "hsc": false,
+   "sharesOutstanding": 6000000000,
+   "close16": 126.0,
+   "close19": 118.0,
+   "close23": 134.0,
+   "weekRegularValueIdr": 4398356000.0
+  },
+  {
+   "ticker": "HADE",
+   "hsc": false,
+   "sharesOutstanding": 2120000000,
+   "close16": 18.0,
+   "close19": 17.0,
+   "close23": 20.0,
+   "weekRegularValueIdr": 1861024800.0
+  },
+  {
+   "ticker": "HAIS",
+   "hsc": false,
+   "sharesOutstanding": 2626250000,
+   "close16": 154.0,
+   "close19": 147.0,
+   "close23": 167.0,
+   "weekRegularValueIdr": 648210800.0
+  },
+  {
+   "ticker": "HAJJ",
+   "hsc": false,
+   "sharesOutstanding": 2468527572,
+   "close16": 101.0,
+   "close19": 92.0,
+   "close23": 110.0,
+   "weekRegularValueIdr": 2900115100.0
+  },
+  {
+   "ticker": "HALO",
+   "hsc": false,
+   "sharesOutstanding": 6078729117,
+   "close16": 55.0,
+   "close19": 52.0,
+   "close23": 61.0,
+   "weekRegularValueIdr": 4938845900.0
+  },
+  {
+   "ticker": "HATM",
+   "hsc": true,
+   "sharesOutstanding": 9320000000,
+   "close16": 570.0,
+   "close19": 535.0,
+   "close23": 540.0,
+   "weekRegularValueIdr": 10670828900.0
+  },
+  {
+   "ticker": "HBAT",
+   "hsc": false,
+   "sharesOutstanding": 1040740800,
+   "close16": 360.0,
+   "close19": 324.0,
+   "close23": 314.0,
+   "weekRegularValueIdr": 6105240800.0
+  },
+  {
+   "ticker": "HDFA",
+   "hsc": false,
+   "sharesOutstanding": 6542445783,
+   "close16": 81.0,
+   "close19": 77.0,
+   "close23": 87.0,
+   "weekRegularValueIdr": 135401100.0
+  },
+  {
+   "ticker": "HDIT",
+   "hsc": false,
+   "sharesOutstanding": 1524680000,
+   "close16": 34.0,
+   "close19": 33.0,
+   "close23": 37.0,
+   "weekRegularValueIdr": 588634200.0
+  },
+  {
+   "ticker": "HEAL",
+   "hsc": false,
+   "sharesOutstanding": 15365950000,
+   "close16": 505.0,
+   "close19": 505.0,
+   "close23": 505.0,
+   "weekRegularValueIdr": 23127078700.0
+  },
+  {
+   "ticker": "HELI",
+   "hsc": false,
+   "sharesOutstanding": 832862387,
+   "close16": 196.0,
+   "close19": 187.0,
+   "close23": 193.0,
+   "weekRegularValueIdr": 2918364000.0
+  },
+  {
+   "ticker": "HERO",
+   "hsc": false,
+   "sharesOutstanding": 4183634000,
+   "close16": 296.0,
+   "close19": 276.0,
+   "close23": 302.0,
+   "weekRegularValueIdr": 216761000.0
+  },
+  {
+   "ticker": "HEXA",
+   "hsc": false,
+   "sharesOutstanding": 840000000,
+   "close16": 3030.0,
+   "close19": 2890.0,
+   "close23": 3290.0,
+   "weekRegularValueIdr": 11524036000.0
+  },
+  {
+   "ticker": "HGII",
+   "hsc": false,
+   "sharesOutstanding": 6500000000,
+   "close16": 130.0,
+   "close19": 131.0,
+   "close23": 137.0,
+   "weekRegularValueIdr": 852870500.0
+  },
+  {
+   "ticker": "HILL",
+   "hsc": false,
+   "sharesOutstanding": 14741500000,
+   "close16": 16.0,
+   "close19": 16.0,
+   "close23": 16.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "HITS",
+   "hsc": false,
+   "sharesOutstanding": 7101084801,
+   "close16": 116.0,
+   "close19": 116.0,
+   "close23": 116.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "HKMU",
+   "hsc": false,
+   "sharesOutstanding": 3221750000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "HMSP",
+   "hsc": false,
+   "sharesOutstanding": 116318076900,
+   "close16": 610.0,
+   "close19": 590.0,
+   "close23": 650.0,
+   "weekRegularValueIdr": 68255211000.0
+  },
+  {
+   "ticker": "HOKI",
+   "hsc": false,
+   "sharesOutstanding": 9677752680,
+   "close16": 38.0,
+   "close19": 36.0,
+   "close23": 37.0,
+   "weekRegularValueIdr": 2862024800.0
+  },
+  {
+   "ticker": "HOME",
+   "hsc": false,
+   "sharesOutstanding": 22212194782,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "HOMI",
+   "hsc": false,
+   "sharesOutstanding": 1575000000,
+   "close16": 204.0,
+   "close19": 190.0,
+   "close23": 200.0,
+   "weekRegularValueIdr": 489699500.0
+  },
+  {
+   "ticker": "HOPE",
+   "hsc": false,
+   "sharesOutstanding": 2130360203,
+   "close16": 206.0,
+   "close19": 192.0,
+   "close23": 220.0,
+   "weekRegularValueIdr": 9162394500.0
+  },
+  {
+   "ticker": "HOTL",
+   "hsc": false,
+   "sharesOutstanding": 3550001452,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "HRME",
+   "hsc": false,
+   "sharesOutstanding": 5958750000,
+   "close16": 36.0,
+   "close19": 34.0,
+   "close23": 36.0,
+   "weekRegularValueIdr": 637567000.0
+  },
+  {
+   "ticker": "HRTA",
+   "hsc": false,
+   "sharesOutstanding": 4605262400,
+   "close16": 1615.0,
+   "close19": 1510.0,
+   "close23": 1660.0,
+   "weekRegularValueIdr": 155207706500.0
+  },
+  {
+   "ticker": "HRUM",
+   "hsc": false,
+   "sharesOutstanding": 13518100000,
+   "close16": 685.0,
+   "close19": 650.0,
+   "close23": 730.0,
+   "weekRegularValueIdr": 57245297000.0
+  },
+  {
+   "ticker": "HUMI",
+   "hsc": false,
+   "sharesOutstanding": 18063771579,
+   "close16": 98.0,
+   "close19": 92.0,
+   "close23": 101.0,
+   "weekRegularValueIdr": 13951675700.0
+  },
+  {
+   "ticker": "HYGN",
+   "hsc": false,
+   "sharesOutstanding": 2525000000,
+   "close16": 180.0,
+   "close19": 178.0,
+   "close23": 181.0,
+   "weekRegularValueIdr": 1210263200.0
+  },
+  {
+   "ticker": "IATA",
+   "hsc": false,
+   "sharesOutstanding": 31275829981,
+   "close16": 83.0,
+   "close19": 78.0,
+   "close23": 94.0,
+   "weekRegularValueIdr": 136822464200.0
+  },
+  {
+   "ticker": "IBFN",
+   "hsc": false,
+   "sharesOutstanding": 1517332349,
+   "close16": 63.0,
+   "close19": 63.0,
+   "close23": 63.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "IBOS",
+   "hsc": false,
+   "sharesOutstanding": 8065789529,
+   "close16": 72.0,
+   "close19": 65.0,
+   "close23": 76.0,
+   "weekRegularValueIdr": 3031503200.0
+  },
+  {
+   "ticker": "IBST",
+   "hsc": false,
+   "sharesOutstanding": 1350904927,
+   "close16": 8475.0,
+   "close19": 8475.0,
+   "close23": 8475.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ICBP",
+   "hsc": false,
+   "sharesOutstanding": 11661908000,
+   "close16": 6300.0,
+   "close19": 5875.0,
+   "close23": 5975.0,
+   "weekRegularValueIdr": 486666385000.0
+  },
+  {
+   "ticker": "ICON",
+   "hsc": false,
+   "sharesOutstanding": 1089750000,
+   "close16": 91.0,
+   "close19": 85.0,
+   "close23": 94.0,
+   "weekRegularValueIdr": 5803572600.0
+  },
+  {
+   "ticker": "IDEA",
+   "hsc": false,
+   "sharesOutstanding": 1062437500,
+   "close16": 220.0,
+   "close19": 198.0,
+   "close23": 234.0,
+   "weekRegularValueIdr": 29371959400.0
+  },
+  {
+   "ticker": "IDPR",
+   "hsc": false,
+   "sharesOutstanding": 2003000000,
+   "close16": 222.0,
+   "close19": 218.0,
+   "close23": 230.0,
+   "weekRegularValueIdr": 24079200.0
+  },
+  {
+   "ticker": "IFII",
+   "hsc": false,
+   "sharesOutstanding": 9412000000,
+   "close16": 190.0,
+   "close19": 191.0,
+   "close23": 197.0,
+   "weekRegularValueIdr": 192344500.0
+  },
+  {
+   "ticker": "IFSH",
+   "hsc": true,
+   "sharesOutstanding": 2125000000,
+   "close16": 1735.0,
+   "close19": 1615.0,
+   "close23": 1310.0,
+   "weekRegularValueIdr": 3362923500.0
+  },
+  {
+   "ticker": "IGAR",
+   "hsc": false,
+   "sharesOutstanding": 927780600,
+   "close16": 510.0,
+   "close19": 510.0,
+   "close23": 510.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "IIKP",
+   "hsc": false,
+   "sharesOutstanding": 33600000000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "IKAI",
+   "hsc": false,
+   "sharesOutstanding": 13305799387,
+   "close16": 19.0,
+   "close19": 18.0,
+   "close23": 21.0,
+   "weekRegularValueIdr": 10022625300.0
+  },
+  {
+   "ticker": "IKAN",
+   "hsc": false,
+   "sharesOutstanding": 833333000,
+   "close16": 67.0,
+   "close19": 70.0,
+   "close23": 71.0,
+   "weekRegularValueIdr": 3092768000.0
+  },
+  {
+   "ticker": "IKBI",
+   "hsc": false,
+   "sharesOutstanding": 1224000000,
+   "close16": 494.0,
+   "close19": 486.0,
+   "close23": 505.0,
+   "weekRegularValueIdr": 350328200.0
+  },
+  {
+   "ticker": "IKPM",
+   "hsc": false,
+   "sharesOutstanding": 1684662500,
+   "close16": 143.0,
+   "close19": 134.0,
+   "close23": 154.0,
+   "weekRegularValueIdr": 253896300.0
+  },
+  {
+   "ticker": "IMAS",
+   "hsc": false,
+   "sharesOutstanding": 3994291039,
+   "close16": 740.0,
+   "close19": 715.0,
+   "close23": 790.0,
+   "weekRegularValueIdr": 480635000.0
+  },
+  {
+   "ticker": "IMJS",
+   "hsc": false,
+   "sharesOutstanding": 10849262500,
+   "close16": 142.0,
+   "close19": 134.0,
+   "close23": 154.0,
+   "weekRegularValueIdr": 1270584100.0
+  },
+  {
+   "ticker": "IMPC",
+   "hsc": false,
+   "sharesOutstanding": 54907000000,
+   "close16": 920.0,
+   "close19": 860.0,
+   "close23": 875.0,
+   "weekRegularValueIdr": 290660686500.0
+  },
+  {
+   "ticker": "INAF",
+   "hsc": false,
+   "sharesOutstanding": 3099267500,
+   "close16": 126.0,
+   "close19": 126.0,
+   "close23": 126.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "INAI",
+   "hsc": false,
+   "sharesOutstanding": 633600000,
+   "close16": 130.0,
+   "close19": 121.0,
+   "close23": 136.0,
+   "weekRegularValueIdr": 206736800.0
+  },
+  {
+   "ticker": "INCF",
+   "hsc": false,
+   "sharesOutstanding": 1438370465,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "INCI",
+   "hsc": false,
+   "sharesOutstanding": 207656617,
+   "close16": 695.0,
+   "close19": 690.0,
+   "close23": 780.0,
+   "weekRegularValueIdr": 1085051500.0
+  },
+  {
+   "ticker": "INCO",
+   "hsc": false,
+   "sharesOutstanding": 10539784534,
+   "close16": 3450.0,
+   "close19": 3620.0,
+   "close23": 3800.0,
+   "weekRegularValueIdr": 343700037000.0
+  },
+  {
+   "ticker": "INDF",
+   "hsc": false,
+   "sharesOutstanding": 8780426500,
+   "close16": 6625.0,
+   "close19": 6475.0,
+   "close23": 6750.0,
+   "weekRegularValueIdr": 386094577500.0
+  },
+  {
+   "ticker": "INDO",
+   "hsc": true,
+   "sharesOutstanding": 4480741638,
+   "close16": 141.0,
+   "close19": 132.0,
+   "close23": 139.0,
+   "weekRegularValueIdr": 21314925500.0
+  },
+  {
+   "ticker": "INDR",
+   "hsc": false,
+   "sharesOutstanding": 654351707,
+   "close16": 2690.0,
+   "close19": 2690.0,
+   "close23": 2750.0,
+   "weekRegularValueIdr": 663367000.0
+  },
+  {
+   "ticker": "INDS",
+   "hsc": false,
+   "sharesOutstanding": 6562497100,
+   "close16": 202.0,
+   "close19": 196.0,
+   "close23": 244.0,
+   "weekRegularValueIdr": 2654162900.0
+  },
+  {
+   "ticker": "INDX",
+   "hsc": false,
+   "sharesOutstanding": 437913588,
+   "close16": 60.0,
+   "close19": 60.0,
+   "close23": 60.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "INDY",
+   "hsc": false,
+   "sharesOutstanding": 5210192000,
+   "close16": 2060.0,
+   "close19": 1920.0,
+   "close23": 2190.0,
+   "weekRegularValueIdr": 233559380500.0
+  },
+  {
+   "ticker": "INET",
+   "hsc": false,
+   "sharesOutstanding": 22378471656,
+   "close16": 187.0,
+   "close19": 174.0,
+   "close23": 191.0,
+   "weekRegularValueIdr": 291204406100.0
+  },
+  {
+   "ticker": "INKP",
+   "hsc": false,
+   "sharesOutstanding": 5470982941,
+   "close16": 6950.0,
+   "close19": 6500.0,
+   "close23": 7050.0,
+   "weekRegularValueIdr": 293580087500.0
+  },
+  {
+   "ticker": "INOV",
+   "hsc": false,
+   "sharesOutstanding": 1808221900,
+   "close16": 124.0,
+   "close19": 117.0,
+   "close23": 140.0,
+   "weekRegularValueIdr": 1087427800.0
+  },
+  {
+   "ticker": "INPC",
+   "hsc": false,
+   "sharesOutstanding": 20021178779,
+   "close16": 121.0,
+   "close19": 117.0,
+   "close23": 128.0,
+   "weekRegularValueIdr": 2200885800.0
+  },
+  {
+   "ticker": "INPP",
+   "hsc": true,
+   "sharesOutstanding": 11181971732,
+   "close16": 700.0,
+   "close19": 695.0,
+   "close23": 710.0,
+   "weekRegularValueIdr": 177661500.0
+  },
+  {
+   "ticker": "INPS",
+   "hsc": false,
+   "sharesOutstanding": 650000000,
+   "close16": 1065.0,
+   "close19": 1065.0,
+   "close23": 1065.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "INRU",
+   "hsc": false,
+   "sharesOutstanding": 1388883283,
+   "close16": 590.0,
+   "close19": 590.0,
+   "close23": 590.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "INTA",
+   "hsc": false,
+   "sharesOutstanding": 3343935022,
+   "close16": 61.0,
+   "close19": 61.0,
+   "close23": 61.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "INTD",
+   "hsc": false,
+   "sharesOutstanding": 591828000,
+   "close16": 262.0,
+   "close19": 268.0,
+   "close23": 270.0,
+   "weekRegularValueIdr": 468306600.0
+  },
+  {
+   "ticker": "INTP",
+   "hsc": false,
+   "sharesOutstanding": 3431073399,
+   "close16": 5150.0,
+   "close19": 5025.0,
+   "close23": 5650.0,
+   "weekRegularValueIdr": 54631342500.0
+  },
+  {
+   "ticker": "IOTF",
+   "hsc": false,
+   "sharesOutstanding": 5290298067,
+   "close16": 39.0,
+   "close19": 37.0,
+   "close23": 42.0,
+   "weekRegularValueIdr": 1476857100.0
+  },
+  {
+   "ticker": "IPAC",
+   "hsc": false,
+   "sharesOutstanding": 949868500,
+   "close16": 189.0,
+   "close19": 189.0,
+   "close23": 189.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "IPCC",
+   "hsc": false,
+   "sharesOutstanding": 1818384820,
+   "close16": 950.0,
+   "close19": 925.0,
+   "close23": 1020.0,
+   "weekRegularValueIdr": 6464064000.0
+  },
+  {
+   "ticker": "IPCM",
+   "hsc": false,
+   "sharesOutstanding": 5284811100,
+   "close16": 260.0,
+   "close19": 246.0,
+   "close23": 272.0,
+   "weekRegularValueIdr": 2626015200.0
+  },
+  {
+   "ticker": "IPOL",
+   "hsc": false,
+   "sharesOutstanding": 6443379509,
+   "close16": 109.0,
+   "close19": 105.0,
+   "close23": 110.0,
+   "weekRegularValueIdr": 300012800.0
+  },
+  {
+   "ticker": "IPPE",
+   "hsc": false,
+   "sharesOutstanding": 4600000000,
+   "close16": 14.0,
+   "close19": 14.0,
+   "close23": 14.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "IPTV",
+   "hsc": false,
+   "sharesOutstanding": 42197950841,
+   "close16": 19.0,
+   "close19": 18.0,
+   "close23": 22.0,
+   "weekRegularValueIdr": 2637516500.0
+  },
+  {
+   "ticker": "IRRA",
+   "hsc": false,
+   "sharesOutstanding": 1600000000,
+   "close16": 360.0,
+   "close19": 336.0,
+   "close23": 346.0,
+   "weekRegularValueIdr": 947231800.0
+  },
+  {
+   "ticker": "IRSX",
+   "hsc": false,
+   "sharesOutstanding": 6195047377,
+   "close16": 236.0,
+   "close19": 220.0,
+   "close23": 272.0,
+   "weekRegularValueIdr": 85756215400.0
+  },
+  {
+   "ticker": "ISAP",
+   "hsc": false,
+   "sharesOutstanding": 4020382688,
+   "close16": 21.0,
+   "close19": 19.0,
+   "close23": 21.0,
+   "weekRegularValueIdr": 3161028900.0
+  },
+  {
+   "ticker": "ISAT",
+   "hsc": false,
+   "sharesOutstanding": 32250810957,
+   "close16": 1755.0,
+   "close19": 1635.0,
+   "close23": 1785.0,
+   "weekRegularValueIdr": 803090775000.0
+  },
+  {
+   "ticker": "ISEA",
+   "hsc": false,
+   "sharesOutstanding": 1390013370,
+   "close16": 66.0,
+   "close19": 62.0,
+   "close23": 72.0,
+   "weekRegularValueIdr": 332665400.0
+  },
+  {
+   "ticker": "ISSP",
+   "hsc": false,
+   "sharesOutstanding": 7185992035,
+   "close16": 388.0,
+   "close19": 388.0,
+   "close23": 450.0,
+   "weekRegularValueIdr": 10172267800.0
+  },
+  {
+   "ticker": "ITIC",
+   "hsc": false,
+   "sharesOutstanding": 940720000,
+   "close16": 166.0,
+   "close19": 155.0,
+   "close23": 177.0,
+   "weekRegularValueIdr": 234241700.0
+  },
+  {
+   "ticker": "ITMA",
+   "hsc": false,
+   "sharesOutstanding": 999053167,
+   "close16": 1050.0,
+   "close19": 1000.0,
+   "close23": 1150.0,
+   "weekRegularValueIdr": 329727000.0
+  },
+  {
+   "ticker": "ITMG",
+   "hsc": false,
+   "sharesOutstanding": 1129925000,
+   "close16": 23000.0,
+   "close19": 23075.0,
+   "close23": 25500.0,
+   "weekRegularValueIdr": 263481485000.0
+  },
+  {
+   "ticker": "JARR",
+   "hsc": false,
+   "sharesOutstanding": 9230665050,
+   "close16": 2270.0,
+   "close19": 2300.0,
+   "close23": 2490.0,
+   "weekRegularValueIdr": 144280550000.0
+  },
+  {
+   "ticker": "JAST",
+   "hsc": false,
+   "sharesOutstanding": 1082575738,
+   "close16": 76.0,
+   "close19": 73.0,
+   "close23": 79.0,
+   "weekRegularValueIdr": 1265816400.0
+  },
+  {
+   "ticker": "JATI",
+   "hsc": false,
+   "sharesOutstanding": 3262520106,
+   "close16": 84.0,
+   "close19": 80.0,
+   "close23": 89.0,
+   "weekRegularValueIdr": 6727683600.0
+  },
+  {
+   "ticker": "JAWA",
+   "hsc": false,
+   "sharesOutstanding": 16232951842,
+   "close16": 107.0,
+   "close19": 100.0,
+   "close23": 116.0,
+   "weekRegularValueIdr": 1405414300.0
+  },
+  {
+   "ticker": "JAYA",
+   "hsc": false,
+   "sharesOutstanding": 798499394,
+   "close16": 119.0,
+   "close19": 113.0,
+   "close23": 132.0,
+   "weekRegularValueIdr": 393992800.0
+  },
+  {
+   "ticker": "JECC",
+   "hsc": false,
+   "sharesOutstanding": 756000000,
+   "close16": 630.0,
+   "close19": 675.0,
+   "close23": 665.0,
+   "weekRegularValueIdr": 767553500.0
+  },
+  {
+   "ticker": "JECX",
+   "hsc": false,
+   "sharesOutstanding": 3253222300,
+   "close16": 1490.0,
+   "close19": 1420.0,
+   "close23": 1355.0,
+   "weekRegularValueIdr": 8975549500.0
+  },
+  {
+   "ticker": "JELI",
+   "hsc": false,
+   "sharesOutstanding": 1266000000,
+   "close16": 298.0,
+   "close19": 278.0,
+   "close23": 304.0,
+   "weekRegularValueIdr": 4448587800.0
+  },
+  {
+   "ticker": "JGLE",
+   "hsc": false,
+   "sharesOutstanding": 22581909405,
+   "close16": 34.0,
+   "close19": 32.0,
+   "close23": 39.0,
+   "weekRegularValueIdr": 43730141500.0
+  },
+  {
+   "ticker": "JIHD",
+   "hsc": false,
+   "sharesOutstanding": 2329040482,
+   "close16": 326.0,
+   "close19": 304.0,
+   "close23": 324.0,
+   "weekRegularValueIdr": 838711800.0
+  },
+  {
+   "ticker": "JKON",
+   "hsc": false,
+   "sharesOutstanding": 16308519860,
+   "close16": 69.0,
+   "close19": 69.0,
+   "close23": 78.0,
+   "weekRegularValueIdr": 2398745500.0
+  },
+  {
+   "ticker": "JMAS",
+   "hsc": false,
+   "sharesOutstanding": 1000000000,
+   "close16": 228.0,
+   "close19": 228.0,
+   "close23": 228.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "JPFA",
+   "hsc": false,
+   "sharesOutstanding": 11726575201,
+   "close16": 1765.0,
+   "close19": 1645.0,
+   "close23": 1820.0,
+   "weekRegularValueIdr": 194382852500.0
+  },
+  {
+   "ticker": "JRPT",
+   "hsc": false,
+   "sharesOutstanding": 12910719100,
+   "close16": 1145.0,
+   "close19": 1135.0,
+   "close23": 1140.0,
+   "weekRegularValueIdr": 5338492500.0
+  },
+  {
+   "ticker": "JSKY",
+   "hsc": false,
+   "sharesOutstanding": 2032540000,
+   "close16": 52.0,
+   "close19": 52.0,
+   "close23": 52.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "JSMR",
+   "hsc": false,
+   "sharesOutstanding": 7257871200,
+   "close16": 2110.0,
+   "close19": 2060.0,
+   "close23": 2660.0,
+   "weekRegularValueIdr": 126215728000.0
+  },
+  {
+   "ticker": "JSPT",
+   "hsc": false,
+   "sharesOutstanding": 2318736000,
+   "close16": 1320.0,
+   "close19": 1230.0,
+   "close23": 1325.0,
+   "weekRegularValueIdr": 1145000500.0
+  },
+  {
+   "ticker": "JTPE",
+   "hsc": false,
+   "sharesOutstanding": 6852050000,
+   "close16": 545.0,
+   "close19": 535.0,
+   "close23": 565.0,
+   "weekRegularValueIdr": 1904677000.0
+  },
+  {
+   "ticker": "KAEF",
+   "hsc": false,
+   "sharesOutstanding": 5566589677,
+   "close16": 348.0,
+   "close19": 338.0,
+   "close23": 374.0,
+   "weekRegularValueIdr": 1649867400.0
+  },
+  {
+   "ticker": "KAQI",
+   "hsc": false,
+   "sharesOutstanding": 2075800000,
+   "close16": 67.0,
+   "close19": 69.0,
+   "close23": 71.0,
+   "weekRegularValueIdr": 17156695700.0
+  },
+  {
+   "ticker": "KARW",
+   "hsc": false,
+   "sharesOutstanding": 587152700,
+   "close16": 212.0,
+   "close19": 212.0,
+   "close23": 212.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "KAYU",
+   "hsc": false,
+   "sharesOutstanding": 665000000,
+   "close16": 18.0,
+   "close19": 18.0,
+   "close23": 18.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "KBAG",
+   "hsc": false,
+   "sharesOutstanding": 7150002603,
+   "close16": 34.0,
+   "close19": 32.0,
+   "close23": 33.0,
+   "weekRegularValueIdr": 1698817200.0
+  },
+  {
+   "ticker": "KBLI",
+   "hsc": false,
+   "sharesOutstanding": 4007235107,
+   "close16": 324.0,
+   "close19": 324.0,
+   "close23": 334.0,
+   "weekRegularValueIdr": 750661000.0
+  },
+  {
+   "ticker": "KBLM",
+   "hsc": false,
+   "sharesOutstanding": 1120000000,
+   "close16": 348.0,
+   "close19": 324.0,
+   "close23": 374.0,
+   "weekRegularValueIdr": 515146200.0
+  },
+  {
+   "ticker": "KBLV",
+   "hsc": false,
+   "sharesOutstanding": 1742167907,
+   "close16": 94.0,
+   "close19": 88.0,
+   "close23": 93.0,
+   "weekRegularValueIdr": 3104828400.0
+  },
+  {
+   "ticker": "KBRI",
+   "hsc": false,
+   "sharesOutstanding": 8687995734,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "KDSI",
+   "hsc": false,
+   "sharesOutstanding": 1620000000,
+   "close16": 440.0,
+   "close19": 454.0,
+   "close23": 456.0,
+   "weekRegularValueIdr": 27689200.0
+  },
+  {
+   "ticker": "KDTN",
+   "hsc": false,
+   "sharesOutstanding": 1250023298,
+   "close16": 268.0,
+   "close19": 250.0,
+   "close23": 292.0,
+   "weekRegularValueIdr": 12575589600.0
+  },
+  {
+   "ticker": "KEEN",
+   "hsc": false,
+   "sharesOutstanding": 3666312500,
+   "close16": 705.0,
+   "close19": 700.0,
+   "close23": 850.0,
+   "weekRegularValueIdr": 9020556500.0
+  },
+  {
+   "ticker": "KEJU",
+   "hsc": false,
+   "sharesOutstanding": 5624999999,
+   "close16": 540.0,
+   "close19": 530.0,
+   "close23": 605.0,
+   "weekRegularValueIdr": 873805500.0
+  },
+  {
+   "ticker": "KETR",
+   "hsc": false,
+   "sharesOutstanding": 2841262838,
+   "close16": 655.0,
+   "close19": 610.0,
+   "close23": 625.0,
+   "weekRegularValueIdr": 129819362500.0
+  },
+  {
+   "ticker": "KIAS",
+   "hsc": false,
+   "sharesOutstanding": 14929100000,
+   "close16": 21.0,
+   "close19": 21.0,
+   "close23": 21.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "KICI",
+   "hsc": false,
+   "sharesOutstanding": 276000000,
+   "close16": 230.0,
+   "close19": 214.0,
+   "close23": 256.0,
+   "weekRegularValueIdr": 2038043200.0
+  },
+  {
+   "ticker": "KIJA",
+   "hsc": false,
+   "sharesOutstanding": 20824888369,
+   "close16": 123.0,
+   "close19": 115.0,
+   "close23": 130.0,
+   "weekRegularValueIdr": 127383232500.0
+  },
+  {
+   "ticker": "KING",
+   "hsc": true,
+   "sharesOutstanding": 2602852170,
+   "close16": 316.0,
+   "close19": 286.0,
+   "close23": 328.0,
+   "weekRegularValueIdr": 3087119600.0
+  },
+  {
+   "ticker": "KINO",
+   "hsc": false,
+   "sharesOutstanding": 1428571500,
+   "close16": 1350.0,
+   "close19": 1350.0,
+   "close23": 1365.0,
+   "weekRegularValueIdr": 665390500.0
+  },
+  {
+   "ticker": "KIOS",
+   "hsc": false,
+   "sharesOutstanding": 1075862960,
+   "close16": 65.0,
+   "close19": 62.0,
+   "close23": 73.0,
+   "weekRegularValueIdr": 2731320900.0
+  },
+  {
+   "ticker": "KJEN",
+   "hsc": false,
+   "sharesOutstanding": 500000000,
+   "close16": 113.0,
+   "close19": 106.0,
+   "close23": 119.0,
+   "weekRegularValueIdr": 2165669800.0
+  },
+  {
+   "ticker": "KKES",
+   "hsc": false,
+   "sharesOutstanding": 1500000000,
+   "close16": 66.0,
+   "close19": 62.0,
+   "close23": 68.0,
+   "weekRegularValueIdr": 11497706200.0
+  },
+  {
+   "ticker": "KKGI",
+   "hsc": false,
+   "sharesOutstanding": 5000000000,
+   "close16": 264.0,
+   "close19": 264.0,
+   "close23": 296.0,
+   "weekRegularValueIdr": 8359778600.0
+  },
+  {
+   "ticker": "KLAS",
+   "hsc": false,
+   "sharesOutstanding": 3644415975,
+   "close16": 69.0,
+   "close19": 69.0,
+   "close23": 75.0,
+   "weekRegularValueIdr": 1994334700.0
+  },
+  {
+   "ticker": "KLBF",
+   "hsc": false,
+   "sharesOutstanding": 46813391540,
+   "close16": 675.0,
+   "close19": 655.0,
+   "close23": 720.0,
+   "weekRegularValueIdr": 254170920500.0
+  },
+  {
+   "ticker": "KLIN",
+   "hsc": false,
+   "sharesOutstanding": 1307530330,
+   "close16": 95.0,
+   "close19": 88.0,
+   "close23": 98.0,
+   "weekRegularValueIdr": 150980000.0
+  },
+  {
+   "ticker": "KMDS",
+   "hsc": false,
+   "sharesOutstanding": 800000000,
+   "close16": 486.0,
+   "close19": 490.0,
+   "close23": 500.0,
+   "weekRegularValueIdr": 494959100.0
+  },
+  {
+   "ticker": "KMTR",
+   "hsc": false,
+   "sharesOutstanding": 8215366379,
+   "close16": 232.0,
+   "close19": 216.0,
+   "close23": 226.0,
+   "weekRegularValueIdr": 216328600.0
+  },
+  {
+   "ticker": "KOBX",
+   "hsc": false,
+   "sharesOutstanding": 2272500000,
+   "close16": 141.0,
+   "close19": 134.0,
+   "close23": 146.0,
+   "weekRegularValueIdr": 474414100.0
+  },
+  {
+   "ticker": "KOCI",
+   "hsc": false,
+   "sharesOutstanding": 4470679376,
+   "close16": 79.0,
+   "close19": 74.0,
+   "close23": 82.0,
+   "weekRegularValueIdr": 3133142000.0
+  },
+  {
+   "ticker": "KOIN",
+   "hsc": false,
+   "sharesOutstanding": 980843732,
+   "close16": 78.0,
+   "close19": 78.0,
+   "close23": 78.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "KOKA",
+   "hsc": false,
+   "sharesOutstanding": 2861333000,
+   "close16": 110.0,
+   "close19": 103.0,
+   "close23": 122.0,
+   "weekRegularValueIdr": 1970587900.0
+  },
+  {
+   "ticker": "KONI",
+   "hsc": true,
+   "sharesOutstanding": 312000000,
+   "close16": 1480.0,
+   "close19": 1430.0,
+   "close23": 1680.0,
+   "weekRegularValueIdr": 96494000.0
+  },
+  {
+   "ticker": "KOPI",
+   "hsc": false,
+   "sharesOutstanding": 697266668,
+   "close16": 151.0,
+   "close19": 145.0,
+   "close23": 163.0,
+   "weekRegularValueIdr": 357321800.0
+  },
+  {
+   "ticker": "KOTA",
+   "hsc": false,
+   "sharesOutstanding": 10546185701,
+   "close16": 93.0,
+   "close19": 87.0,
+   "close23": 99.0,
+   "weekRegularValueIdr": 119396338800.0
+  },
+  {
+   "ticker": "KPIG",
+   "hsc": false,
+   "sharesOutstanding": 107312842189,
+   "close16": 32.0,
+   "close19": 30.0,
+   "close23": 30.0,
+   "weekRegularValueIdr": 50499798800.0
+  },
+  {
+   "ticker": "KRAS",
+   "hsc": false,
+   "sharesOutstanding": 19346396900,
+   "close16": 186.0,
+   "close19": 173.0,
+   "close23": 190.0,
+   "weekRegularValueIdr": 4212682500.0
+  },
+  {
+   "ticker": "KREN",
+   "hsc": false,
+   "sharesOutstanding": 18208470100,
+   "close16": 15.0,
+   "close19": 14.0,
+   "close23": 15.0,
+   "weekRegularValueIdr": 14916475800.0
+  },
+  {
+   "ticker": "KRYA",
+   "hsc": false,
+   "sharesOutstanding": 1663943474,
+   "close16": 41.0,
+   "close19": 40.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 2567809800.0
+  },
+  {
+   "ticker": "KSIX",
+   "hsc": false,
+   "sharesOutstanding": 2137831800,
+   "close16": 342.0,
+   "close19": 326.0,
+   "close23": 372.0,
+   "weekRegularValueIdr": 210501600.0
+  },
+  {
+   "ticker": "KUAS",
+   "hsc": false,
+   "sharesOutstanding": 1292808150,
+   "close16": 75.0,
+   "close19": 70.0,
+   "close23": 81.0,
+   "weekRegularValueIdr": 3684303400.0
+  },
+  {
+   "ticker": "LABA",
+   "hsc": false,
+   "sharesOutstanding": 1103402553,
+   "close16": 96.0,
+   "close19": 96.0,
+   "close23": 102.0,
+   "weekRegularValueIdr": 3579962700.0
+  },
+  {
+   "ticker": "LABS",
+   "hsc": false,
+   "sharesOutstanding": 3950000000,
+   "close16": 138.0,
+   "close19": 131.0,
+   "close23": 137.0,
+   "weekRegularValueIdr": 754486400.0
+  },
+  {
+   "ticker": "LAJU",
+   "hsc": false,
+   "sharesOutstanding": 2149942974,
+   "close16": 49.0,
+   "close19": 47.0,
+   "close23": 51.0,
+   "weekRegularValueIdr": 2048577900.0
+  },
+  {
+   "ticker": "LAND",
+   "hsc": false,
+   "sharesOutstanding": 2792620000,
+   "close16": 44.0,
+   "close19": 41.0,
+   "close23": 49.0,
+   "weekRegularValueIdr": 1513291000.0
+  },
+  {
+   "ticker": "LAPD",
+   "hsc": false,
+   "sharesOutstanding": 3966350139,
+   "close16": 60.0,
+   "close19": 56.0,
+   "close23": 62.0,
+   "weekRegularValueIdr": 7977216600.0
+  },
+  {
+   "ticker": "LCGP",
+   "hsc": false,
+   "sharesOutstanding": 5630000914,
+   "close16": 114.0,
+   "close19": 114.0,
+   "close23": 114.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "LCKM",
+   "hsc": false,
+   "sharesOutstanding": 1000000000,
+   "close16": 109.0,
+   "close19": 109.0,
+   "close23": 109.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "LEAD",
+   "hsc": false,
+   "sharesOutstanding": 5799616328,
+   "close16": 78.0,
+   "close19": 73.0,
+   "close23": 87.0,
+   "weekRegularValueIdr": 8418196600.0
+  },
+  {
+   "ticker": "LFLO",
+   "hsc": false,
+   "sharesOutstanding": 1307734937,
+   "close16": 540.0,
+   "close19": 580.0,
+   "close23": 660.0,
+   "weekRegularValueIdr": 94958400.0
+  },
+  {
+   "ticker": "LIFE",
+   "hsc": true,
+   "sharesOutstanding": 2100000000,
+   "close16": 8975.0,
+   "close19": 8350.0,
+   "close23": 9025.0,
+   "weekRegularValueIdr": 576077500.0
+  },
+  {
+   "ticker": "LINK",
+   "hsc": false,
+   "sharesOutstanding": 2863195484,
+   "close16": 1285.0,
+   "close19": 1200.0,
+   "close23": 1275.0,
+   "weekRegularValueIdr": 441218000.0
+  },
+  {
+   "ticker": "LION",
+   "hsc": false,
+   "sharesOutstanding": 520160000,
+   "close16": 238.0,
+   "close19": 230.0,
+   "close23": 268.0,
+   "weekRegularValueIdr": 197885200.0
+  },
+  {
+   "ticker": "LIVE",
+   "hsc": false,
+   "sharesOutstanding": 4593005014,
+   "close16": 123.0,
+   "close19": 139.0,
+   "close23": 131.0,
+   "weekRegularValueIdr": 421677900.0
+  },
+  {
+   "ticker": "LMAS",
+   "hsc": false,
+   "sharesOutstanding": 787851525,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "LMAX",
+   "hsc": false,
+   "sharesOutstanding": 650008775,
+   "close16": 85.0,
+   "close19": 77.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 508769000.0
+  },
+  {
+   "ticker": "LMPI",
+   "hsc": false,
+   "sharesOutstanding": 1008517669,
+   "close16": 128.0,
+   "close19": 124.0,
+   "close23": 150.0,
+   "weekRegularValueIdr": 44330000.0
+  },
+  {
+   "ticker": "LMSH",
+   "hsc": false,
+   "sharesOutstanding": 96000000,
+   "close16": 256.0,
+   "close19": 256.0,
+   "close23": 256.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "LOPI",
+   "hsc": false,
+   "sharesOutstanding": 1100011289,
+   "close16": 62.0,
+   "close19": 56.0,
+   "close23": 54.0,
+   "weekRegularValueIdr": 11660483000.0
+  },
+  {
+   "ticker": "LPCK",
+   "hsc": false,
+   "sharesOutstanding": 5134685692,
+   "close16": 486.0,
+   "close19": 488.0,
+   "close23": 498.0,
+   "weekRegularValueIdr": 298336300.0
+  },
+  {
+   "ticker": "LPGI",
+   "hsc": false,
+   "sharesOutstanding": 3000000000,
+   "close16": 630.0,
+   "close19": 595.0,
+   "close23": 600.0,
+   "weekRegularValueIdr": 225512000.0
+  },
+  {
+   "ticker": "LPIN",
+   "hsc": false,
+   "sharesOutstanding": 425000000,
+   "close16": 420.0,
+   "close19": 420.0,
+   "close23": 436.0,
+   "weekRegularValueIdr": 357060800.0
+  },
+  {
+   "ticker": "LPKR",
+   "hsc": false,
+   "sharesOutstanding": 70898018369,
+   "close16": 39.0,
+   "close19": 38.0,
+   "close23": 43.0,
+   "weekRegularValueIdr": 18236965400.0
+  },
+  {
+   "ticker": "LPLI",
+   "hsc": false,
+   "sharesOutstanding": 1170432803,
+   "close16": 179.0,
+   "close19": 184.0,
+   "close23": 195.0,
+   "weekRegularValueIdr": 164688100.0
+  },
+  {
+   "ticker": "LPPF",
+   "hsc": false,
+   "sharesOutstanding": 2227279280,
+   "close16": 1525.0,
+   "close19": 1510.0,
+   "close23": 1585.0,
+   "weekRegularValueIdr": 18090950500.0
+  },
+  {
+   "ticker": "LPPS",
+   "hsc": false,
+   "sharesOutstanding": 2588250000,
+   "close16": 56.0,
+   "close19": 53.0,
+   "close23": 57.0,
+   "weekRegularValueIdr": 644370100.0
+  },
+  {
+   "ticker": "LRNA",
+   "hsc": false,
+   "sharesOutstanding": 350000022,
+   "close16": 184.0,
+   "close19": 180.0,
+   "close23": 195.0,
+   "weekRegularValueIdr": 98749700.0
+  },
+  {
+   "ticker": "LSIP",
+   "hsc": false,
+   "sharesOutstanding": 6819963965,
+   "close16": 1280.0,
+   "close19": 1275.0,
+   "close23": 1470.0,
+   "weekRegularValueIdr": 73562766000.0
+  },
+  {
+   "ticker": "LTLS",
+   "hsc": false,
+   "sharesOutstanding": 1560000000,
+   "close16": 770.0,
+   "close19": 740.0,
+   "close23": 860.0,
+   "weekRegularValueIdr": 292913500.0
+  },
+  {
+   "ticker": "LUCK",
+   "hsc": false,
+   "sharesOutstanding": 715749640,
+   "close16": 84.0,
+   "close19": 82.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 1295135300.0
+  },
+  {
+   "ticker": "LUCY",
+   "hsc": false,
+   "sharesOutstanding": 1514773893,
+   "close16": 123.0,
+   "close19": 111.0,
+   "close23": 102.0,
+   "weekRegularValueIdr": 28338684100.0
+  },
+  {
+   "ticker": "MABA",
+   "hsc": false,
+   "sharesOutstanding": 15365229912,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MAGP",
+   "hsc": false,
+   "sharesOutstanding": 9000000004,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MAHA",
+   "hsc": false,
+   "sharesOutstanding": 16666000000,
+   "close16": 132.0,
+   "close19": 124.0,
+   "close23": 135.0,
+   "weekRegularValueIdr": 7484412700.0
+  },
+  {
+   "ticker": "MAIN",
+   "hsc": false,
+   "sharesOutstanding": 2238750000,
+   "close16": 535.0,
+   "close19": 520.0,
+   "close23": 610.0,
+   "weekRegularValueIdr": 5003040400.0
+  },
+  {
+   "ticker": "MANG",
+   "hsc": false,
+   "sharesOutstanding": 3812607629,
+   "close16": 32.0,
+   "close19": 29.0,
+   "close23": 35.0,
+   "weekRegularValueIdr": 1559506100.0
+  },
+  {
+   "ticker": "MAPA",
+   "hsc": false,
+   "sharesOutstanding": 28504000000,
+   "close16": 520.0,
+   "close19": 496.0,
+   "close23": 585.0,
+   "weekRegularValueIdr": 147001259900.0
+  },
+  {
+   "ticker": "MAPB",
+   "hsc": false,
+   "sharesOutstanding": 2387922900,
+   "close16": 1115.0,
+   "close19": 1055.0,
+   "close23": 1125.0,
+   "weekRegularValueIdr": 23882000.0
+  },
+  {
+   "ticker": "MAPI",
+   "hsc": false,
+   "sharesOutstanding": 16600000000,
+   "close16": 1320.0,
+   "close19": 1230.0,
+   "close23": 1390.0,
+   "weekRegularValueIdr": 45582845000.0
+  },
+  {
+   "ticker": "MARI",
+   "hsc": false,
+   "sharesOutstanding": 5252644000,
+   "close16": 23.0,
+   "close19": 23.0,
+   "close23": 23.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MARK",
+   "hsc": false,
+   "sharesOutstanding": 3800000310,
+   "close16": 1070.0,
+   "close19": 1090.0,
+   "close23": 1155.0,
+   "weekRegularValueIdr": 82532045000.0
+  },
+  {
+   "ticker": "MASB",
+   "hsc": false,
+   "sharesOutstanding": 1387737233,
+   "close16": 2900.0,
+   "close19": 2930.0,
+   "close23": 3000.0,
+   "weekRegularValueIdr": 38232000.0
+  },
+  {
+   "ticker": "MAXI",
+   "hsc": false,
+   "sharesOutstanding": 9610099981,
+   "close16": 21.0,
+   "close19": 21.0,
+   "close23": 23.0,
+   "weekRegularValueIdr": 3968232200.0
+  },
+  {
+   "ticker": "MAYA",
+   "hsc": true,
+   "sharesOutstanding": 25906179152,
+   "close16": 169.0,
+   "close19": 160.0,
+   "close23": 169.0,
+   "weekRegularValueIdr": 1999261900.0
+  },
+  {
+   "ticker": "MBAP",
+   "hsc": false,
+   "sharesOutstanding": 1227271952,
+   "close16": 1425.0,
+   "close19": 1450.0,
+   "close23": 1695.0,
+   "weekRegularValueIdr": 737837500.0
+  },
+  {
+   "ticker": "MBMA",
+   "hsc": false,
+   "sharesOutstanding": 107995419900,
+   "close16": 374.0,
+   "close19": 348.0,
+   "close23": 376.0,
+   "weekRegularValueIdr": 378071501800.0
+  },
+  {
+   "ticker": "MBSS",
+   "hsc": false,
+   "sharesOutstanding": 1750026639,
+   "close16": 3110.0,
+   "close19": 3000.0,
+   "close23": 3940.0,
+   "weekRegularValueIdr": 85862902000.0
+  },
+  {
+   "ticker": "MBTO",
+   "hsc": false,
+   "sharesOutstanding": 1070000000,
+   "close16": 107.0,
+   "close19": 102.0,
+   "close23": 122.0,
+   "weekRegularValueIdr": 1706128300.0
+  },
+  {
+   "ticker": "MCAS",
+   "hsc": false,
+   "sharesOutstanding": 867933300,
+   "close16": 206.0,
+   "close19": 192.0,
+   "close23": 208.0,
+   "weekRegularValueIdr": 886739900.0
+  },
+  {
+   "ticker": "MCOL",
+   "hsc": true,
+   "sharesOutstanding": 3555560000,
+   "close16": 3440.0,
+   "close19": 3440.0,
+   "close23": 3660.0,
+   "weekRegularValueIdr": 492645000.0
+  },
+  {
+   "ticker": "MCOR",
+   "hsc": false,
+   "sharesOutstanding": 37540533209,
+   "close16": 60.0,
+   "close19": 56.0,
+   "close23": 59.0,
+   "weekRegularValueIdr": 2575691200.0
+  },
+  {
+   "ticker": "MDIA",
+   "hsc": true,
+   "sharesOutstanding": 39215538400,
+   "close16": 96.0,
+   "close19": 90.0,
+   "close23": 94.0,
+   "weekRegularValueIdr": 118265492500.0
+  },
+  {
+   "ticker": "MDIY",
+   "hsc": false,
+   "sharesOutstanding": 25190392000,
+   "close16": 800.0,
+   "close19": 800.0,
+   "close23": 760.0,
+   "weekRegularValueIdr": 3971843000.0
+  },
+  {
+   "ticker": "MDKA",
+   "hsc": false,
+   "sharesOutstanding": 24472983771,
+   "close16": 2430.0,
+   "close19": 2260.0,
+   "close23": 2190.0,
+   "weekRegularValueIdr": 927435541000.0
+  },
+  {
+   "ticker": "MDKI",
+   "hsc": false,
+   "sharesOutstanding": 2530150002,
+   "close16": 180.0,
+   "close19": 168.0,
+   "close23": 188.0,
+   "weekRegularValueIdr": 649574100.0
+  },
+  {
+   "ticker": "MDLA",
+   "hsc": false,
+   "sharesOutstanding": 14012825000,
+   "close16": 189.0,
+   "close19": 181.0,
+   "close23": 193.0,
+   "weekRegularValueIdr": 2362724900.0
+  },
+  {
+   "ticker": "MDLN",
+   "hsc": false,
+   "sharesOutstanding": 12533067322,
+   "close16": 36.0,
+   "close19": 34.0,
+   "close23": 38.0,
+   "weekRegularValueIdr": 1240422800.0
+  },
+  {
+   "ticker": "MDRN",
+   "hsc": false,
+   "sharesOutstanding": 7632167798,
+   "close16": 26.0,
+   "close19": 26.0,
+   "close23": 26.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MEDC",
+   "hsc": false,
+   "sharesOutstanding": 25136231252,
+   "close16": 1290.0,
+   "close19": 1260.0,
+   "close23": 1480.0,
+   "weekRegularValueIdr": 452115364000.0
+  },
+  {
+   "ticker": "MEDS",
+   "hsc": false,
+   "sharesOutstanding": 1562500000,
+   "close16": 66.0,
+   "close19": 62.0,
+   "close23": 67.0,
+   "weekRegularValueIdr": 16103112600.0
+  },
+  {
+   "ticker": "MEGA",
+   "hsc": true,
+   "sharesOutstanding": 23247028262,
+   "close16": 1895.0,
+   "close19": 1885.0,
+   "close23": 1920.0,
+   "weekRegularValueIdr": 489224500.0
+  },
+  {
+   "ticker": "MEJA",
+   "hsc": false,
+   "sharesOutstanding": 2608081058,
+   "close16": 116.0,
+   "close19": 105.0,
+   "close23": 114.0,
+   "weekRegularValueIdr": 30873545800.0
+  },
+  {
+   "ticker": "MENN",
+   "hsc": false,
+   "sharesOutstanding": 1434052006,
+   "close16": 53.0,
+   "close19": 53.0,
+   "close23": 53.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MERI",
+   "hsc": false,
+   "sharesOutstanding": 1035132500,
+   "close16": 85.0,
+   "close19": 80.0,
+   "close23": 91.0,
+   "weekRegularValueIdr": 1642935300.0
+  },
+  {
+   "ticker": "MERK",
+   "hsc": false,
+   "sharesOutstanding": 448000000,
+   "close16": 3420.0,
+   "close19": 3570.0,
+   "close23": 3770.0,
+   "weekRegularValueIdr": 696694000.0
+  },
+  {
+   "ticker": "META",
+   "hsc": false,
+   "sharesOutstanding": 17710708194,
+   "close16": 238.0,
+   "close19": 238.0,
+   "close23": 238.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MFMI",
+   "hsc": false,
+   "sharesOutstanding": 757581000,
+   "close16": 1300.0,
+   "close19": 1300.0,
+   "close23": 1300.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MGLV",
+   "hsc": false,
+   "sharesOutstanding": 1904883411,
+   "close16": 11450.0,
+   "close19": 10325.0,
+   "close23": 12300.0,
+   "weekRegularValueIdr": 54483695000.0
+  },
+  {
+   "ticker": "MGNA",
+   "hsc": false,
+   "sharesOutstanding": 3411179835,
+   "close16": 148.0,
+   "close19": 138.0,
+   "close23": 143.0,
+   "weekRegularValueIdr": 4417208700.0
+  },
+  {
+   "ticker": "MGRO",
+   "hsc": true,
+   "sharesOutstanding": 3554445700,
+   "close16": 720.0,
+   "close19": 710.0,
+   "close23": 720.0,
+   "weekRegularValueIdr": 10253263000.0
+  },
+  {
+   "ticker": "MHKI",
+   "hsc": false,
+   "sharesOutstanding": 3750000000,
+   "close16": 98.0,
+   "close19": 93.0,
+   "close23": 119.0,
+   "weekRegularValueIdr": 7491271900.0
+  },
+  {
+   "ticker": "MICE",
+   "hsc": false,
+   "sharesOutstanding": 600000000,
+   "close16": 472.0,
+   "close19": 458.0,
+   "close23": 488.0,
+   "weekRegularValueIdr": 34744500.0
+  },
+  {
+   "ticker": "MIDI",
+   "hsc": false,
+   "sharesOutstanding": 33435294800,
+   "close16": 240.0,
+   "close19": 232.0,
+   "close23": 270.0,
+   "weekRegularValueIdr": 10317461600.0
+  },
+  {
+   "ticker": "MIKA",
+   "hsc": false,
+   "sharesOutstanding": 13907481500,
+   "close16": 1475.0,
+   "close19": 1375.0,
+   "close23": 1410.0,
+   "weekRegularValueIdr": 60205306000.0
+  },
+  {
+   "ticker": "MINA",
+   "hsc": false,
+   "sharesOutstanding": 9843750000,
+   "close16": 157.0,
+   "close19": 147.0,
+   "close23": 174.0,
+   "weekRegularValueIdr": 62958640700.0
+  },
+  {
+   "ticker": "MINE",
+   "hsc": false,
+   "sharesOutstanding": 4084435300,
+   "close16": 268.0,
+   "close19": 250.0,
+   "close23": 256.0,
+   "weekRegularValueIdr": 2727884800.0
+  },
+  {
+   "ticker": "MIRA",
+   "hsc": false,
+   "sharesOutstanding": 3961452039,
+   "close16": 20.0,
+   "close19": 19.0,
+   "close23": 21.0,
+   "weekRegularValueIdr": 3010747600.0
+  },
+  {
+   "ticker": "MITI",
+   "hsc": false,
+   "sharesOutstanding": 3750526603,
+   "close16": 276.0,
+   "close19": 258.0,
+   "close23": 292.0,
+   "weekRegularValueIdr": 14499017400.0
+  },
+  {
+   "ticker": "MKAP",
+   "hsc": false,
+   "sharesOutstanding": 3250000000,
+   "close16": 1060.0,
+   "close19": 1045.0,
+   "close23": 1060.0,
+   "weekRegularValueIdr": 9842657500.0
+  },
+  {
+   "ticker": "MKNT",
+   "hsc": false,
+   "sharesOutstanding": 1029990000000,
+   "close16": 1.0,
+   "close19": 2.0,
+   "close23": 6.0,
+   "weekRegularValueIdr": 184071400.0
+  },
+  {
+   "ticker": "MKPI",
+   "hsc": true,
+   "sharesOutstanding": 948194000,
+   "close16": 20550.0,
+   "close19": 20450.0,
+   "close23": 19600.0,
+   "weekRegularValueIdr": 3982302500.0
+  },
+  {
+   "ticker": "MKTR",
+   "hsc": false,
+   "sharesOutstanding": 12060428584,
+   "close16": 116.0,
+   "close19": 113.0,
+   "close23": 117.0,
+   "weekRegularValueIdr": 457925400.0
+  },
+  {
+   "ticker": "MLBI",
+   "hsc": false,
+   "sharesOutstanding": 2107000000,
+   "close16": 6725.0,
+   "close19": 6325.0,
+   "close23": 6600.0,
+   "weekRegularValueIdr": 3986097500.0
+  },
+  {
+   "ticker": "MLIA",
+   "hsc": false,
+   "sharesOutstanding": 6615000000,
+   "close16": 210.0,
+   "close19": 196.0,
+   "close23": 198.0,
+   "weekRegularValueIdr": 99869400.0
+  },
+  {
+   "ticker": "MLPL",
+   "hsc": false,
+   "sharesOutstanding": 15682323987,
+   "close16": 63.0,
+   "close19": 59.0,
+   "close23": 68.0,
+   "weekRegularValueIdr": 4268490700.0
+  },
+  {
+   "ticker": "MLPT",
+   "hsc": true,
+   "sharesOutstanding": 46875000000,
+   "close16": 740.0,
+   "close19": 690.0,
+   "close23": 630.0,
+   "weekRegularValueIdr": 14602428500.0
+  },
+  {
+   "ticker": "MMIX",
+   "hsc": false,
+   "sharesOutstanding": 4800425380,
+   "close16": 830.0,
+   "close19": 775.0,
+   "close23": 590.0,
+   "weekRegularValueIdr": 23402202000.0
+  },
+  {
+   "ticker": "MMLP",
+   "hsc": false,
+   "sharesOutstanding": 6889134608,
+   "close16": 252.0,
+   "close19": 236.0,
+   "close23": 252.0,
+   "weekRegularValueIdr": 2481332600.0
+  },
+  {
+   "ticker": "MNCN",
+   "hsc": false,
+   "sharesOutstanding": 15049787710,
+   "close16": 97.0,
+   "close19": 91.0,
+   "close23": 91.0,
+   "weekRegularValueIdr": 96526721200.0
+  },
+  {
+   "ticker": "MOLI",
+   "hsc": false,
+   "sharesOutstanding": 2724036581,
+   "close16": 328.0,
+   "close19": 336.0,
+   "close23": 384.0,
+   "weekRegularValueIdr": 11398372800.0
+  },
+  {
+   "ticker": "MORA",
+   "hsc": true,
+   "sharesOutstanding": 47774192736,
+   "close16": 3910.0,
+   "close19": 3640.0,
+   "close23": 3240.0,
+   "weekRegularValueIdr": 6117712000.0
+  },
+  {
+   "ticker": "MPIX",
+   "hsc": false,
+   "sharesOutstanding": 1562574308,
+   "close16": 193.0,
+   "close19": 180.0,
+   "close23": 202.0,
+   "weekRegularValueIdr": 11831665600.0
+  },
+  {
+   "ticker": "MPMX",
+   "hsc": false,
+   "sharesOutstanding": 4386963276,
+   "close16": 975.0,
+   "close19": 960.0,
+   "close23": 1020.0,
+   "weekRegularValueIdr": 38627935500.0
+  },
+  {
+   "ticker": "MPOW",
+   "hsc": false,
+   "sharesOutstanding": 816997053,
+   "close16": 82.0,
+   "close19": 79.0,
+   "close23": 87.0,
+   "weekRegularValueIdr": 845806800.0
+  },
+  {
+   "ticker": "MPPA",
+   "hsc": false,
+   "sharesOutstanding": 33828872408,
+   "close16": 36.0,
+   "close19": 33.0,
+   "close23": 37.0,
+   "weekRegularValueIdr": 4142402900.0
+  },
+  {
+   "ticker": "MPRO",
+   "hsc": true,
+   "sharesOutstanding": 9942500000,
+   "close16": 11600.0,
+   "close19": 11550.0,
+   "close23": 11600.0,
+   "weekRegularValueIdr": 40380000.0
+  },
+  {
+   "ticker": "MPXL",
+   "hsc": false,
+   "sharesOutstanding": 2000014587,
+   "close16": 286.0,
+   "close19": 288.0,
+   "close23": 322.0,
+   "weekRegularValueIdr": 49461461400.0
+  },
+  {
+   "ticker": "MRAT",
+   "hsc": false,
+   "sharesOutstanding": 428000000,
+   "close16": 378.0,
+   "close19": 380.0,
+   "close23": 400.0,
+   "weekRegularValueIdr": 901519400.0
+  },
+  {
+   "ticker": "MREI",
+   "hsc": false,
+   "sharesOutstanding": 517791681,
+   "close16": 920.0,
+   "close19": 920.0,
+   "close23": 920.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MSIE",
+   "hsc": false,
+   "sharesOutstanding": 1460007754,
+   "close16": 85.0,
+   "close19": 92.0,
+   "close23": 94.0,
+   "weekRegularValueIdr": 1813559400.0
+  },
+  {
+   "ticker": "MSIN",
+   "hsc": false,
+   "sharesOutstanding": 60676178205,
+   "close16": 136.0,
+   "close19": 127.0,
+   "close23": 112.0,
+   "weekRegularValueIdr": 12436984700.0
+  },
+  {
+   "ticker": "MSJA",
+   "hsc": true,
+   "sharesOutstanding": 5882352900,
+   "close16": 785.0,
+   "close19": 735.0,
+   "close23": 680.0,
+   "weekRegularValueIdr": 45055317500.0
+  },
+  {
+   "ticker": "MSKY",
+   "hsc": false,
+   "sharesOutstanding": 1994370480,
+   "close16": 37.0,
+   "close19": 35.0,
+   "close23": 36.0,
+   "weekRegularValueIdr": 613722900.0
+  },
+  {
+   "ticker": "MSTI",
+   "hsc": false,
+   "sharesOutstanding": 3139416200,
+   "close16": 1165.0,
+   "close19": 1120.0,
+   "close23": 1235.0,
+   "weekRegularValueIdr": 8689492500.0
+  },
+  {
+   "ticker": "MTDL",
+   "hsc": false,
+   "sharesOutstanding": 12276884585,
+   "close16": 458.0,
+   "close19": 454.0,
+   "close23": 474.0,
+   "weekRegularValueIdr": 5510452400.0
+  },
+  {
+   "ticker": "MTEL",
+   "hsc": true,
+   "sharesOutstanding": 83559677444,
+   "close16": 404.0,
+   "close19": 402.0,
+   "close23": 404.0,
+   "weekRegularValueIdr": 29429135400.0
+  },
+  {
+   "ticker": "MTFN",
+   "hsc": false,
+   "sharesOutstanding": 31842082852,
+   "close16": 13.0,
+   "close19": 13.0,
+   "close23": 13.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MTLA",
+   "hsc": false,
+   "sharesOutstanding": 7655126330,
+   "close16": 690.0,
+   "close19": 690.0,
+   "close23": 715.0,
+   "weekRegularValueIdr": 345047500.0
+  },
+  {
+   "ticker": "MTMH",
+   "hsc": false,
+   "sharesOutstanding": 2068526950,
+   "close16": 845.0,
+   "close19": 800.0,
+   "close23": 945.0,
+   "weekRegularValueIdr": 99506500.0
+  },
+  {
+   "ticker": "MTPS",
+   "hsc": false,
+   "sharesOutstanding": 2084850829,
+   "close16": 81.0,
+   "close19": 81.0,
+   "close23": 81.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MTRA",
+   "hsc": false,
+   "sharesOutstanding": 770000000,
+   "close16": 244.0,
+   "close19": 244.0,
+   "close23": 244.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MTSM",
+   "hsc": false,
+   "sharesOutstanding": 232848000,
+   "close16": 500.0,
+   "close19": 500.0,
+   "close23": 500.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "MTWI",
+   "hsc": false,
+   "sharesOutstanding": 2924486639,
+   "close16": 240.0,
+   "close19": 238.0,
+   "close23": 254.0,
+   "weekRegularValueIdr": 262944200.0
+  },
+  {
+   "ticker": "MUTU",
+   "hsc": false,
+   "sharesOutstanding": 3452228885,
+   "close16": 98.0,
+   "close19": 94.0,
+   "close23": 109.0,
+   "weekRegularValueIdr": 17513451400.0
+  },
+  {
+   "ticker": "MYOH",
+   "hsc": false,
+   "sharesOutstanding": 2206312500,
+   "close16": 910.0,
+   "close19": 860.0,
+   "close23": 925.0,
+   "weekRegularValueIdr": 237961000.0
+  },
+  {
+   "ticker": "MYOR",
+   "hsc": false,
+   "sharesOutstanding": 22358699725,
+   "close16": 1370.0,
+   "close19": 1345.0,
+   "close23": 1380.0,
+   "weekRegularValueIdr": 67146147500.0
+  },
+  {
+   "ticker": "MYTX",
+   "hsc": false,
+   "sharesOutstanding": 7747281949,
+   "close16": 41.0,
+   "close19": 41.0,
+   "close23": 41.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "NAIK",
+   "hsc": false,
+   "sharesOutstanding": 3329422047,
+   "close16": 69.0,
+   "close19": 65.0,
+   "close23": 70.0,
+   "weekRegularValueIdr": 1475701300.0
+  },
+  {
+   "ticker": "NANO",
+   "hsc": false,
+   "sharesOutstanding": 4285440269,
+   "close16": 26.0,
+   "close19": 24.0,
+   "close23": 31.0,
+   "weekRegularValueIdr": 15357133400.0
+  },
+  {
+   "ticker": "NASA",
+   "hsc": false,
+   "sharesOutstanding": 11004929322,
+   "close16": 30.0,
+   "close19": 28.0,
+   "close23": 32.0,
+   "weekRegularValueIdr": 1541747700.0
+  },
+  {
+   "ticker": "NASI",
+   "hsc": false,
+   "sharesOutstanding": 807400000,
+   "close16": 124.0,
+   "close19": 116.0,
+   "close23": 135.0,
+   "weekRegularValueIdr": 3042920900.0
+  },
+  {
+   "ticker": "NATO",
+   "hsc": false,
+   "sharesOutstanding": 8001111504,
+   "close16": 780.0,
+   "close19": 730.0,
+   "close23": 795.0,
+   "weekRegularValueIdr": 1201171000.0
+  },
+  {
+   "ticker": "NAYZ",
+   "hsc": false,
+   "sharesOutstanding": 2550011472,
+   "close16": 75.0,
+   "close19": 82.0,
+   "close23": 79.0,
+   "weekRegularValueIdr": 34088540100.0
+  },
+  {
+   "ticker": "NCKL",
+   "hsc": false,
+   "sharesOutstanding": 63098600000,
+   "close16": 690.0,
+   "close19": 700.0,
+   "close23": 790.0,
+   "weekRegularValueIdr": 200532284000.0
+  },
+  {
+   "ticker": "NELY",
+   "hsc": false,
+   "sharesOutstanding": 2350000000,
+   "close16": 166.0,
+   "close19": 158.0,
+   "close23": 180.0,
+   "weekRegularValueIdr": 891528700.0
+  },
+  {
+   "ticker": "NEST",
+   "hsc": false,
+   "sharesOutstanding": 4112500000,
+   "close16": 760.0,
+   "close19": 710.0,
+   "close23": 735.0,
+   "weekRegularValueIdr": 20138984000.0
+  },
+  {
+   "ticker": "NETV",
+   "hsc": false,
+   "sharesOutstanding": 41360517722,
+   "close16": 29.0,
+   "close19": 27.0,
+   "close23": 29.0,
+   "weekRegularValueIdr": 2770690900.0
+  },
+  {
+   "ticker": "NFCX",
+   "hsc": false,
+   "sharesOutstanding": 666667500,
+   "close16": 1660.0,
+   "close19": 1650.0,
+   "close23": 1680.0,
+   "weekRegularValueIdr": 60599000.0
+  },
+  {
+   "ticker": "NICE",
+   "hsc": false,
+   "sharesOutstanding": 6082020000,
+   "close16": 274.0,
+   "close19": 256.0,
+   "close23": 292.0,
+   "weekRegularValueIdr": 1556670800.0
+  },
+  {
+   "ticker": "NICK",
+   "hsc": true,
+   "sharesOutstanding": 651150000,
+   "close16": 2720.0,
+   "close19": 2560.0,
+   "close23": 2510.0,
+   "weekRegularValueIdr": 111627000.0
+  },
+  {
+   "ticker": "NICL",
+   "hsc": false,
+   "sharesOutstanding": 10635644907,
+   "close16": 276.0,
+   "close19": 258.0,
+   "close23": 272.0,
+   "weekRegularValueIdr": 8392195400.0
+  },
+  {
+   "ticker": "NIKL",
+   "hsc": false,
+   "sharesOutstanding": 2523350000,
+   "close16": 148.0,
+   "close19": 142.0,
+   "close23": 164.0,
+   "weekRegularValueIdr": 2033971300.0
+  },
+  {
+   "ticker": "NINE",
+   "hsc": false,
+   "sharesOutstanding": 2157000000,
+   "close16": 74.0,
+   "close19": 67.0,
+   "close23": 76.0,
+   "weekRegularValueIdr": 3961565200.0
+  },
+  {
+   "ticker": "NIRO",
+   "hsc": false,
+   "sharesOutstanding": 22198871804,
+   "close16": 135.0,
+   "close19": 134.0,
+   "close23": 136.0,
+   "weekRegularValueIdr": 858581900.0
+  },
+  {
+   "ticker": "NISP",
+   "hsc": false,
+   "sharesOutstanding": 22715776032,
+   "close16": 1120.0,
+   "close19": 1080.0,
+   "close23": 1185.0,
+   "weekRegularValueIdr": 62114364000.0
+  },
+  {
+   "ticker": "NOBU",
+   "hsc": false,
+   "sharesOutstanding": 7403659460,
+   "close16": 410.0,
+   "close19": 382.0,
+   "close23": 408.0,
+   "weekRegularValueIdr": 19756737600.0
+  },
+  {
+   "ticker": "NPGF",
+   "hsc": false,
+   "sharesOutstanding": 3240235840,
+   "close16": 37.0,
+   "close19": 35.0,
+   "close23": 39.0,
+   "weekRegularValueIdr": 2254424500.0
+  },
+  {
+   "ticker": "NRCA",
+   "hsc": false,
+   "sharesOutstanding": 2496258344,
+   "close16": 460.0,
+   "close19": 428.0,
+   "close23": 468.0,
+   "weekRegularValueIdr": 10460362600.0
+  },
+  {
+   "ticker": "NSSS",
+   "hsc": false,
+   "sharesOutstanding": 23801568645,
+   "close16": 595.0,
+   "close19": 555.0,
+   "close23": 575.0,
+   "weekRegularValueIdr": 19454290900.0
+  },
+  {
+   "ticker": "NTBK",
+   "hsc": false,
+   "sharesOutstanding": 2700064877,
+   "close16": 51.0,
+   "close19": 48.0,
+   "close23": 59.0,
+   "weekRegularValueIdr": 3691534700.0
+  },
+  {
+   "ticker": "NUSA",
+   "hsc": false,
+   "sharesOutstanding": 7700000148,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "NZIA",
+   "hsc": false,
+   "sharesOutstanding": 2197540705,
+   "close16": 116.0,
+   "close19": 108.0,
+   "close23": 113.0,
+   "weekRegularValueIdr": 2985603900.0
+  },
+  {
+   "ticker": "OASA",
+   "hsc": false,
+   "sharesOutstanding": 6347220000,
+   "close16": 177.0,
+   "close19": 165.0,
+   "close23": 212.0,
+   "weekRegularValueIdr": 37167494700.0
+  },
+  {
+   "ticker": "OBAT",
+   "hsc": false,
+   "sharesOutstanding": 680376575,
+   "close16": 242.0,
+   "close19": 254.0,
+   "close23": 252.0,
+   "weekRegularValueIdr": 403945400.0
+  },
+  {
+   "ticker": "OBMD",
+   "hsc": false,
+   "sharesOutstanding": 805992931,
+   "close16": 156.0,
+   "close19": 156.0,
+   "close23": 167.0,
+   "weekRegularValueIdr": 430845200.0
+  },
+  {
+   "ticker": "OCAP",
+   "hsc": false,
+   "sharesOutstanding": 273200000,
+   "close16": 159.0,
+   "close19": 159.0,
+   "close23": 159.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "OILS",
+   "hsc": false,
+   "sharesOutstanding": 454056563,
+   "close16": 298.0,
+   "close19": 278.0,
+   "close23": 334.0,
+   "weekRegularValueIdr": 10936289200.0
+  },
+  {
+   "ticker": "OKAS",
+   "hsc": false,
+   "sharesOutstanding": 2373449165,
+   "close16": 84.0,
+   "close19": 80.0,
+   "close23": 89.0,
+   "weekRegularValueIdr": 660978000.0
+  },
+  {
+   "ticker": "OLIV",
+   "hsc": false,
+   "sharesOutstanding": 1900073314,
+   "close16": 45.0,
+   "close19": 45.0,
+   "close23": 47.0,
+   "weekRegularValueIdr": 2097525600.0
+  },
+  {
+   "ticker": "OMED",
+   "hsc": false,
+   "sharesOutstanding": 27058850000,
+   "close16": 200.0,
+   "close19": 197.0,
+   "close23": 195.0,
+   "weekRegularValueIdr": 19150855300.0
+  },
+  {
+   "ticker": "OMRE",
+   "hsc": false,
+   "sharesOutstanding": 2945211000,
+   "close16": 850.0,
+   "close19": 810.0,
+   "close23": 845.0,
+   "weekRegularValueIdr": 37136500.0
+  },
+  {
+   "ticker": "OPMS",
+   "hsc": false,
+   "sharesOutstanding": 1000000000,
+   "close16": 75.0,
+   "close19": 70.0,
+   "close23": 85.0,
+   "weekRegularValueIdr": 628811900.0
+  },
+  {
+   "ticker": "PACK",
+   "hsc": false,
+   "sharesOutstanding": 34122954271,
+   "close16": 360.0,
+   "close19": 324.0,
+   "close23": 404.0,
+   "weekRegularValueIdr": 411093072400.0
+  },
+  {
+   "ticker": "PADA",
+   "hsc": false,
+   "sharesOutstanding": 3150000000,
+   "close16": 107.0,
+   "close19": 100.0,
+   "close23": 127.0,
+   "weekRegularValueIdr": 10091797500.0
+  },
+  {
+   "ticker": "PADI",
+   "hsc": false,
+   "sharesOutstanding": 13568695829,
+   "close16": 32.0,
+   "close19": 33.0,
+   "close23": 35.0,
+   "weekRegularValueIdr": 27986668800.0
+  },
+  {
+   "ticker": "PALM",
+   "hsc": false,
+   "sharesOutstanding": 15732874458,
+   "close16": 238.0,
+   "close19": 224.0,
+   "close23": 238.0,
+   "weekRegularValueIdr": 271147800.0
+  },
+  {
+   "ticker": "PAMG",
+   "hsc": false,
+   "sharesOutstanding": 3125000000,
+   "close16": 42.0,
+   "close19": 41.0,
+   "close23": 47.0,
+   "weekRegularValueIdr": 926174500.0
+  },
+  {
+   "ticker": "PANI",
+   "hsc": false,
+   "sharesOutstanding": 18189502198,
+   "close16": 4250.0,
+   "close19": 4080.0,
+   "close23": 4490.0,
+   "weekRegularValueIdr": 134500588000.0
+  },
+  {
+   "ticker": "PANR",
+   "hsc": false,
+   "sharesOutstanding": 1387500000,
+   "close16": 362.0,
+   "close19": 338.0,
+   "close23": 350.0,
+   "weekRegularValueIdr": 130744200.0
+  },
+  {
+   "ticker": "PANS",
+   "hsc": false,
+   "sharesOutstanding": 720000000,
+   "close16": 1505.0,
+   "close19": 1545.0,
+   "close23": 1595.0,
+   "weekRegularValueIdr": 1113222500.0
+  },
+  {
+   "ticker": "PART",
+   "hsc": false,
+   "sharesOutstanding": 2850594054,
+   "close16": 92.0,
+   "close19": 90.0,
+   "close23": 108.0,
+   "weekRegularValueIdr": 33466749300.0
+  },
+  {
+   "ticker": "PBID",
+   "hsc": false,
+   "sharesOutstanding": 7500000000,
+   "close16": 480.0,
+   "close19": 500.0,
+   "close23": 525.0,
+   "weekRegularValueIdr": 3683268300.0
+  },
+  {
+   "ticker": "PBRX",
+   "hsc": false,
+   "sharesOutstanding": 21482028246,
+   "close16": 23.0,
+   "close19": 22.0,
+   "close23": 25.0,
+   "weekRegularValueIdr": 2119614100.0
+  },
+  {
+   "ticker": "PBSA",
+   "hsc": false,
+   "sharesOutstanding": 6000000000,
+   "close16": 306.0,
+   "close19": 306.0,
+   "close23": 318.0,
+   "weekRegularValueIdr": 8308092200.0
+  },
+  {
+   "ticker": "PCAR",
+   "hsc": false,
+   "sharesOutstanding": 1166666700,
+   "close16": 76.0,
+   "close19": 71.0,
+   "close23": 81.0,
+   "weekRegularValueIdr": 21674663700.0
+  },
+  {
+   "ticker": "PDES",
+   "hsc": false,
+   "sharesOutstanding": 715000000,
+   "close16": 368.0,
+   "close19": 344.0,
+   "close23": 358.0,
+   "weekRegularValueIdr": 66153600.0
+  },
+  {
+   "ticker": "PDPP",
+   "hsc": false,
+   "sharesOutstanding": 3061341438,
+   "close16": 314.0,
+   "close19": 308.0,
+   "close23": 326.0,
+   "weekRegularValueIdr": 252465800.0
+  },
+  {
+   "ticker": "PEGE",
+   "hsc": false,
+   "sharesOutstanding": 3777889408,
+   "close16": 114.0,
+   "close19": 114.0,
+   "close23": 116.0,
+   "weekRegularValueIdr": 5624014500.0
+  },
+  {
+   "ticker": "PEHA",
+   "hsc": false,
+   "sharesOutstanding": 840000000,
+   "close16": 248.0,
+   "close19": 232.0,
+   "close23": 278.0,
+   "weekRegularValueIdr": 493206800.0
+  },
+  {
+   "ticker": "PEVE",
+   "hsc": false,
+   "sharesOutstanding": 1765625000,
+   "close16": 334.0,
+   "close19": 328.0,
+   "close23": 346.0,
+   "weekRegularValueIdr": 864179400.0
+  },
+  {
+   "ticker": "PGAS",
+   "hsc": false,
+   "sharesOutstanding": 24241508196,
+   "close16": 1190.0,
+   "close19": 1220.0,
+   "close23": 1355.0,
+   "weekRegularValueIdr": 365463704500.0
+  },
+  {
+   "ticker": "PGEO",
+   "hsc": false,
+   "sharesOutstanding": 41954253581,
+   "close16": 880.0,
+   "close19": 830.0,
+   "close23": 1025.0,
+   "weekRegularValueIdr": 117834540500.0
+  },
+  {
+   "ticker": "PGJO",
+   "hsc": false,
+   "sharesOutstanding": 795859095,
+   "close16": 840.0,
+   "close19": 760.0,
+   "close23": 785.0,
+   "weekRegularValueIdr": 3819401000.0
+  },
+  {
+   "ticker": "PGLI",
+   "hsc": false,
+   "sharesOutstanding": 488000000,
+   "close16": 298.0,
+   "close19": 278.0,
+   "close23": 292.0,
+   "weekRegularValueIdr": 866314000.0
+  },
+  {
+   "ticker": "PGUN",
+   "hsc": true,
+   "sharesOutstanding": 5737848882,
+   "close16": 6850.0,
+   "close19": 7375.0,
+   "close23": 8475.0,
+   "weekRegularValueIdr": 3072055000.0
+  },
+  {
+   "ticker": "PICO",
+   "hsc": false,
+   "sharesOutstanding": 568375000,
+   "close16": 141.0,
+   "close19": 132.0,
+   "close23": 136.0,
+   "weekRegularValueIdr": 1361649200.0
+  },
+  {
+   "ticker": "PIPA",
+   "hsc": false,
+   "sharesOutstanding": 3426097190,
+   "close16": 104.0,
+   "close19": 97.0,
+   "close23": 111.0,
+   "weekRegularValueIdr": 14051421400.0
+  },
+  {
+   "ticker": "PJAA",
+   "hsc": false,
+   "sharesOutstanding": 1599999996,
+   "close16": 402.0,
+   "close19": 404.0,
+   "close23": 422.0,
+   "weekRegularValueIdr": 178982000.0
+  },
+  {
+   "ticker": "PJHB",
+   "hsc": false,
+   "sharesOutstanding": 1921239956,
+   "close16": 125.0,
+   "close19": 117.0,
+   "close23": 136.0,
+   "weekRegularValueIdr": 1143748600.0
+  },
+  {
+   "ticker": "PKPK",
+   "hsc": false,
+   "sharesOutstanding": 1200000000,
+   "close16": 7100.0,
+   "close19": 6625.0,
+   "close23": 7200.0,
+   "weekRegularValueIdr": 113507175000.0
+  },
+  {
+   "ticker": "PLAN",
+   "hsc": false,
+   "sharesOutstanding": 896709596,
+   "close16": 53.0,
+   "close19": 48.0,
+   "close23": 55.0,
+   "weekRegularValueIdr": 926467700.0
+  },
+  {
+   "ticker": "PLAS",
+   "hsc": false,
+   "sharesOutstanding": 1184200000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PLIN",
+   "hsc": false,
+   "sharesOutstanding": 3550000000,
+   "close16": 2510.0,
+   "close19": 2510.0,
+   "close23": 2510.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PMJS",
+   "hsc": false,
+   "sharesOutstanding": 13755600000,
+   "close16": 122.0,
+   "close19": 121.0,
+   "close23": 141.0,
+   "weekRegularValueIdr": 506345300.0
+  },
+  {
+   "ticker": "PMMP",
+   "hsc": false,
+   "sharesOutstanding": 2588300000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PMUI",
+   "hsc": false,
+   "sharesOutstanding": 5800000000,
+   "close16": 80.0,
+   "close19": 75.0,
+   "close23": 81.0,
+   "weekRegularValueIdr": 634360900.0
+  },
+  {
+   "ticker": "PNBN",
+   "hsc": false,
+   "sharesOutstanding": 23837645998,
+   "close16": 750.0,
+   "close19": 715.0,
+   "close23": 750.0,
+   "weekRegularValueIdr": 14877564500.0
+  },
+  {
+   "ticker": "PNBS",
+   "hsc": false,
+   "sharesOutstanding": 38425504906,
+   "close16": 36.0,
+   "close19": 35.0,
+   "close23": 39.0,
+   "weekRegularValueIdr": 1138681500.0
+  },
+  {
+   "ticker": "PNGO",
+   "hsc": false,
+   "sharesOutstanding": 781250000,
+   "close16": 3010.0,
+   "close19": 3000.0,
+   "close23": 3360.0,
+   "weekRegularValueIdr": 207459000.0
+  },
+  {
+   "ticker": "PNIN",
+   "hsc": false,
+   "sharesOutstanding": 4068323920,
+   "close16": 590.0,
+   "close19": 570.0,
+   "close23": 580.0,
+   "weekRegularValueIdr": 2262319500.0
+  },
+  {
+   "ticker": "PNLF",
+   "hsc": false,
+   "sharesOutstanding": 32022073293,
+   "close16": 164.0,
+   "close19": 162.0,
+   "close23": 168.0,
+   "weekRegularValueIdr": 36725798100.0
+  },
+  {
+   "ticker": "PNSE",
+   "hsc": false,
+   "sharesOutstanding": 797813496,
+   "close16": 384.0,
+   "close19": 480.0,
+   "close23": 655.0,
+   "weekRegularValueIdr": 2915668300.0
+  },
+  {
+   "ticker": "POLA",
+   "hsc": false,
+   "sharesOutstanding": 3351075600,
+   "close16": 80.0,
+   "close19": 78.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 12740476900.0
+  },
+  {
+   "ticker": "POLI",
+   "hsc": false,
+   "sharesOutstanding": 2010526400,
+   "close16": 720.0,
+   "close19": 670.0,
+   "close23": 750.0,
+   "weekRegularValueIdr": 203663000.0
+  },
+  {
+   "ticker": "POLL",
+   "hsc": false,
+   "sharesOutstanding": 8318823600,
+   "close16": 112.0,
+   "close19": 112.0,
+   "close23": 112.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "POLU",
+   "hsc": true,
+   "sharesOutstanding": 750000000,
+   "close16": 11750.0,
+   "close19": 10950.0,
+   "close23": 11450.0,
+   "weekRegularValueIdr": 467120000.0
+  },
+  {
+   "ticker": "POLY",
+   "hsc": false,
+   "sharesOutstanding": 2495753334,
+   "close16": 32.0,
+   "close19": 32.0,
+   "close23": 32.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "POOL",
+   "hsc": false,
+   "sharesOutstanding": 2341366264,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PORT",
+   "hsc": false,
+   "sharesOutstanding": 2813941985,
+   "close16": 825.0,
+   "close19": 770.0,
+   "close23": 915.0,
+   "weekRegularValueIdr": 134628500.0
+  },
+  {
+   "ticker": "POSA",
+   "hsc": false,
+   "sharesOutstanding": 8388870206,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "POWR",
+   "hsc": false,
+   "sharesOutstanding": 16087156000,
+   "close16": 840.0,
+   "close19": 810.0,
+   "close23": 930.0,
+   "weekRegularValueIdr": 45181567000.0
+  },
+  {
+   "ticker": "PPGL",
+   "hsc": false,
+   "sharesOutstanding": 771178020,
+   "close16": 468.0,
+   "close19": 468.0,
+   "close23": 468.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PPRE",
+   "hsc": false,
+   "sharesOutstanding": 10224271000,
+   "close16": 75.0,
+   "close19": 70.0,
+   "close23": 77.0,
+   "weekRegularValueIdr": 5825676600.0
+  },
+  {
+   "ticker": "PPRI",
+   "hsc": false,
+   "sharesOutstanding": 1075027288,
+   "close16": 116.0,
+   "close19": 108.0,
+   "close23": 112.0,
+   "weekRegularValueIdr": 6775863000.0
+  },
+  {
+   "ticker": "PPRO",
+   "hsc": false,
+   "sharesOutstanding": 61675671883,
+   "close16": 14.0,
+   "close19": 14.0,
+   "close23": 15.0,
+   "weekRegularValueIdr": 8443256000.0
+  },
+  {
+   "ticker": "PRAY",
+   "hsc": true,
+   "sharesOutstanding": 13959422300,
+   "close16": 665.0,
+   "close19": 665.0,
+   "close23": 700.0,
+   "weekRegularValueIdr": 106903000.0
+  },
+  {
+   "ticker": "PRDA",
+   "hsc": false,
+   "sharesOutstanding": 937500000,
+   "close16": 3010.0,
+   "close19": 2880.0,
+   "close23": 3670.0,
+   "weekRegularValueIdr": 38057981000.0
+  },
+  {
+   "ticker": "PRDL",
+   "hsc": false,
+   "sharesOutstanding": 1742900000,
+   "close16": 135.0,
+   "close19": 126.0,
+   "close23": 144.0,
+   "weekRegularValueIdr": 4905089600.0
+  },
+  {
+   "ticker": "PRIM",
+   "hsc": false,
+   "sharesOutstanding": 3393434905,
+   "close16": 116.0,
+   "close19": 118.0,
+   "close23": 124.0,
+   "weekRegularValueIdr": 1685996900.0
+  },
+  {
+   "ticker": "PSAB",
+   "hsc": true,
+   "sharesOutstanding": 26460000000,
+   "close16": 446.0,
+   "close19": 446.0,
+   "close23": 442.0,
+   "weekRegularValueIdr": 169037157000.0
+  },
+  {
+   "ticker": "PSAT",
+   "hsc": false,
+   "sharesOutstanding": 1482353000,
+   "close16": 660.0,
+   "close19": 665.0,
+   "close23": 825.0,
+   "weekRegularValueIdr": 1745293000.0
+  },
+  {
+   "ticker": "PSDN",
+   "hsc": false,
+   "sharesOutstanding": 1440000000,
+   "close16": 98.0,
+   "close19": 92.0,
+   "close23": 101.0,
+   "weekRegularValueIdr": 1378004400.0
+  },
+  {
+   "ticker": "PSGO",
+   "hsc": false,
+   "sharesOutstanding": 18850000000,
+   "close16": 190.0,
+   "close19": 185.0,
+   "close23": 190.0,
+   "weekRegularValueIdr": 150566300.0
+  },
+  {
+   "ticker": "PSKT",
+   "hsc": false,
+   "sharesOutstanding": 10351231636,
+   "close16": 184.0,
+   "close19": 172.0,
+   "close23": 164.0,
+   "weekRegularValueIdr": 25073812000.0
+  },
+  {
+   "ticker": "PSSI",
+   "hsc": false,
+   "sharesOutstanding": 5417063153,
+   "close16": 316.0,
+   "close19": 294.0,
+   "close23": 344.0,
+   "weekRegularValueIdr": 223742800.0
+  },
+  {
+   "ticker": "PTBA",
+   "hsc": false,
+   "sharesOutstanding": 11520659250,
+   "close16": 2800.0,
+   "close19": 2870.0,
+   "close23": 3280.0,
+   "weekRegularValueIdr": 993009462000.0
+  },
+  {
+   "ticker": "PTDU",
+   "hsc": false,
+   "sharesOutstanding": 1500000000,
+   "close16": 70.0,
+   "close19": 70.0,
+   "close23": 70.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PTIS",
+   "hsc": false,
+   "sharesOutstanding": 550165300,
+   "close16": 168.0,
+   "close19": 171.0,
+   "close23": 199.0,
+   "weekRegularValueIdr": 253821400.0
+  },
+  {
+   "ticker": "PTMP",
+   "hsc": false,
+   "sharesOutstanding": 3169200000,
+   "close16": 40.0,
+   "close19": 39.0,
+   "close23": 43.0,
+   "weekRegularValueIdr": 721536200.0
+  },
+  {
+   "ticker": "PTMR",
+   "hsc": false,
+   "sharesOutstanding": 1907000000,
+   "close16": 374.0,
+   "close19": 374.0,
+   "close23": 374.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PTPP",
+   "hsc": false,
+   "sharesOutstanding": 6199897354,
+   "close16": 161.0,
+   "close19": 161.0,
+   "close23": 161.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PTPS",
+   "hsc": false,
+   "sharesOutstanding": 2167514856,
+   "close16": 127.0,
+   "close19": 127.0,
+   "close23": 139.0,
+   "weekRegularValueIdr": 1191861200.0
+  },
+  {
+   "ticker": "PTPW",
+   "hsc": false,
+   "sharesOutstanding": 878187500,
+   "close16": 1055.0,
+   "close19": 1055.0,
+   "close23": 1060.0,
+   "weekRegularValueIdr": 120342000.0
+  },
+  {
+   "ticker": "PTRO",
+   "hsc": false,
+   "sharesOutstanding": 10086050000,
+   "close16": 3340.0,
+   "close19": 3110.0,
+   "close23": 3090.0,
+   "weekRegularValueIdr": 1039987712000.0
+  },
+  {
+   "ticker": "PTSN",
+   "hsc": false,
+   "sharesOutstanding": 5314344000,
+   "close16": 280.0,
+   "close19": 262.0,
+   "close23": 390.0,
+   "weekRegularValueIdr": 10231957000.0
+  },
+  {
+   "ticker": "PTSP",
+   "hsc": false,
+   "sharesOutstanding": 220808000,
+   "close16": 1780.0,
+   "close19": 1660.0,
+   "close23": 2250.0,
+   "weekRegularValueIdr": 14355519500.0
+  },
+  {
+   "ticker": "PUDP",
+   "hsc": false,
+   "sharesOutstanding": 659120000,
+   "close16": 206.0,
+   "close19": 212.0,
+   "close23": 224.0,
+   "weekRegularValueIdr": 443523200.0
+  },
+  {
+   "ticker": "PURA",
+   "hsc": false,
+   "sharesOutstanding": 6301930902,
+   "close16": 32.0,
+   "close19": 30.0,
+   "close23": 31.0,
+   "weekRegularValueIdr": 5891927500.0
+  },
+  {
+   "ticker": "PURE",
+   "hsc": false,
+   "sharesOutstanding": 1375181505,
+   "close16": 51.0,
+   "close19": 51.0,
+   "close23": 51.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "PURI",
+   "hsc": false,
+   "sharesOutstanding": 1000000000,
+   "close16": 115.0,
+   "close19": 107.0,
+   "close23": 128.0,
+   "weekRegularValueIdr": 1326268800.0
+  },
+  {
+   "ticker": "PWON",
+   "hsc": false,
+   "sharesOutstanding": 48159602400,
+   "close16": 264.0,
+   "close19": 254.0,
+   "close23": 282.0,
+   "weekRegularValueIdr": 129974412200.0
+  },
+  {
+   "ticker": "PYFA",
+   "hsc": false,
+   "sharesOutstanding": 11236751784,
+   "close16": 184.0,
+   "close19": 172.0,
+   "close23": 179.0,
+   "weekRegularValueIdr": 12302912900.0
+  },
+  {
+   "ticker": "PZZA",
+   "hsc": false,
+   "sharesOutstanding": 3021875000,
+   "close16": 165.0,
+   "close19": 164.0,
+   "close23": 164.0,
+   "weekRegularValueIdr": 1345679000.0
+  },
+  {
+   "ticker": "RAAM",
+   "hsc": false,
+   "sharesOutstanding": 6813620000,
+   "close16": 131.0,
+   "close19": 122.0,
+   "close23": 127.0,
+   "weekRegularValueIdr": 751740700.0
+  },
+  {
+   "ticker": "RAFI",
+   "hsc": false,
+   "sharesOutstanding": 3128140475,
+   "close16": 36.0,
+   "close19": 36.0,
+   "close23": 36.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "RAJA",
+   "hsc": false,
+   "sharesOutstanding": 21135412500,
+   "close16": 490.0,
+   "close19": 456.0,
+   "close23": 500.0,
+   "weekRegularValueIdr": 243907667900.0
+  },
+  {
+   "ticker": "RALS",
+   "hsc": false,
+   "sharesOutstanding": 7096000000,
+   "close16": 356.0,
+   "close19": 354.0,
+   "close23": 378.0,
+   "weekRegularValueIdr": 5604677800.0
+  },
+  {
+   "ticker": "RANC",
+   "hsc": false,
+   "sharesOutstanding": 1564487500,
+   "close16": 515.0,
+   "close19": 494.0,
+   "close23": 500.0,
+   "weekRegularValueIdr": 116459900.0
+  },
+  {
+   "ticker": "RANS",
+   "hsc": false,
+   "sharesOutstanding": 12609250000,
+   "close16": 148.0,
+   "close19": 138.0,
+   "close23": 141.0,
+   "weekRegularValueIdr": 35111619500.0
+  },
+  {
+   "ticker": "RATU",
+   "hsc": false,
+   "sharesOutstanding": 2715053800,
+   "close16": 2960.0,
+   "close19": 2760.0,
+   "close23": 2660.0,
+   "weekRegularValueIdr": 149504516000.0
+  },
+  {
+   "ticker": "RBMS",
+   "hsc": false,
+   "sharesOutstanding": 2656212826,
+   "close16": 41.0,
+   "close19": 42.0,
+   "close23": 40.0,
+   "weekRegularValueIdr": 3100020300.0
+  },
+  {
+   "ticker": "RCCC",
+   "hsc": false,
+   "sharesOutstanding": 787500000,
+   "close16": 111.0,
+   "close19": 100.0,
+   "close23": 95.0,
+   "weekRegularValueIdr": 1269374600.0
+  },
+  {
+   "ticker": "RDTX",
+   "hsc": false,
+   "sharesOutstanding": 268800000,
+   "close16": 12575.0,
+   "close19": 12400.0,
+   "close23": 12400.0,
+   "weekRegularValueIdr": 273935000.0
+  },
+  {
+   "ticker": "REAL",
+   "hsc": false,
+   "sharesOutstanding": 6633610151,
+   "close16": 35.0,
+   "close19": 33.0,
+   "close23": 39.0,
+   "weekRegularValueIdr": 9051430100.0
+  },
+  {
+   "ticker": "RELF",
+   "hsc": false,
+   "sharesOutstanding": 5727832195,
+   "close16": 35.0,
+   "close19": 32.0,
+   "close23": 34.0,
+   "weekRegularValueIdr": 5270105100.0
+  },
+  {
+   "ticker": "RELI",
+   "hsc": false,
+   "sharesOutstanding": 1800000000,
+   "close16": 470.0,
+   "close19": 490.0,
+   "close23": 484.0,
+   "weekRegularValueIdr": 30573600.0
+  },
+  {
+   "ticker": "RGAS",
+   "hsc": false,
+   "sharesOutstanding": 1459234110,
+   "close16": 75.0,
+   "close19": 71.0,
+   "close23": 76.0,
+   "weekRegularValueIdr": 5929109700.0
+  },
+  {
+   "ticker": "RICY",
+   "hsc": false,
+   "sharesOutstanding": 641717510,
+   "close16": 58.0,
+   "close19": 54.0,
+   "close23": 61.0,
+   "weekRegularValueIdr": 206059600.0
+  },
+  {
+   "ticker": "RIGS",
+   "hsc": false,
+   "sharesOutstanding": 609130000,
+   "close16": 560.0,
+   "close19": 550.0,
+   "close23": 615.0,
+   "weekRegularValueIdr": 226211500.0
+  },
+  {
+   "ticker": "RIMO",
+   "hsc": false,
+   "sharesOutstanding": 45080600000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "RISE",
+   "hsc": true,
+   "sharesOutstanding": 16198599990,
+   "close16": 550.0,
+   "close19": 550.0,
+   "close23": 535.0,
+   "weekRegularValueIdr": 3820829500.0
+  },
+  {
+   "ticker": "RLCO",
+   "hsc": true,
+   "sharesOutstanding": 3125000000,
+   "close16": 3290.0,
+   "close19": 3060.0,
+   "close23": 3030.0,
+   "weekRegularValueIdr": 14322175000.0
+  },
+  {
+   "ticker": "RMKE",
+   "hsc": false,
+   "sharesOutstanding": 21875000000,
+   "close16": 276.0,
+   "close19": 282.0,
+   "close23": 304.0,
+   "weekRegularValueIdr": 53928165400.0
+  },
+  {
+   "ticker": "RMKO",
+   "hsc": false,
+   "sharesOutstanding": 1576720595,
+   "close16": 193.0,
+   "close19": 180.0,
+   "close23": 210.0,
+   "weekRegularValueIdr": 3029457100.0
+  },
+  {
+   "ticker": "ROCK",
+   "hsc": true,
+   "sharesOutstanding": 1435185100,
+   "close16": 1955.0,
+   "close19": 1910.0,
+   "close23": 2040.0,
+   "weekRegularValueIdr": 3725572500.0
+  },
+  {
+   "ticker": "RODA",
+   "hsc": false,
+   "sharesOutstanding": 13592128209,
+   "close16": 33.0,
+   "close19": 31.0,
+   "close23": 35.0,
+   "weekRegularValueIdr": 1590945100.0
+  },
+  {
+   "ticker": "RONY",
+   "hsc": false,
+   "sharesOutstanding": 1250000000,
+   "close16": 1245.0,
+   "close19": 1160.0,
+   "close23": 1245.0,
+   "weekRegularValueIdr": 359983500.0
+  },
+  {
+   "ticker": "ROTI",
+   "hsc": false,
+   "sharesOutstanding": 6186488888,
+   "close16": 510.0,
+   "close19": 494.0,
+   "close23": 520.0,
+   "weekRegularValueIdr": 1614313800.0
+  },
+  {
+   "ticker": "RSCH",
+   "hsc": false,
+   "sharesOutstanding": 2650000000,
+   "close16": 530.0,
+   "close19": 494.0,
+   "close23": 605.0,
+   "weekRegularValueIdr": 48870706600.0
+  },
+  {
+   "ticker": "RSGK",
+   "hsc": false,
+   "sharesOutstanding": 929675000,
+   "close16": 935.0,
+   "close19": 890.0,
+   "close23": 1100.0,
+   "weekRegularValueIdr": 100751000.0
+  },
+  {
+   "ticker": "RUIS",
+   "hsc": false,
+   "sharesOutstanding": 770000000,
+   "close16": 175.0,
+   "close19": 166.0,
+   "close23": 181.0,
+   "weekRegularValueIdr": 518505100.0
+  },
+  {
+   "ticker": "RUNS",
+   "hsc": false,
+   "sharesOutstanding": 983557875,
+   "close16": 69.0,
+   "close19": 67.0,
+   "close23": 64.0,
+   "weekRegularValueIdr": 400616600.0
+  },
+  {
+   "ticker": "SAFE",
+   "hsc": true,
+   "sharesOutstanding": 821207512,
+   "close16": 750.0,
+   "close19": 700.0,
+   "close23": 745.0,
+   "weekRegularValueIdr": 3068797500.0
+  },
+  {
+   "ticker": "SAGE",
+   "hsc": false,
+   "sharesOutstanding": 8033527260,
+   "close16": 24.0,
+   "close19": 23.0,
+   "close23": 27.0,
+   "weekRegularValueIdr": 1689638500.0
+  },
+  {
+   "ticker": "SAME",
+   "hsc": true,
+   "sharesOutstanding": 17164632545,
+   "close16": 254.0,
+   "close19": 250.0,
+   "close23": 276.0,
+   "weekRegularValueIdr": 1612354000.0
+  },
+  {
+   "ticker": "SAMF",
+   "hsc": false,
+   "sharesOutstanding": 10250000000,
+   "close16": 266.0,
+   "close19": 260.0,
+   "close23": 286.0,
+   "weekRegularValueIdr": 289992200.0
+  },
+  {
+   "ticker": "SAPX",
+   "hsc": false,
+   "sharesOutstanding": 833333300,
+   "close16": 330.0,
+   "close19": 308.0,
+   "close23": 316.0,
+   "weekRegularValueIdr": 2734754600.0
+  },
+  {
+   "ticker": "SATU",
+   "hsc": true,
+   "sharesOutstanding": 1375000000,
+   "close16": 222.0,
+   "close19": 220.0,
+   "close23": 222.0,
+   "weekRegularValueIdr": 586498600.0
+  },
+  {
+   "ticker": "SBAT",
+   "hsc": false,
+   "sharesOutstanding": 4752982378,
+   "close16": 1.0,
+   "close19": 1.0,
+   "close23": 1.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SBMA",
+   "hsc": false,
+   "sharesOutstanding": 929926282,
+   "close16": 126.0,
+   "close19": 118.0,
+   "close23": 131.0,
+   "weekRegularValueIdr": 20673581300.0
+  },
+  {
+   "ticker": "SCCO",
+   "hsc": false,
+   "sharesOutstanding": 822333600,
+   "close16": 2570.0,
+   "close19": 2400.0,
+   "close23": 2600.0,
+   "weekRegularValueIdr": 846508000.0
+  },
+  {
+   "ticker": "SCMA",
+   "hsc": false,
+   "sharesOutstanding": 63564703280,
+   "close16": 148.0,
+   "close19": 138.0,
+   "close23": 159.0,
+   "weekRegularValueIdr": 59111588400.0
+  },
+  {
+   "ticker": "SCNP",
+   "hsc": false,
+   "sharesOutstanding": 2500000000,
+   "close16": 154.0,
+   "close19": 157.0,
+   "close23": 159.0,
+   "weekRegularValueIdr": 503499800.0
+  },
+  {
+   "ticker": "SCPI",
+   "hsc": false,
+   "sharesOutstanding": 3600000,
+   "close16": 29000.0,
+   "close19": 29000.0,
+   "close23": 29000.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SDMU",
+   "hsc": false,
+   "sharesOutstanding": 2250691100,
+   "close16": 56.0,
+   "close19": 53.0,
+   "close23": 67.0,
+   "weekRegularValueIdr": 2722076000.0
+  },
+  {
+   "ticker": "SDPC",
+   "hsc": false,
+   "sharesOutstanding": 1274000000,
+   "close16": 193.0,
+   "close19": 187.0,
+   "close23": 202.0,
+   "weekRegularValueIdr": 823937200.0
+  },
+  {
+   "ticker": "SDRA",
+   "hsc": false,
+   "sharesOutstanding": 14545267990,
+   "close16": 180.0,
+   "close19": 169.0,
+   "close23": 173.0,
+   "weekRegularValueIdr": 664327100.0
+  },
+  {
+   "ticker": "SEMA",
+   "hsc": false,
+   "sharesOutstanding": 1347258842,
+   "close16": 282.0,
+   "close19": 264.0,
+   "close23": 374.0,
+   "weekRegularValueIdr": 54675790400.0
+  },
+  {
+   "ticker": "SFAN",
+   "hsc": false,
+   "sharesOutstanding": 1359934021,
+   "close16": 1965.0,
+   "close19": 1960.0,
+   "close23": 1960.0,
+   "weekRegularValueIdr": 385762500.0
+  },
+  {
+   "ticker": "SGER",
+   "hsc": false,
+   "sharesOutstanding": 15586909438,
+   "close16": 715.0,
+   "close19": 700.0,
+   "close23": 840.0,
+   "weekRegularValueIdr": 291559133500.0
+  },
+  {
+   "ticker": "SGRO",
+   "hsc": false,
+   "sharesOutstanding": 1818622000,
+   "close16": 3750.0,
+   "close19": 3490.0,
+   "close23": 4250.0,
+   "weekRegularValueIdr": 1666278000.0
+  },
+  {
+   "ticker": "SHID",
+   "hsc": false,
+   "sharesOutstanding": 1119326168,
+   "close16": 640.0,
+   "close19": 600.0,
+   "close23": 695.0,
+   "weekRegularValueIdr": 2317863000.0
+  },
+  {
+   "ticker": "SHIP",
+   "hsc": true,
+   "sharesOutstanding": 2719790000,
+   "close16": 2360.0,
+   "close19": 2200.0,
+   "close23": 2140.0,
+   "weekRegularValueIdr": 1099326000.0
+  },
+  {
+   "ticker": "SICO",
+   "hsc": false,
+   "sharesOutstanding": 910077764,
+   "close16": 101.0,
+   "close19": 100.0,
+   "close23": 111.0,
+   "weekRegularValueIdr": 2532983100.0
+  },
+  {
+   "ticker": "SIDO",
+   "hsc": false,
+   "sharesOutstanding": 30000000000,
+   "close16": 326.0,
+   "close19": 306.0,
+   "close23": 342.0,
+   "weekRegularValueIdr": 54460493800.0
+  },
+  {
+   "ticker": "SILO",
+   "hsc": true,
+   "sharesOutstanding": 13006125000,
+   "close16": 1745.0,
+   "close19": 1760.0,
+   "close23": 1860.0,
+   "weekRegularValueIdr": 13711617000.0
+  },
+  {
+   "ticker": "SIMA",
+   "hsc": false,
+   "sharesOutstanding": 442589871,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SIMP",
+   "hsc": false,
+   "sharesOutstanding": 15501310000,
+   "close16": 484.0,
+   "close19": 496.0,
+   "close23": 525.0,
+   "weekRegularValueIdr": 34928733900.0
+  },
+  {
+   "ticker": "SINI",
+   "hsc": false,
+   "sharesOutstanding": 1202500000,
+   "close16": 11975.0,
+   "close19": 11150.0,
+   "close23": 10300.0,
+   "weekRegularValueIdr": 1091571312500.0
+  },
+  {
+   "ticker": "SIPD",
+   "hsc": false,
+   "sharesOutstanding": 1839102056,
+   "close16": 595.0,
+   "close19": 555.0,
+   "close23": 630.0,
+   "weekRegularValueIdr": 1050791500.0
+  },
+  {
+   "ticker": "SKBM",
+   "hsc": false,
+   "sharesOutstanding": 1730103217,
+   "close16": 430.0,
+   "close19": 408.0,
+   "close23": 510.0,
+   "weekRegularValueIdr": 564020700.0
+  },
+  {
+   "ticker": "SKLT",
+   "hsc": false,
+   "sharesOutstanding": 6907405000,
+   "close16": 179.0,
+   "close19": 170.0,
+   "close23": 184.0,
+   "weekRegularValueIdr": 37051700.0
+  },
+  {
+   "ticker": "SKRN",
+   "hsc": false,
+   "sharesOutstanding": 7500000000,
+   "close16": 328.0,
+   "close19": 316.0,
+   "close23": 314.0,
+   "weekRegularValueIdr": 388489200.0
+  },
+  {
+   "ticker": "SKYB",
+   "hsc": false,
+   "sharesOutstanding": 585000000,
+   "close16": 51.0,
+   "close19": 51.0,
+   "close23": 51.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SLIS",
+   "hsc": false,
+   "sharesOutstanding": 2463367996,
+   "close16": 59.0,
+   "close19": 55.0,
+   "close23": 65.0,
+   "weekRegularValueIdr": 5043161600.0
+  },
+  {
+   "ticker": "SMAR",
+   "hsc": true,
+   "sharesOutstanding": 2872193366,
+   "close16": 6625.0,
+   "close19": 6175.0,
+   "close23": 6900.0,
+   "weekRegularValueIdr": 8074622500.0
+  },
+  {
+   "ticker": "SMBR",
+   "hsc": false,
+   "sharesOutstanding": 9932534336,
+   "close16": 124.0,
+   "close19": 117.0,
+   "close23": 129.0,
+   "weekRegularValueIdr": 2163519500.0
+  },
+  {
+   "ticker": "SMCB",
+   "hsc": false,
+   "sharesOutstanding": 9019381973,
+   "close16": 775.0,
+   "close19": 775.0,
+   "close23": 775.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SMDM",
+   "hsc": false,
+   "sharesOutstanding": 4772138237,
+   "close16": 384.0,
+   "close19": 370.0,
+   "close23": 450.0,
+   "weekRegularValueIdr": 106543800.0
+  },
+  {
+   "ticker": "SMDR",
+   "hsc": false,
+   "sharesOutstanding": 16375600000,
+   "close16": 350.0,
+   "close19": 340.0,
+   "close23": 384.0,
+   "weekRegularValueIdr": 55514687200.0
+  },
+  {
+   "ticker": "SMGA",
+   "hsc": false,
+   "sharesOutstanding": 8750000000,
+   "close16": 70.0,
+   "close19": 67.0,
+   "close23": 78.0,
+   "weekRegularValueIdr": 2720803800.0
+  },
+  {
+   "ticker": "SMGR",
+   "hsc": false,
+   "sharesOutstanding": 6751540089,
+   "close16": 1360.0,
+   "close19": 1285.0,
+   "close23": 1395.0,
+   "weekRegularValueIdr": 150935904000.0
+  },
+  {
+   "ticker": "SMIL",
+   "hsc": false,
+   "sharesOutstanding": 8751668239,
+   "close16": 482.0,
+   "close19": 450.0,
+   "close23": 426.0,
+   "weekRegularValueIdr": 144554331200.0
+  },
+  {
+   "ticker": "SMKL",
+   "hsc": false,
+   "sharesOutstanding": 3418085290,
+   "close16": 137.0,
+   "close19": 128.0,
+   "close23": 137.0,
+   "weekRegularValueIdr": 75572800.0
+  },
+  {
+   "ticker": "SMKM",
+   "hsc": false,
+   "sharesOutstanding": 1253000000,
+   "close16": 87.0,
+   "close19": 79.0,
+   "close23": 82.0,
+   "weekRegularValueIdr": 859760100.0
+  },
+  {
+   "ticker": "SMLE",
+   "hsc": false,
+   "sharesOutstanding": 2328153048,
+   "close16": 340.0,
+   "close19": 318.0,
+   "close23": 300.0,
+   "weekRegularValueIdr": 53146567000.0
+  },
+  {
+   "ticker": "SMMA",
+   "hsc": false,
+   "sharesOutstanding": 6367664717,
+   "close16": 20125.0,
+   "close19": 20100.0,
+   "close23": 20125.0,
+   "weekRegularValueIdr": 242677500.0
+  },
+  {
+   "ticker": "SMMT",
+   "hsc": true,
+   "sharesOutstanding": 3425000000,
+   "close16": 3010.0,
+   "close19": 2800.0,
+   "close23": 3280.0,
+   "weekRegularValueIdr": 10836489000.0
+  },
+  {
+   "ticker": "SMRA",
+   "hsc": false,
+   "sharesOutstanding": 16508568358,
+   "close16": 230.0,
+   "close19": 220.0,
+   "close23": 260.0,
+   "weekRegularValueIdr": 53475023600.0
+  },
+  {
+   "ticker": "SMRU",
+   "hsc": false,
+   "sharesOutstanding": 12499385782,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SMSM",
+   "hsc": false,
+   "sharesOutstanding": 5758675440,
+   "close16": 1520.0,
+   "close19": 1455.0,
+   "close23": 1670.0,
+   "weekRegularValueIdr": 34592715500.0
+  },
+  {
+   "ticker": "SNLK",
+   "hsc": false,
+   "sharesOutstanding": 450000000,
+   "close16": 216.0,
+   "close19": 212.0,
+   "close23": 232.0,
+   "weekRegularValueIdr": 14194137800.0
+  },
+  {
+   "ticker": "SOCI",
+   "hsc": false,
+   "sharesOutstanding": 7059000000,
+   "close16": 434.0,
+   "close19": 436.0,
+   "close23": 494.0,
+   "weekRegularValueIdr": 44204273000.0
+  },
+  {
+   "ticker": "SOFA",
+   "hsc": false,
+   "sharesOutstanding": 1653574499,
+   "close16": 172.0,
+   "close19": 159.0,
+   "close23": 195.0,
+   "weekRegularValueIdr": 3934974500.0
+  },
+  {
+   "ticker": "SOHO",
+   "hsc": true,
+   "sharesOutstanding": 12691682390,
+   "close16": 1135.0,
+   "close19": 1060.0,
+   "close23": 1255.0,
+   "weekRegularValueIdr": 1876308000.0
+  },
+  {
+   "ticker": "SOLA",
+   "hsc": false,
+   "sharesOutstanding": 3287375000,
+   "close16": 62.0,
+   "close19": 58.0,
+   "close23": 73.0,
+   "weekRegularValueIdr": 16054278500.0
+  },
+  {
+   "ticker": "SONA",
+   "hsc": false,
+   "sharesOutstanding": 662400000,
+   "close16": 2870.0,
+   "close19": 2670.0,
+   "close23": 2680.0,
+   "weekRegularValueIdr": 552447000.0
+  },
+  {
+   "ticker": "SOSS",
+   "hsc": false,
+   "sharesOutstanding": 974525743,
+   "close16": 765.0,
+   "close19": 730.0,
+   "close23": 745.0,
+   "weekRegularValueIdr": 467639000.0
+  },
+  {
+   "ticker": "SOTS",
+   "hsc": true,
+   "sharesOutstanding": 1000003979,
+   "close16": 540.0,
+   "close19": 520.0,
+   "close23": 630.0,
+   "weekRegularValueIdr": 3213186500.0
+  },
+  {
+   "ticker": "SOUL",
+   "hsc": false,
+   "sharesOutstanding": 1082526223,
+   "close16": 37.0,
+   "close19": 37.0,
+   "close23": 37.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SPMA",
+   "hsc": false,
+   "sharesOutstanding": 5330410085,
+   "close16": 148.0,
+   "close19": 140.0,
+   "close23": 158.0,
+   "weekRegularValueIdr": 256134000.0
+  },
+  {
+   "ticker": "SPRE",
+   "hsc": false,
+   "sharesOutstanding": 800000000,
+   "close16": 82.0,
+   "close19": 74.0,
+   "close23": 81.0,
+   "weekRegularValueIdr": 576162300.0
+  },
+  {
+   "ticker": "SPTO",
+   "hsc": false,
+   "sharesOutstanding": 2700000000,
+   "close16": 580.0,
+   "close19": 585.0,
+   "close23": 595.0,
+   "weekRegularValueIdr": 6705742000.0
+  },
+  {
+   "ticker": "SQMI",
+   "hsc": false,
+   "sharesOutstanding": 15537591429,
+   "close16": 85.0,
+   "close19": 80.0,
+   "close23": 87.0,
+   "weekRegularValueIdr": 204853287100.0
+  },
+  {
+   "ticker": "SRAJ",
+   "hsc": true,
+   "sharesOutstanding": 12238959990,
+   "close16": 11050.0,
+   "close19": 10700.0,
+   "close23": 11000.0,
+   "weekRegularValueIdr": 217725000.0
+  },
+  {
+   "ticker": "SRIL",
+   "hsc": false,
+   "sharesOutstanding": 20452176844,
+   "close16": 146.0,
+   "close19": 146.0,
+   "close23": 146.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SRSN",
+   "hsc": false,
+   "sharesOutstanding": 6020000000,
+   "close16": 106.0,
+   "close19": 105.0,
+   "close23": 124.0,
+   "weekRegularValueIdr": 107620134700.0
+  },
+  {
+   "ticker": "SRTG",
+   "hsc": false,
+   "sharesOutstanding": 13564835000,
+   "close16": 1500.0,
+   "close19": 1460.0,
+   "close23": 1670.0,
+   "weekRegularValueIdr": 28323954500.0
+  },
+  {
+   "ticker": "SSIA",
+   "hsc": false,
+   "sharesOutstanding": 4705249440,
+   "close16": 1335.0,
+   "close19": 1245.0,
+   "close23": 1330.0,
+   "weekRegularValueIdr": 82203679000.0
+  },
+  {
+   "ticker": "SSMS",
+   "hsc": true,
+   "sharesOutstanding": 9525000000,
+   "close16": 880.0,
+   "close19": 820.0,
+   "close23": 875.0,
+   "weekRegularValueIdr": 33234960000.0
+  },
+  {
+   "ticker": "SSTM",
+   "hsc": false,
+   "sharesOutstanding": 1170909181,
+   "close16": 340.0,
+   "close19": 326.0,
+   "close23": 410.0,
+   "weekRegularValueIdr": 573547200.0
+  },
+  {
+   "ticker": "STAA",
+   "hsc": false,
+   "sharesOutstanding": 10903372600,
+   "close16": 1045.0,
+   "close19": 1000.0,
+   "close23": 1070.0,
+   "weekRegularValueIdr": 20598089500.0
+  },
+  {
+   "ticker": "STAR",
+   "hsc": false,
+   "sharesOutstanding": 4800000602,
+   "close16": 318.0,
+   "close19": 300.0,
+   "close23": 326.0,
+   "weekRegularValueIdr": 566279600.0
+  },
+  {
+   "ticker": "STRK",
+   "hsc": false,
+   "sharesOutstanding": 10721835562,
+   "close16": 92.0,
+   "close19": 91.0,
+   "close23": 130.0,
+   "weekRegularValueIdr": 120201805500.0
+  },
+  {
+   "ticker": "STTP",
+   "hsc": true,
+   "sharesOutstanding": 1310000000,
+   "close16": 8525.0,
+   "close19": 8225.0,
+   "close23": 8700.0,
+   "weekRegularValueIdr": 101235000.0
+  },
+  {
+   "ticker": "SUGI",
+   "hsc": false,
+   "sharesOutstanding": 24811541414,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SULI",
+   "hsc": false,
+   "sharesOutstanding": 6320776836,
+   "close16": 63.0,
+   "close19": 59.0,
+   "close23": 65.0,
+   "weekRegularValueIdr": 928523100.0
+  },
+  {
+   "ticker": "SUNI",
+   "hsc": false,
+   "sharesOutstanding": 2500000000,
+   "close16": 585.0,
+   "close19": 560.0,
+   "close23": 575.0,
+   "weekRegularValueIdr": 1926025000.0
+  },
+  {
+   "ticker": "SUPA",
+   "hsc": false,
+   "sharesOutstanding": 33558047450,
+   "close16": 400.0,
+   "close19": 372.0,
+   "close23": 360.0,
+   "weekRegularValueIdr": 39853380200.0
+  },
+  {
+   "ticker": "SUPR",
+   "hsc": false,
+   "sharesOutstanding": 1137579698,
+   "close16": 43850.0,
+   "close19": 43850.0,
+   "close23": 43850.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SURE",
+   "hsc": false,
+   "sharesOutstanding": 1497576771,
+   "close16": 2980.0,
+   "close19": 2970.0,
+   "close23": 2960.0,
+   "weekRegularValueIdr": 295649000.0
+  },
+  {
+   "ticker": "SURI",
+   "hsc": false,
+   "sharesOutstanding": 6334375000,
+   "close16": 70.0,
+   "close19": 68.0,
+   "close23": 74.0,
+   "weekRegularValueIdr": 9176190000.0
+  },
+  {
+   "ticker": "SWAT",
+   "hsc": false,
+   "sharesOutstanding": 3019200000,
+   "close16": 16.0,
+   "close19": 16.0,
+   "close23": 16.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "SWID",
+   "hsc": false,
+   "sharesOutstanding": 5385019201,
+   "close16": 85.0,
+   "close19": 80.0,
+   "close23": 95.0,
+   "weekRegularValueIdr": 2545990500.0
+  },
+  {
+   "ticker": "TALF",
+   "hsc": false,
+   "sharesOutstanding": 1353435000,
+   "close16": 540.0,
+   "close19": 510.0,
+   "close23": 565.0,
+   "weekRegularValueIdr": 323758600.0
+  },
+  {
+   "ticker": "TAMA",
+   "hsc": false,
+   "sharesOutstanding": 1200000696,
+   "close16": 168.0,
+   "close19": 152.0,
+   "close23": 153.0,
+   "weekRegularValueIdr": 1571869900.0
+  },
+  {
+   "ticker": "TAMU",
+   "hsc": false,
+   "sharesOutstanding": 37500000000,
+   "close16": 22.0,
+   "close19": 21.0,
+   "close23": 25.0,
+   "weekRegularValueIdr": 2057901300.0
+  },
+  {
+   "ticker": "TAPG",
+   "hsc": false,
+   "sharesOutstanding": 19852540000,
+   "close16": 1765.0,
+   "close19": 1730.0,
+   "close23": 1900.0,
+   "weekRegularValueIdr": 172196426500.0
+  },
+  {
+   "ticker": "TARA",
+   "hsc": false,
+   "sharesOutstanding": 10069645750,
+   "close16": 34.0,
+   "close19": 32.0,
+   "close23": 36.0,
+   "weekRegularValueIdr": 659423200.0
+  },
+  {
+   "ticker": "TAXI",
+   "hsc": false,
+   "sharesOutstanding": 10223647156,
+   "close16": 12.0,
+   "close19": 9.0,
+   "close23": 12.0,
+   "weekRegularValueIdr": 9393152900.0
+  },
+  {
+   "ticker": "TAYS",
+   "hsc": false,
+   "sharesOutstanding": 1098920000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TBIG",
+   "hsc": true,
+   "sharesOutstanding": 22656999445,
+   "close16": 1185.0,
+   "close19": 1200.0,
+   "close23": 1095.0,
+   "weekRegularValueIdr": 5934804000.0
+  },
+  {
+   "ticker": "TBLA",
+   "hsc": false,
+   "sharesOutstanding": 6025373372,
+   "close16": 535.0,
+   "close19": 520.0,
+   "close23": 570.0,
+   "weekRegularValueIdr": 5668097000.0
+  },
+  {
+   "ticker": "TBMS",
+   "hsc": false,
+   "sharesOutstanding": 734680000,
+   "close16": 1090.0,
+   "close19": 1020.0,
+   "close23": 1135.0,
+   "weekRegularValueIdr": 126804500.0
+  },
+  {
+   "ticker": "TCID",
+   "hsc": false,
+   "sharesOutstanding": 402133334,
+   "close16": 2300.0,
+   "close19": 2190.0,
+   "close23": 2540.0,
+   "weekRegularValueIdr": 72840000.0
+  },
+  {
+   "ticker": "TCPI",
+   "hsc": true,
+   "sharesOutstanding": 5000000000,
+   "close16": 1490.0,
+   "close19": 1390.0,
+   "close23": 1735.0,
+   "weekRegularValueIdr": 45057418000.0
+  },
+  {
+   "ticker": "TDPM",
+   "hsc": false,
+   "sharesOutstanding": 10485050500,
+   "close16": 119.0,
+   "close19": 119.0,
+   "close23": 119.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TEBE",
+   "hsc": false,
+   "sharesOutstanding": 1285000000,
+   "close16": 1985.0,
+   "close19": 1850.0,
+   "close23": 2110.0,
+   "weekRegularValueIdr": 232981528000.0
+  },
+  {
+   "ticker": "TECH",
+   "hsc": false,
+   "sharesOutstanding": 1256300000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TELE",
+   "hsc": false,
+   "sharesOutstanding": 7310929389,
+   "close16": 9.0,
+   "close19": 9.0,
+   "close23": 9.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TFAS",
+   "hsc": false,
+   "sharesOutstanding": 1666666500,
+   "close16": 147.0,
+   "close19": 137.0,
+   "close23": 157.0,
+   "weekRegularValueIdr": 265198000.0
+  },
+  {
+   "ticker": "TFCO",
+   "hsc": false,
+   "sharesOutstanding": 4823076400,
+   "close16": 2000.0,
+   "close19": 2000.0,
+   "close23": 2000.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TGKA",
+   "hsc": false,
+   "sharesOutstanding": 918492750,
+   "close16": 4620.0,
+   "close19": 4900.0,
+   "close23": 4880.0,
+   "weekRegularValueIdr": 201526500.0
+  },
+  {
+   "ticker": "TGRA",
+   "hsc": false,
+   "sharesOutstanding": 2750000000,
+   "close16": 27.0,
+   "close19": 27.0,
+   "close23": 27.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TGUK",
+   "hsc": false,
+   "sharesOutstanding": 3571451815,
+   "close16": 86.0,
+   "close19": 78.0,
+   "close23": 90.0,
+   "weekRegularValueIdr": 2058349200.0
+  },
+  {
+   "ticker": "TIFA",
+   "hsc": false,
+   "sharesOutstanding": 3552213000,
+   "close16": 288.0,
+   "close19": 360.0,
+   "close23": 324.0,
+   "weekRegularValueIdr": 4750165600.0
+  },
+  {
+   "ticker": "TINS",
+   "hsc": false,
+   "sharesOutstanding": 7447753454,
+   "close16": 3550.0,
+   "close19": 3380.0,
+   "close23": 3900.0,
+   "weekRegularValueIdr": 1345980436000.0
+  },
+  {
+   "ticker": "TIRA",
+   "hsc": false,
+   "sharesOutstanding": 588000000,
+   "close16": 262.0,
+   "close19": 258.0,
+   "close23": 280.0,
+   "weekRegularValueIdr": 500990800.0
+  },
+  {
+   "ticker": "TIRT",
+   "hsc": false,
+   "sharesOutstanding": 1011774750,
+   "close16": 590.0,
+   "close19": 590.0,
+   "close23": 590.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TKIM",
+   "hsc": false,
+   "sharesOutstanding": 3113223570,
+   "close16": 6050.0,
+   "close19": 5950.0,
+   "close23": 6575.0,
+   "weekRegularValueIdr": 107083180000.0
+  },
+  {
+   "ticker": "TLDN",
+   "hsc": false,
+   "sharesOutstanding": 12946530200,
+   "close16": 525.0,
+   "close19": 510.0,
+   "close23": 565.0,
+   "weekRegularValueIdr": 2673031000.0
+  },
+  {
+   "ticker": "TLKM",
+   "hsc": false,
+   "sharesOutstanding": 99062216600,
+   "close16": 1900.0,
+   "close19": 1770.0,
+   "close23": 2240.0,
+   "weekRegularValueIdr": 5511878504500.0
+  },
+  {
+   "ticker": "TMAS",
+   "hsc": true,
+   "sharesOutstanding": 57051500000,
+   "close16": 107.0,
+   "close19": 111.0,
+   "close23": 115.0,
+   "weekRegularValueIdr": 5383121100.0
+  },
+  {
+   "ticker": "TMPO",
+   "hsc": false,
+   "sharesOutstanding": 1058333250,
+   "close16": 132.0,
+   "close19": 169.0,
+   "close23": 158.0,
+   "weekRegularValueIdr": 91423457800.0
+  },
+  {
+   "ticker": "TNCA",
+   "hsc": false,
+   "sharesOutstanding": 421640000,
+   "close16": 142.0,
+   "close19": 133.0,
+   "close23": 138.0,
+   "weekRegularValueIdr": 333019600.0
+  },
+  {
+   "ticker": "TOBA",
+   "hsc": false,
+   "sharesOutstanding": 8319512975,
+   "close16": 338.0,
+   "close19": 316.0,
+   "close23": 520.0,
+   "weekRegularValueIdr": 171900355900.0
+  },
+  {
+   "ticker": "TOOL",
+   "hsc": false,
+   "sharesOutstanding": 2050020320,
+   "close16": 46.0,
+   "close19": 43.0,
+   "close23": 49.0,
+   "weekRegularValueIdr": 1957422800.0
+  },
+  {
+   "ticker": "TOPS",
+   "hsc": false,
+   "sharesOutstanding": 33330000000,
+   "close16": 1.0,
+   "close19": 1.0,
+   "close23": 1.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TOSK",
+   "hsc": false,
+   "sharesOutstanding": 4375277300,
+   "close16": 69.0,
+   "close19": 70.0,
+   "close23": 75.0,
+   "weekRegularValueIdr": 6193273100.0
+  },
+  {
+   "ticker": "TOTL",
+   "hsc": false,
+   "sharesOutstanding": 3410000000,
+   "close16": 1290.0,
+   "close19": 1255.0,
+   "close23": 1395.0,
+   "weekRegularValueIdr": 25983602000.0
+  },
+  {
+   "ticker": "TOTO",
+   "hsc": false,
+   "sharesOutstanding": 10320000000,
+   "close16": 234.0,
+   "close19": 226.0,
+   "close23": 234.0,
+   "weekRegularValueIdr": 1219596000.0
+  },
+  {
+   "ticker": "TOWR",
+   "hsc": false,
+   "sharesOutstanding": 59098103731,
+   "close16": 388.0,
+   "close19": 374.0,
+   "close23": 414.0,
+   "weekRegularValueIdr": 244667896800.0
+  },
+  {
+   "ticker": "TOYS",
+   "hsc": false,
+   "sharesOutstanding": 1435000712,
+   "close16": 8.0,
+   "close19": 8.0,
+   "close23": 8.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TPIA",
+   "hsc": false,
+   "sharesOutstanding": 86511545092,
+   "close16": 1205.0,
+   "close19": 1125.0,
+   "close23": 1330.0,
+   "weekRegularValueIdr": 1290774073500.0
+  },
+  {
+   "ticker": "TPMA",
+   "hsc": false,
+   "sharesOutstanding": 3507420034,
+   "close16": 382.0,
+   "close19": 356.0,
+   "close23": 396.0,
+   "weekRegularValueIdr": 5685696400.0
+  },
+  {
+   "ticker": "TRAM",
+   "hsc": false,
+   "sharesOutstanding": 49643627934,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TRGU",
+   "hsc": false,
+   "sharesOutstanding": 7945412700,
+   "close16": 150.0,
+   "close19": 140.0,
+   "close23": 155.0,
+   "weekRegularValueIdr": 83285300.0
+  },
+  {
+   "ticker": "TRIL",
+   "hsc": false,
+   "sharesOutstanding": 1200000000,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TRIM",
+   "hsc": false,
+   "sharesOutstanding": 7109300000,
+   "close16": 595.0,
+   "close19": 585.0,
+   "close23": 710.0,
+   "weekRegularValueIdr": 988606000.0
+  },
+  {
+   "ticker": "TRIN",
+   "hsc": false,
+   "sharesOutstanding": 4551457789,
+   "close16": 124.0,
+   "close19": 116.0,
+   "close23": 140.0,
+   "weekRegularValueIdr": 37419848100.0
+  },
+  {
+   "ticker": "TRIO",
+   "hsc": false,
+   "sharesOutstanding": 26007494645,
+   "close16": 426.0,
+   "close19": 426.0,
+   "close23": 426.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "TRIS",
+   "hsc": false,
+   "sharesOutstanding": 3141443831,
+   "close16": 144.0,
+   "close19": 142.0,
+   "close23": 162.0,
+   "weekRegularValueIdr": 261577900.0
+  },
+  {
+   "ticker": "TRJA",
+   "hsc": false,
+   "sharesOutstanding": 1510200000,
+   "close16": 100.0,
+   "close19": 99.0,
+   "close23": 105.0,
+   "weekRegularValueIdr": 228388100.0
+  },
+  {
+   "ticker": "TRON",
+   "hsc": false,
+   "sharesOutstanding": 2951328448,
+   "close16": 74.0,
+   "close19": 69.0,
+   "close23": 82.0,
+   "weekRegularValueIdr": 16758068100.0
+  },
+  {
+   "ticker": "TRST",
+   "hsc": false,
+   "sharesOutstanding": 2808000000,
+   "close16": 480.0,
+   "close19": 468.0,
+   "close23": 490.0,
+   "weekRegularValueIdr": 160718600.0
+  },
+  {
+   "ticker": "TRUE",
+   "hsc": false,
+   "sharesOutstanding": 7571107860,
+   "close16": 37.0,
+   "close19": 35.0,
+   "close23": 40.0,
+   "weekRegularValueIdr": 28851594300.0
+  },
+  {
+   "ticker": "TRUK",
+   "hsc": false,
+   "sharesOutstanding": 435000000,
+   "close16": 3220.0,
+   "close19": 4020.0,
+   "close23": 6025.0,
+   "weekRegularValueIdr": 22384252500.0
+  },
+  {
+   "ticker": "TRUS",
+   "hsc": false,
+   "sharesOutstanding": 800000000,
+   "close16": 432.0,
+   "close19": 402.0,
+   "close23": 438.0,
+   "weekRegularValueIdr": 107329400.0
+  },
+  {
+   "ticker": "TSPC",
+   "hsc": false,
+   "sharesOutstanding": 4509864300,
+   "close16": 2470.0,
+   "close19": 2360.0,
+   "close23": 2510.0,
+   "weekRegularValueIdr": 13170615000.0
+  },
+  {
+   "ticker": "TUGU",
+   "hsc": false,
+   "sharesOutstanding": 3555575600,
+   "close16": 1250.0,
+   "close19": 1290.0,
+   "close23": 1380.0,
+   "weekRegularValueIdr": 18424101500.0
+  },
+  {
+   "ticker": "TYRE",
+   "hsc": false,
+   "sharesOutstanding": 3480581727,
+   "close16": 91.0,
+   "close19": 91.0,
+   "close23": 95.0,
+   "weekRegularValueIdr": 444204800.0
+  },
+  {
+   "ticker": "UANG",
+   "hsc": false,
+   "sharesOutstanding": 1210000000,
+   "close16": 2430.0,
+   "close19": 2260.0,
+   "close23": 2270.0,
+   "weekRegularValueIdr": 9600153000.0
+  },
+  {
+   "ticker": "UCID",
+   "hsc": false,
+   "sharesOutstanding": 4156572300,
+   "close16": 416.0,
+   "close19": 402.0,
+   "close23": 452.0,
+   "weekRegularValueIdr": 4440975400.0
+  },
+  {
+   "ticker": "UDNG",
+   "hsc": false,
+   "sharesOutstanding": 1750040072,
+   "close16": 432.0,
+   "close19": 390.0,
+   "close23": 382.0,
+   "weekRegularValueIdr": 4163538800.0
+  },
+  {
+   "ticker": "UFOE",
+   "hsc": false,
+   "sharesOutstanding": 2898261693,
+   "close16": 121.0,
+   "close19": 113.0,
+   "close23": 131.0,
+   "weekRegularValueIdr": 196321800.0
+  },
+  {
+   "ticker": "ULTJ",
+   "hsc": false,
+   "sharesOutstanding": 10398175200,
+   "close16": 2010.0,
+   "close19": 2000.0,
+   "close23": 2100.0,
+   "weekRegularValueIdr": 206318520000.0
+  },
+  {
+   "ticker": "UNIC",
+   "hsc": false,
+   "sharesOutstanding": 383331363,
+   "close16": 14050.0,
+   "close19": 13975.0,
+   "close23": 14300.0,
+   "weekRegularValueIdr": 1059292500.0
+  },
+  {
+   "ticker": "UNIQ",
+   "hsc": false,
+   "sharesOutstanding": 3138983000,
+   "close16": 103.0,
+   "close19": 102.0,
+   "close23": 117.0,
+   "weekRegularValueIdr": 4859272200.0
+  },
+  {
+   "ticker": "UNIT",
+   "hsc": false,
+   "sharesOutstanding": 75422200,
+   "close16": 316.0,
+   "close19": 316.0,
+   "close23": 316.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "UNSP",
+   "hsc": false,
+   "sharesOutstanding": 17005275078,
+   "close16": 272.0,
+   "close19": 254.0,
+   "close23": 290.0,
+   "weekRegularValueIdr": 13489398600.0
+  },
+  {
+   "ticker": "UNTD",
+   "hsc": false,
+   "sharesOutstanding": 6666666700,
+   "close16": 57.0,
+   "close19": 57.0,
+   "close23": 66.0,
+   "weekRegularValueIdr": 5255194600.0
+  },
+  {
+   "ticker": "UNTR",
+   "hsc": false,
+   "sharesOutstanding": 3730135136,
+   "close16": 22625.0,
+   "close19": 22525.0,
+   "close23": 25300.0,
+   "weekRegularValueIdr": 576108162500.0
+  },
+  {
+   "ticker": "UNVR",
+   "hsc": false,
+   "sharesOutstanding": 38150000000,
+   "close16": 1390.0,
+   "close19": 1325.0,
+   "close23": 1400.0,
+   "weekRegularValueIdr": 284863749500.0
+  },
+  {
+   "ticker": "URBN",
+   "hsc": false,
+   "sharesOutstanding": 3232122640,
+   "close16": 240.0,
+   "close19": 224.0,
+   "close23": 224.0,
+   "weekRegularValueIdr": 810056000.0
+  },
+  {
+   "ticker": "UVCR",
+   "hsc": false,
+   "sharesOutstanding": 2000144838,
+   "close16": 193.0,
+   "close19": 180.0,
+   "close23": 220.0,
+   "weekRegularValueIdr": 47738700100.0
+  },
+  {
+   "ticker": "VAST",
+   "hsc": false,
+   "sharesOutstanding": 3055737049,
+   "close16": 87.0,
+   "close19": 87.0,
+   "close23": 99.0,
+   "weekRegularValueIdr": 1293205500.0
+  },
+  {
+   "ticker": "VERN",
+   "hsc": false,
+   "sharesOutstanding": 4765648183,
+   "close16": 202.0,
+   "close19": 199.0,
+   "close23": 193.0,
+   "weekRegularValueIdr": 10412754000.0
+  },
+  {
+   "ticker": "VICI",
+   "hsc": false,
+   "sharesOutstanding": 6708000000,
+   "close16": 950.0,
+   "close19": 885.0,
+   "close23": 1000.0,
+   "weekRegularValueIdr": 16927880500.0
+  },
+  {
+   "ticker": "VICO",
+   "hsc": false,
+   "sharesOutstanding": 15217075658,
+   "close16": 134.0,
+   "close19": 134.0,
+   "close23": 145.0,
+   "weekRegularValueIdr": 110313600.0
+  },
+  {
+   "ticker": "VINS",
+   "hsc": false,
+   "sharesOutstanding": 1553430759,
+   "close16": 117.0,
+   "close19": 111.0,
+   "close23": 123.0,
+   "weekRegularValueIdr": 188698300.0
+  },
+  {
+   "ticker": "VISI",
+   "hsc": false,
+   "sharesOutstanding": 3075000000,
+   "close16": 735.0,
+   "close19": 780.0,
+   "close23": 755.0,
+   "weekRegularValueIdr": 6809806000.0
+  },
+  {
+   "ticker": "VIVA",
+   "hsc": false,
+   "sharesOutstanding": 16464270400,
+   "close16": 31.0,
+   "close19": 29.0,
+   "close23": 35.0,
+   "weekRegularValueIdr": 9116739100.0
+  },
+  {
+   "ticker": "VKTR",
+   "hsc": false,
+   "sharesOutstanding": 49921767210,
+   "close16": 374.0,
+   "close19": 348.0,
+   "close23": 400.0,
+   "weekRegularValueIdr": 625339726000.0
+  },
+  {
+   "ticker": "VOKS",
+   "hsc": false,
+   "sharesOutstanding": 4155602595,
+   "close16": 199.0,
+   "close19": 197.0,
+   "close23": 216.0,
+   "weekRegularValueIdr": 328046200.0
+  },
+  {
+   "ticker": "VRNA",
+   "hsc": false,
+   "sharesOutstanding": 5687353997,
+   "close16": 73.0,
+   "close19": 68.0,
+   "close23": 69.0,
+   "weekRegularValueIdr": 325316500.0
+  },
+  {
+   "ticker": "VTNY",
+   "hsc": false,
+   "sharesOutstanding": 6265193445,
+   "close16": 43.0,
+   "close19": 40.0,
+   "close23": 46.0,
+   "weekRegularValueIdr": 3524639000.0
+  },
+  {
+   "ticker": "WAPO",
+   "hsc": false,
+   "sharesOutstanding": 1240923111,
+   "close16": 179.0,
+   "close19": 167.0,
+   "close23": 210.0,
+   "weekRegularValueIdr": 2874157900.0
+  },
+  {
+   "ticker": "WBSA",
+   "hsc": true,
+   "sharesOutstanding": 8675000000,
+   "close16": 486.0,
+   "close19": 452.0,
+   "close23": 490.0,
+   "weekRegularValueIdr": 31682286200.0
+  },
+  {
+   "ticker": "WEGE",
+   "hsc": false,
+   "sharesOutstanding": 9572000000,
+   "close16": 32.0,
+   "close19": 30.0,
+   "close23": 34.0,
+   "weekRegularValueIdr": 813472900.0
+  },
+  {
+   "ticker": "WEHA",
+   "hsc": false,
+   "sharesOutstanding": 1460554819,
+   "close16": 88.0,
+   "close19": 85.0,
+   "close23": 96.0,
+   "weekRegularValueIdr": 760377200.0
+  },
+  {
+   "ticker": "WGSH",
+   "hsc": false,
+   "sharesOutstanding": 2085000000,
+   "close16": 83.0,
+   "close19": 75.0,
+   "close23": 79.0,
+   "weekRegularValueIdr": 1982033900.0
+  },
+  {
+   "ticker": "WICO",
+   "hsc": false,
+   "sharesOutstanding": 2393710348,
+   "close16": 123.0,
+   "close19": 123.0,
+   "close23": 123.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "WIDI",
+   "hsc": false,
+   "sharesOutstanding": 1600031683,
+   "close16": 27.0,
+   "close19": 25.0,
+   "close23": 25.0,
+   "weekRegularValueIdr": 1607420500.0
+  },
+  {
+   "ticker": "WIFI",
+   "hsc": false,
+   "sharesOutstanding": 5308549015,
+   "close16": 1100.0,
+   "close19": 1025.0,
+   "close23": 1115.0,
+   "weekRegularValueIdr": 254073337000.0
+  },
+  {
+   "ticker": "WIIM",
+   "hsc": false,
+   "sharesOutstanding": 2099873760,
+   "close16": 1300.0,
+   "close19": 1240.0,
+   "close23": 1460.0,
+   "weekRegularValueIdr": 17849361000.0
+  },
+  {
+   "ticker": "WIKA",
+   "hsc": false,
+   "sharesOutstanding": 39873063858,
+   "close16": 204.0,
+   "close19": 204.0,
+   "close23": 204.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "WINE",
+   "hsc": false,
+   "sharesOutstanding": 2710000000,
+   "close16": 105.0,
+   "close19": 109.0,
+   "close23": 125.0,
+   "weekRegularValueIdr": 392049800.0
+  },
+  {
+   "ticker": "WINR",
+   "hsc": false,
+   "sharesOutstanding": 5235316030,
+   "close16": 19.0,
+   "close19": 18.0,
+   "close23": 22.0,
+   "weekRegularValueIdr": 5027924600.0
+  },
+  {
+   "ticker": "WINS",
+   "hsc": false,
+   "sharesOutstanding": 4523065893,
+   "close16": 515.0,
+   "close19": 515.0,
+   "close23": 550.0,
+   "weekRegularValueIdr": 6991201500.0
+  },
+  {
+   "ticker": "WIRG",
+   "hsc": false,
+   "sharesOutstanding": 11938622394,
+   "close16": 45.0,
+   "close19": 42.0,
+   "close23": 49.0,
+   "weekRegularValueIdr": 10018341900.0
+  },
+  {
+   "ticker": "WMPP",
+   "hsc": false,
+   "sharesOutstanding": 29419000000,
+   "close16": 20.0,
+   "close19": 19.0,
+   "close23": 26.0,
+   "weekRegularValueIdr": 16187216800.0
+  },
+  {
+   "ticker": "WMUU",
+   "hsc": false,
+   "sharesOutstanding": 12941176500,
+   "close16": 22.0,
+   "close19": 21.0,
+   "close23": 36.0,
+   "weekRegularValueIdr": 15199806800.0
+  },
+  {
+   "ticker": "WOMF",
+   "hsc": false,
+   "sharesOutstanding": 3481481480,
+   "close16": 244.0,
+   "close19": 236.0,
+   "close23": 262.0,
+   "weekRegularValueIdr": 450801000.0
+  },
+  {
+   "ticker": "WOOD",
+   "hsc": false,
+   "sharesOutstanding": 6437500000,
+   "close16": 154.0,
+   "close19": 150.0,
+   "close23": 164.0,
+   "weekRegularValueIdr": 1640810300.0
+  },
+  {
+   "ticker": "WOWS",
+   "hsc": false,
+   "sharesOutstanding": 2475720000,
+   "close16": 48.0,
+   "close19": 45.0,
+   "close23": 48.0,
+   "weekRegularValueIdr": 974350400.0
+  },
+  {
+   "ticker": "WSBP",
+   "hsc": false,
+   "sharesOutstanding": 56959163746,
+   "close16": 14.0,
+   "close19": 14.0,
+   "close23": 14.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "WSKT",
+   "hsc": false,
+   "sharesOutstanding": 28806807016,
+   "close16": 202.0,
+   "close19": 202.0,
+   "close23": 202.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "WTON",
+   "hsc": false,
+   "sharesOutstanding": 8715466600,
+   "close16": 60.0,
+   "close19": 59.0,
+   "close23": 69.0,
+   "weekRegularValueIdr": 1182070700.0
+  },
+  {
+   "ticker": "YELO",
+   "hsc": false,
+   "sharesOutstanding": 1912774405,
+   "close16": 64.0,
+   "close19": 60.0,
+   "close23": 71.0,
+   "weekRegularValueIdr": 9801065800.0
+  },
+  {
+   "ticker": "YOII",
+   "hsc": false,
+   "sharesOutstanding": 3926983181,
+   "close16": 63.0,
+   "close19": 59.0,
+   "close23": 71.0,
+   "weekRegularValueIdr": 1051564300.0
+  },
+  {
+   "ticker": "YPAS",
+   "hsc": false,
+   "sharesOutstanding": 668000089,
+   "close16": 1010.0,
+   "close19": 940.0,
+   "close23": 960.0,
+   "weekRegularValueIdr": 519608000.0
+  },
+  {
+   "ticker": "YULE",
+   "hsc": false,
+   "sharesOutstanding": 1785000000,
+   "close16": 3540.0,
+   "close19": 3500.0,
+   "close23": 3570.0,
+   "weekRegularValueIdr": 698357000.0
+  },
+  {
+   "ticker": "YUPI",
+   "hsc": true,
+   "sharesOutstanding": 8544488700,
+   "close16": 1100.0,
+   "close19": 1025.0,
+   "close23": 985.0,
+   "weekRegularValueIdr": 238191500.0
+  },
+  {
+   "ticker": "ZATA",
+   "hsc": false,
+   "sharesOutstanding": 8496000000,
+   "close16": 40.0,
+   "close19": 38.0,
+   "close23": 45.0,
+   "weekRegularValueIdr": 5076671900.0
+  },
+  {
+   "ticker": "ZBRA",
+   "hsc": false,
+   "sharesOutstanding": 2510706263,
+   "close16": 50.0,
+   "close19": 50.0,
+   "close23": 50.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ZINC",
+   "hsc": false,
+   "sharesOutstanding": 25250000000,
+   "close16": 30.0,
+   "close19": 30.0,
+   "close23": 30.0,
+   "weekRegularValueIdr": 0.0
+  },
+  {
+   "ticker": "ZONE",
+   "hsc": false,
+   "sharesOutstanding": 870171478,
+   "close16": 660.0,
+   "close19": 615.0,
+   "close23": 740.0,
+   "weekRegularValueIdr": 794392500.0
+  },
+  {
+   "ticker": "ZYRX",
+   "hsc": false,
+   "sharesOutstanding": 1333334556,
+   "close16": 118.0,
+   "close19": 117.0,
+   "close23": 125.0,
+   "weekRegularValueIdr": 224935800.0
+  }
+ ]
+}

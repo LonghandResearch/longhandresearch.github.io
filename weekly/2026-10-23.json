@@ -7,7 +7,7 @@
   "title": "Local Money Bought the Bounce. Foreign Money Sold It.",
   "titleLead": "Local money bought the bounce.",
   "titleEmphasis": "Foreign money sold it.",
-  "deck": "IHSG rose 4.90% to 5,439.258 while foreign investors sold a net Rp6.67tn, more than twice the week before. Company buybacks and a state fund that says it is buying stood behind the large caps that led. The rally won back 28% of last week's loss. It has not yet shown that foreign investors are willing to return.",
+  "deck": "IHSG rose 4.90% to 5,439.258 while foreign investors sold a net Rp6.67tn, more than twice the week before. Buyback plans and a state fund that says it is buying point to local support, though nobody has reported how much was spent. The rally won back 28% of last week's loss. It has not yet shown that foreign investors are willing to return.",
   "description": "Indonesia weekly research for 19 to 23 October 2026. Audited IDX data, who bought and who sold, the high shareholding concentration stocks leaving IHSG on 2 November, and a check of last week's scenarios.",
   "presentation": "refined",
   "stats": [
@@ -57,6 +57,11 @@
       "label": "Frozen stock-level estimates, 23 October 2026",
       "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-23.json",
       "note": "Read-only weekly export for 87 liquid large caps, 20 daily rows for eight focus stocks and a daily reconciliation with IDX regular-market value and volume. Foreign values are closing-price estimates."
+    },
+    "hsc": {
+      "label": "Frozen HSC comparison inputs, 23 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/hsc-2026-10-23.json",
+      "note": "The 80-stock list of 19 October, and for all 963 stocks the shares outstanding, closes on 16, 19 and 23 October and regular-market value for the week, with the formula and group totals."
     },
     "prior": {
       "label": "Longhand IHSG weekly, 16 October 2026",
@@ -332,11 +337,11 @@
             "buybacks",
             "bankBuybacks"
           ],
-          "text": "Who bought matters more than how far prices went. Foreign investors sold a net Rp6.67tn across all stock markets, more than twice the previous week's Rp3.19tn. Local buyers took all of it and still pushed prices up. Some of them were listed companies buying back their own shares. Danantara, the state investment fund, says it started buying state-owned stocks on 21 October. That support is real. It is also voluntary, and the companies are paying for it with their own cash."
+          "text": "Who bought matters more than how far prices went. Foreign investors sold a net Rp6.67tn across all stock markets, more than twice the previous week's Rp3.19tn. Local buyers took all of it and still pushed prices up. We know less about who those buyers were. Several listed companies filed plans to buy back their own shares, the four Barito group companies alone up to Rp3.5tn, but none has yet reported what it bought. Danantara, the state investment fund, says it started buying state-owned stocks on 21 October and has given no amounts. So the support is announced capacity and stated intent. How much of the rally it paid for is not yet known."
         },
         {
           "type": "paragraph",
-          "text": "Our view stays defensive. A rally that depends on issuers and a state fund bidding against foreign sellers has not shown that outside investors trust the market again. We would change our mind when foreign selling in the largest banks stops, and when the index change on 2 November produces a cleaner IHSG that holds its gains."
+          "text": "Our view stays defensive. A rally carried by local buyers against foreign sellers, with issuers and a state fund promising more, has not shown that outside investors trust the market again. We would change our mind when foreign selling in the largest banks stops, and when the index change on 2 November produces a cleaner IHSG that holds its gains."
         },
         {
           "type": "callout",
@@ -502,10 +507,10 @@
               "Rejected"
             ],
             [
-              "Issuers and the state fund bought",
-              "Buyback plans filed by BBNI, UNTR and four Barito companies, and reported at BBCA. Danantara says it bought from 21 October. Eight of the ten largest point contributors were state-owned or had a buyback plan",
-              "No amounts disclosed. Danantara's buying began after Tuesday's jump",
-              "Best fit"
+              "Local buyers, with issuers and the state fund behind them",
+              "Domestic net buying of Rp6.67tn. Buyback plans filed by BBNI, UNTR and four Barito companies, and reported at BBCA. Danantara says it bought from 21 October. Eight of the ten largest point contributors were state-owned or had a buyback plan",
+              "Plans and statements, not reported purchases. Danantara's buying began after Tuesday's jump",
+              "Best fit, size unknown"
             ],
             [
               "A bounce after a 14.91% fall",
@@ -537,7 +542,7 @@
             "danantaraBuying",
             "bi"
           ],
-          "text": "We tested each explanation against the evidence most likely to rule it out. Two fail outright. Foreigners did not return, and the rest of Asia mostly fell. The explanation that survives is local support for large caps. It has the weakness that matters most. Nobody has said how much was spent."
+          "text": "We tested each explanation against the evidence most likely to rule it out. Two fail outright. Foreigners did not return, and the rest of Asia mostly fell. The explanation that survives is local buying of large caps, with issuers and the state fund announcing support. It has the weakness that matters most. Nobody has said how much was actually spent."
         },
         {
           "type": "paragraph",
@@ -622,7 +627,7 @@
           "sources": [
             "flowless"
           ],
-          "text": "Foreigners were net sellers of every stock in this table. BBRI rose 10.23% while they sold an estimated Rp2.17tn of it. Local buyers set that price. If they step back, there is no foreign bid waiting underneath."
+          "text": "Foreigners were net sellers of every stock in this table. They still bought an estimated Rp2,298.85bn of BBRI, but sold Rp4,463.88bn, a net Rp2.17tn, while the price rose 10.23%. Local buyers set that price. Foreign money gave the rise no net support, and nothing in the week tells us how much it would absorb if local demand faded."
         },
         {
           "type": "paragraph",
@@ -646,7 +651,7 @@
             "hscRule",
             "hscList"
           ],
-          "text": "IDX has now acted on the problem MSCI raised. On 22 October it confirmed that IHSG will drop HSC stocks from Monday 2 November. The capped free-float method stays. A stock that joins or leaves the HSC list will be added or removed at once. IDX and KSEI decide the list together. A list of 80 stocks published on 19 October includes DCII, BYAN, BREN, DSSA and MORA."
+          "text": "IDX has now acted on the problem MSCI raised. On 22 October it confirmed that IHSG will drop HSC stocks from Monday 2 November. The capped free-float method stays. A stock newly placed on the HSC list will leave IHSG at once, without waiting for a review, and one taken off the list becomes eligible for the index again. IDX and KSEI decide the list together. A list of 80 stocks published on 19 October includes DCII, BYAN, BREN, DSSA and MORA."
         },
         {
           "type": "table",
@@ -682,6 +687,10 @@
               "+9.90%"
             ]
           ],
+          "sources": [
+            "hsc",
+            "hscList"
+          ],
           "caption": "Our calculation from daily closes and shares outstanding, using the 19 October list. Changes are weighted by full market value, not by IHSG weight"
         },
         {
@@ -699,7 +708,7 @@
             "weekly",
             "buybacks"
           ],
-          "text": "DCII is worth Rp431tn at its last price. It traded Rp1.24bn in five days and had two sessions with no trades at all in the past 20. It still cost the index 7.32 points. BREN went the other way. With its own buyback running, it rose 28.3% and added 20.39 points on Rp379.91bn of trading."
+          "text": "DCII is worth Rp431tn at its last price. It traded Rp1.24bn in five days and had two sessions with no trades at all in the past 20. It still cost the index 7.32 points. BREN went the other way. It rose 28.3% and added 20.39 points on Rp379.91bn of trading, in the week it filed a buyback plan of up to Rp1tn. How much BREN actually bought has not been reported."
         },
         {
           "type": "callout",
@@ -837,7 +846,7 @@
             "hscRule",
             "prior"
           ],
-          "text": "Next week we will watch the first IHSG without HSC stocks on 2 November, whether foreign selling in BBRI and BBCA slows, and any disclosure of what Danantara and the buyback programmes actually spent. Our relief case begins at 5,488, 0.89% above Friday's close. A close above it on its own will not change our view. A close above it with foreign buying would."
+          "text": "From 26 to 30 October we will watch whether foreign selling in BBRI and BBCA slows, and for any report of what Danantara and the buyback programmes actually spent. Then, on 2 November, comes the first IHSG without HSC stocks. Our relief case begins at 5,488, 0.89% above Friday's close. A close above it on its own will not change our view. A close above it with foreign buying would."
         },
         {
           "type": "callout",
@@ -907,9 +916,13 @@
         {
           "source": "hscList",
           "label": "HSC list and IDX remarks"
+        },
+        {
+          "source": "hsc",
+          "label": "Frozen HSC comparison"
         }
       ],
-      "note": "IDX releases dated 19, 20 and 22 October. The 80-stock list is as published on 19 October."
+      "note": "IDX releases dated 19, 20 and 22 October. The 80-stock list is as published on 19 October. The comparison file holds every input to the HSC table."
     },
     {
       "label": "Buyers",
@@ -960,6 +973,6 @@
       "note": "Primary releases dated 21 and 23 October, and MSCI's 15 October announcement."
     }
   ],
-  "method": "Official foreign trading totals cover all stock markets. Stock-level foreign values are regular-market estimates from foreign share volumes valued at daily closes, for stocks with at least Rp10tn market value and Rp10bn 20-session average daily value. Daily regular-market value and volume in the estimates match all five IDX daily reports exactly. HSC group figures use the 80-stock list published on 19 October, shares outstanding and daily closes, weighted by full market value. They are not IHSG weights. Breadth shares are recomputed from counts. Index contributions and sector changes are read from rendered IDX pages.",
+  "method": "Official foreign trading totals cover all stock markets. Stock-level foreign values are regular-market estimates from foreign share volumes valued at daily closes, for stocks with at least Rp10tn market value and Rp10bn 20-session average daily value. Daily regular-market value and volume in the estimates match all five IDX daily reports exactly. HSC group figures use the 80-stock list published on 19 October, shares outstanding and daily closes, weighted by full market value: sum of shares times close on the later date over the same sum on the earlier date, less one. They are not IHSG weights. Every input is frozen in the HSC comparison file. Breadth shares are recomputed from counts. Index contributions and sector changes are read from rendered IDX pages.",
   "displayMethod": "Price returns exclude dividends and costs. Dollar returns use JISDOR and are indicative. Official all-market flows and regular-market stock estimates have different scopes. Exact observations and calculations are available beside the exhibits and in the linked snapshots."
 }
