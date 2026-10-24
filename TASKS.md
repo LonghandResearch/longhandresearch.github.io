@@ -114,6 +114,8 @@ takeover authorization while Claude is unavailable.
 
 | RPT-019 | Publish the IHSG weekly edition for 19 to 23 October 2026 from owner-supplied IDX and BI files. Claude's turn under the alternating weekly owner rule (RPT-018 was Codex). Preparation first: reusable source extraction, audit record and dated policy sources. Figures wait for the owner's files | Claude | `claude/ihsg-weekly-oct23` | In progress | |
 
+| WEB-032 | Create the RPT-019 cover illustration and responsive assets for Claude to integrate. The owner's latest chat direction removes the bull and asks for a landscaped IDX plaza, an attractive sky and a few people walking, cycling or buying snacks | Codex | `codex/ihsg-oct23-cover` | Review | [Original brief on PR #114](https://github.com/LonghandResearch/longhandresearch.github.io/pull/114#issuecomment-6388324464), superseded by the owner's 25 October chat revisions. Built-in imagegen preview and full-size visual inspection complete; `ihsg-plaza-art` has three uncropped 2:3 WebP sizes and full prompt/provenance. Claude owns typography, mapping, cache tags and Home/Library browser QA. |
+
 ## Status values
 
 - **Backlog**: ready to be claimed.
