@@ -47,9 +47,11 @@
 <link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
 <link rel="stylesheet" href="assets/css/catalogue.css?v=2026-09-29b">
 <script>
-  /* The catalogue changes whenever a report is published, so it is fetched fresh
-     (at most a minute old) instead of waiting out the browser cache */
-  document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
+  /* The catalogue changes whenever a report is published. Its address changes every
+     ten minutes, the same as GitHub Pages caches the page itself, so a new report
+     appears within ten minutes while moving between pages reuses the cached copy
+     instead of waiting on the network each time. */
+  document.write('<script src="reports/reports.js?v=' + Math.floor(Date.now() / 600000) + '"><\/script>');
 </script>
 <script src="assets/js/site.js?v=2026-10-24" defer blocking="render"></script>
 <script src="assets/js/coverage.js?v=2026-09-27b" defer blocking="render"></script>

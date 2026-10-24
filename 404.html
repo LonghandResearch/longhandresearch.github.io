@@ -38,9 +38,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css?v=2026-09-29a">
 <script>
-  /* The catalogue changes whenever a report is published, so it is fetched fresh
-     (at most a minute old) instead of waiting out the browser cache */
-  document.write('<script src="/reports/reports.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
+  /* The catalogue changes whenever a report is published. Its address changes every
+     ten minutes, the same as GitHub Pages caches the page itself, so a new report
+     appears within ten minutes while moving between pages reuses the cached copy
+     instead of waiting on the network each time. */
+  document.write('<script src="/reports/reports.js?v=' + Math.floor(Date.now() / 600000) + '"><\/script>');
 </script>
 <script src="/assets/js/site.js?v=2026-10-24" defer blocking="render"></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->

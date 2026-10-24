@@ -1,5 +1,5 @@
 /* Longhand Research: The Wire.
-   Headlines from the financial press, gathered every hour into
+   Headlines from the financial press, gathered several times a day into
    news/news.json by .github/workflows/wire.yml. The wire page lists them by
    day with topic filters and search; the front page shows the latest few.
    Only headlines and links are shown: every story opens at its source. */
@@ -204,7 +204,7 @@
            <p class="empty-text">You may be offline. Please try again in a little while.</p>`;
     } else if (!total) {
       els.empty.innerHTML = `<p class="empty-title">The first headlines are on their way.</p>
-        <p class="empty-text">The wire is gathered every hour. Please look back shortly.</p>`;
+        <p class="empty-text">The wire is gathered several times a day. Please look back later.</p>`;
     } else {
       const what = [state.q ? `“${esc(state.q)}”` : '', state.topic !== 'All' ? `in ${esc(state.topic)}` : ''].filter(Boolean).join(' ');
       els.empty.innerHTML = `<p class="empty-title">No headlines match ${what}.</p>
