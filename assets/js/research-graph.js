@@ -79,7 +79,7 @@
     link(id, 'company', [companyId], 'primary', catalogue(id), 'Published company initiation');
     link(id, 'sector', [sectorId], 'primary', catalogue(id), 'Sector identified in the catalogue');
   });
-  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16'].forEach((id) => {
+  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16', 'ihsg-weekly-2026-10-23'].forEach((id) => {
     link(id, 'country', ['ID'], 'primary', catalogue(id), 'Indonesia equity-market update');
     link(id, 'sector', ['rates-macro'], 'primary', catalogue(id), 'Market and currency observations; IHSG is an index, not a company');
   });

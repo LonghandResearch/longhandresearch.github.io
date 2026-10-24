@@ -1,5 +1,20 @@
 # Longhand portrait editorial covers
 
+## 25 October 2026: an IDX plaza cover for the 23 October edition
+
+`ihsg-plaza-art.webp` is the cover for No. 015, "Local Money Bought the Bounce.
+Foreign Money Sold It." Codex generated it with the built-in imagegen tool after
+several owner revisions in chat (commit `b4a24e2`, PR #123). It shows a bright
+afternoon in a landscaped plaza beneath twin office towers inspired by the IDX
+building, with pedestrians, a cyclist and a coffee cart. There is no bull,
+balloon or lettering. The full prompt history and source hash are in
+`ihsg-plaza-art.json`. The 640 and 320 pixel versions keep the same 2:3 frame.
+
+The upper third is bright sky, so the website sets the title in dark ink
+`#14262b` with the existing paper wash (`cover-tone-paper`) at 9.4cqw, three
+lines above the tower crowns. Earlier drafts made in Canva were rejected by the
+owner and are not in the repository.
+
 ## 19 October 2026: a unique cover for the market-trust edition
 
 The owner requested a distinct cover instead of the initially reused October
@@ -60,6 +75,7 @@ research exhibits and PDF captures in the parent directory remain available.
 | 009 | Higher Yields, Uneven Effects | 2026-10-08 | [Treasury](treasury-art.webp) |
 | 010 | Coal Still Burns. Trade Is Changing. | 2026-10-09 | [Coal trade](coal-trade-art.webp) |
 | 011 | The Power Behind AI: October Checkpoint | 2026-10-09 | [October campus](ai-october-art.webp) |
+| 015 | Local Money Bought the Bounce. Foreign Money Sold It. | 2026-10-25 | [IDX plaza](ihsg-plaza-art.webp) |
 
 ## Final prompt set
 

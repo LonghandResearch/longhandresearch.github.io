@@ -18,6 +18,7 @@
     'adro-2026-09-03': ['adro-2026-09-03.png', 'Original report · opening page', 'document']
   };
   const covers = {
+    'ihsg-weekly-2026-10-23': ['ihsg-plaza', '#14262b', 9.4, 'Local Money Bought|the Bounce. Foreign|Money Sold It.', 'An afternoon in a landscaped Jakarta plaza beneath twin office towers, with pedestrians, a cyclist and a coffee cart, conceptually illustrated'],
     'ihsg-weekly-2026-10-16': ['ihsg-trust', '#ead7ae', 10.1, 'Trust Has a Price.|The Market|Is Paying.', 'An engraved brass balance with glass blocks and a stone weight on a fractured pedestal, a conceptual illustration of market trust'],
     'more-nickel-2026-10-15': ['nickel-seaview', '#ead7ae', 11.2, 'More Nickel.|Who Makes|the Money?', 'A view from sea toward a coastal processing works and inland laterite benches, conceptually illustrated'],
     'ihsg-weekly-2026-10-09': ['ihsg-recovery', '#ead7ae', 10.1, 'Prices Recovered.|Foreign Selling|Persisted.', 'A Jakarta skyline, elevated roads and terrace greenery at golden hour, conceptually illustrated'],
