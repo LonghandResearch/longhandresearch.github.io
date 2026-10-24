@@ -108,28 +108,32 @@ error and both are left unchanged:
 
 ## FY2025 results, with document and page locators
 
-Both documents were downloaded from the issuer and read on 24 October 2026.
+All three documents were downloaded from the issuer and read on 24 October 2026.
 
 | Company | Document | PDF page | Figures |
 | --- | --- | ---: | --- |
 | PTBA | [Annual Report 2025](https://www.ptba.co.id/api/storage/1777608216188-530aad52-cfc2-40fc-8d3c-0afcaa236e6c.pdf) | 798 | Revenue Rp42,651,724m (FY2024 Rp42,764,968m) |
 | PTBA | same | 799 | Profit attributable to owners of the parent Rp2,929,957m (FY2024 Rp5,103,720m) |
 | PTBA | same | 801 | Net cash flows from operating activities Rp6,260,828m (FY2024 Rp5,049,190m) |
+| PTBA | [FY2025 results release](https://www.ptba.co.id/api/storage/1775031467806-4819740c-1812-45f4-a5d0-520f4a4aebb0.pdf), 1 April 2026 | 2 and 7 | EBITDA Rp6,083,959m (FY2024 Rp8,304,264m) |
 | DMAS | [Annual and Sustainability Report 2025](https://deltamas.id/wp-content/uploads/2026/05/ARSR-DMAS-2025.pdf) | 283 | Revenues Rp1,309,090,934,782 (FY2024 Rp2,032,677,883,645), profit attributable to owners of the parent Rp800,308,422,064 (FY2024 Rp1,333,657,486,567), down 40.0% |
 
 The same statements are in the IDX archive (`FinancialStatement-2025-Tahunan-PTBA.pdf`
 and `FinancialStatement-2025-Tahunan-DMAS.pdf` under the FY2025 audited reports).
 
-### EBITDA is not independently verified
+### EBITDA
 
-PTBA EBITDA of Rp6.08tn (FY2025) and Rp8.3tn (FY2024) is not a line in the audited
-statements, and it does not appear in the annual report under that name. The annual
-report's key-performance-indicator table (PDF page 424) shows EBITDA of
-Rp5,875.43bn against a target of Rp5,372bn, on the company's KPI definition. The
-Rp6.08tn figure comes from the company's results release of 1 April 2026 as
-reported by Bisnis Indonesia, and the citation now says so. The report's PTBA
-EV/EBITDA rests on that figure. Treat it as company-reported and secondary-sourced
-until the release itself is retained.
+PTBA EBITDA is not a line in the audited statements. It is reported in the
+company's FY2025 results release of 1 April 2026
+([PDF](https://www.ptba.co.id/api/storage/1775031467806-4819740c-1812-45f4-a5d0-520f4a4aebb0.pdf)):
+PDF page 2 (Indonesian) and page 7 (English) give EBITDA of Rp6,083,959 million for
+FY2025 and Rp8,304,264 million for FY2024, and page 1 and page 6 round FY2025 to
+Rp6.08 trillion with a 14% margin. The report's Rp6.08tn and Rp8.3tn inputs match,
+so the earlier `secondary-sourced` limitation is removed. The page citation
+now reads company-reported EBITDA from the FY2025 results release. Not reconciled:
+the annual report's key-performance-indicator table (PDF page 424) shows EBITDA of
+Rp5,875.43bn on a different company definition. The report keeps the release figure
+and the rounding is unchanged.
 
 ## Page text
 
