@@ -337,7 +337,7 @@
             "buybacks",
             "bankBuybacks"
           ],
-          "text": "Who bought matters more than how far prices went. Foreign investors sold a net Rp6.67tn across all stock markets, more than twice the previous week's Rp3.19tn. Local buyers took all of it and still pushed prices up. We know less about who those buyers were. Several listed companies filed plans to buy back their own shares, the four Barito group companies alone up to Rp3.5tn, but none has yet reported what it bought. Danantara, the state investment fund, says it started buying state-owned stocks on 21 October and has given no amounts. So the support is announced capacity and stated intent. How much of the rally it paid for is not yet known."
+          "text": "Who bought matters more than how far prices went. Foreign investors sold a net Rp6.67tn across all stock markets, more than twice the previous week's Rp3.19tn. Local buyers took all of it and still pushed prices up. We know less about who those buyers were. Several listed companies filed plans to buy back their own shares, the four Barito group companies alone up to Rp3.5tn, but none of the filings we read reports what was bought. Danantara, the state investment fund, says it started buying state-owned stocks on 21 October and has given no amounts. So the support is announced capacity and stated intent. How much of the rally it paid for is not yet known."
         },
         {
           "type": "paragraph",
@@ -398,7 +398,7 @@
             "flowless",
             "danantaraBuying"
           ],
-          "text": "On Tuesday IHSG rose 5.65% and closed at its high of 5,278.888. The state-owned names did most of the lifting. TLKM rose 16.38%, BBRI 9.84% and BMRI 9.82%. Foreign investors still sold a net Rp2.19tn that day. Danantara was probably not Tuesday's buyer. On 22 October its chief investment officer, Pandu Sjahrir, said the fund had started buying \"per kemarin, hari ini\", as of the day before and that day. He named no stocks and no amounts. Tuesday's buying came from other local investors, possibly including companies with fresh buyback plans. The data cannot tell them apart."
+          "text": "On Tuesday IHSG rose 5.65% and closed at its high of 5,278.888. The state-owned names did most of the lifting. TLKM rose 16.38%, BBRI 9.84% and BMRI 9.82%. Foreign investors still sold a net Rp2.19tn that day. Danantara was probably not Tuesday's buyer. On 22 October its chief investment officer, Pandu Sjahrir, said the fund had started buying \"per kemarin, hari ini\", as of the day before and that day. He named no stocks and no amounts. If so, Tuesday's buying came from other local investors, possibly including companies with fresh buyback plans. The data cannot tell them apart."
         },
         {
           "type": "paragraph",
@@ -507,7 +507,7 @@
               "Rejected"
             ],
             [
-              "Local buyers, with issuers and the state fund behind them",
+              "Local buyers, with issuer plans and state fund statements",
               "Domestic net buying of Rp6.67tn. Buyback plans filed by BBNI, UNTR and four Barito companies, and reported at BBCA. Danantara says it bought from 21 October. Eight of the ten largest point contributors were state-owned or had a buyback plan",
               "Plans and statements, not reported purchases. Danantara's buying began after Tuesday's jump",
               "Best fit, size unknown"
@@ -651,7 +651,7 @@
             "hscRule",
             "hscList"
           ],
-          "text": "IDX has now acted on the problem MSCI raised. On 22 October it confirmed that IHSG will drop HSC stocks from Monday 2 November. The capped free-float method stays. A stock newly placed on the HSC list will leave IHSG at once, without waiting for a review, and one taken off the list becomes eligible for the index again. IDX and KSEI decide the list together. A list of 80 stocks published on 19 October includes DCII, BYAN, BREN, DSSA and MORA."
+          "text": "IDX has now acted on the problem MSCI raised. On 22 October it confirmed that IHSG will drop HSC stocks from Monday 2 November. The capped free-float method stays. A stock newly placed on the HSC list will leave IHSG at once, without waiting for a review, and one taken off the list will be added back at once if it is otherwise eligible. IDX and KSEI decide the list together. A list of 80 stocks published on 19 October includes DCII, BYAN, BREN, DSSA and MORA."
         },
         {
           "type": "table",
@@ -741,7 +741,7 @@
             "weekly",
             "flowless"
           ],
-          "text": "Transport and logistics rose most, by 9.02%. Energy gained 6.37% and infrastructure 5.68%. Technology rose only 0.03%. DCII, by far its largest company by market value, fell 3.81%. The Main Board index rose 6.26%. The Development Board rose 0.87% and the Acceleration Board 1.08%. The larger and more liquid the stock, the better it did, which is what we would expect when the main buyers are defending large stocks."
+          "text": "Transport and logistics rose most, by 9.02%. Energy gained 6.37% and infrastructure 5.68%. Technology rose only 0.03%. DCII, by far its largest company by market value, fell 3.81%. The Main Board index rose 6.26%. The Development Board rose 0.87% and the Acceleration Board 1.08%. The larger and more liquid the stock, the better it did, which fits buying that was concentrated in large, liquid stocks."
         }
       ]
     },
