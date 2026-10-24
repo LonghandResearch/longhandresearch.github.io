@@ -37,6 +37,25 @@
 */
 window.LONGHAND_REPORTS = [
 {
+  "id": "ihsg-weekly-2026-10-23",
+  "ticker": "IHSG",
+  "exchange": "IDX",
+  "company": "Indonesia equity market",
+  "sector": "Macro and equities",
+  "category": "Update",
+  "title": "Local Money Bought the Bounce. Foreign Money Sold It.",
+  "date": "2026-10-25",
+  "blurb": "IHSG rose 4.90% while foreign investors sold a net Rp6.67tn. Buybacks and state buying lifted the large caps, and HSC stocks leave IHSG on 2 November.",
+  "summary": "Weekly research for 19 to 23 October. Audited IDX observations, who bought and who sold, the high shareholding concentration stocks leaving IHSG and a check of last week's scenarios.",
+  "tags": ["IHSG", "Weekly Market Update", "Foreign flow", "Buyback", "Danantara", "HSC", "Free float", "Market governance"],
+  "rating": null,
+  "currency": "IDR",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "ihsg-weekly.html?week=2026-10-23"
+},
+{
   "id": "ihsg-weekly-2026-10-16",
   "ticker": "IHSG",
   "exchange": "IDX",
