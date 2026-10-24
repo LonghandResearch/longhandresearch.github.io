@@ -47,6 +47,8 @@
     }
     const acc = $('[data-accessed]', root);
     if (acc) acc.textContent = P.ACCESSED;
+    const rechecked = $('[data-rechecked]', root);
+    if (rechecked) rechecked.textContent = P.RECHECKED;
   }
 
   /* Tooltip shared by every chart */

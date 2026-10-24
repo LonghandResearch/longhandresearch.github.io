@@ -1,0 +1,556 @@
+{
+  "purpose": "Retained IDX Stock Summary closes behind the price citations in The Power Behind AI (QA-005).",
+  "retrieved": "2026-10-24",
+  "request": "https://www.idx.co.id/primary/TradingSummary/GetStockSummary?length=9999&start=0&date=YYYYMMDD (the Close field; the idx.co.id request returns 403 to command-line clients, so it was read inside the idx.co.id page)",
+  "dates": [
+    "20211230",
+    "20221230",
+    "20231229",
+    "20241230",
+    "20251230",
+    "20260924"
+  ],
+  "yearEndObservations": 48,
+  "totalObservations": 58,
+  "splitNotes": {
+    "ISAT": "raw close divided by 4 for FY2021 to FY2023 (2024 1:4 split)",
+    "DSSA": "divided by 250 for FY2021 to FY2023 and by 25 for FY2024 to FY2025 (2024 and 2026 splits)",
+    "PGEO": "listed in 2023, so FY2021 and FY2022 do not exist"
+  },
+  "listedSharesOn20260924": {
+    "DCII": 2383745900,
+    "TLKM": 99062216600,
+    "ISAT": 32250810957,
+    "EXCL": 18199862451,
+    "MTEL": 83559677444,
+    "DMAS": 48198111100,
+    "KIJA": 20824888369,
+    "PGEO": 41943125697,
+    "PTBA": 11520659250,
+    "DSSA": 192638080000
+  },
+  "observations": [
+    {
+      "ticker": "DCII",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 43975,
+      "splitFactor": 1,
+      "adjustedClose": 43975
+    },
+    {
+      "ticker": "DCII",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 36825,
+      "splitFactor": 1,
+      "adjustedClose": 36825
+    },
+    {
+      "ticker": "DCII",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 43000,
+      "splitFactor": 1,
+      "adjustedClose": 43000
+    },
+    {
+      "ticker": "DCII",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 42100,
+      "splitFactor": 1,
+      "adjustedClose": 42100
+    },
+    {
+      "ticker": "DCII",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 200000,
+      "splitFactor": 1,
+      "adjustedClose": 200000
+    },
+    {
+      "ticker": "DCII",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 201000,
+      "splitFactor": 1,
+      "adjustedClose": 201000
+    },
+    {
+      "ticker": "TLKM",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 4040,
+      "splitFactor": 1,
+      "adjustedClose": 4040
+    },
+    {
+      "ticker": "TLKM",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 3750,
+      "splitFactor": 1,
+      "adjustedClose": 3750
+    },
+    {
+      "ticker": "TLKM",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 3950,
+      "splitFactor": 1,
+      "adjustedClose": 3950
+    },
+    {
+      "ticker": "TLKM",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 2710,
+      "splitFactor": 1,
+      "adjustedClose": 2710
+    },
+    {
+      "ticker": "TLKM",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 3480,
+      "splitFactor": 1,
+      "adjustedClose": 3480
+    },
+    {
+      "ticker": "TLKM",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 2410,
+      "splitFactor": 1,
+      "adjustedClose": 2410
+    },
+    {
+      "ticker": "ISAT",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 6200,
+      "splitFactor": 4,
+      "adjustedClose": 1550
+    },
+    {
+      "ticker": "ISAT",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 6175,
+      "splitFactor": 4,
+      "adjustedClose": 1543.75
+    },
+    {
+      "ticker": "ISAT",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 9375,
+      "splitFactor": 4,
+      "adjustedClose": 2343.75
+    },
+    {
+      "ticker": "ISAT",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 2480,
+      "splitFactor": 1,
+      "adjustedClose": 2480
+    },
+    {
+      "ticker": "ISAT",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 2320,
+      "splitFactor": 1,
+      "adjustedClose": 2320
+    },
+    {
+      "ticker": "ISAT",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 2400,
+      "splitFactor": 1,
+      "adjustedClose": 2400
+    },
+    {
+      "ticker": "EXCL",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 3170,
+      "splitFactor": 1,
+      "adjustedClose": 3170
+    },
+    {
+      "ticker": "EXCL",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 2140,
+      "splitFactor": 1,
+      "adjustedClose": 2140
+    },
+    {
+      "ticker": "EXCL",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 2000,
+      "splitFactor": 1,
+      "adjustedClose": 2000
+    },
+    {
+      "ticker": "EXCL",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 2250,
+      "splitFactor": 1,
+      "adjustedClose": 2250
+    },
+    {
+      "ticker": "EXCL",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 3750,
+      "splitFactor": 1,
+      "adjustedClose": 3750
+    },
+    {
+      "ticker": "EXCL",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 2400,
+      "splitFactor": 1,
+      "adjustedClose": 2400
+    },
+    {
+      "ticker": "MTEL",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 830,
+      "splitFactor": 1,
+      "adjustedClose": 830
+    },
+    {
+      "ticker": "MTEL",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 800,
+      "splitFactor": 1,
+      "adjustedClose": 800
+    },
+    {
+      "ticker": "MTEL",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 705,
+      "splitFactor": 1,
+      "adjustedClose": 705
+    },
+    {
+      "ticker": "MTEL",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 645,
+      "splitFactor": 1,
+      "adjustedClose": 645
+    },
+    {
+      "ticker": "MTEL",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 700,
+      "splitFactor": 1,
+      "adjustedClose": 700
+    },
+    {
+      "ticker": "MTEL",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 482,
+      "splitFactor": 1,
+      "adjustedClose": 482
+    },
+    {
+      "ticker": "DMAS",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 191,
+      "splitFactor": 1,
+      "adjustedClose": 191
+    },
+    {
+      "ticker": "DMAS",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 159,
+      "splitFactor": 1,
+      "adjustedClose": 159
+    },
+    {
+      "ticker": "DMAS",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 163,
+      "splitFactor": 1,
+      "adjustedClose": 163
+    },
+    {
+      "ticker": "DMAS",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 149,
+      "splitFactor": 1,
+      "adjustedClose": 149
+    },
+    {
+      "ticker": "DMAS",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 129,
+      "splitFactor": 1,
+      "adjustedClose": 129
+    },
+    {
+      "ticker": "DMAS",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 192,
+      "splitFactor": 1,
+      "adjustedClose": 192
+    },
+    {
+      "ticker": "KIJA",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 166,
+      "splitFactor": 1,
+      "adjustedClose": 166
+    },
+    {
+      "ticker": "KIJA",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 146,
+      "splitFactor": 1,
+      "adjustedClose": 146
+    },
+    {
+      "ticker": "KIJA",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 134,
+      "splitFactor": 1,
+      "adjustedClose": 134
+    },
+    {
+      "ticker": "KIJA",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 186,
+      "splitFactor": 1,
+      "adjustedClose": 186
+    },
+    {
+      "ticker": "KIJA",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 210,
+      "splitFactor": 1,
+      "adjustedClose": 210
+    },
+    {
+      "ticker": "KIJA",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 176,
+      "splitFactor": 1,
+      "adjustedClose": 176
+    },
+    {
+      "ticker": "PGEO",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 1170,
+      "splitFactor": 1,
+      "adjustedClose": 1170
+    },
+    {
+      "ticker": "PGEO",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 935,
+      "splitFactor": 1,
+      "adjustedClose": 935
+    },
+    {
+      "ticker": "PGEO",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 1125,
+      "splitFactor": 1,
+      "adjustedClose": 1125
+    },
+    {
+      "ticker": "PGEO",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 1070,
+      "splitFactor": 1,
+      "adjustedClose": 1070
+    },
+    {
+      "ticker": "PTBA",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 2710,
+      "splitFactor": 1,
+      "adjustedClose": 2710
+    },
+    {
+      "ticker": "PTBA",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 3690,
+      "splitFactor": 1,
+      "adjustedClose": 3690
+    },
+    {
+      "ticker": "PTBA",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 2440,
+      "splitFactor": 1,
+      "adjustedClose": 2440
+    },
+    {
+      "ticker": "PTBA",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 2750,
+      "splitFactor": 1,
+      "adjustedClose": 2750
+    },
+    {
+      "ticker": "PTBA",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 2310,
+      "splitFactor": 1,
+      "adjustedClose": 2310
+    },
+    {
+      "ticker": "PTBA",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 3050,
+      "splitFactor": 1,
+      "adjustedClose": 3050
+    },
+    {
+      "ticker": "DSSA",
+      "kind": "year-end",
+      "fiscalYear": "FY2021",
+      "date": "2021-12-30",
+      "rawClose": 49000,
+      "splitFactor": 250,
+      "adjustedClose": 196
+    },
+    {
+      "ticker": "DSSA",
+      "kind": "year-end",
+      "fiscalYear": "FY2022",
+      "date": "2022-12-30",
+      "rawClose": 39800,
+      "splitFactor": 250,
+      "adjustedClose": 159.2
+    },
+    {
+      "ticker": "DSSA",
+      "kind": "year-end",
+      "fiscalYear": "FY2023",
+      "date": "2023-12-29",
+      "rawClose": 80000,
+      "splitFactor": 250,
+      "adjustedClose": 320
+    },
+    {
+      "ticker": "DSSA",
+      "kind": "year-end",
+      "fiscalYear": "FY2024",
+      "date": "2024-12-30",
+      "rawClose": 37000,
+      "splitFactor": 25,
+      "adjustedClose": 1480
+    },
+    {
+      "ticker": "DSSA",
+      "kind": "year-end",
+      "fiscalYear": "FY2025",
+      "date": "2025-12-30",
+      "rawClose": 101000,
+      "splitFactor": 25,
+      "adjustedClose": 4040
+    },
+    {
+      "ticker": "DSSA",
+      "kind": "report price",
+      "fiscalYear": null,
+      "date": "2026-09-24",
+      "rawClose": 1090,
+      "splitFactor": 1,
+      "adjustedClose": 1090
+    }
+  ]
+}
