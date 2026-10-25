@@ -18,6 +18,7 @@
     'adro-2026-09-03': ['adro-2026-09-03.png', 'Original report · opening page', 'document']
   };
   const covers = {
+    'nvda-2026-10-25': ['nvda-road', '#14262b', 11.2, 'Not a Cliff.|The Road|Goes On.', 'A man in a leather jacket pulls a small cart of chips along a road that runs past a cliff edge onto a long bridge, toward data-center halls still under construction'],
     'ihsg-weekly-2026-10-23': ['ihsg-plaza', '#14262b', 9.4, 'Local Money Bought|the Bounce. Foreign|Money Sold It.', 'An afternoon in a landscaped Jakarta plaza beneath twin office towers, with pedestrians, a cyclist and a coffee cart, conceptually illustrated'],
     'ihsg-weekly-2026-10-16': ['ihsg-trust', '#ead7ae', 10.1, 'Trust Has a Price.|The Market|Is Paying.', 'An engraved brass balance with glass blocks and a stone weight on a fractured pedestal, a conceptual illustration of market trust'],
     'more-nickel-2026-10-15': ['nickel-seaview', '#ead7ae', 11.2, 'More Nickel.|Who Makes|the Money?', 'A view from sea toward a coastal processing works and inland laterite benches, conceptually illustrated'],

@@ -1,0 +1,20 @@
+{
+  "asset": "nvda-road-art.webp",
+  "created": "2026-10-25",
+  "method": "Canva generate-image (text to image, then two reference edits of the owner's chosen draft). Downloaded at 1024 x 1536 PNG from a Canva design holding only that image.",
+  "ownerDirection": "Owner asked for a cover tied to NVIDIA and Jensen Huang, combining the 'long road, not a cliff' idea with the earlier Taipei street idea. The first busy drafts were rejected as too crowded. The owner chose the simpler draft D, asked for small hand-drawn details so it would not look AI-made, chose version D2, then asked for only one person with binoculars and a building under construction at the far end of the bridge. The owner chose E1 for the site.",
+  "role": "Conceptual editorial illustration of the report's thesis: growth fades gradually rather than falling off a cliff. Not a photograph, not a real event, not a named facility. No company logo or brand mark appears. The walking figure is an unnamed editorial figure and implies no endorsement.",
+  "sourceSha256": "76567d414b6c47462d521ded04b3ad254a60da674d223fd8869ba2b2236203ef",
+  "canvaMedia": {
+    "draftD": "MAHZB6TTI5I",
+    "draftD2": "MAHZBxWuL2w",
+    "final": "MAHZB9OTJMg"
+  },
+  "prompt": "Edit this illustration, keeping everything else exactly the same: same composition, same man in the black leather jacket from behind pulling the small cart, same road, bridge, valley, soft clouds, lamp post, palette, hand-inked ligne-claire linework and printed paper texture. Change only two things: 1. On the cliff at the left, keep just ONE small onlooker with binoculars, standing alone; remove the other people. 2. At the far end of the bridge, in front of the existing data-center halls, add a new data-center hall still under construction: an exposed steel frame, scaffolding with tiny workers in hard hats, one tall yellow tower crane lifting a large cooling unit, a couple of stacked steel beams and a small cement mixer truck parked beside it, and a neat site fence. Draw it small, delicate and carefully detailed, so it reads as a quiet discovery when you look closer, not a busy focal point. Bright daylight, airy and calm. No logos, no brand names, no letters or numbers anywhere, nothing odd.",
+  "postProcessing": "RGB WebP encoding (quality 82) and proportional Lanczos resizing only. No crop, retouching or baked typography.",
+  "dimensions": {
+    "full": [1024, 1536],
+    "medium": [640, 960],
+    "small": [320, 480]
+  }
+}

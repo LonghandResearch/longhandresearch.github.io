@@ -29,6 +29,7 @@
     { id: 'nickel-industry', name: 'Nickel industry', description: 'Mining, processing, export destinations, battery materials and domestically retained value.' },
     { id: 'rates-macro', name: 'Rates & macro', description: 'Monetary policy, financial conditions, currency and equity-market observations.' },
     { id: 'memory-semiconductors', name: 'Memory & semiconductors', description: 'DRAM, NAND and HBM through the memory cycle and AI demand.' },
+    { id: 'semiconductors', name: 'Semiconductors', description: 'Chip designers and the computing platforms that AI demand runs on.' },
   ];
   const company = (id, name, ticker, sectorIds, description, evidence) => ({ id, name, ticker, countryIds: ['ID'], sectorIds, domicileCountryId: null, description, evidence });
   const pbaiEvidence = [{ url: 'power-behind-ai.html#s06', label: 'Listed company exposure / September assessment' }];
@@ -46,9 +47,13 @@
     company('bukit-asam', 'Bukit Asam', 'PTBA', ['coal-mining', 'power-utilities'], 'Coal and power interests, with a separate operating and cash-flow case in the coal study.', pbaiEvidence),
     company('dian-swastatika-sentosa', 'Dian Swastatika Sentosa', 'DSSA', ['coal-mining', 'digital-infrastructure', 'ai-infrastructure'], 'A diversified group spanning coal, energy and digital infrastructure in the published assessment.', pbaiEvidence),
     company('bayan-resources', 'Bayan Resources', '', ['coal-mining'], 'A producer case study comparing operating prices, costs and cash economics.', [{ url: 'coal-in-transition.html#bayan-heading', label: 'Bayan Resources / company evidence' }]),
+    { ...company('nvidia', 'NVIDIA Corporation', 'NVDA', ['semiconductors', 'ai-infrastructure'], 'Accelerated computing, networking and software, examined in the published company initiation.', [{ url: 'report.html?id=nvda-2026-10-25', label: 'NVDA initiation / catalogue and full report' }]), countryIds: ['US'], listing: { exchange: 'NASDAQ', countryId: 'US' } },
   ];
   // A listing is a distinct identity. No domicile is inferred from the exchange.
-  const listings = companies.filter((c) => c.ticker).map((c) => ({ id: `IDX:${c.ticker}`, companyId: c.id, ticker: c.ticker, exchange: 'IDX', countryId: 'ID', evidence: c.evidence }));
+  const listings = companies.filter((c) => c.ticker).map((c) => {
+    const { exchange, countryId } = c.listing || { exchange: 'IDX', countryId: 'ID' };
+    return { id: `${exchange}:${c.ticker}`, companyId: c.id, ticker: c.ticker, exchange, countryId, evidence: c.evidence };
+  });
   const relationships = [];
   function link(reportId, type, entityIds, role, url, label) {
     entityIds.forEach((entityId) => relationships.push({ reportId, type, entityId, role, evidence: [{ url, label }] }));
@@ -79,6 +84,10 @@
     link(id, 'company', [companyId], 'primary', catalogue(id), 'Published company initiation');
     link(id, 'sector', [sectorId], 'primary', catalogue(id), 'Sector identified in the catalogue');
   });
+  link('nvda-2026-10-25', 'country', ['US'], 'primary', catalogue('nvda-2026-10-25'), 'Company initiation / United States research');
+  link('nvda-2026-10-25', 'company', ['nvidia'], 'primary', catalogue('nvda-2026-10-25'), 'Published company initiation');
+  link('nvda-2026-10-25', 'sector', ['semiconductors'], 'primary', catalogue('nvda-2026-10-25'), 'Sector identified in the catalogue');
+  link('nvda-2026-10-25', 'sector', ['ai-infrastructure'], 'material', catalogue('nvda-2026-10-25'), 'Data-centre demand and customer capex examined in the report');
   ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16', 'ihsg-weekly-2026-10-23'].forEach((id) => {
     link(id, 'country', ['ID'], 'primary', catalogue(id), 'Indonesia equity-market update');
     link(id, 'sector', ['rates-macro'], 'primary', catalogue(id), 'Market and currency observations; IHSG is an index, not a company');

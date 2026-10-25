@@ -37,6 +37,33 @@
 */
 window.LONGHAND_REPORTS = [
 {
+  "id": "nvda-2026-10-25",
+  "ticker": "NVDA",
+  "exchange": "NASDAQ",
+  "company": "NVIDIA Corporation",
+  "sector": "Semiconductors",
+  "category": "Initiation",
+  "title": "Not a Cliff. The Road Goes On.",
+  "date": "2026-10-25",
+  "blurb": "Initiating at BUY, target $285. At $210.96 the price assumes revenue growth of about 15% a year over FY29 to FY31. We expect 25%, fading gradually rather than falling off a cliff.",
+  "summary": "We initiate on NVIDIA with a BUY and a 12-month target of $285 (35.1%), against a bear, base and bull range of $182, $285 and $354. Our DCF takes revenue growth from 87% in FY27 to 3% by FY36, with margins falling every year. With the raw 2.22x beta the target is $245, still a BUY by a thin margin. The main risks are custom silicon, customer returns on AI spending, $279bn of supply commitments and up to $105bn of new guarantees tied to OpenAI's data center leases. Prices are closes on 23 October 2026.",
+  "tags": ["NVDA", "NVIDIA", "United States", "Semiconductors", "AI", "Data centers", "Equity Research"],
+  "rating": "BUY",
+  "currency": "USD",
+  "price": 210.96,
+  "targetPrice": 285,
+  "upside": 35.1,
+  "pdfUrl": "reports/NVDA_Initiation_Report.pdf",
+  "pages": 17,
+  "fileSize": 437419,
+  "extra": [
+    ["Market cap (US$ bn)", "5,104"],
+    ["Diluted shares (bn)", "24.2"],
+    ["Dividend, yield", "$1.00, 0.5%"],
+    ["Expected total return", "35.6%"]
+  ]
+},
+{
   "id": "ihsg-weekly-2026-10-23",
   "ticker": "IHSG",
   "exchange": "IDX",
