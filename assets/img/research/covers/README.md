@@ -1,5 +1,22 @@
 # Longhand portrait editorial covers
 
+## 25 October 2026: NVIDIA initiation cover
+
+The owner asked for a cover tied to NVIDIA and its chief executive that carries
+the report's thesis: growth fades gradually, it does not fall off a cliff.
+`nvda-road-art.webp` shows a man in a leather jacket, seen from behind, pulling
+a small cart of chips down a road that runs past a cliff edge onto a long
+bridge. One sceptic watches through binoculars from the cliff, and a data-center
+hall is still being built at the far end. It is a conceptual illustration, not a
+real scene, a named facility or an endorsement. No logo or brand mark appears.
+
+Canva's image generator made the drafts. The owner rejected the first busy
+versions, chose a simpler one, asked for small hand-drawn details, then for one
+sceptic and the building site. The chosen image was downloaded at 1024 by 1536
+and only encoded and resized. `nvda-road-art.json` holds the final prompt, the
+draft sequence and the source hash. The website typesets No. 016, the date and
+the catalogue title "Not a Cliff. The Road Goes On." over it.
+
 ## 25 October 2026: an IDX plaza cover for the 23 October edition
 
 `ihsg-plaza-art.webp` is the cover for No. 015, "Local Money Bought the Bounce.

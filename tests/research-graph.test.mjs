@@ -32,7 +32,7 @@ test('all published reports stay discoverable and market indices are not company
   assert.equal(G.reportsFor().length, reports.length);
   assert.equal(G.companies.some((c) => c.ticker === 'IHSG'), false);
   assert.equal(G.reportsFor({ country: 'ID' }).length, 13);
-  assert.equal(G.reportsFor({ country: 'US' }).length, 2);
+  assert.equal(G.reportsFor({ country: 'US' }).length, 3);
   assert.equal(G.contextFor('sector-2026-09-24').countries.length, 0, 'No geography guessed from chip subject');
 });
 test('country report filters distinguish primary coverage from documented trade context', () => {
@@ -43,7 +43,7 @@ test('country report filters distinguish primary coverage from documented trade 
     assert.deepEqual(Array.from(G.countryCoverage(id).context, r => r.id), id==='VN'?['coal-in-transition-2026-10-08']:['more-nickel-2026-10-15','coal-in-transition-2026-10-08']);
   }
   assert.equal(G.countryCoverage('ID').primary.length, 13);
-  assert.equal(G.countryCoverage('US').primary.length, 2);
+  assert.equal(G.countryCoverage('US').primary.length, 3);
   assert.equal(G.countryCoverage('unknown').context.length, 0);
   const weekly = G.countryCoverage('ID').primary.find(r => r.id === 'ihsg-weekly-2026-10-09');
   assert.equal(weekly?.page, 'ihsg-weekly.html?week=2026-10-09');
@@ -56,6 +56,8 @@ test('country-sector-company narrowing cannot create a company relationship thro
   assert.equal(G.entitiesFor('company', { country: 'CN' }).length, 0);
   const inet = G.reportsFor({ country: 'ID', sector: 'digital-infrastructure', company: 'sinergi-inti-andalan-prima' });
   assert.equal(inet.length, 1); assert.equal(inet[0].id, 'inet-2026-09-27');
+  assert.equal(G.reportsFor({ country: 'ID', company: 'nvidia' }).length, 0, 'A US company does not inherit Indonesia coverage');
+  assert.deepEqual(Array.from(G.listings.filter((l) => l.companyId === 'nvidia'), (l) => l.id), ['NASDAQ:NVDA']);
   assert.equal(G.reportsFor({ country: 'invalid' }).length, 0);
 });
 test('listing identity and research geography stay distinct from domicile and private drafts', () => {
