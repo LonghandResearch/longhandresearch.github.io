@@ -205,7 +205,18 @@
       target.addEventListener('pointerleave', () => sleep(fig));
     } else middle.observe(fig);
   }
-  const scan = () => document.querySelectorAll('.research-cover[data-report-cover]').forEach(attach);
+  // The Library redraws its list on every search, filter and view change. Covers that
+  // left the page stop and are released, so old animations never pile up in memory.
+  function release() {
+    for (const fig of covers.keys()) {
+      if (fig.isConnected) continue;
+      sleep(fig);
+      ambient.unobserve(fig);
+      middle.unobserve(fig);
+      covers.delete(fig);
+    }
+  }
+  const scan = () => { release(); document.querySelectorAll('.research-cover[data-report-cover]').forEach(attach); };
   new MutationObserver(scan).observe(document.body, { childList: true, subtree: true });
   scan();
   reduced.addEventListener?.('change', () => { if (reduced.matches) [...covers.keys()].forEach(sleep); });
