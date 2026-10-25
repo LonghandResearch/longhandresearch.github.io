@@ -50,6 +50,8 @@ uncommitted branch.
 | `assets/js/research-tasks.js` | Five role deliverables and manual next-action guidance derived from saved project records |
 | `assets/js/home.js` | Front page: the stars and the latest report from the catalogue |
 | `assets/js/library.js` | Library page: the list, filters and search |
+| `assets/js/living-covers.js` | Living covers: wakes covers and moves their own clouds, water, trees and lights |
+| `assets/js/living-covers-data.js` | What moves on each living cover |
 | `assets/js/coverage.js` | Coverage page: groups rated Initiation and Update reports by ticker |
 | `assets/js/reader.js` | Report page: the PDF reader |
 | `assets/js/earth.js` | The Earth on the front page (three.js) |
@@ -319,6 +321,18 @@ No existing publication has been converted to that format. Authoring, local
 research storage, RSS, Wire and the publishing workflow remain as documented above.
 
 See [V2 validation](docs/v2-validation.md) for the local implementation checks.
+
+## Living covers
+
+Fifteen covers move a little: clouds drift, water flows and glints, trees sway,
+lights breathe, and on two covers the balance pans or a crane and train move. Only
+parts already in each picture move. A cover wakes on hover in the Library and on the
+Home page, in the middle of the screen on phones, and while visible on a report page.
+Reduced motion and Save-Data keep covers still, and the files load only when a cover
+first wakes. `assets/js/living-covers.js` is the shared engine and
+`assets/js/living-covers-data.js` says what moves on each cover. See
+[living covers](assets/img/research/living/README.md) for the files and how the
+masks were made. `tests/living-covers.test.mjs` checks every entry and file.
 
 ## The front page
 
