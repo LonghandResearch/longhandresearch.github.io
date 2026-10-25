@@ -22,6 +22,12 @@
   for (let i = 0; i < 4096; i++) SIN[i] = Math.sin((i / 4096) * Math.PI * 2);
   const sin = (a) => SIN[((a * 651.8986) | 0) & 4095];
 
+  const loaded = (img) => new Promise((resolve, reject) => {
+    if (img.complete) return img.naturalWidth ? resolve() : reject(new Error(img.src));
+    img.addEventListener('load', () => resolve(), { once: true });
+    img.addEventListener('error', () => reject(new Error(img.src)), { once: true });
+  });
+
   const pixels = (src) => new Promise((resolve, reject) => {
     const im = new Image();
     im.src = src;
@@ -160,21 +166,34 @@
     }
     fig.querySelector(':scope > img')?.after(layer);
     fig.appendChild(front);
-    return frames;
+    // Every picture a layer shows, and the sky mask, must load before the cover wakes.
+    const required = [...layer.querySelectorAll('img'), ...front.querySelectorAll('img')].map(loaded);
+    if (d.sky) { const mask = new Image(); mask.src = `${dir}sky.png`; required.push(loaded(mask)); }
+    const ready = Promise.all(required).then(() => true, () => { layer.remove(); front.remove(); return false; });
+    return { frames, ready };
   }
 
   const covers = new Map();
   const awake = new Set();
+  // A cover wakes only once its pictures have loaded. If any fails, its moving
+  // layers are removed and the static cover stays exactly as it was.
   function wake(fig) {
     const c = covers.get(fig);
-    if (!c || reduced.matches || fig.clientWidth < MIN_WIDTH) return;
-    if (!c.frames) c.frames = build(fig, c.data);
-    fig.classList.add('is-living');
-    awake.add(c);
+    if (!c || c.failed || reduced.matches || fig.clientWidth < MIN_WIDTH) return;
+    c.wanted = true;
+    if (!c.built) c.built = build(fig, c.data);
+    c.built.ready.then((ok) => {
+      if (!ok) { c.failed = true; return; }
+      if (!c.wanted || !fig.isConnected) return;
+      c.frames = c.built.frames;
+      fig.classList.add('is-living');
+      awake.add(c);
+    });
   }
   function sleep(fig) {
     const c = covers.get(fig);
     if (!c) return;
+    c.wanted = false;
     fig.classList.remove('is-living');
     awake.delete(c);
   }
@@ -197,7 +216,7 @@
     if (covers.has(fig)) return;
     const data = DATA[fig.dataset.reportCover];
     if (!data) return;
-    covers.set(fig, { data, frames: null });
+    covers.set(fig, { data, built: null, frames: null, wanted: false, failed: false });
     if (reportPage) ambient.observe(fig);
     else if (hover) {
       const target = fig.closest('li, .reading-jacket, a') || fig;
