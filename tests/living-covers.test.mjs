@@ -26,11 +26,13 @@ test('every file a living cover asks for exists', () => {
     const dir = `assets/img/research/living/${d.id}/`;
     const need = [];
     if (d.base) need.push('base.webp');
-    if (d.sky) need.push('sky.png');
+    if (d.sky) {
+      assert.ok(d.base, `${d.id} keeps a still sky under the moving clouds`);
+      need.push('sky.png', 'clouds.webp');
+    }
     for (const w of d.warps) {
       if (w.type === 'track') need.push('track.webp');
       else need.push(`${w.type}.webp`, `${w.type}-data.png`);
-      if (w.type === 'sway') need.push('sway-bg.webp');
     }
     for (const s of d.sprites) need.push(`sprite-${s.name}.webp`);
     if (d.hoist) need.push('sprite-load.webp');
