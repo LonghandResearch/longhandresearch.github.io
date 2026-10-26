@@ -53,8 +53,8 @@
     let st = null;
     const type = spec.type;
     const files = type === 'track' ? [pixels(`${dir}track.webp`)]
-      : [pixels(`${dir}${type}.webp`), pixels(`${dir}${type}-data.png`), type === 'sway' ? pixels(`${dir}sway-bg.webp`) : null];
-    Promise.all(files).then(([src, data, bg]) => {
+      : [pixels(`${dir}${type}.webp`), pixels(`${dir}${type}-data.png`)];
+    Promise.all(files).then(([src, data]) => {
       if (type === 'track') {
         const [ox, oy] = spec.origin, [ux, uy] = spec.dir, nx = -uy, ny = ux, L = spec.length, [c0, c1] = spec.across;
         const cells = [];
@@ -68,8 +68,19 @@
       }
       const channel = type === 'twinkle' ? 0 : 2, active = [];
       for (let i = 0; i < w * h; i++) if (data[i * 4 + channel] > 128) active.push(i);
-      st = { src, data, bg: bg || src, active: Int32Array.from(active), col: new Float32Array(w), row: new Float32Array(h) };
+      st = { src, data, active: Int32Array.from(active), col: new Float32Array(w), row: new Float32Array(h) };
     }).catch(() => {});
+
+    // Copies the part's colour at a fractional column of the same row, blending the
+    // two pixels either side. Columns outside the part keep the pixel's own colour.
+    function shifted(o, s, i, c, sc) {
+      const c0 = Math.floor(sc), f = sc - c0, row = i - c, k = i * 4;
+      const a = c0 >= 0 && c0 < w && s.data[(row + c0) * 4] > 128 ? (row + c0) * 4 : k;
+      const b = c0 + 1 >= 0 && c0 + 1 < w && s.data[(row + c0 + 1) * 4] > 128 ? (row + c0 + 1) * 4 : k;
+      const p = s.src;
+      o[k] = p[a] + (p[b] - p[a]) * f; o[k + 1] = p[a + 1] + (p[b + 1] - p[a + 1]) * f;
+      o[k + 2] = p[a + 2] + (p[b + 2] - p[a + 2]) * f; o[k + 3] = 255;
+    }
 
     function frame(t) {
       if (!st) return;
@@ -104,10 +115,8 @@
           s.col[c] = A * gust * (0.75 * sin(t * 2.1 - (c + x) * 0.05) + 0.25 * sin(t * 3.6 - (c + x) * 0.13));
         }
         for (const i of s.active) {
-          const c = i % w, d = s.col[c] * (s.data[i * 4 + 1] / 255);
-          const j = i - c + Math.max(0, Math.min(w - 1, Math.round(c - d)));
-          const own = s.data[j * 4] > 128, m = (own ? j : i) * 4, from = own ? s.src : s.bg, k = i * 4;
-          o[k] = from[m]; o[k + 1] = from[m + 1]; o[k + 2] = from[m + 2]; o[k + 3] = 255;
+          const c = i % w;
+          shifted(o, s, i, c, c - s.col[c] * (s.data[i * 4 + 1] / 255));
         }
       } else {
         // Water: ripples travel down the frame, larger nearer the viewer.
@@ -115,10 +124,7 @@
         for (let r = 0; r < h; r++) s.row[r] = (r + y) * 0.3 - t * 1.9;
         for (const i of s.active) {
           const c = i % w, r = (i - c) / w;
-          const sc = Math.round(c - A * (s.data[i * 4 + 1] / 255) * sin(s.row[r] + s.col[c]));
-          const j = sc >= 0 && sc < w && s.data[(i - c + sc) * 4] > 128 ? i - c + sc : i;
-          const k = i * 4, m = j * 4;
-          o[k] = s.src[m]; o[k + 1] = s.src[m + 1]; o[k + 2] = s.src[m + 2]; o[k + 3] = 255;
+          shifted(o, s, i, c, c - A * (s.data[i * 4 + 1] / 255) * sin(s.row[r] + s.col[c]));
         }
       }
       ctx.putImageData(out, 0, 0);
@@ -139,7 +145,7 @@
       sky.style.webkitMaskImage = sky.style.maskImage = `url(${dir}sky.png)`;
       sky.style.setProperty('--amp', `${d.sky}%`);
       sky.style.setProperty('--period', `${22 + (d.id.length % 7) * 2}s`);
-      sky.innerHTML = `<img src="${picture}" alt="" width="640" height="960">`;
+      sky.innerHTML = `<img src="${dir}clouds.webp" alt="" width="640" height="960">`;
       layer.appendChild(sky);
     }
     const frames = d.warps.map((spec) => warp(layer, dir, spec));

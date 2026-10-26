@@ -26,16 +26,23 @@ and holds pieces in the 640 x 960 cover space:
 
 | File | What it is |
 | --- | --- |
-| `sky.png` | Alpha mask of the sky, feathered at its edges; the sky drifts inside it |
+| `sky.png` | Alpha mask of the open sky, kept 4 px clear of every outline; the clouds drift inside it |
+| `clouds.webp` | The sky's clouds for drifting. Beyond the sky they fade into plain sky colour, so a drift never pulls a roof or a branch into view |
 | `flow*` | Water: its pixels, and a data image (red mask, green ripple strength) |
-| `sway*` | Trees or grass: pixels, the same with the plants painted out, and a data image (red mask, green sway height, blue reach) |
+| `sway*` | Trees or grass: pixels and a data image (red mask, green sway height, blue area that moves) |
 | `twinkle*` | Lights and water glints: pixels and a data image (red spot, green phase, blue light or glint) |
 | `track.webp` | NVIDIA: the strip around the valley track that scrolls forward |
 | `sprite-*.webp` | Parts that swing or hang: the Trust pans, the NVIDIA crane load |
-| `base.webp` | The cover with those swinging parts painted out (Trust and NVIDIA only) |
+| `base.webp` | The cover under the moving layers: the sky smoothed to its own soft colour so no second copy of a cloud shows through, and on Trust and NVIDIA the swinging parts painted out |
 
-`assets/js/living-covers-data.js` lists, per report id, what moves and where. Other
-covers reuse the existing `covers/*-art-640.webp` file for their drifting sky.
+`assets/js/living-covers-data.js` lists, per report id, what moves and where.
+
+## Keeping outlines still
+
+Ink outlines never move. Leaves sway only inside a plant's own shape and fade to
+still before its edge, so a tree's outline against a building or the sky stays
+put. Each moved pixel blends the two source pixels either side of it instead of
+jumping a whole pixel, which keeps leaves and ripples smooth when seen up close.
 
 ## How the masks were made
 
