@@ -1,12 +1,222 @@
 {
- "updated": "2026-10-28T16:41:28.316Z",
+ "updated": "2026-10-28T21:42:07.037Z",
  "items": [
+  {
+   "title": "Here are five key takeaways from the Fed rate decision and Warsh news conference",
+   "url": "https://www.cnbc.com/2026/10/28/fed-rate-decision-warsh-takeaways.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-10-28T21:31:46.000Z"
+  },
+  {
+   "title": "Bitcoin-backed mortgages are coming to Canada, but borrowers are still unaware of the cost",
+   "url": "https://www.coindesk.com/markets/2026/10/28/bitcoin-backed-mortgages-are-coming-to-canada-but-borrowers-are-still-unaware-of-the-cost",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-28T21:13:44.000Z"
+  },
+  {
+   "title": "Bessent says 'not necessarily' a mistake if the Fed hikes again",
+   "url": "https://www.cnbc.com/2026/10/28/scott-bessent-interview.html",
+   "source": "CNBC",
+   "topic": "Macro",
+   "time": "2026-10-28T21:06:37.000Z"
+  },
+  {
+   "title": "Solar Has Overtaken Nuclear in the Global Power Mix",
+   "url": "https://oilprice.com/Alternative-Energy/Solar-Energy/Solar-Has-Overtaken-Nuclear-in-the-Global-Power-Mix.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T21:00:00.000Z"
+  },
   {
    "title": "Iran sees only unacceptable ideas in latest mediation to end war, official says",
    "url": "https://www.investing.com/news/commodities-news/iran-sees-only-unacceptable-ideas-in-latest-mediation-to-end-war-official-says-4979005",
    "source": "Investing.com",
    "topic": "Commodities",
-   "time": "2026-10-28T16:07:07.000Z"
+   "time": "2026-10-28T20:43:38.000Z"
+  },
+  {
+   "title": "Gold rises as dollar weakens after Fed holds rates steady as largely expected",
+   "url": "https://www.investing.com/news/commodities-news/gold-steadies-above-4000-as-traders-await-fed-decision-pce-data-4977316",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T20:02:20.000Z"
+  },
+  {
+   "title": "India’s Record LNG Buying Meets Record-High Prices",
+   "url": "https://oilprice.com/Energy/Natural-Gas/Indias-Record-LNG-Buying-Meets-Record-High-Prices.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T20:00:00.000Z"
+  },
+  {
+   "title": "Here’s what happened in crypto today",
+   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-28T19:46:45.000Z"
+  },
+  {
+   "title": "Italy approves 2027 budget with tax hikes on banks and energy firms",
+   "url": "https://www.investing.com/news/commodities-news/italy-approves-2027-budget-with-tax-hikes-on-banks-and-energy-firms-4980520",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:30:40.000Z"
+  },
+  {
+   "title": "Crude Oil WTI tests $103.50 double top resistance: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-consolidates-below-10350-resistance-live-levels-93CH-4971501",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:18:33.000Z"
+  },
+  {
+   "title": "Natural Gas tests 61.8% Fib resistance after V-shape recovery: Live",
+   "url": "https://www.investing.com/news/commodities-news/natural-gas-rebounds-from-oversold-into-sma-resistance-live-levels-93CH-4971506",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:18:33.000Z"
+  },
+  {
+   "title": "Copper tests 61.8% Fib resistance with overbought MFI: Live",
+   "url": "https://www.investing.com/news/commodities-news/copper-tests-resistance-at-50-sma-in-downtrend-live-levels-93CH-4971504",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:18:26.000Z"
+  },
+  {
+   "title": "Brent Oil consolidates inside Ichimoku cloud: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/brent-oil-tests-cloud-support-after-parabolic-top-live-levels-93CH-4971503",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:18:25.000Z"
+  },
+  {
+   "title": "London Gas Oil consolidates at key support confluence: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/london-gas-oil-consolidates-in-triangle-at-key-support-live-levels-93CH-4971507",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:18:23.000Z"
+  },
+  {
+   "title": "Silver bear flag active near $53.59 resistance: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/silver-in-freefall-below-all-mas-doji-hints-at-exhaustion-live-93CH-4971502",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:18:18.000Z"
+  },
+  {
+   "title": "Gold bear flag 80% complete near $4,110 resistance: Live levels",
+   "url": "https://www.investing.com/news/commodities-news/gold-breaks-below-4000-in-descending-channel-live-levels-93CH-4971505",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:18:13.000Z"
+  },
+  {
+   "title": "Sam Bankman-Fried wrote to actor portraying him in Netflix series",
+   "url": "https://cointelegraph.com/news/sam-bankman-fried-actor-anthony-boyle-netflix?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-28T19:10:40.000Z"
+  },
+  {
+   "title": "CFTC chief poses questions about policing AI but calls it a road to 'autonomous trading'",
+   "url": "https://www.coindesk.com/policy/2026/10/28/cftc-chief-poses-questions-about-policing-ai-but-calls-it-a-road-to-autonomous-trading",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-28T19:01:53.000Z"
+  },
+  {
+   "title": "Why the Shipping Industry Is Turning Its Attention to Nuclear Power",
+   "url": "https://oilprice.com/Alternative-Energy/Nuclear-Power/Why-the-Shipping-Industry-Is-Turning-Its-Attention-to-Nuclear-Power.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T19:00:00.000Z"
+  },
+  {
+   "title": "Crypto isn’t a partisan fight, proven by data",
+   "url": "https://www.coindesk.com/opinion/2026/10/28/crypto-isn-t-a-partisan-fight-proven-by-data",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-28T18:11:31.000Z"
+  },
+  {
+   "title": "Strategy shareholders approve daily dividends for four preferred stocks",
+   "url": "https://cointelegraph.com/news/strategy-shareholders-approve-daily-dividends-for-four-preferred-stocks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-28T18:00:54.000Z"
+  },
+  {
+   "title": "Fed leaves interest rates unchanged, as expected",
+   "url": "https://www.coindesk.com/markets/2026/10/28/fed-leaves-interest-rates-unchanged-as-expected",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-28T18:00:42.000Z"
+  },
+  {
+   "title": "Federal Reserve issues FOMC statement",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+   "source": "Federal Reserve",
+   "topic": "Macro",
+   "time": "2026-10-28T18:00:00.000Z"
+  },
+  {
+   "title": "China Secures Massive Discount on Russian Gas as Moscow’s Leverage Weakens",
+   "url": "https://oilprice.com/Energy/Natural-Gas/China-Secures-Massive-Discount-on-Russian-Gas-as-Moscows-Leverage-Weakens.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T18:00:00.000Z"
+  },
+  {
+   "title": "UBS Sees $110 Brent by Year-End as Gulf Flows Stay Below Prewar Levels",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/UBS-Sees-110-Brent-by-Year-End-as-Gulf-Flows-Stay-Below-Prewar-Levels.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T17:30:00.000Z"
+  },
+  {
+   "title": "Crypto PAC spending before midterms possibly obscured after reported FEC hack",
+   "url": "https://cointelegraph.com/news/crypto-pac-spending-midterms-fec-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-28T17:05:42.000Z"
+  },
+  {
+   "title": "Coinbase earnings: Wall Street divided on trading rebound after Robinhood crypto revenue sinks 55%",
+   "url": "https://www.coindesk.com/markets/2026/10/28/coinbase-earnings-wall-street-divided-on-trading-rebound-as-robinhood-crypto-revenue-sinks-55",
+   "source": "CoinDesk",
+   "topic": "Crypto",
+   "time": "2026-10-28T17:02:57.000Z"
+  },
+  {
+   "title": "Energy Crisis Shapes UK Budget as Chancellor Faces Pressure Over Defence Spendin",
+   "url": "https://oilprice.com/Energy/Energy-General/Energy-Crisis-Shapes-UK-Budget-as-Chancellor-Faces-Pressure-Over-Defence-Spendin.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T17:00:00.000Z"
+  },
+  {
+   "title": "Bitcoin price bounce rejected at 50-day trend line ahead of FOMC, earnings",
+   "url": "https://cointelegraph.com/markets/bitcoin-price-bounce-rejected-at-50-day-trend-line-ahead-of-fomc-earnings?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-28T16:53:26.000Z"
+  },
+  {
+   "title": "Phantom launches Kalshi-powered prediction markets for US users",
+   "url": "https://cointelegraph.com/news/phantom-launches-kalshi-powered-prediction-markets-for-us-users?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-28T16:40:02.000Z"
+  },
+  {
+   "title": "Equinor Raises Oil and Gas Output Forecast as Operating Profit Doubles",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Equinor-Raises-Oil-and-Gas-Output-Forecast-as-Operating-Profit-Doubles.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T16:30:00.000Z"
   },
   {
    "title": "Crypto Long & Short: What happens when an AI agent pays for the wrong thing",
@@ -73,13 +283,6 @@
    "time": "2026-10-28T14:30:00.000Z"
   },
   {
-   "title": "Gold retreats as dollar firms slightly ahead of Fed decision",
-   "url": "https://www.investing.com/news/commodities-news/gold-steadies-above-4000-as-traders-await-fed-decision-pce-data-4977316",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T14:23:15.000Z"
-  },
-  {
    "title": "Oil climbs as Houthi attacks on Saudi Arabia overshadow diplomatic efforts",
    "url": "https://www.investing.com/news/commodities-news/oil-rebounds-as-houthi-attacks-on-saudi-arabia-overshadow-diplomatic-efforts-4977356",
    "source": "Investing.com",
@@ -99,13 +302,6 @@
    "source": "Cointelegraph",
    "topic": "Crypto",
    "time": "2026-10-28T13:47:51.000Z"
-  },
-  {
-   "title": "Here’s what happened in crypto today",
-   "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-28T13:35:44.000Z"
   },
   {
    "title": "QatarEnergy Extends LNG Force Majeure to End of 2026",
@@ -150,7 +346,7 @@
    "time": "2026-10-28T13:00:00.000Z"
   },
   {
-   "title": "JPMorgan, Coca-Cola, Dell also say 'no' to OKX-ICE tokenized tock trading plan",
+   "title": "JPMorgan, Coca-Cola, Dell also say 'no' to OKX-ICE tokenized stock trading plan",
    "url": "https://www.coindesk.com/business/2026/10/28/jpmorgan-coca-cola-dell-also-say-no-to-okx-ice-tokenized-tock-trading-plan",
    "source": "CoinDesk",
    "topic": "Crypto",
@@ -244,7 +440,7 @@
    "time": "2026-10-28T11:24:07.000Z"
   },
   {
-   "title": "Live updates: Bitcoin sheds early gains; Strategy's STRC moves to daily dividends",
+   "title": "Live updates: Bitcoin trading just above $81,000 as Fed delivers hold on rates",
    "url": "https://www.coindesk.com/business/2026/10/28/live-updates-bitcoin-climbs-above-usd81-000-as-majors-rally-ahead-of-fed-decision",
    "source": "CoinDesk",
    "topic": "Crypto",
@@ -487,55 +683,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-10-28T07:15:32.000Z"
-  },
-  {
-   "title": "Natural Gas stalls at 61.8% Fib resistance: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/natural-gas-rebounds-from-oversold-into-sma-resistance-live-levels-93CH-4971506",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T07:11:37.000Z"
-  },
-  {
-   "title": "Brent Oil consolidates after Evening Star rejection at $117.45: Live",
-   "url": "https://www.investing.com/news/commodities-news/brent-oil-tests-cloud-support-after-parabolic-top-live-levels-93CH-4971503",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T07:11:09.000Z"
-  },
-  {
-   "title": "Silver consolidates in bear flag with ADX > 40: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/silver-in-freefall-below-all-mas-doji-hints-at-exhaustion-live-93CH-4971502",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T07:11:01.000Z"
-  },
-  {
-   "title": "Gold bear flag 80% complete near dense resistance: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/gold-breaks-below-4000-in-descending-channel-live-levels-93CH-4971505",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T07:10:54.000Z"
-  },
-  {
-   "title": "London Gas Oil consolidates near 200 SMA: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/london-gas-oil-consolidates-in-triangle-at-key-support-live-levels-93CH-4971507",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T07:10:53.000Z"
-  },
-  {
-   "title": "Crude Oil WTI consolidates in $98.50-$103.50 range: Live levels",
-   "url": "https://www.investing.com/news/commodities-news/crude-oil-wti-consolidates-below-10350-resistance-live-levels-93CH-4971501",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T07:10:50.000Z"
-  },
-  {
-   "title": "Copper breaks 200 SMA but overbought MFI flags bull trap risk: Live",
-   "url": "https://www.investing.com/news/commodities-news/copper-tests-resistance-at-50-sma-in-downtrend-live-levels-93CH-4971504",
-   "source": "Investing.com",
-   "topic": "Commodities",
-   "time": "2026-10-28T07:10:46.000Z"
   },
   {
    "title": "Analis: Kenaikan harga nikel beri tambahan kontribusi ke Antam",
@@ -1607,171 +1754,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-10-27T05:44:01.000Z"
-  },
-  {
-   "title": "OJK Akui Penegakan Hukum Pasar Modal RI Belum Sesuai Keinginan MSCI",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8725949/ojk-akui-penegakan-hukum-pasar-modal-ri-belum-sesuai-keinginan-msci",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T05:31:47.000Z"
-  },
-  {
-   "title": "IHSG Melemah 0,32 Persen ke Level 5.355 pada Sesi I",
-   "url": "https://economy.okezone.com/read/2026/10/27/278/3250429/ihsg-melemah-0-32-persen-ke-level-5-355-pada-sesi-i",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T05:26:26.000Z"
-  },
-  {
-   "title": "BEI: Dikecualikannya saham HSC dari IHSG tak kurangi total market cap",
-   "url": "https://www.antaranews.com/berita/5814075/bei-dikecualikannya-saham-hsc-dari-ihsg-tak-kurangi-total-market-cap",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T05:24:37.000Z"
-  },
-  {
-   "title": "Kredit Jhonlin dengan Agunan Saham JARR dan PGUN, Ini Penjelasan Bank Mandiri",
-   "url": "https://economy.okezone.com/read/2026/10/27/278/3250427/kredit-jhonlin-dengan-agunan-saham-jarr-dan-pgun-ini-penjelasan-bank-mandiri",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T05:24:09.000Z"
-  },
-  {
-   "title": "Ripple gets a final go-ahead to launch its own U.S. national trust bank",
-   "url": "https://www.coindesk.com/markets/2026/10/27/ripple-gets-a-final-go-ahead-to-launch-its-own-u-s-national-trust-bank",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-27T04:28:49.000Z"
-  },
-  {
-   "title": "RedotPay weighs confidential US IPO filing by year-end: Bloomberg",
-   "url": "https://cointelegraph.com/news/redotpay-weighs-confidential-us-ipo-filing-by-year-end-bloomberg?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-27T04:26:51.000Z"
-  },
-  {
-   "title": "BNI Cetak Laba Rp 16,1 T, Naik 6,6%",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8725805/bni-cetak-laba-rp-16-1-t-naik-6-6",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T04:11:10.000Z"
-  },
-  {
-   "title": "Apakah Trofi Ballon D&039;Or Terbuat dari Emas Murni? Ini Faktanya",
-   "url": "https://economy.okezone.com/read/2026/10/27/320/3250396/apakah-trofi-ballon-d-or-terbuat-dari-emas-murni-ini-faktanya",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T03:40:18.000Z"
-  },
-  {
-   "title": "Harga Emas Antam Naik Tipis Hari Ini, Ini Rinciannya",
-   "url": "https://ekonomi.republika.co.id/berita/tnjqrz370/harga-emas-antam-naik-tipis-hari-ini-ini-rinciannya",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-27T03:23:59.000Z"
-  },
-  {
-   "title": "IHSG diprediksi sideways di tengah \"wait and see\" kebijakan The Fed",
-   "url": "https://www.antaranews.com/berita/5813847/ihsg-diprediksi-sideways-di-tengah-wait-and-see-kebijakan-the-fed",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T03:20:43.000Z"
-  },
-  {
-   "title": "OJK Tangani 330 Aktivitas Keuangan Ilegal, 702 Ribu Rekening Diblokir",
-   "url": "https://economy.okezone.com/read/2026/10/27/320/3250387/ojk-tangani-330-aktivitas-keuangan-ilegal-702-ribu-rekening-diblokir",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T03:06:54.000Z"
-  },
-  {
-   "title": "Pemerintah tak Gentar Hadapi MSCI, BEI Akui Kepercayaan Investor Jadi PR",
-   "url": "https://ekonomi.republika.co.id/berita/tnjpxk370/pemerintah-tak-gentar-hadapi-msci-bei-akui-kepercayaan-investor-jadi-pr",
-   "source": "Republika",
-   "topic": "Macro",
-   "lang": "id",
-   "time": "2026-10-27T03:05:44.000Z"
-  },
-  {
-   "title": "BRI: Buyback bertahap cerminkan keyakinan terhadap fundamental bisnis",
-   "url": "https://www.antaranews.com/berita/5813815/bri-buyback-bertahap-cerminkan-keyakinan-terhadap-fundamental-bisnis",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:50:38.000Z"
-  },
-  {
-   "title": "Harga Emas Hari Ini Naik Rp 10.000 per Gram",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8725636/harga-emas-hari-ini-naik-rp-10-000-per-gram",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:25:15.000Z"
-  },
-  {
-   "title": "Dolar AS Menguat Lagi ke Level Rp 18.140",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8725634/dolar-as-menguat-lagi-ke-level-rp-18-140",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:22:56.000Z"
-  },
-  {
-   "title": "Harga Emas Antam Hari Ini Naik Rp10.000, Segram Jadi Rp2,55 Juta",
-   "url": "https://economy.okezone.com/read/2026/10/27/320/3250379/harga-emas-antam-hari-ini-naik-rp10-000-segram-jadi-rp2-55-juta",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:20:21.000Z"
-  },
-  {
-   "title": "IHSG Dibuka Melemah 0,28 Persen ke Level 5.357",
-   "url": "https://economy.okezone.com/read/2026/10/27/278/3250378/ihsg-dibuka-melemah-0-28-persen-ke-level-5-357",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:17:18.000Z"
-  },
-  {
-   "title": "IHSG Menguat Dekati Level 5.400",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8725622/ihsg-menguat-dekati-level-5-400",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:17:17.000Z"
-  },
-  {
-   "title": "IHSG Selasa dibuka melemah 15,13 poin ke posisi 5.357",
-   "url": "https://www.antaranews.com/berita/5813771/ihsg-selasa-dibuka-melemah-1513-poin-ke-posisi-5357",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:13:38.000Z"
-  },
-  {
-   "title": "Perusahaan Haji Isam Dapat Pinjaman Rp 40 Triliun dari Bank Mandiri",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8725615/perusahaan-haji-isam-dapat-pinjaman-rp-40-triliun-dari-bank-mandiri",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-27T02:10:27.000Z"
-  },
-  {
-   "title": "Keystone breach deepens: Hackers stole key used to verify wallets as genuine",
-   "url": "https://cointelegraph.com/news/keystone-breach-deepens-hackers-stole-key-used-to-verify-wallets-as-genuine?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-27T01:55:03.000Z"
   }
  ]
 }
