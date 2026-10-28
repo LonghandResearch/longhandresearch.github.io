@@ -1,6 +1,88 @@
 {
- "updated": "2026-10-27T22:59:01.892Z",
+ "updated": "2026-10-28T02:20:12.242Z",
  "items": [
+  {
+   "title": "IHSG Merah Pagi Ini, Turun 1% Lebih",
+   "url": "https://finance.detik.com/energi/d-8727274/ihsg-merah-pagi-ini-turun-1-lebih",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-28T02:17:40.000Z"
+  },
+  {
+   "title": "Harga Minyak Turun Hampir 2%, tapi Masih di Atas US$ 110 per Barel",
+   "url": "https://finance.detik.com/energi/d-8727262/harga-minyak-turun-hampir-2-tapi-masih-di-atas-us-110-per-barel",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-28T02:02:17.000Z"
+  },
+  {
+   "title": "Oil prices rise after attack on Saudi Arabian refinery reignites supply concerns",
+   "url": "https://www.investing.com/news/commodities-news/oil-prices-rise-after-attack-on-saudi-arabian-refinery-reignites-supply-concerns-4977369",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T01:54:38.000Z"
+  },
+  {
+   "title": "RATU dan ERAL Catat Pertumbuhan Laba, BRIS Siapkan Buyback Rp 500 Miliar",
+   "url": "https://finance.detik.com/bursa-dan-valas/d-8727222/ratu-dan-eral-catat-pertumbuhan-laba-bris-siapkan-buyback-rp-500-miliar",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-28T01:50:28.000Z"
+  },
+  {
+   "title": "Oil rebounds as Houthi attacks on Saudi Arabia overshadow diplomatic efforts",
+   "url": "https://www.investing.com/news/commodities-news/oil-rebounds-as-houthi-attacks-on-saudi-arabia-overshadow-diplomatic-efforts-4977356",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T01:42:31.000Z"
+  },
+  {
+   "title": "Gold steadies above $4,000 as traders await Fed decision, PCE data",
+   "url": "https://www.investing.com/news/commodities-news/gold-steadies-above-4000-as-traders-await-fed-decision-pce-data-4977316",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-10-28T00:57:07.000Z"
+  },
+  {
+   "title": "Pramono Ikuti Keputusan Suahasil soal Obligasi DKI Rp5,6 Triliun",
+   "url": "https://economy.okezone.com/read/2026/10/28/320/3250586/pramono-ikuti-keputusan-suahasil-soal-obligasi-dki-rp5-6-triliun",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-28T00:47:55.000Z"
+  },
+  {
+   "title": "Discord is making public chats searchable on Google: How to opt out",
+   "url": "https://cointelegraph.com/news/discord-is-making-public-chats-searchable-on-google-how-to-opt-out?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+   "source": "Cointelegraph",
+   "topic": "Crypto",
+   "time": "2026-10-28T00:47:04.000Z"
+  },
+  {
+   "title": "America Produces Less Than 1% of the Rare Earth Magnets It Needs",
+   "url": "https://oilprice.com/Energy/Energy-General/America-Produces-Less-Than-1-of-the-Rare-Earth-Magnets-It-Needs.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-28T00:00:00.000Z"
+  },
+  {
+   "title": "Daftar Lengkap Harga BBM Pertamina, Shell, BP, dan Vivo Hari Ini, Selasa 28 Oktober 2026",
+   "url": "https://economy.okezone.com/read/2026/10/27/320/3250577/daftar-lengkap-harga-bbm-pertamina-shell-bp-dan-vivo-hari-ini-selasa-28-oktober-2026",
+   "source": "Okezone",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-10-27T23:30:07.000Z"
+  },
+  {
+   "title": "Americans Hit Hardest by War-Driven Oil Price Surge",
+   "url": "https://oilprice.com/Energy/Crude-Oil/Americans-Hit-Hardest-by-War-Driven-Oil-Price-Surge.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-10-27T23:00:00.000Z"
+  },
   {
    "title": "Will Rubio’s Jamnagar Move Permanently Break The Russia-India Oil Axis?",
    "url": "https://oilprice.com/Energy/Energy-General/Will-Rubios-Jamnagar-Move-Permanently-Break-The-Russia-India-Oil-Axis.html",
@@ -326,17 +408,17 @@
    "time": "2026-10-27T14:18:59.000Z"
   },
   {
-   "title": "Iran Turns to Russia for Nuclear Power as IAEA Oversight Falters",
-   "url": "https://oilprice.com/Geopolitics/Middle-East/Iran-Turns-to-Russia-for-Nuclear-Power-as-IAEA-Oversight-Falters.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-27T14:00:00.000Z"
-  },
-  {
    "title": "CF Benchmarks brings Wall Street pricing infrastructure onchain, including data used by BlackRock",
    "url": "https://www.coindesk.com/markets/2026/10/27/cf-benchmarks-brings-wall-street-pricing-infrastructure-onchain-including-data-used-by-blackrock",
    "source": "CoinDesk",
    "topic": "Crypto",
+   "time": "2026-10-27T14:00:00.000Z"
+  },
+  {
+   "title": "Iran Turns to Russia for Nuclear Power as IAEA Oversight Falters",
+   "url": "https://oilprice.com/Geopolitics/Middle-East/Iran-Turns-to-Russia-for-Nuclear-Power-as-IAEA-Oversight-Falters.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
    "time": "2026-10-27T14:00:00.000Z"
   },
   {
@@ -348,17 +430,17 @@
    "time": "2026-10-27T13:30:50.000Z"
   },
   {
-   "title": "Investors From 119 Countries Pile Into Dangote’s Record Refinery IPO",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Investors-From-119-Countries-Pile-Into-Dangotes-Record-Refinery-IPO.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-27T13:30:00.000Z"
-  },
-  {
    "title": "Crypto could outperform AI stocks: Wall Street veteran Jordi Visser",
    "url": "https://cointelegraph.com/magazine/crypto-could-outperform-ai-stocks-wall-street-veteran-jordi-visser?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
    "source": "Cointelegraph",
    "topic": "Crypto",
+   "time": "2026-10-27T13:30:00.000Z"
+  },
+  {
+   "title": "Investors From 119 Countries Pile Into Dangote’s Record Refinery IPO",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Investors-From-119-Countries-Pile-Into-Dangotes-Record-Refinery-IPO.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
    "time": "2026-10-27T13:30:00.000Z"
   },
   {
@@ -1691,90 +1773,6 @@
    "topic": "Markets",
    "lang": "id",
    "time": "2026-10-26T09:30:01.000Z"
-  },
-  {
-   "title": "Europe's Natural Gas Prices Soar to Four-Year High as Winter Looms",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Europes-Natural-Gas-Prices-Soar-to-Four-Year-High-as-Winter-Looms.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-26T09:30:00.000Z"
-  },
-  {
-   "title": "BEI siap berlakukan suspensi ke rekening terindikasi manipulasi harga",
-   "url": "https://www.antaranews.com/berita/5812283/bei-siap-berlakukan-suspensi-ke-rekening-terindikasi-manipulasi-harga",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-26T09:28:36.000Z"
-  },
-  {
-   "title": "Fed, ECB and BOJ interest-rate decisions, Coinbase earnings: Crypto Week Ahead",
-   "url": "https://www.coindesk.com/markets/2026/10/26/fed-ecb-and-boj-interest-rate-decisions-coinbase-earnings-crypto-week-ahead",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-10-26T09:14:47.000Z"
-  },
-  {
-   "title": "Bahlil Ungkap Dugaan Perusahaan Asing Lakukan Penambangan Kelapa Sawit",
-   "url": "https://economy.okezone.com/read/2026/10/26/320/3250272/bahlil-ungkap-dugaan-perusahaan-asing-lakukan-penambangan-kelapa-sawit",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-26T09:10:33.000Z"
-  },
-  {
-   "title": "Rupiah Melemah ke Rp18.135 per Dolar AS, BI Terus Pantau Pasar",
-   "url": "https://economy.okezone.com/read/2026/10/26/320/3250264/rupiah-melemah-ke-rp18-135-per-dolar-as-bi-terus-pantau-pasar",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-26T09:09:54.000Z"
-  },
-  {
-   "title": "Dolar AS Tembus Rp 18.100, Gubernur BI: Kita Tetap Ada di Pasar, Kita Monitor",
-   "url": "https://finance.detik.com/bursa-dan-valas/d-8724779/dolar-as-tembus-rp-18-100-gubernur-bi-kita-tetap-ada-di-pasar-kita-monitor",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-26T09:07:10.000Z"
-  },
-  {
-   "title": "Garuda dan Pelita Tak Kunjung Merger, Ini Penjelasan Danantara",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8724746/garuda-dan-pelita-tak-kunjung-merger-ini-penjelasan-danantara",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-26T08:48:52.000Z"
-  },
-  {
-   "title": "Rupiah Ditutup Melemah ke Rp18.135 per Dolar AS",
-   "url": "https://economy.okezone.com/read/2026/10/26/320/3250263/rupiah-ditutup-melemah-ke-rp18-135-per-dolar-as",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-26T08:38:14.000Z"
-  },
-  {
-   "title": "India's Stock Market Feels the Heat From High Oil Prices",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Indias-Stock-Market-Feels-the-Heat-From-High-Oil-Prices.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-10-26T08:30:00.000Z"
-  },
-  {
-   "title": "Bea Cukai Gagalkan Penyelundupan Emas 25,88 Kg ke Luar Negeri",
-   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8724683/bea-cukai-gagalkan-penyelundupan-emas-25-88-kg-ke-luar-negeri",
-   "source": "detikFinance",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-10-26T08:22:39.000Z"
-  },
-  {
-   "title": "Bitcoin ETFs break 2-week outflow streak with $301M comeback",
-   "url": "https://cointelegraph.com/markets/bitcoin-etfs-rebound-weekly-inflow-301-million?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-   "source": "Cointelegraph",
-   "topic": "Crypto",
-   "time": "2026-10-26T08:20:49.000Z"
   }
  ]
 }
