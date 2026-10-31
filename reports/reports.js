@@ -64,6 +64,25 @@ window.LONGHAND_REPORTS = [
   ]
 },
 {
+  "id": "ihsg-weekly-2026-10-30",
+  "ticker": "IHSG",
+  "exchange": "IDX",
+  "company": "Indonesia equity market",
+  "sector": "Macro and equities",
+  "category": "Update",
+  "title": "A Bounce Built on Thin Stocks Gave Way",
+  "date": "2026-11-01",
+  "blurb": "IHSG fell 7.03% on half the foreign selling of the week before. The 81 stocks leaving the index on 2 November lost the most, and government bond buyers pulled away.",
+  "summary": "Weekly research for 26 to 30 October. Audited IDX observations, where Rp764tn of lost market value came from, the Fed's split vote, weak bond auction demand and a check of last week's call.",
+  "tags": ["IHSG", "Weekly Market Update", "Foreign flow", "HSC", "Bond yields", "Federal Reserve", "Bank Indonesia", "Market governance"],
+  "rating": null,
+  "currency": "IDR",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "ihsg-weekly.html?week=2026-10-30"
+},
+{
   "id": "ihsg-weekly-2026-10-23",
   "ticker": "IHSG",
   "exchange": "IDX",

@@ -1,0 +1,1463 @@
+{
+  "schemaVersion": 1,
+  "weekEnding": "2026-10-30",
+  "published": "2026-11-01",
+  "reviewed": "2026-11-01",
+  "period": "26 to 30 October 2026",
+  "title": "A Bounce Built on Thin Stocks Gave Way",
+  "titleLead": "A bounce built on thin stocks.",
+  "titleEmphasis": "It gave way.",
+  "deck": "IHSG fell 7.03% to 5,057.050 and gave back the whole of last week's bounce. Foreign selling halved to Rp3.06tn, yet prices fell harder. The 81 stocks leaving the index on 2 November lost more than the rest, and at the same time bond buyers pulled away. We stay defensive.",
+  "description": "Indonesia weekly research for 26 to 30 October 2026. Audited IDX data, where Rp764tn of lost market value came from, the 81 stocks leaving IHSG on 2 November, a split Fed vote, weak bond auction demand and a check of last week's call.",
+  "presentation": "refined",
+  "stats": [
+    {
+      "label": "IHSG close",
+      "value": "5,057.05",
+      "note": "-7.03% over the week. Friday low 4,979.34"
+    },
+    {
+      "label": "Official weekly foreign net",
+      "value": "-Rp3.06tn",
+      "note": "All stock markets. 54.18% less than the week before. Net selling on four of five days"
+    },
+    {
+      "label": "Market value lost",
+      "value": "-Rp721tn",
+      "note": "IDX market capitalisation from Rp9,583tn to Rp8,862tn, down 7.52%"
+    },
+    {
+      "label": "JISDOR, Rp per USD",
+      "value": "18,138",
+      "note": "+0.38% from 23 October. Indicative USD return -7.38%"
+    }
+  ],
+  "sources": {
+    "weekly": {
+      "label": "IDX Weekly Statistics, 26 to 30 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ws_261030. Page 1 market activity, page 2 official flow, investor composition and market multiples, page 3 top stocks, page 4 exact market totals and breadth, page 5 index contributions, page 6 exact foreign buy and sell, page 7 sector and board indices, page 8 global comparison."
+    },
+    "daily": {
+      "label": "IDX Daily Statistics, 26 to 30 October 2026",
+      "url": "https://www.idx.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ds_261026 through ds_261030. Page 1 closes, ranges and the intraday chart, page 2 foreign net and market multiples, page 5 market types and breadth."
+    },
+    "jisdor": {
+      "label": "Bank Indonesia JISDOR, 23 to 30 October 2026",
+      "url": "https://www.bi.go.id/id/statistik/informasi-kurs/jisdor/default.aspx",
+      "note": "All six dates read from the BI table on 1 November. The five current-week rates also match the IDX daily footer."
+    },
+    "observations": {
+      "label": "Frozen IDX observations and source hashes, 30 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/market-2026-10-30.json",
+      "note": "Exact source observations, source-file hashes, visually checked breadth counts, index contributions, sector indices and the global comparison."
+    },
+    "flowless": {
+      "label": "Frozen stock-level estimates, 30 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-10-30.json",
+      "note": "Read-only weekly export for 82 liquid large caps, 20 daily rows for nine focus stocks and a daily reconciliation with IDX regular-market value and volume. Foreign values are closing-price estimates."
+    },
+    "hsc": {
+      "label": "Frozen HSC comparison inputs, 30 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/hsc-2026-10-30.json",
+      "note": "The 81-stock exit list, and for all 963 stocks the sector, shares outstanding, closes on 16, 23 and 30 October and regular-market value for the week, with the method."
+    },
+    "prior": {
+      "label": "Longhand IHSG weekly, 23 October 2026",
+      "url": "https://longhandresearch.github.io/ihsg-weekly.html?week=2026-10-23",
+      "note": "Previous close, previous regular-market value, the six tests for a durable recovery and the 16 October scenario ranges it carried forward."
+    },
+    "pr099": {
+      "label": "IDX press release 099/BEI.SPR/10-2026, 26 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2740",
+      "note": "Joint IDX and OJK press conference. FTSE Russell meeting of 23 October, trading surveillance changes, five independent members on the HSC committee, buybacks without a shareholder meeting extended to June 2027, OJK enforcement totals. Read on 1 November."
+    },
+    "pr102": {
+      "label": "IDX press release 102/BEI.SPR/10-2026, weekly summary, 30 October 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2746",
+      "note": "IDX shareholders approved demutualisation on 28 October. IDX Commodity 20 launched on 30 October. IDX's own weekly figures match the supplied statistics. Read on 1 November."
+    },
+    "hscList": {
+      "label": "Bisnis.com, 81 HSC stocks leave IHSG, 26 October 2026, 19:10",
+      "url": "https://market.bisnis.com/read/20261026/7/2015822/bei-umumkan-81-saham-hsc-keluar-dari-ihsg-ini-daftar-lengkapnya",
+      "note": "Lists the 81 stocks leaving the IHSG calculation on 2 November, the effective period to 29 January 2027 and the new IHSG weights for BBCA, BBRI and ASII. This is the press list of IDX's rebalancing announcement. The exchange's own document was not found. Read on 1 November."
+    },
+    "fomc": {
+      "label": "Federal Reserve FOMC statement, 28 October 2026",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+      "note": "Target range held at 3.75% to 4.00% by a 10 to 2 vote. Lisa Cook and Beth Hammack preferred a quarter point increase. Read on 1 November."
+    },
+    "fomcDates": {
+      "label": "Federal Reserve FOMC meeting calendar, 2026",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "note": "Next meeting 8 and 9 December, with projections. Read on 1 November."
+    },
+    "treasury": {
+      "label": "US Treasury daily par yield curve rates, 2026",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026",
+      "note": "Two, ten and thirty year yields for 16, 23 and 26 to 30 October. Read on 1 November."
+    },
+    "biCalendar": {
+      "label": "Bank Indonesia calendar, November 2026",
+      "url": "https://www.bi.go.id/id/publikasi/kalender/default.aspx",
+      "note": "Board of Governors meeting listed for 17 November, October inflation and trade on 2 November, third quarter GDP on 5 November. Read on 1 November."
+    },
+    "bi": {
+      "label": "Bank Indonesia press release 28/233/DKom, 21 October 2026",
+      "url": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2823326.aspx",
+      "note": "BI-Rate held at 5.75%, Deposit Facility raised to 5.00%, conventional bank reserve requirement cut from 9% to 8% on 1 November and to 7% on 1 December. Read in the previous edition."
+    },
+    "sunAuction": {
+      "label": "IDNFinancials, SUN auction bids fall, 29 October 2026, 16:20",
+      "url": "https://www.idnfinancials.com/id/news/71021/minat-investor-turun-yield-sun-tembus-7-54-apa-yang-terjadi",
+      "note": "Bids at the 27 October auction Rp31.09tn, down 52.1% and the lowest since November 2024. Winning yield on the 10-year bond up 0.30 points in two weeks to 7.54%. Five-year credit default swap from 91.74 on 14 October to 106.35 on 26 October. The Finance Ministry auction page failed a certificate check on 1 November, so these figures rest on this report."
+    },
+    "bondStress": {
+      "label": "IDNFinancials, pressure on stocks, bonds and the rupiah, 29 October 2026, 13:40",
+      "url": "https://www.idnfinancials.com/id/news/71011/msci-akan-replikasi-indonesia-hadapi-tekanan-triple-selling",
+      "note": "Second report of the same auction. It describes the 10-year yield as above 7.5%, the highest since October 2022."
+    },
+    "bbcaRumour": {
+      "label": "BCA reply to IDX on media reports, 30 October 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/31c6bd0311_2c9f699ab7.pdf",
+      "note": "IDX letter S-13477/BEI.PP2/10-2026 of 29 October asked BCA about a Straits Times report of 29 October on a DBS denial of a merger rumour. BCA replied on 30 October that talk of a merger between BCA and a DBS subsidiary is not true. The Straits Times article itself was not read."
+    },
+    "bbcaResults": {
+      "label": "BCA press release on nine-month results, 27 October 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/10c6b30bbc_573e8a47a8.pdf",
+      "note": "Net profit up 4.2% to Rp45.2tn, loans up 12.6% to Rp1,063tn, NPL 1.8%."
+    },
+    "msin": {
+      "label": "IDNFinancials, IDX suspends MSIN, 27 October 2026, 14:40",
+      "url": "https://www.idnfinancials.com/id/news/70900/demi-lindungi-investor-bei-suspensi-saham-hary-tanoe",
+      "note": "Quotes IDX announcement 220 suspending MSIN from the pre-opening of 27 October after a large cumulative price fall."
+    },
+    "buybacks": {
+      "label": "IDX disclosures, Barito group buyback plans, 19 October 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/a67fa1c6c6_f4cbe93d94.pdf",
+      "note": "Read in the previous edition. BRPT up to Rp1tn, BREN up to Rp1tn, TPIA up to Rp1tn and CUAN up to Rp500bn. These are limits, not amounts spent."
+    },
+    "msci": {
+      "label": "MSCI reclassification announcement, 15 October 2026",
+      "url": "https://ir.msci.com/news-releases/news-release-details/msci-launches-consultation-proposal-reclassify-indonesia",
+      "note": "Feedback until 30 April 2027 and a decision by 30 June 2027. No new MSCI release was found for this week."
+    }
+  },
+  "observations": {
+    "closes": [
+      {
+        "date": "2026-10-23",
+        "close": 5439.258,
+        "label": "23 Oct"
+      },
+      {
+        "date": "2026-10-26",
+        "close": 5373.094,
+        "label": "26 Oct"
+      },
+      {
+        "date": "2026-10-27",
+        "close": 5266.13,
+        "label": "27 Oct"
+      },
+      {
+        "date": "2026-10-28",
+        "close": 5282.312,
+        "label": "28 Oct"
+      },
+      {
+        "date": "2026-10-29",
+        "close": 5098.057,
+        "label": "29 Oct"
+      },
+      {
+        "date": "2026-10-30",
+        "close": 5057.05,
+        "label": "30 Oct"
+      }
+    ],
+    "foreignFlow": [
+      {
+        "date": "2026-10-26",
+        "netBn": -1854.96,
+        "label": "26 Oct"
+      },
+      {
+        "date": "2026-10-27",
+        "netBn": -651.26,
+        "label": "27 Oct"
+      },
+      {
+        "date": "2026-10-28",
+        "netBn": 665.22,
+        "label": "28 Oct"
+      },
+      {
+        "date": "2026-10-29",
+        "netBn": -1076.76,
+        "label": "29 Oct"
+      },
+      {
+        "date": "2026-10-30",
+        "netBn": -138.71,
+        "label": "30 Oct"
+      }
+    ],
+    "jisdor": [
+      {
+        "date": "2026-10-23",
+        "rate": 18069
+      },
+      {
+        "date": "2026-10-26",
+        "rate": 18116
+      },
+      {
+        "date": "2026-10-27",
+        "rate": 18139
+      },
+      {
+        "date": "2026-10-28",
+        "rate": 18183
+      },
+      {
+        "date": "2026-10-29",
+        "rate": 18128
+      },
+      {
+        "date": "2026-10-30",
+        "rate": 18138
+      }
+    ],
+    "sectors": [
+      {
+        "name": "Infrastructure",
+        "weekly": -13.04
+      },
+      {
+        "name": "Basic materials",
+        "weekly": -12.23
+      },
+      {
+        "name": "Energy",
+        "weekly": -10.75
+      },
+      {
+        "name": "Technology",
+        "weekly": -7.95
+      },
+      {
+        "name": "Transport and logistics",
+        "weekly": -7.73
+      },
+      {
+        "name": "Industrials",
+        "weekly": -6.87
+      },
+      {
+        "name": "Consumer cyclicals",
+        "weekly": -6.35
+      },
+      {
+        "name": "Property",
+        "weekly": -6.21
+      },
+      {
+        "name": "Consumer non-cyclicals",
+        "weekly": -4.73
+      },
+      {
+        "name": "Financials",
+        "weekly": -2.93
+      },
+      {
+        "name": "Healthcare",
+        "weekly": -2.02
+      }
+    ],
+    "stocks": [
+      {
+        "ticker": "BYAN",
+        "points": -26.2
+      },
+      {
+        "ticker": "TLKM",
+        "points": -23.94
+      },
+      {
+        "ticker": "BREN",
+        "points": -22.72
+      },
+      {
+        "ticker": "BRPT",
+        "points": -21.58
+      },
+      {
+        "ticker": "MORA",
+        "points": -16.9
+      },
+      {
+        "ticker": "BRMS",
+        "points": -16.66
+      },
+      {
+        "ticker": "BBRI",
+        "points": -16.2
+      },
+      {
+        "ticker": "AMMN",
+        "points": -14.47
+      },
+      {
+        "ticker": "ASII",
+        "points": 10.13
+      },
+      {
+        "ticker": "SMMA",
+        "points": 2.78
+      }
+    ],
+    "sankey": {
+      "unit": "Rp tn",
+      "columns": [
+        "Who lost it",
+        "Sector",
+        "Largest single losses"
+      ],
+      "total": 764.18,
+      "nodes": [
+        {
+          "id": "g-hsc",
+          "label": "81 HSC stocks",
+          "col": 0,
+          "tone": "hsc"
+        },
+        {
+          "id": "g-other",
+          "label": "882 other stocks",
+          "col": 0,
+          "tone": "other"
+        },
+        {
+          "id": "s-Infrastructure",
+          "label": "Infrastructure",
+          "col": 1
+        },
+        {
+          "id": "s-Basic materials",
+          "label": "Basic materials",
+          "col": 1
+        },
+        {
+          "id": "s-Energy",
+          "label": "Energy",
+          "col": 1
+        },
+        {
+          "id": "s-Financials",
+          "label": "Financials",
+          "col": 1
+        },
+        {
+          "id": "s-Consumer non-cyclicals",
+          "label": "Consumer non-cyclicals",
+          "col": 1
+        },
+        {
+          "id": "s-Consumer cyclicals",
+          "label": "Consumer cyclicals",
+          "col": 1
+        },
+        {
+          "id": "s-Technology",
+          "label": "Technology",
+          "col": 1
+        },
+        {
+          "id": "s-Four other sectors",
+          "label": "Four other sectors",
+          "col": 1
+        },
+        {
+          "id": "t-BREN",
+          "label": "BREN",
+          "col": 2
+        },
+        {
+          "id": "t-BYAN",
+          "label": "BYAN",
+          "col": 2
+        },
+        {
+          "id": "t-MORA",
+          "label": "MORA",
+          "col": 2
+        },
+        {
+          "id": "t-BRPT",
+          "label": "BRPT",
+          "col": 2
+        },
+        {
+          "id": "t-AMMN",
+          "label": "AMMN",
+          "col": 2
+        },
+        {
+          "id": "t-TLKM",
+          "label": "TLKM",
+          "col": 2
+        },
+        {
+          "id": "t-DSSA",
+          "label": "DSSA",
+          "col": 2
+        },
+        {
+          "id": "t-EMAS",
+          "label": "EMAS",
+          "col": 2
+        },
+        {
+          "id": "t-BMRI",
+          "label": "BMRI",
+          "col": 2
+        },
+        {
+          "id": "t-BBRI",
+          "label": "BBRI",
+          "col": 2
+        },
+        {
+          "id": "t-rest",
+          "label": "All other falling stocks",
+          "col": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "g-hsc",
+          "target": "s-Infrastructure",
+          "value": 128.46,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-hsc",
+          "target": "s-Basic materials",
+          "value": 3.35,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-hsc",
+          "target": "s-Energy",
+          "value": 78.8,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-hsc",
+          "target": "s-Financials",
+          "value": 13.55,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-hsc",
+          "target": "s-Consumer non-cyclicals",
+          "value": 9.72,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-hsc",
+          "target": "s-Consumer cyclicals",
+          "value": 3.63,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-hsc",
+          "target": "s-Technology",
+          "value": 24.16,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-hsc",
+          "target": "s-Four other sectors",
+          "value": 9.03,
+          "tone": "hsc"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Infrastructure",
+          "value": 68.57,
+          "tone": "other"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Basic materials",
+          "value": 151.89,
+          "tone": "other"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Energy",
+          "value": 69.02,
+          "tone": "other"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Financials",
+          "value": 66.14,
+          "tone": "other"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Consumer non-cyclicals",
+          "value": 37.79,
+          "tone": "other"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Consumer cyclicals",
+          "value": 37.95,
+          "tone": "other"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Technology",
+          "value": 10.12,
+          "tone": "other"
+        },
+        {
+          "source": "g-other",
+          "target": "s-Four other sectors",
+          "value": 51.98,
+          "tone": "other"
+        },
+        {
+          "source": "s-Infrastructure",
+          "target": "t-BREN",
+          "value": 78.26,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Infrastructure",
+          "target": "t-MORA",
+          "value": 46.34,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Infrastructure",
+          "target": "t-TLKM",
+          "value": 25.76,
+          "tone": "other"
+        },
+        {
+          "source": "s-Infrastructure",
+          "target": "t-rest",
+          "value": 3.86,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Infrastructure",
+          "target": "t-rest",
+          "value": 42.82,
+          "tone": "other"
+        },
+        {
+          "source": "s-Basic materials",
+          "target": "t-BRPT",
+          "value": 34.69,
+          "tone": "other"
+        },
+        {
+          "source": "s-Basic materials",
+          "target": "t-AMMN",
+          "value": 27.56,
+          "tone": "other"
+        },
+        {
+          "source": "s-Basic materials",
+          "target": "t-EMAS",
+          "value": 18.05,
+          "tone": "other"
+        },
+        {
+          "source": "s-Basic materials",
+          "target": "t-rest",
+          "value": 3.35,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Basic materials",
+          "target": "t-rest",
+          "value": 71.61,
+          "tone": "other"
+        },
+        {
+          "source": "s-Energy",
+          "target": "t-BYAN",
+          "value": 53.33,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Energy",
+          "target": "t-DSSA",
+          "value": 20.23,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Energy",
+          "target": "t-rest",
+          "value": 5.24,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Energy",
+          "target": "t-rest",
+          "value": 69.02,
+          "tone": "other"
+        },
+        {
+          "source": "s-Financials",
+          "target": "t-BMRI",
+          "value": 16.63,
+          "tone": "other"
+        },
+        {
+          "source": "s-Financials",
+          "target": "t-BBRI",
+          "value": 16.5,
+          "tone": "other"
+        },
+        {
+          "source": "s-Financials",
+          "target": "t-rest",
+          "value": 13.55,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Financials",
+          "target": "t-rest",
+          "value": 33.01,
+          "tone": "other"
+        },
+        {
+          "source": "s-Consumer non-cyclicals",
+          "target": "t-rest",
+          "value": 9.72,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Consumer non-cyclicals",
+          "target": "t-rest",
+          "value": 37.79,
+          "tone": "other"
+        },
+        {
+          "source": "s-Consumer cyclicals",
+          "target": "t-rest",
+          "value": 3.63,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Consumer cyclicals",
+          "target": "t-rest",
+          "value": 37.95,
+          "tone": "other"
+        },
+        {
+          "source": "s-Technology",
+          "target": "t-rest",
+          "value": 24.16,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Technology",
+          "target": "t-rest",
+          "value": 10.12,
+          "tone": "other"
+        },
+        {
+          "source": "s-Four other sectors",
+          "target": "t-rest",
+          "value": 9.03,
+          "tone": "hsc"
+        },
+        {
+          "source": "s-Four other sectors",
+          "target": "t-rest",
+          "value": 51.98,
+          "tone": "other"
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "judgment",
+      "title": "The bounce is gone and we still would not buy it",
+      "nav": "The judgment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "lede": true,
+          "sources": [
+            "weekly",
+            "prior"
+          ],
+          "text": "IHSG fell 7.03% to 5,057.050. It lost 382.208 points, 1.5 times the 254.153 points it gained the week before, and it closed 2.47% below its 16 October level. Compared with the 9 October close the index is down 17.01%."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless",
+            "prior"
+          ],
+          "text": "The usual explanation does not fit. Foreign investors sold a net Rp3.06tn across all stock markets, 54.18% less than the Rp6.67tn of the week before. A week with half the foreign selling should hold up better. It did not. Last week Rp6.67tn of foreign net selling came with a 4.90% rise. This week Rp3.06tn came with a 7.03% fall. Net flows are the same number seen from the buyer's side and the seller's side, so they cannot say who blinked. What moved was the price at which buyers were willing to deal. Everyone also traded less. Total trading fell 29.49% to Rp14.34tn a day, and the biggest fall of the week, 3.49% on Thursday, came on the lowest regular-market value of the week, Rp10.24tn."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "hsc",
+            "weekly"
+          ],
+          "text": "The damage was uneven. The 81 stocks that leave the index on 2 November are 28.08% of full market value and 2.34% of regular trading this week. They lost 9.89% of their value against 6.66% for the other 882 stocks, and they account for 35.42% of the value lost by stocks that fell. Four Barito group companies, BREN, BRPT, CUAN and TPIA, lost 21.04% of their value together, about Rp131.7tn, although they had filed buyback plans worth up to Rp3.5tn."
+        },
+        {
+          "type": "paragraph",
+          "text": "Our view stays defensive, and the reasons are wider than last week's. Last week the question was who bought. This week there is price and funding evidence too. Thin stocks led the fall, the government bond auction drew the weakest bids since November 2024, and two Fed voters wanted a rate increase. We would change our mind when a bond auction draws strong bids again, when foreign selling in TLKM, BMRI and BBRI stops, and when IHSG closes above 5,488 with foreign buying."
+        },
+        {
+          "type": "callout",
+          "label": "Checking last week's call",
+          "sources": [
+            "prior"
+          ],
+          "text": "Last week we said a bounce carried by local buyers had not shown that outside investors trusted the market, and that local money could carry prices for a while. It carried them for four sessions. IHSG is back inside the 4,437 to 5,185 range we called our planning case, near the top of it. Our relief case, which began at 5,488, was never reached. The week's high was 5,453.647 on Monday. We were right on direction. We called buybacks and state buying announced capacity, not proof, and this week supports that caution. The four Barito stocks with buyback plans fell about 21% and the state-owned TLKM fell 11.61%. We still do not know how much was bought."
+        }
+      ]
+    },
+    {
+      "id": "week",
+      "title": "Down on four days out of five",
+      "nav": "The week",
+      "blocks": [
+        {
+          "type": "closes",
+          "label": "Exhibit 01",
+          "title": "Four lower closes and one small rise",
+          "sources": [
+            "daily",
+            "prior",
+            "fomc"
+          ],
+          "note": "Select a date to inspect the closing observation. Lines join daily closes and show no intraday highs or lows.",
+          "event": {
+            "label": "The Fed held rates and two voters wanted a hike",
+            "note": "Announced 28 October at 14:00 in Washington, which was 01:00 in Jakarta on Thursday"
+          }
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "daily"
+          ],
+          "text": "On Monday IHSG touched 5,453.647, the best level of the week, then closed down 1.22% at 5,373.094. On Tuesday it fell 1.99% to 5,266.130. Wednesday brought a rise of 0.31% to 5,282.312, which was also the high of that day."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "daily",
+            "flowless",
+            "bbcaRumour"
+          ],
+          "text": "Underneath Wednesday's small rise was a strange day. BBCA rose 7.65% and ASII rose 7.99%, while TLKM fell 3.27%. Our estimate of foreign buying in BBCA alone was a net Rp1.20tn, more than the official all-market foreign net buying of Rp665.22bn that day. Thursday undid both moves. IHSG touched 5,320.895 at 09:01, then fell for most of the day and closed at its low of 5,098.057, down 3.49%. BBCA fell 6.35% and ASII 6.20%. Friday added a fall of 0.80% to 5,057.050, after a low of 4,979.342, which was 1.54% below the close."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "daily",
+            "prior"
+          ],
+          "text": "Trading shrank. Total value averaged Rp14.34tn a day, down 29.49%, and the average number of trades fell 20.99% to 1.54 million. Regular-market value alone averaged Rp12.88tn a day, 28.54% below the week before. Negotiated trades made up 10.18% of all stock value."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Weekly breadth",
+            "Stocks",
+            "Share"
+          ],
+          "rows": [
+            [
+              "Fell more than 2%",
+              "651",
+              "67.60%"
+            ],
+            [
+              "Fell up to 2%",
+              "69",
+              "7.17%"
+            ],
+            [
+              "Unchanged",
+              "153",
+              "15.89%"
+            ],
+            [
+              "Rose up to 2%",
+              "33",
+              "3.43%"
+            ],
+            [
+              "Rose more than 2%",
+              "57",
+              "5.92%"
+            ]
+          ],
+          "caption": "Breadth across 963 listed stocks"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "hsc"
+          ],
+          "text": "By count the fall was broad. 720 stocks fell and only 90 rose. By value it was broader still. Stocks worth Rp7,227tn fell, 82.17% of the value in IDX's chart. IDX again printed the two falling groups' percentages in the wrong order, in both bars. We recompute every share from the counts. Our own count from the stock database agrees: 720 fell, 90 rose and 153 did not move."
+        }
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Foreign selling halved. Prices fell anyway.",
+      "nav": "Who sold",
+      "blocks": [
+        {
+          "type": "flows",
+          "label": "Exhibit 02",
+          "title": "Net selling on four of five days",
+          "sources": [
+            "weekly",
+            "daily"
+          ],
+          "note": "Official all-market stock trading, foreign purchases less sales. This measures trading, not money leaving the country."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "daily",
+            "prior"
+          ],
+          "text": "Wednesday was the only day of foreign net buying, at Rp665.22bn. The week's net selling of Rp3.06tn took the total for 2026 to Rp97.92tn, and this week added 3.12% of it. Foreign investors made up 41% of trading, up from 40%. Domestic investors bought Rp44.02tn and sold Rp40.96tn. Their gross buying was 31.99% below the Rp64.73tn of the week before, so local money also bought less."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "flowless"
+          ],
+          "text": "Our stock-level estimate covers the 82 liquid large caps with at least Rp10tn of market value and Rp10bn of average daily trading. It puts their regular-market foreign net selling at Rp3.95tn. Five state-owned stocks account for Rp3.37tn of it, or 85.29%. They are TLKM at Rp1.19tn, BMRI at Rp1.13tn, BBRI at Rp507bn, ANTM at Rp288bn and BBNI at Rp250bn. Foreign investors were estimated net buyers of BBCA at Rp411bn and ASII at Rp133bn. Last week BBCA was the biggest foreign sale, at Rp2.95tn. So foreigners eased off BBCA and kept selling the state-owned stocks that rose most last week. The estimate values foreign share volume at each day's close and leaves out negotiated trades. It is Rp1.00tn more negative than the official figure for all stocks, so we use it only to see which stocks foreigners traded."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Possible explanation",
+            "Evidence for",
+            "Evidence against",
+            "Our read"
+          ],
+          "rows": [
+            [
+              "Foreign selling",
+              "Net selling of Rp3.06tn on four of five days. Five state-owned stocks took 85.29% of the estimated sales",
+              "Half of last week's selling. The index fell more on less selling",
+              "Part of it"
+            ],
+            [
+              "The Fed and US rates",
+              "The Fed held on 28 October with two votes for a hike. IHSG fell 3.49% the next day",
+              "The index fell on Monday and Tuesday first. The US 10-year yield ended lower at 4.94% and the Dow rose 0.24%",
+              "Thursday at most"
+            ],
+            [
+              "Local bond and currency stress",
+              "Auction bids down 52.1%, 10-year yield 7.54%, credit default swap up from 91.74 to 106.35. JISDOR up 0.38%",
+              "The rupiah moved little. Auction figures come from press reports",
+              "Fits well"
+            ],
+            [
+              "Thin stocks unwinding",
+              "The 81 HSC stocks fell 9.89% against 6.66%. MORA, BREN and BYAN cost IHSG 65.82 points",
+              "The other 882 stocks still fell 6.66%",
+              "A large part, not all"
+            ],
+            [
+              "Local buyers stepped back",
+              "Domestic gross buying down 31.99%. Total trading down 29.49%. The biggest fall came on the thinnest day",
+              "Foreign gross selling also fell 29.56%. Flows cannot show who stepped back",
+              "Fits, cannot be proven"
+            ],
+            [
+              "Company news",
+              "BCA denied a merger rumour on 30 October. Third quarter results began",
+              "BCA's nine-month profit rose 4.2% and BBCA fell only 0.90% over the week",
+              "Explains days, not the week"
+            ]
+          ],
+          "caption": "Each explanation tested against the evidence that would rule it out"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless",
+            "sunAuction"
+          ],
+          "text": "We tested each explanation against the evidence most likely to rule it out. No single cause survives. Foreign selling explains too little because it halved. The Fed explains one day at most. What is left is a mix of bond stress and thin stocks giving way, with shrinking turnover running through both."
+        }
+      ]
+    },
+    {
+      "id": "leaders",
+      "title": "The stocks that rose most last week fell most this week",
+      "nav": "Large caps",
+      "blocks": [
+        {
+          "type": "stocks",
+          "label": "Exhibit 03",
+          "title": "Eight laggards and two leaders",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Official weekly IHSG contributions from IDX. BMRI at -14.35 and EMAS at -11.34 also made the ten largest laggards. The ten largest laggards cost 184.36 points in all."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly"
+          ],
+          "text": "The ten largest laggards cost 184.36 points, which is 48.24% of the week's 382.208-point fall. The ten largest leaders added only 21.97 points. ASII supplied 10.13 of them, so it was the one large stock that rose. BYAN, BREN and MORA, all on the HSC list, took 65.82 points off IHSG between them. LQ45 fell 5.83%, IDX BUMN20 fell 5.09% and IDX High Dividend 20 fell 2.85%. The index that holds the largest liquid stocks fell less than the index that holds everything."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Stock",
+            "16 to 23 Oct",
+            "23 to 30 Oct",
+            "16 to 30 Oct"
+          ],
+          "rows": [
+            [
+              "BREN",
+              "+28.30%",
+              "-24.58%",
+              "-3.23%"
+            ],
+            [
+              "BRPT",
+              "+19.01%",
+              "-25.69%",
+              "-11.57%"
+            ],
+            [
+              "CUAN",
+              "-5.56%",
+              "-25.10%",
+              "-29.26%"
+            ],
+            [
+              "TPIA",
+              "+10.37%",
+              "-3.76%",
+              "+6.22%"
+            ],
+            [
+              "TLKM",
+              "+17.89%",
+              "-11.61%",
+              "+4.21%"
+            ],
+            [
+              "BMRI",
+              "+15.04%",
+              "-4.62%",
+              "+9.73%"
+            ],
+            [
+              "BBNI",
+              "+15.15%",
+              "-2.92%",
+              "+11.78%"
+            ],
+            [
+              "BBRI",
+              "+10.23%",
+              "-3.78%",
+              "+6.06%"
+            ],
+            [
+              "UNTR",
+              "+11.82%",
+              "-4.35%",
+              "+6.96%"
+            ],
+            [
+              "BBCA",
+              "-2.90%",
+              "-0.90%",
+              "-3.77%"
+            ]
+          ],
+          "sources": [
+            "hsc"
+          ],
+          "caption": "Price changes in the stocks last week's argument rested on"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "hsc",
+            "buybacks"
+          ],
+          "text": "This table is the honest scorecard for last week's view that issuer buybacks and state buying might support prices. The state banks kept part of their gains. BMRI, BBNI and BBRI are still 6% to 12% above their 16 October prices. The Barito companies did not. BREN gave back its whole rise and sits 3.23% below where it started. BRPT and CUAN are lower still. The four filed buyback limits worth up to Rp3.5tn between them, and their shares lost about Rp131.7tn of value in a week. Even if every rupiah of the plans were spent, it would equal 2.7% of that loss. We found no report of how much any of them bought."
+        }
+      ]
+    },
+    {
+      "id": "hsc",
+      "title": "The loss was largest where trading is thinnest",
+      "nav": "HSC stocks",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "sources": [
+            "hscList",
+            "pr099"
+          ],
+          "text": "The exit list is now public. Bisnis.com reported on 26 October that 81 stocks leave the IHSG calculation on 2 November, in an IDX rebalancing that runs to 29 January 2027. The stocks stay listed and tradable. Their price moves will simply stop counting. The same report says the index weight of BBCA rises from 8.75% to 9%, BBRI from 7.93% to 9% and ASII from 3.35% to 4.15%. We could not find IDX's own document, so this list rests on the press report. Last week's 80-name list differs by FILM and TFCO added and KING dropped. The count has also moved before. Bisnis.com reported 82 HSC stocks on 23 October."
+        },
+        {
+          "type": "sankey",
+          "label": "Exhibit 04",
+          "title": "Where Rp764tn of lost value went",
+          "sources": [
+            "hsc"
+          ],
+          "note": "Ribbon width is market value lost between the 23 and 30 October closes, by stocks that fell, in Rp tn. Stocks that rose added back Rp38.6tn, so the net change on our share counts is -Rp725.6tn. IDX counts -Rp721tn because it also includes Rp4.6tn of newly issued shares."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Measure",
+            "81 HSC stocks",
+            "Other 882 stocks"
+          ],
+          "rows": [
+            [
+              "Market value, 30 October",
+              "Rp2,426tn",
+              "Rp6,436tn"
+            ],
+            [
+              "Share of market value, 23 October",
+              "28.08%",
+              "71.92%"
+            ],
+            [
+              "Share of regular trading this week",
+              "2.34%",
+              "97.66%"
+            ],
+            [
+              "Price change over the week",
+              "-9.89%",
+              "-6.66%"
+            ],
+            [
+              "Share of value lost by falling stocks",
+              "35.42%",
+              "64.58%"
+            ],
+            [
+              "Price change since 16 October",
+              "-8.42%",
+              "-1.32%"
+            ]
+          ],
+          "sources": [
+            "hsc",
+            "hscList"
+          ],
+          "caption": "Our calculation from daily closes and shares outstanding, using the 26 October list. Changes are weighted by full market value, not by IHSG weight"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "flowless",
+            "weekly"
+          ],
+          "text": "Last week these 80 stocks lagged the rise. This week they led the fall. MORA fell by 6.79%, 6.95%, 6.76%, 6.87% and 6.97% on the five days, each close to the 7% lower limit IDX applies. It traded Rp3.03bn in total and lost Rp46.3tn of market value, 15,314 times what changed hands. DCII had no trade at all on Wednesday and about Rp17 million on each of Thursday and Friday, and its price stayed at Rp174,975. These prices say little about what investors would pay. When the stocks leave the index, moves like this stop reaching IHSG."
+        },
+        {
+          "type": "callout",
+          "label": "Our assessment",
+          "sources": [
+            "hsc",
+            "hscList"
+          ],
+          "text": "The exit will help. It is a fair reading of the week to say that thin stocks led the fall. It is not a fair reading to say they caused it. The other 882 stocks lost Rp493.5tn and fell 6.66%, and TLKM, a large and liquid state-owned stock, alone lost Rp25.8tn. After 2 November IHSG will lean harder on banks, the part of the market foreign investors are still selling. The cleaner index removes noise. It does not remove the selling."
+        }
+      ]
+    },
+    {
+      "id": "sectors",
+      "title": "Every sector fell, and infrastructure fell most",
+      "nav": "Sectors",
+      "blocks": [
+        {
+          "type": "sectors",
+          "label": "Exhibit 05",
+          "title": "Sector index changes over the week",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Weekly price changes of the IDX sector indices."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless"
+          ],
+          "text": "Last week every sector rose. This week every sector fell. Infrastructure lost 13.04%, basic materials 12.23% and energy 10.75%. Healthcare lost 2.02% and financials 2.93%. Our estimate says foreigners sold TLKM so heavily that it made up 89.0% of net foreign selling in the infrastructure sector. The Acceleration Board fell 21.37%, the Main Board 7.47% and the Development Board 6.89%. IDX Value30 lost 2.67% and the sharia index JII lost 9.54%. The more speculative the stock, the worse it did."
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "title": "Bond buyers pulled away and the Fed leaned toward a hike",
+      "nav": "Rates and bonds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "sources": [
+            "fomc",
+            "fomcDates",
+            "treasury"
+          ],
+          "text": "There were two rate stories. The first is in Washington. On 28 October the Fed kept its target range at 3.75% to 4.00%, but the vote was 10 to 2. Lisa Cook and Beth Hammack wanted a quarter point increase. The statement says inflation remains elevated. Treasury yields lean the same way. The two-year yield ended the week at 4.56%, which is 0.56 points above the top of the Fed's range. A two-year yield above the policy rate usually means investors expect rates to rise. The next meeting is on 8 and 9 December."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Measure",
+            "23 October",
+            "30 October"
+          ],
+          "rows": [
+            [
+              "US Treasury 2-year yield",
+              "4.69%",
+              "4.56%"
+            ],
+            [
+              "US Treasury 10-year yield",
+              "5.00%",
+              "4.94%"
+            ],
+            [
+              "US Treasury 30-year yield",
+              "5.33%",
+              "5.31%"
+            ],
+            [
+              "JISDOR, Rp per USD",
+              "18,069",
+              "18,138"
+            ]
+          ],
+          "sources": [
+            "treasury",
+            "jisdor"
+          ],
+          "caption": "US yields fell over the week and the rupiah weakened"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "treasury",
+            "daily"
+          ],
+          "text": "The Fed does not explain Indonesia's week by itself. The 10-year Treasury yield was 5.05% on Wednesday and 4.94% by Friday, below where the week began. The Dow rose 0.24%. IHSG had already fallen on Monday and Tuesday. What the Fed result may have done is hit Thursday, when the index fell 3.49% after opening near its high."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "sunAuction",
+            "bondStress"
+          ],
+          "text": "The second rate story is at home, and it looks worse. At the 27 October auction of government bonds, bids totalled Rp31.09tn, according to IDNFinancials. That was 52.1% below the previous auction and the lowest since November 2024. The winning yield on the 10-year bond rose 0.30 points in two weeks to 7.54%, which the same report calls the highest in almost four years. The cost of insuring Indonesian government debt against default, the five-year credit default swap, rose from 91.74 on 14 October to 106.35 on 26 October. We read these as lenders asking for more pay to hold Indonesian risk. US yields fell while Indonesian yields rose, so this pressure is local. The Finance Ministry's own auction page would not open on 1 November, so these figures rest on press reports."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "bi",
+            "biCalendar",
+            "weekly"
+          ],
+          "text": "Bank Indonesia held the BI-Rate at 5.75% on 21 October and raised its deposit facility rate to 5.00%. Its next board meeting is listed for 17 November. We do not forecast the decision. We note what it faces. The rupiah reference rate ended the week at 18,138, bond investors want a higher yield, and a Fed increase in December would add to both. Raising the BI-Rate would support the rupiah and bonds but cost banks and companies more to borrow. Not raising it leaves the rupiah and yields to take the strain. Higher yields also lower what investors pay for earnings. The market's price to earnings ratio fell from 11.69 on 23 October to 10.76 on Friday, and its price to book ratio fell from 1.45 to 1.32."
+        },
+        {
+          "type": "callout",
+          "label": "Our assessment",
+          "sources": [
+            "treasury",
+            "sunAuction"
+          ],
+          "text": "Rates are now the larger outside risk for IHSG, ahead of the index reform. A hike in December would meet a market whose bond buyers are already stepping back. The test is the next government bond auction. A weak one would tell us that the problem is the price of Indonesian risk, not just a few thin stocks."
+        }
+      ]
+    },
+    {
+      "id": "news",
+      "title": "What else mattered",
+      "nav": "News",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "sources": [
+            "pr099",
+            "msci"
+          ],
+          "text": "On Monday 26 October IDX and OJK held a press conference. IDX said it met FTSE Russell online on 23 October, and that FTSE Russell kept Indonesia in its Secondary Emerging Market group and did not add it to a watchlist, as its report of 6 October said. That helps, because MSCI's consultation on moving Indonesia to standalone status is still open until 30 April 2027. IDX also said it will tighten trading surveillance and tell the public when it starts an early investigation into suspected manipulation. With OJK it may restrict or pause particular securities accounts during an investigation. It added five independent members to the committee that decides which stocks count as HSC."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "pr099"
+          ],
+          "text": "OJK said it will extend until June 2027 the period in which companies may buy back shares without a shareholder meeting. It repeated its 2026 enforcement totals. These are fines of Rp2.23tn on 166 parties in cases, late-filing fines of Rp293.78bn on 805 parties and 464 written warnings."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "pr102",
+            "msin"
+          ],
+          "text": "On 28 October IDX's shareholders approved the charter changes for demutualisation. On 30 October IDX launched IDX Commodity 20, an index of 20 commodity-related stocks weighted by free-float market value with a 15% cap on any one stock. Separately, IDX suspended MSIN from 27 October after a large cumulative price fall, according to IDNFinancials."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "bbcaRumour",
+            "bbcaResults",
+            "flowless"
+          ],
+          "text": "BBCA had the week's oddest chart. It rose 7.65% on Wednesday on estimated foreign net buying of Rp1.20tn, then fell 6.35% on Thursday. According to IDX's request to BCA, The Straits Times reported on 29 October that DBS had denied a rumour of a merger between one of its subsidiaries and BCA. IDX asked BCA about it that day. On 30 October BCA replied that talk of a merger between BCA and a DBS subsidiary is not true. BCA also reported on 27 October that its nine-month profit rose 4.2% to Rp45.2tn and its loans grew 12.6%. We have no source that links the rumour to Wednesday's jump or Thursday's fall. ASII moved the same way on the same days, up 7.99% and then down 6.20%, and nobody has tied ASII to DBS. A shared cause is at least as likely as a BCA story."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "pr102"
+          ],
+          "text": "The third quarter reporting season is under way. BCA reported on 27 October. TLKM, BREN and BYAN filed on 30 October, TLKM late that night. We have not read these statements for this edition. Monday is the first session that can price the TLKM report. We also found no new disclosure of how much Danantara has bought, and no new release from MSCI."
+        }
+      ]
+    },
+    {
+      "id": "outlook",
+      "title": "What would change our view",
+      "nav": "What changes the view",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Test we set on 23 October",
+            "Where it stands on 30 October"
+          ],
+          "rows": [
+            [
+              "Ownership records that can be reconciled",
+              "Partly met. IDX added five independent members to the HSC committee. No start date for affiliation data yet."
+            ],
+            [
+              "Published enforcement follow-through",
+              "Partly met. IDX will publish early signs of investigations. OJK repeated its fines. Collection is not reported."
+            ],
+            [
+              "Consistent treatment across the market",
+              "Set for 2 November. 81 stocks leave IHSG under one rule, according to Bisnis.com."
+            ],
+            [
+              "Trading that clears without persistent queues",
+              "Not met. MORA closed near its 7% lower limit on all five days on Rp3.03bn of trading."
+            ],
+            [
+              "Revised constituent and fund exposure",
+              "Mixed. FTSE Russell kept Indonesia in its Secondary Emerging group. MSCI is still consulting."
+            ],
+            [
+              "Updated issuer earnings and funding risks",
+              "Worse. Third quarter results are only starting. Government bond auction bids fell 52.1%."
+            ]
+          ],
+          "caption": "Last week's tests for a durable recovery"
+        },
+        {
+          "type": "fxLab",
+          "title": "The rupiah cost another 0.35 points",
+          "sources": [
+            "jisdor",
+            "daily"
+          ],
+          "note": "The starting values use this week's IHSG and BI JISDOR. Move the sliders to try a different currency assumption. The equity close and the reference rate are taken at different times."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "jisdor"
+          ],
+          "text": "JISDOR went from Rp18,069 to Rp18,138 per dollar, a 0.38% rise. The rough dollar return on IHSG was -7.38% before costs and hedging, against -7.03% in rupiah. The currency made a bad week slightly worse."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "biCalendar",
+            "fomcDates",
+            "hscList"
+          ],
+          "text": "Monday 2 November brings the first IHSG without the 81 HSC stocks, and IDX's October inflation and trade figures. Third quarter GDP follows on 5 November, the Bank Indonesia board meets on 17 November and the Fed on 8 and 9 December. A further fall of 2.96% would take IHSG below the 19 October intraday low of 4,907.370. Our planning range of 4,437 to 5,185 still stands, and the bottom of it is 12.27% below Friday's close. A close above 5,488 would not change our view alone. A close above it with foreign buying and a strong bond auction would."
+        },
+        {
+          "type": "callout",
+          "label": "Investment conclusion",
+          "text": "We would not buy this bounce or this fall. Large liquid stocks with reported earnings are safer than thin ones, and the HSC exit will make that gap more visible. Until foreign selling in the state-owned stocks slows and the bond market stops asking for more, we stay cautious on a broad recovery."
+        }
+      ]
+    }
+  ],
+  "sourceIntro": "Checked on 1 November 2026. Market data end at the 30 October close. IDX statistics, BI rates, Federal Reserve and US Treasury data, IDX and BI releases and company filings on IDX are primary sources. The HSC exit list, Indonesian bond auction figures and the Straits Times report on the BCA rumour come from dated press reports or from IDX correspondence, and are labelled where used.",
+  "sourceGroups": [
+    {
+      "label": "Market observations",
+      "links": [
+        {
+          "source": "weekly",
+          "label": "IDX Weekly Statistics"
+        },
+        {
+          "source": "daily",
+          "label": "IDX Daily Statistics"
+        },
+        {
+          "source": "observations",
+          "label": "Frozen observations"
+        },
+        {
+          "source": "pr102",
+          "label": "IDX weekly release"
+        }
+      ],
+      "note": "26 to 30 October. Weekly pages 1 to 8. Daily pages 1, 2 and 5. Breadth follows visually checked counts. Source hashes and exact daily market totals are kept."
+    },
+    {
+      "label": "Currency and stock estimates",
+      "links": [
+        {
+          "source": "jisdor",
+          "label": "BI JISDOR"
+        },
+        {
+          "source": "flowless",
+          "label": "Frozen stock-level estimates"
+        },
+        {
+          "source": "hsc",
+          "label": "Frozen HSC comparison"
+        },
+        {
+          "source": "prior",
+          "label": "Previous weekly edition"
+        }
+      ],
+      "note": "BI rates for 23 to 30 October. Stock-level foreign values are regular-market estimates and stay separate from IDX's official totals. The comparison file holds every input to the HSC table and the Sankey."
+    },
+    {
+      "label": "Exchange and regulators",
+      "links": [
+        {
+          "source": "pr099",
+          "label": "IDX and OJK press conference"
+        },
+        {
+          "source": "hscList",
+          "label": "HSC exit list"
+        },
+        {
+          "source": "msci",
+          "label": "MSCI consultation"
+        },
+        {
+          "source": "msin",
+          "label": "MSIN suspension"
+        }
+      ],
+      "note": "IDX release dated 26 October. The 81-stock list is as reported on 26 October. IDX has not been found to publish a consolidated list."
+    },
+    {
+      "label": "Rates and bonds",
+      "links": [
+        {
+          "source": "fomc",
+          "label": "Fed statement"
+        },
+        {
+          "source": "fomcDates",
+          "label": "Fed calendar"
+        },
+        {
+          "source": "treasury",
+          "label": "US Treasury yields"
+        },
+        {
+          "source": "bi",
+          "label": "Bank Indonesia"
+        },
+        {
+          "source": "biCalendar",
+          "label": "BI calendar"
+        },
+        {
+          "source": "sunAuction",
+          "label": "SUN auction, IDNFinancials"
+        },
+        {
+          "source": "bondStress",
+          "label": "Bond stress, IDNFinancials"
+        }
+      ],
+      "note": "Fed and Treasury data read on 1 November. Indonesian auction figures rest on IDNFinancials because the Finance Ministry page failed a certificate check."
+    },
+    {
+      "label": "Companies",
+      "links": [
+        {
+          "source": "bbcaRumour",
+          "label": "BCA reply to IDX"
+        },
+        {
+          "source": "bbcaResults",
+          "label": "BCA nine-month results"
+        },
+        {
+          "source": "buybacks",
+          "label": "Barito group filings"
+        }
+      ],
+      "note": "Company disclosures on IDX, 19 to 30 October. Buyback figures are limits in the companies' filings, not amounts spent."
+    }
+  ],
+  "method": "Official foreign trading totals cover all stock markets. Stock-level foreign values are regular-market estimates from foreign share volumes valued at daily closes, for stocks with at least Rp10tn market value and Rp10bn 20-session average daily value. Daily regular-market value and volume in the estimates match all five IDX daily reports exactly. HSC group figures use the 81-stock list reported on 26 October, shares outstanding and daily closes, weighted by full market value. Value lost by a stock is shares times the fall in its close, and only falling stocks are counted. Shares outstanding are held at their 30 October counts, so the totals show price moves only. They are not IHSG weights. Every input is frozen in the HSC comparison file. Breadth shares are recomputed from counts. Index contributions and sector changes are read from rendered IDX pages.",
+  "displayMethod": "Price returns exclude dividends and costs. Dollar returns use JISDOR and are indicative. Official all-market flows and regular-market stock estimates have different scopes. Exact observations and calculations are available beside the exhibits and in the linked snapshots."
+}

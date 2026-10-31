@@ -35,7 +35,7 @@
       requireField(/^[a-z][a-z0-9-]*$/.test(section.id) && !sectionIds.has(section.id) && section.title && Array.isArray(section.blocks), 'A section is incomplete or has a repeated id.');
       sectionIds.add(section.id);
       for (const block of section.blocks) {
-        requireField(['paragraph', 'heading', 'callout', 'closes', 'flows', 'sectors', 'stocks', 'fxLab', 'table', 'riskChart', 'exitLab'].includes(block.type), `Unknown block type: ${block.type}`);
+        requireField(['paragraph', 'heading', 'callout', 'closes', 'flows', 'sectors', 'stocks', 'fxLab', 'table', 'riskChart', 'exitLab', 'sankey'].includes(block.type), `Unknown block type: ${block.type}`);
         if (block.sources) requireField(Array.isArray(block.sources) && block.sources.every(key => data.sources[key]), `Unknown source in ${section.id}.`);
         if (block.type === 'riskChart') requireField(window.IHSGWeeklyRisk && ['limits', 'valuation'].includes(block.kind) && data.riskParameters, 'Risk chart assumptions are missing.');
         if (block.type === 'exitLab') requireField(window.IHSGWeeklyRisk && data.riskParameters && positive(data.riskParameters.preShockAdtvTn) && positive(data.riskParameters.fx) && positive(data.riskParameters.weightPct), 'Sale-capacity assumptions are missing.');
@@ -48,6 +48,19 @@
     if (need.has('sectors')) requireField(Array.isArray(observed.sectors) && observed.sectors.length > 0 && observed.sectors.every(r => r.name && finite(r.weekly)), 'Sector observations are incomplete.');
     if (need.has('stocks')) requireField(Array.isArray(observed.stocks) && observed.stocks.length > 0 && observed.stocks.every(r => r.ticker && finite(r.points)), 'Stock-contribution observations are incomplete.');
     if (need.has('fxLab')) requireField(Array.isArray(observed.jisdor) && observed.jisdor.length >= 2 && observed.jisdor.every(r => date(r.date) && positive(r.rate)), 'JISDOR observations are incomplete.');
+    if (need.has('sankey')) validateSankey(observed.sankey);
+  }
+
+  // A Sankey must balance: what enters a middle node equals what leaves it, so a typing slip cannot draw a false picture.
+  function validateSankey(s) {
+    requireField(s && Array.isArray(s.nodes) && Array.isArray(s.links) && s.nodes.length > 1 && s.links.length > 0, 'Sankey observations are incomplete.');
+    const ids = new Set(s.nodes.map(n => n.id));
+    requireField(ids.size === s.nodes.length && s.nodes.every(n => n.id && n.label && [0, 1, 2].includes(n.col)), 'Sankey nodes are invalid.');
+    const col = Object.fromEntries(s.nodes.map(n => [n.id, n.col]));
+    requireField(s.links.every(l => ids.has(l.source) && ids.has(l.target) && col[l.target] === col[l.source] + 1 && positive(l.value)), 'Sankey links are invalid.');
+    const into = {}, out = {};
+    s.links.forEach(l => { out[l.source] = (out[l.source] || 0) + l.value; into[l.target] = (into[l.target] || 0) + l.value; });
+    requireField(s.nodes.filter(n => n.col === 1).every(n => Math.abs((into[n.id] || 0) - (out[n.id] || 0)) < 0.06), 'Sankey flows do not balance.');
   }
 
   // Block sources stay in the data file for audits; the page lists every source once, at the end.
@@ -141,8 +154,54 @@
     return body;
   }
 
+  // Three-column Sankey drawn as plain SVG. Ribbon width is proportional to the value, and the table beneath gives every value.
+  function sankeyFigure(data, block) {
+    const s = data.observations.sankey;
+    const unit = s.unit || '';
+    const W = 900, top = 36, bottom = 14, nodeW = 12, gap = 13, colX = [150, 400, 650];
+    const into = {}, out = {};
+    s.links.forEach(l => { out[l.source] = (out[l.source] || 0) + l.value; into[l.target] = (into[l.target] || 0) + l.value; });
+    const nodes = s.nodes.map(n => ({ ...n, value: Math.max(into[n.id] || 0, out[n.id] || 0) }));
+    const columns = [0, 1, 2].map(c => nodes.filter(n => n.col === c));
+    const innerHeight = 520;
+    const k = Math.min(...columns.map(list => (innerHeight - gap * (list.length - 1)) / list.reduce((t, n) => t + n.value, 0)));
+    const heights = columns.map(list => list.reduce((t, n) => t + n.value * k, 0) + gap * (list.length - 1));
+    const H = top + Math.max(...heights) + bottom;
+    columns.forEach((list, c) => {
+      let y = top + (Math.max(...heights) - heights[c]) / 2;
+      list.forEach(n => { n.x = colX[c]; n.y = y; n.h = n.value * k; n.inUsed = 0; n.outUsed = 0; y += n.h + gap; });
+    });
+    const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+    const order = Object.fromEntries(nodes.map((n, i) => [n.id, i]));
+    const ribbons = [...s.links].sort((a, b) => order[a.source] - order[b.source] || order[a.target] - order[b.target]);
+    const outLinks = {}, inLinks = {};
+    ribbons.forEach(l => { (outLinks[l.source] = outLinks[l.source] || []).push(l); (inLinks[l.target] = inLinks[l.target] || []).push(l); });
+    Object.values(inLinks).forEach(list => list.sort((a, b) => byId[a.source].y - byId[b.source].y || order[a.source] - order[b.source]));
+    const paths = ribbons.map(l => {
+      const a = byId[l.source], b = byId[l.target], w = l.value * k;
+      const y0 = a.y + a.outUsed, y1 = b.y + b.inUsed;
+      a.outUsed += w; b.inUsed += w;
+      const x0 = a.x + nodeW, x1 = b.x, mid = (x0 + x1) / 2;
+      return `<path class="sankey-link ${l.tone ? `sankey-${esc(l.tone)}` : ''}" d="M${x0},${y0} C${mid},${y0} ${mid},${y1} ${x1},${y1} L${x1},${y1 + w} C${mid},${y1 + w} ${mid},${y0 + w} ${x0},${y0 + w} Z"><title>${esc(a.label)} to ${esc(b.label)}: ${unit} ${number(l.value, 1)}</title></path>`;
+    }).join('');
+    const marks = nodes.map(n => {
+      const label = `${esc(n.label)} <tspan class="sankey-value">${number(n.value, 1)}</tspan>`;
+      const middle = n.y + n.h / 2 + 4;
+      const text = n.col === 0 ? `<text class="sankey-label" x="${n.x - 8}" y="${middle}" text-anchor="end">${label}</text>` : `<text class="sankey-label sankey-label-halo" x="${n.x + nodeW + 7}" y="${middle}">${label}</text>`;
+      return `<rect class="sankey-node ${n.tone ? `sankey-${esc(n.tone)}` : ''}" x="${n.x}" y="${n.y}" width="${nodeW}" height="${Math.max(n.h, 1.5)}"/>${text}`;
+    }).join('');
+    const heads = (s.columns || []).map((text, c) => `<text class="sankey-head" x="${c === 0 ? colX[0] + nodeW : colX[c]}" y="16" text-anchor="${c === 0 ? 'end' : 'start'}">${esc(text)}</text>`).join('');
+    const svg = `<div class="chart-scroll sankey-plot"><svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="weekly-sankey-title weekly-sankey-desc"><title id="weekly-sankey-title">${esc(block.title || 'Where the lost value came from')}</title><desc id="weekly-sankey-desc">Ribbons show ${esc(unit)} of market value lost, flowing from stock group to sector to the largest single losses. The exact values are in the expandable table.</desc>${heads}${paths}${marks}</svg></div>`;
+    const total = columns[0].reduce((t, n) => t + n.value, 0);
+    const shares = columns[0].map(n => `${n.label} ${number(n.value, 1)} (${number(n.value / total * 100, 2)}%)`).join(', ');
+    const rows = s.links.map(l => [byId[l.source].label, byId[l.target].label, number(l.value, 2)]);
+    const calculation = `The ribbons add up to ${unit} ${number(total, 1)}: ${shares}. Each ribbon is the price change times shares outstanding for stocks that fell, so stocks that rose are not netted off.`;
+    return figure(data, block, `${svg}<div class="sankey-key" aria-hidden="true"><span class="sankey-key-hsc">Lost by HSC stocks</span><span class="sankey-key-other">Lost by other stocks</span></div>${dataTable(['From', 'To', `Value lost, ${unit}`], rows)}<p class="figure-note">${esc(calculation)}</p>`);
+  }
+
   function renderBlock(data, block) {
     switch (block.type) {
+      case 'sankey': return sankeyFigure(data, block);
       case 'paragraph': return `<p${block.lede ? ' class="market-lede"' : refined ? '' : ' class=""'}>${esc(block.text)}</p>`;
       case 'heading': return `<h3>${esc(block.text)}</h3>`;
       case 'callout': return `<div class="market-callout"><span class="market-callout-label">${esc(block.label || 'Assessment')}</span><p>${esc(block.text)}</p></div>`;
