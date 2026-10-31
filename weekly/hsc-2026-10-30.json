@@ -1,8 +1,8 @@
 {
 "weekEnding": "2026-10-30",
 "membership": {
-"source": "Bisnis.com, 26 October 2026, 19:10, https://market.bisnis.com/read/20261026/7/2015822/bei-umumkan-81-saham-hsc-keluar-dari-ihsg-ini-daftar-lengkapnya",
-"note": "81 stocks Bisnis.com listed as leaving IHSG calculation on 2 November 2026, as announced in IDX's index rebalancing. IDX publishes HSC notices per issuer and the exchange's own list was not found. Bisnis.com reported 82 HSC stocks on 23 October. Last week's 80-name list (Katadata, 19 October) differs from this list by FILM and TFCO added and KING absent.",
+"source": "IDX announcement Peng-00204/BEI.POP/10-2026, 26 October 2026, Lampiran 9, pages 35 and 36 (https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/Exchange/Evaluasi%20Indeks%2026%20Okt%202026-No.%20Peng-00204BEI.POP10-2026.pdf)",
+"note": "The 81 stocks IDX lists as leaving the IHSG calculation on 2 November 2026, read from IDX's own annex. Bisnis.com printed the same 81 names on 26 October. IDX's per-issuer HSC notices count 82 current HSC stocks. The extra one is KING, an Acceleration Board stock that IHSG already excludes. See weekly/idx-ihsg-evaluation-2026-10-26.json. Last week's 80-name Katadata list differs by FILM and TFCO added and KING absent.",
 "tickers": [
 "ADES",
 "AGAR",

@@ -180,3 +180,41 @@ test('Edition reader text has no semicolons, dashes or stock source lines', () =
   assert.equal(edition.weekEnding, '2026-10-30');
   assert.equal(edition.observations.closes.at(-1).close, raw.daily.at(-1).close);
 });
+
+test('IDX evaluation file: exit list, per-issuer notices, weights and the 18% weight', () => {
+  const ev = read('idx-ihsg-evaluation-2026-10-26');
+  assert.equal(ev.announcement.number, 'Peng-00204/BEI.POP/10-2026');
+  assert.equal(ev.exitCount, 81);
+  assert.deepEqual(ev.exitCodes, hsc.membership.tickers);
+  const current = ev.perIssuerNotices.current.map(r => r[0]);
+  assert.equal(current.length, 82);
+  assert.deepEqual(current.filter(c => !ev.exitCodes.includes(c)), ev.perIssuerNotices.notInExitList);
+  assert.deepEqual(ev.perIssuerNotices.notInExitList, ['KING']);
+  assert.deepEqual(ev.exitCodes.filter(c => !current.includes(c)), []);
+  assert.deepEqual(ev.perIssuerNotices.ended.map(r => r[0]).sort(), ['LUCY', 'MGLV']);
+  const w = ev.keyWeights;
+  near(w.BBCA.post + w.BBRI.post + w.BMRI.post, 25.12, .001);
+  near(w.BBCA.pre + w.BBRI.pre + w.BMRI.pre, 22.38, .001);
+  has('25.12%');
+  has('22.38%');
+  near(100 - ev.stayingStocks.preWeightSumPct, ev.stayingStocks.impliedExitingPreWeightPct, .001);
+  has(`${ev.stayingStocks.preWeightSumPct.toFixed(2)}%`);
+  const row = edition.sections.find(s => s.id === 'hsc').blocks.find(b => b.type === 'table').rows.at(-1);
+  assert.equal(row[1], 'About 18%');
+  assert.equal(row[2], 'About 82%');
+  has('8.75% to 9.00%');
+  has('7.93% to 9.00%');
+  has('3.35% to 4.15%');
+});
+
+test('Third quarter figures in the text match the filings read on IDX', () => {
+  const g = (a, b) => ((a / b - 1) * 100).toFixed(2);
+  has(`up ${g(45534001, 37730142)}%`);
+  has(`up ${g(589675654, 522154915)}%`);
+  has(`${(-(2434231644 / 2439921045 - 1) * 100).toFixed(2)}% lower`);
+  has(`fell ${(-(14446 / 15031 - 1) * 100).toFixed(2)}%`);
+  has(`up ${g(113502, 109617)}%`);
+  has(`Rp${(45534001 / 1e6).toFixed(2)}tn`);
+  has(`Rp${(14446 / 1e3).toFixed(2)}tn`);
+  has(`US$${(589675654 / 1e6).toFixed(1)}m`);
+});

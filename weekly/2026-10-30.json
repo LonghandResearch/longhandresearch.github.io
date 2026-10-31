@@ -79,9 +79,39 @@
       "note": "IDX shareholders approved demutualisation on 28 October. IDX Commodity 20 launched on 30 October. IDX's own weekly figures match the supplied statistics. Read on 1 November."
     },
     "hscList": {
-      "label": "Bisnis.com, 81 HSC stocks leave IHSG, 26 October 2026, 19:10",
-      "url": "https://market.bisnis.com/read/20261026/7/2015822/bei-umumkan-81-saham-hsc-keluar-dari-ihsg-ini-daftar-lengkapnya",
-      "note": "Lists the 81 stocks leaving the IHSG calculation on 2 November, the effective period to 29 January 2027 and the new IHSG weights for BBCA, BBRI and ASII. This is the press list of IDX's rebalancing announcement. The exchange's own document was not found. Read on 1 November."
+      "label": "IDX announcement Peng-00204/BEI.POP/10-2026, index evaluation, 26 October 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/Exchange/Evaluasi%20Indeks%2026%20Okt%202026-No.%20Peng-00204BEI.POP10-2026.pdf",
+      "note": "IDX's own document. Lampiran 9 lists the 81 stocks that leave the IHSG calculation on 2 November, effective to 29 January 2027, and gives the old and new weights of every stock that stays. Read page by page on 1 November. Bisnis.com printed the same 81 names on 26 October."
+    },
+    "hscNotices": {
+      "label": "IDX per-issuer HSC notices, April to October 2026",
+      "url": "https://www.idx.co.id/id/berita/pengumuman",
+      "note": "IDX publishes one notice when a stock becomes HSC and another when the status ends. Searching the announcements page for the notice title found 82 current HSC stocks, the 81 in the exit list plus KING, an Acceleration Board stock that IHSG already excludes. LUCY and MGLV have left the list."
+    },
+    "idxProfiles": {
+      "label": "IDX listed company profiles, shareholders of TLKM, BMRI, BBRI, BBNI and ANTM",
+      "url": "https://www.idx.co.id/id/perusahaan-tercatat/profil-perusahaan-tercatat/",
+      "note": "Read on 1 November. PT Danantara Asset Management holds 51.57% of TLKM, 51.48% of BMRI, 52.656% of BBRI and 59.4% of BBNI. PT Mineral Industri Indonesia (Persero) holds 65% of ANTM."
+    },
+    "tlkmQ3": {
+      "label": "TLKM interim financial statements, nine months to 30 September 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/20261030234844-65294-0/FinancialStatement-2026-III-TLKM.pdf",
+      "note": "Filed at 23:48 on 30 October. Revenue Rp113,502bn against Rp109,617bn. Profit attributable to owners Rp14,446bn against Rp15,031bn. Unaudited."
+    },
+    "bmriQ3": {
+      "label": "BMRI interim financial statements, nine months to 30 September 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/20261026103522-64642-0/FinancialStatement-2026-III-BMRI.pdf",
+      "note": "Profit attributable to the parent Rp45,534,001m against Rp37,730,142m. Unaudited."
+    },
+    "byanQ3": {
+      "label": "BYAN interim financial statements, nine months to 30 September 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/20261030110023-65487-0/FinancialStatement-2026-III-BYAN.pdf",
+      "note": "Reported in US dollars. Sales US$2,434,231,644 against US$2,439,921,045. Profit attributable to the parent US$589,675,654 against US$522,154,915. Unaudited."
+    },
+    "brenPr": {
+      "label": "BREN press release on nine-month results, 30 October 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/2c7a4b3641_dcd11453eb.pdf",
+      "note": "Revenue US$501m, up 9.5%. EBITDA US$442m, up 10.9%. Net profit after tax US$161m, up 21.8%. The statements were filed at 20:53 on 30 October."
     },
     "fomc": {
       "label": "Federal Reserve FOMC statement, 28 October 2026",
@@ -855,9 +885,10 @@
         {
           "type": "paragraph",
           "sources": [
-            "flowless"
+            "flowless",
+            "idxProfiles"
           ],
-          "text": "Our stock-level estimate covers the 82 liquid large caps with at least Rp10tn of market value and Rp10bn of average daily trading. It puts their regular-market foreign net selling at Rp3.95tn. Five state-owned stocks account for Rp3.37tn of it, or 85.29%. They are TLKM at Rp1.19tn, BMRI at Rp1.13tn, BBRI at Rp507bn, ANTM at Rp288bn and BBNI at Rp250bn. Foreign investors were estimated net buyers of BBCA at Rp411bn and ASII at Rp133bn. Last week BBCA was the biggest foreign sale, at Rp2.95tn. So foreigners eased off BBCA and kept selling the state-owned stocks that rose most last week. The estimate values foreign share volume at each day's close and leaves out negotiated trades. It is Rp1.00tn more negative than the official figure for all stocks, so we use it only to see which stocks foreigners traded."
+          "text": "Our stock-level estimate covers the 82 liquid large caps with at least Rp10tn of market value and Rp10bn of average daily trading. It puts their regular-market foreign net selling at Rp3.95tn. Five state-controlled stocks account for Rp3.37tn of it, or 85.29%. They are TLKM at Rp1.19tn, BMRI at Rp1.13tn, BBRI at Rp507bn, ANTM at Rp288bn and BBNI at Rp250bn. Danantara Asset Management holds 51% to 59% of TLKM, BMRI, BBRI and BBNI, and the state mining holding MIND ID holds 65% of ANTM. Foreign investors were estimated net buyers of BBCA at Rp411bn and ASII at Rp133bn. Last week BBCA was the biggest foreign sale, at Rp2.95tn. So foreigners eased off BBCA and kept selling the state-controlled stocks that rose most last week. The estimate values foreign share volume at each day's close and leaves out negotiated trades. It is Rp1.00tn more negative than the official figure for all stocks, so we use it only to see which stocks foreigners traded."
         },
         {
           "type": "table",
@@ -870,7 +901,7 @@
           "rows": [
             [
               "Foreign selling",
-              "Net selling of Rp3.06tn on four of five days. Five state-owned stocks took 85.29% of the estimated sales",
+              "Net selling of Rp3.06tn on four of five days. Five state-controlled stocks took 85.29% of the estimated sales",
               "Half of last week's selling. The index fell more on less selling",
               "Part of it"
             ],
@@ -900,8 +931,8 @@
             ],
             [
               "Company news",
-              "BCA denied a merger rumour on 30 October. Third quarter results began",
-              "BCA's nine-month profit rose 4.2% and BBCA fell only 0.90% over the week",
+              "BCA denied a merger rumour on 30 October. TLKM's nine-month profit to owners fell 3.89%, filed after the close on Friday",
+              "BCA, BMRI, BYAN and BREN reported higher profits. BREN fell 24.58% and BYAN 14.88% in the week",
               "Explains days, not the week"
             ]
           ],
@@ -1033,9 +1064,11 @@
           "type": "paragraph",
           "sources": [
             "hscList",
-            "pr099"
+            "hscNotices",
+            "pr099",
+            "hsc"
           ],
-          "text": "The exit list is now public. Bisnis.com reported on 26 October that 81 stocks leave the IHSG calculation on 2 November, in an IDX rebalancing that runs to 29 January 2027. The stocks stay listed and tradable. Their price moves will simply stop counting. The same report says the index weight of BBCA rises from 8.75% to 9%, BBRI from 7.93% to 9% and ASII from 3.35% to 4.15%. We could not find IDX's own document, so this list rests on the press report. Last week's 80-name list differs by FILM and TFCO added and KING dropped. The count has also moved before. Bisnis.com reported 82 HSC stocks on 23 October."
+          "text": "The exit list is official now. IDX announcement Peng-00204 of 26 October names 81 stocks that leave the IHSG calculation on 2 November, in an evaluation that runs to 29 January 2027. The stocks stay listed and tradable. Their price moves will simply stop counting. IDX's table also gives the new weights. BBCA rises from 8.75% to 9.00%, BBRI from 7.93% to 9.00%, BMRI from 5.70% to 7.12%, TLKM from 3.76% to 4.68% and ASII from 3.35% to 4.15%. The stocks that stay carry 81.87% of the old weights, so the 81 that leave carried about 18%, which matches what IDX's president said on 19 October. IDX's own HSC notices count 82 current HSC stocks. The extra one is KING, which sits on the Acceleration Board that IHSG already excludes. Last week's 80-name press list differed by FILM and TFCO added and KING dropped."
         },
         {
           "type": "sankey",
@@ -1083,6 +1116,11 @@
               "Price change since 16 October",
               "-8.42%",
               "-1.32%"
+            ],
+            [
+              "Weight in IHSG before the change, IDX table",
+              "About 18%",
+              "About 82%"
             ]
           ],
           "sources": [
@@ -1106,7 +1144,7 @@
             "hsc",
             "hscList"
           ],
-          "text": "The exit will help. It is a fair reading of the week to say that thin stocks led the fall. It is not a fair reading to say they caused it. The other 882 stocks lost Rp493.5tn and fell 6.66%, and TLKM, a large and liquid state-owned stock, alone lost Rp25.8tn. After 2 November IHSG will lean harder on banks, the part of the market foreign investors are still selling. The cleaner index removes noise. It does not remove the selling."
+          "text": "The exit will help. It is a fair reading of the week to say that thin stocks led the fall. It is not a fair reading to say they caused it. The other 882 stocks lost Rp493.5tn and fell 6.66%, and TLKM, a large and liquid state-owned stock, alone lost Rp25.8tn. After 2 November IHSG will lean harder on banks, the part of the market foreign investors are still selling. IDX's table puts BBCA, BBRI and BMRI at 25.12% of the index, up from 22.38%. The cleaner index removes noise. It does not remove the selling."
         }
       ]
     },
@@ -1259,9 +1297,14 @@
         {
           "type": "paragraph",
           "sources": [
-            "pr102"
+            "pr102",
+            "tlkmQ3",
+            "bmriQ3",
+            "byanQ3",
+            "brenPr",
+            "bbcaResults"
           ],
-          "text": "The third quarter reporting season is under way. BCA reported on 27 October. TLKM, BREN and BYAN filed on 30 October, TLKM late that night. We have not read these statements for this edition. Monday is the first session that can price the TLKM report. We also found no new disclosure of how much Danantara has bought, and no new release from MSCI."
+          "text": "The third quarter reporting season is under way. We read five reports on IDX. BCA reported on 27 October that nine-month profit rose 4.2% to Rp45.2tn. BMRI's profit to owners was Rp45.53tn, up 20.68%. BYAN earned US$589.7m for its owners, up 12.93%, on sales 0.23% lower at US$2.43bn. BREN said on Friday that net profit rose 21.8% to US$161m on revenue up 9.5%. So BREN and BYAN, two of the week's three biggest index laggards from the HSC list, fell 24.58% and 14.88% over the week and reported higher profits on Friday. TLKM is the weak one. Its profit to owners fell 3.89% to Rp14.45tn on revenue up 3.54% to Rp113.50tn. It filed at 23:48 on Friday, after a week in which its shares fell 11.61%, so Monday is the first session that can price it. We did not find a BBRI report. We also found no new disclosure of how much Danantara has bought, and no new release from MSCI."
         }
       ]
     },
@@ -1287,7 +1330,7 @@
             ],
             [
               "Consistent treatment across the market",
-              "Set for 2 November. 81 stocks leave IHSG under one rule, according to Bisnis.com."
+              "Set for 2 November. IDX's announcement of 26 October lists 81 stocks leaving IHSG under one rule."
             ],
             [
               "Trading that clears without persistent queues",
@@ -1337,7 +1380,7 @@
       ]
     }
   ],
-  "sourceIntro": "Checked on 1 November 2026. Market data end at the 30 October close. IDX statistics, BI rates, Federal Reserve and US Treasury data, IDX and BI releases and company filings on IDX are primary sources. The HSC exit list, Indonesian bond auction figures and the Straits Times report on the BCA rumour come from dated press reports or from IDX correspondence, and are labelled where used.",
+  "sourceIntro": "Checked on 1 November 2026. Market data end at the 30 October close. IDX statistics, BI rates, Federal Reserve and US Treasury data, IDX announcements and press releases, IDX company profiles and company filings on IDX are primary sources. Indonesian bond auction figures and the Straits Times report on the BCA rumour come from IDNFinancials and from IDX correspondence, and are labelled where used.",
   "sourceGroups": [
     {
       "label": "Market observations",
@@ -1377,6 +1420,10 @@
           "label": "Frozen HSC comparison"
         },
         {
+          "source": "idxProfiles",
+          "label": "IDX company profiles"
+        },
+        {
           "source": "prior",
           "label": "Previous weekly edition"
         }
@@ -1392,7 +1439,11 @@
         },
         {
           "source": "hscList",
-          "label": "HSC exit list"
+          "label": "IDX index evaluation, 26 October"
+        },
+        {
+          "source": "hscNotices",
+          "label": "IDX HSC notices"
         },
         {
           "source": "msci",
@@ -1403,7 +1454,7 @@
           "label": "MSIN suspension"
         }
       ],
-      "note": "IDX release dated 26 October. The 81-stock list is as reported on 26 October. IDX has not been found to publish a consolidated list."
+      "note": "IDX release dated 26 October. The 81-stock exit list and the weights are IDX's own, read from its announcement. The 82 current HSC stocks are counted from IDX's per-issuer notices."
     },
     {
       "label": "Rates and bonds",
@@ -1451,13 +1502,29 @@
           "label": "BCA nine-month results"
         },
         {
+          "source": "tlkmQ3",
+          "label": "TLKM statements"
+        },
+        {
+          "source": "bmriQ3",
+          "label": "BMRI statements"
+        },
+        {
+          "source": "byanQ3",
+          "label": "BYAN statements"
+        },
+        {
+          "source": "brenPr",
+          "label": "BREN press release"
+        },
+        {
           "source": "buybacks",
           "label": "Barito group filings"
         }
       ],
-      "note": "Company disclosures on IDX, 19 to 30 October. Buyback figures are limits in the companies' filings, not amounts spent."
+      "note": "Company disclosures on IDX, 19 to 30 October. Third quarter figures are unaudited. Buyback figures are limits in the companies' filings, not amounts spent."
     }
   ],
-  "method": "Official foreign trading totals cover all stock markets. Stock-level foreign values are regular-market estimates from foreign share volumes valued at daily closes, for stocks with at least Rp10tn market value and Rp10bn 20-session average daily value. Daily regular-market value and volume in the estimates match all five IDX daily reports exactly. HSC group figures use the 81-stock list reported on 26 October, shares outstanding and daily closes, weighted by full market value. Value lost by a stock is shares times the fall in its close, and only falling stocks are counted. Shares outstanding are held at their 30 October counts, so the totals show price moves only. They are not IHSG weights. Every input is frozen in the HSC comparison file. Breadth shares are recomputed from counts. Index contributions and sector changes are read from rendered IDX pages.",
+  "method": "Official foreign trading totals cover all stock markets. Stock-level foreign values are regular-market estimates from foreign share volumes valued at daily closes, for stocks with at least Rp10tn market value and Rp10bn 20-session average daily value. Daily regular-market value and volume in the estimates match all five IDX daily reports exactly. HSC group figures use IDX's 81-stock exit list of 26 October, shares outstanding and daily closes, weighted by full market value. Value lost by a stock is shares times the fall in its close, and only falling stocks are counted. Shares outstanding are held at their 30 October counts, so the totals show price moves only. They are not IHSG weights. The IHSG weight of the exiting stocks is 100 less the 81.87% that IDX's table gives the stocks that stay. Every input is frozen in the HSC comparison file and the IDX evaluation file. Breadth shares are recomputed from counts. Index contributions and sector changes are read from rendered IDX pages.",
   "displayMethod": "Price returns exclude dividends and costs. Dollar returns use JISDOR and are indicative. Official all-market flows and regular-market stock estimates have different scopes. Exact observations and calculations are available beside the exhibits and in the linked snapshots."
 }
