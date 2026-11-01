@@ -164,9 +164,24 @@
       "note": "Net profit up 4.2% to Rp45.2tn, loans up 12.6% to Rp1,063tn, NPL 1.8%."
     },
     "msin": {
+      "label": "IDX trading data for MSIN and the company's reply to IDX, 22 to 30 October 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202610/29940a5879_8035011885.pdf",
+      "note": "MSIN replied on 28 October to IDX letter S-13465/BEI.PP2/10-2026. IDX's stock summary shows MSIN closing at Rp105 on 26 October with no trade on 27, 28 and 30 October. IDX's own suspension notice was not found in its announcement search."
+    },
+    "msinPress": {
       "label": "IDNFinancials, IDX suspends MSIN, 27 October 2026, 14:40",
       "url": "https://www.idnfinancials.com/id/news/70900/demi-lindungi-investor-bei-suspensi-saham-hary-tanoe",
       "note": "Quotes IDX announcement 220 suspending MSIN from the pre-opening of 27 October after a large cumulative price fall."
+    },
+    "bisnisAuction": {
+      "label": "Bisnis.com, SUN auction, 27 October 2026, 18:22",
+      "url": "https://market.bisnis.com/read/20261027/92/2016141/lelang-sun-himpun-penawaran-rp31-triliun-yield-sbn-tembus-75",
+      "note": "Cites the Finance Ministry publication. Bids Rp31.09tn, Rp20.65tn taken, FR0111 won at 7.54%, and Rp3.61tn of bids on a new short-term bill all turned down. Read on 1 November."
+    },
+    "kontanAuction": {
+      "label": "Kontan, SUN auction drags, 28 October 2026, 18:35",
+      "url": "https://investasi.kontan.co.id/news/lelang-sun-seret-pemerintah-hadapi-tekanan-biaya-utang",
+      "note": "Cites the Finance Ministry. Rp20.65tn taken against Rp35tn on 13 October and a Rp30tn target. Bids Rp31.09tn against Rp64.9tn. An economist puts the rise in winning yields at about 30 basis points. Read on 1 November."
     },
     "buybacks": {
       "label": "IDX disclosures, Barito group buyback plans, 19 October 2026",
@@ -746,9 +761,10 @@
           "sources": [
             "weekly",
             "flowless",
-            "prior"
+            "prior",
+            "observations"
           ],
-          "text": "The usual explanation does not fit. Foreign investors sold a net Rp3.06tn across all stock markets, 54.18% less than the Rp6.67tn of the week before. A week with half the foreign selling should hold up better. It did not. Last week Rp6.67tn of foreign net selling came with a 4.90% rise. This week Rp3.06tn came with a 7.03% fall. Net flows are the same number seen from the buyer's side and the seller's side, so they cannot say who blinked. What moved was the price at which buyers were willing to deal. Everyone also traded less. Total trading fell 29.49% to Rp14.34tn a day, and the biggest fall of the week, 3.49% on Thursday, came on the lowest regular-market value of the week, Rp10.24tn."
+          "text": "The usual explanation does not fit. Foreign investors sold a net Rp3.06tn across all stock markets, 54.18% less than the Rp6.67tn of the week before. A week with half the foreign selling should hold up better. It did not. Last week Rp6.67tn of foreign net selling came with a 4.90% rise. This week Rp3.06tn came with a 7.03% fall. IDX's table of who sold to whom shows no rush to sell. Every pairing shrank, by between 20.94% and 36.15%. The biggest drop was foreign investors selling to local buyers, down 36.15% to Rp15.77tn. Sellers were in no hurry and prices still fell, so the bids came down. Total trading fell 29.49% to Rp14.34tn a day, and the biggest fall of the week, 3.49% on Thursday, came on the lowest regular-market value of the week, Rp10.24tn."
         },
         {
           "type": "paragraph",
@@ -760,7 +776,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Our view stays defensive, and the reasons are wider than last week's. Last week the question was who bought. This week there is price and funding evidence too. Thin stocks led the fall, the government bond auction drew the weakest bids since November 2024 according to press reports, and two Fed voters wanted a rate increase. We would change our mind when a bond auction draws strong bids again, when foreign selling in TLKM, BMRI and BBRI stops, and when IHSG closes above 5,488 with foreign buying."
+          "text": "Our view stays defensive, and the reasons are wider than last week's. Last week the question was who bought. This week there is price and funding evidence too. Thin stocks led the fall, the government bond auction drew bids 52.1% lower than the one before and the government took less than its target, and two Fed voters wanted a rate increase. We would change our mind when a bond auction draws strong bids again, when foreign selling in TLKM, BMRI and BBRI stops, and when IHSG closes above 5,488 with foreign buying."
         },
         {
           "type": "callout",
@@ -890,6 +906,54 @@
         {
           "type": "paragraph",
           "sources": [
+            "weekly",
+            "observations"
+          ],
+          "text": "IDX also splits the trading of each day by who sold to whom. Every pairing fell from the week before. The biggest drop was foreign investors selling to local buyers. No group sold in a hurry."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Who sold to whom",
+            "19 to 23 Oct",
+            "26 to 30 Oct",
+            "Change"
+          ],
+          "rows": [
+            [
+              "Foreign sold to local buyers",
+              "Rp24.71tn",
+              "Rp15.77tn",
+              "-36.15%"
+            ],
+            [
+              "Local sold to foreign buyers",
+              "Rp18.03tn",
+              "Rp12.72tn",
+              "-29.49%"
+            ],
+            [
+              "Local sold to local buyers",
+              "Rp40.03tn",
+              "Rp28.25tn",
+              "-29.44%"
+            ],
+            [
+              "Foreign sold to foreign buyers",
+              "Rp18.92tn",
+              "Rp14.96tn",
+              "-20.94%"
+            ]
+          ],
+          "sources": [
+            "weekly",
+            "observations"
+          ],
+          "caption": "Value traded by seller and buyer, all stock markets, from IDX weekly page 2"
+        },
+        {
+          "type": "paragraph",
+          "sources": [
             "flowless",
             "idxProfiles"
           ],
@@ -918,8 +982,8 @@
             ],
             [
               "Local bond and currency stress",
-              "Auction bids down 52.1%, 10-year yield 7.54%, credit default swap up from 91.74 to 106.35. JISDOR up 0.38%",
-              "The rupiah moved little. Auction figures come from press reports",
+              "Auction bids down 52.1% and the government took Rp20.65tn against a Rp30tn target. The 10-year bond was won at 7.54%. JISDOR up 0.38%. Credit default swap up from 91.74 to 106.35",
+              "The rupiah moved little. The credit default swap figures come from one outlet",
               "Fits well"
             ],
             [
@@ -930,9 +994,9 @@
             ],
             [
               "Local buyers stepped back",
-              "Domestic gross buying down 31.99%. Total trading down 29.49%. The biggest fall came on the thinnest day",
-              "Foreign gross selling also fell 29.56%. Flows cannot show who stepped back",
-              "Fits, cannot be proven"
+              "Domestic gross buying down 31.99%. Local investors trading among themselves down 29.44%. The biggest fall came on the thinnest day",
+              "Every pairing of sellers and buyers shrank, so no one group stands out. Foreign investors selling to local buyers fell most, 36.15%",
+              "Fits, not isolated"
             ],
             [
               "Company news",
@@ -1074,7 +1138,7 @@
             "pr099",
             "hsc"
           ],
-          "text": "The exit list is official now. IDX announcement Peng-00204 of 26 October names 81 stocks that leave the IHSG calculation on 2 November, in an evaluation that runs to 29 January 2027. The stocks stay listed and tradable. Their price moves will simply stop counting. IDX's table also gives the new weights. BBCA rises from 8.75% to 9.00%, BBRI from 7.93% to 9.00%, BMRI from 5.70% to 7.12%, TLKM from 3.76% to 4.68% and ASII from 3.35% to 4.15%. The stocks that stay carry 81.87% of the old weights, so the 81 that leave carried about 18%, which matches what IDX's president said on 19 October. IDX's own HSC notices count 82 current HSC stocks. The extra one is KING, which sits on the Acceleration Board that IHSG already excludes. Last week's 80-name press list differed by FILM and TFCO added and KING dropped."
+          "text": "The exit list is official now. IDX announcement Peng-00204 of 26 October names 81 stocks that leave the IHSG calculation on 2 November, in an evaluation that runs to 29 January 2027. The stocks stay listed and tradable. Their price moves will simply stop counting. IDX's table also gives the new weights. BBCA rises from 8.75% to 9.00%, BBRI from 7.93% to 9.00%, BMRI from 5.70% to 7.12%, TLKM from 3.76% to 4.68% and ASII from 3.35% to 4.15%. We recomputed the old weights from IDX's own index shares and the 22 October closes. Every printed weight we could read, 836 of 837, matches within rounding. The 81 stocks that leave carried 17.51% of IHSG, in line with the 18% IDX's president gave on 19 October. DCII, which traded about Rp17 million on Thursday, was the fifth largest weight at 3.47%. BYAN was seventh at 3.22%, BREN eleventh at 1.67% and DSSA fifteenth at 1.29%. IDX's own HSC notices count 82 current HSC stocks. The extra one is KING, which sits on the Acceleration Board that IHSG already excludes. Last week's 80-name press list differed by FILM and TFCO added and KING dropped."
         },
         {
           "type": "sankey",
@@ -1124,9 +1188,9 @@
               "-1.32%"
             ],
             [
-              "Weight in IHSG before the change, IDX table",
-              "About 18%",
-              "About 82%"
+              "Weight in IHSG before the change, from IDX index shares",
+              "17.51%",
+              "82.49%"
             ]
           ],
           "sources": [
@@ -1238,10 +1302,12 @@
         {
           "type": "paragraph",
           "sources": [
+            "bisnisAuction",
+            "kontanAuction",
             "sunAuction",
             "bondStress"
           ],
-          "text": "The second rate story is at home, and it looks worse. At the 27 October auction of government bonds, bids totalled Rp31.09tn, according to IDNFinancials. That was 52.1% below the previous auction and the lowest since November 2024. The winning yield on the 10-year bond rose 0.30 points in two weeks to 7.54%, which the same report calls the highest in almost four years. The cost of insuring Indonesian government debt against default, the five-year credit default swap, rose from 91.74 on 14 October to 106.35 on 26 October. We read these as lenders asking for more pay to hold Indonesian risk. US yields fell while Indonesian yields rose, so this pressure is local. The Finance Ministry's own auction page would not open on 1 November, so these figures rest on press reports."
+          "text": "The second rate story is at home, and it looks worse. At the 27 October auction of government bonds, investors bid Rp31.09tn, down 52.1% from the Rp64.9tn of 13 October. The government took Rp20.65tn, below its Rp30tn indicative target and below the Rp35tn of the previous auction. It also turned down every bid for a new short-term bill series, Rp3.61tn in all. The 10-year bond, FR0111, was won at an average yield of 7.54%. An economist quoted by Kontan puts the rise in winning yields on six to eleven year bonds at about 0.30 points. IDNFinancials calls the bid total the lowest since November 2024 and the yield the highest in almost four years. Bisnis.com and Kontan both cite the Finance Ministry's own publication for the auction figures. We could not open that page on 1 November. The five-year credit default swap, the price of insuring Indonesian government debt against default, rose from 91.74 on 14 October to 106.35 on 26 October, according to IDNFinancials. We read these as lenders asking for more pay to hold Indonesian risk, and a government unwilling to pay it. US yields fell while Indonesian yields rose, so this pressure is local."
         },
         {
           "type": "paragraph",
@@ -1287,9 +1353,10 @@
           "type": "paragraph",
           "sources": [
             "pr102",
-            "msin"
+            "msin",
+            "msinPress"
           ],
-          "text": "On 28 October IDX's shareholders approved the charter changes for demutualisation. On 30 October IDX launched IDX Commodity 20, an index of 20 commodity-related stocks weighted by free-float market value with a 15% cap on any one stock. Separately, IDX suspended MSIN from 27 October after a large cumulative price fall, according to IDNFinancials."
+          "text": "On 28 October IDX's shareholders approved the charter changes for demutualisation. On 30 October IDX launched IDX Commodity 20, an index of 20 commodity-related stocks weighted by free-float market value with a 15% cap on any one stock. Separately, IDX stopped trading in MSIN from 27 October. IDX's own data show no trade on 27, 28 and 30 October at Rp105, after falls of 5.04% on 22 October and 6.25% on 26 October. IDX asked the company for an explanation on 28 October. IDNFinancials reports that IDX gave a large cumulative price fall as its reason."
         },
         {
           "type": "paragraph",
@@ -1386,7 +1453,7 @@
       ]
     }
   ],
-  "sourceIntro": "Checked on 1 November 2026. Market data end at the 30 October close. IDX statistics, BI rates, Federal Reserve and US Treasury data, IDX announcements and press releases, IDX company profiles and company filings on IDX are primary sources. Indonesian bond auction figures and the Straits Times report on the BCA rumour come from IDNFinancials and from IDX correspondence, and are labelled where used.",
+  "sourceIntro": "Checked on 1 November 2026. Market data end at the 30 October close. IDX statistics, IDX trading data and index announcements, BI rates, Federal Reserve and US Treasury data, IDX press releases, IDX company profiles and company filings on IDX are primary sources. The Finance Ministry auction figures come from Bisnis.com and Kontan citing the Ministry. The credit default swap and the Straits Times report on the BCA rumour come from IDNFinancials and from IDX correspondence, and are labelled where used.",
   "sourceGroups": [
     {
       "label": "Market observations",
@@ -1461,7 +1528,11 @@
         },
         {
           "source": "msin",
-          "label": "MSIN suspension"
+          "label": "MSIN trading and reply"
+        },
+        {
+          "source": "msinPress",
+          "label": "MSIN suspension, IDNFinancials"
         }
       ],
       "note": "IDX release dated 26 October. The 81-stock exit list and the weights are IDX's own, read from its announcement. The 82 current HSC stocks are counted from IDX's per-issuer notices."
@@ -1490,6 +1561,14 @@
           "label": "BI calendar"
         },
         {
+          "source": "bisnisAuction",
+          "label": "SUN auction, Bisnis.com"
+        },
+        {
+          "source": "kontanAuction",
+          "label": "SUN auction, Kontan"
+        },
+        {
           "source": "sunAuction",
           "label": "SUN auction, IDNFinancials"
         },
@@ -1498,7 +1577,7 @@
           "label": "Bond stress, IDNFinancials"
         }
       ],
-      "note": "Fed and Treasury data read on 1 November. Indonesian auction figures rest on IDNFinancials because the Finance Ministry page failed a certificate check."
+      "note": "Fed and Treasury data read on 1 November. The auction figures are from Bisnis.com and Kontan citing the Finance Ministry, and from IDNFinancials. The Ministry page failed a certificate check."
     },
     {
       "label": "Companies",

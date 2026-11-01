@@ -213,13 +213,16 @@
 /* Sankey: ribbons carry the shared chart palette (rust for HSC stocks, blue for the rest). Text stays on the ink tokens. */
 .sankey-plot svg { min-width: 640px; }
 .sankey-link { fill: var(--viz-3); fill-opacity: .3; stroke: none; }
-.sankey-link:hover { fill-opacity: .5; }
+.sankey-plot svg:hover .sankey-link { fill-opacity: .14; }
+.sankey-plot svg:hover .sankey-link.sankey-hsc { fill-opacity: .2; }
+.sankey-link { transition: fill-opacity .15s ease; }
+.sankey-plot svg .sankey-link:hover { fill-opacity: .6; }
 .sankey-link.sankey-hsc { fill: var(--viz-2); fill-opacity: .42; }
-.sankey-link.sankey-hsc:hover { fill-opacity: .62; }
+.sankey-plot svg .sankey-link.sankey-hsc:hover { fill-opacity: .75; }
 .sankey-node { fill: var(--ink-3); }
 .sankey-node.sankey-hsc { fill: var(--viz-2); }
 .sankey-node.sankey-other { fill: var(--viz-3); }
-.sankey-label { fill: var(--ink-2); font: 400 12px var(--font-sans); }
+.sankey-label { fill: var(--ink-2); font: 400 13px var(--font-sans); }
 .sankey-label-halo { paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .sankey-value { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .sankey-head { fill: var(--ink-3); font: 600 10px var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
@@ -227,6 +230,8 @@
 .sankey-key span::before { content: ''; display: inline-block; width: 12px; height: 12px; margin-right: 7px; vertical-align: -1px; }
 .sankey-key-hsc::before { background: var(--viz-2); }
 .sankey-key-other::before { background: var(--viz-3); }
+.sankey-key-unit::before { display: none; }
+.sankey-plot:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 3px; }
 .sankey-plot + .sankey-key + .weekly-data-detail { margin-top: 14px; }
 @media print {
   .figure-motion .index-line { animation: none !important; stroke-dashoffset: 0 !important; }

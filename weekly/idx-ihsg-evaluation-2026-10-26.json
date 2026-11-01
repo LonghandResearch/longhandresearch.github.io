@@ -115,14 +115,6 @@
    "post": 4.15
   }
  },
- "stayingStocks": {
-  "rowsRead": 836,
-  "rowsListed": 837,
-  "preWeightSumPct": 81.87,
-  "postWeightSumPct": 99.49,
-  "impliedExitingPreWeightPct": 18.13,
-  "note": "Sum of printed pre-evaluation weights of the stocks that stay. The remainder, 100 less 81.87, is the pre-evaluation weight of the stocks that leave. Printed weights are rounded to 0.01%, so the remainder is approximate."
- },
  "perIssuerNotices": {
   "source": "IDX announcement search, keyword \"Kepemilikan Saham Terkonsentrasi Tinggi\" and \"HSC\", 1 January to 1 November 2026",
   "method": "For each code the latest notice decides. A notice titled \"Berakhirnya\" ends the status.",
@@ -555,5 +547,507 @@
    "KING"
   ],
   "kingNote": "KING (Hoffmen Cleanindo) has been an HSC stock since 15 July 2026 but is on the Acceleration Board, which IDX release 097 excludes from IHSG. It is not among the stocks the annex lists as leaving."
+ },
+ "exitWeightCheck": {
+  "referenceDate": "2026-10-22",
+  "source": "IDX stock summary fetched from IDX (primary/TradingSummary/GetStockSummary), fields WeightForIndex (IDX index shares) and Close, for 22 October 2026",
+  "method": "Weight = index shares times close, divided by the sum over all 918 stocks that carry index shares. 22 October is the date that reproduces IDX's printed old weights: BBCA 8.75, BBRI 7.93, BMRI 5.70, TLKM 3.76 and ASII 3.35. All 836 printed old weights of the staying stocks match this recomputation within 0.005 points (rounding). The printed weights sum to 81.87, the unrounded ones to 82.48, so the rounding of many tiny weights hides 0.61 points. The first version of this edition used the rounded sum and said about 18%.",
+  "comparedRows": 836,
+  "maxAbsDiffPct": 0.005,
+  "rowsOver0006": 0,
+  "printedSumStayingPct": 81.87,
+  "recomputedSumStayingPct": 82.48,
+  "totalIndexValueIdr": 2334694507730729,
+  "exitIndexValueIdr": 408865496240767,
+  "exitWeightPct": 17.51,
+  "exitStocks": [
+   {
+    "code": "ADES",
+    "indexShares": 47840630,
+    "close22": 32500
+   },
+   {
+    "code": "AGAR",
+    "indexShares": 250100000,
+    "close22": 1485
+   },
+   {
+    "code": "AGII",
+    "indexShares": 222332850,
+    "close22": 3400
+   },
+   {
+    "code": "ALII",
+    "indexShares": 3070205200,
+    "close22": 620
+   },
+   {
+    "code": "ALKA",
+    "indexShares": 60665974,
+    "close22": 4700
+   },
+   {
+    "code": "BAJA",
+    "indexShares": 563490000,
+    "close22": 208
+   },
+   {
+    "code": "BALI",
+    "indexShares": 950991007,
+    "close22": 1280
+   },
+   {
+    "code": "BBHI",
+    "indexShares": 2800986595,
+    "close22": 580
+   },
+   {
+    "code": "BBMD",
+    "indexShares": 367261451,
+    "close22": 2050
+   },
+   {
+    "code": "BBSI",
+    "indexShares": 885119577,
+    "close22": 3570
+   },
+   {
+    "code": "BDKR",
+    "indexShares": 1081103228,
+    "close22": 174
+   },
+   {
+    "code": "BELI",
+    "indexShares": 32671840493,
+    "close22": 272
+   },
+   {
+    "code": "BIKE",
+    "indexShares": 225012063,
+    "close22": 5150
+   },
+   {
+    "code": "BINA",
+    "indexShares": 1252936127,
+    "close22": 3880
+   },
+   {
+    "code": "BKDP",
+    "indexShares": 543261640,
+    "close22": 148
+   },
+   {
+    "code": "BMAS",
+    "indexShares": 1885356074,
+    "close22": 412
+   },
+   {
+    "code": "BNII",
+    "indexShares": 8424961111,
+    "close22": 175
+   },
+   {
+    "code": "BNLI",
+    "indexShares": 3571208729,
+    "close22": 1740
+   },
+   {
+    "code": "BREN",
+    "indexShares": 16830306476,
+    "close22": 2320
+   },
+   {
+    "code": "BSWD",
+    "indexShares": 280471924,
+    "close22": 8075
+   },
+   {
+    "code": "BTPN",
+    "indexShares": 829199230,
+    "close22": 2360
+   },
+   {
+    "code": "BYAN",
+    "indexShares": 7096667022,
+    "close22": 10600
+   },
+   {
+    "code": "CITA",
+    "indexShares": 305343852,
+    "close22": 3100
+   },
+   {
+    "code": "CLAY",
+    "indexShares": 433045000,
+    "close22": 2690
+   },
+   {
+    "code": "CMNP",
+    "indexShares": 723875910,
+    "close22": 1310
+   },
+   {
+    "code": "CMNT",
+    "indexShares": 1806740672,
+    "close22": 760
+   },
+   {
+    "code": "DCII",
+    "indexShares": 442184864,
+    "close22": 182975
+   },
+   {
+    "code": "DGWG",
+    "indexShares": 877058832,
+    "close22": 270
+   },
+   {
+    "code": "DMND",
+    "indexShares": 734744658,
+    "close22": 520
+   },
+   {
+    "code": "DNET",
+    "indexShares": 877989600,
+    "close22": 9800
+   },
+   {
+    "code": "DSSA",
+    "indexShares": 41282340544,
+    "close22": 730
+   },
+   {
+    "code": "DUTI",
+    "indexShares": 9990000,
+    "close22": 4770
+   },
+   {
+    "code": "ELPI",
+    "indexShares": 1428663000,
+    "close22": 456
+   },
+   {
+    "code": "EPMT",
+    "indexShares": 203418864,
+    "close22": 2440
+   },
+   {
+    "code": "FAPA",
+    "indexShares": 497592358,
+    "close22": 7100
+   },
+   {
+    "code": "FILM",
+    "indexShares": 2889560218,
+    "close22": 400
+   },
+   {
+    "code": "FITT",
+    "indexShares": 271549441,
+    "close22": 262
+   },
+   {
+    "code": "GEMS",
+    "indexShares": 592941182,
+    "close22": 7450
+   },
+   {
+    "code": "HATM",
+    "indexShares": 1045704000,
+    "close22": 580
+   },
+   {
+    "code": "IFSH",
+    "indexShares": 10200000,
+    "close22": 1315
+   },
+   {
+    "code": "INDO",
+    "indexShares": 553371592,
+    "close22": 140
+   },
+   {
+    "code": "INPP",
+    "indexShares": 921394471,
+    "close22": 700
+   },
+   {
+    "code": "KONI",
+    "indexShares": 65832000,
+    "close22": 1345
+   },
+   {
+    "code": "LIFE",
+    "indexShares": 157500000,
+    "close22": 9200
+   },
+   {
+    "code": "MAYA",
+    "indexShares": 5435116386,
+    "close22": 167
+   },
+   {
+    "code": "MCOL",
+    "indexShares": 267022556,
+    "close22": 3540
+   },
+   {
+    "code": "MDIA",
+    "indexShares": 4917628515,
+    "close22": 90
+   },
+   {
+    "code": "MEGA",
+    "indexShares": 9587074455,
+    "close22": 1940
+   },
+   {
+    "code": "MGRO",
+    "indexShares": 447149269,
+    "close22": 710
+   },
+   {
+    "code": "MKPI",
+    "indexShares": 78131186,
+    "close22": 19875
+   },
+   {
+    "code": "MLPT",
+    "indexShares": 4101562500,
+    "close22": 610
+   },
+   {
+    "code": "MORA",
+    "indexShares": 7548322452,
+    "close22": 2960
+   },
+   {
+    "code": "MPRO",
+    "indexShares": 919681250,
+    "close22": 11600
+   },
+   {
+    "code": "MSJA",
+    "indexShares": 449411762,
+    "close22": 695
+   },
+   {
+    "code": "MTEL",
+    "indexShares": 15157725488,
+    "close22": 424
+   },
+   {
+    "code": "NICK",
+    "indexShares": 109393200,
+    "close22": 2500
+   },
+   {
+    "code": "PGUN",
+    "indexShares": 437224085,
+    "close22": 8000
+   },
+   {
+    "code": "POLU",
+    "indexShares": 85875000,
+    "close22": 11625
+   },
+   {
+    "code": "PRAY",
+    "indexShares": 1105586246,
+    "close22": 715
+   },
+   {
+    "code": "PSAB",
+    "indexShares": 1979208000,
+    "close22": 440
+   },
+   {
+    "code": "RISE",
+    "indexShares": 2701926478,
+    "close22": 540
+   },
+   {
+    "code": "RLCO",
+    "indexShares": 427500000,
+    "close22": 3250
+   },
+   {
+    "code": "ROCK",
+    "indexShares": 287037020,
+    "close22": 2090
+   },
+   {
+    "code": "SAFE",
+    "indexShares": 52885764,
+    "close22": 770
+   },
+   {
+    "code": "SAME",
+    "indexShares": 2439094285,
+    "close22": 274
+   },
+   {
+    "code": "SATU",
+    "indexShares": 213950000,
+    "close22": 222
+   },
+   {
+    "code": "SHIP",
+    "indexShares": 497993549,
+    "close22": 2150
+   },
+   {
+    "code": "SILO",
+    "indexShares": 981962438,
+    "close22": 1850
+   },
+   {
+    "code": "SMAR",
+    "indexShares": 216563380,
+    "close22": 6800
+   },
+   {
+    "code": "SMMT",
+    "indexShares": 393875000,
+    "close22": 3380
+   },
+   {
+    "code": "SOHO",
+    "indexShares": 1144789752,
+    "close22": 1285
+   },
+   {
+    "code": "SOTS",
+    "indexShares": 201800803,
+    "close22": 650
+   },
+   {
+    "code": "SRAJ",
+    "indexShares": 2056145278,
+    "close22": 10950
+   },
+   {
+    "code": "SSMS",
+    "indexShares": 2777490000,
+    "close22": 845
+   },
+   {
+    "code": "STTP",
+    "indexShares": 258594000,
+    "close22": 8700
+   },
+   {
+    "code": "TBIG",
+    "indexShares": 1751386057,
+    "close22": 1120
+   },
+   {
+    "code": "TCPI",
+    "indexShares": 962500000,
+    "close22": 1450
+   },
+   {
+    "code": "TFCO",
+    "indexShares": 519445328,
+    "close22": 2000
+   },
+   {
+    "code": "TMAS",
+    "indexShares": 8460737450,
+    "close22": 115
+   },
+   {
+    "code": "WBSA",
+    "indexShares": 1799195000,
+    "close22": 436
+   },
+   {
+    "code": "YUPI",
+    "indexShares": 854448870,
+    "close22": 965
+   }
+  ],
+  "rankedWeights": [
+   {
+    "rank": 1,
+    "code": "BBCA",
+    "weightPct": 8.75
+   },
+   {
+    "rank": 2,
+    "code": "BBRI",
+    "weightPct": 7.93
+   },
+   {
+    "rank": 3,
+    "code": "BMRI",
+    "weightPct": 5.7
+   },
+   {
+    "rank": 4,
+    "code": "TLKM",
+    "weightPct": 3.76
+   },
+   {
+    "rank": 5,
+    "code": "DCII",
+    "weightPct": 3.47
+   },
+   {
+    "rank": 6,
+    "code": "ASII",
+    "weightPct": 3.35
+   },
+   {
+    "rank": 7,
+    "code": "BYAN",
+    "weightPct": 3.22
+   },
+   {
+    "rank": 8,
+    "code": "AMMN",
+    "weightPct": 2.79
+   },
+   {
+    "rank": 9,
+    "code": "SMMA",
+    "weightPct": 2.59
+   },
+   {
+    "rank": 10,
+    "code": "BBNI",
+    "weightPct": 2.08
+   },
+   {
+    "rank": 11,
+    "code": "BREN",
+    "weightPct": 1.67
+   },
+   {
+    "rank": 12,
+    "code": "BRPT",
+    "weightPct": 1.56
+   },
+   {
+    "rank": 13,
+    "code": "CASA",
+    "weightPct": 1.48
+   },
+   {
+    "rank": 14,
+    "code": "BRMS",
+    "weightPct": 1.34
+   },
+   {
+    "rank": 15,
+    "code": "DSSA",
+    "weightPct": 1.29
+   },
+   {
+    "rank": 16,
+    "code": "UNTR",
+    "weightPct": 1.27
+   }
+  ]
  }
 }

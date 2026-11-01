@@ -197,11 +197,23 @@ test('IDX evaluation file: exit list, per-issuer notices, weights and the 18% we
   near(w.BBCA.pre + w.BBRI.pre + w.BMRI.pre, 22.38, .001);
   has('25.12%');
   has('22.38%');
-  near(100 - ev.stayingStocks.preWeightSumPct, ev.stayingStocks.impliedExitingPreWeightPct, .001);
-  has(`${ev.stayingStocks.preWeightSumPct.toFixed(2)}%`);
+  const wc = ev.exitWeightCheck;
+  const exitValue = wc.exitStocks.reduce((s, r) => s + r.indexShares * r.close22, 0);
+  assert.equal(wc.exitStocks.length, 81);
+  assert.deepEqual(wc.exitStocks.map(r => r.code), ev.exitCodes);
+  near(exitValue, wc.exitIndexValueIdr, 1);
+  near(exitValue / wc.totalIndexValueIdr * 100, wc.exitWeightPct, .005);
+  assert.equal(wc.exitWeightPct, 17.51);
+  assert.equal(wc.comparedRows, 836);
+  assert.ok(wc.maxAbsDiffPct <= 0.005 && wc.rowsOver0006 === 0);
+  for (const r of wc.rankedWeights) if (r.code === 'BBCA') assert.equal(r.weightPct, w.BBCA.pre);
+  const rank = c => wc.rankedWeights.find(r => r.code === c);
+  assert.deepEqual([rank('DCII').rank, rank('BYAN').rank, rank('BREN').rank, rank('DSSA').rank], [5, 7, 11, 15]);
+  for (const c of ['DCII', 'BYAN', 'BREN', 'DSSA']) { const e = wc.exitStocks.find(r => r.code === c); near(e.indexShares * e.close22 / wc.totalIndexValueIdr * 100, rank(c).weightPct, .005); has(`${rank(c).weightPct.toFixed(2)}%`); }
+  has('17.51%');
   const row = edition.sections.find(s => s.id === 'hsc').blocks.find(b => b.type === 'table').rows.at(-1);
-  assert.equal(row[1], 'About 18%');
-  assert.equal(row[2], 'About 82%');
+  assert.equal(row[1], '17.51%');
+  assert.equal(row[2], '82.49%');
   has('8.75% to 9.00%');
   has('7.93% to 9.00%');
   has('3.35% to 4.15%');
@@ -250,4 +262,43 @@ test('IDX stock summary cross-check agrees with the database behind the HSC tabl
   assert.deepEqual(topLoss, chk.tenLargestLosses);
   const bbca = chk.spot.BBCA28Oct;
   near((bbca.foreignBuyShares - bbca.foreignSellShares) * chk.closes.BBCA['20261028'] / 1e9, bbca.estimatedNetBn, .06);
+});
+
+test('Who sold to whom: the table identities hold and the text and table match', () => {
+  const p = raw.investorPairs, sum = (days, k) => days.reduce((s, d) => s + d.valueBn[k], 0);
+  for (const wk of [p.thisWeek, p.lastWeek]) {
+    assert.equal(wk.length, 5);
+  }
+  p.thisWeek.forEach((d, i) => near(d.valueBn.DF - d.valueBn.FD, raw.daily[i].officialNetBn, 1.01));
+  near(sum(p.thisWeek, 'FF') + sum(p.thisWeek, 'DF'), raw.weeklyForeign.buyIdr / 1e9, 1.01);
+  near(sum(p.thisWeek, 'FF') + sum(p.thisWeek, 'FD'), raw.weeklyForeign.sellIdr / 1e9, 1.01);
+  near(sum(p.lastWeek, 'FF') + sum(p.lastWeek, 'DF'), prior.weeklyForeign.buyIdr / 1e9, 1.01);
+  near(sum(p.lastWeek, 'FF') + sum(p.lastWeek, 'FD'), prior.weeklyForeign.sellIdr / 1e9, 1.01);
+  const total = wk => ['FF', 'DF', 'FD', 'DD'].reduce((s, k) => s + sum(wk, k), 0);
+  near(total(p.thisWeek), (raw.weekly.marketTotals.RG.valueIdr + raw.weekly.marketTotals.NG.valueIdr + raw.weekly.marketTotals.TN.valueIdr) / 1e9, 2);
+  near(total(p.lastWeek), 101683.566631983, 2);
+  const change = k => ((sum(p.thisWeek, k) / sum(p.lastWeek, k) - 1) * 100).toFixed(2);
+  const flowSec = edition.sections.find(s => s.id === 'flow').blocks;
+  const table = flowSec.find(b => b.type === 'table' && b.headers[0] === 'Who sold to whom');
+  const keys = ['FD', 'DF', 'DD', 'FF'];
+  table.rows.forEach((row, i) => { assert.equal(row[3], change(keys[i]) + '%'); assert.equal(row[1], 'Rp' + (Math.round(sum(p.lastWeek, keys[i]) / 10) / 100).toFixed(2) + 'tn'); assert.equal(row[2], 'Rp' + (Math.round(sum(p.thisWeek, keys[i]) / 10) / 100).toFixed(2) + 'tn'); });
+  const changes = keys.map(k => +change(k));
+  has(`between ${Math.abs(Math.max(...changes)).toFixed(2)}% and ${Math.abs(Math.min(...changes)).toFixed(2)}%`);
+  assert.equal(Math.min(...changes), +change('FD'));
+  has(`down ${Math.abs(+change('FD')).toFixed(2)}% to Rp${(Math.round(sum(p.thisWeek, 'FD') / 10) / 100).toFixed(2)}tn`);
+  has(`local investors trading among themselves down ${Math.abs(+change('DD')).toFixed(2)}%`.replace('local', 'Local'));
+});
+
+test('Auction and MSIN figures in the text agree with their sources', () => {
+  const bids = 31.09, prevBids = 64.9;
+  has(`down ${((1 - bids / prevBids) * 100).toFixed(1)}% from the Rp64.9tn of 13 October`);
+  has('Rp20.65tn');
+  has('Rp3.61tn');
+  has('7.54%');
+  const chk = read('idx-stock-summary-check-2026-10-30');
+  const m = chk.msin.days;
+  has(`${(-(m['20261022'].close / m['20261021'].close - 1) * 100).toFixed(2)}% on 22 October`);
+  has(`${(-(m['20261026'].close / m['20261023'].close - 1) * 100).toFixed(2)}% on 26 October`);
+  ['20261027', '20261028', '20261030'].forEach(d => { assert.equal(m[d].volume, 0); assert.equal(m[d].close, 105); });
+  assert.ok(m['20261026'].volume > 0);
 });

@@ -749,5 +749,223 @@
   },
   "bbcaSharePct": 14.73
  },
- "reconciliationNote": "The extraction script passed 23 of 23 checks. IDX press release 102/BEI.SPR/10-2026 repeats the weekly close 5,057.050, market capitalisation Rp8,862tn, average daily value Rp14.339tn (-29.49%), average daily frequency 1.54 million (-20.99%), average daily volume 32.428bn shares (-18.85%) and Friday net sell Rp138.71bn with year to date net sell Rp97.921tn."
+ "reconciliationNote": "The extraction script passed 23 of 23 checks. IDX press release 102/BEI.SPR/10-2026 repeats the weekly close 5,057.050, market capitalisation Rp8,862tn, average daily value Rp14.339tn (-29.49%), average daily frequency 1.54 million (-20.99%), average daily volume 32.428bn shares (-18.85%) and Friday net sell Rp138.71bn with year to date net sell Rp97.921tn.",
+ "investorPairs": {
+  "source": "Weekly page 2, Transaction by Investor, of ws_261030 (26 to 30 October) and ws_261023 (19 to 23 October). Sell-Buy: the first letter sells, the second buys. FF foreign to foreign, DF domestic sells to foreign, FD foreign sells to domestic, DD domestic to domestic. Values in Rp bn, each trade counted once.",
+  "thisWeek": [
+   {
+    "date": "2026-10-26",
+    "valueBn": {
+     "FF": 3069,
+     "DF": 1716,
+     "FD": 3571,
+     "DD": 6626
+    },
+    "volumeMillion": {
+     "FF": 4554,
+     "DF": 2853,
+     "FD": 5670,
+     "DD": 23052
+    },
+    "frequencyThousand": {
+     "FF": 71,
+     "DF": 132,
+     "FD": 367,
+     "DD": 1220
+    }
+   },
+   {
+    "date": "2026-10-27",
+    "valueBn": {
+     "FF": 4426,
+     "DF": 3003,
+     "FD": 3654,
+     "DD": 6826
+    },
+    "volumeMillion": {
+     "FF": 3951,
+     "DF": 4645,
+     "FD": 5847,
+     "DD": 20733
+    },
+    "frequencyThousand": {
+     "FF": 106,
+     "DF": 188,
+     "FD": 375,
+     "DD": 1227
+    }
+   },
+   {
+    "date": "2026-10-28",
+    "valueBn": {
+     "FF": 2779,
+     "DF": 3891,
+     "FD": 3226,
+     "DD": 5982
+    },
+    "volumeMillion": {
+     "FF": 2328,
+     "DF": 7040,
+     "FD": 4347,
+     "DD": 17823
+    },
+    "frequencyThousand": {
+     "FF": 86,
+     "DF": 185,
+     "FD": 281,
+     "DD": 987
+    }
+   },
+   {
+    "date": "2026-10-29",
+    "valueBn": {
+     "FF": 1800,
+     "DF": 1933,
+     "FD": 3010,
+     "DD": 4543
+    },
+    "volumeMillion": {
+     "FF": 1628,
+     "DF": 3295,
+     "FD": 4099,
+     "DD": 13619
+    },
+    "frequencyThousand": {
+     "FF": 69,
+     "DF": 105,
+     "FD": 324,
+     "DD": 816
+    }
+   },
+   {
+    "date": "2026-10-30",
+    "valueBn": {
+     "FF": 2883,
+     "DF": 2173,
+     "FD": 2312,
+     "DD": 4268
+    },
+    "volumeMillion": {
+     "FF": 7845,
+     "DF": 9152,
+     "FD": 5870,
+     "DD": 13789
+    },
+    "frequencyThousand": {
+     "FF": 99,
+     "DF": 159,
+     "FD": 232,
+     "DD": 687
+    }
+   }
+  ],
+  "lastWeek": [
+   {
+    "date": "2026-10-19",
+    "valueBn": {
+     "FF": 3920,
+     "DF": 4246,
+     "FD": 5965,
+     "DD": 10996
+    },
+    "volumeMillion": {
+     "FF": 3786,
+     "DF": 6844,
+     "FD": 5797,
+     "DD": 15915
+    },
+    "frequencyThousand": {
+     "FF": 118,
+     "DF": 208,
+     "FD": 374,
+     "DD": 892
+    }
+   },
+   {
+    "date": "2026-10-20",
+    "valueBn": {
+     "FF": 5682,
+     "DF": 4747,
+     "FD": 6940,
+     "DD": 9106
+    },
+    "volumeMillion": {
+     "FF": 5495,
+     "DF": 11135,
+     "FD": 10200,
+     "DD": 28016
+    },
+    "frequencyThousand": {
+     "FF": 156,
+     "DF": 324,
+     "FD": 569,
+     "DD": 1423
+    }
+   },
+   {
+    "date": "2026-10-21",
+    "valueBn": {
+     "FF": 3644,
+     "DF": 3821,
+     "FD": 3808,
+     "DD": 6450
+    },
+    "volumeMillion": {
+     "FF": 2694,
+     "DF": 6832,
+     "FD": 5788,
+     "DD": 17541
+    },
+    "frequencyThousand": {
+     "FF": 137,
+     "DF": 232,
+     "FD": 405,
+     "DD": 1043
+    }
+   },
+   {
+    "date": "2026-10-22",
+    "valueBn": {
+     "FF": 2279,
+     "DF": 2666,
+     "FD": 4152,
+     "DD": 7088
+    },
+    "volumeMillion": {
+     "FF": 2083,
+     "DF": 7293,
+     "FD": 5644,
+     "DD": 21554
+    },
+    "frequencyThousand": {
+     "FF": 97,
+     "DF": 232,
+     "FD": 384,
+     "DD": 1368
+    }
+   },
+   {
+    "date": "2026-10-23",
+    "valueBn": {
+     "FF": 3393,
+     "DF": 2554,
+     "FD": 3840,
+     "DD": 6388
+    },
+    "volumeMillion": {
+     "FF": 5473,
+     "DF": 7049,
+     "FD": 10444,
+     "DD": 20211
+    },
+    "frequencyThousand": {
+     "FF": 79,
+     "DF": 189,
+     "FD": 347,
+     "DD": 1190
+    }
+   }
+  ],
+  "note": "The text layer of this table is clean. This week's values were also read from the rendered page image."
+ }
 }
