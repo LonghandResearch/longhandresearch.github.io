@@ -1,0 +1,29 @@
+{
+  "title": "A road to the fabs",
+  "created": "2026-11-01",
+  "reportId": "tsm-2026-11-01",
+  "method": "Edited photograph. The owner asked for an image taken from the web and edited in the style of the other covers, so the cover is a licensed photograph turned into a flat print colour picture with local image processing, not a generated image. Steps: crop to 2:3, remove one cyclist by inpainting, flatten texture with mean shift and bilateral filters, flatten the sky into broad shapes, reduce to 18 print colours in Lab space, add thin ink outlines in #14262b from a difference of Gaussians, and add light paper grain. Output 1024 by 1536 WebP with 640 and 320 pixel variants.",
+  "source": {
+    "title": "Beiyuan 5th Road in Southern Taiwan Science Park May 2025.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Beiyuan_5th_Road_in_Southern_Taiwan_Science_Park_May_2025.jpg",
+    "author": "4300streetcar",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "date": "2025-05-27",
+    "downloaded": "3840 pixel version, 2026-11-01",
+    "sha256": "7ef816fae0b5596f331a7cc10c60db471363e8573d08855e3d5663bfcd36d700",
+    "credit": "Photo by 4300streetcar, CC BY 4.0, via Wikimedia Commons. Cropped, recoloured and redrawn as a print-style image."
+  },
+  "width": 1024,
+  "height": 1536,
+  "conceptual": false,
+  "caption": "A road in Southern Taiwan Science Park runs toward distant fab halls under a broad sky. A stylised photograph, used as an illustration of the report's theme and not as evidence of any TSMC site or output.",
+  "files": [
+    "tsmc-road-art.webp",
+    "tsmc-road-art-640.webp",
+    "tsmc-road-art-320.webp"
+  ],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The image contains no lettering from Longhand. A 40 km per hour road sign remains in the scene.",
+  "concept": "The road is long and the growth is real. The price has already travelled to the end of it. The open sky above is left clear for the headline.",
+  "review": "Checked at full size for company logos, readable signs and people. The photograph's one cyclist was removed. No TSMC logo or building number is visible."
+}
