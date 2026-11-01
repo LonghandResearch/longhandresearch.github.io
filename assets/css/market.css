@@ -210,6 +210,29 @@
   .sector-axis { min-height:28px; }
   .sector-axis span:nth-child(2) { top:14px; }
 }
+/* Sankey: ribbons carry the shared chart palette (rust for HSC stocks, blue for the rest). Text stays on the ink tokens. */
+.sankey-plot svg { min-width: 640px; }
+.sankey-link { fill: var(--viz-3); fill-opacity: .3; stroke: none; }
+.sankey-plot svg:hover .sankey-link { fill-opacity: .14; }
+.sankey-plot svg:hover .sankey-link.sankey-hsc { fill-opacity: .2; }
+.sankey-link { transition: fill-opacity .15s ease; }
+.sankey-plot svg .sankey-link:hover { fill-opacity: .6; }
+.sankey-link.sankey-hsc { fill: var(--viz-2); fill-opacity: .42; }
+.sankey-plot svg .sankey-link.sankey-hsc:hover { fill-opacity: .75; }
+.sankey-node { fill: var(--ink-3); }
+.sankey-node.sankey-hsc { fill: var(--viz-2); }
+.sankey-node.sankey-other { fill: var(--viz-3); }
+.sankey-label { fill: var(--ink-2); font: 400 13px var(--font-sans); }
+.sankey-label-halo { paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.sankey-value { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.sankey-head { fill: var(--ink-3); font: 600 10px var(--font-sans); letter-spacing: .1em; text-transform: uppercase; }
+.sankey-key { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 10px 0 4px; color: var(--ink-3); font: 400 12px/1.5 var(--font-sans); }
+.sankey-key span::before { content: ''; display: inline-block; width: 12px; height: 12px; margin-right: 7px; vertical-align: -1px; }
+.sankey-key-hsc::before { background: var(--viz-2); }
+.sankey-key-other::before { background: var(--viz-3); }
+.sankey-key-unit::before { display: none; }
+.sankey-plot:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 3px; }
+.sankey-plot + .sankey-key + .weekly-data-detail { margin-top: 14px; }
 @media print {
   .figure-motion .index-line { animation: none !important; stroke-dashoffset: 0 !important; }
   .figure-motion .index-point { animation: none !important; opacity: 1 !important; }
@@ -217,6 +240,6 @@
   .market-rail, .chart-buttons, .lab-controls { display: none; }
   .market-grid { display: block; }
   .research-figure, .return-lab { break-inside: avoid; }
-  .chart-scroll svg { min-width: 0; }
+  .chart-scroll svg, .sankey-plot svg { min-width: 0; }
   .chart-scroll, .market-table-wrap { overflow: visible; }
 }

@@ -1,0 +1,138 @@
+{
+ "readOn": "2026-11-01",
+ "source": "IDX Trading Summary, stock summary for 23 and 30 October 2026, fetched from IDX's own site (primary/TradingSummary/GetStockSummary). Used only to cross-check the stock database that feeds the HSC table and the Sankey. The page figures come from the database, not from this file.",
+ "method": "Market value is listed shares times close, each date with its own listed shares. Group figures use the 81-stock exit list. Value lost uses 30 October listed shares for both dates, as in weekly/hsc-2026-10-30.json.",
+ "totals": {
+  "marketValue23Tn": 9583.12,
+  "marketValue30Tn": 8862.16,
+  "idxPublished23Tn": 9583,
+  "idxPublished30Tn": 8862
+ },
+ "groups": {
+  "hsc": {
+   "stocks": 81,
+   "value23Tn": 2692.08,
+   "value30Tn": 2425.96,
+   "changePct": -9.89,
+   "lossTn": 270.71
+  },
+  "others": {
+   "stocks": 882,
+   "value23OwnSharesTn": 6891.04,
+   "value30Tn": 6436.2,
+   "changePctSameShares": -6.66,
+   "lossTn": 493.47
+  }
+ },
+ "lossShareHscPct": 35.42,
+ "counts": {
+  "fell": 720,
+  "rose": 90,
+  "unchanged": 153
+ },
+ "tenLargestLosses": [
+  "BREN 78.3",
+  "BYAN 53.3",
+  "MORA 46.3",
+  "BRPT 34.7",
+  "AMMN 27.6",
+  "TLKM 25.8",
+  "DSSA 20.2",
+  "EMAS 18.0",
+  "BMRI 16.6",
+  "BBRI 16.5"
+ ],
+ "closes": {
+  "BBCA": {
+   "20261023": 5025,
+   "20261028": 5275,
+   "20261029": 4940,
+   "20261030": 4980
+  },
+  "ASII": {
+   "20261023": 4550,
+   "20261028": 5000,
+   "20261029": 4690,
+   "20261030": 4800
+  },
+  "TLKM": {
+   "20261023": 2240,
+   "20261028": 2070,
+   "20261029": 1980,
+   "20261030": 1980
+  },
+  "MORA": {
+   "20261023": 3240,
+   "20261028": 2620,
+   "20261029": 2440,
+   "20261030": 2270
+  },
+  "DCII": {
+   "20261023": 181000,
+   "20261028": 174975,
+   "20261029": 174975,
+   "20261030": 174975
+  },
+  "BREN": {
+   "20261023": 2380,
+   "20261028": 2070,
+   "20261029": 1930,
+   "20261030": 1795
+  },
+  "BYAN": {
+   "20261023": 10750,
+   "20261028": 9925,
+   "20261029": 9550,
+   "20261030": 9150
+  }
+ },
+ "spot": {
+  "BBCA28Oct": {
+   "valueIdr": 2999923284000,
+   "foreignBuyShares": 424194300,
+   "foreignSellShares": 196226100,
+   "estimatedNetBn": 1202.5
+  },
+  "DCII": {
+   "28OctVolume": 0,
+   "29OctVolume": 100,
+   "29OctValueIdr": 17497500,
+   "30OctVolume": 100
+  }
+ },
+ "msin": {
+  "source": "IDX stock summary rows for MSIN (MNC Digital Entertainment) and IDX request S-13465/BEI.PP2/10-2026 of 28 October as quoted in MSIN's reply 308-A/MDE-CORSEC/X/2026",
+  "days": {
+   "20261021": {
+    "close": 119,
+    "volume": 0
+   },
+   "20261022": {
+    "close": 113,
+    "volume": 79415500
+   },
+   "20261023": {
+    "close": 112,
+    "volume": 20822700
+   },
+   "20261026": {
+    "close": 105,
+    "volume": 382076000,
+    "valueIdr": 43043215200
+   },
+   "20261027": {
+    "close": 105,
+    "volume": 0
+   },
+   "20261028": {
+    "close": 105,
+    "volume": 0
+   },
+   "20261030": {
+    "close": 105,
+    "volume": 0
+   }
+  },
+  "note": "No trade on 27, 28 and 30 October at Rp105. 29 October was not fetched."
+ }
+}

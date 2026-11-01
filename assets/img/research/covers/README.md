@@ -1,5 +1,23 @@
 # Longhand portrait editorial covers
 
+## 1 November 2026: a crate-stack cover for the 30 October edition
+
+`ihsg-stack-art.webp` is the cover for "A Bounce Built on Thin Stocks Gave Way". A fruit seller, a
+woman in a hijab and an office worker steady a tall stack of fruit crates that stands on a few thin bamboo
+poles and has begun to lean. Behind them are twin glass towers that recall the exchange district, bright
+sky above and a plaza with palms, a food cart and a delivery rider. The crates stand for the bounce, the
+thin poles for the thinly traded stocks that carried it, and the lean for the fall. It is conceptual. It
+shows no real person or venue, no lettering and no logo.
+
+Codex's image tool was not available, and Higgsfield had no credits, so Claude made it with GPT Image
+2.5 Sunburst through ElevenLabs (one generation, about US$0.03). The owner's brief from the earlier
+covers applied: bright daylight, clean ligne-claire ink, flat print colour, Indonesian detail, nothing
+odd and no lettering. The first generation was used without retouching. It was checked at full size for
+lettering, logos and distorted faces or hands. The 1024 by 1536 original was encoded to WebP with 640 and
+320 pixel versions. `ihsg-stack-art.json` holds the prompt, generation record and source hash. The
+upper fifth is open sky and the crates enter at about 22% from the top, so the website sets the title in dark ink `#14262b` at 7.6cqw over the existing
+paper wash. The cover is not animated, so it has no entry in `living-covers-data.js`.
+
 ## 25 October 2026: NVIDIA initiation cover
 
 The owner asked for a cover tied to NVIDIA and its chief executive that carries

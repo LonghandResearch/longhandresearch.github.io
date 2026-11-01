@@ -88,7 +88,7 @@
   link('nvda-2026-10-25', 'company', ['nvidia'], 'primary', catalogue('nvda-2026-10-25'), 'Published company initiation');
   link('nvda-2026-10-25', 'sector', ['semiconductors'], 'primary', catalogue('nvda-2026-10-25'), 'Sector identified in the catalogue');
   link('nvda-2026-10-25', 'sector', ['ai-infrastructure'], 'material', catalogue('nvda-2026-10-25'), 'Data-centre demand and customer capex examined in the report');
-  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16', 'ihsg-weekly-2026-10-23'].forEach((id) => {
+  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16', 'ihsg-weekly-2026-10-23', 'ihsg-weekly-2026-10-30'].forEach((id) => {
     link(id, 'country', ['ID'], 'primary', catalogue(id), 'Indonesia equity-market update');
     link(id, 'sector', ['rates-macro'], 'primary', catalogue(id), 'Market and currency observations; IHSG is an index, not a company');
   });

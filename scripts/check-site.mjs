@@ -121,7 +121,7 @@ for (const r of reports) {
           else if (Object.values(sources).some(s => !s.label || !/^https:\/\//.test(s.url))) weeklyBad('every source needs a label and an https URL');
           if (!Array.isArray(sections) || !sections.length) weeklyBad('sections are missing');
           else if (sections.some(s => !s.id || !s.title || !Array.isArray(s.blocks))) weeklyBad('a section is missing its id, title or blocks list');
-          const allowedBlocks = ['paragraph', 'heading', 'callout', 'closes', 'flows', 'sectors', 'stocks', 'fxLab', 'table', 'riskChart', 'exitLab'];
+          const allowedBlocks = ['paragraph', 'heading', 'callout', 'closes', 'flows', 'sectors', 'stocks', 'fxLab', 'table', 'riskChart', 'exitLab', 'sankey'];
           const unknownBlock = blocks.find(block => !allowedBlocks.includes(block.type));
           if (unknownBlock) weeklyBad(`unknown block type "${unknownBlock.type}"`);
           const unknownSource = blocks.flatMap(block => Array.isArray(block.sources) ? block.sources : []).find(key => !sources[key]);
@@ -132,6 +132,17 @@ for (const r of reports) {
           if (types.has('sectors') && !numeric(arrays.sectors, 'weekly', 1)) weeklyBad('sector observations need numeric weekly values');
           if (types.has('stocks') && !numeric(arrays.stocks, 'points', 1)) weeklyBad('stock observations need numeric points values');
           if (types.has('fxLab') && !numeric(arrays.jisdor, 'rate', 2)) weeklyBad('the FX lab needs at least two numeric JISDOR rates');
+          if (types.has('sankey')) {
+            const k = data.observations && data.observations.sankey;
+            const ok = k && Array.isArray(k.nodes) && Array.isArray(k.links) && k.links.every(l => Number.isFinite(l.value) && l.value > 0);
+            if (!ok) weeklyBad('sankey observations need nodes and links with positive values');
+            else {
+              const into = {}, out = {};
+              k.links.forEach(l => { out[l.source] = (out[l.source] || 0) + l.value; into[l.target] = (into[l.target] || 0) + l.value; });
+              const unbalanced = k.nodes.filter(n => n.col === 1 && Math.abs((into[n.id] || 0) - (out[n.id] || 0)) >= 0.06);
+              if (unbalanced.length) weeklyBad('sankey flows do not balance at "' + unbalanced[0].label + '"');
+            }
+          }
           if (types.has('riskChart') || types.has('exitLab')) {
             const p = data.riskParameters || {};
             if (!['index', 'multiple', 'fx', 'weightPct', 'preShockAdtvTn'].every(k => Number.isFinite(p[k]) && p[k] > 0)) weeklyBad('risk model inputs must be positive finite numbers');

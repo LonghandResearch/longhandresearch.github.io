@@ -1,0 +1,28 @@
+{
+  "title": "A tall stack on thin poles begins to lean",
+  "created": "2026-11-01",
+  "reportId": "ihsg-weekly-2026-10-30",
+  "method": "ElevenLabs image generation with GPT Image 2.5 Sunburst at 1024 by 1536, quality high, one generation, no variants. The 1024 by 1536 original was encoded as WebP with 640 and 320 pixel variants. No cropping or retouching.",
+  "tool": {
+    "service": "ElevenLabs creative flow",
+    "flowId": "901PNPhMco41RoDy8VLL",
+    "generationId": "YN5huxQYEc2HjcgLrack",
+    "model": "gpt-image-2.5-sunburst",
+    "credits": 267.66,
+    "estimatedUsd": 0.027
+  },
+  "width": 1024,
+  "height": 1536,
+  "sourceSha256": "e3312b6755b73209ae7e8825510651bb1c79ec0918ffe51b2379255ef77e1ff0",
+  "conceptual": true,
+  "caption": "A fruit seller, a woman in a hijab and an office worker steady a tall stack of crates built on thin bamboo poles in front of twin glass towers. Conceptual editorial artwork, not a documentary scene, a named venue or a measurement of market conditions.",
+  "files": [
+    "ihsg-stack-art.webp",
+    "ihsg-stack-art-640.webp",
+    "ihsg-stack-art-320.webp"
+  ],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The generated artwork contains no lettering.",
+  "concept": "A bounce built on thin stocks gave way. The crates are the bounce, the thin bamboo poles are the thinly traded stocks that carried it, and the lean is the fall. The towers recall the exchange district without any logo or sign.",
+  "review": "Checked at full size for lettering, logos and distorted faces or hands: none found. The delivery rider wears a green helmet and jacket. No logo is visible.",
+  "prompt": "Portrait editorial cover illustration for a weekly stock market research report, 2:3 frame. Clean ligne-claire ink outlines with flat, bright print colours and a light paper grain, in the manner of classic European adventure comics but set in Jakarta. Bright mid-morning daylight, cheerful and clear, nothing dark, nothing odd.\n\nScene: a plaza in front of a modern glass twin-tower office complex in Jakarta's business district, in the style of the Indonesia Stock Exchange towers (two tall blue glass towers with stepped crowns, drawn without any logo or sign). In the middle foreground a tall stack of hand-painted wooden fruit crates has been built very high on only a few thin bamboo poles. The stack has started to lean and the top two crates are tipping, with a few oranges rolling across the paving stones. A fruit seller in a batik shirt braces one pole with both hands, and a woman in a hijab and an office worker with a lanyard rush to steady the stack. A delivery rider on a green motorcycle has stopped to watch, and two onlookers with takeaway coffee stand back. Around them: frangipani and tall palms in planters, a small food cart with an umbrella, a bajaj in the far distance.\n\nComposition: the top 30% of the frame is calm open blue sky with a few soft white clouds and no buildings, so a headline can be placed there. The towers rise to about 35% from the top. People are drawn at middle distance or from behind, with simple calm faces, natural proportions and correct hands. Warm palette of sky blue, leaf green, orange, terracotta and cream.\n\nConstraints: absolutely no text, letters, numbers, signs or logos anywhere in the image, no watermark, no charts, no trademarked characters, no weird or distorted objects, no dark mood."
+}
