@@ -14,7 +14,7 @@
     { id: 'JP', name: 'Japan', lat: 37, lon: 138, region: 'Asia', description: 'Coal procurement and a significant recorded destination for Indonesian nickel matte.' },
     { id: 'NL', name: 'Netherlands', lat: 52.1, lon: 5.3, region: 'Europe', description: 'A recorded destination for Indonesian ferronickel and nickel matte in 2024; not proof of final consumption.' },
     { id: 'NO', name: 'Norway', lat: 61, lon: 9, region: 'Europe', description: 'A recorded destination for Indonesian nickel matte in 2024; not mine-level shipment provenance.' },
-    { id: 'TW', name: 'Taiwan', lat: 24, lon: 121, region: 'Asia', description: 'A purchasing market reported separately in the BPS destination statistics.' },
+    { id: 'TW', name: 'Taiwan', lat: 24, lon: 121, region: 'Asia', description: 'A purchasing market in the BPS destination statistics, and the home of TSMC, covered in a company initiation.' },
     { id: 'TH', name: 'Thailand', lat: 15, lon: 101, region: 'Asia', description: 'A recorded ASEAN destination in the coal study’s export series.' },
     { id: 'HK', name: 'Hong Kong', lat: 22, lon: 114, region: 'Asia', description: 'A statistical destination kept separate, following the BPS source definition.' },
     { id: 'ES', name: 'Spain', lat: 40, lon: -4, region: 'Europe', description: 'A small recorded European outlet in the coal export study.' },
@@ -48,6 +48,7 @@
     company('dian-swastatika-sentosa', 'Dian Swastatika Sentosa', 'DSSA', ['coal-mining', 'digital-infrastructure', 'ai-infrastructure'], 'A diversified group spanning coal, energy and digital infrastructure in the published assessment.', pbaiEvidence),
     company('bayan-resources', 'Bayan Resources', '', ['coal-mining'], 'A producer case study comparing operating prices, costs and cash economics.', [{ url: 'coal-in-transition.html#bayan-heading', label: 'Bayan Resources / company evidence' }]),
     { ...company('nvidia', 'NVIDIA Corporation', 'NVDA', ['semiconductors', 'ai-infrastructure'], 'Accelerated computing, networking and software, examined in the published company initiation.', [{ url: 'report.html?id=nvda-2026-10-25', label: 'NVDA initiation / catalogue and full report' }]), countryIds: ['US'], listing: { exchange: 'NASDAQ', countryId: 'US' } },
+    { ...company('tsmc', 'Taiwan Semiconductor Manufacturing Company', 'TSM', ['semiconductors', 'ai-infrastructure'], 'Leading-edge chip manufacturing, examined in the published company initiation.', [{ url: 'report.html?id=tsm-2026-11-01', label: 'TSM initiation / catalogue and full report' }]), countryIds: ['TW'], listing: { exchange: 'NYSE', countryId: 'US' } },
   ];
   // A listing is a distinct identity. No domicile is inferred from the exchange.
   const listings = companies.filter((c) => c.ticker).map((c) => {
@@ -88,6 +89,10 @@
   link('nvda-2026-10-25', 'company', ['nvidia'], 'primary', catalogue('nvda-2026-10-25'), 'Published company initiation');
   link('nvda-2026-10-25', 'sector', ['semiconductors'], 'primary', catalogue('nvda-2026-10-25'), 'Sector identified in the catalogue');
   link('nvda-2026-10-25', 'sector', ['ai-infrastructure'], 'material', catalogue('nvda-2026-10-25'), 'Data-centre demand and customer capex examined in the report');
+  link('tsm-2026-11-01', 'country', ['TW'], 'primary', catalogue('tsm-2026-11-01'), 'Company initiation / Taiwan research');
+  link('tsm-2026-11-01', 'company', ['tsmc'], 'primary', catalogue('tsm-2026-11-01'), 'Published company initiation');
+  link('tsm-2026-11-01', 'sector', ['semiconductors'], 'primary', catalogue('tsm-2026-11-01'), 'Sector identified in the catalogue');
+  link('tsm-2026-11-01', 'sector', ['ai-infrastructure'], 'material', catalogue('tsm-2026-11-01'), 'AI-driven demand and capex examined in the report');
   ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16', 'ihsg-weekly-2026-10-23', 'ihsg-weekly-2026-10-30'].forEach((id) => {
     link(id, 'country', ['ID'], 'primary', catalogue(id), 'Indonesia equity-market update');
     link(id, 'sector', ['rates-macro'], 'primary', catalogue(id), 'Market and currency observations; IHSG is an index, not a company');

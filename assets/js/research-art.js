@@ -18,6 +18,7 @@
     'adro-2026-09-03': ['adro-2026-09-03.png', 'Original report · opening page', 'document']
   };
   const covers = {
+    'tsm-2026-11-01': ['tsmc-road', '#14262b', 9.4, 'The Road Is Long.|The Price Got|There First.', 'A wide road in Southern Taiwan Science Park runs toward distant fab halls under a broad sky, stylised from a licensed photograph'],
     'nvda-2026-10-25': ['nvda-road', '#14262b', 11.2, 'Not a Cliff.|The Road|Goes On.', 'A man in a leather jacket pulls a small cart of chips along a road that runs past a cliff edge onto a long bridge, toward data-center halls still under construction'],
     'ihsg-weekly-2026-10-30': ['ihsg-stack', '#14262b', 7.6, 'A Bounce Built|on Thin Stocks|Gave Way', 'A fruit seller, a woman in a hijab and an office worker steady a tall stack of crates built on thin bamboo poles in front of twin glass towers, conceptually illustrated'],
     'ihsg-weekly-2026-10-23': ['ihsg-plaza', '#14262b', 9.4, 'Local Money Bought|the Bounce. Foreign|Money Sold It.', 'An afternoon in a landscaped Jakarta plaza beneath twin office towers, with pedestrians, a cyclist and a coffee cart, conceptually illustrated'],

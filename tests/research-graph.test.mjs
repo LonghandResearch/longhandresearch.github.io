@@ -36,7 +36,7 @@ test('all published reports stay discoverable and market indices are not company
   assert.equal(G.contextFor('sector-2026-09-24').countries.length, 0, 'No geography guessed from chip subject');
 });
 test('country report filters distinguish primary coverage from documented trade context', () => {
-  assert.deepEqual(Array.from(G.entitiesFor('country', { primaryCountriesOnly: true }), c => c.id), ['ID', 'US']);
+  assert.deepEqual(Array.from(G.entitiesFor('country', { primaryCountriesOnly: true }), c => c.id), ['ID', 'US', 'TW']);
   for (const id of ['CN', 'IN', 'VN']) {
     assert.equal(G.reportsFor({ country: id, primaryCountriesOnly: true }).length, 0);
     assert.equal(G.countryCoverage(id).primary.length, 0);

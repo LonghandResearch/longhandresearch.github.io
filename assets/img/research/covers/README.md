@@ -1,5 +1,9 @@
 # Longhand portrait editorial covers
 
+## 1 November 2026: an edited-photo cover for the TSMC initiation
+
+The owner asked for a cover made from a picture taken in their own Chrome and edited to look like the other covers, without the generated-image feel. `tsmc-road-art.webp` is a photograph of Beiyuan 5th Road in Southern Taiwan Science Park by 4300streetcar (CC BY 4.0, Wikimedia Commons), cropped to 2:3, with one cyclist removed, then redrawn as flat print colour with thin ink outlines and paper grain. It is not a generated image. The credit and every processing step are in `tsmc-road-art.json`, and the site credit line is repeated here: Photo by 4300streetcar, CC BY 4.0, via Wikimedia Commons. The image is atmospheric and shows no TSMC logo, no readable company sign and no people. The upper half is open sky, so the website sets the title in dark ink `#14262b` at 9.4cqw over the existing paper wash. The cover is not animated, so it has no entry in `living-covers-data.js`.
+
 ## 1 November 2026: a crate-stack cover for the 30 October edition
 
 `ihsg-stack-art.webp` is the cover for "A Bounce Built on Thin Stocks Gave Way". A fruit seller, a
