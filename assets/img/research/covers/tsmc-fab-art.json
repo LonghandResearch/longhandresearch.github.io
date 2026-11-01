@@ -1,0 +1,40 @@
+{
+  "title": "The TSMC fab on the hill",
+  "created": "2026-11-01",
+  "reportId": "tsm-2026-11-01",
+  "method": "ElevenLabs image generation with GPT Image 2.5 Sunburst at 2K, aspect 2:3, quality high, one generation, using a licensed photograph of the building as the reference image. The generator was asked for a wordless wafer emblem. After the owner allowed the TSMC wordmark, three attempts to add it with the generator failed because free generations were busy, so the lowercase tsmc wordmark was drawn locally with Pillow in Arial Bold, in the red sampled from the building stripe, with a thin cream stroke and a dark outline. The 1360 by 2048 result was trimmed by 4 pixels at top and bottom to exact 2:3 and encoded as WebP at 1024 by 1536 with 640 and 320 pixel variants.",
+  "tool": {
+    "service": "ElevenLabs creative flow",
+    "flowId": "4KWpzbo0VUXzCVc6AeOA",
+    "nodeId": "EkgjolxptyzFZvpqihhn",
+    "generationId": "HZK2fRTrJzeE1sNLpX99",
+    "model": "gpt-image-2.5-sunburst"
+  },
+  "source": {
+    "title": "TSMC AP2 building May 2025.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:TSMC_AP2_building_May_2025.jpg",
+    "author": "4300streetcar",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "date": "2025-05-27",
+    "description": "One of the buildings for TSMC's Advanced Packaging plant 2",
+    "sha256": "40fbd9eab37b1f6786a8e30e9b2f7b5c43fb0760691cc78f95d7ecd0ccc2b356",
+    "credit": "Drawn from a photo by 4300streetcar, CC BY 4.0, via Wikimedia Commons."
+  },
+  "width": 1024,
+  "height": 1536,
+  "generatedSha256": "3fae51306f4c2d07173cc0cb3ee1457dc30d7be038b7bc4f7fb034edf2d7ee41",
+  "sourceSha256": "f5385054cea41abe7b7bfce07bae7ad6066a871cc8e8cfb5b993ed9de50537c0",
+  "conceptual": true,
+  "caption": "A TSMC fab building with a red stripe and the tsmc wordmark on a wafer emblem, above trees and a grassy hill. A red sports car has already arrived while a truck of crates is still climbing the lane. Conceptual editorial artwork drawn from a photograph, not a documentary view of any TSMC site or a measurement of its output.",
+  "files": [
+    "tsmc-fab-art.webp",
+    "tsmc-fab-art-640.webp",
+    "tsmc-fab-art-320.webp"
+  ],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The only lettering in the image is the tsmc wordmark on the building, added on the owner's permission.",
+  "concept": "The price arrived before the profits. The sports car is the share price, already parked at the fab. The truck of crates is the profits, still on its way up the hill.",
+  "ownerRevision": "On 1 November 2026 the owner rejected the first cover, a filtered photograph of a road in Southern Taiwan Science Park, asked for a TSMC building instead, allowed the TSMC wordmark on it, and chose the new title The Price Arrived Before the Profits.",
+  "review": "Checked at full size for distorted shapes, stray lettering and people: the only lettering is the added tsmc wordmark, no faces are visible, and the vehicles and building are drawn coherently.",
+  "prompt": "Redraw this photograph as a portrait editorial cover illustration, 2:3 frame, keeping its composition and the building faithfully: a tall, clean semiconductor factory building in Taiwan, a smooth grey tower block with one slim red vertical stripe running down its right edge and a narrow column of dark windows beside it, joined on the left by a long pale grey-white hall with a subtle checkered panel pattern. In front, a row of leafy green trees, and in the foreground a soft, rolling grassy hill.\n\nOn the grey tower, where the photo shows the company sign, draw only a large round emblem like a silicon wafer: a white disc with a fine grid of small dark and light squares, with no letters or words at all.\n\nStyle: clean ligne-claire ink outlines with flat, bright print colours and a light paper grain, in the manner of classic European adventure comics. Bright midday daylight, cheerful and clear, crisp shapes, nothing muddy, nothing dark, nothing odd.\n\nSmall story detail: on a narrow lane curving over the grassy hill toward the building, a small red sports car is already parked right by the building, while far behind it a slow little truck loaded with crates is only just coming over the hill.\n\nComposition: the top third of the frame is calm open blue sky with a few soft white clouds and nothing else, so a headline can be placed there. The top of the grey tower reaches about 35% from the top. Palette of sky blue, leaf green, grass green, pale grey, cream and one accent of red.\n\nConstraints: absolutely no text, letters, words, numbers, logos or company names anywhere in the image. No people with visible faces, no watermark, no charts, no distorted objects."
+}

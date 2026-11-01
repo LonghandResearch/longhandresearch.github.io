@@ -43,7 +43,7 @@ window.LONGHAND_REPORTS = [
   "company": "Taiwan Semiconductor Manufacturing Company",
   "sector": "Semiconductors",
   "category": "Initiation",
-  "title": "The Road Is Long. The Price Got There First.",
+  "title": "The Price Arrived Before the Profits.",
   "date": "2026-11-01",
   "blurb": "Initiating at SELL, target $351. TSMC is growing fast, but at $406.13 the price needs about 5 points a year more revenue growth than we model.",
   "summary": "We initiate on TSMC's NYSE ADS with a SELL and a 12-month target of $351 (-13.6%), against a bear, base and bull range of $204, $351 and $579. Revenue grew 21.9% a year from 2020 to 2025 and Q3 2026 ran at a 58.7% operating margin, but our DCF fades revenue growth to 12% by 2030 and operating margin to 54%, with capex of about $62bn this year. At a 10.5% WACC and 3% terminal growth the DCF gives $325 today. The price only works if revenue grows about 5.3 points a year faster over 2027 to 2030 (3.4 points against our 12-month value). The WACC is a judgment, not a regression: at 9% the value is $436 and at 9.5% it is $403.",
