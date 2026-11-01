@@ -83,6 +83,11 @@
       "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/Exchange/Evaluasi%20Indeks%2026%20Okt%202026-No.%20Peng-00204BEI.POP10-2026.pdf",
       "note": "IDX's own document. Lampiran 9 lists the 81 stocks that leave the IHSG calculation on 2 November, effective to 29 January 2027, and gives the old and new weights of every stock that stays. Read page by page on 1 November. Bisnis.com printed the same 81 names on 26 October."
     },
+    "hscPress": {
+      "label": "Bisnis.com, 81 HSC stocks leave IHSG, 26 October 2026, 19:10",
+      "url": "https://market.bisnis.com/read/20261026/7/2015822/bei-umumkan-81-saham-hsc-keluar-dari-ihsg-ini-daftar-lengkapnya",
+      "note": "Quotes IDX president director Jeffrey Hendrik on 19 October that HSC stocks carry about 18% of IHSG. Its 81-name list matches IDX's own announcement. Read on 1 November."
+    },
     "hscNotices": {
       "label": "IDX per-issuer HSC notices, April to October 2026",
       "url": "https://www.idx.co.id/id/berita/pengumuman",
@@ -755,7 +760,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Our view stays defensive, and the reasons are wider than last week's. Last week the question was who bought. This week there is price and funding evidence too. Thin stocks led the fall, the government bond auction drew the weakest bids since November 2024, and two Fed voters wanted a rate increase. We would change our mind when a bond auction draws strong bids again, when foreign selling in TLKM, BMRI and BBRI stops, and when IHSG closes above 5,488 with foreign buying."
+          "text": "Our view stays defensive, and the reasons are wider than last week's. Last week the question was who bought. This week there is price and funding evidence too. Thin stocks led the fall, the government bond auction drew the weakest bids since November 2024 according to press reports, and two Fed voters wanted a rate increase. We would change our mind when a bond auction draws strong bids again, when foreign selling in TLKM, BMRI and BBRI stops, and when IHSG closes above 5,488 with foreign buying."
         },
         {
           "type": "callout",
@@ -763,7 +768,7 @@
           "sources": [
             "prior"
           ],
-          "text": "Last week we said a bounce carried by local buyers had not shown that outside investors trusted the market, and that local money could carry prices for a while. It carried them for four sessions. IHSG is back inside the 4,437 to 5,185 range we called our planning case, near the top of it. Our relief case, which began at 5,488, was never reached. The week's high was 5,453.647 on Monday. We were right on direction. We called buybacks and state buying announced capacity, not proof, and this week supports that caution. The four Barito stocks with buyback plans fell about 21% and the state-owned TLKM fell 11.61%. We still do not know how much was bought."
+          "text": "Last week we said a bounce carried by local buyers had not shown that outside investors trusted the market, and that local money could carry prices for a while. It carried them for four sessions. IHSG is back inside the 4,437 to 5,185 range we called our planning case, near the top of it. Our relief case, which began at 5,488, was never reached. The week's high was 5,453.647 on Monday. We were right on direction. We called buybacks and state buying announced capacity, not proof, and this week supports that caution. The four Barito stocks with buyback plans fell about 21% and the state-controlled TLKM fell 11.61%. We still do not know how much was bought."
         }
       ]
     },
@@ -901,7 +906,7 @@
           "rows": [
             [
               "Foreign selling",
-              "Net selling of Rp3.06tn on four of five days. Five state-controlled stocks took 85.29% of the estimated sales",
+              "Net selling of Rp3.06tn on four of five days. Five state-controlled stocks took 85.29% of the estimated net selling",
               "Half of last week's selling. The index fell more on less selling",
               "Part of it"
             ],
@@ -1065,6 +1070,7 @@
           "sources": [
             "hscList",
             "hscNotices",
+            "hscPress",
             "pr099",
             "hsc"
           ],
@@ -1135,7 +1141,7 @@
             "flowless",
             "weekly"
           ],
-          "text": "Last week these 80 stocks lagged the rise. This week they led the fall. MORA fell by 6.79%, 6.95%, 6.76%, 6.87% and 6.97% on the five days, each close to the 7% lower limit IDX applies. It traded Rp3.03bn in total and lost Rp46.3tn of market value, 15,314 times what changed hands. DCII had no trade at all on Wednesday and about Rp17 million on each of Thursday and Friday, and its price stayed at Rp174,975. These prices say little about what investors would pay. When the stocks leave the index, moves like this stop reaching IHSG."
+          "text": "Last week the 80 names on the earlier list rose 1.65% against 5.70% for the rest. This week they led the fall. MORA fell by 6.79%, 6.95%, 6.76%, 6.87% and 6.97% on the five days, each close to the 7% lower limit IDX applies. It traded Rp3.03bn in total and lost Rp46.3tn of market value, 15,314 times what changed hands. DCII had no trade at all on Wednesday and about Rp17 million on each of Thursday and Friday, and its price stayed at Rp174,975. These prices say little about what investors would pay. When the stocks leave the index, moves like this stop reaching IHSG."
         },
         {
           "type": "callout",
@@ -1144,7 +1150,7 @@
             "hsc",
             "hscList"
           ],
-          "text": "The exit will help. It is a fair reading of the week to say that thin stocks led the fall. It is not a fair reading to say they caused it. The other 882 stocks lost Rp493.5tn and fell 6.66%, and TLKM, a large and liquid state-owned stock, alone lost Rp25.8tn. After 2 November IHSG will lean harder on banks, the part of the market foreign investors are still selling. IDX's table puts BBCA, BBRI and BMRI at 25.12% of the index, up from 22.38%. The cleaner index removes noise. It does not remove the selling."
+          "text": "The exit will help. It is a fair reading of the week to say that thin stocks led the fall. It is not a fair reading to say they caused it. The other 882 stocks lost Rp493.5tn and fell 6.66%, and TLKM, a large and liquid state-controlled stock, alone lost Rp25.8tn. After 2 November IHSG will lean harder on banks, the part of the market foreign investors are still selling. IDX's table puts BBCA, BBRI and BMRI at 25.12% of the index, up from 22.38%. The cleaner index removes noise. It does not remove the selling."
         }
       ]
     },
@@ -1168,7 +1174,7 @@
             "weekly",
             "flowless"
           ],
-          "text": "Last week every sector rose. This week every sector fell. Infrastructure lost 13.04%, basic materials 12.23% and energy 10.75%. Healthcare lost 2.02% and financials 2.93%. Our estimate says foreigners sold TLKM so heavily that it made up 89.0% of net foreign selling in the infrastructure sector. The Acceleration Board fell 21.37%, the Main Board 7.47% and the Development Board 6.89%. IDX Value30 lost 2.67% and the sharia index JII lost 9.54%. The more speculative the stock, the worse it did."
+          "text": "Last week every sector rose. This week every sector fell. Infrastructure lost 13.04%, basic materials 12.23% and energy 10.75%. Healthcare lost 2.02% and financials 2.93%. Our estimate says foreigners sold TLKM so heavily that it made up 89.0% of net foreign selling in the infrastructure sector. The Acceleration Board fell 21.37%, the Main Board 7.47% and the Development Board 6.89%. IDX Value30 lost 2.67% and the sharia index JII lost 9.54%. The Acceleration Board, the board for the smallest listed companies, fell by far the most."
         }
       ]
     },
@@ -1370,12 +1376,12 @@
             "fomcDates",
             "hscList"
           ],
-          "text": "Monday 2 November brings the first IHSG without the 81 HSC stocks, and IDX's October inflation and trade figures. Third quarter GDP follows on 5 November, the Bank Indonesia board meets on 17 November and the Fed on 8 and 9 December. A further fall of 2.96% would take IHSG below the 19 October intraday low of 4,907.370. Our planning range of 4,437 to 5,185 still stands, and the bottom of it is 12.27% below Friday's close. A close above 5,488 would not change our view alone. A close above it with foreign buying and a strong bond auction would."
+          "text": "Monday 2 November brings the first IHSG without the 81 HSC stocks, and the October inflation and trade figures. Third quarter GDP follows on 5 November, the Bank Indonesia board meets on 17 November and the Fed on 8 and 9 December. A further fall of 2.96% would take IHSG below the 19 October intraday low of 4,907.370. Our planning range of 4,437 to 5,185 still stands, and the bottom of it is 12.27% below Friday's close. A close above 5,488 would not change our view alone. A close above it with foreign buying and a strong bond auction would."
         },
         {
           "type": "callout",
           "label": "Investment conclusion",
-          "text": "We would not buy this bounce or this fall. Large liquid stocks with reported earnings are safer than thin ones, and the HSC exit will make that gap more visible. Until foreign selling in the state-owned stocks slows and the bond market stops asking for more, we stay cautious on a broad recovery."
+          "text": "We would not buy this bounce or this fall. Large liquid stocks with reported earnings are safer than thin ones, and the HSC exit will make that gap more visible. Until foreign selling in the state-controlled stocks slows and the bond market stops asking for more, we stay cautious on a broad recovery."
         }
       ]
     }
@@ -1444,6 +1450,10 @@
         {
           "source": "hscNotices",
           "label": "IDX HSC notices"
+        },
+        {
+          "source": "hscPress",
+          "label": "Bisnis.com, 18% weight remark"
         },
         {
           "source": "msci",

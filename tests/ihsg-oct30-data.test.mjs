@@ -218,3 +218,36 @@ test('Third quarter figures in the text match the filings read on IDX', () => {
   has(`Rp${(14446 / 1e3).toFixed(2)}tn`);
   has(`US$${(589675654 / 1e6).toFixed(1)}m`);
 });
+
+test('IDX stock summary cross-check agrees with the database behind the HSC table', () => {
+  const chk = read('idx-stock-summary-check-2026-10-30');
+  const loss = s => Math.max(0, s.sharesOutstanding * (s.close23 - s.close30)) / 1e12;
+  const g = f => hsc.stocks.filter(f);
+  const cap = (a, k) => a.reduce((t, s) => t + s.sharesOutstanding * s[k], 0) / 1e12;
+  near(cap(g(s => s.hsc), 'close23'), chk.groups.hsc.value23Tn, .01);
+  near(cap(g(s => s.hsc), 'close30'), chk.groups.hsc.value30Tn, .01);
+  near(cap(g(s => !s.hsc), 'close30'), chk.groups.others.value30Tn, .01);
+  near(g(s => s.hsc).reduce((t, s) => t + loss(s), 0), chk.groups.hsc.lossTn, .01);
+  near(g(s => !s.hsc).reduce((t, s) => t + loss(s), 0), chk.groups.others.lossTn, .01);
+  near(chk.groups.hsc.value30Tn + chk.groups.others.value30Tn, chk.totals.marketValue30Tn, .01);
+  near(chk.groups.hsc.value23Tn + chk.groups.others.value23OwnSharesTn, chk.totals.marketValue23Tn, .01);
+  assert.ok(Math.abs(chk.totals.marketValue23Tn - chk.totals.idxPublished23Tn) < .5);
+  assert.ok(Math.abs(chk.totals.marketValue30Tn - chk.totals.idxPublished30Tn) < .5);
+  assert.equal(chk.counts.fell, hsc.stocks.filter(s => s.close30 < s.close23).length);
+  assert.equal(chk.counts.rose, hsc.stocks.filter(s => s.close30 > s.close23).length);
+  for (const [ticker, closes] of Object.entries(chk.closes)) {
+    const s = hsc.stocks.find(x => x.ticker === ticker);
+    assert.equal(s.close23, closes['20261023']);
+    assert.equal(s.close30, closes['20261030']);
+    const f = flow.focus[ticker];
+    if (f) {
+      const byDate = Object.fromEntries(f.rows.map(r => [r.date.replaceAll('-', ''), r.close]));
+      assert.equal(byDate['20261028'], closes['20261028']);
+      assert.equal(byDate['20261029'], closes['20261029']);
+    }
+  }
+  const topLoss = hsc.stocks.map(s => [s.ticker, loss(s)]).sort((a, b) => b[1] - a[1]).slice(0, 10).map(r => `${r[0]} ${r[1].toFixed(1)}`);
+  assert.deepEqual(topLoss, chk.tenLargestLosses);
+  const bbca = chk.spot.BBCA28Oct;
+  near((bbca.foreignBuyShares - bbca.foreignSellShares) * chk.closes.BBCA['20261028'] / 1e9, bbca.estimatedNetBn, .06);
+});
