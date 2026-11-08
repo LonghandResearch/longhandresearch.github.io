@@ -228,3 +228,33 @@ html[data-theme="dark"] .page-report .viewer { background: #07151b; }
     font-size: max(16px, 1em);
   }
 }
+
+/* One opening for every web publication: the same jacket, title, summary and
+   Key data column as a PDF report's page (see addOpener in report-context.js).
+   The page's own opening is folded away, not removed, so nothing is written twice. */
+.pub-folded { display: none !important; }
+.pub-hero-rest { display: block !important; grid-template-columns: minmax(0, 1fr) !important; }
+.pub-opener { display: grid; grid-template-columns: 176px minmax(0, 1fr) 230px; gap: clamp(28px, 4vw, 48px); align-items: start; padding-block: 28px 42px; color: var(--ink, #1c1a16); }
+.pub-opener.no-cover { grid-template-columns: minmax(0, 1fr) 230px; }
+.pub-opener.no-side { grid-template-columns: 176px minmax(0, 1fr); }
+.pub-opener.no-cover.no-side { grid-template-columns: minmax(0, 1fr); }
+.pub-cover .research-cover { margin: 0; }
+.pub-cover .research-cover > img { width: 100%; height: 100%; }
+.pub-main { min-width: 0; }
+.pub-main .kicker { margin: 0; font: 600 11px/1.6 var(--font-sans, 'Libre Franklin', sans-serif); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2, var(--muted, #555047)); }
+.pub-main .kicker .cat { color: var(--gold-ink, var(--gold, #7a5314)); }
+.pub-title { max-width: 22ch; margin: 18px 0 0; font: 400 clamp(38px, 3.6vw, 53px)/1.04 var(--font-serif, 'Newsreader', Georgia, serif); letter-spacing: -.035em; text-transform: none; }
+.pub-subject { margin: 14px 0 0; font: 400 19px/1.4 var(--font-serif, 'Newsreader', Georgia, serif); color: var(--ink-2, var(--muted, #555047)); }
+.pub-summary { max-width: 64ch; margin: 24px 0 0; font: 400 17px/1.75 var(--font-serif, 'Newsreader', Georgia, serif); }
+.pub-actions { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 26px; }
+.pub-actions .text-link { font: 500 12px/1.6 var(--font-sans, 'Libre Franklin', sans-serif); color: var(--ink, #1c1a16); background: none; border: 0; padding: 8px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.pub-side { border-block: 1px solid var(--rule-2, var(--rule, #ccc5b7)); padding: 20px 0; align-self: start; }
+.pub-side .ledger-label { margin: 0; font: 600 11px/1.4 var(--font-sans, 'Libre Franklin', sans-serif); letter-spacing: .16em; text-transform: uppercase; color: var(--gold-ink, var(--gold, #7a5314)); }
+.pub-side dl { margin: 12px 0 0; }
+.pub-side .ledger-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding-block: 11px; border-top: 1px solid var(--rule, #ccc5b7); font: 400 12px/1.6 var(--font-sans, 'Libre Franklin', sans-serif); }
+.pub-side .ledger-row dt { color: var(--ink-2, var(--muted, #555047)); }
+.pub-side .ledger-row dt::after { display: none; }
+.pub-side .ledger-row dd { margin: 0; font-weight: 600; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
+.pub-side .ledger-row .ledger-note { grid-column: 1 / -1; font-weight: 400; text-align: left; white-space: normal; font-size: 11px; line-height: 1.5; color: var(--ink-3, var(--muted, #6b655a)); }
+@media (max-width: 1150px) { .pub-opener, .pub-opener.no-cover, .pub-opener.no-side { grid-template-columns: 176px minmax(0, 1fr); } .pub-opener.no-cover, .pub-opener.no-cover.no-side { grid-template-columns: minmax(0, 1fr); } .pub-side { grid-column: 1 / -1; max-width: 620px; } }
+@media (max-width: 820px) { .pub-opener, .pub-opener.no-side { grid-template-columns: minmax(0, 1fr); gap: 22px; padding-top: 20px; } .pub-cover { display: none; } .pub-title { font-size: clamp(34px, 9vw, 46px); } }

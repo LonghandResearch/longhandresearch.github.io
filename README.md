@@ -324,6 +324,8 @@ Future text-led reports can use a reviewed JSON `contentUrl` with the existing
 No existing publication has been converted to that format. Authoring, local
 research storage, RSS, Wire and the publishing workflow remain as documented above.
 
+Every web publication opens the same way as a PDF report's page: the jacket, the kicker, the title, the subject, the summary and a Key data column. `addOpener` in `assets/js/report-context.js` builds it from the catalogue entry, so the text always matches the Library. The key figures are read from the page's own opening, which is folded away with `pub-folded` rather than deleted, so nothing is written twice and a page without JavaScript still shows its original opening. A page joins by loading `report-context.js`, `research-art.js`, `report-v2.css` and `covers.css` and setting `data-report-publication` on its body. The interactive Indonesia AI study has no shared script that supplies covers, so it shows no jacket. These pages also follow the reader's saved theme, or the system setting when none is saved.
+
 See [V2 validation](docs/v2-validation.md) for the local implementation checks.
 
 ## Living covers

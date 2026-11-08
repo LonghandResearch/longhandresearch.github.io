@@ -11,14 +11,16 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&amp;display=swap" rel="stylesheet"/>
-<script>(function(){let t;try{t=localStorage.getItem('longhand-theme');}catch(e){}document.documentElement.dataset.theme=t==='dark'?'dark':'light';})();</script>
+<script>(function(){let t;try{t=localStorage.getItem('longhand-theme');}catch(e){}document.documentElement.dataset.theme=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';})();</script>
 <link href="assets/css/site.css?v=2026-09-29a" rel="stylesheet"/>
 <link href="assets/css/v2.css?v=2026-10-24c" rel="stylesheet"/>
 <link href="assets/css/nickel.css?v=2026-10-16reading" rel="stylesheet"/>
 <link href="assets/css/nickel-atlas.css?v=2026-10-15reader-refinement" rel="stylesheet"/>
+<link href="assets/css/report-v2.css?v=2026-11-09opener2" rel="stylesheet"/>
+<link href="assets/css/covers.css?v=2026-10-26living" rel="stylesheet"/>
 <script defer="" src="reports/reports.js?v=2026-10-15nickel"></script>
 <script defer="" src="assets/js/site.js?v=2026-11-09form"></script>
-<script defer="" src="assets/js/v2.js?v=2026-10-11continuity"></script>
+<script defer="" src="assets/js/v2.js?v=2026-11-09opener"></script>
 <script defer="" src="assets/js/nickel/industry-data.js?v=2026-10-15reader-refinement"></script>
 <script defer="" src="assets/js/nickel/model.js?v=2026-10-15reader-refinement"></script>
 <script defer="" src="assets/js/nickel/geography.js?v=2026-10-15published"></script>
@@ -26,8 +28,13 @@
 <script defer="" src="assets/js/nickel/atlas-hud.js?v=2026-10-15published"></script>
 <script defer="" src="assets/js/nickel/atlas.js?v=2026-10-15reader-refinement"></script>
 <script defer="" src="assets/js/nickel/motion.js?v=2026-10-16reading"></script>
+<script defer="" src="assets/js/research-graph.js?v=2026-11-08ihsg"></script>
+<script defer="" src="assets/js/research-art.js?v=2026-11-08hole"></script>
+<script defer="" src="assets/js/living-covers-data.js?v=2026-10-27polish"></script>
+<script defer="" src="assets/js/living-covers.js?v=2026-10-27polish"></script>
+<script defer="" src="assets/js/report-context.js?v=2026-11-09opener"></script>
 <meta content="article" property="og:type"/><meta content="More Nickel. Who Makes the Money?" property="og:title"/><meta content="Longhand Research" property="og:site_name"/><meta content="Indonesia has moved past ore. The next test is the income, skills and commercial choices it keeps." property="og:description"/><meta content="https://longhandresearch.github.io/more-nickel.html" property="og:url"/><meta content="https://longhandresearch.github.io/assets/img/og.png" property="og:image"/><link href="https://longhandresearch.github.io/more-nickel.html" rel="canonical"/><link href="feed.xml" rel="alternate" title="Longhand Research" type="application/rss+xml"/><script async="" data-goatcounter="https://longhandresearch.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script></head>
-<body class="v2-page page-nickel">
+<body class="v2-page page-nickel" data-report-publication>
 <a class="skip" href="#main">Skip to research</a>
 <header class="masthead"><div class="wrap masthead-inner">
 <a aria-label="Longhand Research, front page" class="brand" href="index.html"><span class="brand-name">Longhand</span><span class="brand-sub">Research</span></a>

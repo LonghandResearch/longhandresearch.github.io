@@ -11,7 +11,7 @@
     (function () {
       var saved;
       try { saved = localStorage.getItem('longhand-theme'); } catch (_) {}
-      document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved === 'dark' || (saved !== 'light' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     })();
     // A navigation can be skipped while styles arrive or the tab is hidden.
     // Handle its promises before the calculator's deferred scripts run.
@@ -30,11 +30,15 @@
   <script src="data.js" defer></script><script src="model.js?v=20261005" defer></script><script src="app.js?v=20261005" defer></script>
   <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
   <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<link rel="stylesheet" href="../../assets/css/report-v2.css?v=2026-10-11paragraphs">
+<link rel="stylesheet" href="../../assets/css/report-v2.css?v=2026-11-09opener2">
+<link rel="stylesheet" href="../../assets/css/covers.css?v=2026-10-26living">
 <script src="../../reports/reports.js" defer></script>
 <script src="../../assets/js/research-graph.js?v=2026-11-08ihsg" defer></script>
-<script src="../../assets/js/v2.js?v=2026-10-11continuity" defer blocking="render"></script>
-<script src="../../assets/js/report-context.js?v=2026-10-11a11y" defer></script>
+<script src="../../assets/js/v2.js?v=2026-11-09opener" defer blocking="render"></script>
+<script src="../../assets/js/research-art.js?v=2026-11-08hole" defer></script>
+<script src="../../assets/js/living-covers-data.js?v=2026-10-27polish" defer></script>
+<script src="../../assets/js/living-covers.js?v=2026-10-27polish" defer></script>
+<script src="../../assets/js/report-context.js?v=2026-11-09opener" defer></script>
 </head>
 <body data-report-publication>
 <a class="skip" href="#calculator">Skip to the calculator</a>
