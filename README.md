@@ -252,6 +252,8 @@ After an update to `auto-publish.ps1` is merged, run `install-auto-publish.bat` 
 
 Readers never see your drafts, and they cannot change the site: publishing and deleting only write to the folder on your computer, and the site changes when you push it.
 
+One publish or delete runs at a time. While it runs, every Publish and Delete button is greyed out, and a second press is refused with a short note, so a double click can never add a report twice. The page shows where it is on `<html data-author-action>`: `idle`, `confirming` (a question is open) or `working` (files are being written, with `aria-busy` set). Tests and agents can wait for `idle` before checking the folder.
+
 ## Local research workspace
 
 Open `research.html` from localhost, or use **Workspace** in the local site's

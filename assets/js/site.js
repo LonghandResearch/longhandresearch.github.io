@@ -736,8 +736,15 @@
     // Publish the draft just saved, straight into the site folder
     $('[data-publish-now]', d).addEventListener('click', async () => {
       if (!doneRecord) return;
-      const ok = await authorAction('publish', normalize(doneRecord, 'local'), { ask: false });
-      if (ok) d.close();
+      const button = $('[data-publish-now]', d);
+      const label = button.textContent;
+      button.textContent = 'Publishing';
+      try {
+        const ok = await authorAction('publish', normalize(doneRecord, 'local'), { ask: false });
+        if (ok) d.close();
+      } finally {
+        button.textContent = label;
+      }
     });
     $('[data-clear-form]', d).addEventListener('click', () => {
       unsaved = null;
@@ -1207,8 +1214,39 @@
     }
   }
 
+  /* Author actions run one at a time, through three phases:
+       idle -> confirming -> working -> idle
+     A second Publish or Delete started while one is running is refused, so a
+     double click can never write reports.js or the sitemap twice. The phase
+     is shown on <html data-author-action="..."> (with data-author-action-kind
+     and aria-busy while working) for styling, tests and automated checks, and
+     every [data-act] and [data-publish-now] button is disabled until idle. */
+  const AUTHOR_PHASES = { idle: ['confirming'], confirming: ['working', 'idle'], working: ['idle'] };
+  let authorPhase = 'idle';
+  document.documentElement.dataset.authorAction = authorPhase;
+  function setAuthorPhase(next, kind = '') {
+    if (next === authorPhase) return;
+    if (!AUTHOR_PHASES[authorPhase].includes(next)) throw new Error(`Author action cannot go from ${authorPhase} to ${next}.`);
+    authorPhase = next;
+    const root = document.documentElement;
+    root.dataset.authorAction = next;
+    if (next === 'idle') { delete root.dataset.authorActionKind; root.removeAttribute('aria-busy'); }
+    else { root.dataset.authorActionKind = kind; if (next === 'working') root.setAttribute('aria-busy', 'true'); }
+    $$('[data-act], [data-publish-now]').forEach((b) => { b.disabled = next === 'working'; });
+  }
+
   /* One entry point for the buttons: confirm, do it, and say what happened */
   async function authorAction(kind, r, { ask = true } = {}) {
+    if (authorPhase !== 'idle') { notify('Another publish or delete is still running.'); return false; }
+    setAuthorPhase('confirming', kind);
+    try {
+      return await runAuthorAction(kind, r, ask, () => setAuthorPhase('working', kind));
+    } finally {
+      setAuthorPhase('idle');
+    }
+  }
+
+  async function runAuthorAction(kind, r, ask, startWork) {
     try {
       if (kind === 'delete' && r.isLocal) {
         const ok = await confirmDialog({
@@ -1218,6 +1256,7 @@
           danger: true,
         });
         if (!ok) return false;
+        startWork();
         await drafts.remove(r.id);
         changed({ id: r.id, mode: 'delete' });
         notify('Draft deleted.');
@@ -1231,6 +1270,7 @@
           confirm: 'Publish',
         });
         if (!ok) return false;
+        startWork();
         const newId = await publishDraft(r.id);
         changed({ id: r.id, newId, mode: 'publish' });
         notify('Published to your site folder. Push it to Git to put it online.');
@@ -1254,6 +1294,7 @@
           danger: true,
         });
         if (!ok) return false;
+        startWork();
         await deletePublished(r.id);
         changed({ id: r.id, mode: 'delete' });
         notify('Deleted from your site folder. Push it to Git to update the site.');
