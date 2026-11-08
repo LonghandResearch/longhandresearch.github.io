@@ -1,0 +1,360 @@
+{
+ "month": "2026-10",
+ "sourceFile": {
+  "file": "ms_equity_2610.pdf",
+  "sha256": "39da625f6aa296f613bbc5cc38c52cee9ea9c88a93c43fdb111e31aff2dd911e",
+  "pages": 22
+ },
+ "readMethod": "Pages rendered with PyMuPDF at 85 dpi and read as images on 8 November 2026. Page numbers are the PDF's printed numbers.",
+ "tradingSummary": {
+  "page": 1,
+  "ihsg": {
+   "oct2026": 5057.05,
+   "sep2026": 6071.138,
+   "oct2025": 8163.875,
+   "momPct": -16.7,
+   "yoyPct": -38.06
+  },
+  "lq45": {
+   "oct2026": 515.166,
+   "sep2026": 601.18,
+   "momPct": -14.31
+  },
+  "marketCapTn": {
+   "oct2026": 8862,
+   "sep2026": 10695,
+   "momPct": -17.14
+  },
+  "marketCapUsdBn": {
+   "oct2026": 489,
+   "sep2026": 598
+  },
+  "avgDailyValueBn": {
+   "oct2026": 16313,
+   "sep2026": 14943,
+   "momPct": 9.17,
+   "yoyPct": -34.9
+  },
+  "tradingDays": 22,
+  "per": {
+   "oct2026": 10.76,
+   "sep2026": 12.42
+  },
+  "pbv": {
+   "oct2026": 1.32,
+   "sep2026": 1.62
+  }
+ },
+ "foreign": {
+  "page": 14,
+  "netBn": {
+   "oct2026": -16883,
+   "sep2026": -10243,
+   "oct2025": 12962
+  },
+  "ytdNetBn": -97922,
+  "buyBn": 121046,
+  "sellBn": 137929,
+  "shareOfValuePct": {
+   "oct2026": 36.1,
+   "sep2026": 33.3
+  }
+ },
+ "investorShare": {
+  "page": 15,
+  "note": "Share of average daily value",
+  "retailPct": {
+   "oct2026": 48,
+   "sep2026": 55
+  },
+  "foreignPct": {
+   "oct2026": 36,
+   "sep2026": 33
+  }
+ },
+ "indexMovers": {
+  "page": 13,
+  "columns": [
+   "ticker",
+   "priceChangePct",
+   "marketCapTn",
+   "ihsgPoints"
+  ],
+  "laggards": [
+   [
+    "BBCA",
+    -18.02,
+    607.77,
+    -99.71
+   ],
+   [
+    "BBRI",
+    -10.83,
+    420.12,
+    -50.08
+   ],
+   [
+    "BYAN",
+    -22.46,
+    305.0,
+    -43.38
+   ],
+   [
+    "BRMS",
+    -43.73,
+    47.07,
+    -43.0
+   ],
+   [
+    "BREN",
+    -38.1,
+    240.15,
+    -42.92
+   ],
+   [
+    "MORA",
+    -50.76,
+    108.45,
+    -40.76
+   ],
+   [
+    "DSSA",
+    -37.38,
+    129.07,
+    -38.1
+   ],
+   [
+    "AMMN",
+    -19.07,
+    264.69,
+    -32.75
+   ],
+   [
+    "TLKM",
+    -13.54,
+    196.14,
+    -28.55
+   ],
+   [
+    "MDKA",
+    -35.59,
+    45.4,
+    -27.7
+   ]
+  ],
+  "leaders": [
+   [
+    "ASII",
+    4.35,
+    194.32,
+    8.12
+   ],
+   [
+    "SMMA",
+    2.5,
+    130.7,
+    3.48
+   ],
+   [
+    "BSWD",
+    180.38,
+    29.49,
+    3.36
+   ],
+   [
+    "BOGA",
+    26.13,
+    7.44,
+    2.5
+   ],
+   [
+    "INTP",
+    14.71,
+    19.13,
+    2.32
+   ]
+  ]
+ },
+ "topGainer": {
+  "page": 12,
+  "ticker": "MKNT",
+  "previous": 1,
+  "close": 11,
+  "pct": 1000.0
+ },
+ "indexPerformance1M": {
+  "page": 18,
+  "featured": {
+   "IHSG": -16.7,
+   "LQ45": -14.31,
+   "IDX30": -12.95,
+   "IDX SMC Composite": -15.97,
+   "IDX High Dividend 20": -7.71,
+   "IDX BUMN20": -9.14,
+   "IDX Value30": -4.87,
+   "IDX Commodity 20": -26.94,
+   "Acceleration Board": -33.04
+  },
+  "sectors": {
+   "Energy": -21.67,
+   "Basic materials": -23.9,
+   "Industrials": -22.91,
+   "Consumer non-cyclicals": -11.82,
+   "Consumer cyclicals": -19.31,
+   "Healthcare": -9.69,
+   "Financials": -8.41,
+   "Property": -9.66,
+   "Technology": -19.0,
+   "Infrastructure": -26.02,
+   "Transport and logistics": -13.09
+  }
+ },
+ "globalMoM": {
+  "page": 20,
+  "note": "IDX's chart names countries, not indices. Its US figure, +2.82%, equals the Dow Jones Industrial Average from 30 September to 29 October, the last New York close before the Jakarta month end.",
+  "rows": [
+   [
+    "Mexico",
+    8.68
+   ],
+   [
+    "Switzerland",
+    7.01
+   ],
+   [
+    "Norway",
+    3.27
+   ],
+   [
+    "Canada",
+    2.88
+   ],
+   [
+    "US",
+    2.82
+   ],
+   [
+    "India",
+    2.73
+   ],
+   [
+    "Germany",
+    2.72
+   ],
+   [
+    "UK",
+    1.29
+   ],
+   [
+    "Poland",
+    1.2
+   ],
+   [
+    "Australia",
+    0.63
+   ],
+   [
+    "South Africa",
+    0.38
+   ],
+   [
+    "France",
+    0.13
+   ],
+   [
+    "Philippines",
+    0.02
+   ],
+   [
+    "Qatar",
+    -1.01
+   ],
+   [
+    "Vietnam",
+    -1.53
+   ],
+   [
+    "Ireland",
+    -1.68
+   ],
+   [
+    "Malaysia",
+    -2.15
+   ],
+   [
+    "Thailand",
+    -2.59
+   ],
+   [
+    "Colombia",
+    -2.7
+   ],
+   [
+    "Israel",
+    -3.38
+   ],
+   [
+    "Spain",
+    -3.52
+   ],
+   [
+    "UAE",
+    -3.69
+   ],
+   [
+    "Japan",
+    -5.19
+   ],
+   [
+    "Singapore",
+    -5.27
+   ],
+   [
+    "Hong Kong",
+    -5.36
+   ],
+   [
+    "Saudi Arabia",
+    -5.39
+   ],
+   [
+    "Taiwan",
+    -5.69
+   ],
+   [
+    "Austria",
+    -5.96
+   ],
+   [
+    "China",
+    -6.33
+   ],
+   [
+    "Turkey",
+    -8.36
+   ],
+   [
+    "Brazil",
+    -9.21
+   ],
+   [
+    "Korea",
+    -16.19
+   ],
+   [
+    "Indonesia",
+    -16.7
+   ]
+  ],
+  "ytd": {
+   "Indonesia": -41.52,
+   "Taiwan": 56.1,
+   "Korea": 35.99
+  }
+ },
+ "jisdor": {
+  "source": "Bank Indonesia JISDOR. 30 September from the frozen 2 October edition, 30 October from the BI table read 8 November",
+  "sep30": 17877,
+  "oct30": 18138
+ }
+}

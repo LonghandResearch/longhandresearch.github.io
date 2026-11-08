@@ -1,0 +1,1341 @@
+{
+  "weekEnding": "2026-11-06",
+  "sourceFiles": [
+    {
+      "file": "ds_261102.pdf",
+      "sha256": "4028044fe6356200bf45211b55ff85ddee992a65bb12e8c84ffe6ce3c47d6525"
+    },
+    {
+      "file": "ds_261103.pdf",
+      "sha256": "9022456b249a78c24cc02b7fccfd6b2e2cc21f4cbeb41f559a616b685390e873"
+    },
+    {
+      "file": "ds_261104.pdf",
+      "sha256": "c8df43eeb1af54fffbb105405dec7d970ee3c7cc4d83b8f670760d666bb9d49a"
+    },
+    {
+      "file": "ds_261105.pdf",
+      "sha256": "68d24ddc084f3108ed23f4f9b4f14f2f7c21f0f6d258ca9d50f4c6187d9c79ad"
+    },
+    {
+      "file": "ds_261106.pdf",
+      "sha256": "a53c88b47858e7f248afbe63a356d2aaad78e0dfcc122a5d67bc238263927c44"
+    },
+    {
+      "file": "ws_261106.pdf",
+      "sha256": "2a2340829cc016293fe62dd7d923f623f702e59a0fc1c25a3047d2355af77ddf"
+    }
+  ],
+  "daily": [
+    {
+      "date": "2026-11-02",
+      "close": 5096.83,
+      "previous": 5057.05,
+      "change": 39.78,
+      "changePct": 0.79,
+      "high": 5125.739,
+      "low": 4981.519,
+      "biUsdIdr": 18161,
+      "officialNetBn": -112.47,
+      "ytdNetBn": -98034.09,
+      "marketPer": 10.74,
+      "marketPbv": 1.32,
+      "idxMarketCapTn": 8931.0,
+      "ihsgFreeFloatCapTn": 1774.0,
+      "markets": {
+        "RG": {
+          "volume": 28027452800,
+          "valueIdr": 10158932620100,
+          "frequency": 1439143
+        },
+        "TN": {
+          "volume": 148900,
+          "valueIdr": 29320400,
+          "frequency": 24
+        },
+        "NG": {
+          "volume": 6619965087,
+          "valueIdr": 2261462059201,
+          "frequency": 752
+        }
+      },
+      "breadthTextOrder": [
+        [
+          "188",
+          "20"
+        ],
+        [
+          "153",
+          "16"
+        ],
+        [
+          "259",
+          "27"
+        ],
+        [
+          "148",
+          "15"
+        ],
+        [
+          "215",
+          "22"
+        ]
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "close": 4904.287,
+      "previous": 5096.83,
+      "change": -192.543,
+      "changePct": -3.78,
+      "high": 5143.582,
+      "low": 4895.596,
+      "biUsdIdr": 18148,
+      "officialNetBn": -575.01,
+      "ytdNetBn": -98609.1,
+      "marketPer": 10.32,
+      "marketPbv": 1.27,
+      "idxMarketCapTn": 8655.0,
+      "ihsgFreeFloatCapTn": 1707.0,
+      "markets": {
+        "RG": {
+          "volume": 22302657100,
+          "valueIdr": 10319950398600,
+          "frequency": 1377921
+        },
+        "TN": {
+          "volume": 1215900,
+          "valueIdr": 1197258800,
+          "frequency": 11
+        },
+        "NG": {
+          "volume": 4286448623,
+          "valueIdr": 1401864691046,
+          "frequency": 473
+        }
+      },
+      "breadthTextOrder": [
+        [
+          "596",
+          "62"
+        ],
+        [
+          "121",
+          "13"
+        ],
+        [
+          "177",
+          "18"
+        ],
+        [
+          "33",
+          "3"
+        ],
+        [
+          "36",
+          "4"
+        ]
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "close": 4919.767,
+      "previous": 4904.287,
+      "change": 15.48,
+      "changePct": 0.32,
+      "high": 4921.13,
+      "low": 4824.364,
+      "biUsdIdr": 18140,
+      "officialNetBn": 257.71,
+      "ytdNetBn": -98351.39,
+      "marketPer": 10.2,
+      "marketPbv": 1.27,
+      "idxMarketCapTn": 8666.0,
+      "ihsgFreeFloatCapTn": 1712.0,
+      "markets": {
+        "RG": {
+          "volume": 24611543500,
+          "valueIdr": 9720541503300,
+          "frequency": 1219732
+        },
+        "TN": {
+          "volume": 17700,
+          "valueIdr": 3286000,
+          "frequency": 4
+        },
+        "NG": {
+          "volume": 1366129183,
+          "valueIdr": 1042000174697,
+          "frequency": 575
+        }
+      },
+      "breadthTextOrder": [
+        [
+          "358",
+          "37"
+        ],
+        [
+          "151",
+          "16"
+        ],
+        [
+          "230",
+          "24"
+        ],
+        [
+          "119",
+          "12"
+        ],
+        [
+          "105",
+          "11"
+        ]
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "close": 5030.261,
+      "previous": 4919.767,
+      "change": 110.494,
+      "changePct": 2.25,
+      "high": 5072.053,
+      "low": 4995.455,
+      "biUsdIdr": 18094,
+      "officialNetBn": -65.53,
+      "ytdNetBn": -98416.92,
+      "marketPer": 10.54,
+      "marketPbv": 1.29,
+      "idxMarketCapTn": 8782.0,
+      "ihsgFreeFloatCapTn": 1751.0,
+      "markets": {
+        "RG": {
+          "volume": 21030539500,
+          "valueIdr": 9117226370900,
+          "frequency": 1312113
+        },
+        "TN": {
+          "volume": 20600,
+          "valueIdr": 15247500,
+          "frequency": 11
+        },
+        "NG": {
+          "volume": 1427437765,
+          "valueIdr": 861671177221,
+          "frequency": 565
+        }
+      },
+      "breadthTextOrder": [
+        [
+          "127",
+          "13"
+        ],
+        [
+          "92",
+          "10"
+        ],
+        [
+          "239",
+          "25"
+        ],
+        [
+          "187",
+          "19"
+        ],
+        [
+          "318",
+          "33"
+        ]
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "close": 5050.429,
+      "previous": 5030.261,
+      "change": 20.168,
+      "changePct": 0.4,
+      "high": 5050.429,
+      "low": 4925.101,
+      "biUsdIdr": 18130,
+      "officialNetBn": 328.2,
+      "ytdNetBn": -98088.72,
+      "marketPer": 10.29,
+      "marketPbv": 1.28,
+      "idxMarketCapTn": 8744.0,
+      "ihsgFreeFloatCapTn": 1758.0,
+      "markets": {
+        "RG": {
+          "volume": 40696384500,
+          "valueIdr": 7825586394200,
+          "frequency": 1095762
+        },
+        "TN": {
+          "volume": 51000,
+          "valueIdr": 23075000,
+          "frequency": 4
+        },
+        "NG": {
+          "volume": 6085672488,
+          "valueIdr": 2492937385470,
+          "frequency": 1295
+        }
+      },
+      "breadthTextOrder": [
+        [
+          "240",
+          "25"
+        ],
+        [
+          "200",
+          "21"
+        ],
+        [
+          "292",
+          "30"
+        ],
+        [
+          "117",
+          "12"
+        ],
+        [
+          "114",
+          "12"
+        ]
+      ]
+    }
+  ],
+  "weekly": {
+    "avgDailyValueBn": {
+      "lastWeek": 14339.0,
+      "thisWeek": 11041.0
+    },
+    "idxMarketCapTn": {
+      "lastWeek": 8862.0,
+      "thisWeek": 8744.0
+    },
+    "ihsg": {
+      "lastWeek": 5057.05,
+      "thisWeek": 5050.429,
+      "change": -6.621,
+      "changePct": -0.13
+    },
+    "officialNetBn": {
+      "thisWeek": -167.11,
+      "lastWeek": -3056.47
+    },
+    "marketTotals": {
+      "RG": {
+        "volume": 136668577400,
+        "valueIdr": 47142237287100,
+        "frequency": 6444671
+      },
+      "TN": {
+        "volume": 1454100,
+        "valueIdr": 1268187700,
+        "frequency": 54
+      },
+      "NG": {
+        "volume": 19785653146,
+        "valueIdr": 8059935487635,
+        "frequency": 3660
+      }
+    },
+    "foreign": {
+      "buyIdr": 20164403635172,
+      "sellIdr": 20331510207842
+    },
+    "breadthTextOrder": [
+      [
+        "472",
+        "11"
+      ],
+      [
+        "107",
+        "49"
+      ],
+      [
+        "169",
+        "18"
+      ],
+      [
+        "61",
+        "6"
+      ],
+      [
+        "154",
+        "16"
+      ]
+    ]
+  },
+  "weeklyForeign": {
+    "buyIdr": 20164403635172,
+    "sellIdr": 20331510207842
+  },
+  "weeklyBreadth": {
+    "downBeyond2": 472,
+    "downTo2": 107,
+    "flat": 169,
+    "upTo2": 61,
+    "upAbove2": 154
+  },
+  "lastDayBreadth": null,
+  "breadthMethod": "Weekly page 4, read from the rendered image by colour against the legend. IDX printed the two falling groups' percentages in each other's place again (11% on the 472 bar and 49% on the 107 bar, 15% and 38% on the value bar). Shares are recomputed from the counts.",
+  "checks": [
+    {
+      "check": "last daily file is the week ending",
+      "ok": true,
+      "detail": "2026-11-06 vs 2026-11-06"
+    },
+    {
+      "check": "first Previous equals the prior week's close",
+      "ok": true,
+      "detail": "5057.05 vs 5057.05"
+    },
+    {
+      "check": "2026-11-03 Previous equals 2026-11-02 close",
+      "ok": true,
+      "detail": "5096.83 vs 5096.83"
+    },
+    {
+      "check": "2026-11-03 YTD foreign net chains",
+      "ok": true,
+      "detail": "-98034.09 + -575.01 vs -98609.1"
+    },
+    {
+      "check": "2026-11-04 Previous equals 2026-11-03 close",
+      "ok": true,
+      "detail": "4904.287 vs 4904.287"
+    },
+    {
+      "check": "2026-11-04 YTD foreign net chains",
+      "ok": true,
+      "detail": "-98609.1 + 257.71 vs -98351.39"
+    },
+    {
+      "check": "2026-11-05 Previous equals 2026-11-04 close",
+      "ok": true,
+      "detail": "4919.767 vs 4919.767"
+    },
+    {
+      "check": "2026-11-05 YTD foreign net chains",
+      "ok": true,
+      "detail": "-98351.39 + -65.53 vs -98416.92"
+    },
+    {
+      "check": "2026-11-06 Previous equals 2026-11-05 close",
+      "ok": true,
+      "detail": "5030.261 vs 5030.261"
+    },
+    {
+      "check": "2026-11-06 YTD foreign net chains",
+      "ok": true,
+      "detail": "-98416.92 + 328.2 vs -98088.72"
+    },
+    {
+      "check": "weekly close equals the last daily close",
+      "ok": true,
+      "detail": "5050.429 vs 5050.429"
+    },
+    {
+      "check": "weekly last-week close equals the prior close",
+      "ok": true,
+      "detail": "5057.05 vs 5057.05"
+    },
+    {
+      "check": "daily RG volume sums to the weekly table",
+      "ok": true,
+      "detail": "136668577400 vs 136668577400"
+    },
+    {
+      "check": "daily RG valueIdr sums to the weekly table",
+      "ok": true,
+      "detail": "47142237287100 vs 47142237287100"
+    },
+    {
+      "check": "daily RG frequency sums to the weekly table",
+      "ok": true,
+      "detail": "6444671 vs 6444671"
+    },
+    {
+      "check": "daily TN volume sums to the weekly table",
+      "ok": true,
+      "detail": "1454100 vs 1454100"
+    },
+    {
+      "check": "daily TN valueIdr sums to the weekly table",
+      "ok": true,
+      "detail": "1268187700 vs 1268187700"
+    },
+    {
+      "check": "daily TN frequency sums to the weekly table",
+      "ok": true,
+      "detail": "54 vs 54"
+    },
+    {
+      "check": "daily NG volume sums to the weekly table",
+      "ok": true,
+      "detail": "19785653146 vs 19785653146"
+    },
+    {
+      "check": "daily NG valueIdr sums to the weekly table",
+      "ok": true,
+      "detail": "8059935487635 vs 8059935487635"
+    },
+    {
+      "check": "daily NG frequency sums to the weekly table",
+      "ok": true,
+      "detail": "3660 vs 3660"
+    },
+    {
+      "check": "weekly buy less sell matches the printed weekly net",
+      "ok": true,
+      "detail": "-167.106573 vs -167.11"
+    },
+    {
+      "check": "rounded daily nets sum to the weekly net",
+      "ok": true,
+      "detail": "-167.10 vs -167.106573"
+    }
+  ],
+  "weeklyBreadthByCapTn": {
+    "downBeyond2": 3306,
+    "downTo2": 1318,
+    "flat": 593,
+    "upTo2": 793,
+    "upAbove2": 2676
+  },
+  "indexContributions": {
+    "source": "Weekly page 5, read from the rendered image. Columns: ticker, price change %, free-float market value Rp tn, IHSG points",
+    "leaders": [
+      [
+        "BBCA",
+        4.42,
+        168.5,
+        20.48
+      ],
+      [
+        "MKNT",
+        190.91,
+        6.58,
+        12.4
+      ],
+      [
+        "ASII",
+        4.17,
+        86.94,
+        9.99
+      ],
+      [
+        "SMMA",
+        4.63,
+        64.6,
+        8.21
+      ],
+      [
+        "CASA",
+        6.35,
+        37.07,
+        6.36
+      ],
+      [
+        "INDF",
+        7.42,
+        29.27,
+        5.81
+      ],
+      [
+        "ICBP",
+        15.53,
+        14.34,
+        5.54
+      ],
+      [
+        "MDKA",
+        8.89,
+        23.21,
+        5.45
+      ],
+      [
+        "BBNI",
+        2.41,
+        48.43,
+        3.27
+      ],
+      [
+        "PGAS",
+        8.33,
+        14.77,
+        3.27
+      ]
+    ],
+    "laggards": [
+      [
+        "BRPT",
+        -20.56,
+        21.48,
+        -15.98
+      ],
+      [
+        "AADI",
+        -11.55,
+        14.37,
+        -5.39
+      ],
+      [
+        "UNTR",
+        -4.86,
+        27.85,
+        -4.08
+      ],
+      [
+        "VKTR",
+        -17.14,
+        5.86,
+        -3.48
+      ],
+      [
+        "EXCL",
+        -13.08,
+        7.99,
+        -3.45
+      ],
+      [
+        "MEDC",
+        -13.67,
+        6.6,
+        -3.0
+      ],
+      [
+        "BRMS",
+        -4.22,
+        23.09,
+        -2.92
+      ],
+      [
+        "PTBA",
+        -8.02,
+        11.25,
+        -2.82
+      ],
+      [
+        "ENRG",
+        -10.48,
+        8.29,
+        -2.79
+      ],
+      [
+        "JPFA",
+        -10.92,
+        7.38,
+        -2.6
+      ]
+    ]
+  },
+  "topGainersLosers": {
+    "source": "Weekly page 4",
+    "gainers": [
+      [
+        "MKNT",
+        11,
+        32,
+        190.91
+      ],
+      [
+        "AIMS",
+        520,
+        1175,
+        125.96
+      ],
+      [
+        "TMPO",
+        186,
+        292,
+        56.99
+      ],
+      [
+        "YUPI",
+        830,
+        1255,
+        51.2
+      ],
+      [
+        "BAJA",
+        152,
+        184,
+        21.05
+      ]
+    ],
+    "losers": [
+      [
+        "BLUE",
+        2190,
+        1535,
+        -29.91
+      ],
+      [
+        "PTSP",
+        2520,
+        1770,
+        -29.76
+      ],
+      [
+        "MORA",
+        2270,
+        1595,
+        -29.74
+      ],
+      [
+        "SMLE",
+        234,
+        165,
+        -29.49
+      ],
+      [
+        "RSCH",
+        436,
+        308,
+        -29.36
+      ]
+    ]
+  },
+  "sectorIndices": {
+    "source": "Weekly page 7, read from the rendered image",
+    "weeklyPct": {
+      "Energy": -5.01,
+      "Basic materials": -1.95,
+      "Industrials": -1.22,
+      "Consumer non-cyclicals": 0.85,
+      "Consumer cyclicals": -4.04,
+      "Healthcare": -3.01,
+      "Financials": 1.33,
+      "Property": -4.35,
+      "Technology": -6.46,
+      "Infrastructure": -3.46,
+      "Transport and logistics": -5.35
+    },
+    "otherIndices": {
+      "LQ45": 0.6,
+      "IDX30": 0.72,
+      "IDX SMC Composite": -3.08,
+      "IDX SMC Liquid": -2.8,
+      "IDX High Dividend 20": 0.66,
+      "IDX BUMN20": 0.68,
+      "IDX80": -0.28,
+      "IDX Value30": -0.81,
+      "IDX Commodity 20": -3.7,
+      "JII": -0.72,
+      "ISSI": -3.42,
+      "Main Board": -0.76,
+      "Development Board": -2.79,
+      "Acceleration Board": -7.0
+    },
+    "ihsgRange": {
+      "high": 5143.582,
+      "low": 4824.364
+    }
+  },
+  "investorComposition": {
+    "source": "Weekly page 2",
+    "foreignSharePct": {
+      "lastWeek": 41,
+      "thisWeek": 37
+    },
+    "domesticBuyBn": 35039,
+    "domesticSellBn": 34872,
+    "foreignBuyBn": 20164,
+    "foreignSellBn": 20332
+  },
+  "investorPairs": {
+    "source": "Weekly page 2, value in Rp bn, seller then buyer",
+    "columns": [
+      "date",
+      "F-F",
+      "D-F",
+      "F-D",
+      "D-D"
+    ],
+    "rows": [
+      [
+        "2026-11-02",
+        2054,
+        2378,
+        2490,
+        5499
+      ],
+      [
+        "2026-11-03",
+        2103,
+        2038,
+        2613,
+        4968
+      ],
+      [
+        "2026-11-04",
+        2224,
+        2153,
+        1896,
+        4489
+      ],
+      [
+        "2026-11-05",
+        1378,
+        2079,
+        2144,
+        4377
+      ],
+      [
+        "2026-11-06",
+        1814,
+        1943,
+        1615,
+        4947
+      ]
+    ]
+  },
+  "jisdor": {
+    "source": "Bank Indonesia JISDOR table, read 8 November 2026. Matches the USD/IDR BI line in each daily file",
+    "rates": [
+      [
+        "2026-10-30",
+        18138
+      ],
+      [
+        "2026-11-02",
+        18161
+      ],
+      [
+        "2026-11-03",
+        18148
+      ],
+      [
+        "2026-11-04",
+        18140
+      ],
+      [
+        "2026-11-05",
+        18094
+      ],
+      [
+        "2026-11-06",
+        18130
+      ]
+    ]
+  },
+  "globalComparison": {
+    "source": "Weekly page 8, read from the rendered image. IDX records each index at its latest close before the Jakarta report, so the US entry is the Thursday 5 November New York close.",
+    "columns": [
+      "country",
+      "index",
+      "lastWeek",
+      "thisWeek",
+      "pct"
+    ],
+    "rows": [
+      [
+        "Philippines",
+        "PSEi",
+        5680.35,
+        5761.95,
+        1.44
+      ],
+      [
+        "Malaysia",
+        "FTSE Bursa Malaysia KLCI",
+        1615.6,
+        1616.58,
+        0.06
+      ],
+      [
+        "Indonesia",
+        "IDX Composite",
+        5057.05,
+        5050.43,
+        -0.13
+      ],
+      [
+        "Vietnam",
+        "VN-Index",
+        1741.62,
+        1725.36,
+        -0.93
+      ],
+      [
+        "Thailand",
+        "SET",
+        1518.59,
+        1465.7,
+        -3.48
+      ],
+      [
+        "Singapore",
+        "Straits Times",
+        5376.74,
+        5179.17,
+        -3.67
+      ],
+      [
+        "India",
+        "S&P BSE SENSEX",
+        74459.53,
+        81028.02,
+        8.82
+      ],
+      [
+        "Hong Kong",
+        "Hang Seng",
+        23294.42,
+        24481.86,
+        5.1
+      ],
+      [
+        "China",
+        "SSE Composite",
+        3599.02,
+        3649.18,
+        1.39
+      ],
+      [
+        "Australia",
+        "All Ordinaries",
+        9025.4,
+        9144.7,
+        1.32
+      ],
+      [
+        "Japan",
+        "Nikkei 225",
+        63290.11,
+        57434.77,
+        -9.25
+      ],
+      [
+        "Korea",
+        "KOSPI",
+        5730.74,
+        5059.69,
+        -11.71
+      ],
+      [
+        "Taiwan",
+        "TSE Weighted",
+        45211.83,
+        39701.64,
+        -12.19
+      ],
+      [
+        "Mexico",
+        "S&P/BMV IPC",
+        69779.2,
+        71087.56,
+        1.87
+      ],
+      [
+        "Canada",
+        "S&P/TSX",
+        35620.0,
+        35605.3,
+        -0.04
+      ],
+      [
+        "Colombia",
+        "MSCI COLCAP",
+        2489.93,
+        2484.43,
+        -0.22
+      ],
+      [
+        "US",
+        "Dow Jones Industrial Average",
+        51770.31,
+        51523.06,
+        -0.48
+      ],
+      [
+        "Brazil",
+        "Ibovespa",
+        167922.0,
+        166192.0,
+        -1.03
+      ],
+      [
+        "Qatar",
+        "Qatar Exchange",
+        9151.18,
+        10065.85,
+        10.0
+      ],
+      [
+        "Turkey",
+        "Borsa Istanbul 100",
+        10759.6,
+        11332.98,
+        5.33
+      ],
+      [
+        "South Africa",
+        "FTSE/JSE All Share",
+        107621.7,
+        112645.35,
+        4.67
+      ],
+      [
+        "UAE",
+        "Dubai Financial Market General",
+        5750.42,
+        6016.08,
+        4.62
+      ],
+      [
+        "Ireland",
+        "ISEQ All-Share",
+        14206.59,
+        14689.37,
+        3.4
+      ],
+      [
+        "Spain",
+        "IBEX 35",
+        18652.9,
+        19246.2,
+        3.18
+      ],
+      [
+        "Saudi Arabia",
+        "Tadawul All Share",
+        9921.5,
+        10095.42,
+        1.75
+      ],
+      [
+        "France",
+        "CAC 40",
+        7969.42,
+        8073.92,
+        1.31
+      ],
+      [
+        "Austria",
+        "ATX",
+        6420.03,
+        6480.95,
+        0.95
+      ],
+      [
+        "Germany",
+        "DAX",
+        25818.21,
+        25788.28,
+        -0.12
+      ],
+      [
+        "Poland",
+        "WIG Total Return",
+        163497.27,
+        162372.36,
+        -0.69
+      ],
+      [
+        "Switzerland",
+        "SMI",
+        14810.66,
+        14631.48,
+        -1.21
+      ],
+      [
+        "UK",
+        "FTSE 100",
+        10729.8,
+        10573.16,
+        -1.46
+      ],
+      [
+        "Norway",
+        "OSE Benchmark",
+        2144.97,
+        2046.7,
+        -4.58
+      ]
+    ]
+  },
+  "usMarketsFred": {
+    "source": "FRED graph CSVs, read 8 November 2026 in the owner's Chrome. Daily closes",
+    "DJIA": [
+      [
+        "2026-09-30",
+        50906.05
+      ],
+      [
+        "2026-10-29",
+        52342.56
+      ],
+      [
+        "2026-10-30",
+        51770.31
+      ],
+      [
+        "2026-11-04",
+        53356.12
+      ],
+      [
+        "2026-11-05",
+        51523.06
+      ],
+      [
+        "2026-11-06",
+        51285.73
+      ]
+    ],
+    "NASDAQCOM": [
+      [
+        "2026-09-30",
+        26861.06
+      ],
+      [
+        "2026-10-30",
+        25437.0
+      ],
+      [
+        "2026-11-04",
+        25736.51
+      ],
+      [
+        "2026-11-05",
+        24315.0
+      ],
+      [
+        "2026-11-06",
+        24579.42
+      ]
+    ],
+    "SP500": [
+      [
+        "2026-09-30",
+        7651.54
+      ],
+      [
+        "2026-10-30",
+        7580.07
+      ],
+      [
+        "2026-11-04",
+        7688.62
+      ],
+      [
+        "2026-11-05",
+        7353.73
+      ]
+    ],
+    "NIKKEI225": [
+      [
+        "2026-09-30",
+        66753.72
+      ],
+      [
+        "2026-10-30",
+        63290.11
+      ],
+      [
+        "2026-11-05",
+        61077.9
+      ],
+      [
+        "2026-11-06",
+        57434.77
+      ]
+    ]
+  },
+  "treasury": {
+    "source": "US Treasury daily par yield curve CSV for 2026, downloaded 8 November 2026",
+    "columns": [
+      "date",
+      "2y",
+      "10y"
+    ],
+    "rows": [
+      [
+        "2026-09-30",
+        4.88,
+        5.29
+      ],
+      [
+        "2026-10-30",
+        4.56,
+        4.94
+      ],
+      [
+        "2026-11-02",
+        4.59,
+        4.91
+      ],
+      [
+        "2026-11-03",
+        4.61,
+        4.95
+      ],
+      [
+        "2026-11-04",
+        4.58,
+        4.9
+      ],
+      [
+        "2026-11-05",
+        4.46,
+        4.84
+      ],
+      [
+        "2026-11-06",
+        4.51,
+        4.86
+      ]
+    ]
+  },
+  "mknt": {
+    "source": "IDX weekly pages 4 and 5, IDX company profile shareholder table read 8 November 2026, IDX and KSEI notice Peng-HSC-00087/BEI.WAS/11-2026 of 6 November 2026, company letter 043/MKNT/EXT/BEI/XI/2026, and Flowless daily rows for the regular market",
+    "sharesOutstanding": 1029990000000,
+    "holders": [
+      [
+        "PT Headwell Bintang Energi Hijau",
+        668000000000,
+        64.855
+      ],
+      [
+        "PT Mantra Capital Persadan",
+        156490000000,
+        15.19
+      ],
+      [
+        "Public, scripless",
+        205499995000,
+        19.955
+      ],
+      [
+        "Public, scrip",
+        5000,
+        0
+      ]
+    ],
+    "hscConcentratedPct": 99.64,
+    "hscPositionDate": "2026-11-05",
+    "dailyColumns": [
+      "date",
+      "close",
+      "volume",
+      "valueIdr"
+    ],
+    "daily": [
+      [
+        "2026-10-16",
+        1,
+        0,
+        0
+      ],
+      [
+        "2026-10-19",
+        2,
+        8773500,
+        17547000
+      ],
+      [
+        "2026-10-20",
+        3,
+        6018700,
+        18056100
+      ],
+      [
+        "2026-10-21",
+        4,
+        14450700,
+        57802800
+      ],
+      [
+        "2026-10-22",
+        5,
+        11011700,
+        55058500
+      ],
+      [
+        "2026-10-23",
+        6,
+        5934500,
+        35607000
+      ],
+      [
+        "2026-10-26",
+        7,
+        7735800,
+        54150600
+      ],
+      [
+        "2026-10-27",
+        8,
+        3682200,
+        29457600
+      ],
+      [
+        "2026-10-28",
+        9,
+        7710800,
+        69397200
+      ],
+      [
+        "2026-10-29",
+        10,
+        5504900,
+        55049000
+      ],
+      [
+        "2026-10-30",
+        11,
+        84663300,
+        931296300
+      ],
+      [
+        "2026-11-02",
+        14,
+        22312400,
+        312373600
+      ],
+      [
+        "2026-11-03",
+        18,
+        20379700,
+        366834600
+      ],
+      [
+        "2026-11-04",
+        24,
+        817262500,
+        19508950000
+      ],
+      [
+        "2026-11-05",
+        32,
+        258888000,
+        8105346000
+      ],
+      [
+        "2026-11-06",
+        32,
+        0,
+        0
+      ]
+    ],
+    "filings": [
+      [
+        "2026-10-19",
+        "IDX lifts the temporary trading halt"
+      ],
+      [
+        "2026-11-04",
+        "IDX asks the company to explain the trading volatility, letter S-13822/BEI.PP1/11-2026"
+      ],
+      [
+        "2026-11-06 10:22",
+        "Company reply 043/MKNT/EXT/BEI/XI/2026: no undisclosed material facts, no knowledge of shareholder activity, no buyback"
+      ],
+      [
+        "2026-11-06 17:12",
+        "IDX and KSEI HSC notice: a limited number of holders control 99.64% of shares as of 5 November"
+      ]
+    ]
+  }
+}

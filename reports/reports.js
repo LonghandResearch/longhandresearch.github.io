@@ -111,6 +111,25 @@ window.LONGHAND_REPORTS = [
   ]
 },
 {
+  "id": "ihsg-weekly-2026-11-06",
+  "ticker": "IHSG",
+  "exchange": "IDX",
+  "company": "Indonesia equity market",
+  "sector": "Macro and equities",
+  "category": "Update",
+  "title": "A Quiet Week With a Hole in the New Index",
+  "date": "2026-11-08",
+  "blurb": "IHSG slipped 0.13% while Taiwan, Korea and Japan fell 9% to 12%. A stock 99.64% held by a few accounts added 12.40 points in the cleaned index's first week.",
+  "summary": "Weekly research for 2 to 6 November with an October review. Audited IDX observations, the MKNT case, the global AI sell-off, October's 16.70% fall against 33 markets, sukuk demand and a check of last week's call.",
+  "tags": ["IHSG", "Weekly Market Update", "Monthly review", "Foreign flow", "HSC", "Global markets", "AI", "Bond yields", "Market governance"],
+  "rating": null,
+  "currency": "IDR",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "ihsg-weekly.html?week=2026-11-06"
+},
+{
   "id": "ihsg-weekly-2026-10-30",
   "ticker": "IHSG",
   "exchange": "IDX",

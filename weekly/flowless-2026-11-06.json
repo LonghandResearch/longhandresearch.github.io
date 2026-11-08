@@ -1,0 +1,1002 @@
+{
+ "weekEnding": "2026-11-06",
+ "method": "Regular-market foreign volume valued at each daily close. These are estimates, not official executed foreign values. Screen: at least Rp10tn market value and Rp10bn 20-session average daily value at the 6 November close. Focus rows hold close, volume, value, foreign buy and foreign sell in rupiah for 30 October to 6 November.",
+ "freshExport": {
+  "weekEnding": "2026-11-06",
+  "days": [
+   "2026-11-02",
+   "2026-11-03",
+   "2026-11-04",
+   "2026-11-05",
+   "2026-11-06"
+  ],
+  "basis": "Liquid large caps only: market value of at least Rp10tn and average daily trading of at least Rp10bn over 20 days, at the week's last close. Regular market only. IDX gives foreign trading per stock in shares, so values are shares times each day's closing price.",
+  "universe": {
+   "rule": "Liquid large caps",
+   "minMarketCapTn": 10.0,
+   "minAdtvBn": 10.0,
+   "stocks": 79,
+   "marketCapSharePct": 61.2,
+   "foreignTradingSharePct": 86.0
+  },
+  "totals": {
+   "foreignNetBn": -742.13,
+   "foreignBuyBn": 15199.56,
+   "foreignSellBn": 15941.69,
+   "valueBn": 36754.27,
+   "allStocksForeignNetBn": -688.09
+  },
+  "daily": [
+   {
+    "date": "2026-11-02",
+    "foreignNetBn": -439.78,
+    "valueBn": 7662.71,
+    "volumeM": 14352.23,
+    "stocks": 79
+   },
+   {
+    "date": "2026-11-03",
+    "foreignNetBn": -572.15,
+    "valueBn": 8281.2,
+    "volumeM": 11375.7,
+    "stocks": 79
+   },
+   {
+    "date": "2026-11-04",
+    "foreignNetBn": 201.33,
+    "valueBn": 7595.16,
+    "volumeM": 13519.69,
+    "stocks": 79
+   },
+   {
+    "date": "2026-11-05",
+    "foreignNetBn": -49.69,
+    "valueBn": 7017.52,
+    "volumeM": 9030.83,
+    "stocks": 79
+   },
+   {
+    "date": "2026-11-06",
+    "foreignNetBn": 118.17,
+    "valueBn": 6197.68,
+    "volumeM": 32385.49,
+    "stocks": 79
+   }
+  ],
+  "topSells": [
+   {
+    "ticker": "BBRI",
+    "name": "Bank Rakyat Indonesia (Persero) Tbk.",
+    "sector": "Financials",
+    "netBn": -399.19,
+    "buyBn": 1092.52,
+    "sellBn": 1491.71,
+    "close": 2810.0,
+    "weekReturnPct": 0.36,
+    "read": "Rise without foreign buying, treat with care"
+   },
+   {
+    "ticker": "BMRI",
+    "name": "Bank Mandiri (Persero) Tbk.",
+    "sector": "Financials",
+    "netBn": -218.86,
+    "buyBn": 1205.11,
+    "sellBn": 1423.97,
+    "close": 3700.0,
+    "weekReturnPct": -0.54,
+    "read": "Fall with foreign selling"
+   },
+   {
+    "ticker": "GOTO",
+    "name": "GoTo Gojek Tokopedia Tbk.",
+    "sector": "Technology",
+    "netBn": -124.74,
+    "buyBn": 325.78,
+    "sellBn": 450.52,
+    "close": 24.0,
+    "weekReturnPct": 0.0,
+    "read": "Flat price"
+   },
+   {
+    "ticker": "ANTM",
+    "name": "ANTAM (Persero) Tbk.",
+    "sector": "Basic materials",
+    "netBn": -116.49,
+    "buyBn": 480.68,
+    "sellBn": 597.16,
+    "close": 2690.0,
+    "weekReturnPct": 2.67,
+    "read": "Rise without foreign buying, treat with care"
+   },
+   {
+    "ticker": "ADRO",
+    "name": "Alamtri Resources Indonesia Tbk.",
+    "sector": "Energy",
+    "netBn": -115.77,
+    "buyBn": 91.42,
+    "sellBn": 207.19,
+    "close": 2310.0,
+    "weekReturnPct": -3.75,
+    "read": "Fall with foreign selling"
+   },
+   {
+    "ticker": "TPIA",
+    "name": "Chandra Asri Pacific Tbk.",
+    "sector": "Basic materials",
+    "netBn": -105.14,
+    "buyBn": 250.9,
+    "sellBn": 356.04,
+    "close": 1245.0,
+    "weekReturnPct": -2.73,
+    "read": "Fall with foreign selling"
+   },
+   {
+    "ticker": "BRPT",
+    "name": "Barito Pacific Tbk.",
+    "sector": "Basic materials",
+    "netBn": -90.17,
+    "buyBn": 143.39,
+    "sellBn": 233.56,
+    "close": 850.0,
+    "weekReturnPct": -20.56,
+    "read": "Fall with foreign selling"
+   },
+   {
+    "ticker": "AADI",
+    "name": "Adaro Andalan Indonesia Tbk.",
+    "sector": "Energy",
+    "netBn": -89.09,
+    "buyBn": 207.59,
+    "sellBn": 296.68,
+    "close": 10150.0,
+    "weekReturnPct": -11.55,
+    "read": "Fall with foreign selling"
+   },
+   {
+    "ticker": "TINS",
+    "name": "TIMAH (Persero) Tbk.",
+    "sector": "Basic materials",
+    "netBn": -83.78,
+    "buyBn": 266.61,
+    "sellBn": 350.39,
+    "close": 3390.0,
+    "weekReturnPct": -7.38,
+    "read": "Fall with foreign selling"
+   },
+   {
+    "ticker": "UNTR",
+    "name": "United Tractors Tbk.",
+    "sector": "Industrials",
+    "netBn": -77.01,
+    "buyBn": 124.07,
+    "sellBn": 201.07,
+    "close": 23025.0,
+    "weekReturnPct": -4.86,
+    "read": "Fall with foreign selling"
+   }
+  ],
+  "topBuys": [
+   {
+    "ticker": "BBCA",
+    "name": "Bank Central Asia Tbk.",
+    "sector": "Financials",
+    "netBn": 519.54,
+    "buyBn": 3392.21,
+    "sellBn": 2872.68,
+    "close": 5200.0,
+    "weekReturnPct": 4.42,
+    "read": "Rise backed by foreign buying"
+   },
+   {
+    "ticker": "ASII",
+    "name": "Astra International Tbk.",
+    "sector": "Industrials",
+    "netBn": 269.49,
+    "buyBn": 712.52,
+    "sellBn": 443.03,
+    "close": 5000.0,
+    "weekReturnPct": 4.17,
+    "read": "Rise backed by foreign buying"
+   },
+   {
+    "ticker": "BRMS",
+    "name": "Bumi Resources Minerals Tbk.",
+    "sector": "Basic materials",
+    "netBn": 59.72,
+    "buyBn": 234.82,
+    "sellBn": 175.1,
+    "close": 318.0,
+    "weekReturnPct": -4.22,
+    "read": "Foreigners bought into the fall"
+   },
+   {
+    "ticker": "ENRG",
+    "name": "Energi Mega Persada Tbk.",
+    "sector": "Energy",
+    "netBn": 53.59,
+    "buyBn": 147.84,
+    "sellBn": 94.25,
+    "close": 555.0,
+    "weekReturnPct": -10.48,
+    "read": "Foreigners bought into the fall"
+   },
+   {
+    "ticker": "BBNI",
+    "name": "Bank Negara Indonesia (Persero) Tbk.",
+    "sector": "Financials",
+    "netBn": 50.25,
+    "buyBn": 349.69,
+    "sellBn": 299.43,
+    "close": 3400.0,
+    "weekReturnPct": 2.41,
+    "read": "Rise backed by foreign buying"
+   },
+   {
+    "ticker": "BRIS",
+    "name": "Bank Syariah Indonesia (Persero) Tbk.",
+    "sector": "Financials",
+    "netBn": 42.36,
+    "buyBn": 226.51,
+    "sellBn": 184.16,
+    "close": 1150.0,
+    "weekReturnPct": 14.43,
+    "read": "Rise backed by foreign buying"
+   },
+   {
+    "ticker": "PTRO",
+    "name": "Petrosea Tbk.",
+    "sector": "Energy",
+    "netBn": 40.15,
+    "buyBn": 129.65,
+    "sellBn": 89.51,
+    "close": 2010.0,
+    "weekReturnPct": -13.36,
+    "read": "Foreigners bought into the fall"
+   },
+   {
+    "ticker": "MDKA",
+    "name": "Merdeka Copper Gold Tbk.",
+    "sector": "Basic materials",
+    "netBn": 31.86,
+    "buyBn": 221.0,
+    "sellBn": 189.13,
+    "close": 2020.0,
+    "weekReturnPct": 8.89,
+    "read": "Rise backed by foreign buying"
+   },
+   {
+    "ticker": "AMMN",
+    "name": "Amman Mineral Internasional Tbk.",
+    "sector": "Basic materials",
+    "netBn": 29.35,
+    "buyBn": 375.67,
+    "sellBn": 346.32,
+    "close": 3620.0,
+    "weekReturnPct": -0.82,
+    "read": "Foreigners bought into the fall"
+   },
+   {
+    "ticker": "EMAS",
+    "name": "Merdeka Gold Resources Tbk.",
+    "sector": "Basic materials",
+    "netBn": 27.83,
+    "buyBn": 135.0,
+    "sellBn": 107.18,
+    "close": 5225.0,
+    "weekReturnPct": -4.13,
+    "read": "Foreigners bought into the fall"
+   }
+  ],
+  "sectors": [
+   {
+    "sector": "Basic materials",
+    "netBn": -320.32,
+    "buyBn": 2527.89,
+    "sellBn": 2848.21,
+    "stocksTraded": 17,
+    "returnPct": -1.82,
+    "read": "Fall with foreign selling",
+    "leadStock": "ANTM",
+    "leadSharePct": 18.2,
+    "oneStock": false
+   },
+   {
+    "sector": "Energy",
+    "netBn": -291.84,
+    "buyBn": 1752.28,
+    "sellBn": 2044.12,
+    "stocksTraded": 14,
+    "returnPct": -6.29,
+    "read": "Fall with foreign selling",
+    "leadStock": "ADRO",
+    "leadSharePct": 21.2,
+    "oneStock": false
+   },
+   {
+    "sector": "Technology",
+    "netBn": -141.22,
+    "buyBn": 371.37,
+    "sellBn": 512.58,
+    "stocksTraded": 3,
+    "returnPct": 0.04,
+    "read": "Rise without foreign buying, treat with care",
+    "leadStock": "GOTO",
+    "leadSharePct": 88.3,
+    "oneStock": true
+   },
+   {
+    "sector": "Consumer non-cyclicals",
+    "netBn": -125.01,
+    "buyBn": 1194.38,
+    "sellBn": 1319.39,
+    "stocksTraded": 15,
+    "returnPct": 3.65,
+    "read": "Rise without foreign buying, treat with care",
+    "leadStock": "ULTJ",
+    "leadSharePct": 25.5,
+    "oneStock": false
+   },
+   {
+    "sector": "Healthcare",
+    "netBn": -44.38,
+    "buyBn": 103.13,
+    "sellBn": 147.52,
+    "stocksTraded": 3,
+    "returnPct": 2.13,
+    "read": "Rise without foreign buying, treat with care",
+    "leadStock": "MIKA",
+    "leadSharePct": 89.3,
+    "oneStock": true
+   },
+   {
+    "sector": "Financials",
+    "netBn": -20.43,
+    "buyBn": 6347.78,
+    "sellBn": 6368.2,
+    "stocksTraded": 9,
+    "returnPct": 2.62,
+    "read": "Rise without foreign buying, treat with care",
+    "leadStock": "BBCA",
+    "leadSharePct": 41.0,
+    "oneStock": false
+   },
+   {
+    "sector": "Infrastructure",
+    "netBn": -17.7,
+    "buyBn": 1866.57,
+    "sellBn": 1884.27,
+    "stocksTraded": 8,
+    "returnPct": 1.77,
+    "read": "Foreign flow too small to read",
+    "leadStock": "BREN",
+    "leadSharePct": 35.7,
+    "oneStock": false
+   },
+   {
+    "sector": "Property",
+    "netBn": -14.35,
+    "buyBn": 46.01,
+    "sellBn": 60.36,
+    "stocksTraded": 3,
+    "returnPct": -7.0,
+    "read": "Foreign flow too small to read",
+    "leadStock": "PWON",
+    "leadSharePct": 72.5,
+    "oneStock": true
+   },
+   {
+    "sector": "Consumer cyclicals",
+    "netBn": 17.89,
+    "buyBn": 91.26,
+    "sellBn": 73.37,
+    "stocksTraded": 3,
+    "returnPct": -14.25,
+    "read": "Foreign flow too small to read",
+    "leadStock": "VKTR",
+    "leadSharePct": 52.9,
+    "oneStock": false
+   },
+   {
+    "sector": "Industrials",
+    "netBn": 215.23,
+    "buyBn": 898.9,
+    "sellBn": 683.68,
+    "stocksTraded": 4,
+    "returnPct": 2.14,
+    "read": "Rise backed by foreign buying",
+    "leadStock": "ASII",
+    "leadSharePct": 73.0,
+    "oneStock": true
+   }
+  ],
+  "standouts": [
+   {
+    "ticker": "ASII",
+    "name": "Astra International Tbk.",
+    "sector": "Industrials",
+    "netBn": 269.49,
+    "buyBn": 712.52,
+    "sellBn": 443.03,
+    "close": 5000.0,
+    "weekReturnPct": 4.17,
+    "read": "Rise backed by foreign buying",
+    "flowPercentile": 100.0,
+    "flowZScore": 2.32,
+    "flowState": "accumulation"
+   },
+   {
+    "ticker": "EXCL",
+    "name": "XLSMART Telecom Sejahtera Tbk.",
+    "sector": "Infrastructure",
+    "netBn": 27.81,
+    "buyBn": 60.0,
+    "sellBn": 32.19,
+    "close": 1495.0,
+    "weekReturnPct": -13.08,
+    "read": "Foreigners bought into the fall",
+    "flowPercentile": 98.3,
+    "flowZScore": 1.89,
+    "flowState": "sideways"
+   },
+   {
+    "ticker": "ULTJ",
+    "name": "Ultrajaya Milk Industry & Trading Company Tbk.",
+    "sector": "Consumer non-cyclicals",
+    "netBn": -44.72,
+    "buyBn": 20.03,
+    "sellBn": 64.75,
+    "close": 2050.0,
+    "weekReturnPct": -2.84,
+    "read": "Fall with foreign selling",
+    "flowPercentile": 3.3,
+    "flowZScore": -1.64,
+    "flowState": "sideways"
+   },
+   {
+    "ticker": "MIKA",
+    "name": "Mitra Keluarga Karyasehat Tbk.",
+    "sector": "Healthcare",
+    "netBn": -39.63,
+    "buyBn": 24.69,
+    "sellBn": 64.32,
+    "close": 1300.0,
+    "weekReturnPct": -0.76,
+    "read": "Fall with foreign selling",
+    "flowPercentile": 4.2,
+    "flowZScore": -1.47,
+    "flowState": "distribution"
+   },
+   {
+    "ticker": "BRIS",
+    "name": "Bank Syariah Indonesia (Persero) Tbk.",
+    "sector": "Financials",
+    "netBn": 42.36,
+    "buyBn": 226.51,
+    "sellBn": 184.16,
+    "close": 1150.0,
+    "weekReturnPct": 14.43,
+    "read": "Rise backed by foreign buying",
+    "flowPercentile": 98.3,
+    "flowZScore": 1.33,
+    "flowState": "distribution"
+   }
+  ]
+ },
+ "marketDaily": [
+  {
+   "date": "2026-11-02",
+   "valueIdr": 10158932620100,
+   "volume": 28027452800,
+   "idxValueIdr": 10158932620100,
+   "idxVolume": 28027452800,
+   "valueMatches": true,
+   "volumeMatches": true,
+   "estimatedForeignNetBnLiquid": -439.78,
+   "officialNetBn": -112.47
+  },
+  {
+   "date": "2026-11-03",
+   "valueIdr": 10319950398600,
+   "volume": 22302657100,
+   "idxValueIdr": 10319950398600,
+   "idxVolume": 22302657100,
+   "valueMatches": true,
+   "volumeMatches": true,
+   "estimatedForeignNetBnLiquid": -572.15,
+   "officialNetBn": -575.01
+  },
+  {
+   "date": "2026-11-04",
+   "valueIdr": 9720541503300,
+   "volume": 24611543500,
+   "idxValueIdr": 9720541503300,
+   "idxVolume": 24611543500,
+   "valueMatches": true,
+   "volumeMatches": true,
+   "estimatedForeignNetBnLiquid": 201.33,
+   "officialNetBn": 257.71
+  },
+  {
+   "date": "2026-11-05",
+   "valueIdr": 9117226370900,
+   "volume": 21030539500,
+   "idxValueIdr": 9117226370900,
+   "idxVolume": 21030539500,
+   "valueMatches": true,
+   "volumeMatches": true,
+   "estimatedForeignNetBnLiquid": -49.69,
+   "officialNetBn": -65.53
+  },
+  {
+   "date": "2026-11-06",
+   "valueIdr": 7825586394200,
+   "volume": 40696384500,
+   "idxValueIdr": 7825586394200,
+   "idxVolume": 40696384500,
+   "valueMatches": true,
+   "volumeMatches": true,
+   "estimatedForeignNetBnLiquid": 118.17,
+   "officialNetBn": 328.2
+  }
+ ],
+ "focusColumns": [
+  "date",
+  "close",
+  "volume",
+  "valueIdr",
+  "foreignBuyIdr",
+  "foreignSellIdr"
+ ],
+ "focus": {
+  "BBCA": [
+   [
+    "2026-10-30",
+    4980.0,
+    286386300,
+    1421765956500,
+    883567038000,
+    889759170000
+   ],
+   [
+    "2026-11-02",
+    4980.0,
+    196618100,
+    986433613500,
+    530790312000,
+    646378602000
+   ],
+   [
+    "2026-11-03",
+    4840.0,
+    266103300,
+    1303958233500,
+    724265344000,
+    748346280000
+   ],
+   [
+    "2026-11-04",
+    4930.0,
+    269099800,
+    1322939834000,
+    948503899000,
+    815253394000
+   ],
+   [
+    "2026-11-05",
+    5125.0,
+    166336900,
+    846409965000,
+    609325087500,
+    303663425000
+   ],
+   [
+    "2026-11-06",
+    5200.0,
+    160152800,
+    817283116500,
+    579327840000,
+    359033480000
+   ]
+  ],
+  "BBRI": [
+   [
+    "2026-10-30",
+    2800.0,
+    332954600,
+    925441562000,
+    342073480000,
+    550504360000
+   ],
+   [
+    "2026-11-02",
+    2820.0,
+    179257800,
+    502791538000,
+    212320338000,
+    181390860000
+   ],
+   [
+    "2026-11-03",
+    2660.0,
+    314314200,
+    857697377000,
+    140732088000,
+    441186004000
+   ],
+   [
+    "2026-11-04",
+    2690.0,
+    220395600,
+    595213867000,
+    287077607000,
+    264192701000
+   ],
+   [
+    "2026-11-05",
+    2710.0,
+    247919000,
+    678673939000,
+    257622085000,
+    432258550000
+   ],
+   [
+    "2026-11-06",
+    2810.0,
+    217901500,
+    602029014000,
+    194767563000,
+    172683492000
+   ]
+  ],
+  "BMRI": [
+   [
+    "2026-10-30",
+    3720.0,
+    181205300,
+    673298465000,
+    435029076000,
+    460663596000
+   ],
+   [
+    "2026-11-02",
+    3700.0,
+    118684300,
+    440767401000,
+    146463020000,
+    303764450000
+   ],
+   [
+    "2026-11-03",
+    3590.0,
+    215755100,
+    782359442000,
+    447340207000,
+    374154467000
+   ],
+   [
+    "2026-11-04",
+    3600.0,
+    131225800,
+    470907688000,
+    169394040000,
+    266349600000
+   ],
+   [
+    "2026-11-05",
+    3610.0,
+    125811900,
+    458340368000,
+    128140921000,
+    259971984000
+   ],
+   [
+    "2026-11-06",
+    3700.0,
+    138154300,
+    503582584000,
+    313773320000,
+    219730790000
+   ]
+  ],
+  "TLKM": [
+   [
+    "2026-10-30",
+    1980.0,
+    327989800,
+    646530805000,
+    448865406000,
+    568735398000
+   ],
+   [
+    "2026-11-02",
+    1960.0,
+    209433900,
+    409734679500,
+    281847804000,
+    337388128000
+   ],
+   [
+    "2026-11-03",
+    1880.0,
+    311297200,
+    586123524000,
+    340667844000,
+    365312200000
+   ],
+   [
+    "2026-11-04",
+    1885.0,
+    188008700,
+    353838390500,
+    243050957500,
+    218016838000
+   ],
+   [
+    "2026-11-05",
+    1990.0,
+    172012100,
+    342610545000,
+    256004346000,
+    169236366000
+   ],
+   [
+    "2026-11-06",
+    1980.0,
+    149528500,
+    293114576000,
+    175493736000,
+    219556854000
+   ]
+  ],
+  "ASII": [
+   [
+    "2026-10-30",
+    4800.0,
+    51365300,
+    245704585000,
+    190013760000,
+    150499200000
+   ],
+   [
+    "2026-11-02",
+    4860.0,
+    27253600,
+    131269473000,
+    97596576000,
+    79900830000
+   ],
+   [
+    "2026-11-03",
+    4750.0,
+    64317600,
+    302028905000,
+    195093425000,
+    147971050000
+   ],
+   [
+    "2026-11-04",
+    4900.0,
+    39537200,
+    187718582000,
+    120476790000,
+    84142800000
+   ],
+   [
+    "2026-11-05",
+    4930.0,
+    42070100,
+    206540301000,
+    155132310000,
+    70776559000
+   ],
+   [
+    "2026-11-06",
+    5000.0,
+    34957900,
+    172938484000,
+    144220500000,
+    60236500000
+   ]
+  ],
+  "BRPT": [
+   [
+    "2026-10-30",
+    1070.0,
+    86605000,
+    93621170000,
+    23580874000,
+    20561227000
+   ],
+   [
+    "2026-11-02",
+    1120.0,
+    145685300,
+    155801080500,
+    45992576000,
+    49800800000
+   ],
+   [
+    "2026-11-03",
+    1045.0,
+    70962600,
+    75569833500,
+    8155075500,
+    34556269000
+   ],
+   [
+    "2026-11-04",
+    975.0,
+    101585400,
+    99456594000,
+    22266952500,
+    44089987500
+   ],
+   [
+    "2026-11-05",
+    910.0,
+    186790800,
+    176540939500,
+    44775731000,
+    67716012000
+   ],
+   [
+    "2026-11-06",
+    850.0,
+    114008800,
+    97333573000,
+    22198600000,
+    37392265000
+   ]
+  ],
+  "MKNT": [
+   [
+    "2026-10-30",
+    11.0,
+    84663300,
+    931296300,
+    0,
+    5500000
+   ],
+   [
+    "2026-11-02",
+    14.0,
+    22312400,
+    312373600,
+    0,
+    7000000
+   ],
+   [
+    "2026-11-03",
+    18.0,
+    20379700,
+    366834600,
+    0,
+    5490000
+   ],
+   [
+    "2026-11-04",
+    24.0,
+    817262500,
+    19508951200,
+    146697600,
+    10800000
+   ],
+   [
+    "2026-11-05",
+    32.0,
+    258888000,
+    8105346500,
+    122371200,
+    24000000
+   ],
+   [
+    "2026-11-06",
+    32.0,
+    0,
+    0,
+    0,
+    0
+   ]
+  ],
+  "EXCL": [
+   [
+    "2026-10-30",
+    1720.0,
+    10613900,
+    17631745000,
+    9435060000,
+    9996124000
+   ],
+   [
+    "2026-11-02",
+    1690.0,
+    7009000,
+    11932735500,
+    4675385000,
+    4781855000
+   ],
+   [
+    "2026-11-03",
+    1575.0,
+    6315000,
+    10266760500,
+    4048852500,
+    3355537500
+   ],
+   [
+    "2026-11-04",
+    1560.0,
+    15518400,
+    23696992500,
+    16122288000,
+    8148192000
+   ],
+   [
+    "2026-11-05",
+    1510.0,
+    17035800,
+    26170899500,
+    7083863000,
+    8722817000
+   ],
+   [
+    "2026-11-06",
+    1495.0,
+    25921100,
+    37626683000,
+    28072512000,
+    7179887000
+   ]
+  ],
+  "BRIS": [
+   [
+    "2026-10-30",
+    1005.0,
+    130069300,
+    129972950500,
+    46935912000,
+    55356807000
+   ],
+   [
+    "2026-11-02",
+    1015.0,
+    63929800,
+    64886387000,
+    19983827500,
+    23401231000
+   ],
+   [
+    "2026-11-03",
+    1010.0,
+    120574500,
+    123464770500,
+    77999977000,
+    30756621000
+   ],
+   [
+    "2026-11-04",
+    1060.0,
+    85090900,
+    89126218000,
+    47613504000,
+    22340772000
+   ],
+   [
+    "2026-11-05",
+    1130.0,
+    157640300,
+    177910830000,
+    33607556000,
+    48909338000
+   ],
+   [
+    "2026-11-06",
+    1150.0,
+    132148400,
+    149914766000,
+    47308355000,
+    58749705000
+   ]
+  ]
+ }
+}
