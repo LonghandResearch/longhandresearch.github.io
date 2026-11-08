@@ -89,8 +89,79 @@
       main.prepend(nav);
     }
     addReadingRail(r);
+    addOpener(r);
     addContents();
     addRelated(r, ctx);
+  }
+
+  /* One opening for every web publication, the same as a PDF report's page:
+     jacket, kicker, title, subject, summary, actions and a Key data column.
+     The text comes from the catalogue, so it matches the Library. The key
+     figures are read from the page's own opening, which stays in the page
+     (folded away, not deleted) so nothing is written twice and a page
+     without JavaScript still shows its original opening. */
+  const OPENERS = [
+    { hero: 'header.market-hero', fold: ['.market-kicker', 'h1', '.market-deck', '.market-meta', '.market-stats'],
+      row: '.market-stats > div', label: '.market-stat-label', value: 'strong', note: 'small' },
+    { hero: 'header.pbai-hero', fold: ['.kicker', '.pbai-title', '.pbai-sub', '.pbai-meta', 'dl.pbai-keys'],
+      row: 'dl.pbai-keys > div', label: 'dt', value: 'dd:not(.pbai-key-note)', note: 'dd.pbai-key-note' },
+    { hero: 'header.coal-hero', fold: ['.hero-copy'] },
+    { hero: '.nickel-cover', fold: ['.hero-grid', '.hero-ledger'],
+      row: '.hero-ledger .ledger-item', label: 'p', value: 'strong', note: 'small' },
+    { hero: 'section.hero', fold: ['.hero-copy'] },
+  ];
+  const clean = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : '');
+  const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+  function addOpener(r) {
+    if (document.body.classList.contains('page-report') || main.querySelector('[data-publication-opener]')) return;
+    const recipe = OPENERS.find((o) => main.querySelector(o.hero));
+    if (!recipe) return;
+    const hero = main.querySelector(recipe.hero);
+    const LH = window.Longhand;
+    const rows = recipe.row ? [...hero.querySelectorAll(recipe.row)].map((el) => ({
+      label: clean(el.querySelector(recipe.label)), value: clean(el.querySelector(recipe.value)), note: clean(el.querySelector(recipe.note)),
+    })).filter((x) => x.label && x.value) : [];
+    const date = LH ? LH.util.dateLong(r.date) : new Date(`${r.date}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    const no = LH ? LH.catalogueNo(r) : '';
+    const kickerParts = [`<time datetime="${esc(r.date)}">${esc(date)}</time>`, esc(no)].filter(Boolean);
+    const kicker = LH ? LH.kickerHtml(r, kickerParts) : [esc(r.category), ...kickerParts].join(' &middot; ');
+    const subject = r.company && r.company !== r.title ? r.company : '';
+    const summary = r.summary ? (LH ? LH.util.editorialText(r.summary) : r.summary) : '';
+    const cover = window.LonghandArt?.coverHTML(r, { sizes: '176px' });
+    const opener = document.createElement('section');
+    opener.className = `pub-opener wrap${cover ? '' : ' no-cover'}${rows.length ? '' : ' no-side'}`;
+    opener.dataset.publicationOpener = '';
+    opener.setAttribute('aria-label', 'Publication');
+    opener.innerHTML = `
+      ${cover ? `<div class="pub-cover">${cover}</div>` : ''}
+      <div class="pub-main">
+        <p class="kicker">${kicker}</p>
+        <h1 class="pub-title">${esc(r.title)}</h1>
+        ${subject ? `<p class="pub-subject">${esc(subject)}</p>` : ''}
+        ${summary ? `<p class="pub-summary">${esc(summary)}</p>` : ''}
+        <div class="pub-actions"><button type="button" class="text-link" data-pub-copy><span data-pub-copy-label aria-live="polite">Copy link</span></button></div>
+      </div>
+      ${rows.length ? `<aside class="pub-side ledger" aria-label="Key data">
+        <p class="ledger-label">Key data</p>
+        <dl>${rows.map((x) => `<div class="ledger-row"><dt>${esc(x.label)}</dt><dd>${esc(x.value)}</dd>${x.note ? `<dd class="ledger-note">${esc(x.note)}</dd>` : ''}</div>`).join('')}</dl>
+      </aside>` : ''}`;
+    const anchor = main.querySelector('[data-report-context]');
+    if (anchor) anchor.after(opener); else main.prepend(opener);
+    const copy = opener.querySelector('[data-pub-copy]');
+    copy.addEventListener('click', async () => {
+      const text = new URL(href(r), location.href).href;
+      let ok = false;
+      try { await navigator.clipboard.writeText(text); ok = true; } catch (_) { ok = LH ? await LH.util.copyText(text) : false; }
+      const label = copy.querySelector('[data-pub-copy-label]');
+      label.textContent = ok ? 'Link copied' : 'Copy failed';
+      clearTimeout(copy._t);
+      copy._t = setTimeout(() => { label.textContent = 'Copy link'; }, 2200);
+    });
+    // Fold the page's own opening away, keeping whatever else it holds.
+    recipe.fold.forEach((sel) => hero.querySelectorAll(sel).forEach((el) => el.classList.add('pub-folded')));
+    if ([...hero.children].every((el) => el.classList.contains('pub-folded'))) hero.classList.add('pub-folded');
+    else hero.classList.add('pub-hero-rest');
   }
 
   function addReadingRail(r) {
@@ -161,10 +232,10 @@
     });
     nav.append(list);
     details.append(summary, nav);
-    const hero = main.querySelector('.reader-head, .pbai-hero, .market-hero, .coal-hero, .hero');
+    const hero = main.querySelector('[data-publication-opener], .reader-head, .pbai-hero, .market-hero, .coal-hero, .hero');
     if (hero) hero.after(details); else main.querySelector('[data-report-context]').after(details);
     // Existing desktop rails remain in charge of the specialized page layout.
-    if (main.querySelector('.pbai-toc, .market-rail, .coal-nav, .update-links')) details.classList.add('report-contents-mobile');
+    if (main.querySelector('.pbai-toc, .market-rail, .coal-nav, .update-links, .chapter-rail, .section-nav')) details.classList.add('report-contents-mobile');
   }
 
   function addRelated(r, ctx) {

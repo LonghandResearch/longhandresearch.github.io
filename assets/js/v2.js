@@ -9,7 +9,7 @@
     if (standaloneTheme) {
       let saved;
       try { saved = localStorage.getItem('longhand-theme'); } catch (_) {}
-      document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved === 'dark' || (saved !== 'light' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
       const describe = () => {
         standaloneTheme.setAttribute('aria-label', document.documentElement.dataset.theme === 'dark' ? 'Switch to warm paper theme' : 'Switch to dark theme');
       };
