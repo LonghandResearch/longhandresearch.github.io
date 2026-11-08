@@ -129,7 +129,8 @@ for (const r of reports) {
           if (blocks.some(block => block.sources && !Array.isArray(block.sources))) weeklyBad('a block sources field is not a list');
           if ((types.has('closes') || types.has('fxLab')) && !numeric(arrays.closes, 'close', 2)) weeklyBad('closing observations need at least two numeric close values');
           if (types.has('flows') && !numeric(arrays.foreignFlow, 'netBn', 1)) weeklyBad('foreign-flow observations need numeric netBn values');
-          if (types.has('sectors') && !numeric(arrays.sectors, 'weekly', 1)) weeklyBad('sector observations need numeric weekly values');
+          const barSets = (data.sections || []).flatMap(s => (s.blocks || []).filter(b => b.type === 'sectors').map(b => b.rows || 'sectors'));
+          barSets.forEach(key => { if (!/^[a-zA-Z]+$/.test(key) || !numeric(arrays[key], 'weekly', 1)) weeklyBad(`bar observations ${key} need numeric weekly values`); });
           if (types.has('stocks') && !numeric(arrays.stocks, 'points', 1)) weeklyBad('stock observations need numeric points values');
           if (types.has('fxLab') && !numeric(arrays.jisdor, 'rate', 2)) weeklyBad('the FX lab needs at least two numeric JISDOR rates');
           if (types.has('sankey')) {

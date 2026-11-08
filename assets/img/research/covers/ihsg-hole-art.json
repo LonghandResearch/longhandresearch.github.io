@@ -1,0 +1,22 @@
+{
+  "title": "A new plaza floor with one missing stone and a thin pole rising from it",
+  "created": "2026-11-08",
+  "reportId": "ihsg-weekly-2026-11-06",
+  "method": "The owner generated the image from Claude's prompt below and supplied it on 8 November 2026 as a 1024 by 1536 WebP. The owner did not state the tool. Claude removed one defect: the walking office worker on the left had a third arm holding a shopping bag. The arm and the bag were replaced by shifting the neighbouring planting and stone wall from the left, pixels only, no generative fill. The corrected image was encoded as WebP with 640 and 320 pixel variants. No cropping.",
+  "width": 1024,
+  "height": 1536,
+  "sourceSha256": "5f134ee2d2f6e0fc18db59dea1daad20af414e3a3e009d752d0d8847b28de7c1",
+  "editedSha256": "97d1461313b9652d1eaf4e70c91bef6dcb785fb9aeea36f2f6e04264f70619be",
+  "edit": "Region x 43 to 77, y 1158 to 1252 of the 1024 by 1536 frame.",
+  "conceptual": true,
+  "caption": "Two paving workers kneel beside a missing stone in a newly laid plaza in front of twin glass towers, looking up at a thin bamboo pole that lifts an orange balloon above everyone. Conceptual editorial artwork, not a documentary scene, a named venue or a measurement of market conditions.",
+  "files": [
+    "ihsg-hole-art.webp",
+    "ihsg-hole-art-640.webp",
+    "ihsg-hole-art-320.webp"
+  ],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The artwork contains no lettering.",
+  "concept": "A quiet week with a hole in the new index. The newly laid paving is the cleaned index after 81 concentrated stocks left it. The missing stone is the gap the rules left, and the thin pole lifting a balloon above the plaza is MKNT, a thinly held stock that lifted IHSG. The ordinary passers-by are the quiet week.",
+  "review": "Checked at full size on 8 November for lettering, logos and distorted faces or hands. The owner spotted a third arm on the walking office worker, which Claude confirmed and removed with the bag it held. After the edit every figure has two arms and two legs: both workers, the office worker, the woman with the tote, the cart vendor, the woman in a hijab, the man with coffee and the man in the distance. The lanyard badge is blank. No logo is visible.",
+  "prompt": "Portrait editorial cover illustration for a weekly stock market research report, 2:3 frame. Clean ligne-claire ink outlines with flat, bright print colours and a light paper grain, in the manner of classic European adventure comics but set in Jakarta. Bright mid-morning daylight, cheerful and clear, nothing dark, nothing odd.\n\nScene: a wide, calm plaza in front of a modern glass twin-tower office complex in Jakarta's business district, in the style of the Indonesia Stock Exchange towers (two tall blue glass towers with stepped crowns, drawn without any logo or sign). The plaza floor has just been re-laid with neat new square paving stones in a tidy grid, freshly swept. Exactly in the middle of the new paving one stone is missing, leaving a small square hole. Out of that hole rises a single very thin, very tall bamboo pole, and at its top floats one big round orange balloon high above the plaza, higher than anything else in the scene. Two paving workers in orange vests and hard hats kneel beside the hole and look up at the pole with puzzled expressions, one scratching his head. Around them the plaza is quiet and ordinary: an office worker with a lanyard walking past reading a newspaper, a woman in a hijab sitting on a bench with takeaway coffee, a man pushing a small food cart with an umbrella, a cyclist. Frangipani and tall palms in planters. Far away on the horizon to the left, beyond the city, a low bank of grey rain clouds sits over the sea, small and distant, while the sky above the plaza stays bright blue.\n\nComposition: the top 30% of the frame is open blue sky with a few soft white clouds, where only the top of the bamboo pole and the orange balloon appear, so a headline can be placed there. The towers rise to about 35% from the top. People are drawn at middle distance, with simple calm faces, natural proportions and correct hands. Warm palette of sky blue, leaf green, orange, terracotta and cream.\n\nConstraints: absolutely no text, letters, numbers, signs or logos anywhere in the image, no watermark, no charts, no trademarked characters, no weird or distorted objects, no dark mood."
+}

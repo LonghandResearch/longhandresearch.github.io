@@ -93,7 +93,7 @@
   link('tsm-2026-11-01', 'company', ['tsmc'], 'primary', catalogue('tsm-2026-11-01'), 'Published company initiation');
   link('tsm-2026-11-01', 'sector', ['semiconductors'], 'primary', catalogue('tsm-2026-11-01'), 'Sector identified in the catalogue');
   link('tsm-2026-11-01', 'sector', ['ai-infrastructure'], 'material', catalogue('tsm-2026-11-01'), 'AI-driven demand and capex examined in the report');
-  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16', 'ihsg-weekly-2026-10-23', 'ihsg-weekly-2026-10-30'].forEach((id) => {
+  ['ihsg-weekly-2026-09-25', 'ihsg-weekly-2026-10-02', 'ihsg-weekly-2026-10-09', 'ihsg-weekly-2026-10-16', 'ihsg-weekly-2026-10-23', 'ihsg-weekly-2026-10-30', 'ihsg-weekly-2026-11-06'].forEach((id) => {
     link(id, 'country', ['ID'], 'primary', catalogue(id), 'Indonesia equity-market update');
     link(id, 'sector', ['rates-macro'], 'primary', catalogue(id), 'Market and currency observations; IHSG is an index, not a company');
   });

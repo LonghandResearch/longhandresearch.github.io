@@ -1,0 +1,1455 @@
+{
+  "schemaVersion": 1,
+  "weekEnding": "2026-11-06",
+  "published": "2026-11-08",
+  "reviewed": "2026-11-08",
+  "period": "2 to 6 November 2026",
+  "title": "A Quiet Week With a Hole in the New Index",
+  "titleLead": "A quiet week.",
+  "titleEmphasis": "A hole in the new index.",
+  "deck": "IHSG slipped 0.13% to 5,050.429 while Taiwan, Korea and Japan fell 9% to 12% in an AI sell-off. Foreign selling nearly stopped. In the first week of the cleaned index, a stock 99.64% held by a few accounts added 12.40 points. October was the worst month of 33 markets. We stay defensive.",
+  "description": "Indonesia weekly research for 2 to 6 November 2026 with an October review. Audited IDX data, the MKNT case in the cleaned index, the global AI sell-off, October's 16.70% fall against 33 markets, sukuk demand and a check of last week's call.",
+  "presentation": "refined",
+  "stats": [
+    {
+      "label": "IHSG close",
+      "value": "5,050.43",
+      "note": "-0.13% over the week. Range 4,824.36 to 5,143.58"
+    },
+    {
+      "label": "Official weekly foreign net",
+      "value": "-Rp167bn",
+      "note": "All stock markets. 94.53% less than the week before. Net buying on two days"
+    },
+    {
+      "label": "IHSG in October",
+      "value": "-16.70%",
+      "note": "Last of 33 markets in IDX's monthly table. Foreign net selling Rp16.88tn"
+    },
+    {
+      "label": "JISDOR, Rp per USD",
+      "value": "18,130",
+      "note": "-0.04% from 30 October. Indicative USD return -0.09%"
+    }
+  ],
+  "sources": {
+    "weekly": {
+      "label": "IDX Weekly Statistics, 2 to 6 November 2026",
+      "url": "https://www.idx.co.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ws_261106. Page 1 market activity and range, page 2 official foreign flow, investor composition and seller and buyer pairs, page 3 top stocks, page 4 market totals and breadth, page 5 index contributions, page 7 sector and board indices, page 8 global comparison."
+    },
+    "daily": {
+      "label": "IDX Daily Statistics, 2 to 6 November 2026",
+      "url": "https://www.idx.co.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ds_261102 to ds_261106. Page 1 closes and ranges, page 2 foreign net and multiples, page 5 market types."
+    },
+    "monthly": {
+      "label": "IDX Monthly Statistics, October 2026",
+      "url": "https://www.idx.co.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ms_equity_2610. Page 1 trading summary, page 12 top gainers, page 13 index movers, page 14 foreign trade, page 15 investor shares, page 18 index performance, page 20 global index performance."
+    },
+    "observations": {
+      "label": "Frozen IDX observations and source hashes, 6 November 2026",
+      "url": "https://longhandresearch.github.io/weekly/market-2026-11-06.json",
+      "note": "Exact daily and weekly figures, 23 passed reconciliation checks, breadth counts read by colour, index contributions, sector indices, the global table, FRED and Treasury rows, and the MKNT record."
+    },
+    "monthlyObservations": {
+      "label": "Frozen October monthly observations",
+      "url": "https://longhandresearch.github.io/weekly/idx-monthly-2026-10.json",
+      "note": "Figures read from the October monthly statistics with the file hash and page numbers."
+    },
+    "flowless": {
+      "label": "Frozen stock-level estimates, 6 November 2026",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-11-06.json",
+      "note": "Read-only weekly export for 79 liquid large caps, daily reconciliation with IDX regular-market value and volume, and daily rows for nine focus stocks. Foreign values are closing-price estimates."
+    },
+    "jisdor": {
+      "label": "Bank Indonesia JISDOR, 30 October to 6 November 2026",
+      "url": "https://www.bi.go.id/id/statistik/informasi-kurs/jisdor/default.aspx",
+      "note": "Six rates read from the BI table on 8 November. The five current-week rates match the IDX daily files."
+    },
+    "pr107": {
+      "label": "IDX press release 107/BEI.SPR/11-2026, 6 November 2026",
+      "url": "https://www.idx.co.id/id/berita/siaran-pers/2756",
+      "note": "Weekly summary and the new rule, Kep-00160/BEI/11-2026 of 2 November, that adds controller status to holdings above 1% in monthly reports."
+    },
+    "mkntHsc": {
+      "label": "IDX and KSEI notice Peng-HSC-00087/BEI.WAS/11-2026, 6 November 2026",
+      "url": "https://www.idx.co.id/id/perusahaan-tercatat/keterbukaan-informasi/",
+      "note": "MKNT high shareholding concentration notice published at 17:12. A limited number of holders control 99.64% of shares as of 5 November. Found under MKNT announcements."
+    },
+    "mkntReply": {
+      "label": "MKNT letter 043/MKNT/EXT/BEI/XI/2026, 6 November 2026",
+      "url": "https://www.idx.co.id/id/perusahaan-tercatat/keterbukaan-informasi/",
+      "note": "Reply to IDX letter S-13822/BEI.PP1/11-2026 of 4 November on trading volatility. Also lists the 19 October lifting of the trading halt. Found under MKNT announcements."
+    },
+    "idxProfiles": {
+      "label": "IDX company profile, MKNT shareholders",
+      "url": "https://www.idx.co.id/id/perusahaan-tercatat/profil-perusahaan-tercatat/",
+      "note": "Shareholder table read on 8 November: 1,029.99bn shares, public scripless holding 19.955%."
+    },
+    "fred": {
+      "label": "FRED daily series SP500, NASDAQCOM, NASDAQ100, DJIA and NIKKEI225",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "note": "Graph CSVs read on 8 November. Index levels on 30 September, 29 and 30 October and 4 to 6 November."
+    },
+    "cnbcSpx": {
+      "label": "CNBC quote page, S&P 500 index (.SPX)",
+      "url": "https://www.cnbc.com/quotes/.SPX",
+      "note": "Read 8 November: 7,376.86 on 6 November, up 0.31%, previous close 7,353.73. FRED had not yet posted 6 November. Reuters gives the same 0.31% rise."
+    },
+    "treasury": {
+      "label": "US Treasury daily par yield curve rates, 2026",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026",
+      "note": "Two-year and ten-year yields for 30 September, 30 October and 2 to 6 November."
+    },
+    "bls": {
+      "label": "BLS Employment Situation, October 2026",
+      "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
+      "note": "Payrolls up 165,000. Released 6 November."
+    },
+    "reutersMarkets": {
+      "label": "Reuters, Wall Street stocks rally after heavy AI-related selloff, 6 November 2026",
+      "url": "https://www.thenewstribune.com/news/business/article317950680.html",
+      "note": "Syndicated Reuters report. Friday moves, the Texas governor-elect's data-centre plan, payrolls, the 10-year yield and Brent's 98.32 dollar settlement."
+    },
+    "nbcMarkets": {
+      "label": "NBC News, Investors try to regain their footing after tech stocks tank, 6 November 2026",
+      "url": "https://www.nbcnews.com/business/markets/global-markets-tech-stocks-ai-midterms-democrats-asia-europe-rcna607794",
+      "note": "Thursday's 4.4% S&P 500 fall and 6.3% Nasdaq 100 fall, the midterm explanation, and why Asian chip and memory markets fell hardest."
+    },
+    "reutersIndia": {
+      "label": "Reuters, Indian stocks buck global tech rout, post best week in 6 years, 6 November 2026",
+      "url": "https://www.reuters.com/world/india/indian-stocks-set-pullback-after-sharp-rally-oil-slide-foreign-inflows-2026-11-06/",
+      "note": "SENSEX close of 81,028.02 matches IDX's table."
+    },
+    "reutersOil": {
+      "label": "Reuters, Oil drops 7% as Iran signals openness to peace talks, 2 November 2026",
+      "url": "https://www.businesstimes.com.sg/companies-markets/energy-commodities/oil-drops-7-iran-signals-openness-peace-talks",
+      "note": "Syndicated Reuters report. Brent futures settled 8.66 dollars lower at 104.77, so the 30 October settlement was 113.43."
+    },
+    "guardianOil": {
+      "label": "The Guardian, Oil price falls amid hope of a breakthrough to end Iran war, 2 November 2026",
+      "url": "https://www.theguardian.com/business/2026/nov/02/oil-price-falls-amid-hope-of-a-breakthrough-to-end-iran-war",
+      "note": "Second outlet for Monday's oil fall and its cause."
+    },
+    "bpsGdp": {
+      "label": "BPS, Indonesia's economy grew 5.47% in Q3 2026, 5 November 2026",
+      "url": "https://www.bps.go.id/id/pressrelease/2026/11/05/169700/ekonomi-indonesia-triwulan-iii-2026-tumbuh-5-47-persen--y-on-y-.html",
+      "note": "5.47% year on year, 1.59% on the quarter, 5.45% for January to September."
+    },
+    "bpsCpi": {
+      "label": "BPS, October 2026 inflation 3.23% year on year, 2 November 2026",
+      "url": "https://www.bps.go.id/id/pressrelease/2026/11/02/170347/inflasi-year-on-year--y-on-y--pada-oktober-2026-sebesar-3-23-persen-.html",
+      "note": "Headline from the BPS release list."
+    },
+    "kssk": {
+      "label": "KSSK press release 04/KSSK/Pers/2026 via Bank Indonesia, 3 November 2026",
+      "url": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2824026.aspx",
+      "note": "Names the October pressures: Middle East energy prices, tight global policy, tighter domestic liquidity, the MSCI announcement and equity outflows."
+    },
+    "msci": {
+      "label": "MSCI reclassification consultation, 15 October 2026",
+      "url": "https://ir.msci.com/news-releases/news-release-details/msci-launches-consultation-proposal-reclassify-indonesia",
+      "note": "Proposal to move Indonesia to Standalone status. Announced at 20:40 GMT on 15 October, 03:40 WIB on 16 October. Checked in the 16 October edition."
+    },
+    "technozSukuk": {
+      "label": "Bloomberg Technoz, sukuk auction of 3 November, 4 November 2026",
+      "url": "https://www.bloombergtechnoz.com/detail-news/126648/lelang-sukuk-permintaan-naik-pemerintah-ambil-lebih-banyak",
+      "note": "Bids Rp28.55tn against Rp22.76tn, Rp16.65tn awarded against a Rp10tn target, citing the Finance Ministry's financing office."
+    },
+    "kontanSukuk": {
+      "label": "Kontan, sukuk auction demand rose, 4 November 2026",
+      "url": "https://investasi.kontan.co.id/news/minat-lelang-sukuk-meningkat-yield-sun-bergerak-bervariasi",
+      "note": "Bids Rp28.56tn, bid to cover 1.71 times, Rp21.04tn of bids for short-term SPNS bills."
+    },
+    "prior": {
+      "label": "Longhand IHSG weekly, 30 October 2026",
+      "url": "https://longhandresearch.github.io/ihsg-weekly.html?week=2026-10-30",
+      "note": "Previous close, last week's view and its three tests, the planning range and TLKM's estimated foreign selling."
+    },
+    "prior16": {
+      "label": "Frozen observations, 16 October 2026",
+      "url": "https://longhandresearch.github.io/weekly/market-2026-10-16.json",
+      "note": "Closes of 15 and 16 October."
+    }
+  },
+  "observations": {
+    "closes": [
+      {
+        "date": "2026-10-30",
+        "close": 5057.05,
+        "label": "30 Oct"
+      },
+      {
+        "date": "2026-11-02",
+        "close": 5096.83,
+        "label": "2 Nov"
+      },
+      {
+        "date": "2026-11-03",
+        "close": 4904.287,
+        "label": "3 Nov"
+      },
+      {
+        "date": "2026-11-04",
+        "close": 4919.767,
+        "label": "4 Nov"
+      },
+      {
+        "date": "2026-11-05",
+        "close": 5030.261,
+        "label": "5 Nov"
+      },
+      {
+        "date": "2026-11-06",
+        "close": 5050.429,
+        "label": "6 Nov"
+      }
+    ],
+    "foreignFlow": [
+      {
+        "date": "2026-11-02",
+        "netBn": -112.47,
+        "label": "2 Nov"
+      },
+      {
+        "date": "2026-11-03",
+        "netBn": -575.01,
+        "label": "3 Nov"
+      },
+      {
+        "date": "2026-11-04",
+        "netBn": 257.71,
+        "label": "4 Nov"
+      },
+      {
+        "date": "2026-11-05",
+        "netBn": -65.53,
+        "label": "5 Nov"
+      },
+      {
+        "date": "2026-11-06",
+        "netBn": 328.2,
+        "label": "6 Nov"
+      }
+    ],
+    "jisdor": [
+      {
+        "date": "2026-10-30",
+        "rate": 18138
+      },
+      {
+        "date": "2026-11-02",
+        "rate": 18161
+      },
+      {
+        "date": "2026-11-03",
+        "rate": 18148
+      },
+      {
+        "date": "2026-11-04",
+        "rate": 18140
+      },
+      {
+        "date": "2026-11-05",
+        "rate": 18094
+      },
+      {
+        "date": "2026-11-06",
+        "rate": 18130
+      }
+    ],
+    "sectors": [
+      {
+        "name": "Technology",
+        "weekly": -6.46
+      },
+      {
+        "name": "Transport and logistics",
+        "weekly": -5.35
+      },
+      {
+        "name": "Energy",
+        "weekly": -5.01
+      },
+      {
+        "name": "Property",
+        "weekly": -4.35
+      },
+      {
+        "name": "Consumer cyclicals",
+        "weekly": -4.04
+      },
+      {
+        "name": "Infrastructure",
+        "weekly": -3.46
+      },
+      {
+        "name": "Healthcare",
+        "weekly": -3.01
+      },
+      {
+        "name": "Basic materials",
+        "weekly": -1.95
+      },
+      {
+        "name": "Industrials",
+        "weekly": -1.22
+      },
+      {
+        "name": "Consumer non-cyclicals",
+        "weekly": 0.85
+      },
+      {
+        "name": "Financials",
+        "weekly": 1.33
+      }
+    ],
+    "stocks": [
+      {
+        "ticker": "BRPT",
+        "points": -15.98
+      },
+      {
+        "ticker": "AADI",
+        "points": -5.39
+      },
+      {
+        "ticker": "UNTR",
+        "points": -4.08
+      },
+      {
+        "ticker": "VKTR",
+        "points": -3.48
+      },
+      {
+        "ticker": "EXCL",
+        "points": -3.45
+      },
+      {
+        "ticker": "BBCA",
+        "points": 20.48
+      },
+      {
+        "ticker": "MKNT",
+        "points": 12.4
+      },
+      {
+        "ticker": "ASII",
+        "points": 9.99
+      },
+      {
+        "ticker": "SMMA",
+        "points": 8.21
+      },
+      {
+        "ticker": "CASA",
+        "points": 6.36
+      }
+    ],
+    "globalWeek": [
+      {
+        "name": "Taiwan TSE Weighted",
+        "weekly": -12.19
+      },
+      {
+        "name": "Korea KOSPI",
+        "weekly": -11.71
+      },
+      {
+        "name": "Japan Nikkei 225",
+        "weekly": -9.25
+      },
+      {
+        "name": "Singapore STI",
+        "weekly": -3.67
+      },
+      {
+        "name": "Thailand SET",
+        "weekly": -3.48
+      },
+      {
+        "name": "US Nasdaq Composite",
+        "weekly": -3.37
+      },
+      {
+        "name": "US S&P 500",
+        "weekly": -2.68
+      },
+      {
+        "name": "US Dow Jones",
+        "weekly": -0.94
+      },
+      {
+        "name": "Vietnam VN-Index",
+        "weekly": -0.93
+      },
+      {
+        "name": "Indonesia IHSG",
+        "weekly": -0.13
+      },
+      {
+        "name": "Malaysia KLCI",
+        "weekly": 0.06
+      },
+      {
+        "name": "China SSE Composite",
+        "weekly": 1.39
+      },
+      {
+        "name": "Philippines PSEi",
+        "weekly": 1.44
+      },
+      {
+        "name": "Hong Kong Hang Seng",
+        "weekly": 5.1
+      },
+      {
+        "name": "India SENSEX",
+        "weekly": 8.82
+      }
+    ],
+    "octoberGlobal": [
+      {
+        "name": "Indonesia",
+        "weekly": -16.7
+      },
+      {
+        "name": "Korea",
+        "weekly": -16.19
+      },
+      {
+        "name": "Brazil",
+        "weekly": -9.21
+      },
+      {
+        "name": "China",
+        "weekly": -6.33
+      },
+      {
+        "name": "Taiwan",
+        "weekly": -5.69
+      },
+      {
+        "name": "Hong Kong",
+        "weekly": -5.36
+      },
+      {
+        "name": "Singapore",
+        "weekly": -5.27
+      },
+      {
+        "name": "Japan",
+        "weekly": -5.19
+      },
+      {
+        "name": "Thailand",
+        "weekly": -2.59
+      },
+      {
+        "name": "Malaysia",
+        "weekly": -2.15
+      },
+      {
+        "name": "Vietnam",
+        "weekly": -1.53
+      },
+      {
+        "name": "Philippines",
+        "weekly": 0.02
+      },
+      {
+        "name": "India",
+        "weekly": 2.73
+      },
+      {
+        "name": "US, Dow to 29 Oct",
+        "weekly": 2.82
+      },
+      {
+        "name": "Mexico",
+        "weekly": 8.68
+      }
+    ],
+    "octoberSectors": [
+      {
+        "name": "Infrastructure",
+        "weekly": -26.02
+      },
+      {
+        "name": "Basic materials",
+        "weekly": -23.9
+      },
+      {
+        "name": "Industrials",
+        "weekly": -22.91
+      },
+      {
+        "name": "Energy",
+        "weekly": -21.67
+      },
+      {
+        "name": "Consumer cyclicals",
+        "weekly": -19.31
+      },
+      {
+        "name": "Technology",
+        "weekly": -19.0
+      },
+      {
+        "name": "Transport and logistics",
+        "weekly": -13.09
+      },
+      {
+        "name": "Consumer non-cyclicals",
+        "weekly": -11.82
+      },
+      {
+        "name": "Healthcare",
+        "weekly": -9.69
+      },
+      {
+        "name": "Property",
+        "weekly": -9.66
+      },
+      {
+        "name": "Financials",
+        "weekly": -8.41
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "judgment",
+      "title": "Asia fell hard. Jakarta barely moved. We still would not buy it.",
+      "nav": "The judgment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "observations"
+          ],
+          "text": "IHSG slipped 0.13% to 5,050.429, a loss of 6.621 points. In the same week Taiwan's index fell 12.19%, Korea's KOSPI 11.71% and Japan's Nikkei 9.25%. A flat week next to a crash looks like strength. We read it differently. Indonesia has almost none of the AI hardware makers that were sold, so the storm went round it, and the flat number hides a split inside the market.",
+          "lede": true
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless",
+            "observations"
+          ],
+          "text": "Large banks rose and small stocks fell. LQ45 gained 0.60% and financials 1.33%, while the IDX SMC Composite lost 3.08% and the Acceleration Board 7.00%. By count, 579 stocks fell and 215 rose. BBCA alone added 20.48 points, and it was the stock foreign investors bought most, by an estimated Rp520bn. Foreign selling across all stocks nearly stopped, at Rp167bn against Rp3.06tn the week before."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "mkntHsc",
+            "observations"
+          ],
+          "text": "The second name on IDX's list of leaders is the one that bothers us. MKNT, a stock at Rp32, added 12.40 points. That is more than the whole index lost. A week earlier it traded at Rp11, and on 16 October at Rp1. On Friday evening IDX and KSEI published a notice saying a limited number of holders control 99.64% of its shares. This was the first week of the index without the 81 concentrated stocks that left on 2 November, and a stock with the same problem did the heavy lifting. Without MKNT the index would have fallen about 19 points, or 0.38%."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless",
+            "monthly",
+            "kontanSukuk"
+          ],
+          "text": "Our view stays defensive. Foreign selling has paused and sukuk demand improved, and those are real changes. But foreigners still sold BBRI and BMRI, the index rose on a stock with almost no free float in practice, and October left the market 16.70% lower in a month in which most of the world was steady. We would turn neutral if foreign investors buy the large banks for two weeks in a row, if a conventional bond auction draws strong bids for long tenors, and if IHSG closes above 5,488."
+        },
+        {
+          "type": "callout",
+          "label": "Checking last week's call",
+          "sources": [
+            "prior",
+            "flowless",
+            "kontanSukuk"
+          ],
+          "text": "Last week we set three tests. The first was a bond auction with strong bids. The sukuk auction on Tuesday drew Rp28.56tn of bids, 25.5% more than the one before, but 73.67% of them were for short-term bills. That is half a pass. The second was an end to foreign selling of TLKM, BMRI and BBRI. TLKM passed, with estimated net selling of Rp12bn against Rp1.19tn. BMRI and BBRI did not, at Rp219bn and Rp399bn. The third was a close above 5,488 with foreign buying. The best close was 5,096.830 on Monday. The week stayed inside our planning range of 4,437 to 5,185, between a low of 4,824.364 and a high of 5,143.582."
+        }
+      ]
+    },
+    {
+      "id": "week",
+      "title": "One bad Tuesday and a recovery",
+      "nav": "The week",
+      "blocks": [
+        {
+          "type": "closes",
+          "label": "Exhibit 01",
+          "title": "A 3.78% fall on Tuesday, then three higher closes",
+          "sources": [
+            "daily",
+            "reutersMarkets"
+          ],
+          "note": "Select a date to inspect the closing observation. Lines join daily closes and show no intraday highs or lows.",
+          "event": {
+            "label": "Wall Street's AI sell-off",
+            "note": "Thursday 5 November in New York, after the Jakarta close. Asia fell on Friday"
+          }
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "daily",
+            "flowless"
+          ],
+          "text": "Monday opened the cleaned index with a rise of 0.79% to 5,096.830. On Tuesday IHSG reached 5,143.582, the high of the week, then fell 4.65% from that point to close at 4,904.287, down 3.78% on the day. BBRI fell 5.67% and foreign investors sold a net Rp575bn, the most of any day this week. We found no filing or data release that explains Tuesday. Wednesday touched the week's low of 4,824.364 before closing up 0.32%."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "daily",
+            "bpsGdp",
+            "observations"
+          ],
+          "text": "Thursday brought the biggest rise, 2.25% to 5,030.261. BPS published third-quarter growth of 5.47% that day. We cannot show the release moved the market, only that they share a date. On Friday, while Tokyo, Seoul and Taipei fell, IHSG rose 0.40% to 5,050.429, its high of the day, and foreign investors bought a net Rp328bn."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "observations"
+          ],
+          "text": "Trading thinned again. Total value averaged Rp11.04tn a day, 23.00% less than the week before, and regular-market value averaged Rp9.43tn, down 26.79%. Negotiated trades were 14.60% of the week's value. Foreign investors were 37% of trading, down from 41%."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Weekly breadth",
+            "Stocks",
+            "Share"
+          ],
+          "rows": [
+            [
+              "Fell more than 2%",
+              "472",
+              "49.01%"
+            ],
+            [
+              "Fell up to 2%",
+              "107",
+              "11.11%"
+            ],
+            [
+              "Unchanged",
+              "169",
+              "17.55%"
+            ],
+            [
+              "Rose up to 2%",
+              "61",
+              "6.33%"
+            ],
+            [
+              "Rose more than 2%",
+              "154",
+              "15.99%"
+            ]
+          ],
+          "caption": "Breadth across 963 listed stocks",
+          "sources": [
+            "weekly",
+            "observations"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "observations"
+          ],
+          "text": "Measured by value, the picture is less one-sided. Stocks worth Rp4,624tn fell and stocks worth Rp3,469tn rose, 53.24% and 39.94% of the value in IDX's chart. Many small stocks fell and a few large ones rose. IDX again printed the percentages of the two falling groups in each other's place, in both bars, so we recompute every share from the counts."
+        }
+      ]
+    },
+    {
+      "id": "mknt",
+      "title": "A stock at Rp32 did more for the index than the market did",
+      "nav": "MKNT",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Measure",
+            "MKNT"
+          ],
+          "rows": [
+            [
+              "Close, 16 October",
+              "Rp1"
+            ],
+            [
+              "Close, 30 October",
+              "Rp11"
+            ],
+            [
+              "Close, 6 November",
+              "Rp32"
+            ],
+            [
+              "Rise this week",
+              "190.91%"
+            ],
+            [
+              "IHSG points added this week",
+              "12.40"
+            ],
+            [
+              "Regular-market trading this week",
+              "Rp28.3bn"
+            ],
+            [
+              "Shares outstanding",
+              "1,029.99bn"
+            ],
+            [
+              "Two named holders",
+              "80.05%"
+            ],
+            [
+              "Public holding in the register",
+              "19.955%"
+            ],
+            [
+              "Shares held by a few holders, KSEI",
+              "99.64%"
+            ]
+          ],
+          "caption": "From IDX weekly pages 4 and 5, the IDX company profile, the 6 November HSC notice and the frozen daily rows",
+          "sources": [
+            "weekly",
+            "idxProfiles",
+            "mkntHsc",
+            "flowless"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "mkntReply",
+            "flowless",
+            "monthly"
+          ],
+          "text": "MKNT came back from a trading halt on 19 October at Rp2. It then rose by one rupiah a day for nine sessions, to Rp11 on 30 October. At such prices each rupiah is a large step in percentage terms. This week the steps grew: Rp14, Rp18, Rp24 and Rp32. On Friday no share traded at all. IDX's own October report lists MKNT as the month's top gainer, up 1,000%."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "idxProfiles",
+            "weekly",
+            "mkntHsc",
+            "flowless"
+          ],
+          "text": "The index counts MKNT at its registered free float. The register shows 19.955% of shares held by the public, 205.5bn shares, worth Rp6.58tn at Rp32. That matches IDX's free-float value on page 5, and it is why a stock with Rp28.3bn of trading in the week could add 12.40 points. KSEI's count tells a different story. As of 5 November, a limited number of holders controlled 99.64% of all MKNT shares, which means most of the shares the register calls public sit with a few accounts too."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "mkntReply",
+            "flowless"
+          ],
+          "text": "IDX asked the company to explain the trading on 4 November. Its answer on 6 November said it knew of no undisclosed material facts, had received no reports of shareholder activity and was not buying its own shares. The rise has no stated cause. Foreign investors were almost absent, with estimated net buying of Rp0.22bn."
+        },
+        {
+          "type": "callout",
+          "label": "Our assessment",
+          "sources": [
+            "mkntHsc",
+            "pr107",
+            "weekly",
+            "prior"
+          ],
+          "text": "The cleaned index was meant to stop thin, concentrated stocks from moving IHSG. In its first week a thin, concentrated stock was its second largest support. IDX has not said whether MKNT will leave the index before the current evaluation period ends on 29 January 2027. The new rule of 2 November, which adds controller status to holdings above 1% in monthly reports, will help investors see such cases. It does not change the index on its own. Until the index rules catch up with the HSC notices, we will report IHSG's move with and without stocks like this."
+        }
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Foreign selling nearly stopped",
+      "nav": "Who sold",
+      "blocks": [
+        {
+          "type": "flows",
+          "label": "Exhibit 02",
+          "title": "Net selling of Rp167bn, with buying on two days",
+          "sources": [
+            "weekly",
+            "daily"
+          ],
+          "note": "Official all-market stock trading, foreign purchases less sales. This measures trading, not money leaving the country."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "daily",
+            "observations"
+          ],
+          "text": "The week's net selling of Rp167bn was 94.53% smaller than the Rp3.06tn of the week before. Wednesday and Friday were days of net buying. The total for 2026 is Rp98.09tn. Domestic investors bought Rp35.04tn and sold Rp34.87tn, close to balance."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "flowless"
+          ],
+          "text": "Our stock-level estimate covers 79 liquid large caps with at least Rp10tn of market value and Rp10bn of average daily trading. It shows foreign investors buying BBCA, by Rp520bn, and ASII, by Rp269bn. For ASII that buying was unusually large against its own last 120 sessions. They sold BBRI, by Rp399bn, BMRI, by Rp219bn, and GOTO, ANTM and ADRO by Rp116bn to Rp125bn each. The estimate values foreign share volume at each day's close and leaves out negotiated trades. For all stocks it comes to Rp688bn of net selling, Rp521bn more than the official figure, so we use it only to see which stocks foreigners traded."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Possible explanation",
+            "Evidence for",
+            "Evidence against",
+            "Our read"
+          ],
+          "rows": [
+            [
+              "Little exposure to AI hardware",
+              "Taiwan, Korea and Japan fell 9% to 12%. India, Hong Kong and Shanghai rose. NBC and Reuters both tie the sell-off to AI spending and chip makers",
+              "Singapore and Thailand also fell more than 3%. Indonesia's small stocks fell",
+              "Explains the gap with North Asia"
+            ],
+            [
+              "Foreign selling paused",
+              "Net selling down 94.53%. Buying on Wednesday and Friday. BBCA and ASII bought",
+              "BBRI and BMRI still sold. Foreign share of trading fell to 37%",
+              "A large part"
+            ],
+            [
+              "One thin stock propped the index",
+              "MKNT added 12.40 points. Without it IHSG falls about 0.38%",
+              "Even without MKNT the week is close to flat",
+              "Changes the sign, not the story"
+            ],
+            [
+              "Growth data",
+              "GDP of 5.47% came on Thursday, the best day, up 2.25%",
+              "No evidence the release caused the move. Tuesday's fall had no stated cause either",
+              "Not proven"
+            ]
+          ],
+          "caption": "Each explanation tested against the evidence that would rule it out",
+          "sources": [
+            "weekly",
+            "flowless",
+            "nbcMarkets",
+            "reutersMarkets",
+            "bpsGdp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leaders",
+      "title": "Banks rose and small stocks fell",
+      "nav": "Large caps",
+      "blocks": [
+        {
+          "type": "stocks",
+          "label": "Exhibit 03",
+          "title": "Five laggards and five leaders",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Official weekly IHSG contributions from IDX. The full ten leaders added 80.78 points and the ten laggards took away 46.51."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless"
+          ],
+          "text": "BBCA rose 4.42% and added 20.48 points. ASII, SMMA, CASA and INDF followed. BRPT was the largest drag. It fell about 6.7% on each of the last four days and lost 20.56% in the week, costing 15.98 points. Its last filings were nine-month results on 30 October and a notice of a public expose on 5 November. We found nothing that explains the fall. AADI, UNTR, PTBA, MEDC and ENRG put coal and energy among the laggards."
+        },
+        {
+          "type": "sectors",
+          "label": "Exhibit 04",
+          "title": "Two sectors rose and nine fell",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Weekly price changes of the IDX sector indices."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "observations"
+          ],
+          "text": "Financials rose 1.33% and consumer non-cyclicals 0.85%. Technology lost 6.46%, transport 5.35% and energy 5.01%. The Main Board fell 0.76%, the Development Board 2.79% and the Acceleration Board 7.00%. IDX High Dividend 20 gained 0.66% and IDX BUMN20 0.68%. The more liquid and the larger the stock, the better it did."
+        }
+      ]
+    },
+    {
+      "id": "global",
+      "title": "The AI sell-off went round Indonesia",
+      "nav": "Global",
+      "blocks": [
+        {
+          "type": "sectors",
+          "rows": "globalWeek",
+          "rowLabel": "Index",
+          "label": "Exhibit 05",
+          "title": "North Asia fell hardest, India rose most",
+          "sources": [
+            "weekly"
+          ],
+          "note": "Asian changes from IDX's global table, Friday to Friday. US changes from FRED and CNBC closes, also Friday to Friday, because IDX's table stops at the Thursday close in New York."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "nbcMarkets",
+            "reutersMarkets",
+            "fred",
+            "cnbcSpx"
+          ],
+          "text": "The trigger came from the United States. Democrats won the midterm elections on 3 November, and some of the winners had promised to slow new data centres, among them the governor-elect of Texas. On Thursday the S&P 500 fell 4.36%, the Nasdaq Composite 5.52% and the Nasdaq 100, which holds the largest technology companies, 6.36%. Reuters and NBC both trace the fall to fears of tighter rules for AI on top of doubts about the returns on data-centre spending. Friday brought a small recovery in New York, with the S&P 500 up 0.31%. Over the full week the S&P 500 lost 2.68%, the Nasdaq Composite 3.37% and the Dow 0.94%."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "fred",
+            "nbcMarkets",
+            "reutersMarkets",
+            "reutersIndia",
+            "weekly"
+          ],
+          "text": "Asia took the hit on Friday. The Nikkei fell 5.96% that day, Reuters and NBC both report heavy losses in Seoul, and Taiwan's index ended the week 12.19% lower. These are the markets that make the chips and memory for American data centres, which NBC's sources stress and Reuters echoes when it explains why India escaped. India went the other way, with its best week in six years according to Reuters, and the SENSEX rose 8.82%. In Southeast Asia, Singapore fell 3.67% and Thailand 3.48%. Indonesia lost 0.13%, and Malaysia and the Philippines rose."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Index",
+            "Close, 6 November",
+            "Week",
+            "October"
+          ],
+          "rows": [
+            [
+              "S&P 500",
+              "7,376.86",
+              "-2.68%",
+              "-0.93%"
+            ],
+            [
+              "Nasdaq Composite",
+              "24,579.42",
+              "-3.37%",
+              "-5.30%"
+            ],
+            [
+              "Nasdaq 100",
+              "26,989.99",
+              "-4.91%",
+              "-6.65%"
+            ],
+            [
+              "Dow Jones Industrial Average",
+              "51,285.73",
+              "-0.94%",
+              "+1.70%"
+            ],
+            [
+              "Nikkei 225, Japan",
+              "57,434.77",
+              "-9.25%",
+              "-5.19%"
+            ],
+            [
+              "KOSPI, Korea",
+              "5,059.69",
+              "-11.71%",
+              "-16.19%"
+            ],
+            [
+              "TSE Weighted, Taiwan",
+              "39,701.64",
+              "-12.19%",
+              "-5.69%"
+            ],
+            [
+              "Hang Seng, Hong Kong",
+              "24,481.86",
+              "+5.10%",
+              "-5.36%"
+            ],
+            [
+              "SSE Composite, China",
+              "3,649.18",
+              "+1.39%",
+              "-6.33%"
+            ],
+            [
+              "SENSEX, India",
+              "81,028.02",
+              "+8.82%",
+              "+2.73%"
+            ],
+            [
+              "Straits Times, Singapore",
+              "5,179.17",
+              "-3.67%",
+              "-5.27%"
+            ],
+            [
+              "SET, Thailand",
+              "1,465.70",
+              "-3.48%",
+              "-2.59%"
+            ],
+            [
+              "KLCI, Malaysia",
+              "1,616.58",
+              "+0.06%",
+              "-2.15%"
+            ],
+            [
+              "PSEi, Philippines",
+              "5,761.95",
+              "+1.44%",
+              "+0.02%"
+            ],
+            [
+              "VN-Index, Vietnam",
+              "1,725.36",
+              "-0.93%",
+              "-1.53%"
+            ],
+            [
+              "IHSG, Indonesia",
+              "5,050.429",
+              "-0.13%",
+              "-16.70%"
+            ],
+            [
+              "FTSE 100, UK, to Thursday",
+              "10,573.16",
+              "-1.46%",
+              "+1.29%"
+            ],
+            [
+              "DAX, Germany, to Thursday",
+              "25,788.28",
+              "-0.12%",
+              "+2.72%"
+            ],
+            [
+              "CAC 40, France, to Thursday",
+              "8,073.92",
+              "+1.31%",
+              "+0.13%"
+            ]
+          ],
+          "caption": "US figures from FRED and CNBC. Others from IDX's weekly and October tables. European weeks end on Thursday",
+          "sources": [
+            "fred",
+            "cnbcSpx",
+            "weekly",
+            "monthly",
+            "observations",
+            "monthlyObservations"
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Rates, oil and the rupiah",
+            "30 October",
+            "6 November",
+            "Change"
+          ],
+          "rows": [
+            [
+              "US Treasury 10-year yield",
+              "4.94%",
+              "4.86%",
+              "-0.08 points"
+            ],
+            [
+              "US Treasury 2-year yield",
+              "4.56%",
+              "4.51%",
+              "-0.05 points"
+            ],
+            [
+              "Brent futures, dollars a barrel",
+              "113.43",
+              "98.32",
+              "-13.32%"
+            ],
+            [
+              "JISDOR, Rp per USD",
+              "18,138",
+              "18,130",
+              "-0.04%"
+            ]
+          ],
+          "caption": "Yields from the US Treasury, Brent settlements from Reuters, JISDOR from Bank Indonesia",
+          "sources": [
+            "treasury",
+            "reutersOil",
+            "reutersMarkets",
+            "jisdor"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "reutersOil",
+            "guardianOil",
+            "reutersMarkets",
+            "bls",
+            "treasury",
+            "kssk"
+          ],
+          "text": "Oil fell for a different reason. On Monday Brent dropped 7.63% after Iran said talks to end the war with the United States and Israel were continuing, as both Reuters and the Guardian reported. It ended the week at 98.32 dollars, 13.32% below its 113.43 close of 30 October. Cheaper oil eases the fuel subsidy bill the KSSK statement mentions, but it also takes away support from the coal and energy stocks that led IDX's laggards. American payrolls rose 165,000 in October, and US yields ended the week lower."
+        }
+      ]
+    },
+    {
+      "id": "october",
+      "title": "October was the worst month of 33 markets",
+      "nav": "October",
+      "blocks": [
+        {
+          "type": "sectors",
+          "rows": "octoberGlobal",
+          "rowLabel": "Market",
+          "label": "Exhibit 06",
+          "title": "Indonesia fell 16.70% in October, the most in IDX's table",
+          "sources": [
+            "monthly"
+          ],
+          "note": "Monthly changes from page 20 of IDX's October statistics. IDX names countries, not indices. Its US figure matches the Dow from 30 September to 29 October."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "monthly",
+            "fred",
+            "jisdor",
+            "monthlyObservations"
+          ],
+          "text": "IHSG fell from 6,071.138 to 5,057.050 in October, a loss of 16.70% and 1,014.088 points. Among the 33 markets in IDX's monthly table it came last, just behind Korea at -16.19%. Most of the world was calm. The Dow rose 1.70% over the full month, the S&P 500 slipped 0.93% and Japan lost 5.19%. Since January IHSG is down 41.52%, again the worst in the table, while Taiwan is up 56.10%. In dollars, with JISDOR moving from 17,877 to 18,138, IHSG lost about 17.90% in the month."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "October measure",
+            "September",
+            "October",
+            "Change"
+          ],
+          "rows": [
+            [
+              "IHSG",
+              "6,071.138",
+              "5,057.050",
+              "-16.70%"
+            ],
+            [
+              "LQ45",
+              "601.180",
+              "515.166",
+              "-14.31%"
+            ],
+            [
+              "IDX market value",
+              "Rp10,695tn",
+              "Rp8,862tn",
+              "-17.14%"
+            ],
+            [
+              "Official foreign net",
+              "-Rp10.24tn",
+              "-Rp16.88tn",
+              "64.82% more selling"
+            ],
+            [
+              "Average daily value",
+              "Rp14.94tn",
+              "Rp16.31tn",
+              "+9.17%"
+            ],
+            [
+              "Retail share of daily value",
+              "55%",
+              "48%",
+              "-7 points"
+            ],
+            [
+              "Market PER",
+              "12.42 times",
+              "10.76 times",
+              "-13.34%"
+            ]
+          ],
+          "caption": "From pages 1, 14 and 15 of IDX's October statistics",
+          "sources": [
+            "monthly",
+            "monthlyObservations"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "msci",
+            "prior16",
+            "monthly",
+            "kssk"
+          ],
+          "text": "The month broke on one day. MSCI announced at 03:40 Jakarta time on 16 October that it would consult on moving Indonesia out of its emerging markets index into standalone status. IHSG fell 11.57% that day, from 5,863.780 to 5,185.105. Foreign investors sold a net Rp16.88tn in the month, 17.24% of the year's total, and IDX's market value shrank by Rp1,833tn. The Financial System Stability Committee's statement of 3 November names the same causes we saw: energy prices driven by the war in the Middle East, tight policy abroad, tighter liquidity at home, the MSCI announcement and outflows from shares."
+        },
+        {
+          "type": "sectors",
+          "rows": "octoberSectors",
+          "rowLabel": "Sector",
+          "label": "Exhibit 07",
+          "title": "Every sector fell in October",
+          "sources": [
+            "monthly"
+          ],
+          "note": "One-month changes of the IDX sector indices from page 18 of the October statistics."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "monthly",
+            "monthlyObservations"
+          ],
+          "text": "Infrastructure lost 26.02%, basic materials 23.90% and industrials 22.91%. Financials held up best at -8.41%. BBCA fell 18.02% and cost the index 99.71 points, the largest single drag. The ten largest laggards together took 446.95 points, 44.07% of the month's fall, and six of them were BYAN, BRMS, BREN, MORA, DSSA and MDKA, stocks that fell 22% to 51%. The Acceleration Board lost 33.04%. IDX Value30 lost only 4.87%, the best of IDX's indices. Value stocks held up far better than the rest of the market."
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "title": "Bonds, the rupiah and growth",
+      "nav": "Rates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "sources": [
+            "technozSukuk",
+            "kontanSukuk",
+            "prior"
+          ],
+          "text": "Sukuk demand improved. At Tuesday's auction investors bid Rp28.56tn, up 25.5% from Rp22.76tn, and the government took Rp16.65tn, above its Rp10tn target. Bloomberg Technoz and Kontan report the same figures. The detail matters. Rp21.04tn of the bids, 73.67%, were for short-term SPNS bills, and Kontan's source says long tenors still drew little interest. Investors will lend to the government for months, not yet for years. Last week's conventional auction drew only Rp31.09tn of bids, so one sukuk auction does not change the picture."
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "jisdor",
+            "bpsGdp",
+            "bpsCpi",
+            "msci"
+          ],
+          "text": "The rupiah hardly moved. JISDOR ended the week at 18,130, 0.04% stronger than on 30 October. In dollars IHSG lost about 0.09%. At home, BPS reported growth of 5.47% from a year earlier in the third quarter and October inflation of 3.23%. The economy is not where the trouble lies. The trouble is in the trust investors place in how the market is run, which is what MSCI questioned."
+        }
+      ]
+    },
+    {
+      "id": "ahead",
+      "title": "What would change our view",
+      "nav": "Signposts",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Signpost",
+            "Where it stands",
+            "What would change our mind"
+          ],
+          "rows": [
+            [
+              "Foreign trading in large banks",
+              "BBCA bought, BBRI and BMRI sold",
+              "Net buying of all three for two weeks"
+            ],
+            [
+              "Conventional bond auction",
+              "Rp31.09tn of bids on 27 October",
+              "Strong bids for ten-year bonds"
+            ],
+            [
+              "Index quality",
+              "MKNT added 12.40 points after its HSC notice",
+              "IDX removes or caps HSC-flagged stocks between reviews"
+            ],
+            [
+              "IHSG level",
+              "5,050.429",
+              "A close above 5,488 with foreign buying"
+            ],
+            [
+              "North Asian sell-off",
+              "Taiwan, Korea and Japan down 9% to 12%",
+              "Selling that spreads to Indonesian banks"
+            ]
+          ],
+          "caption": "Our tests for the coming weeks",
+          "sources": [
+            "prior",
+            "weekly",
+            "mkntHsc"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "sources": [
+            "weekly",
+            "flowless"
+          ],
+          "text": "The downside test is simple. A close below 4,824.364, this week's low, would most likely come through the large banks, because they now carry more of the index. Their foreign selling is the thing to watch, more than the headline level."
+        }
+      ]
+    }
+  ],
+  "sourceIntro": "Checked on 8 November 2026. Market data end at the 6 November close. IDX statistics, IDX and KSEI notices, IDX company filings, Bank Indonesia, BPS, FRED, the US Treasury and the Bureau of Labor Statistics are primary sources. Every fact taken from the press rests on two outlets: Reuters with NBC News for the US sell-off, Reuters with the Guardian for oil, and Bloomberg Technoz with Kontan for the sukuk auction. India's weekly record comes from Reuters, and its index level from IDX.",
+  "sourceGroups": [
+    {
+      "label": "Market observations",
+      "links": [
+        {
+          "source": "weekly",
+          "label": "IDX Weekly Statistics"
+        },
+        {
+          "source": "daily",
+          "label": "IDX Daily Statistics"
+        },
+        {
+          "source": "monthly",
+          "label": "IDX Monthly Statistics"
+        },
+        {
+          "source": "observations",
+          "label": "Frozen weekly observations"
+        },
+        {
+          "source": "monthlyObservations",
+          "label": "Frozen October observations"
+        },
+        {
+          "source": "pr107",
+          "label": "IDX weekly release"
+        }
+      ],
+      "note": "Weekly pages 1 to 8, daily pages 1, 2 and 5, monthly pages 1, 12 to 15, 18 and 20. Breadth follows counts read by colour. Source hashes are kept."
+    },
+    {
+      "label": "Stocks and filings",
+      "links": [
+        {
+          "source": "flowless",
+          "label": "Frozen stock-level estimates"
+        },
+        {
+          "source": "mkntHsc",
+          "label": "MKNT HSC notice"
+        },
+        {
+          "source": "mkntReply",
+          "label": "MKNT reply to IDX"
+        },
+        {
+          "source": "idxProfiles",
+          "label": "IDX company profile"
+        },
+        {
+          "source": "prior",
+          "label": "Previous weekly edition"
+        },
+        {
+          "source": "prior16",
+          "label": "16 October observations"
+        }
+      ],
+      "note": "Stock-level foreign values are estimates for the regular market. Filings read on idx.co.id on 8 November."
+    },
+    {
+      "label": "Global and macro",
+      "links": [
+        {
+          "source": "fred",
+          "label": "FRED"
+        },
+        {
+          "source": "cnbcSpx",
+          "label": "CNBC S&P 500"
+        },
+        {
+          "source": "treasury",
+          "label": "US Treasury"
+        },
+        {
+          "source": "bls",
+          "label": "BLS"
+        },
+        {
+          "source": "reutersMarkets",
+          "label": "Reuters markets"
+        },
+        {
+          "source": "nbcMarkets",
+          "label": "NBC News"
+        },
+        {
+          "source": "reutersIndia",
+          "label": "Reuters India"
+        },
+        {
+          "source": "reutersOil",
+          "label": "Reuters oil"
+        },
+        {
+          "source": "guardianOil",
+          "label": "The Guardian"
+        },
+        {
+          "source": "msci",
+          "label": "MSCI"
+        }
+      ],
+      "note": "US index levels and yields from official series. Press reports read in full on 8 November."
+    },
+    {
+      "label": "Indonesia rates and economy",
+      "links": [
+        {
+          "source": "jisdor",
+          "label": "BI JISDOR"
+        },
+        {
+          "source": "bpsGdp",
+          "label": "BPS growth"
+        },
+        {
+          "source": "bpsCpi",
+          "label": "BPS inflation"
+        },
+        {
+          "source": "kssk",
+          "label": "KSSK statement"
+        },
+        {
+          "source": "technozSukuk",
+          "label": "Bloomberg Technoz"
+        },
+        {
+          "source": "kontanSukuk",
+          "label": "Kontan"
+        }
+      ],
+      "note": "The sukuk figures come from two outlets citing the Finance Ministry."
+    }
+  ],
+  "method": "Weekly and monthly returns are computed from IDX closes. Breadth shares are recomputed from counts because IDX's printed percentages were misplaced. IHSG without MKNT subtracts IDX's printed 12.40-point contribution from the weekly change, which is an approximation. Dollar returns use JISDOR. Stock-level foreign flows are Flowless estimates for the regular market and are not added to official totals.",
+  "displayMethod": "Charts are drawn from the observations in this file. The global and October bar charts show a selection of IDX's rows, and the frozen files hold all of them."
+}

@@ -37,6 +37,7 @@
       for (const block of section.blocks) {
         requireField(['paragraph', 'heading', 'callout', 'closes', 'flows', 'sectors', 'stocks', 'fxLab', 'table', 'riskChart', 'exitLab', 'sankey'].includes(block.type), `Unknown block type: ${block.type}`);
         if (block.sources) requireField(Array.isArray(block.sources) && block.sources.every(key => data.sources[key]), `Unknown source in ${section.id}.`);
+        if (block.type === 'sectors' && block.rows) requireField(/^[a-zA-Z]+$/.test(block.rows) && Array.isArray(data.observations?.[block.rows]) && data.observations[block.rows].length && data.observations[block.rows].every(r => r.name && Number.isFinite(r.weekly)), `Bar observations ${block.rows} are incomplete.`);
         if (block.type === 'riskChart') requireField(window.IHSGWeeklyRisk && ['limits', 'valuation'].includes(block.kind) && data.riskParameters, 'Risk chart assumptions are missing.');
         if (block.type === 'exitLab') requireField(window.IHSGWeeklyRisk && data.riskParameters && positive(data.riskParameters.preShockAdtvTn) && positive(data.riskParameters.fx) && positive(data.riskParameters.weightPct), 'Sale-capacity assumptions are missing.');
       }
@@ -45,7 +46,7 @@
     const need = new Set(data.sections.flatMap(s => s.blocks.map(b => b.type)));
     if (need.has('closes') || need.has('fxLab')) requireField(Array.isArray(observed.closes) && observed.closes.length >= 2 && observed.closes.every(r => date(r.date) && positive(r.close)), 'Closing observations are incomplete.');
     if (need.has('flows')) requireField(Array.isArray(observed.foreignFlow) && observed.foreignFlow.length > 0 && observed.foreignFlow.every(r => date(r.date) && finite(r.netBn)), 'Foreign-flow observations are incomplete.');
-    if (need.has('sectors')) requireField(Array.isArray(observed.sectors) && observed.sectors.length > 0 && observed.sectors.every(r => r.name && finite(r.weekly)), 'Sector observations are incomplete.');
+    if (data.sections.some(s => s.blocks.some(b => b.type === 'sectors' && !b.rows))) requireField(Array.isArray(observed.sectors) && observed.sectors.length > 0 && observed.sectors.every(r => r.name && finite(r.weekly)), 'Sector observations are incomplete.');
     if (need.has('stocks')) requireField(Array.isArray(observed.stocks) && observed.stocks.length > 0 && observed.stocks.every(r => r.ticker && finite(r.points)), 'Stock-contribution observations are incomplete.');
     if (need.has('fxLab')) requireField(Array.isArray(observed.jisdor) && observed.jisdor.length >= 2 && observed.jisdor.every(r => date(r.date) && positive(r.rate)), 'JISDOR observations are incomplete.');
     if (need.has('sankey')) validateSankey(observed.sankey);
@@ -85,7 +86,7 @@
 
   function standardBarFigure(data, block, kind) {
     const observations = data.observations;
-    const rows = kind === 'flows' ? observations.foreignFlow : kind === 'sectors' ? observations.sectors : observations.stocks;
+    const rows = kind === 'flows' ? observations.foreignFlow : kind === 'sectors' ? observations[block.rows || 'sectors'] : observations.stocks;
     const value = r => kind === 'flows' ? r.netBn : kind === 'sectors' ? r.weekly : r.points;
     const maximum = Math.max(...rows.map(r => Math.abs(value(r))), 1);
     const unit = kind === 'flows' ? 'Rp bn' : kind === 'sectors' ? '%' : 'IHSG points';
@@ -94,7 +95,7 @@
     let calculation = '';
     if (kind === 'flows') calculation = `The daily figures add up to ${rows.map(r => signed(r.netBn)).join(' + ')} = ${signed(rows.reduce((sum, r) => sum + r.netBn, 0))} Rp bn. Net purchase means foreign purchases minus foreign sales. A negative total means net selling, while a positive total means net buying. This does not measure money leaving Indonesia.`;
     if (kind === 'stocks') calculation = `Together these stocks account for ${signed(rows.reduce((sum, r) => sum + r.points, 0))} IHSG points. The rest of the index's move came from other stocks.`;
-    return figure(data, block, `<div class="market-template-bars">${bars}</div>${table([kind === 'flows' ? 'Date' : kind === 'stocks' ? 'Ticker' : 'Sector', unit], raw)}${calculation ? `<p class="figure-note">${esc(calculation)}</p>` : ''}`);
+    return figure(data, block, `<div class="market-template-bars">${bars}</div>${table([kind === 'flows' ? 'Date' : kind === 'stocks' ? 'Ticker' : block.rowLabel || 'Sector', unit], raw)}${calculation ? `<p class="figure-note">${esc(calculation)}</p>` : ''}`);
   }
 
   function closingFigure(data, block) {
@@ -121,7 +122,7 @@
   function barFigure(data, block, kind) {
     if (!refined) return standardBarFigure(data, block, kind);
     const observations = data.observations;
-    const rows = kind === 'flows' ? observations.foreignFlow : kind === 'sectors' ? observations.sectors : observations.stocks;
+    const rows = kind === 'flows' ? observations.foreignFlow : kind === 'sectors' ? observations[block.rows || 'sectors'] : observations.stocks;
     const value = r => kind === 'flows' ? r.netBn : kind === 'sectors' ? r.weekly : r.points;
     const maximum = Math.max(...rows.map(r => Math.abs(value(r))), 1);
     const unit = kind === 'flows' ? 'Rp bn' : kind === 'sectors' ? '%' : 'IHSG points';
@@ -141,7 +142,7 @@
     const context = data.riskParameters ? (kind === 'flows'
       ? `<div class="weekly-flow-summary"><div><span>Weekly net selling, rounded daily sum</span><strong>${signed(rows.reduce((sum, r) => sum + r.netBn, 0) / 1000)}<small> Rp tn</small></strong></div><p>Daily purchases less sales<br>Official figures across all stock markets</p></div>`
       : `<div class="weekly-bar-axis"><span>${kind === 'stocks' ? 'Contribution to the fall' : 'Weekly price decline'}</span><span>0</span><span>${number(maximum)} ${unit}</span></div>`) : '';
-    return figure(data, block, `${context}${bars}${dataTable([kind === 'flows' ? 'Date' : kind === 'stocks' ? 'Ticker' : 'Sector', unit], raw)}${calculation ? `<p class="figure-note">${esc(calculation)}</p>` : ''}`);
+    return figure(data, block, `${context}${bars}${dataTable([kind === 'flows' ? 'Date' : kind === 'stocks' ? 'Ticker' : block.rowLabel || 'Sector', unit], raw)}${calculation ? `<p class="figure-note">${esc(calculation)}</p>` : ''}`);
   }
 
   function fxLab(data, block) {
