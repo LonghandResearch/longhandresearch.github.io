@@ -224,3 +224,11 @@ exact location or verified supply route, and the supplied photographs are not
 treated as report evidence. `nickel-seaview-art.json` retains the final edit prompt,
 generation method, source hash and dimensions. Previous artwork/provenance remains
 archived. The report opening, data and research argument are unchanged.
+
+## 8 November 2026: IHSG weekly cover, a hole in the new index
+
+`ihsg-hole-art.webp` and its 640 and 320 variants illustrate the 2 to 6 November
+edition. The owner generated the picture from Claude's prompt. Claude removed a third
+arm and the bag it held from the walking office worker by shifting neighbouring wall
+and planting, with no generative fill. Prompt, hashes and the edited region are in
+`ihsg-hole-art.json`. The scene is conceptual, not a named venue or market evidence.
