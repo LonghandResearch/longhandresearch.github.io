@@ -89,9 +89,14 @@
       "note": "Shareholder table read on 8 November: 1,029.99bn shares, public scripless holding 19.955%."
     },
     "fred": {
-      "label": "FRED daily series SP500, NASDAQCOM, DJIA and NIKKEI225",
+      "label": "FRED daily series SP500, NASDAQCOM, NASDAQ100, DJIA and NIKKEI225",
       "url": "https://fred.stlouisfed.org/series/SP500",
       "note": "Graph CSVs read on 8 November. Index levels on 30 September, 29 and 30 October and 4 to 6 November."
+    },
+    "cnbcSpx": {
+      "label": "CNBC quote page, S&P 500 index (.SPX)",
+      "url": "https://www.cnbc.com/quotes/.SPX",
+      "note": "Read 8 November: 7,376.86 on 6 November, up 0.31%, previous close 7,353.73. FRED had not yet posted 6 November. Reuters gives the same 0.31% rise."
     },
     "treasury": {
       "label": "US Treasury daily par yield curve rates, 2026",
@@ -365,12 +370,20 @@
         "weekly": -3.48
       },
       {
-        "name": "Vietnam VN-Index",
-        "weekly": -0.93
+        "name": "US Nasdaq Composite",
+        "weekly": -3.37
       },
       {
-        "name": "US Dow, to Thursday",
-        "weekly": -0.48
+        "name": "US S&P 500",
+        "weekly": -2.68
+      },
+      {
+        "name": "US Dow Jones",
+        "weekly": -0.94
+      },
+      {
+        "name": "Vietnam VN-Index",
+        "weekly": -0.93
       },
       {
         "name": "Indonesia IHSG",
@@ -887,16 +900,17 @@
           "sources": [
             "weekly"
           ],
-          "note": "Weekly changes from IDX's global table. IDX takes each index at its last close before the Jakarta report, so the Dow figure ends on Thursday 5 November."
+          "note": "Asian changes from IDX's global table, Friday to Friday. US changes from FRED and CNBC closes, also Friday to Friday, because IDX's table stops at the Thursday close in New York."
         },
         {
           "type": "paragraph",
           "sources": [
             "nbcMarkets",
             "reutersMarkets",
-            "fred"
+            "fred",
+            "cnbcSpx"
           ],
-          "text": "The trigger came from the United States. Democrats won the midterm elections on 3 November, and some of the winners had promised to slow new data centres, among them the governor-elect of Texas. On Thursday the S&P 500 fell 4.36% and the Nasdaq Composite 5.52%. Reuters and NBC both trace the fall to fears of tighter rules for AI on top of doubts about the returns on data-centre spending. Friday brought a small recovery in New York. Over the full week the Dow lost 0.94% and the Nasdaq 3.37%."
+          "text": "The trigger came from the United States. Democrats won the midterm elections on 3 November, and some of the winners had promised to slow new data centres, among them the governor-elect of Texas. On Thursday the S&P 500 fell 4.36%, the Nasdaq Composite 5.52% and the Nasdaq 100, which holds the largest technology companies, 6.36%. Reuters and NBC both trace the fall to fears of tighter rules for AI on top of doubts about the returns on data-centre spending. Friday brought a small recovery in New York, with the S&P 500 up 0.31%. Over the full week the S&P 500 lost 2.68%, the Nasdaq Composite 3.37% and the Dow 0.94%."
         },
         {
           "type": "paragraph",
@@ -907,35 +921,151 @@
             "reutersIndia",
             "weekly"
           ],
-          "text": "Asia took the hit on Friday. The Nikkei fell 5.96% that day, and Reuters and NBC both report heavy losses in Seoul and Taipei. These are the markets that make the chips and memory for American data centres, which NBC's sources stress and Reuters echoes when it explains why India escaped. India went the other way, with its best week in six years according to Reuters, and the SENSEX rose 8.82%. In Southeast Asia, Singapore fell 3.67% and Thailand 3.48%. Indonesia lost 0.13%, and Malaysia and the Philippines rose."
+          "text": "Asia took the hit on Friday. The Nikkei fell 5.96% that day, Reuters and NBC both report heavy losses in Seoul, and Taiwan's index ended the week 12.19% lower. These are the markets that make the chips and memory for American data centres, which NBC's sources stress and Reuters echoes when it explains why India escaped. India went the other way, with its best week in six years according to Reuters, and the SENSEX rose 8.82%. In Southeast Asia, Singapore fell 3.67% and Thailand 3.48%. Indonesia lost 0.13%, and Malaysia and the Philippines rose."
         },
         {
           "type": "table",
           "headers": [
-            "Measure",
+            "Index",
+            "Close, 6 November",
+            "Week",
+            "October"
+          ],
+          "rows": [
+            [
+              "S&P 500",
+              "7,376.86",
+              "-2.68%",
+              "-0.93%"
+            ],
+            [
+              "Nasdaq Composite",
+              "24,579.42",
+              "-3.37%",
+              "-5.30%"
+            ],
+            [
+              "Nasdaq 100",
+              "26,989.99",
+              "-4.91%",
+              "-6.65%"
+            ],
+            [
+              "Dow Jones Industrial Average",
+              "51,285.73",
+              "-0.94%",
+              "+1.70%"
+            ],
+            [
+              "Nikkei 225, Japan",
+              "57,434.77",
+              "-9.25%",
+              "-5.19%"
+            ],
+            [
+              "KOSPI, Korea",
+              "5,059.69",
+              "-11.71%",
+              "-16.19%"
+            ],
+            [
+              "TSE Weighted, Taiwan",
+              "39,701.64",
+              "-12.19%",
+              "-5.69%"
+            ],
+            [
+              "Hang Seng, Hong Kong",
+              "24,481.86",
+              "+5.10%",
+              "-5.36%"
+            ],
+            [
+              "SSE Composite, China",
+              "3,649.18",
+              "+1.39%",
+              "-6.33%"
+            ],
+            [
+              "SENSEX, India",
+              "81,028.02",
+              "+8.82%",
+              "+2.73%"
+            ],
+            [
+              "Straits Times, Singapore",
+              "5,179.17",
+              "-3.67%",
+              "-5.27%"
+            ],
+            [
+              "SET, Thailand",
+              "1,465.70",
+              "-3.48%",
+              "-2.59%"
+            ],
+            [
+              "KLCI, Malaysia",
+              "1,616.58",
+              "+0.06%",
+              "-2.15%"
+            ],
+            [
+              "PSEi, Philippines",
+              "5,761.95",
+              "+1.44%",
+              "+0.02%"
+            ],
+            [
+              "VN-Index, Vietnam",
+              "1,725.36",
+              "-0.93%",
+              "-1.53%"
+            ],
+            [
+              "IHSG, Indonesia",
+              "5,050.429",
+              "-0.13%",
+              "-16.70%"
+            ],
+            [
+              "FTSE 100, UK, to Thursday",
+              "10,573.16",
+              "-1.46%",
+              "+1.29%"
+            ],
+            [
+              "DAX, Germany, to Thursday",
+              "25,788.28",
+              "-0.12%",
+              "+2.72%"
+            ],
+            [
+              "CAC 40, France, to Thursday",
+              "8,073.92",
+              "+1.31%",
+              "+0.13%"
+            ]
+          ],
+          "caption": "US figures from FRED and CNBC. Others from IDX's weekly and October tables. European weeks end on Thursday",
+          "sources": [
+            "fred",
+            "cnbcSpx",
+            "weekly",
+            "monthly",
+            "observations",
+            "monthlyObservations"
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Rates, oil and the rupiah",
             "30 October",
             "6 November",
             "Change"
           ],
           "rows": [
-            [
-              "Dow Jones Industrial Average",
-              "51,770.31",
-              "51,285.73",
-              "-0.94%"
-            ],
-            [
-              "Nasdaq Composite",
-              "25,437.00",
-              "24,579.42",
-              "-3.37%"
-            ],
-            [
-              "Nikkei 225",
-              "63,290.11",
-              "57,434.77",
-              "-9.25%"
-            ],
             [
               "US Treasury 10-year yield",
               "4.94%",
@@ -961,9 +1091,8 @@
               "-0.04%"
             ]
           ],
-          "caption": "Index levels from FRED, yields from the US Treasury, Brent settlements from Reuters, JISDOR from Bank Indonesia",
+          "caption": "Yields from the US Treasury, Brent settlements from Reuters, JISDOR from Bank Indonesia",
           "sources": [
-            "fred",
             "treasury",
             "reutersOil",
             "reutersMarkets",
@@ -1250,6 +1379,10 @@
         {
           "source": "fred",
           "label": "FRED"
+        },
+        {
+          "source": "cnbcSpx",
+          "label": "CNBC S&P 500"
         },
         {
           "source": "treasury",

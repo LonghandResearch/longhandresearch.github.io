@@ -122,7 +122,23 @@ test('Global figures recompute', () => {
   has(`${pct(at(f.NIKKEI225, '2026-11-06'), at(f.NIKKEI225, '2026-11-05')).replace('-', '')}% that day`);
   near(104.77 + 8.66, 113.43, .001);
   has(`${pct(98.32, 113.43).replace('-', '')}%`);
-  edition.observations.globalWeek.forEach(g => assert.ok(raw.globalComparison.rows.some(r => r[4] === g.weekly)));
+  const us = { 'US S&P 500': pct(raw.sp500Friday.close, at(f.SP500, '2026-10-30')), 'US Nasdaq Composite': pct(at(f.NASDAQCOM, '2026-11-06'), at(f.NASDAQCOM, '2026-10-30')), 'US Dow Jones': pct(at(f.DJIA, '2026-11-06'), at(f.DJIA, '2026-10-30')) };
+  edition.observations.globalWeek.forEach(g => assert.ok(us[g.name] ? us[g.name] === g.weekly.toFixed(2) : raw.globalComparison.rows.some(r => r[4] === g.weekly), g.name));
+  assert.equal(raw.sp500Friday.previous, at(f.SP500, '2026-11-05'));
+  has(`${pct(at(f.NASDAQ100, '2026-11-05'), at(f.NASDAQ100, '2026-11-04')).replace('-', '')}%`);
+  const idx = edition.sections.find(s => s.id === 'global').blocks.find(b => b.type === 'table' && b.headers[0] === 'Index').rows;
+  const row = name => idx.find(r => r[0] === name);
+  assert.equal(row('S&P 500')[2], pct(raw.sp500Friday.close, at(f.SP500, '2026-10-30')) + '%');
+  assert.equal(row('S&P 500')[3], pct(at(f.SP500, '2026-10-30'), at(f.SP500, '2026-09-30')) + '%');
+  assert.equal(row('Nasdaq 100')[2], pct(at(f.NASDAQ100, '2026-11-06'), at(f.NASDAQ100, '2026-10-30')) + '%');
+  assert.equal(row('Nasdaq 100')[3], pct(at(f.NASDAQ100, '2026-10-30'), at(f.NASDAQ100, '2026-09-30')) + '%');
+  assert.equal(row('Nasdaq Composite')[3], pct(at(f.NASDAQCOM, '2026-10-30'), at(f.NASDAQCOM, '2026-09-30')) + '%');
+  const country = { 'Nikkei 225, Japan': 'Japan', 'KOSPI, Korea': 'Korea', 'TSE Weighted, Taiwan': 'Taiwan', 'Hang Seng, Hong Kong': 'Hong Kong', 'SSE Composite, China': 'China', 'SENSEX, India': 'India', 'Straits Times, Singapore': 'Singapore', 'SET, Thailand': 'Thailand', 'KLCI, Malaysia': 'Malaysia', 'PSEi, Philippines': 'Philippines', 'VN-Index, Vietnam': 'Vietnam', 'IHSG, Indonesia': 'Indonesia', 'FTSE 100, UK, to Thursday': 'UK', 'DAX, Germany, to Thursday': 'Germany', 'CAC 40, France, to Thursday': 'France' };
+  const sign = v => (v > 0 ? '+' : '') + v.toFixed(2) + '%';
+  Object.entries(country).forEach(([name, c]) => {
+    const w = raw.globalComparison.rows.find(r => r[0] === c), mo = month.globalMoM.rows.find(r => r[0] === c);
+    assert.equal(row(name)[2], sign(w[4]), name); assert.equal(row(name)[3], sign(mo[1]), name);
+  });
   edition.observations.octoberGlobal.forEach(g => assert.ok(month.globalMoM.rows.some(r => r[1] === g.weekly)));
   has(`${(21.04 / 28.56 * 100).toFixed(2)}%`);
 });

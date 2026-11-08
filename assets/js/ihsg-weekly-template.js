@@ -46,7 +46,7 @@
     const need = new Set(data.sections.flatMap(s => s.blocks.map(b => b.type)));
     if (need.has('closes') || need.has('fxLab')) requireField(Array.isArray(observed.closes) && observed.closes.length >= 2 && observed.closes.every(r => date(r.date) && positive(r.close)), 'Closing observations are incomplete.');
     if (need.has('flows')) requireField(Array.isArray(observed.foreignFlow) && observed.foreignFlow.length > 0 && observed.foreignFlow.every(r => date(r.date) && finite(r.netBn)), 'Foreign-flow observations are incomplete.');
-    if (need.has('sectors')) requireField(Array.isArray(observed.sectors) && observed.sectors.length > 0 && observed.sectors.every(r => r.name && finite(r.weekly)), 'Sector observations are incomplete.');
+    if (data.sections.some(s => s.blocks.some(b => b.type === 'sectors' && !b.rows))) requireField(Array.isArray(observed.sectors) && observed.sectors.length > 0 && observed.sectors.every(r => r.name && finite(r.weekly)), 'Sector observations are incomplete.');
     if (need.has('stocks')) requireField(Array.isArray(observed.stocks) && observed.stocks.length > 0 && observed.stocks.every(r => r.ticker && finite(r.points)), 'Stock-contribution observations are incomplete.');
     if (need.has('fxLab')) requireField(Array.isArray(observed.jisdor) && observed.jisdor.length >= 2 && observed.jisdor.every(r => date(r.date) && positive(r.rate)), 'JISDOR observations are incomplete.');
     if (need.has('sankey')) validateSankey(observed.sankey);

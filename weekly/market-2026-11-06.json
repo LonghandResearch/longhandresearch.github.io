@@ -1054,7 +1054,8 @@
         2046.7,
         -4.58
       ]
-    ]
+    ],
+    "timingNote": "Asian closes in IDX's table are Friday 6 November closes (Nikkei matches FRED, SENSEX matches Reuters). European and American entries are Thursday 5 November closes, the last before the Jakarta report. The edition uses FRED and CNBC for the full US week."
   },
   "usMarketsFred": {
     "source": "FRED graph CSVs, read 8 November 2026 in the owner's Chrome. Daily closes",
@@ -1140,6 +1141,28 @@
       [
         "2026-11-06",
         57434.77
+      ]
+    ],
+    "NASDAQ100": [
+      [
+        "2026-09-30",
+        30408.5
+      ],
+      [
+        "2026-10-30",
+        28384.85
+      ],
+      [
+        "2026-11-04",
+        28437.17
+      ],
+      [
+        "2026-11-05",
+        26629.81
+      ],
+      [
+        "2026-11-06",
+        26989.99
       ]
     ]
   },
@@ -1337,5 +1360,11 @@
         "IDX and KSEI HSC notice: a limited number of holders control 99.64% of shares as of 5 November"
       ]
     ]
+  },
+  "sp500Friday": {
+    "source": "CNBC quote page for .SPX, read 8 November 2026: last 7,376.86 on 11/06/26, +23.13 (+0.31%), previous close 7,353.73, which equals FRED's 5 November value. Reuters gives the same +0.31%. FRED had not yet posted 6 November.",
+    "date": "2026-11-06",
+    "close": 7376.86,
+    "previous": 7353.73
   }
 }
