@@ -254,6 +254,8 @@ Readers never see your drafts, and they cannot change the site: publishing and d
 
 One publish or delete runs at a time. While it runs, every Publish and Delete button is greyed out, and a second press is refused with a short note, so a double click can never add a report twice. The page shows where it is on `<html data-author-action>`: `idle`, `confirming` (a question is open) or `working` (files are being written, with `aria-busy` set). Tests and agents can wait for `idle` before checking the folder.
 
+The Add report dialog works the same way. It is always in one phase, shown on `<dialog data-form-state>`: `closed`, `editing` (the form is open), `saving` (the draft is being written, with `aria-busy` set and the dialog unable to close) or `saved` (the publish steps are showing). A second press of the save button while saving does nothing, so it can never save two drafts.
+
 ## Local research workspace
 
 Open `research.html` from localhost, or use **Workspace** in the local site's

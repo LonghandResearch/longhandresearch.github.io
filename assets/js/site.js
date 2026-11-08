@@ -696,16 +696,52 @@
       </div>
     </div>`;
 
+  /* The report dialog is always in exactly one phase:
+       closed  -> editing  the form is open (add or edit)
+       editing -> saving   the draft is being written; the dialog cannot close
+       saving  -> saved    the "how to publish" panel shows the saved draft
+       saving  -> editing  the save failed; the form stays with its error
+     The saved panel also opens on its own from a draft's page (closed -> saved).
+     setFormPhase is the only place that shows a panel, labels or disables the
+     buttons, and writes <dialog data-form-state="..."> (with aria-busy while
+     saving) for styling, tests and automated checks. */
+  const FORM_PHASES = {
+    closed: ['editing', 'saved'],
+    editing: ['editing', 'saving', 'saved', 'closed'],
+    saving: ['editing', 'saved', 'closed'],
+    saved: ['editing', 'saved', 'closed'],
+  };
   let formDlg = null;
-  let doneRecord = null; // the draft shown in the "saved" panel
-  let formCtx = null;  // { mode, record, file, saved }
+  let formPhase = 'closed';
+  let formCtx = null;  // this opening of the dialog: { mode, record, file, saved, done }
   let unsaved = null;  // what was typed into "Add a report" before it was closed unsaved
-  let saving = false;  // a save is in progress; the dialog stays open until it ends
+
+  const submitLabel = () => (formCtx && formCtx.mode === 'edit' && formCtx.record ? 'Save changes' : 'Add to library');
+
+  function setFormPhase(next) {
+    if (!FORM_PHASES[formPhase].includes(next)) throw new Error(`The report dialog cannot go from ${formPhase} to ${next}.`);
+    formPhase = next;
+    const d = formDlg;
+    if (!d) return;
+    d.dataset.formState = next;
+    const busy = next === 'saving';
+    if (busy) d.setAttribute('aria-busy', 'true'); else d.removeAttribute('aria-busy');
+    const submit = $('[data-submit]', d);
+    submit.disabled = busy;
+    submit.textContent = busy ? 'Saving' : submitLabel();
+    $$('[data-form] [data-close]', d).forEach((b) => { b.disabled = busy; });
+    if (next === 'closed') return;
+    const showForm = next !== 'saved';
+    $('[data-form]', d).hidden = !showForm;
+    $('[data-done]', d).hidden = showForm;
+    d.setAttribute('aria-labelledby', showForm ? 'rf-heading' : 'rf-done-heading');
+  }
 
   function formDialog() {
     if (formDlg) return formDlg;
     const d = makeDialog('sheet', FORM_HTML, { backdropCloses: false });
     d.setAttribute('aria-labelledby', 'rf-heading');
+    d.dataset.formState = formPhase;
     const form = $('[data-form]', d);
     const fileInput = $('#rf-file', d);
     const drop = $('[data-drop]', d);
@@ -735,12 +771,13 @@
     });
     // Publish the draft just saved, straight into the site folder
     $('[data-publish-now]', d).addEventListener('click', async () => {
-      if (!doneRecord) return;
+      const rec = formPhase === 'saved' && formCtx && formCtx.done;
+      if (!rec) return;
       const button = $('[data-publish-now]', d);
       const label = button.textContent;
       button.textContent = 'Publishing';
       try {
-        const ok = await authorAction('publish', normalize(doneRecord, 'local'), { ask: false });
+        const ok = await authorAction('publish', normalize(rec, 'local'), { ask: false });
         if (ok) d.close();
       } finally {
         button.textContent = label;
@@ -750,13 +787,18 @@
       unsaved = null;
       openReportForm({ mode: 'add', reopen: true });
     });
-    d.addEventListener('cancel', (e) => { if (saving) e.preventDefault(); });   // Esc waits for a save
+    d.addEventListener('cancel', (e) => { if (formPhase === 'saving') e.preventDefault(); });   // Esc waits for a save
     d.addEventListener('close', () => {
+      // The close event arrives a frame late. If the dialog was opened again
+      // in the meantime, this event belongs to the old opening: ignore it.
+      if (d.open) return;
       const ctx = formCtx;
+      const was = formPhase;
       formCtx = null;
+      if (was !== 'closed') setFormPhase('closed');
       if (!ctx) return;
       // Keep an unfinished new report, so closing by accident loses nothing
-      if (ctx.mode === 'add' && !ctx.saved && !$('[data-form]', d).hidden) {
+      if (ctx.mode === 'add' && !ctx.saved && (was === 'editing' || was === 'saving')) {
         const v = readForm();
         const typed = ctx.file || v.title || v.company || v.ticker || v.summary || v.price || v.targetPrice;
         unsaved = typed ? { values: v, file: ctx.file } : null;
@@ -844,11 +886,9 @@
   function openReportForm({ mode = 'add', record = null, reopen = false } = {}) {
     const d = formDialog();
     const form = $('[data-form]', d);
-    formCtx = { mode, record, file: null, saved: null };
+    formCtx = { mode, record, file: null, saved: null, done: null };
     const restore = mode === 'add' && !reopen ? unsaved : null;
-    form.hidden = false;
-    $('[data-done]', d).hidden = true;
-    d.setAttribute('aria-labelledby', 'rf-heading');
+    setFormPhase('editing');
     form.reset();
     $$('[data-err]', d).forEach((e) => { e.textContent = ''; });
     $$('[aria-invalid]', d).forEach((e) => e.removeAttribute('aria-invalid'));
@@ -856,7 +896,6 @@
 
     const editing = mode === 'edit' && record;
     $('[data-heading]', d).textContent = editing ? 'Edit report details' : 'Add a report';
-    $('[data-submit]', d).textContent = editing ? 'Save changes' : 'Add to library';
     $('[data-file-label]', d).textContent = editing ? 'Report PDF' : 'Report PDF *';
     onFile(null);
 
@@ -934,6 +973,7 @@
 
   async function onSubmit(e) {
     e.preventDefault();
+    if (formPhase !== 'editing') return;   // one save at a time
     const d = formDlg;
     const v = readForm();
     const errors = validate(v);
@@ -971,19 +1011,7 @@
     // While the save is running the dialog cannot be closed, and everything
     // below works on this form's own context, never on a newer one.
     const ctx = formCtx;
-    const submit = $('[data-submit]', d);
-    const closers = $$('[data-form] [data-close]', d);
-    const label = submit.textContent;
-    saving = true;
-    submit.disabled = true;
-    submit.textContent = 'Saving';
-    closers.forEach((b) => { b.disabled = true; });
-    const finish = () => {
-      saving = false;
-      submit.disabled = false;
-      submit.textContent = label;
-      closers.forEach((b) => { b.disabled = false; });
-    };
+    setFormPhase('saving');
     let rec;
     try {
       if (ctx.mode === 'edit' && ctx.record) {
@@ -1002,11 +1030,10 @@
       await drafts.put(rec);
     } catch (err) {
       console.warn('Save failed', err);
-      finish();
+      if (formCtx === ctx) setFormPhase('editing');
       setError('form', 'This browser could not save the report. Private windows often block storage; try a normal window.');
       return;
     }
-    finish();
     const blobKey = blobUrls.get(rec.id);
     if (blobKey && ctx.file) { URL.revokeObjectURL(blobKey); blobUrls.delete(rec.id); }
     if (ctx.mode === 'add') unsaved = null;
@@ -1018,12 +1045,10 @@
   /* The "how to publish" panel, shown after saving and from a draft's page */
   function showPublishSteps(rec, heading = 'Publish this report') {
     const d = formDialog();
-    if (!formCtx) formCtx = { mode: 'view', record: rec, file: null, saved: null };
+    if (!formCtx) formCtx = { mode: 'view', record: rec, file: null, saved: null, done: null };
+    formCtx.done = rec;
     const r = normalize(rec, 'local');
-    $('[data-form]', d).hidden = true;
-    const done = $('[data-done]', d);
-    done.hidden = false;
-    d.setAttribute('aria-labelledby', 'rf-done-heading');
+    setFormPhase('saved');
     $('[data-done-heading]', d).textContent = heading;
     $('[data-done-sub]', d).textContent = `“${r.title}” is a draft in this browser, so only you can see it. Readers see it once it is published.`;
     $('[data-done-file]', d).textContent = r.fileName;
@@ -1031,7 +1056,6 @@
     $('[data-copy-status]', d).textContent = '';
     // One-step publishing where the browser can write to the site folder;
     // elsewhere the by-hand steps are shown open
-    doneRecord = rec;
     const oneStep = canWriteFolder() && !!rec.blob;
     $('[data-publish-block]', d).hidden = !oneStep;
     $('[data-by-hand]', d).open = !oneStep;
