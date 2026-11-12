@@ -1,0 +1,368 @@
+/* Longhand: the look of the opening scene, carried through the public pages
+   (front page, Library, Coverage, Wire, About and the coverage pages).
+   Report pages keep their own styles.
+
+   The colours come from the Blender scene. At night: the sky, the moonlit
+   pages for the words, the lantern for the accent. By day (Warm paper): the
+   paper, the ink line, the leaf green. The type is the caption's: Brygada
+   1918 for titles and reading, Schibsted Grotesk for everything small.
+   Panels repeat the caption's frame: a fine edge and a second line inside. */
+body.grove-site {
+  --font-serif: 'Brygada 1918', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --horizon: url('../img/landing/horizon.webp?v=2026-11-13hamlet');
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--ink);
+}
+html[data-theme="dark"] body.grove-site {
+  --bg: #07171d;
+  --bg-sunk: #041217;
+  --panel: #0b2127;
+  --ink: #ece2c4;
+  --ink-2: #b6c3b9;
+  --ink-3: #93a69c;
+  --rule: rgba(236, 226, 196, .13);
+  --rule-2: rgba(236, 226, 196, .26);
+  --gold: #e2b764;
+  --gold-ink: #e2b764;
+  --tint: rgba(226, 183, 100, .07);
+  --tint-2: rgba(226, 183, 100, .15);
+  color-scheme: dark;
+}
+html[data-theme="light"] body.grove-site {
+  --bg: #e8e3d7;
+  --bg-sunk: #ddd7c8;
+  --panel: #f2ede1;
+  --ink: #1b201d;
+  --ink-2: #414c44;
+  --ink-3: #56625a;
+  --rule: rgba(27, 32, 29, .13);
+  --rule-2: rgba(27, 32, 29, .28);
+  --gold: #3d5b49;
+  --gold-ink: #3d5b49;
+  --tint: rgba(61, 91, 73, .07);
+  --tint-2: rgba(61, 91, 73, .15);
+  --horizon: url('../img/landing/horizon-day.webp?v=2026-11-13hamlet');
+  color-scheme: light;
+}
+
+/* Type: nothing smaller than twelve pixels, titles set like the caption */
+.grove-site .site-nav a { font-size: 14px; }
+.grove-site .brand-name { font-weight: 500; }
+.grove-site .eyebrow { font: 500 12px/1.5 var(--font-sans); letter-spacing: .16em; color: var(--gold-ink); }
+.grove-site .page-title,
+.grove-site .coverage-opening h1 { font-family: var(--font-serif); font-weight: 600; letter-spacing: -.015em; line-height: 1.04; text-wrap: balance; }
+.grove-site .page-lede { font: 400 17px/1.65 var(--font-sans); color: var(--ink-2); }
+.grove-site .page-folio { font-size: 13px; }
+.grove-site .section-label { font: 600 12px/1.4 var(--font-sans); letter-spacing: .14em; }
+.grove-site .section-meta, .grove-site .text-link, .grove-site .v2-breadcrumb { font-size: 13px; }
+.grove-site .footer-statement { font-weight: 500; letter-spacing: -.015em; }
+.grove-site .footer-links { font-size: 14px; }
+.grove-site .disclaimer { font-size: 13px; }
+.grove-site .colophon { font-size: 12px; }
+.grove-site :is(.btn, .filter) { font-family: var(--font-sans); }
+.grove-site a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* The inner pages open on the same hill as the front page, seen further
+   along: the ridges, the grass, and a smaller tree of the same kind on the
+   right. On a phone the picture keeps the tree in view. */
+.grove-site :is(.page-head, .entity-mast) { position: relative; isolation: isolate; padding-bottom: clamp(170px, 21vw, 320px); }
+.grove-site :is(.page-head, .entity-mast)::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  bottom: 0;
+  height: clamp(150px, 19vw, 300px);
+  background: var(--horizon) 88% 0 / cover no-repeat;
+  -webkit-mask-image: linear-gradient(#000 62%, transparent);
+  mask-image: linear-gradient(#000 62%, transparent);
+  pointer-events: none;
+}
+.grove-site .page-head + .section { padding-top: 8px; }
+/* The Library's count sits under its introduction, clear of the tree */
+html body.grove-site.page-library .page-folio { position: static; max-width: none; margin-top: 18px; text-align: left; }
+
+/* A floor for the small print of the Library, the Wire and the coverage
+   pages, which was set at eight to eleven pixels. The html prefix outranks
+   the page sheets' own selectors. */
+html body.grove-site .page-lede { font: 400 17px/1.65 var(--font-sans); color: var(--ink-2); }
+html body.grove-site :is(.page-folio, .library-context, .discovery-reset, .discovery-method, .entity-meta, .entity-evidence, .entity-report > span, .library-geography > summary, .report-call .call, .report-ticker) { font-size: 13px; }
+html body.grove-site :is(.discovery-facets label span, .entity-rail h2, .report-date, .report-exch, .report-context, .report-context a, .open-cue, .entity-report .entity-report-meta, .entity-index small) { font-size: 12px; }
+html body.grove-site :is(.discovery-facets select, .report-blurb, .entity-rail a, .entity-report p, .entity-index p) { font-size: 14px; }
+html body.grove-site :is(.coverage-path a, .coverage-numbers span, .coverage-panel .coverage-scope, .coverage-connections p, .coverage-sectors a) { font-size: 13px; }
+html body.grove-site :is(.coverage-country-list small, .globe-marker-count, .coverage-connections button span, .coverage-panel h3, .coverage-sectors small, .coverage-report-meta) { font-size: 12px; }
+html body.grove-site :is(.page-title, .coverage-opening h1) { font-weight: 600; letter-spacing: -.015em; }
+html body.grove-site .eyebrow { color: var(--gold-ink); }
+html body.grove-site :is(.entity-index h2, .entity-report h3, .coverage-panel h2) { font-weight: 600; letter-spacing: -.015em; }
+html body.grove-site :is(.coverage-numbers strong, .research-ledger strong) { font-weight: 500; }
+html body.grove-site .coverage-panel a strong { font-weight: 600; }
+html body.grove-site .filters .filter { font-size: 13px; }
+html body.grove-site .filter-n { font-size: 11px; }
+/* Schibsted Grotesk's tabular figures widen the comma and the full stop too,
+   which opens a gap before them in running words. Sentences keep ordinary
+   figures; dates, times and counts stay tabular. */
+html body.grove-site :is(.key-row, .key-row dd, .page-folio, .section-meta) { font-variant-numeric: lining-nums proportional-nums; }
+/* Brygada is wide enough that justified lines open rivers: About reads
+   ragged right, as the caption does */
+html body.grove-site .about-text > p:not(.about-lede) { text-align: start; -webkit-hyphens: manual; hyphens: manual; }
+
+/* A cover is the report's own artwork, typeset in the report's faces, so it
+   looks the same here as on the report page and its title breaks still fit.
+   It sits in a plain ink line, like a printed plate. */
+.grove-site .research-cover {
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 0 0 1px var(--rule-2);
+  transition: transform .3s cubic-bezier(.2, .8, .25, 1), box-shadow .3s ease;
+}
+.grove-site :is(.report, .publication-tile):hover .research-cover { transform: translateY(-3px); box-shadow: 0 0 0 1px var(--ink); }
+
+/* Labels above titles that only repeat the title or the menu are left out:
+   "About" over "Our research approach", "The wire" over the wire. */
+body.v2-page.grove-site .page-head .eyebrow,
+.grove-site .coverage-opening .eyebrow,
+.page-home.grove-site .home-coverage-intro .eyebrow { display: none; }
+
+/* Front page, below the opening ---------------------------------------- */
+/* The ledger is a folio line between two rules, as at the head of a
+   printed page, not a row of statistics in a box */
+.page-home.grove-site .research-ledger {
+  margin-top: 8px;
+  padding: 16px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--rule-2);
+}
+.page-home.grove-site .research-ledger strong { font: 500 34px/1 var(--font-serif); color: var(--ink); }
+.page-home.grove-site .research-ledger small { font: 400 13px/1.45 var(--font-sans); color: var(--ink-3); max-width: 11ch; }
+.page-home.grove-site .research-ledger .ledger-label { font: 600 22px/1.2 var(--font-serif); }
+.page-home.grove-site .ledger-label em { font: italic 400 15px/1.6 var(--font-serif); letter-spacing: 0; text-transform: none; color: var(--ink-3); }
+.page-home.grove-site .ledger-date strong { font-size: 20px; }
+.page-home.grove-site .ledger-date small { max-width: none; }
+.page-home.grove-site .ledger-date a { font: 500 13px var(--font-sans); color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--rule-2); text-underline-offset: 4px; }
+
+.page-home.grove-site .home-research { padding-block: 64px 56px; }
+.page-home.grove-site .home-section-heading { margin-bottom: 30px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+.page-home.grove-site .home-section-heading h2 { font: 600 clamp(30px, 3vw, 42px)/1.1 var(--font-serif); letter-spacing: -.015em; text-transform: none; }
+.page-home.grove-site .home-section-heading a { font: 500 14px var(--font-sans); color: var(--ink-2); }
+.page-home.grove-site .home-section-heading a:hover { color: var(--ink); }
+.page-home.grove-site :is(.publication-no, .publication-meta) { font-family: var(--font-sans); font-size: 12px; }
+.page-home.grove-site .publication-no { color: var(--gold-ink); }
+.page-home.grove-site .publication-tile h3 { font-weight: 600; letter-spacing: -.012em; }
+.page-home.grove-site .publication-tile h3 a:hover { text-decoration-color: var(--gold); }
+.page-home.grove-site .publication-tile p { font: 400 14px/1.65 var(--font-sans); color: var(--ink-2); }
+.page-home.grove-site .publication-tile:first-child p { font-size: 15px; }
+/* The whole entry is the link and its title says where it goes */
+.page-home.grove-site .publication-arrow { display: none; }
+
+/* From the world to the research: three columns divided by rules, like the
+   contents of a printed issue, not three boxed cards */
+.page-home.grove-site .home-coverage-intro { border-top: 1px solid var(--rule); padding-block: 48px 72px; align-items: start; }
+.page-home.grove-site .home-coverage-intro h2 { font-weight: 600; font-size: clamp(32px, 3.2vw, 44px); letter-spacing: -.015em; margin-top: 0; }
+.page-home.grove-site .home-coverage-intro p { font: 400 15px/1.65 var(--font-sans); }
+.page-home.grove-site .home-coverage-intro .text-link { font: 500 14px var(--font-sans); color: var(--ink-2); }
+.page-home.grove-site .home-coverage-links { gap: 0; align-items: stretch; border-top: 1px solid var(--ink); }
+.page-home.grove-site .home-coverage-links a { padding: 16px 24px 8px; gap: 10px; border-left: 1px solid var(--rule); }
+.page-home.grove-site .home-coverage-links a:first-child { border-left: 0; padding-left: 0; }
+.page-home.grove-site .home-coverage-links span { font: 500 13px var(--font-sans); letter-spacing: .04em; color: var(--ink-3); }
+.page-home.grove-site .home-coverage-links strong { font: 600 26px/1.15 var(--font-serif); color: var(--ink); text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 5px; transition: text-decoration-color .2s ease; }
+.page-home.grove-site .home-coverage-links a:hover strong { text-decoration-color: var(--gold); }
+.page-home.grove-site .home-coverage-links small { font: 400 14px/1.55 var(--font-sans); color: var(--ink-2); }
+
+/* Finish -------------------------------------------------------------- */
+/* The masthead is glass like the caption: the page passes beneath it,
+   softened. Open on a phone, the menu stays solid. */
+html[data-theme="dark"] body.grove-site { --glass: rgba(7, 23, 29, .68); }
+html[data-theme="light"] body.grove-site { --glass: rgba(232, 227, 215, .74); }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html body.grove-site .masthead:not(.menu-open),
+  .page-home.v2-page.grove-site .masthead.is-scrolled:not(.menu-open) {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+  }
+  .page-home.v2-page.grove-site .masthead:not(.is-scrolled):not(.menu-open) { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* Titles in lists carry the caption's weight */
+html body.grove-site .report-title { font-weight: 600; letter-spacing: -.012em; }
+html body.grove-site .wire-title { font-weight: 500; }
+html body.grove-site .report:hover .report-title a,
+html body.grove-site .wire-item:hover .wire-title a { text-decoration-color: var(--gold); }
+html body.grove-site .filter[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--gold); }
+
+@media (max-width: 760px) {
+  .grove-site .page-lede { font-size: 16px; }
+  .page-home.grove-site .research-ledger { padding: 14px 0; }
+  .page-home.grove-site .research-ledger strong { font-size: 28px; }
+  .page-home.grove-site .research-ledger small { font-size: 12px; }
+  .page-home.grove-site .research-ledger .ledger-label { font-size: 19px; }
+  .page-home.grove-site .ledger-label em { font-size: 14px; }
+  .page-home.grove-site .ledger-date strong { font-size: 17px; }
+  .page-home.grove-site .home-research { padding-block: 40px 36px; }
+  .page-home.grove-site .home-section-heading { flex-wrap: wrap; gap: 0 16px; }
+  .page-home.grove-site .home-section-heading h2 { font-size: 30px; }
+  .page-home.grove-site .home-section-heading a { white-space: nowrap; font-size: 13px; }
+  .page-home.grove-site .home-coverage-intro { padding-block: 36px 48px; }
+  .page-home.grove-site .home-coverage-links a { grid-template-columns: 28px minmax(0, 1fr); gap: 4px 12px; padding: 14px 0; border-left: 0; border-top: 1px solid var(--rule); }
+  .page-home.grove-site .home-coverage-links a:first-child { border-top: 0; }
+  .page-home.grove-site .home-coverage-links small { grid-column: 2; }
+  .page-home.grove-site .home-coverage-links strong { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grove-site .research-cover, .page-home.grove-site .home-coverage-links strong { transition: none; }
+  .grove-site :is(.report, .publication-tile):hover .research-cover { transform: none; }
+}
+
+/* Coverage: the drawn globe needs no glow behind it, and its labels sit on a
+   halo of the page so a coast's ink line never runs through a name */
+html body.grove-site .coverage-globe .plate::before { display: none; }
+html body.grove-site .globe-marker { color: var(--ink); text-shadow: 0 0 1px var(--bg), 0 0 2px var(--bg), 0 0 3px var(--bg), 0 0 6px var(--bg), 0 0 10px var(--bg), 0 0 14px var(--bg); }
+html body.grove-site .globe-marker::before { background: var(--gold); box-shadow: 0 0 0 2px var(--bg); }
+html body.grove-site .globe-marker:is(:hover, .is-selected) { color: var(--ink); }
+html body.grove-site .globe-marker.is-selected .globe-marker-name { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+
+/* The hill as an element of its own (grove-site.js), so a page change can
+   carry it: the same hill slides from where it stood on the page that left
+   to where it stands on the next, instead of two hills crossfading. Without
+   scripts the picture above stays. The wind loop plays inside it. */
+.grove-site .has-hill::after { display: none; }
+.grove-hill {
+  position: absolute;
+  z-index: -1;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  bottom: 0;
+  height: clamp(150px, 19vw, 300px);
+  background: var(--horizon) 88% 0 / cover no-repeat;
+  -webkit-mask-image: linear-gradient(#000 62%, transparent);
+  mask-image: linear-gradient(#000 62%, transparent);
+  pointer-events: none;
+  view-transition-name: horizon;
+}
+.grove-horizon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 88% 0;
+  opacity: 0;
+}
+.is-windy .grove-horizon { opacity: 1; }
+html:not(.theme-vt)::view-transition-group(horizon) { animation-duration: .5s; animation-timing-function: cubic-bezier(.2, .7, .1, 1); }
+html:not(.theme-vt)::view-transition-old(horizon) { display: none; }
+html:not(.theme-vt)::view-transition-new(horizon) { animation: none; }
+html:not(.theme-vt)::view-transition-old(horizon):only-child { display: block; animation: v2-leave 280ms ease both; }
+html:not(.theme-vt)::view-transition-new(horizon):only-child { animation: v2-enter 520ms cubic-bezier(.2, .7, .2, 1) both; }
+
+/* A theme switch on the front page: only the circle of new colours moves.
+   The front page's own leaving and arriving animations are for page changes
+   and must not run here, or the whole screen dims and fades as the circle
+   spreads. */
+html.theme-vt:has(body.page-home)::view-transition-old(root),
+html.theme-vt:has(body.page-home)::view-transition-new(root) { animation: none; }
+
+/* The footer's world is drawn like the globe: flat land, inked coasts */
+html[data-theme="dark"] body.grove-site { --atlas: url('../img/earth/footer-atlas-night.svg?v=2026-11-12soft'); }
+html[data-theme="light"] body.grove-site { --atlas: url('../img/earth/footer-atlas-day.svg?v=2026-11-12soft'); }
+html body.grove-site .site-footer::before { background-image: var(--atlas); opacity: 1; }
+/* The footer's links sit on a halo of the page, clear of the coastlines */
+html body.grove-site .site-footer :is(.footer-links a, .footer-links h2, .footer-links p) { text-shadow: 0 0 2px var(--bg), 0 0 6px var(--bg), 0 0 10px var(--bg); }
+
+/* While a page change runs, the masthead is captured as a picture of its
+   own, and a picture cannot blur what passes behind it: the glass would show
+   the old and new pages sliding through it unblurred. For that moment it is
+   the page's solid colour. */
+html:active-view-transition body.grove-site:not(.page-home) .masthead,
+html:active-view-transition body.page-home.grove-site .masthead.is-scrolled {
+  background: var(--bg);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Between inner pages the old words leave before the new ones arrive, so
+   two headlines never sit on top of each other. The masthead and the hill
+   stay put; the front page keeps its own camera move. */
+html:has(body.grove-site:not(.page-home)):not(.theme-vt):not(.from-home)::view-transition-old(root) { animation: grove-leave 190ms cubic-bezier(.4, 0, 1, 1) both; }
+html:has(body.grove-site:not(.page-home)):not(.theme-vt):not(.from-home)::view-transition-new(root) { animation: grove-enter 440ms cubic-bezier(.2, .7, .2, 1) 150ms both; }
+@keyframes grove-leave { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes grove-enter { from { opacity: 0; transform: translateY(12px); } }
+
+/* The phone menu opens as a solid sheet; only its links move in, so the
+   page never shows through the menu while it opens */
+@keyframes grove-menu-item { from { opacity: 0; transform: translateY(-6px); } }
+html body.grove-site .has-v2-menu.menu-open .site-nav { animation: none; }
+html body.grove-site .has-v2-menu.menu-open .site-nav > * { animation: grove-menu-item 220ms cubic-bezier(.2, .7, .2, 1) both; }
+html body.grove-site .has-v2-menu.menu-open .site-nav > :nth-child(2) { animation-delay: 30ms; }
+html body.grove-site .has-v2-menu.menu-open .site-nav > :nth-child(3) { animation-delay: 60ms; }
+html body.grove-site .has-v2-menu.menu-open .site-nav > :nth-child(n+4) { animation-delay: 90ms; }
+@media (prefers-reduced-motion: reduce) {
+  html body.grove-site .has-v2-menu.menu-open .site-nav > * { animation: none; }
+}
+
+/* What the catalogue says about the report */
+.page-home.grove-site .publication-call { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--rule); }
+.page-home.grove-site .publication-call div { display: flex; gap: 8px; align-items: baseline; }
+.page-home.grove-site .publication-call dt { font: 400 12px var(--font-sans); color: var(--ink-3); }
+.page-home.grove-site .publication-call dd { margin: 0; font: 600 13px var(--font-sans); color: var(--ink); font-variant-numeric: lining-nums proportional-nums; letter-spacing: .01em; }
+.page-home.grove-site .home-updated { margin: 0 auto 0 24px; font: 400 13px var(--font-sans); color: var(--ink-3); }
+
+/* The lead's summary is a narration box laid over the foot of its cover, as
+   in a ligne-claire panel: flat paper, an ink edge, set in the book face.
+   It reaches past the cover's edge into the gutter, the way captions do. */
+.page-home.grove-site .publication-tile:first-child { position: relative; }
+.page-home.grove-site .publication-tile .publication-narration {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+  z-index: 2;
+  margin: -58px -44px 0 26px;
+  padding: 13px 16px 14px;
+  background: var(--cap-paper);
+  color: var(--cap-ink);
+  border: 1.5px solid var(--cap-ink);
+  font: italic 400 15.5px/1.5 var(--font-serif);
+  display: block;
+  max-width: none;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+html[data-theme="dark"] .page-home.grove-site { --cap-paper: #ece2c4; --cap-ink: #07171d; }
+html[data-theme="light"] .page-home.grove-site { --cap-paper: #fbf6e9; --cap-ink: #1b201d; }
+.page-home.grove-site .publication-tile:first-child .publication-copy { grid-row: 1 / span 2; }
+@media (max-width: 760px) {
+  .page-home.grove-site .home-updated { display: none; }
+}
+
+
+/* The Longhand mark: a pen nib over a line of handwriting. The nib is the
+   ink colour, its breather hole and slit are cut out in the page colour. */
+.brand-mark { width: 22px; height: 30px; flex: none; align-self: center; margin-right: 12px; color: var(--ink); }
+:is(.brand-mark, .page-emblem) .mark-nib { fill: currentColor; stroke: none; }
+:is(.brand-mark, .page-emblem) .mark-cut { fill: none; stroke: var(--page-bg); stroke-width: 1.6; stroke-linecap: round; }
+:is(.brand-mark, .page-emblem) .mark-wave { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+@media (max-width: 420px) { .brand-mark { width: 19px; height: 26px; margin-right: 9px; } }
+html[data-theme="dark"] body.grove-site { --page-bg: #07171d; }
+html[data-theme="light"] body.grove-site { --page-bg: #e8e3d7; }
+.grove-site .page-emblem { color: var(--ink); width: 44px; height: 60px; }
+
+/* Long rules only where a rule separates something: the ledger keeps one
+   line under it, the coverage section one line above it. The heading of the
+   latest research, the top of the three columns, the section labels under
+   the hill and the meta line of the coverage pages stand on space alone. */
+.page-home.grove-site .research-ledger { border-top: 0; }
+.page-home.grove-site .home-section-heading { border-bottom: 0; padding-bottom: 0; }
+.page-home.grove-site .home-coverage-links { border-top: 0; }
+.grove-site :is(.page-head, .entity-mast) + .section .section-head,
+.grove-site :is(.page-head, .entity-mast) ~ .section .section-head:first-child { border-top: 0; padding-top: 0; }
+html body.grove-site .entity-meta { border-top: 0; padding-top: 0; }
+
+/* One column on a phone: the cover, its narration box over its foot, then the words */
+@media (max-width: 600px) {
+  .page-home.grove-site .publication-tile .publication-narration { grid-row: auto; order: 2; margin: -44px 10px 0 14px; font-size: 15px; }
+  .page-home.grove-site .publication-tile:first-child .publication-copy { grid-row: auto; order: 3; }
+  .page-home.grove-site .publication-tile:first-child > :first-child { order: 1; }
+}

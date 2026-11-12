@@ -1,0 +1,63 @@
+/* Longhand: the frame of the report pages (masthead, footer, ground colour
+   and the page change) in the look of the rest of the site, so opening a
+   report from the Library does not change the masthead's type or the night's
+   colour under the reader. The report itself keeps its own type, colours and
+   figures: nothing inside main is touched here. */
+html[data-theme="dark"] body.grove-chrome.v2-page { --bg: #07171d; --glass: rgba(7, 23, 29, .68); }
+html[data-theme="light"] body.grove-chrome.v2-page { --glass: rgba(232, 227, 215, .74); }
+body.grove-chrome { background: var(--bg); }
+body.grove-chrome :is(.masthead, .site-footer) {
+  --font-serif: 'Brygada 1918', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+}
+body.grove-chrome .site-nav a { font-size: 14px; }
+body.grove-chrome .brand-name { font-weight: 500; }
+body.grove-chrome .footer-statement { font-weight: 500; letter-spacing: -.015em; }
+
+/* The masthead is glass, as on the other pages; solid while a page change
+   runs, because a captured picture cannot blur what passes behind it */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html body.grove-chrome .masthead:not(.menu-open) {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+  }
+}
+html:active-view-transition body.grove-chrome .masthead { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* Arriving at or leaving a report: the old page goes before the new one
+   comes, so the Library's covers never sit over the report's opening */
+html:has(body.grove-chrome):not(.theme-vt):not(.from-home)::view-transition-old(root) { animation: grove-leave 190ms cubic-bezier(.4, 0, 1, 1) both; }
+html:has(body.grove-chrome):not(.theme-vt):not(.from-home)::view-transition-new(root) { animation: grove-enter 440ms cubic-bezier(.2, .7, .2, 1) 150ms both; }
+@keyframes grove-leave { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes grove-enter { from { opacity: 0; transform: translateY(12px); } }
+
+/* The phone menu opens as a solid sheet; only its links move in */
+@keyframes grove-menu-item { from { opacity: 0; transform: translateY(-6px); } }
+html body.grove-chrome .has-v2-menu.menu-open .site-nav { animation: none; }
+html body.grove-chrome .has-v2-menu.menu-open .site-nav > * { animation: grove-menu-item 220ms cubic-bezier(.2, .7, .2, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  html body.grove-chrome .has-v2-menu.menu-open .site-nav > * { animation: none; }
+}
+
+/* A report that loads its edition after the page opens (the IHSG Weekly,
+   the report reader) holds a screen's height while it loads, so the footer
+   does not jump up into view and back down. The loading line only shows if
+   loading takes a moment, and the edition fades in when it arrives. */
+body.grove-chrome :is(main:has(> .market-loading), [data-reader]:has(.state-text)) { min-height: calc(100svh - var(--masthead-h, 80px)); }
+@keyframes grove-fade { from { opacity: 0; } }
+body.grove-chrome .market-loading { animation: grove-fade .3s ease .5s both; }
+body.grove-chrome main.market > :not(.market-loading) { animation: grove-fade .4s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  body.grove-chrome :is(.market-loading, main.market > *) { animation: none; }
+}
+
+/* The Longhand mark: a pen nib over a line of handwriting. The nib is the
+   ink colour, its breather hole and slit are cut out in the page colour. */
+.brand-mark { width: 22px; height: 30px; flex: none; align-self: center; margin-right: 12px; color: var(--ink); }
+:is(.brand-mark, .page-emblem) .mark-nib { fill: currentColor; stroke: none; }
+:is(.brand-mark, .page-emblem) .mark-cut { fill: none; stroke: var(--page-bg); stroke-width: 1.6; stroke-linecap: round; }
+:is(.brand-mark, .page-emblem) .mark-wave { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+@media (max-width: 420px) { .brand-mark { width: 19px; height: 26px; margin-right: 9px; } }
+html[data-theme="dark"] body.grove-chrome { --page-bg: #07171d; }
+html[data-theme="light"] body.grove-chrome { --page-bg: var(--bg); }

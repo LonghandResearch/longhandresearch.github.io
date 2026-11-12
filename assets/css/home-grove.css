@@ -1,0 +1,192 @@
+/* The opening scene: a tree grows over someone writing by lantern light.
+   Rendered in Blender (ink lines, flat colour) twice: a night for the dark
+   theme and a quiet afternoon for Warm paper. One film for wide screens, one
+   for phones. Without motion the grown tree is shown still.
+
+   The pictures are backgrounds so only the one this theme and this screen
+   need is fetched: the grown tree by default, the bare hill while the film
+   is about to play, the grown tree again once it has grown. */
+.page-home .grove {
+  --grove-sky: #07171d;
+  --grove-end: url('../img/landing/tree-land-end.webp?v=2026-11-13hamlet');
+  --grove-start: url('../img/landing/tree-land-start.webp?v=2026-11-13hamlet');
+  --grove-pos: 75% 78%;
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--grove-sky) var(--grove-end) var(--grove-pos) / cover no-repeat;
+}
+html[data-theme="light"] .page-home .grove {
+  --grove-sky: #e8e3d7;
+  --grove-end: url('../img/landing/tree-land-day-end.webp?v=2026-11-13hamlet');
+  --grove-start: url('../img/landing/tree-land-day-start.webp?v=2026-11-13hamlet');
+}
+/* Motion: the first frame (a bare hill and the reader) waits behind the film,
+   so the grown tree never flashes before it grows */
+.page-home .grove.is-motion { background-image: var(--grove-start); }
+.page-home .grove.is-motion.is-grown { background-image: var(--grove-end); }
+.grove-film {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--grove-pos);
+  opacity: 0;
+}
+.grove.is-playing .grove-growth, .grove.is-looping .grove-loop { opacity: 1; }
+/* A soft step from the hill into the page below */
+.grove::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  height: 14%;
+  background: linear-gradient(transparent, var(--grove-sky));
+  pointer-events: none;
+}
+
+.grove-copy {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--masthead-h);
+  padding-bottom: 8svh;
+}
+/* The caption is a panel of the drawing: flat colour, an ink edge and a fine
+   frame inside it. At night it is cut from the dark, its words in the colours
+   already in the picture: the pages by the reader, the moonlit grass, the
+   lantern. By day it is a sheet of paper inked like the tree. */
+/* The caption is a pane of glass over the scene: the sky and the moving
+   leaves stay visible behind it, softened, and the words sit on a tint of
+   the scene's own colour. Where the browser cannot blur, the tint is
+   simply thicker. */
+.grove-caption {
+  --cap-bg: rgba(6, 22, 28, .42);
+  --cap-bg-solid: rgba(9, 28, 33, .9);
+  --cap-edge: rgba(236, 226, 196, .26);
+  --cap-frame: rgba(236, 226, 196, .1);
+  --cap-title: #ece2c4;
+  --cap-text: #a7b8ae;
+  --cap-rule: rgba(236, 226, 196, .18);
+  --cap-accent: #e2b764;
+  --cap-btn: #ece2c4;
+  --cap-btn-ink: #02080a;
+  --cap-btn-hover: #e2b764;
+  margin-left: 57%;
+  max-width: 31.5rem;
+  padding: 34px 36px 30px;
+  background: var(--cap-bg-solid);
+  border: 1px solid var(--cap-edge);
+  outline: 1px solid var(--cap-frame);
+  outline-offset: -9px;
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .grove-caption {
+    background: var(--cap-bg);
+    -webkit-backdrop-filter: blur(16px) saturate(1.25);
+    backdrop-filter: blur(16px) saturate(1.25);
+  }
+}
+html[data-theme="light"] .grove-caption {
+  --cap-bg: rgba(251, 246, 233, .5);
+  --cap-bg-solid: rgba(251, 246, 233, .92);
+  --cap-edge: rgba(27, 32, 29, .28);
+  --cap-frame: rgba(27, 32, 29, .1);
+  --cap-title: #1b201d;
+  --cap-text: #4b574e;
+  --cap-rule: rgba(27, 32, 29, .2);
+  --cap-accent: #3d5b49;
+  --cap-btn: #1b201d;
+  --cap-btn-ink: #fbf6e9;
+  --cap-btn-hover: #3d5b49;
+}
+.page-home .grove-title {
+  margin: 0;
+  font: 600 clamp(36px, 3.5vw, 54px)/1.04 'Brygada 1918', Georgia, serif;
+  letter-spacing: -.015em;
+  color: var(--cap-title);
+  text-wrap: balance;
+}
+.grove-lede {
+  margin-top: 16px;
+  font: 400 16px/1.6 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--cap-text);
+  text-wrap: pretty;
+}
+.grove-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 22px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--cap-rule);
+}
+.page-home .grove .grove-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 20px;
+  background: var(--cap-btn);
+  color: var(--cap-btn-ink);
+  border: 0;
+  font: 600 15px 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  text-decoration: none;
+  transition: background-color .2s ease;
+}
+.page-home .grove .grove-btn::after { content: '→'; margin-left: 12px; font-weight: 400; transition: transform .2s ease; }
+.page-home .grove .grove-btn:hover { background: var(--cap-btn-hover); }
+.page-home .grove .grove-btn:hover::after { transform: translateX(3px); }
+.page-home .grove .grove-btn:focus-visible, .grove-latest:focus-visible { outline: 2px solid var(--cap-accent); outline-offset: 4px; }
+.grove-latest {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  color: var(--cap-title);
+  font: 500 14px/1.4 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  text-decoration: none;
+}
+.grove-latest span { font: italic 400 14px 'Brygada 1918', Georgia, serif; color: var(--cap-accent); }
+.grove-latest b { font-weight: 500; text-decoration: underline; text-decoration-color: var(--cap-rule); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .2s ease; }
+.grove-latest:hover b { text-decoration-color: var(--cap-accent); }
+
+/* The caption settles in once the crown has begun to fill */
+.grove.is-motion .grove-caption { opacity: 0; transform: translateY(16px); animation: grove-caption .9s cubic-bezier(.2, .8, .25, 1) 1.5s forwards; }
+@keyframes grove-caption { to { opacity: 1; transform: none; } }
+
+/* Phones and tall windows: the portrait film, the caption in the sky above the tree */
+@media (max-aspect-ratio: 4/5) {
+  .page-home .grove {
+    --grove-end: url('../img/landing/tree-portrait-end.webp?v=2026-11-13hamlet');
+    --grove-start: url('../img/landing/tree-portrait-start.webp?v=2026-11-13hamlet');
+    --grove-pos: 50% 100%;
+  }
+  html[data-theme="light"] .page-home .grove {
+    --grove-end: url('../img/landing/tree-portrait-day-end.webp?v=2026-11-13hamlet');
+    --grove-start: url('../img/landing/tree-portrait-day-start.webp?v=2026-11-13hamlet');
+  }
+  .grove-copy { justify-content: flex-start; padding-top: calc(var(--masthead-h) + 4svh); padding-right: 7px; }
+  .grove-caption { margin-left: 0; padding: 22px 22px 18px; outline-offset: -7px; }
+  .page-home .grove-title { font-size: clamp(28px, 8vw, 40px); }
+  .grove-lede { font-size: 14px; line-height: 1.5; margin-top: 10px; }
+  .grove-actions { margin-top: 14px; padding-top: 14px; gap: 12px 18px; }
+  .page-home .grove .grove-btn { min-height: 44px; font-size: 14px; }
+}
+/* Wide but small windows: a narrower caption, still clear of the crown */
+@media (min-aspect-ratio: 4/5) and (max-width: 1000px) {
+  .grove-caption { margin-left: 48%; padding: 24px 24px 22px; }
+  .page-home .grove-title { font-size: clamp(30px, 4.4vw, 42px); }
+  .grove-lede { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grove.is-motion .grove-caption { animation: none; opacity: 1; transform: none; }
+  .page-home .grove .grove-btn, .page-home .grove .grove-btn::after, .grove-latest b { transition: none; }
+}

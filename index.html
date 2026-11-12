@@ -45,10 +45,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Schibsted+Grotesk:wght@400..700&display=swap">
 <link rel="stylesheet" href="assets/css/site.css?v=2026-09-29a">
 <link rel="stylesheet" href="assets/css/v2.css?v=2026-10-24c">
 <link rel="stylesheet" href="assets/css/home-v2.css?v=2026-10-11mobile">
+<link rel="stylesheet" href="assets/css/home-grove.css?v=2026-11-13hamlet">
 <script>
   /* The catalogue changes whenever a report is published. Its address changes every
      ten minutes, the same as GitHub Pages caches the page itself, so a new report
@@ -61,20 +62,22 @@
 <script src="assets/js/research-art.js?v=2026-11-08hole" defer></script>
 <script src="assets/js/living-covers-data.js?v=2026-10-27polish" defer></script>
 <script src="assets/js/living-covers.js?v=2026-10-27polish" defer></script>
-<script src="assets/js/home-v2.js?v=2026-10-24" defer></script>
+<script src="assets/js/home-v2.js?v=2026-11-13panel" defer></script>
 <script src="assets/js/home.js?v=2026-10-11editorial-final" defer></script>
+<script src="assets/js/home-grove.js?v=2026-11-13hamlet" defer></script>
 <script src="assets/js/research-graph.js?v=2026-11-08ihsg" defer></script>
-<script src="assets/js/earth.js?v=2026-10-12geography" defer></script>
 <!-- Reader counts, no cookies: longhandresearch.goatcounter.com -->
 <script data-goatcounter="https://longhandresearch.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <link rel="stylesheet" href="assets/css/covers.css?v=2026-10-26living">
+<link rel="stylesheet" href="assets/css/grove-site.css?v=2026-11-13hamlet">
 </head>
-<body class="page-home v2-page v2-dark">
+<body class="page-home v2-page v2-dark grove-site">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
   <div class="wrap masthead-inner">
     <a class="brand" href="index.html" aria-label="Longhand Research, front page">
+      <svg class="brand-mark" viewBox="15 11 34 46" aria-hidden="true" focusable="false"><path class="mark-nib" d="M21.5 13.5C24.5 14.8 27.5 15.4 32 14.6C36.5 15.4 39.5 14.8 42.5 13.5C43.6 24.5 40.2 34.5 32 46.5C23.8 34.5 20.4 24.5 21.5 13.5Z"/><circle class="mark-cut" cx="32" cy="29" r="2.4"/><path class="mark-cut" d="M32 31.4V45.6"/><path class="mark-wave" d="M16.5 53.5c2.9-2.4 5.4-2.4 8.1 0s5.4 2.4 8.1 0 5.4-2.4 8.1 0 5.4 2.4 7.7 0"/></svg>
       <span class="brand-name">Longhand</span>
       <span class="brand-sub">Research</span>
     </a>
@@ -93,34 +96,29 @@
 </header>
 
 <main id="main">
-  <section class="hero night" data-hero aria-labelledby="hero-title">
-    <canvas class="night-stars" data-stars aria-hidden="true"></canvas>
-    <div class="wrap night-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Independent research</p>
-        <h1 class="hero-title" id="hero-title">Independent research,<br>published in full.</h1>
-        <p class="hero-lede">Companies, sectors, and the economies around them. Independent analysis, with the evidence and the working published alongside the view.</p>
-        <div class="hero-actions">
-          <a class="btn" href="library.html">Explore research
-            <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-          </a>
-          <a class="btn" href="coverage.html">Explore coverage <span aria-hidden="true">↗</span></a>
-        </div>
+  <section class="grove" data-hero data-grove aria-labelledby="hero-title">
+    <!-- A tree grows over someone writing by lantern light. Rendered in Blender,
+         a night for the dark theme and an afternoon for Warm paper: the
+         landscape film for wide screens, the portrait film for phones. The
+         still pictures are backgrounds set in home-grove.css. -->
+    <video class="grove-film grove-growth" data-grove-film muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+    <video class="grove-film grove-loop" data-grove-loop muted playsinline loop preload="none" aria-hidden="true" tabindex="-1"></video>
+    <!-- The words sit in a caption box, the way a ligne-claire panel carries its
+         narration: the notebook's paper, the drawing's own ink line. -->
+    <div class="wrap grove-copy"><div class="grove-text grove-caption">
+      <h1 class="grove-title" id="hero-title">Research with the working shown.</h1>
+      <p class="grove-lede"><span data-grove-count>Company initiations, sector studies and a weekly read of the Indonesian market.</span> Each one is published in full, with its sources and its calculations.</p>
+      <div class="grove-actions">
+        <a class="grove-btn" href="library.html">Open the Library</a>
+        <a class="grove-latest" data-grove-latest href="library.html" hidden></a>
       </div>
-
-      <figure class="plate" data-globe>
-        <div class="plate-stage" data-globe-stage role="img"
-             aria-label="Slowly rotating Earth" aria-describedby="globe-help">
-        </div>
-        <p class="sr-only" id="globe-help">The Earth rotates slowly using NASA imagery and remains still with reduced motion enabled. Arcs show selected substantive research relationships, not transport routes or measured flows. Open Coverage to explore the research geography.</p>
-      </figure>
-      <aside class="home-latest" data-latest aria-label="Latest report" hidden></aside>
-    </div>
+    </div></div>
+    <p class="sr-only">Illustration: a person sits against a tree on a hill and writes in a notebook while the tree grows above them.</p>
   </section>
 
   <div class="wrap"><div role="group" class="research-ledger" data-research-ledger aria-label="Publication catalogue"></div></div>
   <section class="home-research wrap" aria-labelledby="latest-heading">
-    <div class="home-section-heading"><h2 id="latest-heading">Latest research</h2><a href="library.html">The complete Library <span aria-hidden="true">→</span></a></div>
+    <div class="home-section-heading"><h2 id="latest-heading">Latest research</h2><p class="home-updated" data-home-updated></p><a href="library.html">The complete Library <span aria-hidden="true">→</span></a></div>
     <ol class="home-publications" data-home-publications></ol>
     <noscript><p>Browse the <a href="library.html">Library</a> or follow the <a href="feed.xml">research RSS feed</a> for every publication.</p></noscript>
   </section>
