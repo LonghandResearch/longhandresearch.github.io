@@ -8,7 +8,7 @@ on the site: the site uses the films and stills they produce.
 | --- | --- |
 | `build_tree.py` | The scene: the tree growing over 150 frames, the reader, the lantern, the hill, ridges, moon, stars and fireflies, ink lines and toon materials. `portrait` frames it for phones, `day` makes the Warm paper afternoon |
 | `regrass.py` | Replaces the grass with an even field of short curved blades, dark at the root and light at the tip |
-| `add_distance.py` | The far landscape in flat haze colour: a range of mountains, copses and poplars on the ridges, farmland with hedgerows, a hamlet with a church tower (windows lit at night) and a lane |
+| `add_distance.py` | The far landscape in flat haze colour: two ranges of mountains, copses and poplars on the ridges, farmland with hedgerows, vine rows, an orchard and hay bales, a hamlet with a church tower, doors, a stone wall and chimney smoke (windows lit at night), a lane between cypresses, birds by day and wild flowers in the reader's grass |
 | `add_wind.py` | Moves the grass in the same four-second loop as the leaves |
 | `horizon_wind.py` | The inner pages' hill: no reader, a smaller tree further along, stronger wind, the sky transparent |
 | `render_stills.py`, `render_video.py` | Stills and H.264 films of a frame range |

@@ -6,7 +6,7 @@
    or a failed load keep the still. The loop rests while it is off screen. */
 (function () {
   'use strict';
-  const VERSION = '2026-11-13hamlet';
+  const VERSION = '2026-11-13detail';
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const saveData = navigator.connection && navigator.connection.saveData;
   const script = document.currentScript;

@@ -8,8 +8,8 @@
    is about to play, the grown tree again once it has grown. */
 .page-home .grove {
   --grove-sky: #07171d;
-  --grove-end: url('../img/landing/tree-land-end.webp?v=2026-11-13hamlet');
-  --grove-start: url('../img/landing/tree-land-start.webp?v=2026-11-13hamlet');
+  --grove-end: url('../img/landing/tree-land-end.webp?v=2026-11-13detail');
+  --grove-start: url('../img/landing/tree-land-start.webp?v=2026-11-13detail');
   --grove-pos: 75% 78%;
   position: relative;
   height: 100svh;
@@ -20,8 +20,8 @@
 }
 html[data-theme="light"] .page-home .grove {
   --grove-sky: #e8e3d7;
-  --grove-end: url('../img/landing/tree-land-day-end.webp?v=2026-11-13hamlet');
-  --grove-start: url('../img/landing/tree-land-day-start.webp?v=2026-11-13hamlet');
+  --grove-end: url('../img/landing/tree-land-day-end.webp?v=2026-11-13detail');
+  --grove-start: url('../img/landing/tree-land-day-start.webp?v=2026-11-13detail');
 }
 /* Motion: the first frame (a bare hill and the reader) waits behind the film,
    so the grown tree never flashes before it grows */
@@ -165,13 +165,13 @@ html[data-theme="light"] .grove-caption {
 /* Phones and tall windows: the portrait film, the caption in the sky above the tree */
 @media (max-aspect-ratio: 4/5) {
   .page-home .grove {
-    --grove-end: url('../img/landing/tree-portrait-end.webp?v=2026-11-13hamlet');
-    --grove-start: url('../img/landing/tree-portrait-start.webp?v=2026-11-13hamlet');
+    --grove-end: url('../img/landing/tree-portrait-end.webp?v=2026-11-13detail');
+    --grove-start: url('../img/landing/tree-portrait-start.webp?v=2026-11-13detail');
     --grove-pos: 50% 100%;
   }
   html[data-theme="light"] .page-home .grove {
-    --grove-end: url('../img/landing/tree-portrait-day-end.webp?v=2026-11-13hamlet');
-    --grove-start: url('../img/landing/tree-portrait-day-start.webp?v=2026-11-13hamlet');
+    --grove-end: url('../img/landing/tree-portrait-day-end.webp?v=2026-11-13detail');
+    --grove-start: url('../img/landing/tree-portrait-day-start.webp?v=2026-11-13detail');
   }
   .grove-copy { justify-content: flex-start; padding-top: calc(var(--masthead-h) + 4svh); padding-right: 7px; }
   .grove-caption { margin-left: 0; padding: 22px 22px 18px; outline-offset: -7px; }

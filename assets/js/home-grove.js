@@ -12,7 +12,7 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const tall = window.matchMedia('(max-aspect-ratio: 4/5)');
   const saveData = navigator.connection && navigator.connection.saveData;
-  const VERSION = '2026-11-13hamlet';
+  const VERSION = '2026-11-13detail';
 
   /* The newest publication, from the catalogue */
   const LH = window.Longhand;

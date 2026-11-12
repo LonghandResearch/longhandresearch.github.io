@@ -149,5 +149,118 @@ sh.poly([(x - .085, y - d - .001, base + .49), (x + .085, y - d - .001, base + .
 window(x, base + .36, 1, d)
 sh.build('LH_FarHamlet', mats)
 
+# ------------------------------------------------------------- fine detail
+from mathutils import Vector
+rows_c, hay_c, hay_s, smoke_c, bird_c, wall_c = (('#a6b691', '#dcc68e', '#bea66f', '#ebe7da', '#6f7d70', '#cfc9b2') if DAY
+                                                 else ('#0b2125', '#0e2428', '#0b1f22', '#13303a', '#0b2226', '#10282e'))
+
+# A second, further range behind the first: paler still, its peaks just showing
+sh = Shapes()
+my2 = ryf + 6.5
+def mz2(x):
+    a = .55 * (1 - abs(math.sin(x * .15 + 2.4))) ** 2.4
+    b = .38 * (1 - abs(math.sin(x * .27 + .3))) ** 2.8
+    return mbase + .12 + max(a, b)
+xs2 = [X(-.25) + i * (1.5 * frame_w / 240) for i in range(241)]
+sh.poly([(x, my2, mz2(x)) for x in xs2] + [(x, my2, mbase - 8) for x in reversed(xs2)], 0)
+sh.build('LH_FarMountains2', [flat('LH_FarMountainMat2', '#e3e7da' if DAY else '#183740')])
+
+# Farm detail on the near ridge: vine rows, an orchard, hay bales by day
+y = ry - .035
+sh = Shapes()
+patches = list(zip(zip(edges, edges[1:]), tints))
+def slant(u0, u1):
+    x0, x1 = X(u0), X(u1); return x0, x1, (x1 - x0) * .35
+for idx in (2, 5, 8, 11):                      # vine rows down the slope
+    (u0, u1), _ = patches[idx]
+    x0, x1, lean = slant(u0, u1)
+    k = 0
+    xr = x0 + .05
+    while xr < x1 - .03:
+        top = rz(xr) - .06
+        sh.poly([(xr - .008, y, top), (xr + .008, y, top), (xr + lean + .008, y, top - 1.2), (xr + lean - .008, y, top - 1.2)], 0)
+        xr += .065
+for idx in (4,):                               # an orchard in rows
+    (u0, u1), _ = patches[idx]
+    x0, x1, lean = slant(u0, u1)
+    for r_ in range(5):
+        dz = .1 + r_ * .1
+        xr = x0 + .07
+        while xr < x1 - .05:
+            cx_ = xr + lean * dz / 1.2; cz = rz(xr) - .05 - dz
+            sh.poly([(cx_ + .034 * math.cos(t * math.tau / 10), y - .001, cz + .036 * math.sin(t * math.tau / 10)) for t in range(10)], 1)
+            xr += .1
+if DAY:
+    for idx in (10,):                          # hay bales
+        (u0, u1), _ = patches[idx]
+        x0, x1, lean = slant(u0, u1)
+        for j, (fx, dz) in enumerate(((.25, .12), (.55, .18), (.4, .3), (.75, .27))):
+            cx_ = x0 + (x1 - x0) * fx + lean * dz / 1.2; cz = rz(x0 + (x1 - x0) * fx) - .06 - dz
+            sh.poly([(cx_ + .045 * math.cos(t * math.tau / 12), y - .002, cz + .03 * math.sin(t * math.tau / 12)) for t in range(12)], 2)
+            sh.poly([(cx_ - .045, y - .003, cz - .006), (cx_ + .045, y - .003, cz - .006), (cx_ + .04, y - .003, cz - .03), (cx_ - .04, y - .003, cz - .03)], 3)
+sh.build('LH_FarFarm', [flat('LH_FarRows', rows_c), flat('LH_FarOrchard', P['near_tree']), flat('LH_FarHay', hay_c), flat('LH_FarHayShade', hay_s)])
+
+# Cypresses along the lane, larger as it comes nearer
+sh = Shapes()
+for k in range(3, len(pts) - 2, 4):
+    xa, za, wa = pts[k]
+    for side in (-1, 1):
+        cx_ = xa + side * (wa + .045); hgt = .12 + .1 * k / len(pts); wid = .028 + .02 * k / len(pts)
+        sh.poly([(cx_ + wid * math.cos(t * math.tau / 14), y - .006, za + hgt * .5 + hgt * .5 * math.sin(t * math.tau / 14)) for t in range(14)], 0)
+sh.build('LH_FarCypress', [flat('LH_FarCypressMat', P['near_tree'])])
+
+# The hamlet's finer parts: doors, a low stone wall, smoke by day
+y = ry - .12
+sh = Shapes()
+for i, (u, w, h, lit, alt) in enumerate(houses):
+    x = X(u); base = rz(x) - .03; d = i * .003
+    dx = x + (w * .25 if i % 2 else -w * .25)
+    sh.poly([(dx - .018, y - .004 - d, base), (dx + .018, y - .004 - d, base), (dx + .018, y - .004 - d, base + .06), (dx - .018, y - .004 - d, base + .06)], 0)
+xw0, xw1 = X(.44), X(.57)
+n = 30
+sh.poly([(xw0 + (xw1 - xw0) * k / n, y - .05, rz(xw0 + (xw1 - xw0) * k / n) + .015) for k in range(n + 1)] + [(xw1, y - .05, rz(xw1) - .05), (xw0, y - .05, rz(xw0) - .05)], 1)
+if DAY:
+    for i in (1, 3):
+        u, w, h, lit, alt = houses[i]
+        x = X(u) + w * .22; base = rz(X(u)) - .03 + h + w * .32
+        for j in range(4):
+            r_ = .02 + .012 * j
+            sh.poly([(x + .02 * j + r_ * math.cos(t * math.tau / 12), y - .02, base + .05 + .065 * j + r_ * .8 * math.sin(t * math.tau / 12)) for t in range(12)], 2)
+sh.build('LH_FarHamletDetail', [flat('LH_FarDoor2', P['door']), flat('LH_FarWallStone', wall_c), flat('LH_FarSmoke', smoke_c)])
+
+# Birds by day, far off to the right of the words, under the sun
+if DAY:
+    sh = Shapes()
+    by = ryf - 1
+    for bu, bh, sc in ((.905, 1.55, 1.0), (.93, 1.75, .8), (.95, 1.45, .9), (.972, 1.68, .7)):
+        bx = X(bu); bz = rzf(bx) + bh; w_ = .06 * sc
+        for sgn in (-1, 1):
+            sh.poly([(bx, by, bz), (bx + sgn * w_, by, bz + w_ * .45), (bx + sgn * w_ * 1.04, by, bz + w_ * .36), (bx, by, bz - .012)], 0)
+    sh.build('LH_FarBirds', [flat('LH_FarBirdMat', bird_c)])
+
+# Wild flowers in the grass of the reader's hill
+hill = bpy.data.objects['LH_Hill']
+inv = hill.matrix_world.inverted()
+def ground(x, yy):
+    o = inv @ Vector((x, yy, 50)); dd = (inv.to_3x3() @ Vector((0, 0, -1))).normalized()
+    hit, loc, *_ = hill.ray_cast(o, dd)
+    return (hill.matrix_world @ loc).z if hit else None
+fl = random.Random(77)
+cols = (['#f4e9b8', '#fbfaf2', '#e2b3c4', '#f0d27a'] if DAY else ['#5f7a6c', '#6d8a7a', '#58705f', '#7a9480'])
+sh = Shapes()
+reader = Vector((.75, -.55))
+for c in range(26):
+    cx_, cy_ = fl.uniform(X(-.05), X(1.05)), fl.uniform(-3.2, .8)
+    if Vector((cx_, cy_)).length < .7 or (Vector((cx_, cy_)) - reader).length < 1.1: continue
+    colour = fl.randrange(len(cols))
+    for k in range(fl.randint(3, 7)):
+        px, py = cx_ + fl.uniform(-.25, .25), cy_ + fl.uniform(-.2, .2)
+        z0 = ground(px, py)
+        if z0 is None: continue
+        r_ = fl.uniform(.012, .02) * (1 + max(0, -py) * .12)
+        pz = z0 + fl.uniform(.07, .14)
+        sh.poly([(px + r_ * math.cos(t * math.tau / 8), py - .3, pz + r_ * math.sin(t * math.tau / 8)) for t in range(8)], colour)
+sh.build('LH_FarWildflowers', [flat(f'LH_Wildflower{i}', c) for i, c in enumerate(cols)])
+
 bpy.ops.wm.save_as_mainfile(filepath=out)
 print('RESULT', out, 'frame_w', round(frame_w, 2))

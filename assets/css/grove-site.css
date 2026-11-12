@@ -10,7 +10,7 @@
 body.grove-site {
   --font-serif: 'Brygada 1918', 'Iowan Old Style', Georgia, serif;
   --font-sans: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  --horizon: url('../img/landing/horizon.webp?v=2026-11-13hamlet');
+  --horizon: url('../img/landing/horizon.webp?v=2026-11-13detail');
   overflow-x: clip;
   background: var(--bg);
   color: var(--ink);
@@ -43,7 +43,7 @@ html[data-theme="light"] body.grove-site {
   --gold-ink: #3d5b49;
   --tint: rgba(61, 91, 73, .07);
   --tint-2: rgba(61, 91, 73, .15);
-  --horizon: url('../img/landing/horizon-day.webp?v=2026-11-13hamlet');
+  --horizon: url('../img/landing/horizon-day.webp?v=2026-11-13detail');
   color-scheme: light;
 }
 
