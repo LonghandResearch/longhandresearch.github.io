@@ -15,7 +15,7 @@ uncommitted branch.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | Editorial front page: the Earth, latest research and the publication ledger |
+| `index.html` | Front page: a tree that grows over a reader on a hill (drawn in Blender), latest research and the publication ledger |
 | `library.html` | Every report, with search (press `/`), category filters and catalogue numbers |
 | `coverage.html` | Research geography explorer: a functional globe, country list, sectors and reports; the existing rated-company history remains below |
 | `country.html?id=ID` | Country or market research and its documented connections |
@@ -48,13 +48,22 @@ uncommitted branch.
 | `assets/js/research-workspace.js` | Local project desk and links to existing library records |
 | `assets/js/research-operations.js` | Read-only operations summary, project next actions and approved text handoff |
 | `assets/js/research-tasks.js` | Five role deliverables and manual next-action guidance derived from saved project records |
-| `assets/js/home.js` | Front page: the stars and the latest report from the catalogue |
+| `assets/js/home.js` | Front page: the masthead over the opening scene |
+| `assets/js/home-grove.js` | Front page: the opening scene, the growth film then its loop, for the theme and the screen's shape, or the grown tree as a still |
+| `assets/css/home-grove.css` | Front page: the opening scene and its glass caption |
+| `assets/js/home-v2.js` | Front page: the publication ledger and the latest research, with the lead report's summary as a narration box |
+| `assets/css/grove-site.css` | The look of the public pages: the scene's colours and type, the hill at the head of inner pages, the glass masthead, page changes |
+| `assets/js/grove-site.js` | The hill at the head of inner pages, in the wind |
+| `assets/css/grove-chrome.css` | Report pages: the same masthead, footer and page change, the report itself untouched |
+| `assets/video/` | The scene's films: growth and loop for wide screens and phones, night and day, and the inner pages' hill |
+| `assets/img/landing/` | Stills of the films as WebP: the bare hill, the grown tree and the inner pages' hill |
+| `scripts/landing-scene/` | The Blender scripts that build and render the scene (see its README) |
 | `assets/js/library.js` | Library page: the list, filters and search |
 | `assets/js/living-covers.js` | Living covers: wakes covers and moves their own clouds, water, trees and lights |
 | `assets/js/living-covers-data.js` | What moves on each living cover |
 | `assets/js/coverage.js` | Coverage page: groups rated Initiation and Update reports by ticker |
 | `assets/js/reader.js` | Report page: the PDF reader |
-| `assets/js/earth.js` | The Earth on the front page (three.js) |
+| `assets/js/earth.js` | The Earth on Coverage (three.js), drawn like the scene: flat colour, ink coasts, lanterns for towns |
 | `assets/img/earth/` | NASA imagery for the Earth: day, city lights, clouds and a water mask |
 | `assets/js/pbai/data.js` | The Power Behind AI: every figure, its status and its sources |
 | `assets/js/pbai/report.js` | The Power Behind AI: charts, calculator, company panels, valuation and DCF |
@@ -342,18 +351,15 @@ masks were made. `tests/living-covers.test.mjs` checks every entry and file.
 
 ## The front page
 
-The front page follows the selected dark or warm-paper theme. It introduces the publication, links to the Library and Coverage, and displays four recent catalogue entries. The publication ledger derives its counts from the catalogue; it is not a live market feed. The Earth uses NASA imagery: Blue Marble for surface detail, Black Marble for city lights, and a cloud layer. Warm paper uses a subdued relief treatment with sage seas.
+The front page opens on a scene drawn in Blender in the manner of a ligne-claire album: a tree grows over someone reading by lantern light on a hill, with farmland, a hamlet and mountains beyond. It follows the theme: a night for the dark theme, an afternoon for Warm paper. The words sit in a caption box of tinted glass over the sky.
 
-- **Turning it.** The homepage globe turns automatically, with no drag, pointer tilt or scroll parallax. Open Coverage for interactive rotation and country selection: drag or swipe sideways, use arrow keys, press Space to pause or resume, or choose World view to reset. A vertical swipe still scrolls the page.
-- **Opening.** The heading and report link are available at once while the Earth imagery loads. On narrow screens they come before the globe.
-- **Leaving it.** A short zoom and fade carries the landing into the next page, and reverses on return. These are cross-document view transitions (Chrome, Edge, Safari), set in `site.css` and `site.js`.
-- **Latest research.** The front page draws publication links, dates and categories from the catalogue. It updates when a report is published. Equal publication dates keep the established title tie-break; catalogue numbers remain chronological identifiers.
-- **Behind it.** Seeded stars, drawn once against the dark sky.
-- **Settings** at the top of `assets/js/earth.js`: the opening meridian (`START_LON`), rotation speed (`TURN_SECONDS`) and size in its frame (`RADIUS_SHARE`). Arc selections are described in [research graph](docs/research-graph.md).
+- **The film.** Five seconds of growth, then a four-second loop: the leaves and grass in the wind, and at night the lantern, the fireflies and the hamlet's windows. Wide screens get a landscape film, tall ones a portrait film. Only the films for the current theme and screen load. The other theme's grown tree is fetched once the loop plays, so a theme switch shows it at once.
+- **Without motion.** Reduced motion, Save-Data, a refused autoplay or a failed load show the grown tree as a still.
+- **Below it.** The publication ledger counts from the catalogue. Latest research shows four recent reports, the call where there is one, and the lead report's summary in a narration box over the foot of its cover.
+- **The inner pages** open on the same hill seen further along, with a smaller tree in the wind (`grove-site.js`). The Earth on Coverage and the footer map are drawn the same way.
+- **Page changes.** The masthead stays, the old words leave before the new ones arrive and the hill moves to its new place. A theme switch spreads from the switch. These are view transitions (Chrome, Edge, Safari).
 
-Motion follows the restraint rules of [motion-anything](https://github.com/nexu-io/motion-anything): one ambient loop per screen (the Earth's turn), and nothing that moves for visitors who ask their system for reduced motion. There the Earth stands still at its opening view and pages change without the zoom.
-
-The imagery is NASA's (Visible Earth; public domain), cut down for the web: a 1024 px day map loads first and a 2048 or 4096 px one replaces it once the page is up.
+The scene's sources and how to render it again are in [scripts/landing-scene](scripts/landing-scene/README.md).
 
 ## Change the name
 
@@ -373,11 +379,11 @@ Any static host works. Two free options:
 - **Netlify Drop**: drag the whole folder onto app.netlify.com/drop.
 - **GitHub Pages**: push the folder to a repository and turn on Pages in the repository settings.
 
-three.js, the fonts and the PDF reader load from public CDNs (jsDelivr and Google Fonts), so an internet connection is needed. If the Earth cannot be drawn (no WebGL, or Data Saver is on), the front page keeps its night plate and headline without it.
+three.js, the fonts and the PDF reader load from public CDNs (jsDelivr and Google Fonts), so an internet connection is needed. If the Earth on Coverage cannot be drawn (no WebGL, or Data Saver is on), the page keeps its country list and research without it.
 
 ## Notes
 
-- Page transitions (the Earth settling into the library emblem, a report title carried into its page, the theme spreading from the switch) run in current Chrome, Edge and Safari. Other browsers simply change page.
+- Page transitions (the hill carried between inner pages, a report title carried into its page, the theme spreading from the switch) run in current Chrome, Edge and Safari. Other browsers simply change page.
 - Everything that moves stays still for visitors who ask their system for reduced motion.
 - Opened straight from the disk, the report page uses the browser's own PDF viewer. Online it uses the built-in reader with zoom, page count, full screen, selectable text and a reading-progress rule.
 - Scripts and stylesheets are linked with a version tag (for example `site.js?v=2026-09-24j`) so browsers pick up changes at once instead of keeping an old copy for about ten minutes. After editing a file in `assets/css` or `assets/js`, change that tag in the HTML pages (one find-and-replace).

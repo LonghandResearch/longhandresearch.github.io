@@ -1,13 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <style>
-    .ink { stroke: #1c1a16; }
-    .gold { stroke: #a87a33; }
-    @media (prefers-color-scheme: dark) { .ink { stroke: #ece6d8; } .gold { stroke: #c9a05a; } }
-  </style>
-  <g fill="none" stroke-linecap="round">
-    <circle class="ink" cx="32" cy="30" r="17" stroke-width="3.5"/>
-    <ellipse class="gold" cx="32" cy="30" rx="7.5" ry="17" stroke-width="2.5"/>
-    <path class="gold" d="M15.5 30h33" stroke-width="2.5"/>
-    <path class="ink" d="M32 47v8M24 56h16" stroke-width="3.5"/>
-  </g>
+  <!-- Longhand: a pen nib over a line of handwriting -->
+  <circle cx="32" cy="32" r="31" fill="#f3efe6"/>
+  <path d="M21.5 13.5C24.5 14.8 27.5 15.4 32 14.6C36.5 15.4 39.5 14.8 42.5 13.5C43.6 24.5 40.2 34.5 32 46.5C23.8 34.5 20.4 24.5 21.5 13.5Z" fill="#17342a"/>
+  <g fill="none" stroke="#f3efe6" stroke-width="1.6" stroke-linecap="round"><circle cx="32" cy="29" r="2.4"/><path d="M32 31.4V45.6"/></g>
+  <path d="M16.5 53.5c2.9-2.4 5.4-2.4 8.1 0s5.4 2.4 8.1 0 5.4-2.4 8.1 0 5.4 2.4 7.7 0" fill="none" stroke="#17342a" stroke-width="1.9" stroke-linecap="round"/>
 </svg>

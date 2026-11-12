@@ -1,7 +1,8 @@
 /* Longhand Research: the Earth on the front page and Coverage.
-   A photographic globe drawn with three.js from NASA imagery: Blue Marble for
-   the day side, Black Marble for the lights of the night side, and a cloud
-   layer that drifts a little faster than the ground. It turns slowly on its
+   A globe drawn with three.js in the manner of the front page's tree: flat
+   colour, ink lines and lanterns, from NASA imagery (Blue Marble for the
+   land, Black Marble for the towns at night, a water mask for the coasts and
+   a cloud layer that drifts a little faster than the ground). It turns slowly on its
    tilted axis. The homepage uses a simple ambient turn. Coverage supports
    dragging, keyboard rotation and country selection. */
 (function () {
@@ -108,61 +109,71 @@
       glow: { value: 0 },
       ambience: { value: hero ? 1 : 0 },
       paper: { value: document.documentElement.dataset.theme === 'light' ? 1 : 0 },
+      waterReady: { value: 0 },
+      // The drawing's palette, set per theme by themeToon()
+      landShade: { value: new THREE.Color() }, landMid: { value: new THREE.Color() }, landLight: { value: new THREE.Color() },
+      seaShade: { value: new THREE.Color() }, seaMid: { value: new THREE.Color() }, seaLight: { value: new THREE.Color() },
+      ink: { value: new THREE.Color() }, lamp: { value: new THREE.Color() }, lampMix: { value: 1 },
+      cloudCol: { value: new THREE.Color() }, cloudAlpha: { value: 0.2 },
     };
+    /* The Earth is drawn like the tree on the front page: flat colour in three
+       bands of light, an ink line round the coasts and the rim, the night
+       side's towns as small lanterns. Night for the dark theme, the
+       afternoon hill's greens and paper for Warm paper. */
+    const TOON = {
+      dark: { landShade: '#0e2723', landMid: '#1d4237', landLight: '#2f6049', seaShade: '#061317', seaMid: '#0b2329', seaLight: '#143843', ink: '#010506', lamp: '#e2b764', lampMix: 0.95, cloudCol: '#c8cfbf', cloudAlpha: 0.1 },
+      light: { landShade: '#5a7343', landMid: '#7f9a57', landLight: '#adc078', seaShade: '#93a998', seaMid: '#b3c4b3', seaLight: '#cfdac8', ink: '#1b201d', lamp: '#5b4a2c', lampMix: 0.55, cloudCol: '#fbf6e9', cloudAlpha: 0.5 },
+    };
+    function themeToon() {
+      const p = TOON[uniforms.paper.value > 0.5 ? 'light' : 'dark'];
+      for (const k of Object.keys(p)) {
+        if (typeof p[k] === 'string') uniforms[k].value.set(p[k]); else uniforms[k].value = p[k];
+      }
+    }
+    themeToon();
 
     const surface = new THREE.ShaderMaterial({
       uniforms,
       vertexShader: VERT,
       fragmentShader: `
-        uniform sampler2D dayMap, nightMap, waterMap, cloudMap;
-        uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix, nightMix, paper, ambience;
+        uniform sampler2D dayMap, nightMap, waterMap;
+        uniform float nightMix, waterReady, lampMix;
+        uniform vec3 landShade, landMid, landLight, seaShade, seaMid, seaLight, ink, lamp;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
         void main() {
           vec3 N = normalize(vNormalW);
           vec3 V = normalize(cameraPosition - vPosW);
-          vec3 L = normalize(sunDir);
-          float NdL = dot(N, L);
-          float day = smoothstep(-0.12, 0.22, NdL);
-          float cloud = texture2D(cloudMap, vUv + vec2(cloudShift, 0.0)).r * cloudMix;
+          // the light comes from the upper left of the reader, like the moon
+          // and the sun in the drawing, so the disc always reads as a ball
+          float NdL = dot(N, normalize(vec3(-0.55, 0.6, 0.85)));
           vec3 albedo = texture2D(dayMap, vUv).rgb;
-          albedo = mix(vec3(dot(albedo, vec3(0.2126, 0.7152, 0.0722))), albedo, 0.18) * vec3(0.80, 0.82, 0.81);
-          vec3 col = albedo * (0.012 + 0.012 * ambience + 0.12 * max(NdL, 0.0)) * (1.0 - 0.18 * cloud);
-          // the sun's glint on open water
-          float water = texture2D(waterMap, vUv).r;
-          vec3 H = normalize(L + V);
-          float glint = pow(max(dot(N, H), 0.0), 140.0) * water * day * (1.0 - cloud);
-          col += vec3(1.0, 0.9, 0.74) * glint * 0.025;
-          // city lights on the night side, warmed towards the page's gold
-          vec3 lights = texture2D(nightMap, vUv).rgb;
-          float night = 1.0 - smoothstep(-0.26, 0.04, NdL);
-          float cityLight = dot(lights, vec3(0.2126, 0.7152, 0.0722));
-          vec3 cityTint = mix(lights, cityLight * vec3(1.10, 0.98, 0.75), 0.35 * ambience);
-          col += cityTint * vec3(1.0, 0.94, 0.82) * (1.40 + 0.35 * ambience) * nightMix;
-          // blue haze towards the rim on the lit side
-          float fres = pow(1.0 - max(dot(N, V), 0.0), 3.0);
-          col += vec3(0.24, 0.38, 0.49) * fres * (0.080 + 0.035 * ambience);
-          if (paper > 0.5) {
-            // Sunlit relief and sage seas retain the NASA surface texture.
-            // Terrain variation is imagery, not a research-density heatmap.
-            float terrain = dot(albedo, vec3(0.2126, 0.7152, 0.0722));
-            float front = max(dot(N, V), 0.0);
-            float light = smoothstep(-0.65, 0.85, dot(N, normalize(vec3(-0.55, 0.65, 1.0))));
-            vec3 parchment = mix(vec3(0.31, 0.35, 0.255), vec3(0.78, 0.66, 0.46), clamp(0.22 + 2.40 * terrain, 0.0, 1.0));
-            vec3 sage = mix(vec3(0.045, 0.10, 0.08), vec3(0.19, 0.30, 0.24), 0.25 + 0.45 * front + 0.30 * light);
-            col = mix(parchment * (0.72 + 0.28 * light), sage * (0.70 + 0.30 * light), water);
-            // Fine coastal ink follows the existing land/water mask.
-            col *= 1.0 - 0.12 * smoothstep(0.02, 0.30, fwidth(water));
-            // Original NASA settlement texture becomes a quiet bronze ink.
-            float settlement = smoothstep(0.04, 0.40, cityLight) * nightMix * (1.0 - water);
-            col = mix(col, col * vec3(0.70, 0.67, 0.48), settlement * 0.38);
-            col += vec3(0.018, 0.014, 0.006) * cloud;
-            col += vec3(0.018, 0.025, 0.017) * fres * light;
-          }
+          float lum = dot(albedo, vec3(0.2126, 0.7152, 0.0722));
+          // until the water mask arrives, the imagery's dark blue is the sea
+          float guess = smoothstep(0.015, 0.08, albedo.b - albedo.r) * (1.0 - smoothstep(0.22, 0.4, lum));
+          float water = mix(guess, texture2D(waterMap, vUv).r, waterReady);
+          float sea = smoothstep(0.4, 0.6, water);
+          // three flat bands of light, as in the tree's toon ramp
+          float aa = fwidth(NdL) * 1.2;
+          float b1 = smoothstep(-0.05 - aa, -0.05 + aa, NdL);
+          float b2 = smoothstep(0.5 - aa, 0.5 + aa, NdL);
+          vec3 land = mix(mix(landShade, landMid, b1), landLight, b2);
+          // the imagery's relief, posterised to two steps, so the land is not empty
+          land *= 0.93 + 0.12 * step(0.33, lum);
+          vec3 water3 = mix(mix(seaShade, seaMid, b1), seaLight, b2);
+          vec3 col = mix(land, water3, sea);
+          // an ink line along every coast, the width of a pen stroke
+          float coast = 1.0 - smoothstep(0.9, 2.0, abs(water - 0.5) / max(fwidth(water), 1e-4));
+          col = mix(col, ink, coast * 0.95);
+          // towns on the dark side as small lanterns
+          float town = dot(texture2D(nightMap, vUv).rgb, vec3(0.2126, 0.7152, 0.0722));
+          float lit = smoothstep(0.2, 0.5, town) * (1.0 - b1) * nightMix * (1.0 - sea);
+          col = mix(col, lamp, lit * lampMix);
+          // and the ink line round the ball
+          float rim = 1.0 - smoothstep(0.13, 0.17, dot(N, V));
+          col = mix(col, ink, rim);
           gl_FragColor = vec4(col, 1.0);
-          #include <tonemapping_fragment>
           #include <colorspace_fragment>
         }`,
     });
@@ -174,24 +185,21 @@
       depthWrite: false,
       fragmentShader: `
         uniform sampler2D cloudMap;
-        uniform vec3 sunDir;
-        uniform float cloudShift, cloudMix, paper, ambience;
+        uniform float cloudShift, cloudMix, cloudAlpha;
+        uniform vec3 cloudCol;
         varying vec2 vUv;
         varying vec3 vNormalW;
         varying vec3 vPosW;
         void main() {
           vec3 N = normalize(vNormalW);
           vec3 V = normalize(cameraPosition - vPosW);
-          float NdL = dot(N, normalize(sunDir));
-          float a = smoothstep(0.1, 0.92, texture2D(cloudMap, vUv + vec2(cloudShift, 0.0)).r) * cloudMix;
-          // warmer and dimmer where the sun is low, as at dusk
-          float low = 1.0 - smoothstep(0.0, 0.35, NdL);
-          vec3 col = vec3(0.65, 0.72, 0.76) * (0.009 + 0.025 * ambience + 0.05 * max(NdL, 0.0));
-          if (paper > 0.5) col = vec3(0.82, 0.76, 0.62);
-          // thin out at the very rim so the edge of the layer does not show
-          a *= smoothstep(0.0, 0.28, dot(N, V));
-          gl_FragColor = vec4(col, a * mix(0.32, 0.085, paper));
-          #include <tonemapping_fragment>
+          // clouds as flat cut-out shapes with a clean edge, drifting
+          float c = texture2D(cloudMap, vUv + vec2(cloudShift, 0.0)).r;
+          float w = fwidth(c) * 1.5;
+          float a = smoothstep(0.68 - w, 0.68 + w, c) * cloudMix;
+          // kept inside the ink line round the ball
+          a *= smoothstep(0.17, 0.24, dot(N, V));
+          gl_FragColor = vec4(cloudCol, a * cloudAlpha);
           #include <colorspace_fragment>
         }`,
     });
@@ -269,10 +277,11 @@
     let connectionTime = 0;
     function themeConnections() {
       const paper = uniforms.paper.value > 0.5;
-      arcMaterial.color.set(paper ? '#846f42' : '#c6b38e');
-      arcMaterial.opacity = paper ? 0.28 : 0.22;
+      // the research paths are drawn in the lantern's gold at night, in ink by day
+      arcMaterial.color.set(paper ? '#1b201d' : '#e2b764');
+      arcMaterial.opacity = paper ? 0.55 : 0.6;
       pointMaterial.color.copy(arcMaterial.color);
-      pointMaterial.opacity = paper ? 0.64 : 0.68;
+      pointMaterial.opacity = paper ? 0.85 : 0.9;
       travelMaterial.color.copy(arcMaterial.color); travelMaterial.opacity = paper ? 0.58 : 0.64;
       trailMaterial.color.copy(arcMaterial.color); trailMaterial.opacity = paper ? 0.3 : 0.36;
     }
@@ -353,6 +362,8 @@
     selectConnections('');
     const haloShell = new THREE.Mesh(new THREE.SphereGeometry(1.2, 96, 48), halo);
     haloShell.renderOrder = 3;
+    // a drawing has no atmosphere: the ink line round the ball is its edge
+    haloShell.visible = false;
     world.add(haloShell);
 
     /* State. The camera never moves: only the Earth turns. */
@@ -374,6 +385,7 @@
     let cloudTarget = 0, nightTarget = night ? 1 : 0;
     document.addEventListener('longhand:theme', (e) => {
       uniforms.paper.value = e.detail.theme === 'light' ? 1 : 0;
+      themeToon();
       themeConnections();
       requestFrame();
     });
@@ -819,7 +831,7 @@
     const later = (file, srgb) => loader.loadAsync(IMG + file).then((t) => prep(t, srgb));
     // The sharper day map comes in later on its own.
     const refine = () => {
-      later('earth-water-2048.png', false).then((t) => { uniforms.waterMap.value = t; }).catch(() => {}).then(requestFrame);
+      later('earth-water-2048.png', false).then((t) => { uniforms.waterMap.value = t; uniforms.waterReady.value = 1; }).catch(() => {}).then(requestFrame);
       later('earth-clouds-2048.jpg', false).then((t) => { uniforms.cloudMap.value = t; cloudTarget = 1; }).catch(() => {}).then(requestFrame);
       later(small ? 'earth-day-2048.jpg' : 'earth-day-4096.jpg', true).then((t) => {
         const old = uniforms.dayMap.value;
