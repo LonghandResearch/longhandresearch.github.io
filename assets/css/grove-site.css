@@ -44,8 +44,12 @@ html[data-theme="light"] body.grove-site {
   --tint: rgba(61, 91, 73, .07);
   --tint-2: rgba(61, 91, 73, .15);
   --horizon: url('../img/landing/horizon-day.webp?v=2026-11-13detail');
-  color-scheme: light;
+  color-scheme: only light;
 }
+/* The site draws both themes itself. "only light" stops a phone browser in dark
+   mode (Samsung Internet, Chrome's auto dark) from darkening Warm paper. */
+html[data-theme="light"]:has(body.grove-site) { color-scheme: only light; }
+html[data-theme="dark"]:has(body.grove-site) { color-scheme: dark; }
 
 /* Type: nothing smaller than twelve pixels, titles set like the caption */
 .grove-site .site-nav a { font-size: 14px; }

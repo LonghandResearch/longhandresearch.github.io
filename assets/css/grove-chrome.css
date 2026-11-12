@@ -4,7 +4,10 @@
    colour under the reader. The report itself keeps its own type, colours and
    figures: nothing inside main is touched here. */
 html[data-theme="dark"] body.grove-chrome.v2-page { --bg: #07171d; --glass: rgba(7, 23, 29, .68); }
-html[data-theme="light"] body.grove-chrome.v2-page { --glass: rgba(232, 227, 215, .74); }
+html[data-theme="light"] body.grove-chrome.v2-page { --glass: rgba(232, 227, 215, .74); color-scheme: only light; }
+/* Keep phone browsers in dark mode from darkening Warm paper */
+html[data-theme="light"]:has(body.grove-chrome) { color-scheme: only light; }
+html[data-theme="dark"]:has(body.grove-chrome) { color-scheme: dark; }
 body.grove-chrome { background: var(--bg); }
 body.grove-chrome :is(.masthead, .site-footer) {
   --font-serif: 'Brygada 1918', 'Iowan Old Style', Georgia, serif;
