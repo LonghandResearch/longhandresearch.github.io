@@ -68,7 +68,7 @@ html[data-theme="light"] .page-home .grove {
    the scene's own colour and a soft halo round the letters keep the words
    readable. Where the browser cannot blur, the tint is simply thicker. */
 .grove-caption {
-  --cap-bg: rgba(6, 22, 28, .2);
+  --cap-bg: rgba(6, 22, 28, .1);
   --cap-halo: rgba(2, 10, 13, .75);
   --cap-bg-solid: rgba(9, 28, 33, .9);
   --cap-edge: rgba(236, 226, 196, .26);
@@ -91,13 +91,13 @@ html[data-theme="light"] .page-home .grove {
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .grove-caption {
     background: var(--cap-bg);
-    -webkit-backdrop-filter: blur(3px) saturate(1.1);
-    backdrop-filter: blur(3px) saturate(1.1);
+    -webkit-backdrop-filter: blur(1.5px) saturate(1.1);
+    backdrop-filter: blur(1.5px) saturate(1.1);
   }
   .grove-caption :is(.grove-title, .grove-lede, .grove-latest) { text-shadow: 0 0 2px var(--cap-halo), 0 1px 10px var(--cap-halo); }
 }
 html[data-theme="light"] .grove-caption {
-  --cap-bg: rgba(251, 246, 233, .3);
+  --cap-bg: rgba(251, 246, 233, .16);
   --cap-halo: rgba(251, 246, 233, .85);
   --cap-bg-solid: rgba(251, 246, 233, .92);
   --cap-edge: rgba(27, 32, 29, .28);
