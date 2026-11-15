@@ -1,0 +1,22 @@
+{
+  "title": "Above the clouds, looking straight down past skyscrapers to a golden bull",
+  "created": "2026-11-16",
+  "reportId": "ihsg-weekly-2026-11-13",
+  "method": "Built and rendered by Claude in Blender 5.3, headless, from the scene script scripts/covers/ihsg-skyline-2026-11-13.py run through scripts/covers/render_cli.py. No generative image model was used. Simple boxes, cylinders and spheres with a flat toon material (diffuse shading cut into two tones and emitted) and Freestyle ink lines, EEVEE engine, 2048 by 3072 pixels. The camera hangs 950 metres up and looks straight down with a 22 mm lens, so the towers lean in toward the plaza. The owner sketched the angle over an earlier version on 16 November: a jet and clouds with skyscrapers seen from above. One pixel edit after rendering: a small hole in the upper cloud sheet that showed the ground (about 740 pixels near x 690 to 740, y 75 to 135 of the 2048 by 3072 render) was filled with the surrounding cloud shade colour. The render was then downscaled to 1024 by 1536 and encoded as WebP with 640 and 320 pixel variants. No cropping.",
+  "width": 1024,
+  "height": 1536,
+  "sourceSha256": "689ec4ea5f391e238cd875e1f3e45ff0067eb358459da3345f1948237f95d0ca",
+  "editedSha256": "d5cb1529b6e08a10ebc1086a26b1690a880d7d71e27b8270e9ad5c839f071160",
+  "sceneScriptSha256": "9b16d3705fdac8e6ecde1b85d07324431e73068b079d888a546fe9c8e507cbf5",
+  "conceptual": true,
+  "caption": "Seen from above the clouds beside a jet, a gap opens onto tall towers that lean in toward a plaza, where a golden bull balloon floats over a small crowd. Conceptual editorial artwork, not a documentary scene, a named venue or a measurement of market conditions.",
+  "files": [
+    "ihsg-skyline-art.webp",
+    "ihsg-skyline-art-640.webp",
+    "ihsg-skyline-art-320.webp"
+  ],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The artwork contains no lettering.",
+  "concept": "A smaller index and a narrow rally. The gap in the clouds is the view that is left after 296 thinly floated stocks left IHSG on 13 November. The golden bull is the week's rally, held up by five porters for the five stocks that made almost half the gain, and the roped seating area beside it is being cleared. The towers rising toward the viewer are the large stocks whose weights grew after the change.",
+  "review": "Checked at full size on 16 November. No lettering, numbers, logos or airline livery. The jet is white with a plain blue tail. Earlier versions were rejected for a flat map look (v6), stray ink arcs in the upper clouds and long thin horns (v7, v8). The figures are simple toon shapes, too small at this distance to show faces or hands.",
+  "prompt": "No prompt. The scene is defined by the script listed in method."
+}
