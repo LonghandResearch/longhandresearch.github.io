@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "weekEnding": "2026-11-13",
   "published": "2026-11-15",
-  "reviewed": "2026-11-15",
+  "reviewed": "2026-11-16",
   "period": "9 to 13 November 2026",
   "title": "A Smaller Index, a Narrow Rally",
   "titleLead": "A smaller index.",
@@ -75,8 +75,8 @@
     },
     "aadi": {
       "label": "Adaro Andalan Indonesia (AADI), letter AAI/177/XI-26/corsec, 10 November 2026",
-      "url": "https://www.idx.co.id/id/berita/pengumuman/",
-      "note": "Filed under the same heading the same afternoon. The attachments are scanned images and their figures are not used."
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202611/6d65008db0_e32df9f752.pdf",
+      "note": "Filed under the same heading the same afternoon. Its attachments are scanned images. The AADI figures come from the KSEI ownership reports instead."
     },
     "kontanAdro": {
       "label": "Kontan, transfer of ADRO and AADI shares to four companies, 11 November 2026",
@@ -86,7 +86,7 @@
     "jisdor": {
       "label": "Bank Indonesia JISDOR",
       "url": "https://www.bi.go.id/id/statistik/informasi-kurs/jisdor/default.aspx",
-      "note": "Read 15 November 2026. Matches the USD/IDR BI line in each daily file."
+      "note": "Read 15 November 2026. Matches the USD/IDR BI line in each daily file. The full series from 20 May 2013 to 13 November 2026 (3,266 readings) was downloaded from this page on 16 November to check the record."
     },
     "biSchedule": {
       "label": "Bank Indonesia, 2026 board meeting schedule",
@@ -137,6 +137,16 @@
       "label": "Longhand IHSG weekly, 6 November 2026",
       "url": "https://longhandresearch.github.io/ihsg-weekly.html?week=2026-11-06",
       "note": "Previous close, last week's view and its five signposts."
+    },
+    "kseiAdro": {
+      "label": "KSEI ownership reports for ADRO, LK/10112026/0020, 0023, 0025, 0028 and 0030, 10 November 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-10112026-0105-00.pdf-0.pdf",
+      "note": "The seller's report (linked) and four buyers' reports. Shares before and after each trade. Read on idx.co.id on 16 November."
+    },
+    "kseiAadi": {
+      "label": "KSEI ownership reports for AADI, LK/10112026/0022, 0024, 0026, 0029 and 0031, 10 November 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-10112026-7602-00.pdf-0.pdf",
+      "note": "The seller's report (linked) and four buyers' reports. Adaro Strategic Investments sold 3,200,142,830 AADI shares at Rp10,286. Read on idx.co.id on 16 November."
     }
   },
   "observations": {
@@ -524,7 +534,7 @@
             "hscData",
             "biSchedule"
           ],
-          "text": "Our view moves part of the way. The large banks that foreign investors bought no longer look like the weak point, and we say that plainly. On the index we stay cautious. We would turn neutral on a close above 5,488, 2.69% away, if foreign buying spreads beyond BBCA, ASII and BBRI and the rupiah holds after Bank Indonesia meets on 17 and 18 November."
+          "text": "Our view moves part of the way. The large banks that foreign investors bought no longer look like the weak point, and we say that plainly. On the index we stay cautious. We would turn neutral on a close above 5,488, which needs a further 2.69% rise, if foreigners buy four of the five largest stocks for two weeks running and the rupiah holds after Bank Indonesia meets on 17 and 18 November."
         },
         {
           "type": "callout",
@@ -536,7 +546,7 @@
             "kontanSun",
             "weekly"
           ],
-          "text": "We set five signposts. One passed. IDX now takes concentrated stocks out between reviews: MKNT, the Rp32 stock that added 12.40 points last week, had no index shares from Monday, and 296 more names went on Friday. The bond test half passed. Bids at Tuesday's government bond auction rose 156.38% to Rp79.71tn, but the 11-year FR0111 cleared 12 basis points higher. The bank test failed. Foreign investors bought BBCA and BBRI but sold BMRI by an estimated Rp7.90bn, and BBRI had been sold the week before. IHSG stayed below 5,488. The North Asian sell-off we feared went the other way, and Taiwan rose 10.01%."
+          "text": "We set five signposts. One passed. IDX now takes concentrated stocks out between reviews: MKNT, the Rp32 stock that added 12.40 points last week, had no index shares from Monday, and 296 more names went on Friday. The bond test half passed. Bids at Tuesday's government bond auction rose 156.38% to Rp79.71tn, but the 11-year FR0111 cleared 12 basis points higher. The bank test failed, because it asked for two weeks of buying and BBRI had been sold the week before. This week foreign investors bought BBCA and BBRI. Our estimate for BMRI is a net sale of Rp7.90bn, too small to tell from zero. IHSG stayed below 5,488. The North Asian sell-off we feared went the other way, and Taiwan rose 10.01%."
         }
       ]
     },
@@ -630,7 +640,7 @@
             "peng201",
             "peng219"
           ],
-          "text": "On 11 November IDX and KSEI published a new list of companies whose ten largest holders, together with scrip shares, own at least 92.5% of the stock. It named 383 companies, 40.53% of the 945 listed, and 300 of them were new. Under the rule IDX set on 21 October, such stocks leave IHSG two trading days later. On 13 November 296 of the new names left. The other four were not index members."
+          "text": "On Wednesday evening, 11 November, IDX and KSEI published a new list of companies with highly concentrated ownership, judged mainly by the stake of the ten largest holders together with scrip shares. It named 383 companies, 40.53% of the 945 listed, and 300 of them were new. Under IDX's October rule such stocks leave IHSG between reviews instead of waiting for the next one. IDX confirmed the leavers on Thursday night, and on Friday 13 November 296 of the new names left. The other four were not index members."
         },
         {
           "type": "sankey",
@@ -707,7 +717,7 @@
             "peng201",
             "hscData"
           ],
-          "text": "Removing stocks does not move the level on the day, because IDX resets the divisor. It does change what the index measures. The larger remaining weights rose by about 6.4%. BBCA went from 9.75% to 10.38% and BBRI from 9.35% to 9.95%, both above the 9% cap that IDX's 21 October rule keeps. The five largest stocks now make up 38.56% of IHSG, and three banks 28.15%."
+          "text": "Removing stocks does not move the level on the day, because IDX resets the divisor. It does change what the index measures. The larger remaining weights rose by about 6.4%. BBCA went from 9.75% to 10.38% and BBRI from 9.35% to 9.95%, both above the 9% cap that IDX's October rule keeps. The five largest stocks now make up 38.56% of IHSG, and three banks 28.15%."
         },
         {
           "type": "paragraph",
@@ -724,7 +734,7 @@
             "peng219",
             "adro"
           ],
-          "text": "The rule measures concentration. IDX's notice says the list does not by itself indicate any violation, and it includes Pertamina Geothermal (PGEO), Garuda Indonesia (GIAA), Wijaya Karya (WIKA) and HM Sampoerna (HMSP). So does Saratoga (SRTG), one of the four companies that received ADRO shares on Tuesday. The new index follows the traded market more closely. It also carries more bank risk, and two banks that already sat above the 9% cap, BBCA at 9.75% and BBRI at 9.35%, now sit further above it. IDX has not said when it will apply the cap again. Funds that benchmark to IHSG need that answer before the January review."
+          "text": "The rule measures concentration. IDX's notice says the list does not by itself indicate any violation, and it includes Pertamina Geothermal (PGEO), Garuda Indonesia (GIAA), Wijaya Karya (WIKA) and HM Sampoerna (HMSP). So does Saratoga (SRTG), one of the four companies that received ADRO shares on Tuesday. The new index carries more bank risk, and two banks that already sat above the 9% cap, BBCA at 9.75% and BBRI at 9.35%, now sit further above it. IDX has not said when it will apply the cap again. Funds that benchmark to IHSG need that answer before the January review."
         }
       ]
     },
@@ -736,32 +746,40 @@
           "type": "table",
           "headers": [
             "Received from Adaro Strategic Investments",
-            "Share of ADRO"
+            "Share of ADRO",
+            "Share of AADI"
           ],
           "rows": [
             [
               "PT Trinugraha Thohir",
-              "9.1358%"
+              "9.1358%",
+              "7.6987%"
             ],
             [
               "PT Saratoga Investama Sedaya Tbk",
-              "12.7776%"
+              "12.7776%",
+              "10.7676%"
             ],
             [
               "PT Persada Capital Investama",
-              "12.2255%"
+              "12.2255%",
+              "10.3023%"
             ],
             [
               "PT Triputra Investindo Arya",
-              "14.6291%"
+              "14.6291%",
+              "12.3279%"
             ],
             [
               "Total, the whole stake",
-              "48.7680%"
+              "48.7680%",
+              "41.0965%"
             ]
           ],
-          "caption": "Exhibit 05. Where the controlling stake in ADRO went on 10 November, from ADRO's filing",
+          "caption": "Exhibit 05. Where the controlling stakes in ADRO and AADI went on 10 November, from the KSEI ownership reports",
           "sources": [
+            "kseiAdro",
+            "kseiAadi",
             "adro"
           ]
         },
@@ -770,11 +788,13 @@
           "sources": [
             "adro",
             "aadi",
+            "kseiAdro",
+            "kseiAadi",
             "hscData",
             "kontanAdro",
             "daily"
           ],
-          "text": "On Tuesday PT Adaro Strategic Investments moved its entire 48.768% stake in ADRO to four companies through the negotiated market. ADRO's filing says control did not change and the business is not affected. AADI filed a notice under the same heading that afternoon. IDX's stock summary puts the negotiated trades at Rp33.89tn in ADRO and Rp32.92tn in AADI, 88.33% of all value traded that day. Kontan reports the same two figures."
+          "text": "On Tuesday PT Adaro Strategic Investments moved its entire 48.768% stake in ADRO and its entire 41.0965% stake in AADI to the same four companies through the negotiated market. ADRO's filing says control did not change and the business is not affected. AADI filed a notice under the same heading that afternoon, and the buyers' reports to KSEI price the AADI shares at Rp10,286. IDX's stock summary puts the negotiated trades at Rp33.89tn in ADRO and Rp32.92tn in AADI, 88.33% of all value traded that day. Kontan reports the same two figures."
         },
         {
           "type": "paragraph",
@@ -794,7 +814,7 @@
         {
           "type": "flows",
           "label": "Exhibit 06",
-          "title": "Net buying of Rp462.73bn, nearly all of it on Thursday",
+          "title": "Net buying of Rp462.73bn, 95.83% of it on Thursday",
           "sources": [
             "weekly",
             "daily"
@@ -869,13 +889,13 @@
             "hscData",
             "weekly"
           ],
-          "text": "Our estimate values IDX's daily foreign buy and sell shares at each day's close, across all markets. It sums to Rp618.98bn, Rp156.25bn more than the official net, so we use it to rank stocks and never as a total. Among 69 liquid large caps, worth Rp10tn or more with an average of Rp10bn or more of regular trading a day, three names took nearly all the buying. TLKM rose 9.09% while foreigners sold it. BRPT, which MSCI is removing from its Standard index, had the largest estimated selling."
+          "text": "Our estimate values IDX's daily foreign buy and sell shares at each day's close, across all markets. It sums to Rp618.98bn, Rp156.25bn more than the official net, so we use it to rank stocks and never as a total. Among 69 liquid large caps, worth Rp10tn or more with an average of Rp10bn or more of regular trading a day, three names took nearly all the buying. TLKM rose 9.09% while foreigners sold it. BRPT had the largest estimated selling, Rp119.27bn of it from Monday to Wednesday, before MSCI's review named it for removal."
         }
       ]
     },
     {
       "id": "leaders",
-      "title": "Five big stocks led, and IDX's leader table left out three",
+      "title": "Five big stocks led, and IDX's tables mixed in the stocks that left",
       "blocks": [
         {
           "type": "stocks",
@@ -902,7 +922,7 @@
             "hscData",
             "observations"
           ],
-          "text": "IDX's printed list of ten leaders has the right top five. Its other five, CDIA, GIAA, VICI, MLBI and UANG, added between 0.20 and 0.92 points each. We rebuilt every stock's contribution from IDX's index shares and closes, and the rebuild matches each day's index change to within 0.001 point. On that count BUMI added 9.98 points, VKTR 9.07 and BRMS 6.94, and none of them is in IDX's table. The laggard list has a quirk of its own. PANI and NCKL rose over the week yet show negative points, because they left the index on Friday and only their fall up to Thursday counted."
+          "text": "IDX's printed list of ten leaders has the right top five. Its other five, CDIA, GIAA, VICI, MLBI and UANG, added between 0.20 and 0.92 points each, and all five left the index on Friday. We rebuilt every stock's contribution from IDX's index shares and closes, and the rebuild matches each day's index change to within 0.001 point. On that count five staying stocks added more than any of them: BUMI 9.98 points, VKTR 9.07, BRMS 6.94, UNTR 6.90 and BBNI 5.51. The laggard list follows the same pattern. Its ten names are the five largest drags among the stocks that stay and the five largest among those that left, PANI, MAPI, NCKL, BDMN and BRIS. So IDX's tables read as the top five of each group put together, not as the ten largest movers. PANI and NCKL rose over the week yet show negative points, because only their fall up to Thursday counted."
         },
         {
           "type": "sectors",
@@ -919,7 +939,7 @@
             "weekly",
             "observations"
           ],
-          "text": "Industrials rose 9.55% and energy 9.49%. Healthcare barely moved, at 0.41%. Financials gained only 2.68% while the three largest banks rose 5.14% to 8.90%. IDX's sector indices count every listed stock in a sector, including the ones IHSG dropped, and that is a likely reason they trailed. The Acceleration Board rose 12.56% and the Development Board 3.37%."
+          "text": "Industrials rose 9.55% and energy 9.49%. Healthcare barely moved, at 0.41%. Financials gained only 2.68% while the three largest banks rose 5.14% to 8.90%. IDX builds its sector indices differently from IHSG, and we could not rebuild them. Weighted the way IHSG weights its members, financial stocks rose 5.01%, and leaving out the ones IHSG dropped adds only 0.15 points. So the dropped stocks do not explain why the printed sector figure trailed. The Acceleration Board rose 12.56% and the Development Board 3.37%."
         },
         {
           "type": "paragraph",
@@ -929,7 +949,7 @@
             "hscData",
             "weekly"
           ],
-          "text": "MSCI's November review came out before Thursday's open. It removes BRPT and BRMS from MSCI's Standard index, moves BRMS to Small Cap and drops seven Indonesian names from Small Cap, RAJA among them. CNBC Indonesia and Kontan report the same list, and Kontan gives 1 December as the effective date. The market did not treat the list as a sell signal across the board. RAJA rose 35.20% while foreigners sold an estimated Rp90.95bn, and BRMS rose 9.43%."
+          "text": "MSCI's November review came out on Thursday morning, Jakarta time. It removes BRPT and BRMS from MSCI's Standard index, moves BRMS to Small Cap and drops seven Indonesian names from Small Cap, RAJA among them. CNBC Indonesia and Kontan report the same list, and Kontan gives 1 December as the effective date. Prices give no clear reading of the list. RAJA rose 35.20% over the week, but it had gone from 392 to 520 before the list and closed at 530, and foreigners sold an estimated Rp50.32bn of it on Thursday. BRMS rose 9.43%, all of it on Friday."
         }
       ]
     },
@@ -948,14 +968,14 @@
           "rows": [
             [
               "Relief after the vice president resigned",
-              "Gibran Rakabuming Raka submitted his resignation that day. CNBC Indonesia set it beside the rise. Kontan reported it as a source of political doubt",
-              "The rupiah hit a record low the same day. Kontan quotes an analyst saying political doubt raised the premium on Indonesian assets",
+              "Gibran Rakabuming Raka submitted his resignation that day, and CNBC Indonesia set it beside the rise",
+              "Kontan reported it as a source of political doubt and quotes an analyst saying that doubt raised the premium on Indonesian assets. The rupiah hit a record low the same day",
               "Possible. The currency did not read it as relief"
             ],
             [
               "MSCI's review settled an open question",
-              "Published before the open. Both outlets name it",
-              "No Indonesian stock was added. Bank Indonesia named MSCI worries as a pressure on the rupiah that morning",
+              "Published on Thursday morning, Jakarta time. CNBC Indonesia and Kontan both report it",
+              "No Indonesian stock was added to the Standard index. Bank Indonesia named worry about a possible MSCI downgrade as a pressure on the rupiah that morning",
               "Possible, unproven"
             ],
             [
@@ -971,9 +991,9 @@
               "The mechanism, not the cause"
             ],
             [
-              "The index reshuffle announced on Thursday night",
+              "Funds selling the stocks due to leave, after Wednesday evening's list",
               "The 522 staying stocks rose 2.69% on Thursday and the 296 leaving ones 0.64%",
-              "We have no figure for money that tracks IHSG",
+              "IDX confirmed the leavers only after Thursday's close, and we have no figure for money that tracks IHSG",
               "Fits the pattern. Size unknown"
             ]
           ],
@@ -997,7 +1017,7 @@
             "kontanRupiah",
             "daily"
           ],
-          "text": "We cannot name one cause. Thursday's rise was foreign buying of a few large banks on a day that settled two open questions, the MSCI review and the vice presidency. The rupiah's record low argues against reading it as a vote of confidence in Indonesia. Friday's 1.78% gain came with net foreign selling, and we found no dated source that explains it."
+          "text": "We cannot name one cause. Thursday's rise was foreign buying of a few large banks on a day with two pieces of news, the MSCI review and the vice president's resignation, and neither clearly explains it. The rupiah's record low argues against reading it as a vote of confidence in Indonesia. Friday's 1.78% gain came with net foreign selling, and we found no dated source that explains it."
         }
       ]
     },
@@ -1015,7 +1035,7 @@
             "weekly",
             "fred"
           ],
-          "note": "Changes from IDX's global table, Friday to Friday. IDX lists the US only through the Dow, at its Thursday close, so the S&P 500 and Nasdaq 100 rows here use FRED closes for 6 and 13 November."
+          "note": "Changes from IDX's global table. Asian rows run Friday to Friday. IDX takes European and American markets at their last close before its report, so those rows run from Friday 6 November to Thursday 12 November. IDX lists the US only through the Dow, so the S&P 500 and Nasdaq 100 rows use FRED closes for 6 and 13 November."
         },
         {
           "type": "paragraph",
@@ -1023,7 +1043,7 @@
             "weekly",
             "prior"
           ],
-          "text": "Taiwan rose 10.01% and Japan 6.46%, taking back much of the AI sell-off that hit them a week earlier. Korea gained 4.56%. Hong Kong fell 3.45%, the Philippines 2.92% and Malaysia 2.10%. Europe was firm, with Germany up 3.81% and the UK 2.03%."
+          "text": "Taiwan rose 10.01% and Japan 6.46%, taking back much of the AI sell-off that hit them a week earlier. Korea gained 4.56%. Hong Kong fell 3.45%, the Philippines 2.92% and Malaysia 2.10%. Europe was firm, with Germany up 3.81% and the UK 2.03% from Friday to Thursday."
         },
         {
           "type": "table",
@@ -1095,7 +1115,7 @@
             "kontanRupiah",
             "biSchedule"
           ],
-          "text": "JISDOR ended the week at 18,218, 0.49% weaker, after 18,241 on Thursday. CNBC Indonesia and Kontan both report a record low for the rupiah that day. Bank Indonesia's statement blamed rising expectations of US rate increases in December and into 2027, along with worry about MSCI. It said it intervened in offshore and domestic forwards and in the spot market, and bought government bonds. Its board meets on 17 and 18 November."
+          "text": "JISDOR ended the week at 18,218, 0.49% weaker, after 18,241 on Thursday, its weakest reading since Bank Indonesia's series began in May 2013. The previous low was 18,183 on 28 October. CNBC Indonesia and Kontan both report a record low for the rupiah that day. Bank Indonesia's statement, as CNBC Indonesia reports it, blamed rising expectations of US rate increases in December and into 2027, along with worry about MSCI. It said it intervened in offshore and domestic forwards and in the spot market, and bought government bonds. Its board meets on 17 and 18 November."
         },
         {
           "type": "paragraph",
@@ -1103,7 +1123,7 @@
             "technozSun",
             "kontanSun"
           ],
-          "text": "Demand for government bonds came back. At Tuesday's auction investors bid Rp79.71tn, up from Rp31.09tn, and the government took Rp35tn against a Rp30tn target. Bloomberg Technoz and Kontan report the same figures from the Finance Ministry. The price did not improve. FR0111, an 11-year bond, cleared at 7.67% against 7.55% at the previous sale. Lenders are back, and they want more to lend for long."
+          "text": "Demand for government bonds came back. At Tuesday's auction investors bid Rp79.71tn, up from Rp31.09tn, and the government took Rp35tn. Bloomberg Technoz and Kontan both report those figures and FR0111's 7.67%. Bloomberg Technoz adds the Rp30tn target and the 7.55% at the previous sale. The price did not improve. FR0111, an 11-year bond, cleared at 7.67% against 7.55%. Lenders are back, and they want more to lend for long."
         },
         {
           "type": "table",
@@ -1163,12 +1183,12 @@
           "rows": [
             [
               "Breadth of foreign buying",
-              "BBCA, ASII and BBRI bought. BMRI, TLKM and BRPT sold",
+              "BBCA, ASII and BBRI bought. TLKM and BRPT sold, BMRI about flat",
               "Net buying in four of the five largest stocks for two weeks"
             ],
             [
               "IHSG level",
-              "5,344.406, 2.62% below 5,488",
+              "5,344.406. A rise of 2.69% reaches 5,488",
               "A close above 5,488 with foreign buying"
             ],
             [
@@ -1202,12 +1222,12 @@
             "weekly",
             "hscData"
           ],
-          "text": "The downside test is a close below 5,027.964, this week's low, which would undo most of the gain. With banks now a larger part of the index, foreign selling of BBRI and BMRI is the first thing we would watch."
+          "text": "The downside test is a close below 5,027.964, this week's low and below last week's 5,050.429 close, which would undo the whole gain. With banks now a larger part of the index, foreign selling of BBRI and BMRI is the first thing we would watch."
         }
       ]
     }
   ],
-  "sourceIntro": "Checked on 15 November 2026. Market data end at the 13 November close. IDX statistics, IDX and KSEI announcements, IDX company filings, Bank Indonesia, FRED and the Bureau of Labor Statistics are primary sources. Every fact taken from the press rests on two outlets: CNBC Indonesia with Kontan for Thursday's market, the MSCI list and the rupiah, and Bloomberg Technoz with Kontan for the bond auction.",
+  "sourceIntro": "Checked on 15 November 2026 and again on 16 November. Market data end at the 13 November close. IDX statistics, IDX and KSEI announcements, IDX company filings, Bank Indonesia, FRED and the Bureau of Labor Statistics are primary sources. The main press facts rest on two outlets: CNBC Indonesia with Kontan for Thursday's market, the MSCI list and the rupiah, and Bloomberg Technoz with Kontan for the bond auction. Where only one outlet gives a detail, the text names it.",
   "sourceGroups": [
     {
       "label": "Market observations",

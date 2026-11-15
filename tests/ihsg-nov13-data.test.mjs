@@ -37,8 +37,9 @@ test('Headline figures recompute', () => {
   const thuFri = raw.daily[3].change + raw.daily[4].change;
   has(`${fmt(thuFri, 3)} points, ${share(thuFri, close - start)}% of the week`);
   assert.ok(priorEdition.sections.some(s => JSON.stringify(s).includes('5,488')));
-  has(`5,488, ${pct(5488, close)}% away`);
-  has(`${((5488 - close) / 5488 * 100).toFixed(2)}% below 5,488`);
+  has(`5,488, which needs a further ${pct(5488, close)}% rise`);
+  has(`A rise of ${pct(5488, close)}% reaches 5,488`);
+  has(`below last week's ${fmt(start, 3)} close, which would undo the whole gain`);
 });
 
 test('Five leaders and the rebuilt contributions', () => {
@@ -55,7 +56,15 @@ test('Five leaders and the rebuilt contributions', () => {
   near(drags, pc.bottomTenSumExact, .01);
   has(`took ${(-pc.bottomTenSumExact).toFixed(2)} points`);
   const p = t => pc.top.find(r => r[0] === t)[1].toFixed(2);
-  has(`BUMI added ${p('BUMI')} points, VKTR ${p('VKTR')} and BRMS ${p('BRMS')}`);
+  has(`BUMI ${p('BUMI')} points, VKTR ${p('VKTR')}, BRMS ${p('BRMS')}, UNTR ${p('UNTR')} and BBNI ${p('BBNI')}`);
+  // IDX's printed tables are the top five staying stocks plus the top five leavers, in each direction.
+  const leave = new Set(hsc.leaveCodes), ic = raw.indexContributions;
+  const printedLead = ic.leadersAsPrinted.map(r => r[0]), printedLag = ic.laggardsAsPrinted.map(r => r[0]);
+  assert.deepEqual(printedLead.filter(c => leave.has(c)).sort(), ['CDIA', 'GIAA', 'MLBI', 'UANG', 'VICI']);
+  assert.deepEqual(printedLead.filter(c => !leave.has(c)).sort(), ['ASII', 'BBCA', 'BBRI', 'BMRI', 'TLKM']);
+  assert.deepEqual(printedLag.filter(c => leave.has(c)).sort(), ['BDMN', 'BRIS', 'MAPI', 'NCKL', 'PANI']);
+  assert.deepEqual(printedLag.filter(c => !leave.has(c)).sort(), ['AKRA', 'BRPT', 'CASA', 'MMIX', 'SMMA']);
+  ['BUMI', 'VKTR', 'BRMS', 'UNTR', 'BBNI'].forEach(c => assert.ok(!leave.has(c) && pc.top.find(r => r[0] === c)[1] > 0.92));
   assert.ok(pc.named.PANI < 0 && pc.named.NCKL < 0);
   assert.ok(hsc.prices.PANI['20261113'] > hsc.prices.PANI['20261106'] && hsc.prices.NCKL['20261113'] > hsc.prices.NCKL['20261106']);
 });
@@ -119,7 +128,7 @@ test('Turnover without the ADRO and AADI transfers', () => {
   has(`${pct(raw.weekly.avgDailyValueBn.thisWeek, raw.weekly.avgDailyValueBn.lastWeek)}%`);
   has(`Rp${(raw.weekly.marketTotals.RG.valueIdr / 1e12).toFixed(2)}tn, down ${(-(raw.weekly.marketTotals.RG.valueIdr / prior.weekly.marketTotals.RG.valueIdr - 1) * 100).toFixed(2)}%`);
   has(`Rp${(raw.weekly.marketTotals.RG.valueIdr / 5e12).toFixed(2)}tn a day`);
-  const t = raw.adroAadiTransfer; near(t.rows.reduce((s, r) => s + r[1], 0), t.adroTotalPct, 1e-9);
+  const t = raw.adroAadiTransfer; near(t.rows.reduce((s, r) => s + r[2], 0), t.adroTotalPct, 1e-9);
   near((22781 + 22318) / (2 * 118491) * 100, 19.03, .01);
   const exForeign = (22781 + 22318) / (2 * (118491 - neg / 1e9)) * 100;
   near(exForeign, 43.63, .01);
@@ -140,7 +149,11 @@ test('Foreign flow figures', () => {
     const v = f.stocks[c].netBn; has((v < 0 ? '−' : '+') + fmt(Math.abs(v)));
   });
   has(`estimated Rp${f.stocks.BBRI.dailyNetBn[3].toFixed(2)}bn`);
-  has(`estimated Rp${(-f.stocks.RAJA.netBn).toFixed(2)}bn`);
+  has(`estimated Rp${(-f.stocks.RAJA.dailyNetBn[3]).toFixed(2)}bn of it on Thursday`);
+  const brptBefore = f.stocks.BRPT.dailyNetBn.slice(0, 3).reduce((s, v) => s + v, 0);
+  has(`Rp${(-brptBefore).toFixed(2)}bn of it from Monday to Wednesday`);
+  const raja = hsc.prices.RAJA; assert.equal(raja['20261106'], 392); assert.equal(raja['20261111'], 520); assert.equal(raja['20261113'], 530);
+  has(`${pct(530, 392)}% over the week`);
 });
 
 test('Global, rates and the bond auction', () => {
@@ -158,4 +171,27 @@ test('Global, rates and the bond auction', () => {
   has(`${Math.round((a.fr0111.yieldPct - a.fr0111.priorYieldPct) * 100)} basis points higher`);
   has(`+${(fr.DGS10.at(-1)[1] - fr.DGS10[0][1]).toFixed(2)} points`);
   has(`+${(fr.DGS2.at(-1)[1] - fr.DGS2[0][1]).toFixed(2)} points`);
+});
+
+test('AADI split, JISDOR record and the sector rebuild', () => {
+  const t = raw.adroAadiTransfer, n = hsc.negotiated10Nov;
+  assert.equal(t.rows.reduce((s, r) => s + r[1], 0), t.adroTotalShares);
+  assert.equal(t.rows.reduce((s, r) => s + r[3], 0), t.aadiTotalShares);
+  t.rows.forEach(r => {
+    near(r[1] / t.adroListedShares * 100, r[2], .00005);
+    near(r[3] / t.aadiListedShares * 100, r[4], .00005);
+    has(`"${r[0]}","${r[2].toFixed(4)}%","${r[4].toFixed(4)}%"`);
+  });
+  near(t.aadiTotalShares / t.aadiListedShares * 100, t.aadiTotalPct, .00005);
+  near(t.aadiTotalShares * t.aadiPriceRp / 1e9, n.AADI.nonRegularValue / 1e9, .01);
+  has(`entire ${t.aadiTotalPct}% stake in AADI`);
+  has(`Rp${t.aadiPriceRp.toLocaleString('en-US')}`);
+  const j = raw.jisdorRecord;
+  assert.equal(j.max.rate, 18241); assert.equal(j.max.date, '2026-11-12');
+  assert.ok(j.previousMax.rate < j.max.rate && j.previousMax.date < j.max.date);
+  has(`previous low was ${j.previousMax.rate.toLocaleString('en-US')} on 28 October`);
+  const fin = raw.sectorRebuild.rows.find(r => r[0] === 'Financials');
+  assert.equal(fin[1], raw.sectorIndices.weeklyPct.Financials);
+  has(`financial stocks rose ${fin[3].toFixed(2)}%`);
+  has(`adds only ${(fin[4] - fin[3]).toFixed(2)} points`);
 });
