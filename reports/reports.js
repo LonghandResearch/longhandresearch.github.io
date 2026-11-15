@@ -111,6 +111,25 @@ window.LONGHAND_REPORTS = [
   ]
 },
 {
+  "id": "ihsg-weekly-2026-11-13",
+  "ticker": "IHSG",
+  "exchange": "IDX",
+  "company": "Indonesia equity market",
+  "sector": "Macro and equities",
+  "category": "Update",
+  "title": "A Smaller Index, a Narrow Rally",
+  "date": "2026-11-15",
+  "blurb": "IHSG rose 5.82% as five stocks made 46% of the gain. IDX cut the index from 818 stocks to 522, and a Rp66.8tn ADRO and AADI share transfer doubled reported turnover.",
+  "summary": "Weekly research for 9 to 13 November. Audited IDX observations, the 296 concentrated stocks that left IHSG, the ADRO share transfer, foreign buying in three stocks, a rebuild of IDX's index contributions, global markets and a check of last week's call.",
+  "tags": ["IHSG", "Weekly Market Update", "Foreign flow", "HSC", "Index methodology", "MSCI", "Rupiah", "Global markets"],
+  "rating": null,
+  "currency": "IDR",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "ihsg-weekly.html?week=2026-11-13"
+},
+{
   "id": "ihsg-weekly-2026-11-06",
   "ticker": "IHSG",
   "exchange": "IDX",
