@@ -38,7 +38,7 @@ test('Headline figures recompute', () => {
   has(`${fmt(thuFri, 3)} points, ${share(thuFri, close - start)}% of the week`);
   assert.ok(priorEdition.sections.some(s => JSON.stringify(s).includes('5,488')));
   has(`5,488, ${pct(5488, close)}% away`);
-  has(`${pct(5488, close)}% below 5,488`);
+  has(`${((5488 - close) / 5488 * 100).toFixed(2)}% below 5,488`);
 });
 
 test('Five leaders and the rebuilt contributions', () => {
@@ -52,7 +52,8 @@ test('Five leaders and the rebuilt contributions', () => {
   near(pc.weekTotal, 293.977, .001);
   pc.top.slice(0, 5).forEach(([t, p], i) => near(p, leaders[i][1], .011));
   const drags = pc.bottom.slice(-10).reduce((s, r) => s + r[1], 0);
-  has(`took ${(-drags).toFixed(2)} points`);
+  near(drags, pc.bottomTenSumExact, .01);
+  has(`took ${(-pc.bottomTenSumExact).toFixed(2)} points`);
   const p = t => pc.top.find(r => r[0] === t)[1].toFixed(2);
   has(`BUMI added ${p('BUMI')} points, VKTR ${p('VKTR')} and BRMS ${p('BRMS')}`);
   assert.ok(pc.named.PANI < 0 && pc.named.NCKL < 0);
@@ -102,7 +103,8 @@ test('Index membership, value and weights', () => {
   near(sk.find(l => l.source === 'leave' && l.target === 'counted').value, leave.countedFreeFloatTn['20261112'], .001);
   near(sk.find(l => l.source === 'stay' && l.target === 'counted').value, stay.countedFreeFloatTn['20261112'], .001);
   near(sk.find(l => l.source === 'leave' && l.target === 'uncounted').value, leave.fullValueTn['20261112'] - leave.countedFreeFloatTn['20261112'], .006);
-  near(sk.find(l => l.source === 'stay' && l.target === 'uncounted').value, stay.fullValueTn['20261112'] - stay.countedFreeFloatTn['20261112'], .006);
+  // The frozen values are rounded to two decimals. Unrounded, the difference is 3,725.547.
+  near(sk.find(l => l.source === 'stay' && l.target === 'uncounted').value, stay.fullValueTn['20261112'] - stay.countedFreeFloatTn['20261112'], .011);
   assert.ok(hsc.mkntIndexShares['20261106'] > 0 && hsc.mkntIndexShares['20261109'] === 0);
 });
 
@@ -119,6 +121,9 @@ test('Turnover without the ADRO and AADI transfers', () => {
   has(`Rp${(raw.weekly.marketTotals.RG.valueIdr / 5e12).toFixed(2)}tn a day`);
   const t = raw.adroAadiTransfer; near(t.rows.reduce((s, r) => s + r[1], 0), t.adroTotalPct, 1e-9);
   near((22781 + 22318) / (2 * 118491) * 100, 19.03, .01);
+  const exForeign = (22781 + 22318) / (2 * (118491 - neg / 1e9)) * 100;
+  near(exForeign, 43.63, .01);
+  has(`about ${Math.round(exForeign)}% of trading`);
   assert.equal(raw.delistings.rows.length, 18);
   has(`Rp${(raw.delistings.rows.reduce((s, r) => s + r[5], 0) / 1e12).toFixed(2)}tn together`);
 });
