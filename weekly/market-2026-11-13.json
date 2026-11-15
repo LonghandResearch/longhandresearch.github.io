@@ -1446,31 +1446,53 @@
   }
  },
  "adroAadiTransfer": {
-  "source": "ADRO letter ALAM/091/XI-26/corsec of 10 November 2026 (recipients and percentages). AADI filed letter AAI/177/XI-26/corsec the same afternoon under the same heading; its attachments are scanned and were not read. Trade sizes from IDX stock summary 10 November; Kontan 11 November reports the same Rp33.89tn and Rp32.92tn.",
+  "source": "KSEI ownership reports filed on 10 November 2026 by the seller and the four buyers in each stock (ADRO LK/10112026/0020 to 0030, AADI LK/10112026/0022 to 0031), read on idx.co.id on 16 November. Shares bought, shares before and after, and the AADI price. ADRO's letter ALAM/091/XI-26/corsec gives the same ADRO percentages. Trade values from IDX stock summary 10 November. Kontan 11 November reports Rp33.89tn and Rp32.92tn.",
   "seller": "PT Adaro Strategic Investments",
   "columns": [
    "recipient",
-   "adroPct"
+   "adroShares",
+   "adroPct",
+   "aadiShares",
+   "aadiPct"
   ],
   "rows": [
    [
     "PT Trinugraha Thohir",
-    9.1358
+    2631167000,
+    9.1358,
+    599491288,
+    7.6987
    ],
    [
     "PT Saratoga Investama Sedaya Tbk",
-    12.7776
+    3680000000,
+    12.7776,
+    838459869,
+    10.7676
    ],
    [
     "PT Persada Capital Investama",
-    12.2255
+    3520996000,
+    12.2255,
+    802232020,
+    10.3023
    ],
    [
     "PT Triputra Investindo Arya",
-    14.6291
+    4213262500,
+    14.6291,
+    959959653,
+    12.3279
    ]
   ],
-  "adroTotalPct": 48.768
+  "adroTotalPct": 48.768,
+  "adroTotalShares": 14045425500,
+  "adroListedShares": 28800494200,
+  "aadiTotalPct": 41.0965,
+  "aadiTotalShares": 3200142830,
+  "aadiListedShares": 7786891760,
+  "aadiPriceRp": 10286,
+  "note": "Percentages are shares bought over listed shares on 10 November. They equal each buyer's voting share after less before in the KSEI reports, to the fourth decimal except Triputra in AADI (12.3278 by that difference, 12.3279 by shares)."
  },
  "delistings": {
   "source": "IDX Daily Statistics 10 November 2026, pages 9 to 13",
@@ -1626,6 +1648,171 @@
     316,
     75422200,
     23833415200
+   ]
+  ]
+ },
+ "jisdorRecord": {
+  "source": "Bank Indonesia JISDOR page, full series exported on 16 November 2026",
+  "firstDate": "2013-05-20",
+  "lastDate": "2026-11-13",
+  "readings": 3266,
+  "max": {
+   "date": "2026-11-12",
+   "rate": 18241
+  },
+  "previousMax": {
+   "date": "2026-10-28",
+   "rate": 18183
+  },
+  "nextHighest": [
+   [
+    "2026-11-13",
+    18218
+   ],
+   [
+    "2026-10-28",
+    18183
+   ],
+   [
+    "2026-06-08",
+    18171
+   ]
+  ]
+ },
+ "sectorRebuild": {
+  "method": "Week return from 6 to 13 November with fixed weights. Sector of each stock from IDX's company profile sector field. 'ffAll' weights every IHSG member in the sector by its IDX index shares on 6 November. 'ffStay' does the same for the 522 stocks that stayed after 13 November. 'ffLeave' for the 296 that left. 'fullCap' weights every listed stock by listed shares. None of these reproduces IDX's printed sector figure, so IDX's sector weighting differs.",
+  "columns": [
+   "sector",
+   "idxPrintedPct",
+   "fullCapPct",
+   "ffAllPct",
+   "ffStayPct",
+   "ffLeavePct",
+   "leaveWeightPct",
+   "stocks",
+   "leavers"
+  ],
+  "rows": [
+   [
+    "Energy",
+    9.49,
+    7.91,
+    9.24,
+    9.5,
+    1.57,
+    3.3,
+    89,
+    19
+   ],
+   [
+    "Basic materials",
+    4.11,
+    3.25,
+    3.84,
+    3.91,
+    2.68,
+    5.6,
+    113,
+    38
+   ],
+   [
+    "Industrials",
+    9.55,
+    8.97,
+    9.55,
+    9.62,
+    4.98,
+    1.5,
+    65,
+    25
+   ],
+   [
+    "Consumer non-cyclicals",
+    3.76,
+    3.01,
+    3.98,
+    4.31,
+    1.82,
+    13.4,
+    132,
+    42
+   ],
+   [
+    "Consumer cyclicals",
+    6.53,
+    5.07,
+    7.75,
+    8.75,
+    -0.37,
+    10.9,
+    155,
+    50
+   ],
+   [
+    "Healthcare",
+    0.41,
+    0.93,
+    0.07,
+    -0.16,
+    2.22,
+    9.5,
+    41,
+    14
+   ],
+   [
+    "Financials",
+    2.68,
+    3.8,
+    5.01,
+    5.16,
+    0.9,
+    3.5,
+    105,
+    39
+   ],
+   [
+    "Property",
+    4.46,
+    1.67,
+    5.51,
+    6.94,
+    2.42,
+    31.6,
+    91,
+    30
+   ],
+   [
+    "Technology",
+    2.31,
+    -5.37,
+    7.47,
+    7.83,
+    0.68,
+    5.0,
+    44,
+    7
+   ],
+   [
+    "Infrastructure",
+    3.19,
+    1.87,
+    7.46,
+    7.68,
+    5.15,
+    9.0,
+    69,
+    20
+   ],
+   [
+    "Transport and logistics",
+    7.31,
+    11.75,
+    9.48,
+    4.44,
+    21.74,
+    29.1,
+    40,
+    12
    ]
   ]
  }
