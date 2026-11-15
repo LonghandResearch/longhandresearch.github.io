@@ -193,12 +193,15 @@
       return `<rect class="sankey-node ${n.tone ? `sankey-${esc(n.tone)}` : ''}" x="${n.x}" y="${n.y}" width="${nodeW}" height="${Math.max(n.h, 1.5)}"/>${text}`;
     }).join('');
     const heads = (s.columns || []).map((text, c) => `<text class="sankey-head" x="${c === 0 ? colX[0] + nodeW : colX[c]}" y="16" text-anchor="${c === 0 ? 'end' : 'start'}">${esc(text)}</text>`).join('');
-    const svg = `<div class="chart-scroll sankey-plot" role="region" aria-label="Sankey diagram, scroll horizontally on a narrow screen" tabindex="0"><svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="weekly-sankey-title weekly-sankey-desc"><title id="weekly-sankey-title">${esc(block.title || 'Where the lost value came from')}</title><desc id="weekly-sankey-desc">Ribbons show ${esc(unit)} of market value lost, flowing from stock group to sector to the largest single losses. The exact values are in the expandable table.</desc>${heads}${paths}${marks}</svg></div>`;
+    const svg = `<div class="chart-scroll sankey-plot" role="region" aria-label="Sankey diagram, scroll horizontally on a narrow screen" tabindex="0"><svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="weekly-sankey-title weekly-sankey-desc"><title id="weekly-sankey-title">${esc(block.title || 'Where the lost value came from')}</title><desc id="weekly-sankey-desc">${esc(s.description || `Ribbons show ${unit} of market value lost, flowing from stock group to sector to the largest single losses.`)} The exact values are in the expandable table.</desc>${heads}${paths}${marks}</svg></div>`;
     const total = columns[0].reduce((t, n) => t + n.value, 0);
     const shares = columns[0].map(n => `${n.label} ${money(n.value)} (${number(n.value / total * 100, 2)}%)`).join(', ');
     const rows = s.links.map(l => [byId[l.source].label, byId[l.target].label, number(l.value, 2)]);
-    const calculation = `The ribbons add up to ${money(total)}: ${shares}. Each ribbon is the price change times shares outstanding for stocks that fell, so stocks that rose are not netted off.`;
-    return figure(data, block, `${svg}<div class="sankey-key" aria-hidden="true"><span class="sankey-key-hsc">Lost by HSC stocks</span><span class="sankey-key-other">Lost by other stocks</span><span class="sankey-key-unit">Figures are market value lost, in Rp tn</span></div>${dataTable(['From', 'To', `Value lost, ${unit}`], rows)}<p class="figure-note">${esc(calculation)}</p>`);
+    // Older editions show market value lost. A newer edition can name its own measure, key and closing note.
+    const calculation = `The ribbons add up to ${money(total)}: ${shares}. ${s.calculation || 'Each ribbon is the price change times shares outstanding for stocks that fell, so stocks that rose are not netted off.'}`;
+    const keys = (s.keys || [{ tone: 'hsc', label: 'Lost by HSC stocks' }, { tone: 'other', label: 'Lost by other stocks' }]).map(k => `<span class="sankey-key-${esc(k.tone)}">${esc(k.label)}</span>`).join('');
+    const measure = s.measure || 'Value lost';
+    return figure(data, block, `${svg}<div class="sankey-key" aria-hidden="true">${keys}<span class="sankey-key-unit">${esc(s.unitNote || 'Figures are market value lost, in Rp tn')}</span></div>${dataTable(['From', 'To', `${measure}, ${unit}`], rows)}<p class="figure-note">${esc(calculation)}</p>`);
   }
 
   function renderBlock(data, block) {

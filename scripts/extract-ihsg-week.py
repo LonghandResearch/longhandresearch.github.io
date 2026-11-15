@@ -60,8 +60,18 @@ def read_daily(path):
     head = find(r"IDX Composite Index \(IHSG\) (" + NUM + r") (" + NUM + r") \((" + NUM + r")%\) Previous Highest Lowest ("
                 + NUM + r") (" + NUM + r") (" + NUM + r")", p1, f"the index block in {path.name}")
     close, change, pct, previous, high, low = (num(g) for g in head.groups())
-    caps = find(r"\(trillion IDR\) \(billion USD~\) (" + NUM + r") (" + NUM + r") (" + NUM + r") (" + NUM + r")", p1,
-                f"market capitalisation in {path.name}")
+    # From 12 November 2026 IDX also prints the full IHSG market cap between the two older figures.
+    new_layout = re.search(r"IDX Market Cap \(trillion IDR\) \(billion USD~\) (" + NUM + r") (" + NUM + r") IHSG Market Cap "
+                           r"IHSG Free Float Adj\. Market Cap (" + NUM + r") \(trillion IDR\) (" + NUM + r") \(billion USD~\) ("
+                           + NUM + r") \(trillion IDR\) (" + NUM + r")", p1)
+    if new_layout:
+        g = new_layout.groups()
+        caps = [None, g[0], g[1], g[4], g[5]]
+        ihsg_cap = num(g[2])
+    else:
+        caps = find(r"\(trillion IDR\) \(billion USD~\) (" + NUM + r") (" + NUM + r") (" + NUM + r") (" + NUM + r")", p1,
+                    f"market capitalisation in {path.name}")
+        ihsg_cap = None
     rate = find(r"USD/IDR BI = ([\d,]+)", p1, f"the BI rate in {path.name}")
     today = find(r"Today Net (?:Buy|Sell) (" + NUM + r")", p2, f"today's foreign net in {path.name}")
     ytd = find(r"YTD Net (?:Buy|Sell) (" + NUM + r")", p2, f"YTD foreign net in {path.name}")
@@ -72,7 +82,7 @@ def read_daily(path):
         "close": close, "previous": previous, "change": change, "changePct": pct, "high": high, "low": low,
         "biUsdIdr": int(num(rate[1])), "officialNetBn": num(today[1]), "ytdNetBn": num(ytd[1]),
         "marketPer": num(multiples[1]), "marketPbv": num(multiples[2]),
-        "idxMarketCapTn": num(caps[1]), "ihsgFreeFloatCapTn": num(caps[3]),
+        "idxMarketCapTn": num(caps[1]), "ihsgFreeFloatCapTn": num(caps[3]), "ihsgMarketCapTn": ihsg_cap,
         "markets": market_rows(p5, f"the trading recapitulation in {path.name}"),
         "breadthTextOrder": re.findall(r"([\d,]+) \((\d+)%\)", p5)[:5],
     }
