@@ -3154,7 +3154,8 @@
   "ZYRX"
  ],
  "foreign": {
-  "allStocksNetBn": 619.03,
+  "allStocksNetBn": 618.98,
+  "allStocksNetBnNote": "Summed before rounding. The per-stock values below are rounded to two decimals, and their sum is 619.03.",
   "screen": "full value at least Rp10tn on 13 November and average regular-market value at least Rp10bn a day this week",
   "screenCount": 69,
   "screenNetBn": 713.59,
@@ -3717,6 +3718,7 @@
     3.81
    ]
   ],
+  "bottomTenSumExact": -11.268,
   "bottom": [
    [
     "GOOD",

@@ -459,7 +459,7 @@
         {
           "source": "stay",
           "target": "uncounted",
-          "value": 3725.54,
+          "value": 3725.55,
           "tone": "other"
         },
         {
@@ -477,7 +477,7 @@
         {
           "source": "uncounted",
           "target": "outside",
-          "value": 4733.23
+          "value": 4733.24
         }
       ]
     }
@@ -547,7 +547,7 @@
         {
           "type": "closes",
           "label": "Exhibit 01",
-          "title": "Five higher closes out of six readings, the biggest on Thursday",
+          "title": "Four up days out of five, the biggest on Thursday",
           "sources": [
             "daily"
           ],
@@ -621,7 +621,7 @@
     },
     {
       "id": "index",
-      "title": "IHSG lost 296 members, and two banks went past the 9% cap",
+      "title": "IHSG lost 296 members, and two banks moved further past the 9% cap",
       "blocks": [
         {
           "type": "paragraph",
@@ -724,7 +724,7 @@
             "peng219",
             "adro"
           ],
-          "text": "The rule measures concentration. IDX's notice says the list does not by itself indicate any violation, and it includes Pertamina Geothermal (PGEO), Garuda Indonesia (GIAA), Wijaya Karya (WIKA) and HM Sampoerna (HMSP). So does Saratoga (SRTG), one of the four companies that received ADRO shares on Tuesday. The new index follows the traded market more closely. It also carries more bank risk, and two members now sit above a cap that is meant to bind. IDX has not said when it will apply the cap again. Funds that benchmark to IHSG need that answer before the January review."
+          "text": "The rule measures concentration. IDX's notice says the list does not by itself indicate any violation, and it includes Pertamina Geothermal (PGEO), Garuda Indonesia (GIAA), Wijaya Karya (WIKA) and HM Sampoerna (HMSP). So does Saratoga (SRTG), one of the four companies that received ADRO shares on Tuesday. The new index follows the traded market more closely. It also carries more bank risk, and two banks that already sat above the 9% cap, BBCA at 9.75% and BBRI at 9.35%, now sit further above it. IDX has not said when it will apply the cap again. Funds that benchmark to IHSG need that answer before the January review."
         }
       ]
     },
@@ -783,7 +783,7 @@
             "hscData",
             "observations"
           ],
-          "text": "Take those two trades out and the week's value averaged Rp10.34tn a day, 6.38% less than the week before. IDX's headline shows a rise of 114.64%. Regular-market value, where prices are set, was Rp46.78tn, down 0.77%. The same trades cut the foreign share of trading from 37% to 19%, because they ran from domestic seller to domestic buyer. One broker, Trimegah Sekuritas, handled 53.58% of member value for the week."
+          "text": "Take those two trades out and the week's value averaged Rp10.34tn a day, 6.38% less than the week before. IDX's headline shows a rise of 114.64%. Regular-market value, where prices are set, was Rp46.78tn, down 0.77%. The same trades pulled the foreign share of trading down to 19%, against 37% the week before, because they ran from domestic seller to domestic buyer. Without them foreigners made about 44% of trading, more than the week before. One broker, Trimegah Sekuritas, handled 53.58% of member value for the week."
         }
       ]
     },
@@ -869,7 +869,7 @@
             "hscData",
             "weekly"
           ],
-          "text": "Our estimate values IDX's daily foreign buy and sell shares at each day's close, across all markets. It sums to Rp619.03bn, Rp156.30bn more than the official net, so we use it to rank stocks and never as a total. Among 69 liquid large caps, three names took nearly all the buying. TLKM rose 9.09% while foreigners sold it. BRPT, which MSCI is removing from its Standard index, had the largest estimated selling."
+          "text": "Our estimate values IDX's daily foreign buy and sell shares at each day's close, across all markets. It sums to Rp618.98bn, Rp156.25bn more than the official net, so we use it to rank stocks and never as a total. Among 69 liquid large caps, worth Rp10tn or more with an average of Rp10bn or more of regular trading a day, three names took nearly all the buying. TLKM rose 9.09% while foreigners sold it. BRPT, which MSCI is removing from its Standard index, had the largest estimated selling."
         }
       ]
     },
@@ -893,7 +893,7 @@
             "weekly",
             "hscData"
           ],
-          "text": "BBRI rose 8.90% and added 42.10 points. BBCA added 28.22, ASII 25.28, TLKM 20.83 and BMRI 18.93. Losses were small. BRPT was the largest drag at 3.02 points, and the ten largest drags together took 11.26 points by our count."
+          "text": "BBRI rose 8.90% and added 42.10 points. BBCA added 28.22, ASII 25.28, TLKM 20.83 and BMRI 18.93. Losses were small. BRPT was the largest drag at 3.02 points, and the ten largest drags together took 11.27 points by our count."
         },
         {
           "type": "paragraph",
@@ -948,7 +948,7 @@
           "rows": [
             [
               "Relief after the vice president resigned",
-              "Gibran Rakabuming Raka submitted his resignation that day. CNBC Indonesia and Kontan both set it beside the rise",
+              "Gibran Rakabuming Raka submitted his resignation that day. CNBC Indonesia set it beside the rise. Kontan reported it as a source of political doubt",
               "The rupiah hit a record low the same day. Kontan quotes an analyst saying political doubt raised the premium on Indonesian assets",
               "Possible. The currency did not read it as relief"
             ],
@@ -971,7 +971,7 @@
               "The mechanism, not the cause"
             ],
             [
-              "The index reshuffle announced on Wednesday night",
+              "The index reshuffle announced on Thursday night",
               "The 522 staying stocks rose 2.69% on Thursday and the 296 leaving ones 0.64%",
               "We have no figure for money that tracks IHSG",
               "Fits the pattern. Size unknown"
@@ -1015,7 +1015,7 @@
             "weekly",
             "fred"
           ],
-          "note": "Changes from IDX's global table, Friday to Friday, except the two US rows, which use FRED closes for 6 and 13 November. IDX's own US row is the Thursday close."
+          "note": "Changes from IDX's global table, Friday to Friday. IDX lists the US only through the Dow, at its Thursday close, so the S&P 500 and Nasdaq 100 rows here use FRED closes for 6 and 13 November."
         },
         {
           "type": "paragraph",
@@ -1168,7 +1168,7 @@
             ],
             [
               "IHSG level",
-              "5,344.406, 2.69% below 5,488",
+              "5,344.406, 2.62% below 5,488",
               "A close above 5,488 with foreign buying"
             ],
             [
