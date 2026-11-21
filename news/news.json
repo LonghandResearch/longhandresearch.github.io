@@ -1,6 +1,35 @@
 {
- "updated": "2026-11-21T18:03:06.189Z",
+ "updated": "2026-11-21T23:23:54.978Z",
  "items": [
+  {
+   "title": "Perusahaan Bayar Gaji Karyawan di Bawah UMP Bisa Didenda Rp 2 Miliar",
+   "url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8763899/perusahaan-bayar-gaji-karyawan-di-bawah-ump-bisa-didenda-rp-2-miliar",
+   "source": "detikFinance",
+   "topic": "Markets",
+   "lang": "id",
+   "time": "2026-11-21T23:00:00.000Z"
+  },
+  {
+   "title": "Wind Could Cut the Cost of Round-the-Clock Solar Power by 18%, Ember Says",
+   "url": "https://oilprice.com/Alternative-Energy/Wind-Power/Wind-Could-Cut-the-Cost-of-Round-the-Clock-Solar-Power-by-18-Ember-Says.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-11-21T22:00:00.000Z"
+  },
+  {
+   "title": "Trump’s Coal Revival Is Costing Americans More Than Expected",
+   "url": "https://oilprice.com/Energy/Coal/Trumps-Coal-Revival-Is-Costing-Americans-More-Than-Expected.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-11-21T20:00:00.000Z"
+  },
+  {
+   "title": "Thanksgiving Gas Prices Could Break a Record Despite Recent Plunge",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/Thanksgiving-Gas-Prices-Could-Break-a-Record-Despite-Recent-Plunge.html",
+   "source": "OilPrice",
+   "topic": "Commodities",
+   "time": "2026-11-21T19:10:00.000Z"
+  },
   {
    "title": "Britain's Net Zero Revolution Has a China Problem",
    "url": "https://oilprice.com/Energy/Energy-General/Britains-Net-Zero-Revolution-Has-a-China-Problem.html",
@@ -9,7 +38,14 @@
    "time": "2026-11-21T18:00:00.000Z"
   },
   {
-   "title": "Bitcoin bounces 9% from two-year low to retake $60,000 as traders eye Monday’s stock open",
+   "title": "UBS flags further gold weakness before Fed rate-cut expectations return",
+   "url": "https://www.investing.com/news/commodities-news/ubs-flags-further-gold-weakness-before-fed-ratecut-expectations-return-5043537",
+   "source": "Investing.com",
+   "topic": "Commodities",
+   "time": "2026-11-21T17:50:39.000Z"
+  },
+  {
+   "title": "Bitcoin rebounds above $60,000 after $1.8 billion crypto liquidation wave",
    "url": "https://www.coindesk.com/markets/2026/11/21/bitcoin-bounces-9-from-two-year-low-to-retake-usd60-000-as-traders-eye-monday-s-stock-open",
    "source": "CoinDesk",
    "topic": "Crypto",
@@ -1728,43 +1764,6 @@
    "source": "Mining Technology",
    "topic": "Commodities",
    "time": "2026-11-19T12:08:45.000Z"
-  },
-  {
-   "title": "Bitcoin holds above $63,750 but Fed rate-hike threats loom large",
-   "url": "https://www.coindesk.com/markets/2026/11/19/bitcoin-holds-above-usd63-750-but-fed-rate-hike-threats-loom-large",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-11-19T12:08:06.000Z"
-  },
-  {
-   "title": "BI sebut modal asing ke saham belum pulih usai pengumuman MSCI",
-   "url": "https://www.antaranews.com/berita/5865523/bi-sebut-modal-asing-ke-saham-belum-pulih-usai-pengumuman-msci",
-   "source": "Antara",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-11-19T11:39:19.000Z"
-  },
-  {
-   "title": "Perusahaan Malaysia Bangun Fasilitas MRO di Indonesia, Investasi Tembus Rp1,2 triliun",
-   "url": "https://economy.okezone.com/read/2026/11/19/320/3254994/perusahaan-malaysia-bangun-fasilitas-mro-di-indonesia-investasi-tembus-rp1-2-triliun",
-   "source": "Okezone",
-   "topic": "Markets",
-   "lang": "id",
-   "time": "2026-11-19T11:30:13.000Z"
-  },
-  {
-   "title": "North Korean hackers used Sky's stablecoin system, putting billions at freeze risk",
-   "url": "https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk",
-   "source": "CoinDesk",
-   "topic": "Crypto",
-   "time": "2026-11-19T11:30:00.000Z"
-  },
-  {
-   "title": "Global Cooling Demand Overtakes Heating for the First Time",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/Global-Cooling-Demand-Overtakes-Heating-for-the-First-Time.html",
-   "source": "OilPrice",
-   "topic": "Commodities",
-   "time": "2026-11-19T11:30:00.000Z"
   }
  ]
 }
