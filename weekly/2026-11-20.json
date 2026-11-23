@@ -1,0 +1,752 @@
+{
+  "schemaVersion": 1,
+  "weekEnding": "2026-11-20",
+  "published": "2026-11-23",
+  "reviewed": "2026-11-23",
+  "period": "16 to 20 November 2026",
+  "title": "The World Sold AI. Jakarta Sold Its Miners.",
+  "titleLead": "The world sold AI.",
+  "titleEmphasis": "Jakarta sold its miners.",
+  "deck": "IHSG fell on all five days, 3.71% to 5,146.326, and gave back two thirds of the week before. Four gold and copper miners made a third of the fall as metal prices slid on US rate bets and the global AI sell-off. The big banks held. Bank Indonesia raised its rate to 6.00% and the rupiah still set records. Wall Street's worst day came after Jakarta closed, so we stay cautious.",
+  "description": "Indonesia weekly research for 16 to 20 November 2026. Audited IDX data, the miners behind a third of IHSG's fall, foreign selling on every day, Bank Indonesia's surprise rate rise and the rupiah's record lows, the large one-off negotiated trades, global markets after the AI sell-off and a check of last week's call.",
+  "presentation": "refined",
+  "style": "crayon",
+  "stats": [
+    {
+      "label": "IHSG close",
+      "value": "5,146.33",
+      "note": "−3.71% over the week, five losing days. Range 5,094.89 to 5,385.14"
+    },
+    {
+      "label": "Official weekly foreign net",
+      "value": "−Rp2,609bn",
+      "note": "All stock markets. Net selling on all five days. Net selling for 2026 passed Rp100tn on Friday"
+    },
+    {
+      "label": "Four gold and copper miners",
+      "value": "−63.66 points",
+      "note": "AMMN, BRMS, MDKA and EMAS, 32.14% of IHSG's fall"
+    },
+    {
+      "label": "JISDOR, Rp per USD",
+      "value": "18,278",
+      "note": "0.33% weaker and a record. Bank Indonesia raised its rate to 6.00% on Wednesday. Indicative USD return −4.02%"
+    }
+  ],
+  "sources": {
+    "weekly": {
+      "label": "IDX Weekly Statistics, 16 to 20 November 2026",
+      "url": "https://www.idx.co.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ws_261120. Page 1 activity and range, page 2 foreign flow, investor composition and seller and buyer pairs, page 3 top stocks and members, page 4 market totals and breadth, page 5 index contributions, page 6 foreign transactions, page 7 sector and board indices, page 8 global comparison."
+    },
+    "daily": {
+      "label": "IDX Daily Statistics, 16 to 20 November 2026",
+      "url": "https://www.idx.co.id/en/market-data/statistical-reports/statistics",
+      "note": "Owner-supplied ds_261116 to ds_261120. Pages 1, 2 and 5."
+    },
+    "observations": {
+      "label": "Frozen weekly observations",
+      "url": "https://longhandresearch.github.io/weekly/market-2026-11-20.json",
+      "note": "Extractor output with file hashes and 23 passed checks, plus figures read from page images, Bank Indonesia, FRED, S&P Dow Jones Indices and Nasdaq."
+    },
+    "stocksData": {
+      "label": "Frozen stock-level contributions, foreign estimates and negotiated trades",
+      "url": "https://longhandresearch.github.io/weekly/idx-stocks-2026-11-20.json",
+      "note": "IDX stock summary for 13 and 16 to 20 November, read on idx.co.id on 23 November, with the method for each derived figure."
+    },
+    "flowless": {
+      "label": "Frozen foreign-flow export by stock and sector",
+      "url": "https://longhandresearch.github.io/weekly/flowless-2026-11-20.json",
+      "note": "A separate export from IDX's daily data with sector totals and stocks whose flow was unusual against their own history. Its stock figures match ours."
+    },
+    "hrum": {
+      "label": "Harum Energy (HRUM), letter 076/HE/XI/2026, 19 November 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202611/0a72c85762_53562d0973.pdf",
+      "note": "Sale of 6,759,000,000 shares, 50% of the company, from PT Karunia Bara Perkasa to PT Bara Sejahtera Abadi, both controlling holders under the same control, at Rp660. Scanned letter, read on idx.co.id on 23 November."
+    },
+    "kseiWifi": {
+      "label": "KSEI ownership reports for WIFI, LK/20112026/0001 and 0002, 20 November 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-20112026-6146-00.pdf-0.pdf",
+      "note": "PT Sinergi Graha Kapital sold 1,415,652,000 shares at Rp2,870 under a repurchase agreement. Investasi Sukses Bersama went from 1,473,435,404 to 2,889,087,404 shares, 54.42%. Its report prints the starting stake as 27.276%, but the share count gives 27.76%."
+    },
+    "kseiInet": {
+      "label": "KSEI ownership reports for INET, LK/17112026/0003 and 0004, 17 November 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-17112026-0514-00.pdf-0.pdf",
+      "note": "Abadi Kreasi Unggul Nusantara sold 6,685,000,000 shares at Rp300 on 16 November, 59.76% to 29.89%, and stays the controller. PT Cakrawala Nexus Investama bought 29.87%."
+    },
+    "kseiAuto": {
+      "label": "KSEI ownership report for AUTO, LK/20112026/0010, 20 November 2026",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-20112026-9416-00.pdf-0.pdf",
+      "note": "Astra International bought 238,442,293 shares at Rp3,600 on 18 November through a voluntary tender offer, 80.00% to 84.947%."
+    },
+    "idxNotices": {
+      "label": "IDX announcements, search for IHSG",
+      "url": "https://www.idx.co.id/id/berita/pengumuman/",
+      "note": "The latest IHSG notice is the incidental evaluation of 12 November. None followed from 14 to 22 November."
+    },
+    "biRate": {
+      "label": "Bank Indonesia press release No.28/254/DKom, board meeting of 17 and 18 November 2026",
+      "url": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2825426.aspx",
+      "note": "BI-Rate up 25 basis points to 6.00%, deposit facility 5.25%, lending facility 6.75%. Read on 23 November."
+    },
+    "biBop": {
+      "label": "Bank Indonesia press release No.28/255/DKom, balance of payments for the third quarter of 2026, 20 November 2026",
+      "url": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2825526.aspx",
+      "note": "Current account deficit US$2.0bn, 0.5% of GDP, against US$12.6bn in the second quarter. Portfolio investment in deficit."
+    },
+    "jisdor": {
+      "label": "Bank Indonesia JISDOR",
+      "url": "https://www.bi.go.id/id/statistik/informasi-kurs/jisdor/default.aspx",
+      "note": "Read 23 November 2026. Matches the USD/IDR BI line in each daily file. The record test uses last week's export of the full series to 13 November."
+    },
+    "fred": {
+      "label": "FRED daily series SP500, NASDAQCOM, NASDAQ100, DJIA, NIKKEI225, DGS2, DGS10 and VIXCLS",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "note": "Graph CSVs read on 23 November. FRED had no 20 November close yet for the S&P 500 and the two Nasdaq indices, and Treasury yields stop at 19 November."
+    },
+    "spdji": {
+      "label": "S&P Dow Jones Indices, S&P 500",
+      "url": "https://www.spglobal.com/spdji/en/indices/equity/sp-500/",
+      "note": "6,910.39 as of 20 November, down 3.70% on the day. Read on 23 November."
+    },
+    "nasdaq": {
+      "label": "Nasdaq, historical data for the Nasdaq Composite and Nasdaq 100",
+      "url": "https://www.nasdaq.com/market-activity/index/comp/historical",
+      "note": "22,617.73 and 25,028.98 on 20 November. Earlier closes match FRED."
+    },
+    "fomc": {
+      "label": "Federal Reserve, minutes of the FOMC meeting of 27 and 28 October 2026",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
+      "note": "Two members voted for a 25 basis point rise. Many participants viewed the AI buildout as a material source of inflation risk."
+    },
+    "cnbcSelloff": {
+      "label": "CNBC, S&P 500 correction: what caused the market sell-off, 20 November 2026",
+      "url": "https://www.cnbc.com/2026/11/20/sp-500-correction-market-sell-off.html",
+      "note": "The Anthropic listing, Nvidia's fall, the break of the 200-day average, rate bets and slower earnings growth. Quotes Governor Waller."
+    },
+    "cnbciAsia": {
+      "label": "CNBC Indonesia, Asian markets close lower, 20 November 2026",
+      "url": "https://www.cnbcindonesia.com/research/20261120160002-128-787036/bursa-asia-kebakaran-ri-singapura-china-jepang-tak-ada-yang-selamat",
+      "note": "Friday's falls across Asia and, citing Reuters, the worst week for Asia outside Japan since March 2020 and for Taiwan since August 1990."
+    },
+    "cnbcGold": {
+      "label": "CNBC, gold's slide deepens as AI rout and rate rise bets hurt bullion, 20 November 2026",
+      "url": "https://www.cnbc.com/2026/11/20/gold-federal-reserve-price-dollar-metals.html",
+      "note": "Spot gold at a 14-month low, about 9.5% lower in the week by the afternoon, and CME's 96% chance of a December rise."
+    },
+    "technozGold": {
+      "label": "Bloomberg Technoz, gold's biggest weekly fall since March, 21 November 2026",
+      "url": "https://www.bloombergtechnoz.com/detail-news/128462/harga-emas-dunia-sepekan-catatkan-penurunan-terbesar-sejak-maret",
+      "note": "Five days of falls, nearly 9% in the week, the lowest since September 2025."
+    },
+    "technozCopper": {
+      "label": "Bloomberg Technoz, copper's deepest drop since March on AI selling, 20 November 2026",
+      "url": "https://www.bloombergtechnoz.com/detail-news/128373/harga-tembaga-drop-terdalam-sejak-maret-efek-aksi-jual-terkait-ai",
+      "note": "London copper heading for one of its worst weeks in a decade on doubts about AI spending."
+    },
+    "cnbciCopper": {
+      "label": "CNBC Indonesia, copper falls to a seven-month low, 19 November 2026",
+      "url": "https://www.cnbcindonesia.com/research/20261119111218-128-786563/harga-tembaga-ambruk-rekor-terburuk-7-bulan",
+      "note": "COMEX copper down 5.30% on 18 November, on the dollar, US rate bets and doubts about AI demand."
+    },
+    "katadataMining": {
+      "label": "Katadata, Prabowo wants the state to control 70% of mines, 16 November 2026",
+      "url": "https://katadata.co.id/berita/industri/6afa79318a487/prabowo-ingin-negara-kuasai-70-tambang-termasuk-sahamnya",
+      "note": "The president's instruction to ministers that every mining permit should yield at least 70% to the state, and its shares be controlled if needed."
+    },
+    "technozIma": {
+      "label": "Bloomberg Technoz, the mining association responds to the 70% remark, 18 November 2026",
+      "url": "https://www.bloombergtechnoz.com/detail-news/128229/prabowo-mau-70-manfaat-iup-dikuasai-negara-ima-respons",
+      "note": "Dates the president's statement to the end of the previous week and gives the Indonesian Mining Association's reply."
+    },
+    "technozBi": {
+      "label": "Bloomberg Technoz, market response after the BI-Rate rise, 18 November 2026",
+      "url": "https://www.bloombergtechnoz.com/detail-news/128129/respons-pasar-usai-bi-rate-naik-ke-6-rupiah-ihsg-menguat",
+      "note": "IHSG up 0.51% at 5,331.93 soon after the decision."
+    },
+    "technozRupiah": {
+      "label": "Bloomberg Technoz, rupiah closes firmer after the BI-Rate rise, 18 November 2026",
+      "url": "https://www.bloombergtechnoz.com/detail-news/128145/rupiah-ditutup-menguat-usai-bi-rate-naik-ke-6",
+      "note": "The consensus expected a hold at 5.75%."
+    },
+    "kontanMsci": {
+      "label": "Kontan, IHSG jumps 2.66% and the MSCI review, 12 November 2026",
+      "url": "https://investasi.kontan.co.id/news/ihsg-melonjak-266-hari-ini-waspadai-potensi-profit-taking-pada-jumat-1311",
+      "note": "BRPT and BRMS leave MSCI's Standard index, effective 1 December 2026. Read again on 23 November."
+    },
+    "bloombergMsci": {
+      "label": "Bloomberg News, MSCI discussed avoiding Indonesia downgrade with Prabowo and Dalio, 23 November 2026",
+      "url": "https://www.bloombergtechnoz.com/detail-news/128545/prabowo-ray-dalio-msci-cari-cara-hindari-penurunan-ranking-ri",
+      "note": "Linked to the Indonesian edition on Bloomberg Technoz. The owner supplied the English Bloomberg text. Based on people familiar with the 10 November call. MSCI did not comment."
+    },
+    "kontanMsciReport": {
+      "label": "Kontan, MSCI opens the way for Indonesia to keep its emerging market status, 23 November 2026",
+      "url": "https://investasi.kontan.co.id/news/kabar-baik-msci-buka-peluang-indonesia-bertahan-di-status-emerging-market",
+      "note": "Published 10:21 Jakarta time, citing the Bloomberg report."
+    },
+    "prior": {
+      "label": "Longhand IHSG weekly, 13 November 2026",
+      "url": "https://longhandresearch.github.io/ihsg-weekly.html?week=2026-11-13",
+      "note": "Previous close, last week's view, its five signposts and its downside line."
+    }
+  },
+  "observations": {
+    "closes": [
+      { "date": "2026-11-13", "close": 5344.406, "label": "13 Nov" },
+      { "date": "2026-11-16", "close": 5320.981, "label": "16 Nov" },
+      { "date": "2026-11-17", "close": 5304.755, "label": "17 Nov" },
+      { "date": "2026-11-18", "close": 5247.879, "label": "18 Nov" },
+      { "date": "2026-11-19", "close": 5194.141, "label": "19 Nov" },
+      { "date": "2026-11-20", "close": 5146.326, "label": "20 Nov" }
+    ],
+    "foreignFlow": [
+      { "date": "2026-11-16", "netBn": -169.94, "label": "16 Nov" },
+      { "date": "2026-11-17", "netBn": -483.97, "label": "17 Nov" },
+      { "date": "2026-11-18", "netBn": -443.58, "label": "18 Nov" },
+      { "date": "2026-11-19", "netBn": -563.67, "label": "19 Nov" },
+      { "date": "2026-11-20", "netBn": -947.41, "label": "20 Nov" }
+    ],
+    "jisdor": [
+      { "date": "2026-11-13", "rate": 18218 },
+      { "date": "2026-11-16", "rate": 18250 },
+      { "date": "2026-11-17", "rate": 18264 },
+      { "date": "2026-11-18", "rate": 18252 },
+      { "date": "2026-11-19", "rate": 18269 },
+      { "date": "2026-11-20", "rate": 18278 }
+    ],
+    "sectors": [
+      { "name": "Healthcare", "weekly": 0.05 },
+      { "name": "Financials", "weekly": -0.2 },
+      { "name": "Consumer non-cyclicals", "weekly": -1.48 },
+      { "name": "Transport and logistics", "weekly": -2.94 },
+      { "name": "Property", "weekly": -3.03 },
+      { "name": "Infrastructure", "weekly": -3.08 },
+      { "name": "Consumer cyclicals", "weekly": -4.27 },
+      { "name": "Technology", "weekly": -4.91 },
+      { "name": "Industrials", "weekly": -5.24 },
+      { "name": "Energy", "weekly": -8.81 },
+      { "name": "Basic materials", "weekly": -10.73 }
+    ],
+    "stocks": [
+      { "ticker": "AMMN", "points": -26.39 },
+      { "ticker": "BRMS", "points": -15.63 },
+      { "ticker": "BRPT", "points": -13.99 },
+      { "ticker": "MDKA", "points": -13.07 },
+      { "ticker": "TLKM", "points": -10.97 },
+      { "ticker": "GOTO", "points": 2.27 },
+      { "ticker": "INDF", "points": 2.62 },
+      { "ticker": "BBRI", "points": 3.55 },
+      { "ticker": "EXCL", "points": 3.78 },
+      { "ticker": "BBCA", "points": 4.98 }
+    ],
+    "globalWeek": [
+      { "name": "India SENSEX", "weekly": 2.85 },
+      { "name": "Malaysia KLCI", "weekly": -1.65 },
+      { "name": "Vietnam VN-Index", "weekly": -2.66 },
+      { "name": "China Shanghai Composite", "weekly": -2.77 },
+      { "name": "Thailand SET", "weekly": -3.43 },
+      { "name": "Indonesia IHSG", "weekly": -3.71 },
+      { "name": "UK FTSE 100", "weekly": -4.58 },
+      { "name": "Singapore Straits Times", "weekly": -4.91 },
+      { "name": "US S&P 500", "weekly": -5.1 },
+      { "name": "US Nasdaq 100", "weekly": -5.11 },
+      { "name": "Philippines PSEi", "weekly": -5.12 },
+      { "name": "Hong Kong Hang Seng", "weekly": -5.19 },
+      { "name": "Australia All Ordinaries", "weekly": -5.56 },
+      { "name": "US Dow Jones", "weekly": -6.21 },
+      { "name": "Germany DAX", "weekly": -6.38 },
+      { "name": "Japan Nikkei 225", "weekly": -7.7 },
+      { "name": "Korea KOSPI", "weekly": -7.95 },
+      { "name": "Taiwan TSE Weighted", "weekly": -17.5 }
+    ],
+    "sankey": {
+      "unit": "Rp tn",
+      "columns": [
+        "Seller",
+        "Who traded with whom",
+        "Buyer"
+      ],
+      "measure": "Value traded",
+      "description": "Ribbons show the week's trading value, from the seller's side, through the type of pair, to the buyer's side.",
+      "keys": [
+        { "tone": "hsc", "label": "Foreign side" },
+        { "tone": "other", "label": "Local side" }
+      ],
+      "unitNote": "Figures are value traded from 16 to 20 November, in Rp tn",
+      "calculation": "IDX's weekly page 2 gives value by seller and buyer type for each day. The one-off trades are the negotiated HRUM, WIFI and INET trades, which had no foreign side.",
+      "nodes": [
+        { "id": "fsell", "label": "Foreign sellers", "col": 0, "tone": "hsc" },
+        { "id": "dsell", "label": "Local sellers", "col": 0, "tone": "other" },
+        { "id": "ff", "label": "Foreign to foreign", "col": 1, "tone": "hsc" },
+        { "id": "fd", "label": "Foreign to local", "col": 1 },
+        { "id": "df", "label": "Local to foreign", "col": 1 },
+        { "id": "dd1", "label": "Three one-off trades", "col": 1, "tone": "other" },
+        { "id": "dd", "label": "Other local to local", "col": 1, "tone": "other" },
+        { "id": "fbuy", "label": "Foreign buyers", "col": 2, "tone": "hsc" },
+        { "id": "dbuy", "label": "Local buyers", "col": 2, "tone": "other" }
+      ],
+      "links": [
+        { "source": "fsell", "target": "ff", "value": 10.311, "tone": "hsc" },
+        { "source": "fsell", "target": "fd", "value": 11.09, "tone": "hsc" },
+        { "source": "dsell", "target": "df", "value": 8.481, "tone": "other" },
+        { "source": "dsell", "target": "dd1", "value": 10.52936, "tone": "other" },
+        { "source": "dsell", "target": "dd", "value": 21.32164, "tone": "other" },
+        { "source": "ff", "target": "fbuy", "value": 10.311, "tone": "hsc" },
+        { "source": "df", "target": "fbuy", "value": 8.481, "tone": "hsc" },
+        { "source": "fd", "target": "dbuy", "value": 11.09, "tone": "other" },
+        { "source": "dd1", "target": "dbuy", "value": 10.52936, "tone": "other" },
+        { "source": "dd", "target": "dbuy", "value": 21.32164, "tone": "other" }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "judgment",
+      "title": "Jakarta fell less than Asia's chip markets. That is not a reason to buy.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "lede": true,
+          "sources": ["weekly", "observations", "prior"],
+          "text": "IHSG fell on every day of the week, 3.71% in all, to 5,146.326. That is 198.080 points, 67.38% of the previous week's gain. A week ago we said the rally was too narrow to chase. That call was right for the week, and none of the five signs that would have changed our mind showed up."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "stocksData", "cnbcGold", "technozGold", "technozCopper", "cnbciCopper", "katadataMining", "technozIma"],
+          "text": "The losses sat at the commodity end of the index. Four gold and copper miners, AMMN, BRMS, MDKA and EMAS, took 63.66 points off IHSG, 32.14% of the fall. Gold fell about 9% over the week and copper slid with it, as bets on US rate rises and the sell-off in AI stocks hit metals. At the weekend before, President Prabowo had told his ministers that the state should get at least 70% of the benefit from every mining permit. The big banks barely moved. BBCA, BBRI and BBNI rose a little and BMRI ended where it started."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "daily", "cnbciAsia", "biRate", "technozRupiah", "jisdor"],
+          "text": "The pressure came from outside. Asia headed for its worst week since 2020 as the AI trade broke, and Taiwan fell 17.50%. Foreign investors sold a net Rp2,608.57bn of Indonesian shares and sold on every day. Bank Indonesia raised its rate by 25 basis points to 6.00% on Wednesday, against a market that expected no change. The rupiah still hit record lows on Thursday and Friday."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["spdji", "nasdaq", "observations", "jisdor"],
+          "text": "We stay cautious. The worst day on Wall Street came on Friday after Jakarta had closed. The S&P 500 fell 3.70% and the Nasdaq 100 5.61%, so IHSG starts the new week with a shock it has not yet priced. The hopeful news came on Monday, when Bloomberg reported that MSCI may not downgrade Indonesia after all. We weigh it in the last section. We would turn less cautious after a week with no new record low for the rupiah, a week of foreign net buying and a close back above 5,344.406, where this week began."
+        },
+        {
+          "type": "callout",
+          "label": "Checking last week's call",
+          "sources": ["prior", "stocksData", "weekly", "jisdor", "idxNotices"],
+          "text": "Our caution held, and the signposts all pointed the same way. We wanted foreign buying in four of the five largest stocks. Instead foreigners sold BBCA, BBRI, BMRI and TLKM, by our estimate, and bought only ASII. IHSG peaked at 5,385.138 on Tuesday, short of 5,488. The rupiah set new records after Bank Indonesia met. IDX said nothing new about the 9% cap, and at Friday's close BBCA made up 10.74% of IHSG and BBRI 10.64%. Regular trading fell to Rp9.00tn a day. Our downside line, a close below 5,027.964, held. Friday's low was 5,094.892."
+        }
+      ]
+    },
+    {
+      "id": "week",
+      "title": "Five losing days, each sold from above the previous close",
+      "blocks": [
+        {
+          "type": "closes",
+          "label": "Exhibit 01",
+          "title": "Five falls in a row, the deepest on Wednesday and Thursday",
+          "sources": ["daily"],
+          "note": "Select a date to inspect the closing observation. Lines join daily closes and show no intraday highs or lows."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["daily", "observations", "technozBi"],
+          "text": "Monday fell 0.44% and Tuesday 0.30%. Every day traded above the previous close at some point, and every day closed lower. The biggest rallies came on Tuesday and Wednesday, 1.21% and 1.31% at the high. Wednesday was Bank Indonesia's decision day. Bloomberg Technoz reported IHSG up 0.51% at 5,331.93 soon after the rate rise. It closed 1.07% down at 5,247.879. Thursday fell 1.02% and Friday 0.92% to 5,146.326, after a low of 5,094.892."
+        },
+        {
+          "type": "table",
+          "headers": ["Weekly breadth", "Stocks", "Share"],
+          "rows": [
+            ["Rose more than 2%", "146", "15.45%"],
+            ["Rose up to 2%", "85", "8.99%"],
+            ["Unchanged", "170", "17.99%"],
+            ["Fell up to 2%", "117", "12.38%"],
+            ["Fell more than 2%", "427", "45.19%"]
+          ],
+          "caption": "Exhibit 02. Breadth by number of stocks, recomputed from IDX's counts",
+          "sources": ["weekly", "observations"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "observations"],
+          "text": "The fall was broad. 544 of 945 stocks fell, 57.57%, and 427 of them lost more than 2%. Stocks worth Rp4,616tn fell, 53.24% of the value in IDX's chart. IDX again printed the percentages of the two falling groups in each other's place, in both bars, so every share here comes from the counts."
+        }
+      ]
+    },
+    {
+      "id": "miners",
+      "title": "A third of the fall came from four miners",
+      "blocks": [
+        {
+          "type": "stocks",
+          "label": "Exhibit 03",
+          "title": "Five laggards and five leaders",
+          "sources": ["weekly", "stocksData"],
+          "note": "Weekly IHSG points as IDX prints them on page 5. Our rebuild from index shares gives the same ten figures to within 0.01 point."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "stocksData"],
+          "text": "AMMN, the copper and gold producer, fell 14.13% and took 26.39 points, more than any other stock. BRMS fell 20.11%, MDKA 17.79% and EMAS 14.20%. Together the four took 63.66 points. Add ANTM, TINS and INCO and these seven miners took 75.72 points, 38.23% of the fall. The ten largest drags in IDX's table took 124.70 points, 62.95%. The leaders were small by comparison. BBCA added 4.98 points and EXCL, up 15.38%, added 3.78."
+        },
+        {
+          "type": "table",
+          "headers": ["Stock", "Price change", "IHSG points", "Estimated foreign net, Rp bn"],
+          "rows": [
+            ["AMMN", "−14.13%", "−26.39", "−2.24"],
+            ["BRMS", "−20.11%", "−15.63", "−152.35"],
+            ["BRPT", "−22.36%", "−13.99", "−160.11"],
+            ["MDKA", "−17.79%", "−13.07", "−18.81"],
+            ["TLKM", "−4.17%", "−10.97", "−408.85"],
+            ["TPIA", "−12.17%", "−10.82", "−126.99"],
+            ["ASII", "−3.64%", "−10.69", "+123.68"],
+            ["EMAS", "−14.20%", "−8.57", "−34.23"],
+            ["BUMI", "−12.50%", "−8.37", "−95.90"],
+            ["ENRG", "−20.15%", "−6.20", "−0.90"]
+          ],
+          "caption": "Exhibit 04. The ten largest drags, and the foreign side of each",
+          "sources": ["weekly", "stocksData"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["stocksData"],
+          "text": "The selling was not all foreign. By our estimate foreigners sold BRPT, BRMS and TPIA hard. AMMN, the largest drag, is different. Foreigners sold an estimated Rp67.80bn of it on Monday and Tuesday and bought back Rp65.56bn from Wednesday, and the price fell about 7.3% in each half of the week, so foreign flow does not explain it. ASII fell 3.64% while foreigners bought an estimated Rp123.68bn of it. TLKM had the largest estimated foreign selling of any stock, Rp408.85bn."
+        },
+        {
+          "type": "table",
+          "headers": ["Possible explanation", "Evidence for", "Evidence against", "Our read"],
+          "rows": [
+            [
+              "Gold and copper prices fell",
+              "Gold lost about 9% over the week, its steepest weekly fall since March, as the AI sell-off and bets on US rate rises hit metals. COMEX copper fell 5.30% on Wednesday alone",
+              "We have no daily metal prices from a primary source, so we cannot match the falls day by day",
+              "The best fit for the gold and copper names"
+            ],
+            [
+              "The president's 70% remark",
+              "Made at the weekend. On Monday the metal miners fell 4.62% to 6.90%, and coal miners HRUM and AADI fell 6.25% and 4.91%",
+              "No rule or detail followed. PTBA fell only 0.63% and ITMG not at all, and most of the four miners' fall came after Monday",
+              "Fits Monday. It does not explain the rest of the week"
+            ],
+            [
+              "MSCI's deletions, effective 1 December",
+              "BRMS, a gold miner, and BRPT, a petrochemical and energy group, leave MSCI's Standard index. They fell 20.11% and 22.36%, with estimated foreign selling of Rp152.35bn and Rp160.11bn",
+              "Index funds usually trade at the effective close, and the list was public from 12 November",
+              "Fits those two stocks"
+            ],
+            [
+              "Forced selling across markets",
+              "Asian shares headed for their worst week since 2020, and CNBC quotes a trader saying the equity sell-off forced some holders to sell gold to cover losses",
+              "Bloomberg Technoz says the gold fall is hard to tie to visible sellers, as ETF holdings have mostly risen since the summer. Jakarta's banks and largest consumer staples rose in the same week",
+              "Possible background, not proven"
+            ]
+          ],
+          "caption": "Exhibit 05. Competing explanations for the fall in miners and commodity stocks",
+          "sources": ["cnbcGold", "technozGold", "cnbciCopper", "technozCopper", "katadataMining", "technozIma", "kontanMsci", "cnbciAsia", "stocksData"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["cnbcGold", "katadataMining", "kontanMsci", "stocksData"],
+          "text": "We cannot pin the fall on one cause. Lower gold and copper prices fit the metal miners through the week, the 70% remark fits Monday, and MSCI's deletions fit BRMS and BRPT. They landed in the same week as a global sell-off, and we think the combination, not any one of them, explains how far these stocks fell."
+        }
+      ]
+    },
+    {
+      "id": "sectors",
+      "title": "Commodities fell hardest, banks and healthcare held",
+      "blocks": [
+        {
+          "type": "sectors",
+          "label": "Exhibit 06",
+          "title": "Basic materials and energy led the fall",
+          "sources": ["weekly"],
+          "note": "Weekly price changes of the IDX sector indices."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "observations"],
+          "text": "Basic materials fell 10.73% and energy 8.81%, and IDX's Commodity 20 index lost 13.27%. Financials slipped only 0.20% and healthcare rose 0.05%. The infobank15 index of banks rose 0.59%. Sharia indices, which leave out conventional banks, fell harder, the JII by 6.60%. The Acceleration Board, for small companies, fell 6.17%."
+        }
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Foreign selling on every day, banks included",
+      "blocks": [
+        {
+          "type": "flows",
+          "label": "Exhibit 07",
+          "title": "Net selling of Rp2,608.57bn, Rp947.41bn of it on Friday",
+          "sources": ["weekly", "daily"],
+          "note": "Official all-market stock trading, foreign purchases less sales. This measures trading, not money leaving or entering the country."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "daily", "observations"],
+          "text": "Official foreign net selling was Rp2,608.57bn, after net buying of Rp462.73bn the week before. It was heaviest at the end, and Friday's Rp947.41bn was 36.32% of the week. It was the heaviest week of selling since the week to 30 October. Foreign net selling for 2026 passed Rp100tn on Friday and now stands at Rp100.23tn."
+        },
+        {
+          "type": "table",
+          "headers": ["Stock", "Estimated foreign net, Rp bn", "Price change"],
+          "rows": [
+            ["ASII", "+123.68", "−3.64%"],
+            ["BRIS", "+82.49", "+1.75%"],
+            ["INDF", "+66.44", "+2.86%"],
+            ["EXCL", "+48.46", "+15.38%"],
+            ["BBCA", "−109.03", "+0.91%"],
+            ["BMRI", "−141.70", "0.00%"],
+            ["BBRI", "−147.56", "+0.65%"],
+            ["GOTO", "−147.60", "+3.85%"],
+            ["BRMS", "−152.35", "−20.11%"],
+            ["BRPT", "−160.11", "−22.36%"],
+            ["TLKM", "−408.85", "−4.17%"]
+          ],
+          "caption": "Exhibit 08. Estimated foreign net trading in selected liquid large caps, 16 to 20 November",
+          "sources": ["stocksData", "flowless"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["stocksData", "flowless", "weekly"],
+          "text": "Our estimate values IDX's daily foreign buy and sell shares at each day's close, across all markets. It sums to Rp2,591.10bn of net selling, Rp17.47bn less than the official figure, though single days miss by up to Rp99.33bn, so we use it to rank stocks and never as a total. Among 63 liquid large caps, worth Rp10tn or more with an average of Rp10bn or more of regular trading a day, foreigners sold 47 and bought 16. They sold an estimated Rp398.29bn of BBCA, BBRI and BMRI, yet all three ended flat or higher. Local buyers took the other side."
+        }
+      ]
+    },
+    {
+      "id": "turnover",
+      "title": "Three one-off trades made up Rp10.53tn of turnover",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": ["Stock", "Date", "Shares", "Price, Rp", "Close, Rp", "Value, Rp tn", "What it was"],
+          "rows": [
+            ["HRUM", "19 Nov", "6,759,000,000", "660", "655", "4.46", "Half of Harum Energy passed between two holders under the same control"],
+            ["WIFI", "19 Nov", "1,415,652,000", "2,870", "825", "4.06", "The controller bought back 26.667% under a repurchase agreement"],
+            ["INET", "16 Nov", "6,685,000,000", "300", "187", "2.01", "The controller sold 29.87% to a new holder and kept control"],
+            ["AUTO", "18 Nov", "238,442,293", "3,600", "3,170", "0.86", "Astra's voluntary tender offer, taking its stake to 84.947%"]
+          ],
+          "caption": "Exhibit 09. Three single trades and a tender offer, from IDX's stock summary and the filings",
+          "sources": ["stocksData", "hrum", "kseiWifi", "kseiInet", "kseiAuto"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "stocksData", "hrum", "kseiWifi"],
+          "text": "IDX's headline shows turnover down 47.90% to Rp12.35tn a day, but the week before held the Rp66.81tn ADRO and AADI transfer. This week had large one-off trades of its own. Single negotiated trades in HRUM, WIFI and INET came to Rp10.53tn, 62.89% of all negotiated value, and none of them says much about value. The HRUM trade moved half the company between two holders under the same control, at the previous close. WIFI changed hands at Rp2,870, 3.48 times its close. The filings call it a buy-back under a repurchase agreement, and IDX's stock summary for 19 October fits a trade of the same 1,415,652,000 shares at the same price."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "observations", "stocksData"],
+          "text": "Regular-market trading, where prices are set, was Rp44.99tn, Rp9.00tn a day and 3.83% less than the week before. Foreigners made 33% of all trading, up from 19%, but both weeks held large one-off trades, so we read little into the change."
+        },
+        {
+          "type": "callout",
+          "label": "Correcting last week",
+          "sources": ["prior", "weekly", "observations"],
+          "text": "Last week we wrote that without the ADRO and AADI transfer, foreigners made about 44% of trading. That was too high. IDX's pair table for 10 November shows local-to-local trading of Rp66,598bn, less than the Rp66,808bn transfer, while foreign-to-foreign trading jumped to Rp5,504bn, against less than Rp2,000bn on each other day. Part of the transfer was booked between foreign accounts. Allowing for that, the foreign share was about 36%, close to the 37% of the week before. We have corrected last week's note."
+        },
+        {
+          "type": "sankey",
+          "label": "Exhibit 10",
+          "title": "Foreigners sold Rp11.09tn to locals and bought Rp8.48tn from them",
+          "sources": ["weekly", "stocksData"],
+          "note": "Ribbon width is the value traded, in Rp tn, from seller to buyer. The three one-off trades were between local holders."
+        }
+      ]
+    },
+    {
+      "id": "global",
+      "title": "Asia headed for its worst week since 2020",
+      "blocks": [
+        {
+          "type": "sectors",
+          "rows": "globalWeek",
+          "rowLabel": "Index",
+          "label": "Exhibit 11",
+          "title": "Indonesia was 14th of 32 markets in IDX's table",
+          "sources": ["weekly", "fred"],
+          "note": "Changes from IDX's global table. Asian rows run Friday to Friday. IDX takes European and American markets at their last close before its report, so those rows run from Friday 13 November to Thursday 19 November. IDX lists the US only through the Dow, so the S&P 500 and Nasdaq 100 rows use FRED closes for the same two dates."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["weekly", "cnbciAsia", "stocksData"],
+          "text": "Taiwan fell 17.50%, Korea 7.95% and Japan 7.70%. CNBC Indonesia, citing Reuters, reported Asia outside Japan on course for its worst week since March 2020 and Taiwan for its worst since August 1990. The chip markets fell hardest, but Jakarta's 3.71% was only middling for Asia, sixth of thirteen Asian markets in IDX's table. The Philippines, Singapore and Hong Kong, with few chip stocks, fell more. What kept Jakarta's fall from being worse was its banks, whose three largest names are 29.40% of the index. India was the only Asian market in the table to rise, by 2.85%."
+        },
+        {
+          "type": "table",
+          "headers": ["Index", "13 November", "19 November", "20 November", "Week"],
+          "rows": [
+            ["S&P 500", "7,561.67", "7,175.83", "6,910.39", "−8.61%"],
+            ["Nasdaq Composite", "25,136.27", "23,879.20", "22,617.73", "−10.02%"],
+            ["Nasdaq 100", "27,943.74", "26,517.05", "25,028.98", "−10.43%"],
+            ["Dow Jones Industrial Average", "52,347.55", "49,097.06", "48,147.33", "−8.02%"]
+          ],
+          "caption": "Exhibit 12. US indices, daily closes",
+          "sources": ["fred", "spdji", "nasdaq"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["spdji", "nasdaq", "cnbcSelloff", "cnbciAsia", "fomc"],
+          "text": "In New York the S&P 500 fell 8.61% over the week and the Nasdaq 100 10.43%. CNBC put the slide down to the listing of Anthropic, which priced at $83, traded above $115 on its first day and ended the week at $88.91, and to Nvidia, which fell 14% on Friday after a report of an SEC probe into its accounting. CNBC Indonesia also points to the Anthropic listing and to US rates. The minutes of the Federal Reserve's October meeting record two members voting for a rise and many seeing the AI buildout as a material inflation risk, and CNBC quotes Governor Waller saying a half-point rise may be needed in December."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["fred", "cnbcGold"],
+          "text": "Treasury yields fell as money moved to safety, the ten-year to 5.04% on Thursday from 5.15% on the previous Friday. The VIX, Wall Street's gauge of expected swings, rose from 19.30 to 28.44 over the same days. CNBC cites CME data putting the chance of a US rate rise in December at 96%."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["cnbcGold", "technozGold", "cnbciCopper", "technozCopper"],
+          "text": "Metals fell too. Gold lost about 9% over the week, its biggest weekly fall since March, to its lowest since September 2025, according to both CNBC and Bloomberg Technoz, which put it down to bets on US rate rises and the AI sell-off. CNBC quotes a trader saying the equity sell-off forced some holders to sell gold to cover losses, while Bloomberg Technoz says the fall is hard to tie to visible sellers. Copper fell on a stronger dollar, rate bets and doubts about AI demand. COMEX copper dropped 5.30% on Wednesday alone, CNBC Indonesia reports, and Bloomberg Technoz says London copper was heading for one of its worst weeks in a decade."
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "title": "Bank Indonesia raised rates. The rupiah set records anyway",
+      "blocks": [
+        {
+          "type": "fxLab",
+          "title": "In dollars IHSG lost about 4.02%",
+          "sources": ["jisdor", "daily"],
+          "note": "The starting values use this week's IHSG and BI JISDOR. Move the sliders to try a different currency assumption. The equity close and the reference rate are taken at different times."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["biRate", "technozRupiah", "technozBi"],
+          "text": "Bank Indonesia raised the BI-Rate by 25 basis points to 6.00% on Wednesday 18 November, with the deposit facility at 5.25% and the lending facility at 6.75%. It said the rise would steady the rupiah against growing global uncertainty and act early to keep inflation within its target of 2.5% plus or minus 1% in 2026 and 2027. Bloomberg Technoz reported that the market had expected a hold at 5.75%. The rupiah firmed for an afternoon."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["jisdor", "observations"],
+          "text": "JISDOR, Bank Indonesia's reference rate, ended the week at 18,278, 0.33% weaker. Every reading this week was weaker than the old record of 18,241 from 12 November, and Monday, Tuesday, Thursday and Friday each set a new one."
+        },
+        {
+          "type": "paragraph",
+          "sources": ["biBop", "biRate"],
+          "text": "Trade is not the problem. Bank Indonesia's figures, out on Friday, show the current account deficit shrank to US$2.0bn in the third quarter, 0.5% of GDP, from US$12.6bn. The strain is in portfolio money. In the third quarter less foreign money went into government bonds, and in the fourth quarter up to 16 November the central bank counts US$0.9bn leaving the stock market, even as government global bonds and sukuk brought total net inflows to US$4.80bn. A strong dollar, US rate bets and foreign selling of shares push on the rupiah, and one rate rise has not stopped them."
+        },
+        {
+          "type": "table",
+          "headers": ["Rates and the rupiah", "Before", "After", "Change"],
+          "rows": [
+            ["BI-Rate, before and after 18 November", "5.75%", "6.00%", "+0.25 points"],
+            ["JISDOR, Rp per USD, 13 and 20 November", "18,218", "18,278", "+0.33%"],
+            ["US Treasury 10-year yield, 13 and 19 November", "5.15%", "5.04%", "−0.11 points"],
+            ["US Treasury 2-year yield, 13 and 19 November", "4.88%", "4.76%", "−0.12 points"],
+            ["VIX, 13 and 19 November", "19.30", "28.44", "+9.14 points"]
+          ],
+          "caption": "Exhibit 13. Rates and the rupiah",
+          "sources": ["biRate", "jisdor", "fred"]
+        }
+      ]
+    },
+    {
+      "id": "ahead",
+      "title": "Three paths, and what would change our view",
+      "blocks": [
+        {
+          "type": "callout",
+          "label": "After the close: MSCI",
+          "sources": ["bloombergMsci", "kontanMsciReport"],
+          "text": "On Monday morning Bloomberg reported that MSCI's chief executive, Henry Fernandez, told President Prabowo on a 10 November call arranged by Ray Dalio that MSCI did not necessarily intend to downgrade Indonesia, and would keep advising officials on what they need to do. In October MSCI threatened to move Indonesia two steps down, from emerging to standalone. The steps reportedly discussed include taking people with political ties off the board of OJK, the financial regulator, and clearer rules on the high-concentration list and on changes to the LQ45 index. Kontan carried the report the same morning. It rests on people who asked not to be named, MSCI has not confirmed it, and Bloomberg says MSCI plans its final decision by the end of June 2027. If it holds, it lifts the largest threat over foreign money in Jakarta, which is why it sits in our first path."
+        },
+        {
+          "type": "table",
+          "headers": ["Path", "What would have to happen", "What it would mean for Jakarta", "What we would see first"],
+          "rows": [
+            ["The sell-off fades", "MSCI confirms it will keep Indonesia an emerging market, chip stocks steady and metals stop falling", "Miners take back part of their fall, foreign selling slows and the rupiah stops setting records", "A public MSCI statement, the VIX back below 20 and a week with no JISDOR record"],
+            ["A longer AI correction", "Wall Street's correction runs on, Asia's chip markets stay weak and global funds keep cutting emerging markets", "Foreign selling goes on, the rupiah stays near its lows and commodity stocks lag while banks hold up better, as they did this week", "Another week of foreign net selling above Rp2tn and an IHSG close below 5,027.964"],
+            ["A domestic shock on top", "The 70% remark turns into a rule, or the rupiah's slide pushes Bank Indonesia to raise rates again, while global selling goes on", "Miners fall further, and higher rates would weigh on banks too, the one part of the index that held", "A draft rule on mining ownership, a second rate rise or a close below 4,904.287"]
+          ],
+          "caption": "Exhibit 14. Three paths for the coming weeks. Scenarios we can test, not forecasts",
+          "sources": ["bloombergMsci", "kontanMsciReport", "cnbcSelloff", "cnbcGold", "katadataMining", "biRate", "jisdor", "fred", "observations"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["daily", "biRate", "jisdor", "spdji", "biBop", "stocksData"],
+          "text": "We lean to the second path for the next two weeks. Foreign selling was heaviest at the end of the week, Bank Indonesia's rise did not stop the rupiah's slide, and the worst US day came after Jakarta closed. Against that, Jakarta's banks held, the market trades at 10.65 times earnings, the current account deficit has shrunk, and Bloomberg's MSCI report, if MSCI confirms it, would lift the biggest weight on foreign money. So inside the index we would rather hold the banks than the miners, and we would not yet buy the index itself."
+        },
+        {
+          "type": "table",
+          "headers": ["Signpost", "Where it stands", "What would change our mind"],
+          "rows": [
+            ["Rupiah after the rate rise", "JISDOR 18,278 on Friday, a record two days after the rise", "A full week without a new JISDOR record"],
+            ["Foreign flow", "Net selling on all five days, Rp2,608.57bn", "A week of net buying that includes BBCA, BBRI and BMRI"],
+            ["IHSG level", "5,146.326. A rise of 3.85% gets back to 5,344.406", "A close above 5,344.406, where this week began"],
+            ["Wall Street", "S&P 500 down 3.70% on Friday, after Jakarta closed. VIX 28.44 on Thursday", "The VIX back below 20, where it was a week earlier"],
+            ["Metal prices", "Gold down about 9% in the week, copper sharply lower", "A week in which gold and copper stop falling"],
+            ["MSCI's decision", "Bloomberg reports MSCI told the president it may not downgrade Indonesia. MSCI has not said so in public", "A public MSCI statement that keeps Indonesia an emerging market"]
+          ],
+          "caption": "Our tests for the coming weeks",
+          "sources": ["jisdor", "weekly", "observations", "fred", "spdji", "cnbcGold", "technozCopper"]
+        },
+        {
+          "type": "paragraph",
+          "sources": ["prior", "observations"],
+          "text": "On the downside the line stays at 5,027.964, the low of the week to 13 November. A close below it would undo all of that week's rise. Below 4,904.287, the close of 3 November, IHSG would be at its lowest close since this weekly began in September. With the three largest banks now 29.40% of the index, foreign selling of BBCA, BBRI and BMRI is what we would watch first."
+        },
+        {
+          "type": "callout",
+          "label": "What this note cannot see",
+          "sources": ["stocksData", "cnbcGold", "technozGold", "kontanMsci"],
+          "text": "We have no daily gold or copper prices from a primary source, so the link between metal prices and the miners rests on weekly figures from the press. Our stock-level foreign figures are estimates. They come within Rp17.47bn of the official total for the week but miss single days by up to Rp99.33bn. And we have no figure for selling by funds that track MSCI or IHSG, so we cannot size the index effect on BRPT and BRMS."
+        }
+      ]
+    }
+  ],
+  "sourceIntro": "Checked on 23 November 2026. Market data end at the 20 November close in Jakarta and in New York. IDX statistics, IDX and KSEI filings, Bank Indonesia, the Federal Reserve, FRED, S&P Dow Jones Indices and Nasdaq are primary sources. The main press facts rest on two outlets: CNBC with CNBC Indonesia for the global sell-off, CNBC with Bloomberg Technoz for gold, CNBC Indonesia with Bloomberg Technoz for copper, and Katadata with Bloomberg Technoz for the president's remark on mining. The MSCI report after the close rests on Bloomberg alone, which Kontan carried, and the text says so. Where only one outlet gives a detail, the text names it.",
+  "sourceGroups": [
+    {
+      "label": "Market observations",
+      "links": [
+        { "source": "weekly", "label": "IDX Weekly Statistics" },
+        { "source": "daily", "label": "IDX Daily Statistics" },
+        { "source": "observations", "label": "Frozen weekly observations" },
+        { "source": "stocksData", "label": "Frozen stock-level data" },
+        { "source": "flowless", "label": "Frozen flow export" }
+      ],
+      "note": "Weekly pages 1 to 8 and daily pages 1, 2 and 5. Breadth follows counts read by colour. Source hashes are kept."
+    },
+    {
+      "label": "Filings and index notices",
+      "links": [
+        { "source": "hrum", "label": "HRUM letter" },
+        { "source": "kseiWifi", "label": "KSEI reports on WIFI" },
+        { "source": "kseiInet", "label": "KSEI reports on INET" },
+        { "source": "kseiAuto", "label": "KSEI report on AUTO" },
+        { "source": "idxNotices", "label": "IDX announcements" },
+        { "source": "kontanMsci", "label": "Kontan on the MSCI review" },
+        { "source": "prior", "label": "Previous weekly edition" }
+      ],
+      "note": "Filings read on idx.co.id on 23 November. Stock-level foreign values are estimates."
+    },
+    {
+      "label": "Global markets and metals",
+      "links": [
+        { "source": "fred", "label": "FRED" },
+        { "source": "spdji", "label": "S&P Dow Jones Indices" },
+        { "source": "nasdaq", "label": "Nasdaq" },
+        { "source": "fomc", "label": "FOMC minutes" },
+        { "source": "cnbcSelloff", "label": "CNBC on the sell-off" },
+        { "source": "cnbciAsia", "label": "CNBC Indonesia on Asia" },
+        { "source": "cnbcGold", "label": "CNBC on gold" },
+        { "source": "technozGold", "label": "Bloomberg Technoz on gold" },
+        { "source": "cnbciCopper", "label": "CNBC Indonesia on copper" },
+        { "source": "technozCopper", "label": "Bloomberg Technoz on copper" }
+      ],
+      "note": "Index levels and yields from official series. Press reports read in full on 23 November."
+    },
+    {
+      "label": "Indonesia policy, rupiah and rates",
+      "links": [
+        { "source": "biRate", "label": "BI rate decision" },
+        { "source": "biBop", "label": "BI balance of payments" },
+        { "source": "jisdor", "label": "BI JISDOR" },
+        { "source": "technozBi", "label": "Bloomberg Technoz on the market after BI" },
+        { "source": "technozRupiah", "label": "Bloomberg Technoz on the rupiah" },
+        { "source": "katadataMining", "label": "Katadata on the 70% remark" },
+        { "source": "technozIma", "label": "Bloomberg Technoz on the miners' reply" },
+        { "source": "bloombergMsci", "label": "Bloomberg on MSCI" },
+        { "source": "kontanMsciReport", "label": "Kontan on the MSCI report" }
+      ],
+      "note": "Bank Indonesia's releases are primary. The 70% remark rests on two outlets."
+    }
+  ],
+  "method": "Weekly returns are computed from IDX closes. Breadth shares are recomputed from counts because IDX's printed percentages were misplaced. Point contributions are rebuilt from IDX's stock summary and index shares, and the rebuild reproduces each day's index change. Stock-level foreign flows value IDX's foreign shares at the daily close and are not added to official totals. The one-off trades are single negotiated trades named in filings. Dollar returns use JISDOR. US weekly changes use closes from FRED, S&P Dow Jones Indices and Nasdaq.",
+  "displayMethod": "Charts are drawn from the observations in this file. The global bar chart shows a selection of IDX's rows plus the S&P 500 and Nasdaq 100 from FRED, and the frozen files hold all of them."
+}

@@ -1,0 +1,2206 @@
+{
+ "source": {
+  "stockSummary": "https://www.idx.co.id/primary/TradingSummary/GetStockSummary?length=9999&start=0&date=YYYYMMDD",
+  "fetchedAt": "2026-11-22T23:00:02Z",
+  "fetchedWith": "fetch inside an idx.co.id page in the owner's Chrome, 945 rows a day",
+  "dates": [
+   "20261113",
+   "20261116",
+   "20261117",
+   "20261118",
+   "20261119",
+   "20261120"
+  ],
+  "dataHash16": {
+   "20261113": "7a5bff2dee1c0e5f",
+   "20261116": "05a36e9fe8753981",
+   "20261117": "f553ecac38eba8c5",
+   "20261118": "d8cf5a47cccad77a",
+   "20261119": "4a5197ee8a2d6321",
+   "20261120": "60310e080059d406"
+  },
+  "dataHashNote": "First 16 hex characters of the SHA-256 of each day's data array as re-serialised by JSON.stringify in the page."
+ },
+ "method": {
+  "members": "Each day, IHSG members are the stocks with IDX index shares (WeightForIndex) above zero. The same 522 stocks all week.",
+  "points": "Divisor = sum of index shares times close, over IDX's IHSG close. A stock's daily points are its index shares times (close less IDX's previous price) over that day's divisor, summed over the week.",
+  "foreign": "IDX's foreign buy and sell shares times each day's close, across all markets, summed over 16 to 20 November. An estimate, never added to IDX's official totals.",
+  "screen": "Full value (close times listed shares) of at least Rp10tn on 20 November and an average of at least Rp10bn of regular-market value a day this week.",
+  "regularValue": "The stock summary's Value field sums to IDX's printed regular-market value each day, and NonRegularValue to the negotiated value."
+ },
+ "indexCheck": {
+  "membersPerDay": 522,
+  "sameMembersAllWeek": true,
+  "columns": [
+   "date",
+   "idxChange",
+   "rebuiltChange",
+   "countedFreeFloatTn",
+   "fullValueTn"
+  ],
+  "rows": [
+   [
+    "2026-11-16",
+    -23.425,
+    -23.425,
+    1730.631,
+    5487.411
+   ],
+   [
+    "2026-11-17",
+    -16.226,
+    -16.2262,
+    1725.353,
+    5468.064
+   ],
+   [
+    "2026-11-18",
+    -56.876,
+    -56.8763,
+    1706.854,
+    5413.956
+   ],
+   [
+    "2026-11-19",
+    -53.738,
+    -53.7371,
+    1689.376,
+    5345.319
+   ],
+   [
+    "2026-11-20",
+    -47.815,
+    -47.8152,
+    1673.825,
+    5297.965
+   ]
+  ],
+  "idxPrinted": {
+   "freeFloatTn": [
+    1731,
+    1725,
+    1707,
+    1689,
+    1674
+   ],
+   "fullValueTn": [
+    5487,
+    5468,
+    5414,
+    5345,
+    5298
+   ]
+  },
+  "weekTotal": -198.0797,
+  "idxWeekChange": -198.08
+ },
+ "pointContributions": {
+  "note": "Weekly IHSG points for every member with a contribution of at least 0.0005 point in size (421 of 522). The other 101 are zero to three decimals.",
+  "positiveCount": 135,
+  "negativeCount": 317,
+  "points": {
+   "AMMN": -26.388,
+   "BRMS": -15.63,
+   "BRPT": -13.987,
+   "MDKA": -13.071,
+   "TLKM": -10.97,
+   "TPIA": -10.818,
+   "ASII": -10.692,
+   "EMAS": -8.566,
+   "BUMI": -8.367,
+   "ENRG": -6.197,
+   "CUAN": -6.037,
+   "VKTR": -5.436,
+   "ANTM": -5.142,
+   "TINS": -4.013,
+   "UNTR": -3.998,
+   "ADRO": -3.773,
+   "AADI": -3.591,
+   "IMPC": -3.344,
+   "PTRO": -2.997,
+   "INCO": -2.907,
+   "DEWA": -2.62,
+   "ADMR": -2.618,
+   "PTBA": -2.553,
+   "INKP": -2.335,
+   "ARCI": -2.091,
+   "SMMA": -2.081,
+   "ISAT": -1.932,
+   "INDY": -1.916,
+   "BNBR": -1.863,
+   "RAJA": -1.57,
+   "JPFA": -1.536,
+   "BUVA": -1.514,
+   "EMTK": -1.436,
+   "RATU": -1.343,
+   "ESSA": -1.337,
+   "MEDC": -1.269,
+   "SINI": -1.209,
+   "SSIA": -1.15,
+   "CPIN": -1.088,
+   "BULL": -1.016,
+   "JSMR": -0.999,
+   "TAPG": -0.926,
+   "HRTA": -0.823,
+   "RMKE": -0.821,
+   "UNSP": -0.689,
+   "CBDK": -0.685,
+   "KPIG": -0.673,
+   "COIN": -0.663,
+   "CMRY": -0.634,
+   "NSSS": -0.624,
+   "BFIN": -0.615,
+   "BIPI": -0.581,
+   "TRIM": -0.536,
+   "ARTO": -0.516,
+   "AUTO": -0.503,
+   "NICL": -0.501,
+   "BSIM": -0.488,
+   "BKSL": -0.465,
+   "KIJA": -0.457,
+   "SGER": -0.449,
+   "ELTY": -0.435,
+   "INET": -0.435,
+   "DSNG": -0.431,
+   "WIFI": -0.431,
+   "HRUM": -0.428,
+   "DKFT": -0.422,
+   "TOTL": -0.413,
+   "CBRE": -0.404,
+   "COCO": -0.398,
+   "TOBA": -0.385,
+   "IATA": -0.381,
+   "ARKO": -0.378,
+   "CTRA": -0.366,
+   "POWR": -0.353,
+   "ULTJ": -0.345,
+   "LPKR": -0.332,
+   "MINA": -0.301,
+   "ASLI": -0.265,
+   "SCMA": -0.263,
+   "BBKP": -0.253,
+   "UNVR": -0.247,
+   "PADI": -0.24,
+   "SMDR": -0.232,
+   "MMIX": -0.228,
+   "KETR": -0.227,
+   "TEBE": -0.219,
+   "LSIP": -0.211,
+   "DOOH": -0.204,
+   "BSDE": -0.199,
+   "OASA": -0.196,
+   "WIIM": -0.194,
+   "CYBR": -0.19,
+   "BWPT": -0.186,
+   "SMSM": -0.181,
+   "MDIY": -0.18,
+   "AALI": -0.18,
+   "WIRG": -0.17,
+   "ASSA": -0.17,
+   "BEEF": -0.169,
+   "PGAS": -0.159,
+   "DMAS": -0.157,
+   "FUTR": -0.144,
+   "SOCI": -0.141,
+   "PYFA": -0.133,
+   "BTEK": -0.131,
+   "KRAS": -0.119,
+   "HEAL": -0.119,
+   "WMUU": -0.117,
+   "PRDA": -0.112,
+   "TBLA": -0.111,
+   "IRSX": -0.11,
+   "GOOD": -0.108,
+   "DRMA": -0.107,
+   "RANS": -0.1,
+   "CPRO": -0.099,
+   "GGRM": -0.097,
+   "WINS": -0.097,
+   "DOID": -0.096,
+   "SMRA": -0.096,
+   "IPTV": -0.095,
+   "BCAP": -0.095,
+   "JGLE": -0.093,
+   "SQMI": -0.093,
+   "MARK": -0.092,
+   "SRSN": -0.088,
+   "STRK": -0.088,
+   "GZCO": -0.087,
+   "BIRD": -0.087,
+   "KEEN": -0.084,
+   "VIVA": -0.084,
+   "CARS": -0.083,
+   "LPPF": -0.081,
+   "MITI": -0.08,
+   "DATA": -0.076,
+   "PIPA": -0.074,
+   "INPC": -0.073,
+   "BGTG": -0.073,
+   "WMPP": -0.071,
+   "BMTR": -0.07,
+   "BSML": -0.062,
+   "SIMP": -0.061,
+   "GTSI": -0.059,
+   "TPMA": -0.057,
+   "ASRI": -0.057,
+   "MAIN": -0.056,
+   "PKPK": -0.053,
+   "ITMG": -0.051,
+   "AIMS": -0.049,
+   "NRCA": -0.048,
+   "JECX": -0.047,
+   "ATIC": -0.047,
+   "NFCX": -0.044,
+   "MNCN": -0.043,
+   "MAHA": -0.042,
+   "BLTA": -0.039,
+   "MLPL": -0.038,
+   "SMLE": -0.038,
+   "PSKT": -0.038,
+   "CSMI": -0.037,
+   "GLVA": -0.037,
+   "KBLI": -0.036,
+   "BACH": -0.035,
+   "ELIT": -0.034,
+   "KREN": -0.034,
+   "NASA": -0.033,
+   "IKAI": -0.032,
+   "WTON": -0.031,
+   "TMPO": -0.031,
+   "UCID": -0.031,
+   "UVCR": -0.03,
+   "CFIN": -0.03,
+   "LTLS": -0.029,
+   "ISSP": -0.029,
+   "KKGI": -0.029,
+   "RALS": -0.026,
+   "DKHH": -0.026,
+   "ITMA": -0.025,
+   "HUMI": -0.025,
+   "PART": -0.025,
+   "PADA": -0.025,
+   "JKON": -0.025,
+   "EMMI": -0.025,
+   "BEST": -0.024,
+   "KOKA": -0.023,
+   "MPMX": -0.023,
+   "AISA": -0.022,
+   "TARA": -0.021,
+   "KBLV": -0.021,
+   "DMMX": -0.021,
+   "JTPE": -0.021,
+   "MUTU": -0.021,
+   "SMBR": -0.02,
+   "BVIC": -0.02,
+   "LEAD": -0.02,
+   "GULA": -0.019,
+   "MPIX": -0.019,
+   "ERAL": -0.019,
+   "VISI": -0.019,
+   "AHAP": -0.017,
+   "WOOD": -0.017,
+   "BSBK": -0.017,
+   "DEWI": -0.017,
+   "SMGA": -0.016,
+   "PPRE": -0.016,
+   "WOWS": -0.016,
+   "OILS": -0.015,
+   "ASLC": -0.015,
+   "JIHD": -0.014,
+   "ATAP": -0.014,
+   "DPUM": -0.013,
+   "PJHB": -0.013,
+   "KLAS": -0.013,
+   "ESIP": -0.012,
+   "LAPD": -0.012,
+   "WINE": -0.012,
+   "LIVE": -0.011,
+   "BEER": -0.011,
+   "EAST": -0.01,
+   "IOTF": -0.01,
+   "PURA": -0.01,
+   "BAYU": -0.01,
+   "MIRA": -0.01,
+   "SAGE": -0.01,
+   "BAIK": -0.01,
+   "HGII": -0.01,
+   "MEDS": -0.009,
+   "LPLI": -0.009,
+   "NIKL": -0.009,
+   "RBMS": -0.009,
+   "WINR": -0.009,
+   "SNLK": -0.009,
+   "GPRA": -0.009,
+   "PTMP": -0.008,
+   "JELI": -0.008,
+   "APLN": -0.008,
+   "WEGE": -0.008,
+   "RMKO": -0.008,
+   "LPPS": -0.008,
+   "PRDL": -0.008,
+   "KIOS": -0.008,
+   "APEX": -0.007,
+   "IRRA": -0.007,
+   "ZATA": -0.007,
+   "TFAS": -0.007,
+   "CGAS": -0.006,
+   "WAPO": -0.006,
+   "RGAS": -0.006,
+   "NAIK": -0.006,
+   "YOII": -0.006,
+   "PAMG": -0.005,
+   "PPRI": -0.005,
+   "GEMA": -0.005,
+   "MSKY": -0.005,
+   "AMIN": -0.005,
+   "INCI": -0.005,
+   "ACRO": -0.005,
+   "NASI": -0.005,
+   "DEFI": -0.004,
+   "FIRE": -0.004,
+   "MCAS": -0.004,
+   "PTPS": -0.004,
+   "RUIS": -0.004,
+   "TOOL": -0.004,
+   "OBAT": -0.004,
+   "RICY": -0.004,
+   "KUAS": -0.003,
+   "KMDS": -0.003,
+   "KRYA": -0.003,
+   "PZZA": -0.003,
+   "RIGS": -0.003,
+   "PANS": -0.003,
+   "SDMU": -0.003,
+   "HELI": -0.003,
+   "HADE": -0.003,
+   "ASJT": -0.003,
+   "GRPH": -0.003,
+   "DYAN": -0.003,
+   "SURI": -0.003,
+   "BMSR": -0.003,
+   "CSIS": -0.003,
+   "CLPI": -0.002,
+   "OBMD": -0.002,
+   "MHKI": -0.002,
+   "SICO": -0.002,
+   "LAJU": -0.002,
+   "LABA": -0.002,
+   "ENZO": -0.002,
+   "KICI": -0.002,
+   "LUCK": -0.002,
+   "BRRC": -0.002,
+   "JATI": -0.002,
+   "PGLI": -0.002,
+   "HAIS": -0.002,
+   "KAQI": -0.001,
+   "CINT": -0.001,
+   "MICE": -0.001,
+   "BAPA": -0.001,
+   "SBMA": -0.001,
+   "PICO": -0.001,
+   "MERI": 0.001,
+   "INAI": 0.001,
+   "ISEA": 0.001,
+   "FWCT": 0.001,
+   "IKAN": 0.001,
+   "DFAM": 0.001,
+   "PUDP": 0.001,
+   "JAST": 0.001,
+   "TNCA": 0.002,
+   "AYLS": 0.002,
+   "KJEN": 0.002,
+   "LPIN": 0.002,
+   "WEHA": 0.002,
+   "NPGF": 0.002,
+   "PEHA": 0.003,
+   "TOSK": 0.003,
+   "LABS": 0.003,
+   "POLA": 0.003,
+   "MPOW": 0.003,
+   "KKES": 0.003,
+   "DSFI": 0.003,
+   "TRST": 0.004,
+   "DIVA": 0.005,
+   "PRIM": 0.005,
+   "AYAM": 0.006,
+   "OPMS": 0.006,
+   "ASHA": 0.007,
+   "LAND": 0.007,
+   "UNIC": 0.007,
+   "YELO": 0.007,
+   "KBAG": 0.008,
+   "PEGE": 0.008,
+   "REAL": 0.008,
+   "SLIS": 0.008,
+   "BAUT": 0.009,
+   "ANDI": 0.009,
+   "GPSO": 0.009,
+   "KDTN": 0.01,
+   "UNTD": 0.01,
+   "UNIQ": 0.011,
+   "AKKU": 0.011,
+   "DOSS": 0.012,
+   "TAMA": 0.012,
+   "HRME": 0.013,
+   "VICO": 0.014,
+   "KOCI": 0.014,
+   "ICON": 0.014,
+   "SOLA": 0.014,
+   "TRON": 0.015,
+   "ASPI": 0.015,
+   "BABP": 0.017,
+   "DADA": 0.018,
+   "INOV": 0.018,
+   "PCAR": 0.02,
+   "BOLA": 0.02,
+   "TUGU": 0.022,
+   "OKAS": 0.023,
+   "SEMA": 0.023,
+   "SPTO": 0.029,
+   "MIDI": 0.029,
+   "MDLN": 0.03,
+   "ASPR": 0.03,
+   "IPCC": 0.031,
+   "MPPA": 0.033,
+   "HOPE": 0.034,
+   "ARNA": 0.036,
+   "SIDO": 0.037,
+   "TGUK": 0.044,
+   "APIC": 0.045,
+   "ATLA": 0.046,
+   "KOTA": 0.047,
+   "MYOR": 0.048,
+   "NIRO": 0.05,
+   "ABMM": 0.051,
+   "BISI": 0.052,
+   "DILD": 0.052,
+   "PTSP": 0.053,
+   "MSIN": 0.054,
+   "FUJI": 0.056,
+   "NTBK": 0.057,
+   "DGIK": 0.06,
+   "GJTL": 0.071,
+   "TRUE": 0.073,
+   "BBTN": 0.075,
+   "PNIN": 0.079,
+   "STAR": 0.08,
+   "BOGA": 0.082,
+   "BMHS": 0.085,
+   "ALDO": 0.085,
+   "BBYB": 0.098,
+   "FOLK": 0.098,
+   "TOWR": 0.099,
+   "BANK": 0.1,
+   "ASGR": 0.101,
+   "YULE": 0.111,
+   "BTPS": 0.142,
+   "ELSA": 0.144,
+   "MTDL": 0.151,
+   "TRIN": 0.163,
+   "PNLF": 0.19,
+   "BHIT": 0.2,
+   "AVIA": 0.203,
+   "SMGR": 0.299,
+   "INTP": 0.324,
+   "PNBN": 0.349,
+   "PWON": 0.366,
+   "AKRA": 0.404,
+   "ERAA": 0.488,
+   "MBMA": 0.527,
+   "MAPA": 0.532,
+   "BUKA": 0.546,
+   "ARII": 0.755,
+   "MIKA": 0.952,
+   "KLBF": 1.094,
+   "BBNI": 1.314,
+   "ICBP": 1.743,
+   "AMRT": 2.084,
+   "GOTO": 2.266,
+   "INDF": 2.618,
+   "BBRI": 3.556,
+   "EXCL": 3.777,
+   "BBCA": 4.981
+  }
+ },
+ "weights": {
+  "note": "IHSG weight %, index shares times close over the counted total, at the 13 and 20 November closes",
+  "pct": {
+   "BBCA": [
+    10.253,
+    10.744
+   ],
+   "BBRI": [
+    10.179,
+    10.64
+   ],
+   "BMRI": [
+    7.715,
+    8.012
+   ],
+   "ASII": [
+    5.502,
+    5.506
+   ],
+   "TLKM": [
+    4.926,
+    4.903
+   ],
+   "AMMN": [
+    3.494,
+    3.116
+   ],
+   "BBNI": [
+    2.893,
+    3.03
+   ],
+   "TPIA": [
+    1.664,
+    1.517
+   ],
+   "BRPT": [
+    1.17,
+    0.944
+   ],
+   "BRMS": [
+    1.454,
+    1.206
+   ],
+   "MDKA": [
+    1.375,
+    1.174
+   ],
+   "EMAS": [
+    1.128,
+    1.005
+   ],
+   "BUMI": [
+    1.252,
+    1.138
+   ],
+   "ENRG": [
+    0.576,
+    0.477
+   ],
+   "ANTM": [
+    1.352,
+    1.304
+   ],
+   "TINS": [
+    0.537,
+    0.48
+   ],
+   "INCO": [
+    0.456,
+    0.417
+   ],
+   "EXCL": [
+    0.459,
+    0.55
+   ],
+   "INDF": [
+    1.715,
+    1.831
+   ],
+   "GOTO": [
+    1.102,
+    1.189
+   ],
+   "AMRT": [
+    1.019,
+    1.098
+   ],
+   "ICBP": [
+    0.874,
+    0.941
+   ],
+   "KLBF": [
+    0.778,
+    0.829
+   ],
+   "UNTR": [
+    1.738,
+    1.727
+   ],
+   "CUAN": [
+    0.497,
+    0.399
+   ],
+   "VKTR": [
+    0.514,
+    0.429
+   ],
+   "ADRO": [
+    1.094,
+    1.063
+   ],
+   "AADI": [
+    0.871,
+    0.835
+   ],
+   "HRUM": [
+    0.096,
+    0.091
+   ],
+   "WIFI": [
+    0.102,
+    0.097
+   ],
+   "INET": [
+    0.098,
+    0.093
+   ],
+   "AUTO": [
+    0.172,
+    0.169
+   ],
+   "SMMA": [
+    null,
+    3.805
+   ],
+   "CASA": [
+    null,
+    2.157
+   ]
+  },
+  "topFivePct": {
+   "20261113": 38.575,
+   "20261120": 39.805
+  }
+ },
+ "prices": {
+  "AMMN": {
+   "20261113": 3680,
+   "20261116": 3510,
+   "20261117": 3410,
+   "20261118": 3300,
+   "20261119": 3150,
+   "20261120": 3160
+  },
+  "BRMS": {
+   "20261113": 348,
+   "20261116": 324,
+   "20261117": 304,
+   "20261118": 290,
+   "20261119": 286,
+   "20261120": 278
+  },
+  "BRPT": {
+   "20261113": 805,
+   "20261116": 750,
+   "20261117": 710,
+   "20261118": 675,
+   "20261119": 655,
+   "20261120": 625
+  },
+  "MDKA": {
+   "20261113": 2080,
+   "20261116": 1955,
+   "20261117": 1940,
+   "20261118": 1890,
+   "20261119": 1800,
+   "20261120": 1710
+  },
+  "TLKM": {
+   "20261113": 2160,
+   "20261116": 2180,
+   "20261117": 2180,
+   "20261118": 2150,
+   "20261119": 2120,
+   "20261120": 2070
+  },
+  "TPIA": {
+   "20261113": 1315,
+   "20261116": 1245,
+   "20261117": 1235,
+   "20261118": 1235,
+   "20261119": 1200,
+   "20261120": 1155
+  },
+  "ASII": {
+   "20261113": 5500,
+   "20261116": 5700,
+   "20261117": 5650,
+   "20261118": 5500,
+   "20261119": 5375,
+   "20261120": 5300
+  },
+  "EMAS": {
+   "20261113": 5175,
+   "20261116": 4880,
+   "20261117": 4980,
+   "20261118": 4720,
+   "20261119": 4600,
+   "20261120": 4440
+  },
+  "BUMI": {
+   "20261113": 136,
+   "20261116": 131,
+   "20261117": 131,
+   "20261118": 122,
+   "20261119": 121,
+   "20261120": 119
+  },
+  "ENRG": {
+   "20261113": 670,
+   "20261116": 630,
+   "20261117": 590,
+   "20261118": 565,
+   "20261119": 565,
+   "20261120": 535
+  },
+  "CUAN": {
+   "20261113": 414,
+   "20261116": 388,
+   "20261117": 378,
+   "20261118": 360,
+   "20261119": 342,
+   "20261120": 320
+  },
+  "VKTR": {
+   "20261113": 354,
+   "20261116": 330,
+   "20261117": 342,
+   "20261118": 326,
+   "20261119": 304,
+   "20261120": 284
+  },
+  "ANTM": {
+   "20261113": 2810,
+   "20261116": 2670,
+   "20261117": 2730,
+   "20261118": 2630,
+   "20261119": 2610,
+   "20261120": 2610
+  },
+  "TINS": {
+   "20261113": 3650,
+   "20261116": 3420,
+   "20261117": 3460,
+   "20261118": 3220,
+   "20261119": 3050,
+   "20261120": 3140
+  },
+  "UNTR": {
+   "20261113": 24975,
+   "20261116": 25000,
+   "20261117": 24525,
+   "20261118": 23950,
+   "20261119": 24000,
+   "20261120": 23900
+  },
+  "INCO": {
+   "20261113": 3690,
+   "20261116": 3480,
+   "20261117": 3480,
+   "20261118": 3390,
+   "20261119": 3210,
+   "20261120": 3250
+  },
+  "MBMA": {
+   "20261113": 338,
+   "20261116": 326,
+   "20261117": 332,
+   "20261118": 310,
+   "20261119": 298,
+   "20261120": 344
+  },
+  "NCKL": {
+   "20261113": 745,
+   "20261116": 725,
+   "20261117": 725,
+   "20261118": 705,
+   "20261119": 700,
+   "20261120": 735
+  },
+  "BREN": {
+   "20261113": 2160,
+   "20261116": 2010,
+   "20261117": 2030,
+   "20261118": 2000,
+   "20261119": 2040,
+   "20261120": 2190
+  },
+  "PTRO": {
+   "20261113": 2540,
+   "20261116": 2400,
+   "20261117": 2370,
+   "20261118": 2280,
+   "20261119": 2230,
+   "20261120": 2190
+  },
+  "DSSA": {
+   "20261113": 755,
+   "20261116": 720,
+   "20261117": 715,
+   "20261118": 690,
+   "20261119": 685,
+   "20261120": 640
+  },
+  "ADRO": {
+   "20261113": 2480,
+   "20261116": 2440,
+   "20261117": 2410,
+   "20261118": 2360,
+   "20261119": 2320,
+   "20261120": 2320
+  },
+  "AADI": {
+   "20261113": 10700,
+   "20261116": 10175,
+   "20261117": 10175,
+   "20261118": 10100,
+   "20261119": 9750,
+   "20261120": 9875
+  },
+  "PTBA": {
+   "20261113": 3200,
+   "20261116": 3180,
+   "20261117": 3100,
+   "20261118": 3010,
+   "20261119": 2980,
+   "20261120": 2980
+  },
+  "ITMG": {
+   "20261113": 24350,
+   "20261116": 24350,
+   "20261117": 24350,
+   "20261118": 24575,
+   "20261119": 24200,
+   "20261120": 24300
+  },
+  "INDY": {
+   "20261113": 1920,
+   "20261116": 1860,
+   "20261117": 1820,
+   "20261118": 1695,
+   "20261119": 1580,
+   "20261120": 1490
+  },
+  "MEDC": {
+   "20261113": 1230,
+   "20261116": 1210,
+   "20261117": 1205,
+   "20261118": 1165,
+   "20261119": 1150,
+   "20261120": 1155
+  },
+  "PGAS": {
+   "20261113": 1540,
+   "20261116": 1550,
+   "20261117": 1530,
+   "20261118": 1545,
+   "20261119": 1560,
+   "20261120": 1535
+  },
+  "HRUM": {
+   "20261113": 720,
+   "20261116": 675,
+   "20261117": 675,
+   "20261118": 660,
+   "20261119": 655,
+   "20261120": 660
+  },
+  "BBCA": {
+   "20261113": 5500,
+   "20261116": 5600,
+   "20261117": 5500,
+   "20261118": 5750,
+   "20261119": 5650,
+   "20261120": 5550
+  },
+  "BBRI": {
+   "20261113": 3060,
+   "20261116": 3100,
+   "20261117": 3100,
+   "20261118": 3040,
+   "20261119": 3090,
+   "20261120": 3080
+  },
+  "BMRI": {
+   "20261113": 3890,
+   "20261116": 3900,
+   "20261117": 3940,
+   "20261118": 3920,
+   "20261119": 3910,
+   "20261120": 3890
+  },
+  "BBNI": {
+   "20261113": 3530,
+   "20261116": 3600,
+   "20261117": 3640,
+   "20261118": 3570,
+   "20261119": 3580,
+   "20261120": 3560
+  },
+  "BRIS": {
+   "20261113": 1140,
+   "20261116": 1120,
+   "20261117": 1225,
+   "20261118": 1210,
+   "20261119": 1175,
+   "20261120": 1160
+  },
+  "EXCL": {
+   "20261113": 1495,
+   "20261116": 1525,
+   "20261117": 1545,
+   "20261118": 1715,
+   "20261119": 1655,
+   "20261120": 1725
+  },
+  "INDF": {
+   "20261113": 7000,
+   "20261116": 7125,
+   "20261117": 7250,
+   "20261118": 7150,
+   "20261119": 7175,
+   "20261120": 7200
+  },
+  "GOTO": {
+   "20261113": 26,
+   "20261116": 26,
+   "20261117": 27,
+   "20261118": 27,
+   "20261119": 27,
+   "20261120": 27
+  },
+  "AMRT": {
+   "20261113": 1045,
+   "20261116": 1045,
+   "20261117": 1045,
+   "20261118": 1065,
+   "20261119": 1085,
+   "20261120": 1085
+  },
+  "ICBP": {
+   "20261113": 6700,
+   "20261116": 6825,
+   "20261117": 6925,
+   "20261118": 6925,
+   "20261119": 6950,
+   "20261120": 6950
+  },
+  "KLBF": {
+   "20261113": 760,
+   "20261116": 775,
+   "20261117": 790,
+   "20261118": 785,
+   "20261119": 770,
+   "20261120": 780
+  },
+  "MIKA": {
+   "20261113": 1290,
+   "20261116": 1350,
+   "20261117": 1375,
+   "20261118": 1420,
+   "20261119": 1445,
+   "20261120": 1425
+  },
+  "ISAT": {
+   "20261113": 1500,
+   "20261116": 1505,
+   "20261117": 1500,
+   "20261118": 1495,
+   "20261119": 1395,
+   "20261120": 1380
+  },
+  "WIFI": {
+   "20261113": 885,
+   "20261116": 825,
+   "20261117": 805,
+   "20261118": 760,
+   "20261119": 825,
+   "20261120": 815
+  },
+  "INET": {
+   "20261113": 193,
+   "20261116": 187,
+   "20261117": 193,
+   "20261118": 180,
+   "20261119": 177,
+   "20261120": 177
+  },
+  "AUTO": {
+   "20261113": 3110,
+   "20261116": 3240,
+   "20261117": 3140,
+   "20261118": 3170,
+   "20261119": 3040,
+   "20261120": 2940
+  },
+  "MFMI": {
+   "20261113": 1300,
+   "20261116": 1300,
+   "20261117": 1300,
+   "20261118": 1300,
+   "20261119": 1300,
+   "20261120": 1300
+  },
+  "MGNA": {
+   "20261113": 133,
+   "20261116": 162,
+   "20261117": 218,
+   "20261118": 240,
+   "20261119": 234,
+   "20261120": 236
+  },
+  "AIMS": {
+   "20261113": 1105,
+   "20261116": 1030,
+   "20261117": 960,
+   "20261118": 895,
+   "20261119": 835,
+   "20261120": 780
+  },
+  "NEST": {
+   "20261113": 476,
+   "20261116": 444,
+   "20261117": 414,
+   "20261118": 386,
+   "20261119": 360,
+   "20261120": 336
+  },
+  "BSWD": {
+   "20261113": 5500,
+   "20261116": 5125,
+   "20261117": 4900,
+   "20261118": 4560,
+   "20261119": 4250,
+   "20261120": 3980
+  },
+  "BELI": {
+   "20261113": 260,
+   "20261116": 242,
+   "20261117": 226,
+   "20261118": 212,
+   "20261119": 198,
+   "20261120": 192
+  },
+  "LINK": {
+   "20261113": 1035,
+   "20261116": 965,
+   "20261117": 900,
+   "20261118": 840,
+   "20261119": 785,
+   "20261120": 785
+  },
+  "RAJA": {
+   "20261113": 530,
+   "20261116": 494,
+   "20261117": 472,
+   "20261118": 452,
+   "20261119": 422,
+   "20261120": 424
+  },
+  "SMMA": {
+   "20261113": 21400,
+   "20261116": 21375,
+   "20261117": 21375,
+   "20261118": 21275,
+   "20261119": 21275,
+   "20261120": 21175
+  },
+  "ARII": {
+   "20261113": 550,
+   "20261116": 575,
+   "20261117": 635,
+   "20261118": 605,
+   "20261119": 680,
+   "20261120": 730
+  },
+  "BUKA": {
+   "20261113": 111,
+   "20261116": 121,
+   "20261117": 116,
+   "20261118": 116,
+   "20261119": 115,
+   "20261120": 117
+  },
+  "MAPA": {
+   "20261113": 600,
+   "20261116": 610,
+   "20261117": 605,
+   "20261118": 630,
+   "20261119": 620,
+   "20261120": 620
+  },
+  "ERAA": {
+   "20261113": 510,
+   "20261116": 500,
+   "20261117": 510,
+   "20261118": 520,
+   "20261119": 540,
+   "20261120": 535
+  }
+ },
+ "foreign": {
+  "allStocksNetBn": -2591.1,
+  "dailyAllNetBn": [
+   -269.27,
+   -428.5,
+   -389.53,
+   -653.85,
+   -849.95
+  ],
+  "officialNetBn": -2608.57,
+  "officialDailyNetBn": [
+   -169.94,
+   -483.97,
+   -443.58,
+   -563.67,
+   -947.41
+  ],
+  "screenCount": 63,
+  "screenNetBn": -2071.32,
+  "screenBought": 16,
+  "screenSold": 47,
+  "screen": [
+   "AADI",
+   "AALI",
+   "ADMR",
+   "ADRO",
+   "AKRA",
+   "AMMN",
+   "AMRT",
+   "ANTM",
+   "ARCI",
+   "ASII",
+   "BBCA",
+   "BBNI",
+   "BBRI",
+   "BBTN",
+   "BMRI",
+   "BNBR",
+   "BREN",
+   "BRIS",
+   "BRMS",
+   "BRPT",
+   "BUMI",
+   "CPIN",
+   "CUAN",
+   "DSSA",
+   "EMAS",
+   "EMTK",
+   "ENRG",
+   "EXCL",
+   "GGRM",
+   "GOTO",
+   "ICBP",
+   "INCO",
+   "INDF",
+   "INKP",
+   "ISAT",
+   "ITMG",
+   "JPFA",
+   "JSMR",
+   "KLBF",
+   "LSIP",
+   "MAPA",
+   "MBMA",
+   "MDKA",
+   "MEDC",
+   "MORA",
+   "MYOR",
+   "NCKL",
+   "PACK",
+   "PGAS",
+   "PSAB",
+   "PTBA",
+   "PTRO",
+   "SINI",
+   "SMGR",
+   "TAPG",
+   "TINS",
+   "TLKM",
+   "TOWR",
+   "TPIA",
+   "ULTJ",
+   "UNTR",
+   "UNVR",
+   "VKTR"
+  ],
+  "stocks": {
+   "AADI": {
+    "netBn": -34.39,
+    "dailyNetBn": [
+     -14.53,
+     1.25,
+     -2.11,
+     -18.05,
+     -0.95
+    ],
+    "fullValueTn20Nov": 76.9,
+    "avgRegularValueBn": 111.2,
+    "inScreen": true
+   },
+   "AALI": {
+    "netBn": -0.43,
+    "dailyNetBn": [
+     1.41,
+     -3.22,
+     -1.35,
+     1.07,
+     1.67
+    ],
+    "fullValueTn20Nov": 18.77,
+    "avgRegularValueBn": 15.3,
+    "inScreen": true
+   },
+   "ADMR": {
+    "netBn": -28.91,
+    "dailyNetBn": [
+     -10.58,
+     -5.62,
+     -13.31,
+     3.08,
+     -2.48
+    ],
+    "fullValueTn20Nov": 47.42,
+    "avgRegularValueBn": 47.0,
+    "inScreen": true
+   },
+   "ADRO": {
+    "netBn": -72.38,
+    "dailyNetBn": [
+     -3.06,
+     -21.6,
+     -27.89,
+     -13.69,
+     -6.15
+    ],
+    "fullValueTn20Nov": 66.82,
+    "avgRegularValueBn": 72.7,
+    "inScreen": true
+   },
+   "AKRA": {
+    "netBn": 4.21,
+    "dailyNetBn": [
+     -2.24,
+     5.69,
+     1.54,
+     1.09,
+     -1.87
+    ],
+    "fullValueTn20Nov": 26.1,
+    "avgRegularValueBn": 21.0,
+    "inScreen": true
+   },
+   "AMMN": {
+    "netBn": -2.24,
+    "dailyNetBn": [
+     -35.68,
+     -32.12,
+     4.78,
+     33.72,
+     27.06
+    ],
+    "fullValueTn20Nov": 229.16,
+    "avgRegularValueBn": 181.1,
+    "inScreen": true
+   },
+   "AMRT": {
+    "netBn": -24.58,
+    "dailyNetBn": [
+     2.11,
+     -5.81,
+     -15.33,
+     -3.29,
+     -2.26
+    ],
+    "fullValueTn20Nov": 45.05,
+    "avgRegularValueBn": 44.0,
+    "inScreen": true
+   },
+   "ANTM": {
+    "netBn": -118.37,
+    "dailyNetBn": [
+     -127.2,
+     1.0,
+     -46.8,
+     -0.34,
+     54.96
+    ],
+    "fullValueTn20Nov": 62.72,
+    "avgRegularValueBn": 191.9,
+    "inScreen": true
+   },
+   "ARCI": {
+    "netBn": -18.15,
+    "dailyNetBn": [
+     -14.51,
+     1.84,
+     -5.17,
+     -0.93,
+     0.63
+    ],
+    "fullValueTn20Nov": 19.81,
+    "avgRegularValueBn": 38.3,
+    "inScreen": true
+   },
+   "ASII": {
+    "netBn": 123.68,
+    "dailyNetBn": [
+     102.27,
+     25.88,
+     -17.48,
+     33.62,
+     -20.61
+    ],
+    "fullValueTn20Nov": 214.56,
+    "avgRegularValueBn": 296.4,
+    "inScreen": true
+   },
+   "BBCA": {
+    "netBn": -109.03,
+    "dailyNetBn": [
+     106.64,
+     -246.26,
+     693.37,
+     -320.3,
+     -342.48
+    ],
+    "fullValueTn20Nov": 677.33,
+    "avgRegularValueBn": 1072.8,
+    "inScreen": true
+   },
+   "BBNI": {
+    "netBn": -34.06,
+    "dailyNetBn": [
+     56.68,
+     -7.44,
+     -72.29,
+     7.78,
+     -18.8
+    ],
+    "fullValueTn20Nov": 131.45,
+    "avgRegularValueBn": 144.7,
+    "inScreen": true
+   },
+   "BBRI": {
+    "netBn": -147.56,
+    "dailyNetBn": [
+     274.51,
+     -5.66,
+     -316.08,
+     -10.47,
+     -89.85
+    ],
+    "fullValueTn20Nov": 462.13,
+    "avgRegularValueBn": 764.3,
+    "inScreen": true
+   },
+   "BBTN": {
+    "netBn": -9.49,
+    "dailyNetBn": [
+     1.33,
+     -7.7,
+     -0.33,
+     -2.29,
+     -0.5
+    ],
+    "fullValueTn20Nov": 13.96,
+    "avgRegularValueBn": 23.2,
+    "inScreen": true
+   },
+   "BMRI": {
+    "netBn": -141.7,
+    "dailyNetBn": [
+     21.49,
+     234.39,
+     -143.74,
+     -79.78,
+     -174.06
+    ],
+    "fullValueTn20Nov": 359.44,
+    "avgRegularValueBn": 589.4,
+    "inScreen": true
+   },
+   "BNBR": {
+    "netBn": -10.16,
+    "dailyNetBn": [
+     -5.67,
+     -2.74,
+     -0.87,
+     0.19,
+     -1.07
+    ],
+    "fullValueTn20Nov": 10.8,
+    "avgRegularValueBn": 11.7,
+    "inScreen": true
+   },
+   "BREN": {
+    "netBn": -95.61,
+    "dailyNetBn": [
+     -36.0,
+     -23.94,
+     -17.67,
+     -12.49,
+     -5.5
+    ],
+    "fullValueTn20Nov": 292.99,
+    "avgRegularValueBn": 58.8,
+    "inScreen": true
+   },
+   "BRIS": {
+    "netBn": 82.49,
+    "dailyNetBn": [
+     21.02,
+     52.31,
+     -8.85,
+     12.43,
+     5.59
+    ],
+    "fullValueTn20Nov": 52.97,
+    "avgRegularValueBn": 120.0,
+    "inScreen": true
+   },
+   "BRMS": {
+    "netBn": -152.35,
+    "dailyNetBn": [
+     -72.27,
+     -54.65,
+     -10.79,
+     -15.43,
+     0.8
+    ],
+    "fullValueTn20Nov": 39.42,
+    "avgRegularValueBn": 160.4,
+    "inScreen": true
+   },
+   "BRPT": {
+    "netBn": -160.11,
+    "dailyNetBn": [
+     -83.86,
+     -32.84,
+     -15.11,
+     -9.12,
+     -19.17
+    ],
+    "fullValueTn20Nov": 58.59,
+    "avgRegularValueBn": 196.6,
+    "inScreen": true
+   },
+   "BUMI": {
+    "netBn": -95.9,
+    "dailyNetBn": [
+     -53.35,
+     -13.91,
+     -31.34,
+     -3.18,
+     5.88
+    ],
+    "fullValueTn20Nov": 44.19,
+    "avgRegularValueBn": 282.3,
+    "inScreen": true
+   },
+   "CPIN": {
+    "netBn": -35.08,
+    "dailyNetBn": [
+     -8.63,
+     -2.0,
+     -3.68,
+     -13.52,
+     -7.25
+    ],
+    "fullValueTn20Nov": 37.88,
+    "avgRegularValueBn": 44.8,
+    "inScreen": true
+   },
+   "CUAN": {
+    "netBn": -56.61,
+    "dailyNetBn": [
+     -27.54,
+     -2.5,
+     -10.37,
+     -7.43,
+     -8.78
+    ],
+    "fullValueTn20Nov": 35.97,
+    "avgRegularValueBn": 54.6,
+    "inScreen": true
+   },
+   "DSSA": {
+    "netBn": -18.54,
+    "dailyNetBn": [
+     -9.62,
+     0.44,
+     -6.13,
+     -1.53,
+     -1.69
+    ],
+    "fullValueTn20Nov": 123.29,
+    "avgRegularValueBn": 28.7,
+    "inScreen": true
+   },
+   "EMAS": {
+    "netBn": -34.23,
+    "dailyNetBn": [
+     -28.58,
+     3.18,
+     -16.43,
+     2.88,
+     4.72
+    ],
+    "fullValueTn20Nov": 65.41,
+    "avgRegularValueBn": 42.6,
+    "inScreen": true
+   },
+   "EMTK": {
+    "netBn": -21.7,
+    "dailyNetBn": [
+     -1.08,
+     -4.81,
+     -4.55,
+     -7.32,
+     -3.92
+    ],
+    "fullValueTn20Nov": 16.34,
+    "avgRegularValueBn": 19.6,
+    "inScreen": true
+   },
+   "ENRG": {
+    "netBn": -0.9,
+    "dailyNetBn": [
+     -5.57,
+     -6.54,
+     3.77,
+     7.88,
+     -0.44
+    ],
+    "fullValueTn20Nov": 21.32,
+    "avgRegularValueBn": 56.9,
+    "inScreen": true
+   },
+   "EXCL": {
+    "netBn": 48.46,
+    "dailyNetBn": [
+     20.13,
+     5.27,
+     29.33,
+     -15.84,
+     9.55
+    ],
+    "fullValueTn20Nov": 31.39,
+    "avgRegularValueBn": 78.1,
+    "inScreen": true
+   },
+   "GGRM": {
+    "netBn": 4.19,
+    "dailyNetBn": [
+     0.27,
+     0.21,
+     -1.36,
+     5.09,
+     -0.02
+    ],
+    "fullValueTn20Nov": 30.74,
+    "avgRegularValueBn": 12.9,
+    "inScreen": true
+   },
+   "GOTO": {
+    "netBn": -147.6,
+    "dailyNetBn": [
+     57.64,
+     -69.63,
+     -25.83,
+     -37.02,
+     -72.76
+    ],
+    "fullValueTn20Nov": 30.8,
+    "avgRegularValueBn": 178.5,
+    "inScreen": true
+   },
+   "ICBP": {
+    "netBn": 29.56,
+    "dailyNetBn": [
+     5.08,
+     -0.74,
+     17.98,
+     1.03,
+     6.21
+    ],
+    "fullValueTn20Nov": 81.05,
+    "avgRegularValueBn": 36.9,
+    "inScreen": true
+   },
+   "INCO": {
+    "netBn": -67.24,
+    "dailyNetBn": [
+     -9.73,
+     -4.47,
+     -15.93,
+     -5.08,
+     -32.02
+    ],
+    "fullValueTn20Nov": 34.25,
+    "avgRegularValueBn": 66.9,
+    "inScreen": true
+   },
+   "INDF": {
+    "netBn": 66.44,
+    "dailyNetBn": [
+     15.01,
+     10.45,
+     7.39,
+     23.73,
+     9.86
+    ],
+    "fullValueTn20Nov": 63.22,
+    "avgRegularValueBn": 48.4,
+    "inScreen": true
+   },
+   "INKP": {
+    "netBn": 16.33,
+    "dailyNetBn": [
+     8.74,
+     0.95,
+     2.84,
+     5.53,
+     -1.73
+    ],
+    "fullValueTn20Nov": 35.83,
+    "avgRegularValueBn": 20.8,
+    "inScreen": true
+   },
+   "ISAT": {
+    "netBn": -36.32,
+    "dailyNetBn": [
+     0.9,
+     -2.18,
+     1.6,
+     -25.21,
+     -11.43
+    ],
+    "fullValueTn20Nov": 44.51,
+    "avgRegularValueBn": 97.1,
+    "inScreen": true
+   },
+   "ITMG": {
+    "netBn": -41.07,
+    "dailyNetBn": [
+     2.78,
+     -6.87,
+     -4.53,
+     -31.26,
+     -1.2
+    ],
+    "fullValueTn20Nov": 27.46,
+    "avgRegularValueBn": 30.5,
+    "inScreen": true
+   },
+   "JPFA": {
+    "netBn": -55.2,
+    "dailyNetBn": [
+     -12.98,
+     -1.51,
+     -3.45,
+     -23.42,
+     -13.84
+    ],
+    "fullValueTn20Nov": 16.94,
+    "avgRegularValueBn": 49.9,
+    "inScreen": true
+   },
+   "JSMR": {
+    "netBn": -16.28,
+    "dailyNetBn": [
+     -0.54,
+     -3.19,
+     -5.78,
+     -2.37,
+     -4.4
+    ],
+    "fullValueTn20Nov": 18.43,
+    "avgRegularValueBn": 12.6,
+    "inScreen": true
+   },
+   "KLBF": {
+    "netBn": 12.18,
+    "dailyNetBn": [
+     1.56,
+     11.62,
+     0.5,
+     -2.05,
+     0.55
+    ],
+    "fullValueTn20Nov": 36.51,
+    "avgRegularValueBn": 30.1,
+    "inScreen": true
+   },
+   "LSIP": {
+    "netBn": 20.09,
+    "dailyNetBn": [
+     4.08,
+     5.93,
+     3.26,
+     2.23,
+     4.59
+    ],
+    "fullValueTn20Nov": 10.64,
+    "avgRegularValueBn": 11.8,
+    "inScreen": true
+   },
+   "MAPA": {
+    "netBn": -1.31,
+    "dailyNetBn": [
+     -4.03,
+     0.7,
+     -4.97,
+     2.88,
+     4.11
+    ],
+    "fullValueTn20Nov": 17.67,
+    "avgRegularValueBn": 13.8,
+    "inScreen": true
+   },
+   "MBMA": {
+    "netBn": 46.21,
+    "dailyNetBn": [
+     -1.25,
+     10.81,
+     -15.47,
+     0.76,
+     51.36
+    ],
+    "fullValueTn20Nov": 37.15,
+    "avgRegularValueBn": 79.0,
+    "inScreen": true
+   },
+   "MDKA": {
+    "netBn": -18.81,
+    "dailyNetBn": [
+     -19.61,
+     -6.16,
+     13.16,
+     1.0,
+     -7.2
+    ],
+    "fullValueTn20Nov": 41.85,
+    "avgRegularValueBn": 106.7,
+    "inScreen": true
+   },
+   "MEDC": {
+    "netBn": 43.43,
+    "dailyNetBn": [
+     8.16,
+     17.29,
+     15.24,
+     0.69,
+     2.05
+    ],
+    "fullValueTn20Nov": 29.03,
+    "avgRegularValueBn": 50.3,
+    "inScreen": true
+   },
+   "MORA": {
+    "netBn": -0.33,
+    "dailyNetBn": [
+     0.14,
+     0.18,
+     -0.84,
+     0.16,
+     0.03
+    ],
+    "fullValueTn20Nov": 57.57,
+    "avgRegularValueBn": 12.1,
+    "inScreen": true
+   },
+   "MYOR": {
+    "netBn": 12.53,
+    "dailyNetBn": [
+     -0.88,
+     3.28,
+     2.57,
+     1.52,
+     6.04
+    ],
+    "fullValueTn20Nov": 33.87,
+    "avgRegularValueBn": 12.3,
+    "inScreen": true
+   },
+   "NCKL": {
+    "netBn": -5.56,
+    "dailyNetBn": [
+     2.06,
+     4.79,
+     -13.78,
+     -4.05,
+     5.41
+    ],
+    "fullValueTn20Nov": 46.38,
+    "avgRegularValueBn": 38.8,
+    "inScreen": true
+   },
+   "PACK": {
+    "netBn": -29.73,
+    "dailyNetBn": [
+     -14.87,
+     -9.29,
+     1.68,
+     -1.32,
+     -5.93
+    ],
+    "fullValueTn20Nov": 10.65,
+    "avgRegularValueBn": 52.3,
+    "inScreen": true
+   },
+   "PGAS": {
+    "netBn": -2.61,
+    "dailyNetBn": [
+     11.38,
+     -2.6,
+     -7.88,
+     -3.06,
+     -0.45
+    ],
+    "fullValueTn20Nov": 37.21,
+    "avgRegularValueBn": 56.0,
+    "inScreen": true
+   },
+   "PSAB": {
+    "netBn": -11.04,
+    "dailyNetBn": [
+     -2.86,
+     0.96,
+     -3.83,
+     -4.47,
+     -0.84
+    ],
+    "fullValueTn20Nov": 10.16,
+    "avgRegularValueBn": 30.6,
+    "inScreen": true
+   },
+   "PTBA": {
+    "netBn": -3.98,
+    "dailyNetBn": [
+     5.9,
+     -5.46,
+     9.89,
+     -4.88,
+     -9.42
+    ],
+    "fullValueTn20Nov": 34.33,
+    "avgRegularValueBn": 52.9,
+    "inScreen": true
+   },
+   "PTRO": {
+    "netBn": -29.17,
+    "dailyNetBn": [
+     -36.23,
+     -0.58,
+     -3.07,
+     4.46,
+     6.25
+    ],
+    "fullValueTn20Nov": 22.09,
+    "avgRegularValueBn": 106.4,
+    "inScreen": true
+   },
+   "SINI": {
+    "netBn": -25.51,
+    "dailyNetBn": [
+     -13.49,
+     -6.94,
+     -2.72,
+     -0.36,
+     -1.98
+    ],
+    "fullValueTn20Nov": 11.87,
+    "avgRegularValueBn": 76.1,
+    "inScreen": true
+   },
+   "SMGR": {
+    "netBn": 26.42,
+    "dailyNetBn": [
+     4.94,
+     5.39,
+     10.46,
+     5.64,
+     -0.01
+    ],
+    "fullValueTn20Nov": 10.84,
+    "avgRegularValueBn": 19.3,
+    "inScreen": true
+   },
+   "TAPG": {
+    "netBn": -4.85,
+    "dailyNetBn": [
+     -1.02,
+     0.43,
+     -1.53,
+     -1.08,
+     -1.65
+    ],
+    "fullValueTn20Nov": 34.05,
+    "avgRegularValueBn": 13.1,
+    "inScreen": true
+   },
+   "TINS": {
+    "netBn": -61.84,
+    "dailyNetBn": [
+     -69.82,
+     2.93,
+     -47.82,
+     26.03,
+     26.85
+    ],
+    "fullValueTn20Nov": 23.39,
+    "avgRegularValueBn": 176.7,
+    "inScreen": true
+   },
+   "TLKM": {
+    "netBn": -408.85,
+    "dailyNetBn": [
+     7.29,
+     -99.83,
+     -123.91,
+     -51.6,
+     -140.81
+    ],
+    "fullValueTn20Nov": 205.06,
+    "avgRegularValueBn": 385.8,
+    "inScreen": true
+   },
+   "TOWR": {
+    "netBn": 0.69,
+    "dailyNetBn": [
+     0.24,
+     0.04,
+     -0.67,
+     0.35,
+     0.73
+    ],
+    "fullValueTn20Nov": 22.58,
+    "avgRegularValueBn": 14.8,
+    "inScreen": true
+   },
+   "TPIA": {
+    "netBn": -126.99,
+    "dailyNetBn": [
+     -54.94,
+     -22.17,
+     -8.83,
+     -33.39,
+     -7.66
+    ],
+    "fullValueTn20Nov": 99.92,
+    "avgRegularValueBn": 104.4,
+    "inScreen": true
+   },
+   "ULTJ": {
+    "netBn": -1.89,
+    "dailyNetBn": [
+     -0.92,
+     1.27,
+     -0.61,
+     -1.52,
+     -0.12
+    ],
+    "fullValueTn20Nov": 20.9,
+    "avgRegularValueBn": 14.6,
+    "inScreen": true
+   },
+   "UNTR": {
+    "netBn": -74.79,
+    "dailyNetBn": [
+     -14.17,
+     -16.02,
+     -12.13,
+     -17.19,
+     -15.28
+    ],
+    "fullValueTn20Nov": 89.15,
+    "avgRegularValueBn": 41.6,
+    "inScreen": true
+   },
+   "UNVR": {
+    "netBn": -18.27,
+    "dailyNetBn": [
+     -3.32,
+     -1.09,
+     -7.11,
+     -4.7,
+     -2.06
+    ],
+    "fullValueTn20Nov": 57.99,
+    "avgRegularValueBn": 28.0,
+    "inScreen": true
+   },
+   "VKTR": {
+    "netBn": 3.5,
+    "dailyNetBn": [
+     -0.95,
+     1.42,
+     2.95,
+     -2.5,
+     2.58
+    ],
+    "fullValueTn20Nov": 16.68,
+    "avgRegularValueBn": 55.4,
+    "inScreen": true
+   },
+   "HRUM": {
+    "netBn": -4.18,
+    "dailyNetBn": [
+     -3.44,
+     0.51,
+     -0.72,
+     -0.43,
+     -0.1
+    ],
+    "fullValueTn20Nov": 8.92,
+    "avgRegularValueBn": 13.7,
+    "inScreen": false
+   },
+   "WIFI": {
+    "netBn": -58.72,
+    "dailyNetBn": [
+     -16.15,
+     -12.38,
+     -8.37,
+     -4.08,
+     -17.73
+    ],
+    "fullValueTn20Nov": 4.33,
+    "avgRegularValueBn": 98.4,
+    "inScreen": false
+   },
+   "INET": {
+    "netBn": -7.72,
+    "dailyNetBn": [
+     -5.05,
+     -0.62,
+     -2.43,
+     1.5,
+     -1.13
+    ],
+    "fullValueTn20Nov": 3.96,
+    "avgRegularValueBn": 69.3,
+    "inScreen": false
+   },
+   "AUTO": {
+    "netBn": -10.52,
+    "dailyNetBn": [
+     0.94,
+     -4.79,
+     0.58,
+     -1.76,
+     -5.49
+    ],
+    "fullValueTn20Nov": 14.17,
+    "avgRegularValueBn": 8.2,
+    "inScreen": false
+   },
+   "MFMI": {
+    "netBn": 0.0,
+    "dailyNetBn": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "fullValueTn20Nov": 0.98,
+    "avgRegularValueBn": 0.0,
+    "inScreen": false
+   }
+  }
+ },
+ "negotiated": {
+  "note": "Single negotiated trades from the stock summary (NonRegularVolume, NonRegularValue, NonRegularFrequency), with the filings that name the parties.",
+  "trades": {
+   "INET": {
+    "date": "2026-11-16",
+    "shares": 6685000000,
+    "valueBn": 2005.5,
+    "trades": 1,
+    "priceRp": 300,
+    "close": 187,
+    "listedShares": 22378499865,
+    "seller": "Abadi Kreasi Unggul Nusantara (controller, 59.76% to 29.89%, divestment)",
+    "buyer": "PT Cakrawala Nexus Investama (0 to 29.87%, investment)",
+    "filing": "KSEI ownership reports LK/17112026/0003 and 0004, 17 November 2026",
+    "sellerBeforePct": 59.76,
+    "sellerAfterPct": 29.89,
+    "buyerAfterPct": 29.87
+   },
+   "AUTO": {
+    "date": "2026-11-18",
+    "shares": 238442293,
+    "valueBn": 858.39,
+    "trades": 1,
+    "priceRp": 3600,
+    "close": 3170,
+    "buyer": "Astra International (80.00% to 84.947%) through a voluntary tender offer",
+    "filing": "KSEI ownership report LK/20112026/0010, 20 November 2026",
+    "buyerBeforePct": 80.0,
+    "buyerAfterPct": 84.947
+   },
+   "HRUM": {
+    "date": "2026-11-19",
+    "shares": 6759000000,
+    "valueBn": 4460.94,
+    "trades": 1,
+    "priceRp": 660,
+    "close": 655,
+    "listedShares": 13518100000,
+    "seller": "PT Karunia Bara Perkasa (79.792% to 29.792%)",
+    "buyer": "PT Bara Sejahtera Abadi (0.092% to 50.092%)",
+    "reason": "Internal restructuring between controlling shareholders under the same control, at the previous close of Rp660. No change of control.",
+    "filing": "HRUM letter 076/HE/XI/2026, 19 November 2026 16:02, scanned attachment read from an image in the owner's Chrome. HRUM also ended its buyback on 16 November (074/HE/XI/2026).",
+    "sellerBeforePct": 79.792,
+    "sellerAfterPct": 29.792,
+    "buyerBeforePct": 0.092,
+    "buyerAfterPct": 50.092,
+    "previousClose": 660
+   },
+   "WIFI": {
+    "date": "2026-11-19",
+    "shares": 1415652000,
+    "valueBn": 4062.92,
+    "trades": 1,
+    "priceRp": 2870,
+    "close": 825,
+    "listedShares": 5308549015,
+    "seller": "PT Sinergi Graha Kapital (26.667% to 0), resale under a repurchase agreement",
+    "buyer": "Investasi Sukses Bersama (controller, 27.276% to 54.42%), buy-back under a repurchase agreement",
+    "filing": "KSEI ownership reports LK/20112026/0001 and 0002, 20 November 2026",
+    "sellerBeforePct": 26.667,
+    "sellerAfterPct": 0,
+    "buyerBeforePct": 27.756,
+    "buyerAfterPct": 54.42,
+    "oct19Check": {
+     "date": "2026-10-19",
+     "nonRegularShares": 1419152000,
+     "nonRegularValueRp": 4066771240000,
+     "trades": 2,
+     "close": 1025,
+     "fit": "1,415,652,000 shares at Rp2,870 plus 3,500,000 shares at Rp1,100 gives the value to the rupiah"
+    },
+    "buyerBeforeShares": 1473435404,
+    "buyerAfterShares": 2889087404,
+    "buyerNote": "The buyer's report prints its starting stake as 27.276%, but 1,473,435,404 of 5,308,549,015 shares is 27.756%, and 27.756% plus 26.667% gives the 54.42% it reports after."
+   },
+   "MFMI": {
+    "date": "2026-11-18",
+    "shares": 752632700,
+    "valueBn": 371.05,
+    "trades": 2,
+    "close": 1300
+   }
+  },
+  "weekTotalBn": 16741.92,
+  "dailyBn": [
+   2617.7,
+   931.7,
+   3531.4,
+   9060.8,
+   600.3
+  ]
+ },
+ "priorWeekTransferBn": {
+  "ADRO": 33891.61,
+  "AADI": 32916.67,
+  "source": "weekly/idx-hsc-2026-11-13.json, negotiated10Nov"
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "A storm over a terraced mine, with sun on a distant city",
+  "created": "2026-11-23",
+  "reportId": "ihsg-weekly-2026-11-20",
+  "method": "Drawn by Claude in JavaScript with the dry-media pastel engine first built for the owner's Moonlit beach wallpaper session (scripts/covers/pastel-engine.js, unchanged) and the scene script scripts/covers/ihsg-storm-2026-11-20.js, run with Node and the @napi-rs/canvas package. The engine makes toned paper with tooth and fibres and lays pigment only where the paper's peaks catch it, with pastel, chalk, charcoal, pencil, smudge and lift tools. No generative image model and no photograph were used. Rendered at 2048 by 3072 pixels with a fixed seed, so the same script gives the same picture byte for byte, then downscaled to 1024 by 1536 and encoded as WebP with 640 and 320 pixel variants. No cropping or retouching.",
+  "width": 1024,
+  "height": 1536,
+  "sourceSha256": "bf80965b30e580eb93f1f1e58d9c5e6d21acb6a9b9a6e84dcc64d457c234fef0",
+  "engineSha256": "ff91a2fbdfebced5e391c7d11ff12ca11dcaf31fcc8b831ea4a13ee974ffd6c1",
+  "sceneScriptSha256": "3e13623ee9d718dc72bffda0eb65057335d7a6ad315bc8d43c1aff9a5e9ffd87",
+  "conceptual": true,
+  "caption": "A storm rolls in from the left and rain falls on a terraced gold and copper pit, where a yellow haul truck works with its lights on beside a lit site shed. Far off on the right the clouds break, and late sun falls on a city with twin towers. Conceptual editorial artwork, not a documentary scene or a named site.",
+  "files": [
+    "ihsg-storm-art.webp",
+    "ihsg-storm-art-640.webp",
+    "ihsg-storm-art-320.webp"
+  ],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The artwork contains no lettering.",
+  "concept": "The world sold AI, Jakarta sold its miners. The storm is the global sell-off breaking over the gold and copper miners that made a third of IHSG's fall. The sun on the twin towers is the large banks, which held through the week.",
+  "style": "Soft pastel and chalk in the technique of the owner's Moonlit beach wallpaper, which the owner pointed to on 23 November. The owner asked for a new subject rather than another moonlit scene.",
+  "review": "Checked at full size on 23 November. No lettering, numbers, logos or people. The owner rejected a light crayon version on cream paper (not like the reference) and then a moonlit bay (too close to the reference subject, and its three-way moon path read as odd). Four storm drafts: s1 had small light arcs in the clouds that read as birds and a pit like a target, s2 softened the clouds and added the rain curtain, s3 hid the near wall of the pit, s4 added wet ground, tyre tracks and a lit shed.",
+  "prompt": "No prompt. The scene is defined by the script listed in method."
+}
