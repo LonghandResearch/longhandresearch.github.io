@@ -259,6 +259,11 @@
     refined = data.presentation === 'refined';
     main.classList.toggle('weekly-edition', refined);
     main.classList.toggle('weekly-risk-edition', Boolean(data.riskParameters));
+    // Optional crayon look for an edition that asks for it ("style": "crayon"). Values and labels stay
+    // plain text, only the drawn marks pick up a paper-tooth grain and slightly rough edges.
+    const crayon = data.style === 'crayon';
+    main.classList.toggle('weekly-crayon', crayon);
+    if (crayon && !document.getElementById('weekly-crayon-defs')) document.body.insertAdjacentHTML('beforeend', '<svg id="weekly-crayon-defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><filter id="weekly-crayon" x="-3%" y="-12%" width="106%" height="124%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="11" result="tooth"/><feColorMatrix in="tooth" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.4 1.9" result="grain"/><feComposite in="SourceGraphic" in2="grain" operator="in" result="speckle"/><feComponentTransfer in="SourceGraphic" result="base"><feFuncA type="linear" slope="0.5"/></feComponentTransfer><feMerge result="crayon"><feMergeNode in="base"/><feMergeNode in="speckle"/></feMerge><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" seed="3" result="wobble"/><feDisplacementMap in="crayon" in2="wobble" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter></svg>');
     const sectionLinks = data.sections.map((section, i) => `<a href="#${esc(section.id)}">${String(i + 1).padStart(2, '0')} <span>${esc(section.nav || section.title)}</span></a>`).join('');
     const sections = data.sections.map((section, i) => `<section id="${esc(section.id)}" class="market-section"><p class="market-number">${String(i + 1).padStart(2, '0')} ${esc(section.nav || section.title)}</p><h2>${esc(section.title)}</h2>${section.blocks.map(block => renderBlock(data, block)).join('')}</section>`).join('');
     const sourceNav = refined ? 'Sources' : 'Sources and method';

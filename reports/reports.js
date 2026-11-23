@@ -111,6 +111,25 @@ window.LONGHAND_REPORTS = [
   ]
 },
 {
+  "id": "ihsg-weekly-2026-11-20",
+  "ticker": "IHSG",
+  "exchange": "IDX",
+  "company": "Indonesia equity market",
+  "sector": "Macro and equities",
+  "category": "Update",
+  "title": "The World Sold AI. Jakarta Sold Its Miners.",
+  "date": "2026-11-23",
+  "blurb": "IHSG fell 3.71% on five losing days as four gold and copper miners made a third of the fall. Foreign investors sold on every day, and the rupiah set records after Bank Indonesia raised its rate to 6.00%.",
+  "summary": "Weekly research for 16 to 20 November. Audited IDX observations, the miners behind a third of the fall, foreign selling on every day, Bank Indonesia's surprise rate rise and the rupiah's record lows, the one-off negotiated trades in HRUM, WIFI and INET, global markets after the AI sell-off and a check of last week's call.",
+  "tags": ["IHSG", "Weekly Market Update", "Foreign flow", "Mining", "Gold", "Bank Indonesia", "Rupiah", "Global markets", "AI"],
+  "rating": null,
+  "currency": "IDR",
+  "price": null,
+  "targetPrice": null,
+  "upside": null,
+  "page": "ihsg-weekly.html?week=2026-11-20"
+},
+{
   "id": "ihsg-weekly-2026-11-13",
   "ticker": "IHSG",
   "exchange": "IDX",

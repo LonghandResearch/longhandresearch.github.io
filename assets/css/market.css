@@ -243,3 +243,12 @@
   .chart-scroll svg, .sankey-plot svg { min-width: 0; }
   .chart-scroll, .market-table-wrap { overflow: visible; }
 }
+
+/* Crayon look, only for editions with "style": "crayon". The marks take a paper-tooth grain from the
+   #weekly-crayon SVG filter, and figures sit on faint squared paper. Text and values are untouched. */
+.weekly-crayon { --crayon-grid: color-mix(in srgb, currentColor 6%, transparent); }
+.weekly-crayon .research-figure { background-image: linear-gradient(var(--crayon-grid) 1px, transparent 1px), linear-gradient(90deg, var(--crayon-grid) 1px, transparent 1px); background-size: 22px 22px; }
+.weekly-crayon .liquidity-track > span, .weekly-crayon .weekly-flow-bar, .weekly-crayon .sankey-link, .weekly-crayon .sankey-node, .weekly-crayon .index-line, .weekly-crayon .index-point { filter: url(#weekly-crayon); }
+.weekly-crayon .liquidity-track { background: color-mix(in srgb, var(--tint) 70%, transparent); }
+.weekly-crayon .index-line { stroke-linecap: round; stroke-linejoin: round; }
+@media print { .weekly-crayon .research-figure { background-image: none; } }

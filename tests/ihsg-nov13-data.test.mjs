@@ -130,9 +130,14 @@ test('Turnover without the ADRO and AADI transfers', () => {
   has(`Rp${(raw.weekly.marketTotals.RG.valueIdr / 5e12).toFixed(2)}tn a day`);
   const t = raw.adroAadiTransfer; near(t.rows.reduce((s, r) => s + r[2], 0), t.adroTotalPct, 1e-9);
   near((22781 + 22318) / (2 * 118491) * 100, 19.03, .01);
-  const exForeign = (22781 + 22318) / (2 * (118491 - neg / 1e9)) * 100;
-  near(exForeign, 43.63, .01);
-  has(`about ${Math.round(exForeign)}% of trading`);
+  // Part of the transfer was booked foreign to foreign on 10 November (F-F Rp5,504bn against under Rp2,000bn on the
+  // other days, and D-D below the transfer). Taking the excess out of both foreign buying and selling gives about 36%.
+  const pp = raw.investorPairs.rows, d10 = pp.find(r => r[0] === '2026-11-10'), others = pp.filter(r => r[0] !== '2026-11-10').map(r => r[1]);
+  assert.ok(d10[4] < neg / 1e9 && others.every(v => v < 2000));
+  const excess = d10[1] - others.reduce((a, v) => a + v, 0) / others.length;
+  const exForeign = (22781 + 22318 - 2 * excess) / (2 * (118491 - neg / 1e9)) * 100;
+  near(exForeign, 36.35, .01);
+  has(`foreigners made about ${Math.round(exForeign)}% of trading, close to the week before`);
   assert.equal(raw.delistings.rows.length, 18);
   has(`Rp${(raw.delistings.rows.reduce((s, r) => s + r[5], 0) / 1e12).toFixed(2)}tn together`);
 });

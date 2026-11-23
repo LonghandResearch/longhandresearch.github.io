@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "weekEnding": "2026-11-13",
   "published": "2026-11-15",
-  "reviewed": "2026-11-16",
+  "reviewed": "2026-11-23",
   "period": "9 to 13 November 2026",
   "title": "A Smaller Index, a Narrow Rally",
   "titleLead": "A smaller index.",
@@ -803,7 +803,7 @@
             "hscData",
             "observations"
           ],
-          "text": "Take those two trades out and the week's value averaged Rp10.34tn a day, 6.38% less than the week before. IDX's headline shows a rise of 114.64%. Regular-market value, where prices are set, was Rp46.78tn, down 0.77%. The same trades pulled the foreign share of trading down to 19%, against 37% the week before, because they ran from domestic seller to domestic buyer. Without them foreigners made about 44% of trading, more than the week before. One broker, Trimegah Sekuritas, handled 53.58% of member value for the week."
+          "text": "Take those two trades out and the week's value averaged Rp10.34tn a day, 6.38% less than the week before. IDX's headline shows a rise of 114.64%. Regular-market value, where prices are set, was Rp46.78tn, down 0.77%. The same trades pulled the foreign share of trading down to 19%, against 37% the week before. Most of the transfer ran between local accounts, but IDX's pair table shows part of it booked between foreign accounts. Allowing for that, foreigners made about 36% of trading, close to the week before. An earlier version of this note said about 44%. One broker, Trimegah Sekuritas, handled 53.58% of member value for the week."
         }
       ]
     },

@@ -1,0 +1,539 @@
+{
+  "weekEnding": "2026-11-20",
+  "days": [
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20"
+  ],
+  "basis": "Liquid large caps only: market value of at least Rp10tn and average daily trading of at least Rp10bn over 20 days, at the week's last close. Regular market only. IDX gives foreign trading per stock in shares, so values are shares times each day's closing price.",
+  "universe": {
+    "rule": "Liquid large caps",
+    "minMarketCapTn": 10.0,
+    "minAdtvBn": 10.0,
+    "stocks": 73,
+    "marketCapSharePct": 56.7,
+    "foreignTradingSharePct": 89.6
+  },
+  "totals": {
+    "foreignNetBn": -2085.41,
+    "foreignBuyBn": 14192.85,
+    "foreignSellBn": 16278.26,
+    "valueBn": 34871.34,
+    "allStocksForeignNetBn": -2591.1
+  },
+  "daily": [
+    {
+      "date": "2026-11-16",
+      "foreignNetBn": -74.15,
+      "valueBn": 7945.79,
+      "volumeM": 24939.56,
+      "stocks": 73
+    },
+    {
+      "date": "2026-11-17",
+      "foreignNetBn": -333.11,
+      "valueBn": 6714.15,
+      "volumeM": 12817.69,
+      "stocks": 73
+    },
+    {
+      "date": "2026-11-18",
+      "foreignNetBn": -269.66,
+      "valueBn": 8577.37,
+      "volumeM": 9004.88,
+      "stocks": 73
+    },
+    {
+      "date": "2026-11-19",
+      "foreignNetBn": -616.28,
+      "valueBn": 5814.62,
+      "volumeM": 10487.45,
+      "stocks": 73
+    },
+    {
+      "date": "2026-11-20",
+      "foreignNetBn": -792.21,
+      "valueBn": 5819.42,
+      "volumeM": 9219.84,
+      "stocks": 73
+    }
+  ],
+  "topSells": [
+    {
+      "ticker": "TLKM",
+      "name": "Telkom Indonesia (Persero) Tbk.",
+      "sector": "Infrastructure",
+      "netBn": -408.85,
+      "buyBn": 1155.19,
+      "sellBn": 1564.04,
+      "close": 2070.0,
+      "weekReturnPct": -4.17,
+      "read": "Fall with foreign selling"
+    },
+    {
+      "ticker": "BRPT",
+      "name": "Barito Pacific Tbk.",
+      "sector": "Basic materials",
+      "netBn": -160.11,
+      "buyBn": 291.55,
+      "sellBn": 451.66,
+      "close": 625.0,
+      "weekReturnPct": -22.36,
+      "read": "Fall with foreign selling"
+    },
+    {
+      "ticker": "BRMS",
+      "name": "Bumi Resources Minerals Tbk.",
+      "sector": "Basic materials",
+      "netBn": -152.35,
+      "buyBn": 182.95,
+      "sellBn": 335.3,
+      "close": 278.0,
+      "weekReturnPct": -20.11,
+      "read": "Fall with foreign selling"
+    },
+    {
+      "ticker": "GOTO",
+      "name": "GoTo Gojek Tokopedia Tbk.",
+      "sector": "Technology",
+      "netBn": -147.6,
+      "buyBn": 233.94,
+      "sellBn": 381.54,
+      "close": 27.0,
+      "weekReturnPct": 3.85,
+      "read": "Rise without foreign buying, treat with care"
+    },
+    {
+      "ticker": "BBRI",
+      "name": "Bank Rakyat Indonesia (Persero) Tbk.",
+      "sector": "Financials",
+      "netBn": -147.56,
+      "buyBn": 1683.32,
+      "sellBn": 1830.88,
+      "close": 3080.0,
+      "weekReturnPct": 0.65,
+      "read": "Rise without foreign buying, treat with care"
+    },
+    {
+      "ticker": "BMRI",
+      "name": "Bank Mandiri (Persero) Tbk.",
+      "sector": "Financials",
+      "netBn": -141.7,
+      "buyBn": 1348.14,
+      "sellBn": 1489.84,
+      "close": 3890.0,
+      "weekReturnPct": 0.0,
+      "read": "Flat price"
+    },
+    {
+      "ticker": "TPIA",
+      "name": "Chandra Asri Pacific Tbk.",
+      "sector": "Basic materials",
+      "netBn": -126.99,
+      "buyBn": 65.69,
+      "sellBn": 192.68,
+      "close": 1155.0,
+      "weekReturnPct": -12.17,
+      "read": "Fall with foreign selling"
+    },
+    {
+      "ticker": "ANTM",
+      "name": "ANTAM (Persero) Tbk.",
+      "sector": "Basic materials",
+      "netBn": -118.37,
+      "buyBn": 261.34,
+      "sellBn": 379.71,
+      "close": 2610.0,
+      "weekReturnPct": -7.12,
+      "read": "Fall with foreign selling"
+    },
+    {
+      "ticker": "BBCA",
+      "name": "Bank Central Asia Tbk.",
+      "sector": "Financials",
+      "netBn": -109.03,
+      "buyBn": 2723.99,
+      "sellBn": 2833.02,
+      "close": 5550.0,
+      "weekReturnPct": 0.91,
+      "read": "Rise without foreign buying, treat with care"
+    },
+    {
+      "ticker": "BUMI",
+      "name": "Bumi Resources Tbk.",
+      "sector": "Energy",
+      "netBn": -95.9,
+      "buyBn": 217.56,
+      "sellBn": 313.45,
+      "close": 119.0,
+      "weekReturnPct": -12.5,
+      "read": "Fall with foreign selling"
+    },
+    {
+      "ticker": "BREN",
+      "name": "Barito Renewables Energy Tbk.",
+      "sector": "Infrastructure",
+      "netBn": -95.61,
+      "buyBn": 102.54,
+      "sellBn": 198.15,
+      "close": 2190.0,
+      "weekReturnPct": 1.39,
+      "read": "Rise without foreign buying, treat with care"
+    },
+    {
+      "ticker": "UNTR",
+      "name": "United Tractors Tbk.",
+      "sector": "Industrials",
+      "netBn": -74.79,
+      "buyBn": 86.69,
+      "sellBn": 161.48,
+      "close": 23900.0,
+      "weekReturnPct": -4.3,
+      "read": "Fall with foreign selling"
+    }
+  ],
+  "topBuys": [
+    {
+      "ticker": "ASII",
+      "name": "Astra International Tbk.",
+      "sector": "Industrials",
+      "netBn": 123.68,
+      "buyBn": 1152.35,
+      "sellBn": 1028.66,
+      "close": 5300.0,
+      "weekReturnPct": -3.64,
+      "read": "Foreigners bought into the fall"
+    },
+    {
+      "ticker": "BRIS",
+      "name": "Bank Syariah Indonesia (Persero) Tbk.",
+      "sector": "Financials",
+      "netBn": 82.49,
+      "buyBn": 304.68,
+      "sellBn": 222.2,
+      "close": 1160.0,
+      "weekReturnPct": 1.75,
+      "read": "Rise backed by foreign buying"
+    },
+    {
+      "ticker": "INDF",
+      "name": "Indofood Sukses Makmur Tbk.",
+      "sector": "Consumer non-cyclicals",
+      "netBn": 66.44,
+      "buyBn": 206.3,
+      "sellBn": 139.86,
+      "close": 7200.0,
+      "weekReturnPct": 2.86,
+      "read": "Rise backed by foreign buying"
+    },
+    {
+      "ticker": "EXCL",
+      "name": "XLSMART Telecom Sejahtera Tbk.",
+      "sector": "Infrastructure",
+      "netBn": 48.46,
+      "buyBn": 159.41,
+      "sellBn": 110.95,
+      "close": 1725.0,
+      "weekReturnPct": 15.38,
+      "read": "Rise backed by foreign buying"
+    },
+    {
+      "ticker": "MBMA",
+      "name": "Merdeka Battery Materials Tbk.",
+      "sector": "Basic materials",
+      "netBn": 46.21,
+      "buyBn": 209.94,
+      "sellBn": 163.73,
+      "close": 344.0,
+      "weekReturnPct": 1.78,
+      "read": "Rise backed by foreign buying"
+    },
+    {
+      "ticker": "MEDC",
+      "name": "Medco Energi Internasional Tbk.",
+      "sector": "Energy",
+      "netBn": 43.43,
+      "buyBn": 111.65,
+      "sellBn": 68.21,
+      "close": 1155.0,
+      "weekReturnPct": -6.1,
+      "read": "Foreigners bought into the fall"
+    },
+    {
+      "ticker": "ICBP",
+      "name": "Indofood CBP Sukses Makmur Tbk.",
+      "sector": "Consumer non-cyclicals",
+      "netBn": 29.56,
+      "buyBn": 103.86,
+      "sellBn": 74.3,
+      "close": 6950.0,
+      "weekReturnPct": 3.73,
+      "read": "Rise backed by foreign buying"
+    },
+    {
+      "ticker": "SMGR",
+      "name": "Semen Indonesia (Persero) Tbk.",
+      "sector": "Basic materials",
+      "netBn": 26.42,
+      "buyBn": 60.64,
+      "sellBn": 34.22,
+      "close": 1605.0,
+      "weekReturnPct": 1.9,
+      "read": "Rise backed by foreign buying"
+    },
+    {
+      "ticker": "LSIP",
+      "name": "PP London Sumatra Indonesia Tbk.",
+      "sector": "Consumer non-cyclicals",
+      "netBn": 20.09,
+      "buyBn": 38.13,
+      "sellBn": 18.04,
+      "close": 1560.0,
+      "weekReturnPct": -1.58,
+      "read": "Foreigners bought into the fall"
+    },
+    {
+      "ticker": "INKP",
+      "name": "Indah Kiat Pulp & Paper Tbk.",
+      "sector": "Basic materials",
+      "netBn": 16.33,
+      "buyBn": 43.58,
+      "sellBn": 27.25,
+      "close": 6550.0,
+      "weekReturnPct": -5.07,
+      "read": "Foreign flow too small to read"
+    },
+    {
+      "ticker": "PWON",
+      "name": "Pakuwon Jati Tbk.",
+      "sector": "Property",
+      "netBn": 13.7,
+      "buyBn": 34.71,
+      "sellBn": 21.01,
+      "close": 284.0,
+      "weekReturnPct": 2.9,
+      "read": "Foreign flow too small to read"
+    },
+    {
+      "ticker": "MYOR",
+      "name": "Mayora Indah Tbk.",
+      "sector": "Consumer non-cyclicals",
+      "netBn": 12.53,
+      "buyBn": 31.16,
+      "sellBn": 18.63,
+      "close": 1515.0,
+      "weekReturnPct": 0.33,
+      "read": "Foreign flow too small to read"
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Basic materials",
+      "netBn": -716.82,
+      "buyBn": 2337.91,
+      "sellBn": 3054.73,
+      "stocksTraded": 19,
+      "returnPct": -13.03,
+      "read": "Fall with foreign selling",
+      "leadStock": "BRPT",
+      "leadSharePct": 17.8,
+      "oneStock": false
+    },
+    {
+      "sector": "Infrastructure",
+      "netBn": -516.57,
+      "buyBn": 1677.15,
+      "sellBn": 2193.72,
+      "stocksTraded": 8,
+      "returnPct": -2.0,
+      "read": "Fall with foreign selling",
+      "leadStock": "TLKM",
+      "leadSharePct": 66.3,
+      "oneStock": true
+    },
+    {
+      "sector": "Financials",
+      "netBn": -363.2,
+      "buyBn": 6378.78,
+      "sellBn": 6741.98,
+      "stocksTraded": 7,
+      "returnPct": 0.67,
+      "read": "Rise without foreign buying, treat with care",
+      "leadStock": "BBRI",
+      "leadSharePct": 27.9,
+      "oneStock": false
+    },
+    {
+      "sector": "Energy",
+      "netBn": -336.82,
+      "buyBn": 1091.31,
+      "sellBn": 1428.13,
+      "stocksTraded": 13,
+      "returnPct": -10.74,
+      "read": "Fall with foreign selling",
+      "leadStock": "BUMI",
+      "leadSharePct": 22.2,
+      "oneStock": false
+    },
+    {
+      "sector": "Technology",
+      "netBn": -169.3,
+      "buyBn": 263.69,
+      "sellBn": 432.99,
+      "stocksTraded": 2,
+      "returnPct": 2.34,
+      "read": "Rise without foreign buying, treat with care",
+      "leadStock": "GOTO",
+      "leadSharePct": 87.2,
+      "oneStock": true
+    },
+    {
+      "sector": "Consumer non-cyclicals",
+      "netBn": -7.5,
+      "buyBn": 863.62,
+      "sellBn": 871.12,
+      "stocksTraded": 12,
+      "returnPct": -1.11,
+      "read": "Foreign flow too small to read",
+      "leadStock": "INDF",
+      "leadSharePct": 24.3,
+      "oneStock": false
+    },
+    {
+      "sector": "Consumer cyclicals",
+      "netBn": -2.12,
+      "buyBn": 94.46,
+      "sellBn": 96.58,
+      "stocksTraded": 3,
+      "returnPct": -15.7,
+      "read": "Foreign flow too small to read",
+      "leadStock": "FORU",
+      "leadSharePct": 47.3,
+      "oneStock": false
+    },
+    {
+      "sector": "Property",
+      "netBn": 2.8,
+      "buyBn": 46.8,
+      "sellBn": 43.99,
+      "stocksTraded": 2,
+      "returnPct": -3.25,
+      "read": "Foreign flow too small to read",
+      "leadStock": "PWON",
+      "leadSharePct": 55.7,
+      "oneStock": false
+    },
+    {
+      "sector": "Industrials",
+      "netBn": 11.32,
+      "buyBn": 1328.79,
+      "sellBn": 1317.47,
+      "stocksTraded": 5,
+      "returnPct": -5.27,
+      "read": "Foreign flow too small to read",
+      "leadStock": "ASII",
+      "leadSharePct": 52.4,
+      "oneStock": false
+    },
+    {
+      "sector": "Healthcare",
+      "netBn": 12.79,
+      "buyBn": 110.35,
+      "sellBn": 97.56,
+      "stocksTraded": 2,
+      "returnPct": 4.11,
+      "read": "Foreign flow too small to read",
+      "leadStock": "KLBF",
+      "leadSharePct": 95.2,
+      "oneStock": true
+    }
+  ],
+  "standouts": [
+    {
+      "ticker": "EXCL",
+      "name": "XLSMART Telecom Sejahtera Tbk.",
+      "sector": "Infrastructure",
+      "netBn": 48.46,
+      "buyBn": 159.41,
+      "sellBn": 110.95,
+      "close": 1725.0,
+      "weekReturnPct": 15.38,
+      "read": "Rise backed by foreign buying",
+      "flowPercentile": 95.8,
+      "flowZScore": 2.05,
+      "flowState": "accumulation"
+    },
+    {
+      "ticker": "LSIP",
+      "name": "PP London Sumatra Indonesia Tbk.",
+      "sector": "Consumer non-cyclicals",
+      "netBn": 20.09,
+      "buyBn": 38.13,
+      "sellBn": 18.04,
+      "close": 1560.0,
+      "weekReturnPct": -1.58,
+      "read": "Foreigners bought into the fall",
+      "flowPercentile": 96.7,
+      "flowZScore": 2.0,
+      "flowState": "accumulation"
+    },
+    {
+      "ticker": "MBMA",
+      "name": "Merdeka Battery Materials Tbk.",
+      "sector": "Basic materials",
+      "netBn": 46.21,
+      "buyBn": 209.94,
+      "sellBn": 163.73,
+      "close": 344.0,
+      "weekReturnPct": 1.78,
+      "read": "Rise backed by foreign buying",
+      "flowPercentile": 98.3,
+      "flowZScore": 1.84,
+      "flowState": "sideways"
+    },
+    {
+      "ticker": "BRIS",
+      "name": "Bank Syariah Indonesia (Persero) Tbk.",
+      "sector": "Financials",
+      "netBn": 82.49,
+      "buyBn": 304.68,
+      "sellBn": 222.2,
+      "close": 1160.0,
+      "weekReturnPct": 1.75,
+      "read": "Rise backed by foreign buying",
+      "flowPercentile": 98.3,
+      "flowZScore": 1.75,
+      "flowState": "distribution"
+    },
+    {
+      "ticker": "SMGR",
+      "name": "Semen Indonesia (Persero) Tbk.",
+      "sector": "Basic materials",
+      "netBn": 26.42,
+      "buyBn": 60.64,
+      "sellBn": 34.22,
+      "close": 1605.0,
+      "weekReturnPct": 1.9,
+      "read": "Rise backed by foreign buying",
+      "flowPercentile": 95.0,
+      "flowZScore": 1.49,
+      "flowState": "accumulation"
+    },
+    {
+      "ticker": "BRMS",
+      "name": "Bumi Resources Minerals Tbk.",
+      "sector": "Basic materials",
+      "netBn": -152.35,
+      "buyBn": 182.95,
+      "sellBn": 335.3,
+      "close": 278.0,
+      "weekReturnPct": -20.11,
+      "read": "Fall with foreign selling",
+      "flowPercentile": 4.2,
+      "flowZScore": -1.37,
+      "flowState": "distribution"
+    }
+  ]
+}
