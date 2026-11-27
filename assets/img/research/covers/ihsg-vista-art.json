@@ -1,0 +1,22 @@
+{
+  "title": "A city view of Jakarta with a storm over the sea and a mine in the foreground",
+  "created": "2026-11-27",
+  "reportId": "ihsg-weekly-2026-11-20",
+  "method": "Built and rendered by Claude in Blender 5.3, headless, from the scene script scripts/covers/ihsg-vista-2026-11-20.py run through scripts/covers/render_cli.py. No generative image model, no photograph. Boxes, cylinders, spheres and stepped rings with a flat toon material (diffuse shading cut into two tones and emitted) and Freestyle ink lines, EEVEE engine, 2048 by 3072 pixels, fixed random seed 1120. The render was downscaled to 1024 by 1536 and encoded as WebP with 640 and 320 pixel variants. No cropping or pixel edits.",
+  "width": 1024,
+  "height": 1536,
+  "renderSha256": "d9bad11f47827345e1453475e2da39cd3daab8cc6c793d3b30c12cad84133626",
+  "sceneScriptSha256": "f7b4ad339c100216c538a3c45c9370673c0268a25e784a6b1cac162310347d76",
+  "conceptual": true,
+  "caption": "A wide view over Jakarta in late sun. A terraced gold and copper pit with haul trucks, a processing plant and ore piles lies in the foreground, the twin exchange towers stand tallest in the city, and a storm with curtains of rain rolls in over the sea on the left. Conceptual editorial artwork, not a documentary scene or a named site.",
+  "files": [
+    "ihsg-vista-art.webp",
+    "ihsg-vista-art-640.webp",
+    "ihsg-vista-art-320.webp"
+  ],
+  "typography": "The website supplies the exact catalogue title, date, issue number and Longhand signature. The artwork contains no lettering.",
+  "concept": "The world sold AI, Jakarta sold its miners. The storm over the sea is the global sell-off arriving from abroad. The pit in the foreground is the gold and copper miners that made a third of IHSG's fall. The twin towers standing tallest in the sun are the exchange district, where the large banks held.",
+  "ownerRevision": "On 23 November the owner rejected three pastel covers and then the live analyst cover, and asked for no person and a general scenery.",
+  "review": "Checked at full size. No lettering, numbers, logos or people. A first full render had a small jet that read as a broken shape and two spiky palms, so both were removed from the script and the scene was rendered again.",
+  "prompt": "No prompt. The scene is defined by the script listed in method."
+}
